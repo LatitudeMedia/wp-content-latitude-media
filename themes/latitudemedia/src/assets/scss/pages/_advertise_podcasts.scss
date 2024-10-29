@@ -1,0 +1,73 @@
+.advertise-podcasts {
+  header {
+    padding-bottom: 0;
+  }
+}
+.advertise-podcasts-featured-section {
+  margin-bottom: 64px;
+  @include advertisePodcastsFeaturedSection;
+}
+
+.company-search-block {
+  margin-bottom: 78px;
+  &.image-text-section {
+    .image-text-section-wrapper {
+      .image-folder {
+        width: 36%;
+        @include below_sm {
+          width: 100%;
+        }
+        a {
+          padding-top: 74.6%;
+        }
+      }
+    }
+  }
+}
+
+.downloads-counter-section {
+  margin-bottom: 88px;
+  @include downloadsCounterSection;
+}
+
+.tall-it-block {
+  margin-bottom: 78px;
+}
+
+.wide-form-section {
+  margin-bottom: 64px;
+  @include wideFormSection;
+  .wide-form-section-wrapper {
+    form {
+      input {
+        color: $primary-pink;
+        font-weight: 700;
+        &[type=submit] {
+          width: 141px;
+          display: table;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
+
+.listeners-section {
+  margin-bottom: 64px;
+  @include listenersSection;
+}
+
+.podcasts-sponsorship-section {
+  margin-bottom: 64px;
+  @include podcastsSponsorshipSection;
+}
+
+.adv-options-section {
+  margin-bottom: 64px;
+  @include advOptionsSection;
+}
+
+.text-cta-line {
+  margin-bottom: 64px;
+  @include textCtaLine;
+}

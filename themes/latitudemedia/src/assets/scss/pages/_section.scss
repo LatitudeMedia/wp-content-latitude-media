@@ -1,0 +1,115 @@
+.section-page {
+  header {
+    margin-bottom: 40px;
+  }
+}
+
+.section-top-nav-section {
+  @include sectionTopNavSection;
+}
+
+.posts-hero-section {
+  @include postsHeroSection;
+}
+.section-page {
+  .posts-hero-section {
+    .posts {
+      li {
+        &.prime-post {
+          border-bottom: none;
+          .image-folder {
+            width: 33%;
+          }
+          .content-folder {
+            width: 62%;
+            h1 {
+              @include fontSize(48px);
+              line-height: 64px;
+              a {
+                @include fontSize(48px);
+                line-height: 64px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.subscribe-form-section {
+  margin-bottom: 64px;
+  @include subscribeFormSection;
+}
+
+.section-topics-section {
+  .right-sidebar-layout {
+    .right-sidebar-layout-wrapper {
+      .sidebar {
+        width: 160px;
+        margin-left: 56px;
+        @include below_md {
+          display: none;
+        }
+      }
+    }
+  }
+  .posts-list-section {
+    .posts {
+      li {
+        align-items: center;
+        margin-bottom: 46px;
+        padding-bottom: 0;
+        border-bottom: none;
+        @include below_md {
+          flex-direction: column;
+          margin-bottom: 0;
+        }
+        .image-folder {
+          width: 416px;
+          margin-right: 64px;
+          @include imageFolderLarge;
+          @include below_md {
+            width: calc(100% - 15px);
+            margin-bottom: 32px;
+            margin-right: 0;
+          }
+          a {
+            padding-top: 72.5%;
+            @include below_md {
+              padding-top: 65%;
+            }
+            img {
+
+            }
+          }
+        }
+        .content-folder {
+          border-bottom: 1px solid $primary-pink;
+          padding-bottom: 32px;
+          margin-bottom: 32px;
+          .tags-list {
+            padding-bottom: 6px;
+          }
+          .title {
+            font-family: $inter;
+            @include fontSize(24px);
+            line-height: 32px;
+            margin-bottom: 18px;
+            color: $primary-dark-blue;
+            font-weight: 700;
+          }
+          p {
+            @include fontSize(18px);
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+    .more-button {
+      @include shadowButton;
+      display: table;
+      margin: 0 auto;
+    }
+  }
+}

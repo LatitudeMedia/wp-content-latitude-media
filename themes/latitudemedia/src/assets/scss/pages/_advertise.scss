@@ -1,0 +1,15 @@
+.advertise-page {
+  h1 {
+    margin-bottom: 64px;
+  }
+}
+
+.advertise-info-section {
+  margin-bottom: 64px;
+  .bordered-title {
+    margin-bottom: 32px;
+  }
+  .button {
+    @include shadowButton;
+  }
+}

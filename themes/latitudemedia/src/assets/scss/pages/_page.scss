@@ -1,0 +1,11 @@
+.page {
+  article {
+    padding: 64px 0;
+    a {
+      color: $primary-pink;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

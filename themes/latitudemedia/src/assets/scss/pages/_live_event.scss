@@ -1,0 +1,83 @@
+.live-event {
+  header {
+    padding-bottom: 0;
+  }
+  a {
+    color: $green;
+  }
+  .grey-cta-block {
+    .grey-cta-block-wrapper {
+      h2 {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+.single-event-hero-section {
+  @include singleEventHeroSection;
+}
+.event-text-section {
+  @include eventTextSection;
+}
+.grey-cta-block {
+  .grey-cta-block-wrapper {
+    h2 {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.half-wide-section {
+  margin-bottom: 32px;
+  @include halfWidesSection;
+}
+
+.single-grey-icon-block {
+  margin-bottom: 56px;
+}
+
+.testimonial-block {
+  @include testimonialBlock;
+  margin-bottom: 64px;
+}
+.grey-icon-block {
+  @include greyIconBlock;
+}
+.agenda-section {
+  margin-bottom: 64px;
+  @include agendaSection;
+}
+.event-sponsors-section {
+  margin-bottom: 64px;
+  @include eventSponsorsSection;
+}
+
+.event-image-text-section {
+  .image-text-section-wrapper {
+    .image-folder {
+      @include imageFolderLarge;
+      a {
+        padding-top: 53.8%;
+      }
+    }
+    .content-folder {
+      p {
+        a {
+          font-weight: 400;
+          text-decoration: underline;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+      .button {
+
+      }
+    }
+  }
+}
+
+.venue-section {
+  margin-bottom: 64px;
+  @include venueSection;
+}

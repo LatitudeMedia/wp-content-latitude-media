@@ -1,0 +1,16 @@
+.resources-archive {
+  .pager {
+    margin-bottom: 64px;
+    margin-top: 64px;
+  }
+}
+
+.resource-hero-section {
+  margin-bottom: 96px;
+  @include resourceHeroSection;
+}
+
+.resources-list {
+  margin-bottom: 40px;
+  @include resourcesList;
+}

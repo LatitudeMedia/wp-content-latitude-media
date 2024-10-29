@@ -1,0 +1,21 @@
+.page {
+  header {
+    padding-bottom: 0;
+  }
+}
+
+.about-page-hero {
+  @include aboutPageHero;
+}
+
+.our-team-section {
+  @include ourTeamSection;
+}
+
+.icon-text-block {
+  margin-bottom: 64px;
+  @include iconTextBlock;
+  @include below_sm {
+    margin-bottom: 32px;
+  }
+}

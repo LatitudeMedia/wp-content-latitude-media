@@ -1,0 +1,34 @@
+//Type
+$inter: 'inter', Arial, Helvetica, sans-serif;
+$lora: 'Lora', Arial, Helvetica, serif;
+
+//Colors
+$black: #000000;
+$white: #ffffff;
+$primary-pink: #C6168D;
+$primary-dark-blue: #0F1E42;
+$green: #00B48D;
+$blue: #0095DA;
+$orange: #F99D1C;
+$pink_category_bg: #F9E8F4;
+$pink_shadow: #F9E8F4;
+$green_shadow: #CCF0E8;
+$blue_shadow: #E5F4FC;
+$orange_shadow: #FEEBD2;
+$grey_bg: #F5F5F5;
+
+//Different
+$bg-cover: cover !important;
+$bg-content: content !important;
+
+// Breakpoints
+$screen-mob: 576px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+:root {
+  --primary-pink: #C6168D;
+  --event-embed-info-color: #C6168D;
+  --event-embed-info-shadow-color: #F9E8F4;
+}

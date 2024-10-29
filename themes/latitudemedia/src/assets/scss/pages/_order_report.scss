@@ -1,0 +1,22 @@
+.order-report {
+  header {
+    padding-bottom: 0;
+  }
+  .single-research-featured-section {
+    margin-bottom: 0;
+  }
+  .image-text-section {
+    background-color: #F5F5F5;
+    .image-text-section-wrapper {
+      padding: 64px;
+      @include below_sm {
+        padding: 32px;
+      }
+    }
+  }
+}
+
+.order-form-section {
+  margin-bottom: 64px;
+  @include orderFormSection;
+}

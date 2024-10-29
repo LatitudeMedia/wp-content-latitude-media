@@ -1,0 +1,28 @@
+.virtual-event {
+  header {
+    padding-bottom: 0;
+  }
+  a {
+    color: $green;
+  }
+  .right-sidebar-layout {
+    h2 {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .right-sidebar-layout-wrapper {
+      .main-column {
+        .grey-icon-block {
+          height: auto;
+          margin-bottom: 56px;
+        }
+      }
+      .sidebar {
+        width: 477px;
+        @include below_md {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

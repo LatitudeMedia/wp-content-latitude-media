@@ -1,0 +1,47 @@
+.research-report {
+  header {
+    padding-bottom: 0;
+  }
+}
+
+.single-research-featured-section {
+  margin-bottom: 64px;
+  @include singleResearchFeaturedSection;
+}
+
+.right-sidebar-layout {
+  margin-bottom: 64px;
+}
+
+.form-block {
+  @include formBlock;
+  &.purchase {
+    .button {
+      margin-bottom: 32px;
+    }
+    .center-link {
+      font-family: $inter;
+      @include fontSize(16px);
+      font-weight: 700;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+      color: $white;
+      display: block;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.logo-description-block {
+  margin-bottom: 64px;
+  @include logoDescriptionBlock;
+}
+
+.related-news-section {
+  margin-bottom: 64px;
+  @include relatedNewsSection;
+}

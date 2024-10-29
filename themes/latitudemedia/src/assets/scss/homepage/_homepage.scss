@@ -1,0 +1,26 @@
+.home {
+  header {
+    padding-bottom: 40px;
+  }
+}
+.posts-hero-section {
+  @include postsHeroSection;
+}
+.editors-picks-block {
+  @include editorsPickBlock;
+}
+.posts-list-section {
+  @include postsListSection;
+}
+.banner-ad-block {
+  @include bannerAdBlock;
+}
+.form-block {
+  @include formBlock;
+}
+.podcasts-large-blue-section {
+  @include podcastsLargeBlueSection;
+}
+.event-large-item-section {
+  @include eventLargeItemSection;
+}

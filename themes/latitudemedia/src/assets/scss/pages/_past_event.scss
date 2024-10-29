@@ -1,0 +1,25 @@
+.past-event {
+  header {
+    padding-bottom: 0;
+  }
+  a {
+    color: $green;
+  }
+  .grey-cta-block {
+    .grey-cta-block-wrapper {
+      h2 {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}
+
+.partners-logos-section {
+  margin-bottom: 40px;
+  @include partnersLogosSection;
+}
+
+.about-sponsors-section {
+  margin-bottom: 64px;
+  @include aboutSponsorsSection;
+}

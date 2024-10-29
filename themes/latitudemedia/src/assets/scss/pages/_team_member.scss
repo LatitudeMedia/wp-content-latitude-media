@@ -1,0 +1,39 @@
+.team-member-hero-unit {
+    margin-bottom: 64px;
+    @include teamMemberHeroUnit;
+}
+
+.authors-posts-section {
+    .posts {
+        li {
+            padding-bottom: 0;
+            border-bottom: none;
+            margin-bottom: 46px;
+            align-items: center;
+            @include below_sm {
+                flex-direction: column;
+                margin-bottom: 31px;
+            }
+            .image-folder {
+                width: 413px;
+                margin-right: 80px;
+                @include below_md {
+                    width: 300px;
+                    margin-right: 40px;
+                }
+                @include below_sm {
+                    margin-right: 0;
+                    width: 100%;
+                    margin-bottom: 32px;
+                }
+            }
+            .content-folder {
+                border-bottom: 1px solid $primary-pink;
+                padding-bottom: 16px;
+            }
+        }
+    }
+    .pager {
+        margin-bottom: 64px;
+    }
+}
