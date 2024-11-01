@@ -111,5 +111,5 @@ wp-content/themes/latitudemedia/static/
 *.asf
 *.wmv
 *.avi
-
+local-xdebuginfo.php
 wp-content-2/
