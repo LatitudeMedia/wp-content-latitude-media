@@ -230,3 +230,8 @@
 .related-reading-block {
 	@include relatedReadingBlock;
 }
+
+.news-rec-banner-section {
+	margin-bottom: 24px;
+	@include newsRecBannerSection;
+}
