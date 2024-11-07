@@ -1,4 +1,4 @@
-.section-page {
+.single-sections-landing {
   header {
     margin-bottom: 40px;
   }
@@ -11,7 +11,7 @@
 .posts-hero-section {
   @include postsHeroSection;
 }
-.section-page {
+.single-sections-landing {
   .posts-hero-section {
     .posts {
       li {

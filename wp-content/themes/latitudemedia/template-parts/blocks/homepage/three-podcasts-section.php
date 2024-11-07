@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Three podcasts section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Three podcasts block', 'ltm') . '</h3>';
 }
 // Set defaults Three podcasts block.
 
@@ -32,8 +32,8 @@ if( empty($columns) ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section podcasts-large-blue-section',
-                "id" => 'three-podcasts-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block podcasts-large-blue-section',
+                "id" => 'three-podcasts-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

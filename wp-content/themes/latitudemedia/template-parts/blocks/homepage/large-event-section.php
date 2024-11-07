@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Large event section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Large event block', 'ltm') . '</h3>';
 }
 // Set defaults Large event block.
 $options = wp_parse_args(
@@ -33,8 +33,8 @@ $eventStartDate = get_event_start_date($event->ID);
         get_block_wrapper_attributes(
             [
                 "style" => '--event-embed-info-color: ' . $base_color . '; --event-embed-info-shadow-color: ' . $shadow_color,
-                "class" => 'content-section event-large-item-section',
-                "id" => 'large-event-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block event-large-item-section',
+                "id" => 'large-event-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

@@ -668,3 +668,12 @@ article {
   height: 100Vh;
   background: rgba(0, 0, 0, .5);
 }
+
+
+.container {
+  .content-block {
+    .container {
+      all: unset;
+    }
+  }
+}

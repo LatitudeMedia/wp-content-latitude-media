@@ -84,10 +84,8 @@ function wp_blank_widgets_init() {
 }
 add_action( 'widgets_init', 'wp_blank_widgets_init' );
 
-
-
 /**
- * Predefine event blocks on create new event.
+ * Predefine event blocks on create new post.
  */
 function create_post_predefine_blocks() {
     $page_type_object = get_post_type_object( 'post' );
@@ -98,3 +96,39 @@ function create_post_predefine_blocks() {
     );
 }
 add_action( 'init', 'create_post_predefine_blocks', 100 );
+
+/**
+ * Predefine event blocks on create new section landing.
+ */
+function create_section_landing_predefine_blocks() {
+    $page_type_object = get_post_type_object( 'sections-landing' );
+    $page_type_object->template = array(
+        array( 'acf/categories-section-block', array('data' => array('field_672ccb402a55a' => 1))),
+        array( 'acf/news-list-with-hero-section-block', array('data' => array('field_672ccb5048a74' => 1))),
+        array( 'acf/subscribe-form-block', array('data' => array('field_672ca9403c777' => 1))),
+        array( 'acf/news-with-sidebar-section-block', array('data' => array('field_672ccb6767b8e' => 1))),
+    );
+}
+add_action( 'init', 'create_section_landing_predefine_blocks', 100 );
+
+function set_pagination_base () {
+
+    global $wp_rewrite;
+
+    $wp_rewrite->pagination_base = '';
+
+}
+add_action( 'init', 'set_pagination_base' );
+
+// Modify pagination base to use a GET parameter
+function custom_pagination_base( $query ) {
+    if ( !is_admin() && ($query->is_main_query() || is_tax('section')) ) {
+        // Check if the `page` GET parameter is set
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        if ( isset( $_GET['page'] ) ) {
+            $paged = $_GET['page'];
+        }
+        $query->set( 'paged', $paged );
+    }
+}
+add_action( 'pre_get_posts', 'custom_pagination_base' );

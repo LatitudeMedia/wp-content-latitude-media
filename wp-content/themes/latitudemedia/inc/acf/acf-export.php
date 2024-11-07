@@ -154,11 +154,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6712991b1d86e',
-        'title' => 'Ad banner section',
+        'title' => 'Ad banner block',
         'fields' => array(
             array(
                 'key' => 'field_671298a6ae567',
-                'label' => 'Ad banner section',
+                'label' => 'Ad banner block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -443,6 +443,32 @@ add_action( 'acf/include_fields', function() {
                 'prepend' => '',
                 'append' => '',
             ),
+            array(
+                'key' => 'field_6728cdfa19e53',
+                'label' => 'Section',
+                'name' => 'section',
+                'aria-label' => '',
+                'type' => 'taxonomy',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'taxonomy' => 'section',
+                'add_term' => 0,
+                'save_terms' => 0,
+                'load_terms' => 0,
+                'return_format' => 'object',
+                'field_type' => 'select',
+                'allow_null' => 1,
+                'bidirectional' => 0,
+                'multiple' => 0,
+                'bidirectional_target' => array(
+                ),
+            ),
         ),
         'location' => array(
             array(
@@ -482,9 +508,7 @@ add_action( 'acf/include_fields', function() {
                     'class' => '',
                     'id' => '',
                 ),
-                'choices' => array(
-                    'custom-sidebar-0' => 'Homepage sidebar',
-                ),
+                'choices' => array(),
                 'default_value' => false,
                 'return_format' => 'value',
                 'multiple' => 0,
@@ -1141,7 +1165,7 @@ add_action( 'acf/include_fields', function() {
                 'name' => 'event_details',
                 'aria-label' => '',
                 'type' => 'wysiwyg',
-                'instructions' => 'H2 for heading. Section after speakers',
+                'instructions' => 'H2 for heading. Block after speakers',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -1577,11 +1601,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6707c6e00ca82',
-        'title' => 'In house ad section',
+        'title' => 'In house ad block',
         'fields' => array(
             array(
                 'key' => 'field_6707c695b547f',
-                'label' => 'In house ad section',
+                'label' => 'In house ad block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -1770,11 +1794,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6709144252dd0',
-        'title' => 'Inline podcast section',
+        'title' => 'Inline podcast block',
         'fields' => array(
             array(
                 'key' => 'field_6709140c48443',
-                'label' => 'Inline podcast section',
+                'label' => 'Inline podcast block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -1833,11 +1857,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_67151f3e5e139',
-        'title' => 'Large event section',
+        'title' => 'Large event block',
         'fields' => array(
             array(
                 'key' => 'field_67151ee95e194',
-                'label' => 'Large event section',
+                'label' => 'Large event block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -1959,11 +1983,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_67113ef8de51b',
-        'title' => 'News list section',
+        'title' => 'News list block',
         'fields' => array(
             array(
                 'key' => 'field_67113e6c896d5',
-                'label' => 'News list section',
+                'label' => 'News list block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -2243,11 +2267,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_67165a0a4a577',
-        'title' => 'News plates section',
+        'title' => 'News plates block',
         'fields' => array(
             array(
                 'key' => 'field_671658983a216',
-                'label' => 'News plates section',
+                'label' => 'News plates block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -2433,11 +2457,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6710ef848d80b',
-        'title' => 'News with hero section',
+        'title' => 'News with hero block',
         'fields' => array(
             array(
                 'key' => 'field_6710ec24e68e1',
-                'label' => 'News with hero section',
+                'label' => 'News with hero block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -2474,6 +2498,32 @@ add_action( 'acf/include_fields', function() {
                 'layout' => 'block',
                 'prefix_label' => 0,
                 'prefix_name' => 0,
+            ),
+            array(
+                'key' => 'field_672c9bda19dd4',
+                'label' => 'Style',
+                'name' => 'style',
+                'aria-label' => '',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'hero_right_two' => 'Hero right + two columns',
+                    'hero_left_three' => 'Hero left + three columns',
+                ),
+                'default_value' => 'hero_right_two',
+                'return_format' => 'value',
+                'multiple' => 0,
+                'allow_null' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
             ),
             array(
                 'key' => 'field_6710ec24e68e2',
@@ -3131,11 +3181,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_671624272bba5',
-        'title' => 'Related reading section',
+        'title' => 'Related reading block',
         'fields' => array(
             array(
                 'key' => 'field_671623d97cb15',
-                'label' => 'Related reading section',
+                'label' => 'Related reading block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -3580,63 +3630,12 @@ add_action( 'acf/include_fields', function() {
     ) );
 
     acf_add_local_field_group( array(
-        'key' => 'group_66fbc69fb9563',
-        'title' => 'Section options',
-        'fields' => array(
-            array(
-                'key' => 'field_66fbc6a07f866',
-                'label' => 'Subcategories',
-                'name' => 'subcategories',
-                'aria-label' => '',
-                'type' => 'taxonomy',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'taxonomy' => 'category',
-                'add_term' => 0,
-                'save_terms' => 0,
-                'load_terms' => 0,
-                'return_format' => 'id',
-                'field_type' => 'multi_select',
-                'allow_null' => 0,
-                'bidirectional' => 0,
-                'multiple' => 0,
-                'bidirectional_target' => array(
-                ),
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'taxonomy',
-                    'operator' => '==',
-                    'value' => 'sections',
-                ),
-            ),
-        ),
-        'menu_order' => 0,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-        'active' => true,
-        'description' => '',
-        'show_in_rest' => 0,
-    ) );
-
-    acf_add_local_field_group( array(
         'key' => 'group_6712436d7624c',
-        'title' => 'Sidebar editors picks section',
+        'title' => 'Sidebar editors picks block',
         'fields' => array(
             array(
                 'key' => 'field_67124217e5cb1',
-                'label' => 'Sidebar editors picks section',
+                'label' => 'Sidebar editors picks block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -3737,11 +3736,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6712436e13ec8',
-        'title' => 'Sidebar form section',
+        'title' => 'Sidebar form block',
         'fields' => array(
             array(
                 'key' => 'field_671242f157f41',
-                'label' => 'Sidebar form section',
+                'label' => 'Sidebar form block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -3840,11 +3839,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6712436eb2a11',
-        'title' => 'Sidebar news list section',
+        'title' => 'Sidebar news list block',
         'fields' => array(
             array(
                 'key' => 'field_6712430b5f1d5',
-                'label' => 'Sidebar news list section',
+                'label' => 'Sidebar news list block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -3981,11 +3980,11 @@ add_action( 'acf/include_fields', function() {
 
     acf_add_local_field_group( array(
         'key' => 'group_6718f8b8a64e0',
-        'title' => 'Signup form section',
+        'title' => 'Signup form block',
         'fields' => array(
             array(
                 'key' => 'field_6707ca1167941',
-                'label' => 'Signup form section',
+                'label' => 'Signup form block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -4175,11 +4174,11 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
 
     acf_add_local_field_group( array(
         'key' => 'group_670698f9d8892',
-        'title' => 'Spotlight quote section',
+        'title' => 'Spotlight quote block',
         'fields' => array(
             array(
                 'key' => 'field_67069833ec941',
-                'label' => 'Spotlight quote section',
+                'label' => 'Spotlight quote block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -4474,11 +4473,11 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
 
     acf_add_local_field_group( array(
         'key' => 'group_67129adc49add',
-        'title' => 'Three podcasts section',
+        'title' => 'Three podcasts block',
         'fields' => array(
             array(
                 'key' => 'field_67129ab748d4b',
-                'label' => 'Three podcasts section',
+                'label' => 'Three podcasts block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -4652,6 +4651,276 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'description' => '',
         'show_in_rest' => 0,
     ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_672ca977749f0',
+        'title' => 'Subscribe form block',
+        'fields' => array(
+            array(
+                'key' => 'field_672ca9403c776',
+                'label' => 'Subscribe form block',
+                'name' => '',
+                'aria-label' => '',
+                'type' => 'message',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_672ca97f40920',
+                'label' => 'Title',
+                'name' => 'title',
+                'aria-label' => '',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => 'Get Latitude Media in your inbox',
+                'maxlength' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+            ),
+            array(
+                'key' => 'field_672ca9a740921',
+                'label' => 'Form code',
+                'name' => 'form_code',
+                'aria-label' => '',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'placeholder' => '',
+                'new_lines' => '',
+            ),
+            array(
+                'key' => 'field_672ca9b740922',
+                'label' => 'Left content',
+                'name' => 'left_content',
+                'aria-label' => '',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => 'Subscribe to Latitude\'s free newsletters today to receive the latest news on the energy transition:',
+                'maxlength' => '',
+                'rows' => 4,
+                'placeholder' => '',
+                'new_lines' => '',
+            ),
+            array(
+                'key' => 'field_672ca9403c777',
+                'label' => 'Display',
+                'name' => 'display',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => false,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'ui' => 1,
+                'default_value' => 0,
+                'message' => '',
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/subscribe-form-block',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
+
+
+    acf_add_local_field_group(array(
+        'key' => 'field_672ccb402a557',
+        'title' => 'Categories section block',
+        'fields' => array (
+            array (
+                'key' => 'field_672ccb402a559',
+                'label' => 'Categories section block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_672ccb402a55a',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/categories-section-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+
+    acf_add_local_field_group(array(
+        'key' => 'field_672ccb5048a72',
+        'title' => 'News list with hero section block',
+        'fields' => array (
+            array (
+                'key' => 'field_672ccb5048a73',
+                'label' => 'News list with hero section block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_672ccb5048a74',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/news-list-with-hero-section-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+
+    acf_add_local_field_group( array(
+        'key' => 'group_672cccd9f3aa9',
+        'title' => 'News with sidebar section block',
+        'fields' => array(
+            array(
+                'key' => 'field_672ccb6767b8d',
+                'label' => 'News with sidebar section block',
+                'name' => '',
+                'aria-label' => '',
+                'type' => 'message',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_672ccce38fc0e',
+                'label' => 'Sidebar widget',
+                'name' => 'sidebar_widget',
+                'aria-label' => '',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(),
+                'default_value' => false,
+                'return_format' => 'value',
+                'multiple' => 0,
+                'allow_null' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
+                'key' => 'field_672ccb6767b8e',
+                'label' => 'Display',
+                'name' => 'display',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => false,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'ui' => 1,
+                'default_value' => 0,
+                'message' => '',
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/news-with-sidebar-section-block',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
 } );
-
-

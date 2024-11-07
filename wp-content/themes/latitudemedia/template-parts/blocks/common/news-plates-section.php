@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('News plates section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('News plates block', 'ltm') . '</h3>';
 }
 // Set defaults News plates block.
 $postItemTemplate = get_wrap_rows_from_template('<li>
@@ -67,8 +67,8 @@ if( !$items->have_posts() ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section related-news-section blue',
-                "id" => 'news-plates-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block related-news-section blue',
+                "id" => 'news-plates-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

@@ -17,7 +17,7 @@ class Sections {
 	 *
 	 * @var string
 	 */
-	public $name = 'sections';
+	public $name = 'section';
 
 	/**
 	 * Object types for this taxonomy.
@@ -67,9 +67,13 @@ class Sections {
 					'menu_name'             => __( 'Sections', 'ltm' ),
 					'name_admin_bar'        => __( 'Sections', 'ltm' ),
 				],
-                'show_in_rest' => true,
+                'show_in_rest' => false,
                 'hierarchical' => true,
-                'show_admin_column' => true
+                'show_admin_column' => true,
+                'has_archive' => true,
+                'rewrite'  => [
+                    'slug' => 'all/section',
+                ],
 			]
 		);
 	}

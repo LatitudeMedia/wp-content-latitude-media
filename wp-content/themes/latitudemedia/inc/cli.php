@@ -190,6 +190,51 @@ class Latitude_CLI_Command {
             \WP_CLI::line("- {$postsAssociated} posts now have the proper news type");
         }
     }
+
+    /**
+     * Subcommand assign sections to category based on a given meta key
+     *
+     * @since      3.0
+     *
+     * @subcommand assign-sections
+     * @synopsis
+     * ---
+     *
+     * ## EXAMPLES
+     *
+     *     wp latitude assign-sections
+     *
+     * @when after_wp_load
+     *
+     */
+    public function assign_sections($args, $assocArgs)
+    {
+        $sections_terms = get_terms( 'section', array(
+            'hide_empty' => 0
+        ) );
+
+        $updated = 0;
+        foreach ($sections_terms as $sections_term) {
+            $source_categories = get_term_meta($sections_term->term_id, 'source_subcategories', true);
+            $categories = explode(';', $source_categories);
+            if(empty($categories)) {
+                continue;
+            }
+            foreach ($categories as $category) {
+                $category = get_term_by('slug', trim($category), 'category');
+                update_field('section', $sections_term->term_id, 'category_' . $category->term_id);
+                \WP_CLI::line(
+                    'Section #' . $sections_term->name . ' has been assigned "' . $category->name. '" as the section'
+                );
+                $updated++;
+            }
+        }
+
+        \WP_CLI::line('All done! Here are your results:');
+        if ($updated) {
+            \WP_CLI::line("- {$updated} posts now have the proper news type");
+        }
+    }
 }
 
 /**

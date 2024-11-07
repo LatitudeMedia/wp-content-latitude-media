@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Inline podcast section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Inline podcast block', 'ltm') . '</h3>';
 }
 // Set defaults Inline podcast block.
  
@@ -47,8 +47,8 @@ if( !empty($spotify_link) ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section',
-                "id" => 'inline-podcast-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block',
+                "id" => 'inline-podcast-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

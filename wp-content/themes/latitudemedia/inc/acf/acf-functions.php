@@ -4,14 +4,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'news-with-hero-section',
-            'title' 		=> __('News with hero section', 'ltm'),
+            'title' 		=> __('News with hero block', 'ltm'),
             'path'  		=> 'homepage',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('News with hero section block', 'ltm'),
+        'description' => __('News with hero block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('News with hero section', 'ltm') ),
+        'keywords'    => array( __('News with hero block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -24,14 +24,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'news-list-section',
-            'title' 		=> __('News list section', 'ltm'),
+            'title' 		=> __('News list block', 'ltm'),
             'path'  		=> 'homepage',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('News list section block', 'ltm'),
+        'description' => __('News list block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('News list section', 'ltm') ),
+        'keywords'    => array( __('News list block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -45,14 +45,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'spotlight-quote-section',
-            'title' 		=> __('Spotlight quote section', 'ltm'),
+            'title' 		=> __('Spotlight quote block', 'ltm'),
             'path'  		=> 'common',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Spotlight quote section block', 'ltm'),
+        'description' => __('Spotlight quote block', 'ltm'),
         'post_types' 	=> array( 'post' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Spotlight quote section', 'ltm') ),
+        'keywords'    => array( __('Spotlight quote block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -66,14 +66,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'in-house-ad-section',
-            'title' 		=> __('In house ad section', 'ltm'),
+            'title' 		=> __('In house ad block', 'ltm'),
             'path'  		=> 'common',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('In house ad section block', 'ltm'),
+        'description' => __('In house ad block', 'ltm'),
         'post_types' 	=> array( 'post' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('In house ad section', 'ltm') ),
+        'keywords'    => array( __('In house ad block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -87,15 +87,15 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'signup-form-section',
-            'title' 		=> __('Signup form section', 'ltm'),
+            'title' 		=> __('Signup form block', 'ltm'),
             'path'  		=> 'article',
             'display' => true,
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Signup form section block', 'ltm'),
+        'description' => __('Signup form block', 'ltm'),
         'post_types' 	=> array( 'post' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Signup form section', 'ltm') ),
+        'keywords'    => array( __('Signup form block', 'ltm') ),
         'mode' => false,
         'example'  	=> array(
             'attributes' => array(
@@ -110,14 +110,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'inline-podcast-section',
-            'title' 		=> __('Inline podcast section', 'ltm'),
+            'title' 		=> __('Inline podcast block', 'ltm'),
             'path'  		=> 'article',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Inline podcast section block', 'ltm'),
+        'description' => __('Inline podcast block', 'ltm'),
         'post_types' 	=> array( 'post' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Inline podcast section', 'ltm') ),
+        'keywords'    => array( __('Inline podcast block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -132,14 +132,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'sidebar-editors-picks-section',
-            'title' 		=> __('Sidebar editors picks section', 'ltm'),
+            'title' 		=> __('Sidebar editors picks block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Sidebar editors picks section block', 'ltm'),
+        'description' => __('Sidebar editors picks block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Sidebar editors picks section', 'ltm') ),
+        'keywords'    => array( __('Sidebar editors picks block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -153,14 +153,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'sidebar-form-section',
-            'title' 		=> __('Sidebar form section', 'ltm'),
+            'title' 		=> __('Sidebar form block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Sidebar form section block', 'ltm'),
+        'description' => __('Sidebar form block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Sidebar form section', 'ltm') ),
+        'keywords'    => array( __('Sidebar form block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -174,14 +174,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'sidebar-news-list-section',
-            'title' 		=> __('Sidebar news list section', 'ltm'),
+            'title' 		=> __('Sidebar news list block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Sidebar news list section block', 'ltm'),
+        'description' => __('Sidebar news list block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Sidebar news list section', 'ltm') ),
+        'keywords'    => array( __('Sidebar news list block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -195,14 +195,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'related-reading-section',
-            'title' 		=> __('Related reading section', 'ltm'),
+            'title' 		=> __('Related reading block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Related reading section block', 'ltm'),
+        'description' => __('Related reading block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Related reading section', 'ltm') ),
+        'keywords'    => array( __('Related reading block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -216,14 +216,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'sidebar-ad-banner-section',
-            'title' 		=> __('Sidebar ad banner section', 'ltm'),
+            'title' 		=> __('Sidebar ad banner block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Sidebar ad banner section block', 'ltm'),
+        'description' => __('Sidebar ad banner block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Sidebar ad banner section', 'ltm') ),
+        'keywords'    => array( __('Sidebar ad banner block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -238,13 +238,13 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'ad-banner-section',
-            'title' 		=> __('Ad banner section', 'ltm'),
+            'title' 		=> __('Ad banner block', 'ltm'),
             'path'  		=> 'common',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Ad banner section block', 'ltm'),
+        'description' => __('Ad banner block', 'ltm'),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Ad banner section', 'ltm') ),
+        'keywords'    => array( __('Ad banner block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -258,14 +258,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'three-podcasts-section',
-            'title' 		=> __('Three podcasts section', 'ltm'),
+            'title' 		=> __('Three podcasts block', 'ltm'),
             'path'  		=> 'homepage',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Three podcasts section block', 'ltm'),
+        'description' => __('Three podcasts block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Three podcasts section', 'ltm') ),
+        'keywords'    => array( __('Three podcasts block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -279,14 +279,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'large-event-section',
-            'title' 		=> __('Large event section', 'ltm'),
+            'title' 		=> __('Large event block', 'ltm'),
             'path'  		=> 'homepage',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Large event section block', 'ltm'),
+        'description' => __('Large event block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Large event section', 'ltm') ),
+        'keywords'    => array( __('Large event block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -299,18 +299,101 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'news-plates-section',
-            'title' 		=> __('News plates section', 'ltm'),
+            'title' 		=> __('News plates block', 'ltm'),
             'path'  		=> 'common',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('News plates section block', 'ltm'),
+        'description' => __('News plates block', 'ltm'),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('News plates section', 'ltm') ),
+        'keywords'    => array( __('News plates block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'news-plates-section.png',
+                )
+            )
+        )
+    ),
+
+    // START Section landing
+    array(
+        'attrs' => array(
+            'name'  		=> 'categories-section-block',
+            'title' 		=> __('Categories section block', 'ltm'),
+            'path'  		=> 'section',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Categories section block', 'ltm'),
+        'post_types' 	=> array( 'sections-landing' ),
+        'category'  	=> 'ltm-section-landing-blocks',
+        'keywords'    => array( __('Categories section block', 'ltm') ),
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'categories-section-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'news-list-with-hero-section-block',
+            'title' 		=> __('News list with hero section block', 'ltm'),
+            'path'  		=> 'section',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('News list with hero section block', 'ltm'),
+        'post_types' 	=> array( 'sections-landing' ),
+        'category'  	=> 'ltm-section-landing-blocks',
+        'keywords'    => array( __('News list with hero section block', 'ltm') ),
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'news-list-with-hero-section-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'news-with-sidebar-section-block',
+            'title' 		=> __('News with sidebar section block', 'ltm'),
+            'path'  		=> 'section',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('News with sidebar section block', 'ltm'),
+        'post_types' 	=> array( 'sections-landing' ),
+        'category'  	=> 'ltm-section-landing-blocks',
+        'keywords'    => array( __('News with sidebar section block', 'ltm') ),
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'news-with-sidebar-section-block.png',
+                )
+            )
+        )
+    ),
+    // END Section landing
+    array(
+        'attrs' => array(
+            'name'  		=> 'subscribe-form-block',
+            'title' 		=> __('Subscribe form block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Subscribe form block', 'ltm'),
+        'post_types' 	=> array( 'page', 'sections-landing' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Subscribe form block', 'ltm') ),
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'subscribe-form-block.png',
                 )
             )
         )

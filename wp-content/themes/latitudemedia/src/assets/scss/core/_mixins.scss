@@ -370,7 +370,7 @@
 				border-bottom: 1px solid $primary-pink;
 			}
 
-			&:nth-child(2n-1) {
+			&:last-child {
 				margin-right: 0;
 			}
 
@@ -513,9 +513,19 @@
 			}
 		}
 
+
+		&.two-columns {
+			li {
+				&:nth-child(2n-1) {
+					margin-right: 0;
+				}
+			}
+		}
+
 		&.three-small {
 			li {
 				width: 30.6%;
+
 				@include below_sm {
 					width: 100%;
 					margin-right: 0;
@@ -1938,6 +1948,25 @@
 	}
 }
 
+@mixin pagination_item_colored($base_color, $shadow_color, $secondary_color) {
+	.current {
+		background-color: $base_color;
+		color: $secondary_color;
+		box-shadow: -7px 7px 0 -1px $shadow_color;
+		border-color: $base_color;
+	}
+	a {
+		color: $base_color;
+		box-shadow: -7px 7px 0 -1px $shadow_color;
+		border-color: $base_color;
+
+		&:hover {
+			background-color: $base_color;
+			color: $secondary_color;
+		}
+	}
+}
+
 @mixin pager {
 	ul {
 		list-style: none;
@@ -1953,7 +1982,7 @@
 				margin: 0 4px;
 			}
 
-			a {
+			a, .current {
 				width: auto;
 				display: block;
 				padding: 16px 24px;
@@ -1985,168 +2014,28 @@
 	&.pink {
 		ul {
 			li {
-				a {
-					span {
-						color: $primary-pink;
-					}
-
-					box-shadow: -7px 7px 0 -1px $pink_shadow;
-					border-color: $primary-pink;
-
-					&.active {
-						background-color: $primary-pink;
-
-						span {
-							color: $white;
-						}
-					}
-
-					&:hover {
-						background-color: $primary-pink;
-
-						span {
-							color: $white;
-						}
-
-						&.active {
-							background-color: $primary-pink;
-
-							span {
-								color: $white;
-							}
-						}
-					}
-				}
-
-				span {
-					color: $primary-pink;
-				}
+				@include pagination_item_colored($primary-pink, $pink_shadow, $white);
 			}
 		}
 	}
 	&.green {
 		ul {
 			li {
-				a {
-					span {
-						color: $green;
-					}
-
-					box-shadow: -7px 7px 0 -1px $green_shadow;
-					border-color: $green;
-
-					&.active {
-						background-color: $green;
-
-						span {
-							color: $white;
-						}
-					}
-
-					&:hover {
-						background-color: $green;
-
-						span {
-							color: $white;
-						}
-
-						&.active {
-							background-color: $green;
-
-							span {
-								color: $white;
-							}
-						}
-					}
-				}
-
-				span {
-					color: $green;
-				}
+				@include pagination_item_colored($green, $green_shadow, $white);
 			}
 		}
 	}
 	&.blue {
 		ul {
 			li {
-				a {
-					span {
-						color: $blue;
-					}
-
-					box-shadow: -7px 7px 0 -1px $blue_shadow;
-					border-color: $blue;
-
-					&.active {
-						background-color: $blue;
-
-						span {
-							color: $white;
-						}
-					}
-
-					&:hover {
-						background-color: $blue;
-
-						span {
-							color: $white;
-						}
-
-						&.active {
-							background-color: $blue;
-
-							span {
-								color: $white;
-							}
-						}
-					}
-				}
-
-				span {
-					color: $blue;
-				}
+				@include pagination_item_colored($blue, $blue_shadow, $white);
 			}
 		}
 	}
 	&.orange {
 		ul {
 			li {
-				a {
-					span {
-						color: $orange;
-					}
-
-					box-shadow: -7px 7px 0 -1px $orange_shadow;
-					border-color: $orange;
-
-					&.active {
-						background-color: $orange;
-
-						span {
-							color: $white;
-						}
-					}
-
-					&:hover {
-						background-color: $orange;
-
-						span {
-							color: $white;
-						}
-
-						&.active {
-							background-color: $orange;
-
-							span {
-								color: $white;
-							}
-						}
-					}
-				}
-
-				span {
-					color: $orange;
-				}
+				@include pagination_item_colored($orange, $orange_shadow, $white);
 			}
 		}
 	}

@@ -46,3 +46,10 @@ require_once ("inc/template-tags.php");
 require_once('inc/acf/init.php');
 
 require_once('inc/cli.php');
+
+
+/**
+ * Customize admin area
+ *
+ */
+require_once('inc/admin-customize.php');

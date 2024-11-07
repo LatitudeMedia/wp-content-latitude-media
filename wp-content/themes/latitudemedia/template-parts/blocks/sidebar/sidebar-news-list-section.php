@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Sidebar news list section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Sidebar news list block', 'ltm') . '</h3>';
 }
 // Set defaults Sidebar news list block.
 $postItemTemplate = get_wrap_rows_from_template('<li>
@@ -67,8 +67,8 @@ if( !$items->have_posts() ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'sidebar-section posts-list-section',
-                "id" => 'sidebar-news-list-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'sidebar-block posts-list-section',
+                "id" => 'sidebar-news-list-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

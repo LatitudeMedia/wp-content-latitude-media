@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Sidebar form section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Sidebar form block', 'ltm') . '</h3>';
 }
 // Set defaults Sidebar form block.
 $options = wp_parse_args(
@@ -29,8 +29,8 @@ if( empty($form_code) ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'sidebar-section form-block',
-                "id" => 'sidebar-form-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'sidebar-block form-block',
+                "id" => 'sidebar-form-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

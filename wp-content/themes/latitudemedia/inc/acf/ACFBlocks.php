@@ -108,6 +108,10 @@ class ACFBlocks {
                 [
                     'slug'  => 'ltm-page-blocks',
                     'title' => __( 'Latitude Media Page Blocks', 'ltm' ),
+                ],
+                [
+                    'slug'  => 'ltm-section-landing-blocks',
+                    'title' => __( 'Latitude Media Section Landing Blocks', 'ltm' ),
                 ]
             ],
             $categories

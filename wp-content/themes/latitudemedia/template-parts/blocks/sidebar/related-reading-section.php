@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Related reading section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Related reading block', 'ltm') . '</h3>';
 }
 // Set defaults Related reading block.
 $postItemTemplate = get_wrap_rows_from_template('<li>
@@ -65,8 +65,8 @@ if( !$items->have_posts() ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'sidebar-section related-reading-block',
-                "id" => 'related-reading-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'sidebar-block related-reading-block',
+                "id" => 'related-reading-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

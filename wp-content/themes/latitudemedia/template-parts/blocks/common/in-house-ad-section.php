@@ -4,14 +4,14 @@
 //                array(
 //                    'attrs' => array(
 //                        'name'  		=> 'in-house-ad-section',
-//                        'title' 		=> __('In house ad section', 'ltm'),
+//                        'title' 		=> __('In house ad block', 'ltm'),
 //                        'path'  		=> 'common',
 //                    ),
 //                    'icon'  		=> 'table-col-before',
 //                    'description' => __('In house ad section block', 'ltm'),
 //                    'post_types' 	=> array( 'page' ),
 //                    'category'  	=> 'ltm-page-blocks',
-//                    'keywords'    => array( __('In house ad section', 'ltm') ),
+//                    'keywords'    => array( __('In house ad block', 'ltm') ),
 //                    'example'  	=> array(
 //                        'attributes' => array(
 //                            'mode' => 'preview',
@@ -43,8 +43,8 @@ if(!$display && !is_admin()) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section',
-                "id" => 'in-house-ad-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block',
+                "id" => 'in-house-ad-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

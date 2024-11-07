@@ -321,3 +321,43 @@ if ( ! function_exists( 'social_icons' ) ) :
         return $item;
     }
 endif;
+
+
+if ( ! function_exists( 'paginator' ) ) :
+    function paginator( $wp_query = null, $dynamic = false ) {
+        if(!$wp_query) {
+            global $wp_query;
+        }
+
+        if ( !$wp_query->max_num_pages <= 1 ) {
+            $args = [
+                'format' => $dynamic ? '?page=%#%' : '',
+                'total' => $wp_query->max_num_pages,
+                'current' => max(1, $wp_query->get('paged')),
+                'end_size' => 1,
+                'mid_size' => 1,
+                'prev_next' => false,
+                'prev_text' => '',
+                'next_text' => '',
+                'type' => 'array',
+            ];
+
+            if(!$dynamic) {
+                $args['base'] = str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999)));
+            }
+
+            $paginator = paginate_links($args);
+            $paginator_content = '';
+
+            if (is_array($paginator)) {
+                foreach ($paginator as $page) {
+                    $paginator_content .= sprintf('<li>%1$s</li>', $page);
+                }
+
+                printf('<div class="pager pink"><ul>%1$s</ul></div>', $paginator_content);
+            }
+        }
+
+    }
+    add_action('paginator', 'paginator', 10, 2);
+endif;

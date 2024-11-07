@@ -1,7 +1,7 @@
 <?php
 // Set defaults Spotlight quote block.
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Spotlight quote section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Spotlight quote block', 'ltm') . '</h3>';
 }
 
 $options = wp_parse_args(
@@ -31,8 +31,8 @@ if( empty($copy) ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section testimonial-block',
-                "id" => 'spotlight-quote-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block testimonial-block',
+                "id" => 'spotlight-quote-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

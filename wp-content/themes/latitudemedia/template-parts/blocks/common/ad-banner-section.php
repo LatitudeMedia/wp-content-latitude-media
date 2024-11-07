@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Ad banner section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Ad banner block', 'ltm') . '</h3>';
 }
 // Set defaults Ad banner block.
 $options = wp_parse_args(
@@ -28,8 +28,8 @@ if( empty($code) ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section',
-                "id" => 'ad-banner-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block',
+                "id" => 'ad-banner-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

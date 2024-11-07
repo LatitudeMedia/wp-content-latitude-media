@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('News list section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('News list block', 'ltm') . '</h3>';
 }
 // Set defaults News list block.
 $postItemTemplate = get_wrap_rows_from_template('<li>
@@ -63,14 +63,14 @@ if( !$items->have_posts() ) {
 }
 
 ?>
-
+<div class="topics-archive-section-wrapper">
 <div
     <?php
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-section posts-list-section',
-                "id" => 'news-list-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'content-block posts-list-section',
+                "id" => 'news-list-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );
@@ -113,4 +113,5 @@ if( !$items->have_posts() ) {
         ?>
     </ul>
     <?php do_action('button_unit', $more, null, 'see-all'); ?>
+</div>
 </div>

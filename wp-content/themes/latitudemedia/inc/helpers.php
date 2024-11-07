@@ -73,3 +73,26 @@ function get_event__end_date($event_id, $format = 'F d Y') {
 
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
+
+function get_section_cats($section_id, $fields = 'ids') {
+    if(!$section_id) {
+        return [];
+    }
+
+    $section_args = array(
+        'hide_empty' => false,
+        'meta_query' => array(
+            array(
+                'key'       => 'section',
+                'value'     => $section_id,
+                'compare'   => '='
+            )
+        ),
+        'taxonomy'  => 'category',
+        'fields'  => $fields,
+    );
+
+    $cats = get_terms( $section_args );
+
+    return $cats;
+}

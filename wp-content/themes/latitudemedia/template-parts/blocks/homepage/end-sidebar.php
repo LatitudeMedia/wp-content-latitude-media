@@ -3,7 +3,13 @@ if (is_admin()) {
     echo '<h3 style="text-align: center;">END SIDEBAR</h3>';
 }
 
-$options = get_fields();
+// Set defaults Large event block.
+$options = wp_parse_args(
+    array_merge($args ?? [], get_fields() ?? []),
+    [
+        'sidebar_widget'   => null,
+    ]
+);
 
 if (!is_admin()) :
 

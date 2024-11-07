@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Sidebar editors picks section', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Sidebar editors picks block', 'ltm') . '</h3>';
 }
 // Set defaults Sidebar editors picks block.
 
@@ -63,8 +63,8 @@ if( !$items->have_posts() ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'sidebar-section editors-picks-block',
-                "id" => 'sidebar-editors-picks-section' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "class" => 'sidebar-block editors-picks-block',
+                "id" => 'sidebar-editors-picks-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
     );

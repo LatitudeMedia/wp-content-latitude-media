@@ -60,7 +60,7 @@ class IndustryNews {
                 'menu_icon'     => 'dashicons-analytics',
                 'public'        => true,
                 'map_meta_cap'  => true,
-                'has_archive'   => false,
+                'has_archive'   => true,
                 'show_ui'       => true,
                 'show_in_rest'  => true,
 //                'taxonomies'    => [ 'sectors' ],
