@@ -18,3 +18,18 @@ function add_new_category_column_section( $columns ) {
     return $columns;
 }
 add_filter( 'manage_edit-category_columns', 'add_new_category_column_section' );
+
+if( !function_exists( 'ltm_admin_styles' ) ) {
+    /**
+     * Enqueue site styles
+     */
+    function ltm_admin_styles() {
+        if ( !is_user_logged_in() ) {
+            return;
+        }
+
+        wp_register_style('ltm-admin-front', get_template_directory_uri() . '/dist/css/admin.min.css', array(), filemtime( get_template_directory() . '/dist/css/admin.min.css') );
+        wp_enqueue_style('ltm-admin-front');
+    }
+    add_action( 'wp_enqueue_scripts', 'ltm_admin_styles' );
+}

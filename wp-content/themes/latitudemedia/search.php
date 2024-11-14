@@ -3,14 +3,13 @@
 get_header();
 
 $postItemTemplate = get_wrap_rows_from_template('<li>
-                    <div class="content-folder">
-                        <h4>[title]</h4>
-                        <div class="info">
-                            [author]
-                            <span></span>
-                            [date]
+                        <div class="image-folder">
+                            [thumb]
                         </div>
-                    </div>
+                        <div class="content-folder">
+                            <h4>[title]</h4>
+                            [excerpt]
+                        </div>
                 </li>');
 
 $args = [
@@ -20,7 +19,7 @@ $args = [
 ];
 
 get_template_part('template-parts/components/topic', 'title',
-    ['title' => 'From the Industry']
+    ['title' => 'Search results']
 );
 
 get_template_part('template-parts/components/articles-list', 'block',

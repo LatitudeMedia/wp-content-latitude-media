@@ -47,18 +47,11 @@ if(is_tax('section')) {
     </div>
 </div>
 
-<div class="topics-archive-section">
-    <div class="container-narrow">
-        <div class="topics-archive-section-wrapper load-more-container">
-            <div class="posts-list-section">
-                <?php
-                get_template_part('template-parts/category/articles', 'list',
-                    $args
-                );
-                ?>
-            </div>
-        </div>
-    </div>
-</div>
+<?php
+get_template_part('template-parts/components/articles-list', 'block',
+    $args
+);
 
-<?php get_footer(); ?>
+get_footer();
+
+?>

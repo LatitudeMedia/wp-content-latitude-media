@@ -18,6 +18,8 @@ module.exports = (env) => {
       minimize: true,
     },
     entry: {
+      //Admin assets
+      'css/admin': './src/assets/scss/admin/admin.scss',
       'css/base': './src/assets/scss/base/base_loader.scss',
       'css/fonts': './src/assets/scss/fonts/fonts_loader.scss',
       'css/header': './src/assets/scss/header/header_loader.scss',
