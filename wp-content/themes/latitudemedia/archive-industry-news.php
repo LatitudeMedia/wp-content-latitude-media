@@ -1,126 +1,38 @@
-<?php get_header();
-
-get_template_part( 'template-parts/content', 'archive' );
-?>
+<?php get_header(); ?>
 <div class="topics-title-block">
     <div class="container">
         <div class="topics-title-block-wrapper">
-            <h1 class="topics-title">From the Industry</h1>
+            <h1 class="topics-title"><?php _e('From the Industry', 'ltm'); ?></h1>
         </div>
     </div>
 </div>
 
 <div class="topics-archive-section">
     <div class="container-narrow">
-        <div class="topics-archive-section-wrapper">
+        <div class="topics-archive-section-wrapper load-more-container">
             <div class="posts-list-section">
-                <ul class="posts">
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
+                <?php
+                $postItemTemplate = get_wrap_rows_from_template('<li>
+                    <div class="content-folder">
+                        <h4>[title]</h4>
+                        <div class="info">
+                            [author]
+                            <span></span>
+                            [date]
                         </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="content-folder">
-                            <h4><a href="#" class="title">The Midwest’s transmission backslide</a></h4>
-                            <div class="info">
-                                <a class="author" href="#">Lisa Martine Jenkins</a>
-                                <span></span>
-                                <div class="date">aug 22, 2024</div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <div class="pager pink">
-                    <ul>
-                        <li>
-                            <a class="active" href="#"><span>1</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>2</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>3</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>4</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>5</span></a>
-                        </li>
-                        <li>
-                            <span>...</span>
-                        </li>
-                        <li>
-                            <a href="#"><span>10</span></a>
-                        </li>
-                    </ul>
-                </div>
+                    </div>
+                </li>');
+
+                $args = [
+                    'display'       => true,
+                    'forced'        => true,
+                    'pagination'    => true,
+                ];
+
+                get_template_part('template-parts/category/articles', 'list',
+                    array_merge($args, $postItemTemplate)
+                );
+                ?>
             </div>
         </div>
     </div>

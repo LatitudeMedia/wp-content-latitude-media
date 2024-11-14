@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.single-research-featured-section {
+  margin-bottom: 64px;
+  @include singleResearchFeaturedSection;
+}

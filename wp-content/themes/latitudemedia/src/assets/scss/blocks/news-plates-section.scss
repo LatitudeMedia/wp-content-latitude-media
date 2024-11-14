@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.related-news-section {
+  margin-bottom: 64px;
+  @include relatedNewsSection;
+}

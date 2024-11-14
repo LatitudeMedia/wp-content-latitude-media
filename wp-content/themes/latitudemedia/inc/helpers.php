@@ -38,6 +38,12 @@ function ltm_get_news_type($post_id = null) {
     return $news_type['label'];
 }
 
+/**
+ * @param $dateString
+ * @param string $inputFormat
+ * @param string $format
+ * @return int|string
+ */
 function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-d H:i:s') {
     $date = DateTime::createFromFormat($inputFormat, $dateString);
 
@@ -74,6 +80,20 @@ function get_event__end_date($event_id, $format = 'F d Y') {
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
 
+
+function get_research_date($research_id, $format = 'F Y') {
+    if ( ! $research_id ) {
+        $research_id = get_the_ID();
+    }
+
+    $date = get_field('date', $research_id);
+    if( empty($date) ) {
+        return '';
+    }
+
+    return date_to_format($date, 'm/d/Y', $format);
+}
+
 function get_section_cats($section_id, $fields = 'ids') {
     if(!$section_id) {
         return [];
@@ -95,4 +115,22 @@ function get_section_cats($section_id, $fields = 'ids') {
     $cats = get_terms( $section_args );
 
     return $cats;
+}
+
+/**
+ * @param $research_id
+ * @return array
+ */
+function get_research_data($research_id) {
+    if(!$research_id) {
+        return [];
+    }
+
+    return [
+        'hubspot_payment_link'  => get_field('hubspot_payment_link', $research_id),
+        'full_price'            => get_field('full_price', $research_id),
+        'purchase_form_code'    => get_field('purchase_form_code', $research_id),
+        'download_form_code'    => get_field('download_form_code', $research_id),
+        'order_page'            => get_field('order_page', $research_id),
+    ];
 }

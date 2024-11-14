@@ -4,15 +4,6 @@
   }
 }
 
-.single-research-featured-section {
-  margin-bottom: 64px;
-  @include singleResearchFeaturedSection;
-}
-
-.right-sidebar-layout {
-  margin-bottom: 64px;
-}
-
 .form-block {
   @include formBlock;
   &.purchase {
@@ -34,14 +25,4 @@
       }
     }
   }
-}
-
-.logo-description-block {
-  margin-bottom: 64px;
-  @include logoDescriptionBlock;
-}
-
-.related-news-section {
-  margin-bottom: 64px;
-  @include relatedNewsSection;
 }

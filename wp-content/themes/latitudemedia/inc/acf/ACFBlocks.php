@@ -68,12 +68,10 @@ class ACFBlocks {
 
         if ( $attributes['post_acf'] && ! $sectionData = get_field( $acfName, $post_id ) ) {
             $displayBlock = false;
+
         }
-        if ( ! $attributes['post_acf'] && ! $sectionData['display'] = get_field('display') ) {
-            if(!isset($attributes['display']) || !$attributes['display']) {
-                $displayBlock = false;
-            }
-        }
+
+        $sectionData['display'] = get_field('display');
         if ( (!isset($sectionData['display']) || !$sectionData['display']) && !is_admin() && (!isset($attributes['display']) || !$attributes['display']) ) {
             $displayBlock = false;
         }

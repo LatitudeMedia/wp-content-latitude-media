@@ -31,7 +31,7 @@ class ReportCategory {
 	 * Build the taxonomy object.
 	 */
 	public function __construct() {
-		$this->object_types = [ 'researches' ];
+		$this->object_types = [ 'research' ];
 
         add_action( 'init', array( $this, 'create_taxonomy' ) );
 	}

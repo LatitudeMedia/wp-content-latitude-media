@@ -18,9 +18,8 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
             </div>
         </li>');
 $options = wp_parse_args(
-    array_merge($args,
-        get_fields() ?: [],
-        $postItemTemplate
+    array_merge($postItemTemplate,
+        $args
     ),
     [
         'items'         => [],

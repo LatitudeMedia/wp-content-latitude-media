@@ -25,7 +25,13 @@ module.exports = (env) => {
       'css/pages': './src/assets/scss/pages/pages_loader.scss',
       'css/footer': './src/assets/scss/footer/footer_loader.scss',
       'js/custom': './src/assets/js/custom.js',
-      'js/load-more': './src/assets/js/load-more.js'
+      'js/load-more': './src/assets/js/load-more.js',
+      //Blocks styles
+      'css/blocks/news-plates-section': './src/assets/scss/blocks/news-plates-section.scss',
+      'css/blocks/featured-research-block': './src/assets/scss/blocks/featured-research-block.scss',
+      'css/blocks/research-banner-block': './src/assets/scss/blocks/research-banner-block.scss',
+      'css/blocks/research-overview-block': './src/assets/scss/blocks/research-overview-block.scss',
+      'css/blocks/research-partner-block': './src/assets/scss/blocks/research-partner-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

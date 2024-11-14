@@ -306,6 +306,7 @@ $blocks = array(
         'description' => __('News plates block', 'ltm'),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('News plates block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-plates-section.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -398,6 +399,155 @@ $blocks = array(
             )
         )
     ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'authors-list-block',
+            'title' 		=> __('Authors list block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Authors list block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Authors list block', 'ltm') ),
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'authors-list-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'image-and-text-block',
+            'title' 		=> __('Image and text block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Image and text block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Image and text block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'image-and-text-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'featured-research-block',
+            'title' 		=> __('Featured research block', 'ltm'),
+            'path'  		=> 'research',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Featured research block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Featured research block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/featured-research-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'featured-research-block.png',
+                )
+            )
+        )
+    ),
+
+    // START Single Research
+    array(
+        'attrs' => array(
+            'name'  		=> 'research-banner-block',
+            'title' 		=> __('Research banner block', 'ltm'),
+            'path'  		=> 'research',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Research banner block', 'ltm'),
+        'post_types' 	=> array( 'research' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Research banner block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'research-banner-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'research-preview-block',
+            'title' 		=> __('Research preview block', 'ltm'),
+            'path'  		=> 'research',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Research preview block', 'ltm'),
+        'post_types' 	=> array( 'research' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Research preview block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'research-preview-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'research-partner-block',
+            'title' 		=> __('Research partner block', 'ltm'),
+            'path'  		=> 'research',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Research partner block', 'ltm'),
+        'post_types' 	=> array( 'research' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Research partner block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-partner-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'research-partner-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'research-overview-block',
+            'title' 		=> __('Research overview block', 'ltm'),
+            'path'  		=> 'research',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Research overview block', 'ltm'),
+        'post_types' 	=> array( 'research' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Research overview block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-overview-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'research-overview-block.png',
+                )
+            )
+        )
+    ),
+    // END Single Research
 );
 
 new ACFBlocks( $blocks );

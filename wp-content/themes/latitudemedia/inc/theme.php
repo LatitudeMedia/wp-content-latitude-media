@@ -111,6 +111,20 @@ function create_section_landing_predefine_blocks() {
 }
 add_action( 'init', 'create_section_landing_predefine_blocks', 100 );
 
+/**
+ * Predefine event blocks on create new single research.
+ */
+function create_single_research_predefine_blocks() {
+    $page_type_object = get_post_type_object( 'research' );
+    $page_type_object->template = array(
+        array( 'acf/research-banner-block', array('data' => array('field_67354ddb2f441' => 1))),
+        array( 'acf/research-preview-block', array('data' => array('field_67354de6440d2' => 1))),
+        array( 'acf/research-overview-block', array('data' => array('field_67354f7fc926c' => 1))),
+        array( 'acf/research-partner-block', array('data' => array('field_67354f9994828' => 1))),
+    );
+}
+add_action( 'init', 'create_single_research_predefine_blocks', 100 );
+
 function set_pagination_base () {
 
     global $wp_rewrite;

@@ -1,0 +1,55 @@
+<?php
+if (is_admin()) {
+    echo '<h3 style="text-align: center;">' . __('Image and text block', 'ltm') . '</h3>';
+}
+// Set defaults Image and text block.
+$options = wp_parse_args(
+    array_merge($args, get_fields() ?? []),
+    [
+        'title'         => '',
+        'image'         => null,
+        'content'       => '',
+        'blockAttributes' => [],
+    ]
+);
+
+extract($options);
+
+if(!$display && !is_admin()) {
+    return;
+}
+
+?>
+
+<div
+    <?php
+    echo wp_kses_data(
+        get_block_wrapper_attributes(
+            [
+                "class" => 'content-block image-text-section blue',
+                "id" => 'image-and-text-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+            ]
+        )
+    );
+    ?>
+>
+    <div class="container">
+        <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
+        <div class="image-text-section-wrapper">
+            <div class="image-folder">
+                <a href="#">
+                    <?php
+                        if( !empty($image) ) {
+                            do_action('thumbnail_formatting', ['link' => false], ['image_id' => $image['ID']]);
+                        }
+                    ?>
+                </a>
+            </div>
+            <div class="content-folder">
+                <?php
+                    echo $content;
+                ?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.event-large-item-section {
+  @include eventLargeItemSection;
+}

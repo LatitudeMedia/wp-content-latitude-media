@@ -2,12 +2,9 @@
     <div class="header-wrapper">
         <div class="top-head">
             <div class="container">
-                <form action="" class="top-search-form">
-                    <fieldset>
-                        <input placeholder="SEARCH" type="search">
-                    </fieldset>
-                </form>
                 <?php
+                get_template_part( 'template-parts/components/search' );
+
                 $args = array(
                     'theme_location'    => 'top',
                     'container_class'   => 'top-head-menu',
@@ -43,12 +40,7 @@
             <div class="hamburger-menu" style="display: none;">
                 <div class="mobile-search">
                     <div class="container">
-                        <form action="">
-                            <div class="icon">
-                                <img alt="Search" src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/icon_search_dark.svg">
-                            </div>
-                            <input placeholder="SEARCH" type="search">
-                        </form>
+                        <?php get_template_part( 'template-parts/components/search', 'mobile' ); ?>
                     </div>
                 </div>
                 <div class="container">

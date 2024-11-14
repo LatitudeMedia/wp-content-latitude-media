@@ -1,11 +1,4 @@
-.event-large-item-section {
-  @include eventLargeItemSection;
-}
 .three-events-section {
   margin-bottom: 74px;
   @include threeEventsSection;
-}
-.image-text-section {
-  margin-bottom: 64px;
-  @include imageTextSection;
 }

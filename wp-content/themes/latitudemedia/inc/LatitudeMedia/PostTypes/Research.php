@@ -2,22 +2,22 @@
 namespace LatitudeMedia\PostTypes;
 
 /**
- * Custom post type for Researches
+ * Custom post type for Research
  *
  * @package LatitudeMedia
  */
 
 /**
- * Class for the Researches post type.
+ * Class for the Research post type.
  */
-class Researches {
+class Research {
 
     /**
      * Name of the custom post type.
      *
      * @var string
      */
-    public $name = 'researches';
+    public $name = 'research';
 
     /**
      * Constructor.
@@ -37,11 +37,11 @@ class Researches {
                 'labels' => [
                     'name'                  => __( 'Researches', 'ltm' ),
                     'singular_name'         => __( 'Research', 'ltm' ),
-                    'add_new'               => __( 'Add New Researche', 'ltm' ),
-                    'add_new_item'          => __( 'Add New Researche', 'ltm' ),
-                    'edit_item'             => __( 'Edit Researche', 'ltm' ),
-                    'new_item'              => __( 'New Researche', 'ltm' ),
-                    'view_item'             => __( 'View Researche', 'ltm' ),
+                    'add_new'               => __( 'Add New Research', 'ltm' ),
+                    'add_new_item'          => __( 'Add New Research', 'ltm' ),
+                    'edit_item'             => __( 'Edit Research', 'ltm' ),
+                    'new_item'              => __( 'New Research', 'ltm' ),
+                    'view_item'             => __( 'View Research', 'ltm' ),
                     'view_items'            => __( 'View Researches', 'ltm' ),
                     'search_items'          => __( 'Search Researches', 'ltm' ),
                     'not_found'             => __( 'No Researches found', 'ltm' ),
@@ -50,8 +50,8 @@ class Researches {
                     'all_items'             => __( 'All Researches', 'ltm' ),
                     'archives'              => __( 'Researche Archives', 'ltm' ),
                     'attributes'            => __( 'Researche Attributes', 'ltm' ),
-                    'insert_into_item'      => __( 'Insert into Researche', 'ltm' ),
-                    'uploaded_to_this_item' => __( 'Uploaded to this Researche', 'ltm' ),
+                    'insert_into_item'      => __( 'Insert into Research', 'ltm' ),
+                    'uploaded_to_this_item' => __( 'Uploaded to this Research', 'ltm' ),
                     'filter_items_list'     => __( 'Filter Researches list', 'ltm' ),
                     'items_list_navigation' => __( 'Researches list navigation', 'ltm' ),
                     'items_list'            => __( 'Researches list', 'ltm' ),
