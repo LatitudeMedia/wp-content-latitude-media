@@ -68,11 +68,11 @@ if( empty($columns) ) {
                             <?php
                             $postItemTemplate = get_wrap_rows_from_template('<li>
                                 <div class="content-folder">
-                                    [title]
-                                    <div class="image-folder">
+                                    [title]                                   
+                                </div>
+                                <div class="image-folder">
                                         [thumb]
                                     </div>
-                                </div>
                             </li>');
                             $rows = $postItemTemplate['rows'];
                             $wrap = $postItemTemplate['wrap'];
