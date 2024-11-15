@@ -40,11 +40,7 @@ if( empty($authors) ) {
             <?php do_action('section_title', $authors_type['label'], '<div class="bordered-title">%1$s</div>'); ?>
             <ul class="team">
                 <?php foreach ($authors as $author) :
-                    $authorData = [
-                        'logo' => get_field('logo', 'author_' . $author->term_id, true),
-                        'job_title' => get_field('job_title', 'author_' . $author->term_id, true)
-                    ];
-
+                    $authorData = ltm_get_author_data($author);
                     ?>
                     <li>
                         <div class="image-folder">

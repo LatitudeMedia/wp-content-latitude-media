@@ -398,6 +398,26 @@ add_action( 'acf/include_fields', function() {
                 'mime_types' => '',
                 'preview_size' => 'medium',
             ),
+            array(
+                'key' => 'field_67375ad57f5ca',
+                'label' => 'Bio',
+                'name' => 'bio',
+                'aria-label' => '',
+                'type' => 'wysiwyg',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
+            ),
         ),
         'location' => array(
             array(

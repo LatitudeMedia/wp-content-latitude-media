@@ -136,6 +136,47 @@ function get_research_data($research_id) {
 }
 
 /**
+ * @param null $author
+ * @return array
+ */
+function ltm_get_author_data($author = null) {
+    if(!$author) {
+        return [];
+    }
+
+    $author = get_term($author);
+    return [
+        'logo'      => get_field('logo', 'author_' . $author->term_id, true),
+        'job_title' => get_field('job_title', 'author_' . $author->term_id, true),
+        'bio'       => get_field('bio', 'author_' . $author->term_id, true)
+    ];
+}
+
+/**
+ * @param null $author
+ * @return array
+ */
+function ltm_get_author_socials($author = null) {
+    if(!$author) {
+        return [];
+    }
+
+    $author = get_term($author);
+    $socials = [];
+    if( $social = get_field('linkedin', 'author_' . $author->term_id, true) ) {
+        $socials['linkedin'] = $social;
+    }
+    if( $social = get_field('x_twitter', 'author_' . $author->term_id, true) ) {
+        $socials['x_twitter'] = $social;
+    }
+    if( $social = get_field('other_social', 'author_' . $author->term_id, true) ) {
+        $socials['other_social'] = $social;
+    }
+
+    return $socials;
+}
+
+/**
  * @param string $classes
  * @return mixed|string
  */

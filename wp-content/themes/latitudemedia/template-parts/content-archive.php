@@ -3,12 +3,16 @@
 global $wp_query;
 $term = get_queried_object();
 $current_page = max(1, $wp_query->get('paged'));
-$section = get_field('section', 'category_' . $term->term_id, true);
 
 $args = [
     'display'       => true,
     'forced'        => true,
     'pagination'    => true,
+];
+
+$headArgs = [
+    'title'     => $term->name,
+    'title_template'      => '',
 ];
 
 if(is_tax('section')) {
@@ -34,24 +38,17 @@ if(is_tax('section')) {
         'pagination'    => true,
     ];
 }
-?>
 
-<div class="topics-title-block">
-    <div class="container">
-        <div class="topics-title-block-wrapper">
-            <?php if($section) : ?>
-               <a href="<?php echo get_term_link($section,'section')?>" class="parent-category-link"><?php echo esc_html__($section->name) ?></a>
-            <?php endif; ?>
-            <h1 class="topics-title"><?php echo esc_html__($term->name) ?></h1>
-        </div>
-    </div>
-</div>
+if(is_category()) {
+    $section = get_field('section', 'category_' . $term->term_id, true);
+    $headArgs['section']        = $section;
+    $headArgs['title_template'] = 'section';
+}
 
-<?php
-get_template_part('template-parts/components/articles-list', 'block',
-    $args
-);
+//Title template
+get_template_part('template-parts/components/titles/topic-title', $headArgs['title_template'], $headArgs);
+
+//Listing template
+get_template_part('template-parts/components/articles-list', 'block', $args);
 
 get_footer();
-
-?>

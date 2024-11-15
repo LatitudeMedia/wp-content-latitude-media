@@ -1,6 +1,12 @@
-<?php get_header();
+<?php
+get_header();
 
-get_template_part( 'template-parts/content', 'archive' );
+$term = get_queried_object();
+
+get_template_part( 'template-parts/author/landing', 'info', ['author' => $term] );
+
+get_template_part( 'template-parts/content-archive', 'listing' );
+
+get_footer();
+
 ?>
-
-<?php get_footer(); ?>

@@ -43,7 +43,7 @@ get_header();
                         ?>
                     </article>
                     <div class="post-share-block">
-                        <span class="label">Share:</span>
+                        <span class="label"><?php _e('Share:', 'ltm')?></span>
                         <?php get_template_part('template-parts/article/social-sharing','icons'); ?>
                     </div>
                 </div>

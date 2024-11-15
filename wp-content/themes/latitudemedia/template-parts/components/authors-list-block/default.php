@@ -45,21 +45,8 @@ $socialLogos = [
             <?php do_action('section_title', $authors_type['label'], '<h2>%1$s</h2>'); ?>
             <ul class="team">
                 <?php foreach ($authors as $author) :
-                    $authorData = [
-                        'logo' => get_field('logo', 'author_' . $author->term_id, true),
-                        'job_title' => get_field('job_title', 'author_' . $author->term_id, true)
-                    ];
-
-                    $socials = [];
-                    if( $social = get_field('linkedin', 'author_' . $author->term_id, true) ) {
-                        $socials['linkedin'] = $social;
-                    }
-                    if( $social = get_field('x_twitter', 'author_' . $author->term_id, true) ) {
-                        $socials['x_twitter'] = $social;
-                    }
-                    if( $social = get_field('other_social', 'author_' . $author->term_id, true) ) {
-                        $socials['other_social'] = $social;
-                    }
+                    $authorData = ltm_get_author_data($author);
+                    $socialsData = ltm_get_author_socials($author);
                     ?>
                     <li>
                         <div class="image-folder">
@@ -81,10 +68,10 @@ $socialLogos = [
                                 printf('<div class="occupation">%s</div>', $authorData['job_title']);
                             }
 
-                            if( $socials ) {
+                            if( $socialsData ) {
                                 $socialWrap = '<ul class="socials">%s</ul>';
                                 $socialContent = '';
-                                foreach ($socials as $key => $item) {
+                                foreach ($socialsData as $key => $item) {
                                     $socialContent .= sprintf('<li><a href="%s" target="_blank"><img src="%s/src/images/%s" alt="icon" class="icon"></a></li>', $item, get_template_directory_uri(), $socialLogos[$key] ?? '');
                                 }
 

@@ -18,7 +18,7 @@ $args = [
     'pagination'    => true,
 ];
 
-get_template_part('template-parts/components/topic', 'title',
+get_template_part('template-parts/components/titles/topic', 'title',
     ['title' => 'Search results']
 );
 
