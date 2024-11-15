@@ -35,6 +35,7 @@ $blockAttrs = wp_kses_data(
 $queryArgs = [
     'post_type'         => "team",
     'posts_per_page'    => -1,
+    'orderby' => 'ID',
 ];
 $teamMembers = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $members);
 
