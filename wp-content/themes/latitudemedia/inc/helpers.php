@@ -153,6 +153,24 @@ function ltm_get_author_data($author = null) {
 }
 
 /**
+ * @param null $member
+ * @return array
+ */
+function ltm_get_team_member_data($member = null) {
+    if(!$member) {
+        return [];
+    }
+
+    $member = get_post($member);
+    return [
+        'job_title'     => get_field('job_title', $member->ID, true),
+        'linkedin'      => get_field('linkedin', $member->ID, true),
+        'x_twitter'     => get_field('x_twitter', $member->ID, true),
+        'other_socials' => get_field('other_socials', $member->ID, true)
+    ];
+}
+
+/**
  * @param null $author
  * @return array
  */

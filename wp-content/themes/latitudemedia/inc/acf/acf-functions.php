@@ -411,23 +411,32 @@ $blocks = array(
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Authors list block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2', 'ltm'),
-                'isDefault' => true,
-            ],
-        ],
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'authors-list-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'our-team-block',
+            'title' 		=> __('Our team block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Our team block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Our team block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'our-team-block.png',
                 )
             )
         )
