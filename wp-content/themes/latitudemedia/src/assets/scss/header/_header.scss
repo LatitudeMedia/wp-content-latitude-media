@@ -810,28 +810,3 @@ header {
     }
   }
 }
-
-body {
-  &.logged-in {
-    header {
-      .header-wrapper {
-        .top-head {
-          top: 32px;
-          @include below_sm {
-            top: 46px;
-          }
-        }
-        .middle-head {
-          &.sticky {
-            margin-bottom: 91px;
-          }
-        }
-        .bottom-head {
-          &.sticky {
-            top: 73px;
-          }
-        }
-      }
-    }
-  }
-}
