@@ -411,6 +411,18 @@ $blocks = array(
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Authors list block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ],
+        ],
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
