@@ -83,6 +83,7 @@ if( empty($columns) ) {
                                     'post_id'  => $column,
                                     'settings' => array(
                                         'title' => array(
+                                            'wrap' => '<span class="title">%1$s</span>',
                                             'link' => false
                                         ),
                                         'thumb'   => array(
