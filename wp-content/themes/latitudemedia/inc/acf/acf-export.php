@@ -5584,46 +5584,98 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'description' => '',
         'show_in_rest' => 0,
     ) );
+
+    acf_add_local_field_group(array(
+        'key' => 'field_67363a22299d4',
+        'title' => 'Content with background block',
+        'fields' => array (
+            array (
+                'key' => 'field_67363a22299d6',
+                'label' => 'Content with background block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_67363a22299d7',
+                'label' => 'Background color',
+                'name' => 'background_color',
+                'aria-label' => '',
+                'type' => 'color_picker',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '#F5F5F5',
+                'enable_opacity' => 0,
+                'return_format' => 'string',
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/content-with-background-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+    acf_add_local_field_group( array(
+        'key' => 'group_672b7b7ed1f8d',
+        'title' => 'Section lending options',
+        'fields' => array(
+            array(
+                'key' => 'field_672b7b7f0ccda',
+                'label' => 'Section type',
+                'name' => 'section_type',
+                'aria-label' => '',
+                'type' => 'taxonomy',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'taxonomy' => 'section',
+                'add_term' => 0,
+                'save_terms' => 0,
+                'load_terms' => 0,
+                'return_format' => 'object',
+                'field_type' => 'select',
+                'allow_null' => 0,
+                'bidirectional' => 0,
+                'multiple' => 0,
+                'bidirectional_target' => array(
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'sections-landing',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
 } );
 
 
-acf_add_local_field_group(array(
-  'key' => 'field_67363a22299d4',
-  'title' => 'Content with background block',
-  'fields' => array (
-       array (
-           'key' => 'field_67363a22299d6',
-           'label' => 'Content with background block',
-           'name' => '',
-           'type' => 'message',
-       ),
-      array(
-          'key' => 'field_67363a22299d7',
-          'label' => 'Background color',
-          'name' => 'background_color',
-          'aria-label' => '',
-          'type' => 'color_picker',
-          'instructions' => '',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array(
-              'width' => '',
-              'class' => '',
-              'id' => '',
-          ),
-          'default_value' => '#F5F5F5',
-          'enable_opacity' => 0,
-          'return_format' => 'string',
-      ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/content-with-background-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
