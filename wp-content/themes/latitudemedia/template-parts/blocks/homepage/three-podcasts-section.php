@@ -82,11 +82,15 @@ if( empty($columns) ) {
                                 array(
                                     'post_id'  => $column,
                                     'settings' => array(
-                                        'author' => array(
-                                            'link_class' => 'author'
+                                        'title' => array(
+                                            'link' => false
                                         ),
-                                        'date' => array(
-                                            'format' => 'M j, Y'
+                                        'thumb'   => array(
+                                            'size'       => 'news-with-hero',
+                                            'link'       => true,
+                                            'link_class' => '',
+                                            'alt_image'  => false,
+                                            'type'       => true,
                                         ),
                                     ),
                                     'rows'          => $rows,

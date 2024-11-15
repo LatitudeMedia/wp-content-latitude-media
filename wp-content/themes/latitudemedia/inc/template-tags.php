@@ -113,19 +113,32 @@ if ( ! function_exists( 'section_title' ) ) :
 endif;
 
 if ( ! function_exists( 'print_article_title' ) ) :
-    function print_article_title( $post_id = null ) {
+    function print_article_title( $post_id = null, $args = [] ) {
         if ( ! $post_id ) {
             $post_id = get_the_ID();
         }
 
-        $title_markup = sprintf( '<a href="%1$s" class="title">%2$s</a> ',
-            get_the_permalink($post_id),
-            esc_html__(get_the_title($post_id))
-        );
+        $defaults = [
+            'wrap' => '',
+            'link' => true,
+        ];
+        $args = wp_parse_args($args, $defaults);
+
+        if( !$args['link'] ) {
+            $title_markup = sprintf($args['wrap'] ?: '<div class="title">%1$s</div>',
+                esc_html__(get_the_title($post_id))
+            );
+        }
+        else {
+            $title_markup = sprintf($args['wrap'] ?: '<a href="%1$s" class="title">%2$s</a>',
+                get_the_permalink($post_id),
+                esc_html__(get_the_title($post_id))
+            );
+        }
 
         echo $title_markup;
     }
-    add_action('print_article_title', 'print_article_title', 10, 1);
+    add_action('print_article_title', 'print_article_title', 10, 2);
 endif;
 
 if ( ! function_exists( 'print_article_read_more' ) ) :

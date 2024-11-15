@@ -10,7 +10,9 @@ $default_settings = [
         'img_attr'      => [],
         'default'       => true,
     ],
-    'title'     => [],
+    'title'     => [
+        'link' => true,
+    ],
     'tags-list' => [],
     'excerpt'   => [],
     'author'    => [
@@ -56,7 +58,7 @@ foreach ( $rows as $row ) {
     if($wrap) ob_start();
     switch($row) {
         case 'thumb': do_action('thumbnail_formatting', $post_id, $settings[$row]); break;
-        case 'title': do_action('print_article_title', $post_id); break;
+        case 'title': do_action('print_article_title', $post_id, $settings[$row]); break;
         case 'tags-list': do_action('print_article_tags_list', $post_id); break;
         case 'article-type': do_action('print_article_type', $post_id); break;
         case 'date': do_action('print_article_date', $post_id, $settings[$row]); break;
