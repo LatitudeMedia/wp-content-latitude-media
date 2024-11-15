@@ -3782,7 +3782,7 @@
 			text-align: left;
 
 			a {
-				color: $blue;
+				color: var(--custom-block-base-color);
 
 				&:hover {
 					text-decoration: none;
@@ -3810,7 +3810,7 @@
 		.logo-description-block-wrapper {
 			padding-bottom: 64px;
 			margin-bottom: 64px;
-			border-bottom: 1px solid $primary-pink;
+			border-bottom: 1px solid var(--custom-block-base-color);
 			@include below_sm {
 				padding-bottom: 32px;
 				margin-bottom: 32px;
@@ -3823,48 +3823,13 @@
 			border-bottom: none;
 		}
 	}
-	&.pink {
-		.bordered-title {
-			border-bottom-color: $primary-pink;
-		}
-
-		&.logo-description-block-bordered {
-			.logo-description-block-wrapper {
-				border-bottom-color: $primary-pink;
-			}
-		}
+	.bordered-title {
+		border-bottom-color: var(--custom-block-base-color);
 	}
-	&.green {
-		.bordered-title {
-			border-bottom-color: $green;
-		}
 
-		&.logo-description-block-bordered {
-			.logo-description-block-wrapper {
-				border-bottom-color: $green;
-			}
-		}
-	}
-	&.blue {
-		.bordered-title {
-			border-bottom-color: $blue;
-		}
-
-		&.logo-description-block-bordered {
-			.logo-description-block-wrapper {
-				border-bottom-color: $blue;
-			}
-		}
-	}
-	&.orange {
-		.bordered-title {
-			border-bottom-color: $orange;
-		}
-
-		&.logo-description-block-bordered {
-			.logo-description-block-wrapper {
-				border-bottom-color: $orange;
-			}
+	&.logo-description-block-bordered {
+		.logo-description-block-wrapper {
+			border-bottom-color: var(--custom-block-base-color);
 		}
 	}
 }
@@ -4362,7 +4327,7 @@
 }
 
 @mixin aboutPageHero {
-	background-color: #F5F5F5;
+	background-color: var(--custom-block-base-color);
 	margin-bottom: 64px;
 	.about-page-hero-wrapper {
 		padding: 64px 0;
@@ -4539,7 +4504,7 @@
 			}
 
 			a {
-				color: $primary-pink;
+				color: var(--custom-block-base-color);
 				text-decoration: underline;
 				@include fontSize(18px);
 
@@ -4611,48 +4576,15 @@
 			}
 		}
 	}
-	&.pink {
-		.bordered-title {
-			border-bottom-color: $primary-pink;
-		}
 
-		.content-folder {
-			a {
-				color: $primary-pink;
-			}
-		}
+
+	.bordered-title {
+		border-bottom-color: var(--custom-block-base-color);
 	}
-	&.green {
-		.bordered-title {
-			border-bottom-color: $green;
-		}
 
-		.content-folder {
-			a {
-				color: $green;
-			}
-		}
-	}
-	&.blue {
-		.bordered-title {
-			border-bottom-color: $blue;
-		}
-
-		.content-folder {
-			a {
-				color: $blue;
-			}
-		}
-	}
-	&.orange {
-		.bordered-title {
-			border-bottom-color: $orange;
-		}
-
-		.content-folder {
-			a {
-				color: $orange;
-			}
+	.content-folder {
+		a {
+			color: var(--custom-block-base-color);
 		}
 	}
 }

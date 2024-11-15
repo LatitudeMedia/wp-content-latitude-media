@@ -1,8 +1,8 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Research partner block', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Logo and text', 'ltm') . '</h3>';
 }
-// Set defaults Research partner block. 
+// Set defaults Logo and text.
 
 $options = wp_parse_args(
     array_merge($args, get_fields() ?? []),
@@ -10,6 +10,7 @@ $options = wp_parse_args(
         'title'         => '',
         'logo'          => null,
         'description'   => '',
+        'base_color'    => '#c6168d',
         'display'       => false,
         'blockAttributes' => [],
     ]
@@ -21,12 +22,14 @@ if(!$display && !is_admin()) {
     return;
 }
 
+$blockType = ltm_get_block_style($blockAttributes['className'] ?? []);
 
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
-          "class" => 'content-block logo-description-block blue',
-          "id" => 'research-partner-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "style" => "--custom-block-base-color: {$base_color};",
+          "class" => 'content-block logo-description-block reverse logo-description-block-bordered',
+          "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]
   )
 );

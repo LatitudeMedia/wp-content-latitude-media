@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.about-page-hero {
+  @include aboutPageHero;
+}

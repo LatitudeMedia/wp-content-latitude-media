@@ -51,17 +51,14 @@ if( !$research ) {
             <?php echo $description; ?>
             <div class="image-folder">
                 <?php
-                    if( $date = get_research_date($research['ID']) ) {
+                    if( $date = get_research_date($research->ID) ) {
                         printf('<div class="date">%s</div>', $date);
                     }
-                ?>
-                <a href="<?php the_permalink($research); ?>">
-                    <?php
-                        if( has_post_thumbnail($research) ) {
-                            do_action('thumbnail_formatting', $research->ID, ['link' => false, 'image_id' => $image['ID']]);
-                        }
+                    
+                    if( has_post_thumbnail($research) ) {
+                        do_action('thumbnail_formatting', $research->ID, ['link' => true]);
+                    }
                     ?>
-                </a>
             </div>
             <a href="<?php the_permalink($research); ?>" class="event-button"><span><?php _e('learn more', 'ltm')?></span></a>
         </div>

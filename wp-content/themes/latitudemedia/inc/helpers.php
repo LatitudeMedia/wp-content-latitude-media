@@ -134,3 +134,24 @@ function get_research_data($research_id) {
         'order_page'            => get_field('order_page', $research_id),
     ];
 }
+
+/**
+ * @param string $classes
+ * @return mixed|string
+ */
+function ltm_get_block_style($classes = '') {
+    if( empty($classes) ) {
+        return 'default';
+    }
+
+    $classes = explode(' ', $classes);
+    $classStyle = array_filter($classes, function ($class) {
+        return str_contains($class, 'is-style-');
+    });
+
+    if( count($classStyle) ) {
+        return end(explode('-', $classStyle[0]));
+    }
+
+    return 'default';
+}

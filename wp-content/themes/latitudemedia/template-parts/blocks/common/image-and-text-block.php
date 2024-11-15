@@ -3,8 +3,9 @@ if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Image and text block', 'ltm') . '</h3>';
 }
 // Set defaults Image and text block.
+$blockFields = (get_fields() ?? []) ?: [];
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, $blockFields),
     [
         'title'         => '',
         'image'         => null,

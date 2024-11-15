@@ -5378,11 +5378,11 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
 
     acf_add_local_field_group( array(
         'key' => 'group_6735515080ec9',
-        'title' => 'Research partner block',
+        'title' => 'Logo and text',
         'fields' => array(
             array(
                 'key' => 'field_67354f9994827',
-                'label' => 'Research partner block',
+                'label' => 'Logo and text',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -5464,6 +5464,24 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'delay' => 0,
             ),
             array(
+                'key' => 'field_67362db82424e',
+                'label' => 'Base color',
+                'name' => 'base_color',
+                'aria-label' => '',
+                'type' => 'color_picker',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '#C6168D',
+                'enable_opacity' => 0,
+                'return_format' => 'string',
+            ),
+            array(
                 'key' => 'field_67354f9994828',
                 'label' => 'Display',
                 'name' => 'display',
@@ -5489,7 +5507,7 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 array(
                     'param' => 'block',
                     'operator' => '==',
-                    'value' => 'acf/research-partner-block',
+                    'value' => 'acf/logo-and-text',
                 ),
             ),
         ),
@@ -5567,3 +5585,45 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'show_in_rest' => 0,
     ) );
 } );
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_67363a22299d4',
+  'title' => 'Content with background block',
+  'fields' => array (
+       array (
+           'key' => 'field_67363a22299d6',
+           'label' => 'Content with background block',
+           'name' => '',
+           'type' => 'message',
+       ),
+      array(
+          'key' => 'field_67363a22299d7',
+          'label' => 'Background color',
+          'name' => 'background_color',
+          'aria-label' => '',
+          'type' => 'color_picker',
+          'instructions' => '',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+          ),
+          'default_value' => '#F5F5F5',
+          'enable_opacity' => 0,
+          'return_format' => 'string',
+      ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/content-with-background-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));

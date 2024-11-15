@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.our-team-section {
+  @include ourTeamSection;
+}

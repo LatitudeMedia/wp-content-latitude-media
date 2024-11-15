@@ -33,7 +33,9 @@ module.exports = (env) => {
       'css/blocks/featured-research-block': './src/assets/scss/blocks/featured-research-block.scss',
       'css/blocks/research-banner-block': './src/assets/scss/blocks/research-banner-block.scss',
       'css/blocks/research-overview-block': './src/assets/scss/blocks/research-overview-block.scss',
-      'css/blocks/research-partner-block': './src/assets/scss/blocks/research-partner-block.scss',
+      'css/blocks/logo-and-text': './src/assets/scss/blocks/logo-and-text.scss',
+      'css/blocks/content-with-background-block': './src/assets/scss/blocks/content-with-background-block.scss',
+      'css/blocks/authors-list-block': './src/assets/scss/blocks/authors-list-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

@@ -410,6 +410,7 @@ $blocks = array(
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Authors list block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -507,21 +508,38 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'  		=> 'research-partner-block',
-            'title' 		=> __('Research partner block', 'ltm'),
+            'name'  		=> 'logo-and-text',
+            'title' 		=> __('Logo and text', 'ltm'),
             'path'  		=> 'research',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Research partner block', 'ltm'),
-        'post_types' 	=> array( 'research' ),
+        'description' => __('Logo and text', 'ltm'),
+        'post_types' 	=> array( 'research', 'page', 'post' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Research partner block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-partner-block.min.css',
+        'keywords'    => array( __('Logo and text', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type3',
+                'label' => __('Type 3', 'ltm'),
+                'isDefault' => true,
+            ],
+        ],
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
                 'data' => array(
-                    'image' => 'research-partner-block.png',
+                    'image' => 'logo-and-text.png',
                 )
             )
         )
@@ -643,6 +661,42 @@ function registerCustomBlocks() {
         'mode' => 'preview',
         'display' => true
     ]);
+    acf_register_block_type([
+        'name' => 'content-with-background-block',
+        'title' => 'Content with background block',
+        'path' => 'common',
+        'render_template' => 'template-parts/blocks/common/content-with-background-block.php',
+        'icon' => 'insert-after',
+        'mode' => 'preview',
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
+        'display' => true
+    ]);
+
+//    'css/blocks/content-with-background-block': './src/assets/scss/blocks/content-with-background-block.scss',
+//                array(
+//                    'attrs' => array(
+//                        'name'  		=> 'content-with-background-block',
+//                        'title' 		=> __('Content with background block', 'ltm'),
+//                        'path'  		=> 'common',
+//                    ),
+//                    'icon'  		=> 'table-col-before',
+//                    'description' => __('Content with background block', 'ltm'),
+//                    'post_types' 	=> array( 'page' ),
+//                    'category'  	=> 'ltm-page-blocks',
+//                    'keywords'    => array( __('Content with background block', 'ltm') ),
+//                    'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
+//                    'example'  	=> array(
+//                        'attributes' => array(
+//                            'mode' => 'preview',
+//                            'data' => array(
+//                                'image' => 'content-with-background-block.png',
+//                            )
+//                        )
+//                    )
+//                ),
 }
 add_action('acf/init', 'registerCustomBlocks');
 

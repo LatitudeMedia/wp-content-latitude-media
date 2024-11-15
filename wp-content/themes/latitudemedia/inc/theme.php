@@ -120,7 +120,7 @@ function create_single_research_predefine_blocks() {
         array( 'acf/research-banner-block', array('data' => array('field_67354ddb2f441' => 1))),
         array( 'acf/research-preview-block', array('data' => array('field_67354de6440d2' => 1))),
         array( 'acf/research-overview-block', array('data' => array('field_67354f7fc926c' => 1))),
-        array( 'acf/research-partner-block', array('data' => array('field_67354f9994828' => 1))),
+        array( 'acf/logo-and-text', array('data' => array('field_67354f9994828' => 1))),
     );
 }
 add_action( 'init', 'create_single_research_predefine_blocks', 100 );
