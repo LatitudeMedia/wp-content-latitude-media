@@ -1496,6 +1496,7 @@
 		@include below_md {
 			margin: 0;
 			flex-direction: column;
+			padding: 0 15px;
 		}
 
 		.col {
@@ -1582,6 +1583,15 @@
 							margin-bottom: 0;
 
 							.content-folder {
+								span {
+									&.title {
+										text-transform: uppercase;
+										text-decoration: none;
+										font-family: $inter;
+										display: inline-block;
+										margin-bottom: 40px;
+									}
+								}
 								.title {
 									margin-bottom: 24px;
 								}
