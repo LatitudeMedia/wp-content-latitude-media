@@ -14,8 +14,7 @@ $options = wp_parse_args(
 $blockType = ltm_get_block_style($options['blockAttributes']['className'] ?? []);
 
 get_template_part(
-    'template-parts/components/logo-and-text/logo-and-text',
-    $blockType ?: 'default'
+    'template-parts/components/logo-and-text/' . $blockType ?: 'default'
 );
 
 ?>
