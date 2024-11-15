@@ -91,7 +91,7 @@ function create_post_predefine_blocks() {
     $page_type_object = get_post_type_object( 'post' );
     $page_type_object->template = array(
         array( 'core/paragraph', array('placeholder' => 'Content Body')),
-        array( 'acf/signup-form-section', array('data' => array('field_6707ca1167942' => 1)) ),
+        array( 'acf/signup-form-section', array() ),
         array( 'core/paragraph', array('placeholder' => 'Content Body')),
     );
 }
@@ -146,3 +146,5 @@ function custom_pagination_base( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'custom_pagination_base' );
+
+?>
