@@ -2,6 +2,13 @@
   header {
     padding-bottom: 40px;
   }
+  .event-large-item-section {
+    .event-large-item-section-wrapper {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 880px;
+    }
+  }
 }
 .posts-hero-section {
   @include postsHeroSection;
