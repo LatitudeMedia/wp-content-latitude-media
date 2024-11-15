@@ -5806,6 +5806,51 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'description' => '',
         'show_in_rest' => 0,
     ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_67377ca62f1bb',
+        'title' => 'Standard Page options',
+        'fields' => array(
+            array(
+                'key' => 'field_67377ca665b8c',
+                'label' => 'Hide title',
+                'name' => 'hide_title',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 0,
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
 } );
 
 
