@@ -1,0 +1,37 @@
+@import "../core/core_loader";
+.subscribe-form-section {
+  margin-bottom: 64px;
+  @include subscribeFormSection;
+}
+
+.subscribe-form-section.type-2 {
+  margin-top: 32px;
+  .subscribe-form-section-wrapper {
+    background-color: #F5F5F5;
+    background-image: none;
+    h2 {
+      color: $primary-dark-blue;
+    }
+    .text-side {
+      p {
+        color: $primary-dark-blue;
+      }
+    }
+    .form-side {
+      .form-block  {
+        .form-block-wrapper {
+          form {
+            p {
+              color: $primary-dark-blue;
+            }
+            .fieldset {
+              label {
+                color: $primary-dark-blue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

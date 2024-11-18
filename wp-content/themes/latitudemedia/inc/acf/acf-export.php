@@ -5928,3 +5928,34 @@ acf_add_local_field_group(array(
   ),
   'style' => 'seamless'
 ));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_673b423a4d274',
+  'title' => 'Styled button block',
+  'fields' => array (
+       array (
+           'key' => 'field_673b423a4d276',
+           'label' => 'Styled button block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_673b423a4d277',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/styled-button-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));

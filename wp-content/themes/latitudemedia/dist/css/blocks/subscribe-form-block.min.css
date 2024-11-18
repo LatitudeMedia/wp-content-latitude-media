@@ -1,0 +1,150 @@
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/subscribe-form-block.scss ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.subscribe-form-section {
+  margin-bottom: 64px;
+}
+.subscribe-form-section .subscribe-form-section-wrapper {
+  background: transparent url(../../images/subscribe_bg.jpg) center center no-repeat;
+  padding: 80px;
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+}
+.subscribe-form-section .subscribe-form-section-wrapper h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .text-side {
+  width: 48%;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .text-side p {
+  font-family: "Lora", Arial, Helvetica, serif;
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side {
+  width: 48%;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset {
+  margin-bottom: 24px;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset.checkbox {
+  margin-bottom: 16px;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  opacity: 1;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input::-moz-placeholder { /* Firefox 19+ */
+  opacity: 1;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input:-ms-input-placeholder { /* IE 10+ */
+  opacity: 1;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input:-moz-placeholder { /* Firefox 18- */
+  opacity: 1;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  opacity: 0;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input:focus::-moz-placeholder { /* Firefox 19+ */
+  opacity: 0;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input:focus:-ms-input-placeholder { /* IE 10+ */
+  opacity: 0;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset input:focus:-moz-placeholder { /* Firefox 18- */
+  opacity: 0;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset label {
+  color: #ffffff;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form p {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+.subscribe-form-section .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form input[type=submit] {
+  max-width: 170px;
+}
+
+.subscribe-form-section.type-2 {
+  margin-top: 32px;
+}
+.subscribe-form-section.type-2 .subscribe-form-section-wrapper {
+  background-color: #F5F5F5;
+  background-image: none;
+}
+.subscribe-form-section.type-2 .subscribe-form-section-wrapper h2 {
+  color: #0F1E42;
+}
+.subscribe-form-section.type-2 .subscribe-form-section-wrapper .text-side p {
+  color: #0F1E42;
+}
+.subscribe-form-section.type-2 .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form p {
+  color: #0F1E42;
+}
+.subscribe-form-section.type-2 .subscribe-form-section-wrapper .form-side .form-block .form-block-wrapper form .fieldset label {
+  color: #0F1E42;
+}
+@media screen and (max-width: 768px) {
+  .subscribe-form-section .subscribe-form-section-wrapper .flex-wrapper {
+    flex-direction: column;
+  }
+  .subscribe-form-section .subscribe-form-section-wrapper {
+    padding: 40px;
+  }
+  .subscribe-form-section .subscribe-form-section-wrapper .text-side {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .subscribe-form-section .subscribe-form-section-wrapper .text-side p {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+  .subscribe-form-section .subscribe-form-section-wrapper .form-side {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=subscribe-form-block.min.css.map*/

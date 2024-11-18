@@ -390,6 +390,19 @@ $blocks = array(
         'post_types' 	=> array( 'page', 'sections-landing' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Subscribe form block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/subscribe-form-block.min.css',
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ]
+        ],
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -752,7 +765,7 @@ function registerCustomBlocks() {
             "jsx" =>  true,
         ),
         'mode' => 'preview',
-        'render_template' => 'template-parts/blocks/research/logo-and-text.php',
+        'render_template' => 'template-parts/blocks/common/logo-and-text.php',
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
         'styles'  => [
             [
