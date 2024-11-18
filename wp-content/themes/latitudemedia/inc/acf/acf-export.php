@@ -5438,26 +5438,26 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'mime_types' => '',
                 'preview_size' => 'medium',
             ),
-            array(
-                'key' => 'field_673551707ffa4',
-                'label' => 'Description',
-                'name' => 'description',
-                'aria-label' => '',
-                'type' => 'wysiwyg',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
-            ),
+//            array(
+//                'key' => 'field_673551707ffa4',
+//                'label' => 'Description',
+//                'name' => 'description',
+//                'aria-label' => '',
+//                'type' => 'wysiwyg',
+//                'instructions' => '',
+//                'required' => 0,
+//                'conditional_logic' => 0,
+//                'wrapper' => array(
+//                    'width' => '',
+//                    'class' => '',
+//                    'id' => '',
+//                ),
+//                'default_value' => '',
+//                'tabs' => 'all',
+//                'toolbar' => 'full',
+//                'media_upload' => 1,
+//                'delay' => 0,
+//            ),
             array(
                 'key' => 'field_67362db82424e',
                 'label' => 'Base color',
@@ -5883,6 +5883,46 @@ acf_add_local_field_group(array(
                'param' => 'block',
                'operator' => '==',
                'value' => 'acf/order-form-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_673b3369c9f5e',
+  'title' => 'Styled button block',
+  'fields' => array (
+       array (
+           'key' => 'field_673b3369c9f5f',
+           'label' => 'Styled button block',
+           'name' => '',
+           'type' => 'message',
+       ),
+      array(
+          'key' => 'field_673b3369c9f60',
+          'label' => 'Button',
+          'name' => 'button',
+          'aria-label' => '',
+          'type' => 'link',
+          'instructions' => '',
+          'required' => 0,
+          'conditional_logic' => 0,
+          'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+          ),
+          'return_format' => 'array',
+      ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/styled-button-block',
            ),
        ),
   ),

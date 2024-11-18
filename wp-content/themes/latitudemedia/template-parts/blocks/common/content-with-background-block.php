@@ -4,16 +4,14 @@ if (is_admin()) {
 }
 // Set defaults Content with background block. 
 
-$options = wp_parse_args(
-    $args, get_fields() ?: [],
+$options = wp_parse_args(get_fields() ?: [],
     [
         'background_color'  => [],
-        'blockAttributes'   => [],
+        'blockAttributes'   => $block,
     ]
 );
 
 extract($options);
-
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [

@@ -684,3 +684,10 @@ article {
     }
   }
 }
+.container-narrow {
+  .content-block {
+    .container-narrow {
+      all: unset;
+    }
+  }
+}

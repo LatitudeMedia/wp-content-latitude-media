@@ -527,44 +527,47 @@ $blocks = array(
             )
         )
     ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'logo-and-text',
-            'title' 		=> __('Logo and text', 'ltm'),
-            'path'  		=> 'research',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('Logo and text', 'ltm'),
-        'post_types' 	=> array( 'research', 'page', 'post' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Logo and text', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type3',
-                'label' => __('Type 3', 'ltm'),
-                'isDefault' => true,
-            ],
-        ],
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'logo-and-text.png',
-                )
-            )
-        )
-    ),
+//    array(
+//        'attrs' => array(
+//            'name'  		=> 'logo-and-text',
+//            'title' 		=> __('Logo and text', 'ltm'),
+//            'path'  		=> 'research',
+//        ),
+//        'icon'  		=> 'table-col-before',
+//        'description' => __('Logo and text', 'ltm'),
+//        'post_types' 	=> array( 'research', 'page', 'post' ),
+//        'category'  	=> 'ltm-page-blocks',
+//        'keywords'    => array( __('Logo and text', 'ltm') ),
+//        "supports" =>  array(
+//            "jsx" =>  true,
+//        ),
+//        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
+//        'styles'  => [
+//            [
+//                'name' => 'default',
+//                'label' => __('Default', 'ltm'),
+//                'isDefault' => true,
+//            ],
+//            [
+//                'name' => 'type2',
+//                'label' => __('Type 2', 'ltm'),
+//                'isDefault' => true,
+//            ],
+//            [
+//                'name' => 'type3',
+//                'label' => __('Type 3', 'ltm'),
+//                'isDefault' => true,
+//            ],
+//        ],
+//        'example'  	=> array(
+//            'attributes' => array(
+//                'mode' => 'preview',
+//                'data' => array(
+//                    'image' => 'logo-and-text.png',
+//                )
+//            )
+//        )
+//    ),
     array(
         'attrs' => array(
             'name'  		=> 'research-overview-block',
@@ -737,29 +740,68 @@ function registerCustomBlocks() {
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
         'display' => true
     ]);
+    acf_register_block_type([
+        'name'  		=> 'logo-and-text',
+        'title' 		=> __('Logo and text', 'ltm'),
+        'path'  		=> 'research',
+        'icon'  		=> 'table-col-before',
+        'description' => __('Logo and text', 'ltm'),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Logo and text', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'mode' => 'preview',
+        'render_template' => 'template-parts/blocks/research/logo-and-text.php',
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type3',
+                'label' => __('Type 3', 'ltm'),
+                'isDefault' => true,
+            ],
+        ],
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'logo-and-text.png',
+                )
+            )
+        ),
+    ]);
 
-//    'css/blocks/content-with-background-block': './src/assets/scss/blocks/content-with-background-block.scss',
-//                array(
-//                    'attrs' => array(
-//                        'name'  		=> 'content-with-background-block',
-//                        'title' 		=> __('Content with background block', 'ltm'),
-//                        'path'  		=> 'common',
-//                    ),
-//                    'icon'  		=> 'table-col-before',
-//                    'description' => __('Content with background block', 'ltm'),
-//                    'post_types' 	=> array( 'page' ),
-//                    'category'  	=> 'ltm-page-blocks',
-//                    'keywords'    => array( __('Content with background block', 'ltm') ),
-//                    'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
-//                    'example'  	=> array(
-//                        'attributes' => array(
-//                            'mode' => 'preview',
-//                            'data' => array(
-//                                'image' => 'content-with-background-block.png',
-//                            )
-//                        )
-//                    )
-//                ),
+    acf_register_block_type([
+        'name' => 'styled-button-block',
+        'title' => 'Styled button block',
+        'path' => 'common',
+        'render_template' => 'template-parts/blocks/common/styled-button-block.php',
+        'icon' => 'insert-after',
+        'mode' => 'preview',
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
+        'display' => true,
+        'example'  	=> array(
+        'attributes' => array(
+            'mode' => 'preview',
+            'data' => array(
+                'image' => 'styled-button-block.png',
+            )
+        )
+    )
+    ]);
 }
 add_action('acf/init', 'registerCustomBlocks');
 

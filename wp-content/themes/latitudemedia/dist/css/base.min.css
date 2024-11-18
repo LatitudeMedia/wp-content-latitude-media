@@ -870,6 +870,10 @@ article ul li {
   all: unset;
 }
 
+.container-narrow .content-block .container-narrow {
+  all: unset;
+}
+
 @media screen and (max-width: 992px) {
   .wrapper {
     margin: 0;

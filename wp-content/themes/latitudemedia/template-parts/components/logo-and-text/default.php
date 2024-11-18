@@ -1,11 +1,11 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Logo and text', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Logo and text DEFAULT', 'ltm') . '</h3>';
 }
 // Set defaults Logo and text.
 
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, get_fields() ?: []),
     [
         'title'         => '',
         'logo'          => null,
@@ -34,24 +34,28 @@ $blockAttrs = wp_kses_data(
   )
 );
 
+
+$my_block_template = array(
+    array(
+        'core/paragraph',
+    ),
+);
+
+
 ?>
 
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
         <div class="logo-description-block-wrapper">
-            <div class="logo-image">
-                <?php
-                   if( !empty($logo) ) {
-                        do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]);
-                    }
-                ?>
+            <?php if( !empty($logo) ) : ?>
+                <div class="logo-image">
+                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]); ?>
+                </div>
+            <?php endif; ?>
+            <div class="description">
+                <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />
             </div>
-            <?php
-                if( !empty($description) ) {
-                    printf('<div class="description">%s</div>', $description);
-                }
-            ?>
         </div>
     </div>
 </div>
