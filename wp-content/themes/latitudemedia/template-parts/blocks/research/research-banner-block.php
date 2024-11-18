@@ -7,9 +7,9 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge($args, get_fields() ?? []),
     [
-        'display' => false,
-        'banner' => false,
-        'blockAttributes' => [],
+        'post_id'           => false,
+        'display'           => false,
+        'blockAttributes'   => [],
     ]
 );
 
@@ -19,9 +19,6 @@ if(!$display && !is_admin()) {
     return;
 }
 
-if( !$banner ) {
-    return;
-}
 $blockAttrs =  wp_kses_data(
   get_block_wrapper_attributes(
       [
@@ -31,8 +28,16 @@ $blockAttrs =  wp_kses_data(
   )
 );
 
+if( get_post_type($post_id) === 'order-reports') {
+    $researchData = get_order_report_data($post_id);
+} else {
+    $researchData = get_research_data($post_id);
+}
+if( empty($researchData['banner']['ID']) ) {
+    return;
+}
 ?>
 
 <div <?php echo $blockAttrs; ?>>
-    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $banner['ID']]); ?>
+    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $researchData['banner']['ID']]); ?>
 </div>

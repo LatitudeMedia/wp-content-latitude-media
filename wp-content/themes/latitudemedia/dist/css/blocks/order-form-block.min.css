@@ -1,0 +1,127 @@
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/order-form-block.scss ***!
+  \*************************************************************************************************************************************************************************************************************/
+.order-form-section {
+  margin-bottom: 64px;
+}
+.order-form-section .order-form-section-wrapper form h5 {
+  text-align: center;
+}
+.order-form-section .order-form-section-wrapper form .fieldset {
+  margin-bottom: 32px;
+  width: 100%;
+}
+.order-form-section .order-form-section-wrapper form .fieldset.double {
+  display: flex;
+  justify-content: space-between;
+}
+.order-form-section .order-form-section-wrapper form .fieldset label {
+  display: block;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  text-align: left;
+  margin-bottom: 6px;
+}
+.order-form-section .order-form-section-wrapper form .fieldset label em {
+  color: #FF0000;
+}
+.order-form-section .order-form-section-wrapper form .fieldset .left {
+  width: 48%;
+}
+.order-form-section .order-form-section-wrapper form .fieldset .right {
+  width: 48%;
+}
+.order-form-section .order-form-section-wrapper form .fieldset.checkbox {
+  margin-bottom: 16px;
+}
+.order-form-section .order-form-section-wrapper form .fieldset.checkbox label {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+}
+.order-form-section .order-form-section-wrapper form p {
+  text-align: center;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+.order-form-section .order-form-section-wrapper form p a {
+  color: #0095DA;
+  text-decoration: underline;
+}
+.order-form-section .order-form-section-wrapper form p a:hover {
+  text-decoration: none;
+}
+.order-form-section .order-form-section-wrapper form input {
+  padding: 8px 14px;
+  color: #6E6E6E;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  border: 1px solid #0095DA;
+  height: 40px;
+  background-color: #F5F8FA;
+  width: 100%;
+}
+.order-form-section .order-form-section-wrapper form input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  margin: 4px 8px 0 0;
+  border: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  outline: none;
+}
+.order-form-section .order-form-section-wrapper form input[type=submit] {
+  outline: none;
+  background-color: #0095DA;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid #0095DA;
+  display: table;
+  margin: 0 auto;
+  width: auto;
+  padding: 16px 32px;
+  height: auto;
+}
+.order-form-section .order-form-section-wrapper form input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #0095DA;
+}
+@media screen and (max-width: 768px) {
+  .order-form-section .order-form-section-wrapper form .fieldset.double {
+    flex-direction: column;
+  }
+  .order-form-section .order-form-section-wrapper form .fieldset .left {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .order-form-section .order-form-section-wrapper form .fieldset .right {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=order-form-block.min.css.map*/

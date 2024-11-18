@@ -127,12 +127,31 @@ function get_research_data($research_id) {
     }
 
     return [
+        'banner'                => get_field('banner', $research_id),
         'hubspot_payment_link'  => get_field('hubspot_payment_link', $research_id),
         'full_price'            => get_field('full_price', $research_id),
         'purchase_form_code'    => get_field('purchase_form_code', $research_id),
         'download_form_code'    => get_field('download_form_code', $research_id),
         'order_page'            => get_field('order_page', $research_id),
     ];
+}
+
+/**
+ * @param $order_id
+ * @return array
+ */
+function get_order_report_data($orderId) {
+    if(!$orderId) {
+        return [];
+    }
+
+    $researchData = [];
+    $researchId = get_field('research_item', $orderId);
+    if( !empty($researchId) ) {
+        $researchData = get_research_data($researchId);
+        $researchData['research_id'] = $researchId;
+    }
+    return $researchData;
 }
 
 /**

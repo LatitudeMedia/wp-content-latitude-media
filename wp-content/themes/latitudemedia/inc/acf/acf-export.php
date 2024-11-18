@@ -3348,31 +3348,31 @@ add_action( 'acf/include_fields', function() {
                 'prepend' => '',
                 'append' => '',
             ),
-//            array(
-//                'key' => 'field_67051f6f5e833',
-//                'label' => 'Banner',
-//                'name' => 'banner',
-//                'aria-label' => '',
-//                'type' => 'image',
-//                'instructions' => '',
-//                'required' => 0,
-//                'conditional_logic' => 0,
-//                'wrapper' => array(
-//                    'width' => '',
-//                    'class' => '',
-//                    'id' => '',
-//                ),
-//                'return_format' => 'array',
-//                'library' => 'all',
-//                'min_width' => '',
-//                'min_height' => '',
-//                'min_size' => '',
-//                'max_width' => '',
-//                'max_height' => '',
-//                'max_size' => '',
-//                'mime_types' => '',
-//                'preview_size' => 'medium',
-//            ),
+            array(
+                'key' => 'field_67051f6f5e833',
+                'label' => 'Banner',
+                'name' => 'banner',
+                'aria-label' => '',
+                'type' => 'image',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+                'library' => 'all',
+                'min_width' => '',
+                'min_height' => '',
+                'min_size' => '',
+                'max_width' => '',
+                'max_height' => '',
+                'max_size' => '',
+                'mime_types' => '',
+                'preview_size' => 'medium',
+            ),
             array(
                 'key' => 'field_6705263b0ad0a',
                 'label' => 'Date',
@@ -5248,31 +5248,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'new_lines' => 'wpautop',
             ),
             array(
-                'key' => 'field_673551233c83e',
-                'label' => 'Banner',
-                'name' => 'banner',
-                'aria-label' => '',
-                'type' => 'image',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'return_format' => 'array',
-                'library' => 'all',
-                'min_width' => '',
-                'min_height' => '',
-                'min_size' => '',
-                'max_width' => '',
-                'max_height' => '',
-                'max_size' => '',
-                'mime_types' => '',
-                'preview_size' => 'medium',
-            ),
-            array(
                 'key' => 'field_67354ddb2f441',
                 'label' => 'Display',
                 'name' => 'display',
@@ -5853,3 +5828,63 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
     ) );
 } );
 
+acf_add_local_field_group(array(
+  'key' => 'field_6739e4e7caab9',
+  'title' => 'Order preview block',
+  'fields' => array (
+       array (
+           'key' => 'field_6739e4e7caabb',
+           'label' => 'Order preview block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_6739e4e7caabc',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/order-preview-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_6739e5a2bd5bb',
+  'title' => 'Order form block',
+  'fields' => array (
+       array (
+           'key' => 'field_6739e5a2bd5bd',
+           'label' => 'Order form block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_6739e5a2bd5be',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/order-form-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));

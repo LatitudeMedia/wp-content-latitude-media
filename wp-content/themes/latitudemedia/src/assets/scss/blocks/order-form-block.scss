@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.order-form-section {
+  margin-bottom: 64px;
+  @include orderFormSection;
+}

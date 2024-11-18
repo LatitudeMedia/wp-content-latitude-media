@@ -493,7 +493,7 @@ $blocks = array(
         ),
         'icon'  		=> 'table-col-before',
         'description' => __('Research banner block', 'ltm'),
-        'post_types' 	=> array( 'research' ),
+        'post_types' 	=> array( 'research', 'order-reports' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Research banner block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css',
@@ -582,6 +582,48 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'research-overview-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'order-preview-block',
+            'title' 		=> __('Order preview block', 'ltm'),
+            'path'  		=> 'order-report',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Order preview block', 'ltm'),
+        'post_types' 	=> array( 'order-reports' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Order preview block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'order-preview-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'order-form-block',
+            'title' 		=> __('Order form block', 'ltm'),
+            'path'  		=> 'order-report',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Order form block', 'ltm'),
+        'post_types' 	=> array( 'order-reports' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Order form block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/order-form-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'order-form-block.png',
                 )
             )
         )

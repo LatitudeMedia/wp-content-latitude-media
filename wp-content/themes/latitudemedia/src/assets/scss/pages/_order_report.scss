@@ -1,4 +1,4 @@
-.order-report {
+.single-order-reports {
   header {
     padding-bottom: 0;
   }
@@ -14,9 +14,4 @@
       }
     }
   }
-}
-
-.order-form-section {
-  margin-bottom: 64px;
-  @include orderFormSection;
 }

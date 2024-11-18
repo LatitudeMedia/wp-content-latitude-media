@@ -36,6 +36,7 @@ module.exports = (env) => {
       'css/blocks/logo-and-text': './src/assets/scss/blocks/logo-and-text.scss',
       'css/blocks/content-with-background-block': './src/assets/scss/blocks/content-with-background-block.scss',
       'css/blocks/authors-list-block': './src/assets/scss/blocks/authors-list-block.scss',
+      'css/blocks/order-form-block': './src/assets/scss/blocks/order-form-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),
