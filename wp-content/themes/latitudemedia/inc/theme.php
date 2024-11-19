@@ -150,7 +150,7 @@ add_action( 'pre_get_posts', 'custom_pagination_base' );
 // Modify pagination base to use a GET parameter
 function resources_archive_custom_query( $query ) {
     if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'resources' ) ) {
-        $query->set( 'posts_per_page', 6 );
+        $query->set( 'posts_per_page', 9 );
         $featured = get_field('featured_resource', 'options');
         if($featured) {
             $query->set( 'post__not_in', [$featured]);
