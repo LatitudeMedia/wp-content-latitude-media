@@ -57,9 +57,20 @@ function wp_blank_widgets_init() {
     // Article Sidebar.
     register_sidebar(
         array(
-            'name'        => __( 'Article Sidebar', 'innolead' ),
+            'name'        => __( 'Article Sidebar', 'ltm' ),
             'id'          => 'article-sidebar',
-            'description' => __( 'Sidebar for article.', 'innolead' ),
+            'description' => __( 'Sidebar for article.', 'ltm' ),
+            'before_widget' => '',
+            'after_widget' => '',
+            'show_in_rest' => true,
+        )
+    );
+    // Podcast default sidebar.
+    register_sidebar(
+        array(
+            'name'        => __( 'Podcast default Sidebar', 'ltm' ),
+            'id'          => 'podcast-default-sidebar',
+            'description' => __( 'Sidebar for podcasts list.', 'ltm' ),
             'before_widget' => '',
             'after_widget' => '',
             'show_in_rest' => true,
@@ -71,9 +82,9 @@ function wp_blank_widgets_init() {
             foreach ($sidebars as $key => $sidebar) {
                 register_sidebar(
                     array(
-                        'name' => __($sidebar['name'], 'innolead'),
+                        'name' => __($sidebar['name'], 'ltm'),
                         'id' => 'custom-sidebar-' . $key,
-                        'description' => __('Sidebar for ' . $sidebar['name'] . ' .', 'innolead'),
+                        'description' => __('Sidebar for ' . $sidebar['name'] . ' .', 'ltm'),
                         'before_widget' => '<div class="sidebar-holder">',
                         'after_widget' => '</div>',
                     )

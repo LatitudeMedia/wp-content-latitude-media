@@ -273,3 +273,28 @@ function get_published_post_by_id($post_id = null, $args = []) {
 
     return false;
 }
+
+/**
+ * @param null $podcast_id
+ * @param array $args
+ * @return WP_Query
+ */
+function get_podcast_episodes($podcast_id = null, $args = []) {
+    if( empty($podcast_id) ) {
+        return new WP_Query();
+    }
+
+    $defaultArgs = [
+        'post_type'        => 'post',
+        'meta_query'        => array(
+            array(
+                'key'       => 'podcast',
+                'value'     => $podcast_id,
+                'compare'   => '=',
+            ),
+        ),
+    ];
+    $queryArgs = wp_parse_args($args, $defaultArgs);
+
+    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
+}

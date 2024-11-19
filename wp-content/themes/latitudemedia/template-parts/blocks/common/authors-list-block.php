@@ -50,11 +50,6 @@ if( empty($authors) ) {
     return;
 }
 
-$socialLogos = [
-    'linkedin' => 'icon_vector_linkedin.svg',
-    'x_twitter' => 'icon_vector_X.svg',
-    'other_social' => 'icon_world.svg',
-];
 ?>
 
 <div
@@ -97,15 +92,9 @@ $socialLogos = [
                                 printf('<div class="occupation">%s</div>', $authorData['job_title']);
                             }
 
-                            if( $socialsData ) {
-                                $socialWrap = '<ul class="socials">%s</ul>';
-                                $socialContent = '';
-                                foreach ($socialsData as $key => $item) {
-                                    $socialContent .= sprintf('<li><a href="%s" target="_blank"><img src="%s/src/images/%s" alt="icon" class="icon"></a></li>', $item, get_template_directory_uri(), $socialLogos[$key] ?? '');
-                                }
-
-                                printf($socialWrap, $socialContent);
-                            }
+                            get_template_part('template-parts/components/social', 'links', [
+                                'links' => $socialsData
+                            ]);
                             ?>
                         </div>
                     </li>

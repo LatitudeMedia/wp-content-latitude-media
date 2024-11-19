@@ -41,6 +41,7 @@ module.exports = (env) => {
       'css/blocks/categories-section-block': './src/assets/scss/blocks/categories-section-block.scss',
       'css/blocks/news-with-hero': './src/assets/scss/blocks/news-with-hero.scss',
       'css/blocks/news-with-sidebar-section-block': './src/assets/scss/blocks/news-with-sidebar-section-block.scss',
+      'css/blocks/sidebar-info-block': './src/assets/scss/blocks/sidebar-info-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

@@ -2963,6 +2963,30 @@ add_action( 'acf/include_fields', function() {
                     ),
                 ),
             ),
+            array(
+                'key' => 'field_673d0e9170f0c',
+                'label' => 'Sidebar widget',
+                'name' => 'sidebar_widget',
+                'aria-label' => '',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                ),
+                'default_value' => false,
+                'return_format' => 'value',
+                'multiple' => 0,
+                'allow_null' => 1,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
         ),
         'location' => array(
             array(
@@ -5963,136 +5987,206 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'description' => '',
         'show_in_rest' => 0,
     ) );
+
+
+    acf_add_local_field_group(array(
+        'key' => 'field_6739e4e7caab9',
+        'title' => 'Order preview block',
+        'fields' => array (
+            array (
+                'key' => 'field_6739e4e7caabb',
+                'label' => 'Order preview block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_6739e4e7caabc',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/order-preview-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+
+    acf_add_local_field_group(array(
+        'key' => 'field_6739e5a2bd5bb',
+        'title' => 'Order form block',
+        'fields' => array (
+            array (
+                'key' => 'field_6739e5a2bd5bd',
+                'label' => 'Order form block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_6739e5a2bd5be',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/order-form-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+
+    acf_add_local_field_group(array(
+        'key' => 'field_673b3369c9f5e',
+        'title' => 'Styled button block',
+        'fields' => array (
+            array (
+                'key' => 'field_673b3369c9f5f',
+                'label' => 'Styled button block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_673b3369c9f60',
+                'label' => 'Button',
+                'name' => 'button',
+                'aria-label' => '',
+                'type' => 'link',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/styled-button-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+    acf_add_local_field_group( array(
+        'key' => 'group_673d1350d0368',
+        'title' => 'Sidebar info block',
+        'fields' => array(
+            array(
+                'key' => 'field_673d1219a4134',
+                'label' => 'Sidebar info block',
+                'name' => '',
+                'aria-label' => '',
+                'type' => 'message',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_673d1355a8150',
+                'label' => 'Title',
+                'name' => 'title',
+                'aria-label' => '',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+            ),
+            array(
+                'key' => 'field_673d135ba8151',
+                'label' => 'Button',
+                'name' => 'button',
+                'aria-label' => '',
+                'type' => 'link',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+            ),
+            array(
+                'key' => 'field_673d1219a4135',
+                'label' => 'Display',
+                'name' => 'display',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => false,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'ui' => 1,
+                'default_value' => 0,
+                'message' => '',
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/sidebar-info-block',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
 } );
 
-acf_add_local_field_group(array(
-  'key' => 'field_6739e4e7caab9',
-  'title' => 'Order preview block',
-  'fields' => array (
-       array (
-           'key' => 'field_6739e4e7caabb',
-           'label' => 'Order preview block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_6739e4e7caabc',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/order-preview-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_6739e5a2bd5bb',
-  'title' => 'Order form block',
-  'fields' => array (
-       array (
-           'key' => 'field_6739e5a2bd5bd',
-           'label' => 'Order form block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_6739e5a2bd5be',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/order-form-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_673b3369c9f5e',
-  'title' => 'Styled button block',
-  'fields' => array (
-       array (
-           'key' => 'field_673b3369c9f5f',
-           'label' => 'Styled button block',
-           'name' => '',
-           'type' => 'message',
-       ),
-      array(
-          'key' => 'field_673b3369c9f60',
-          'label' => 'Button',
-          'name' => 'button',
-          'aria-label' => '',
-          'type' => 'link',
-          'instructions' => '',
-          'required' => 0,
-          'conditional_logic' => 0,
-          'wrapper' => array(
-              'width' => '',
-              'class' => '',
-              'id' => '',
-          ),
-          'return_format' => 'array',
-      ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/styled-button-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_673b423a4d274',
-  'title' => 'Styled button block',
-  'fields' => array (
-       array (
-           'key' => 'field_673b423a4d276',
-           'label' => 'Styled button block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_673b423a4d277',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/styled-button-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));

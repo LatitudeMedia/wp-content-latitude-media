@@ -1158,7 +1158,7 @@
 						display: flex;
 						align-items: center;
 
-						.post-time {
+						.time {
 							font-family: $inter;
 							@include fontSize(13px);
 							font-weight: 600;
@@ -1184,7 +1184,7 @@
 							}
 						}
 
-						.post-calendar {
+						.date {
 							font-family: $inter;
 							@include fontSize(13px);
 							font-weight: 400;
@@ -1550,7 +1550,25 @@
 								.time {
 									color: $white;
 									background-color: transparent;
-									margin-right: 0;
+                                    position: relative;
+                                    padding-right: 8px;
+                                    margin-right: 8px;
+
+                                  &:after {
+                                    content: '';
+                                    display: block;
+                                    width: 2px;
+                                    height: 13px;
+                                    position: absolute;
+                                    right: 0;
+                                    top: 50%;
+                                    -webkit-transform: translateY(-50%);
+                                    -moz-transform: translateY(-50%);
+                                    -ms-transform: translateY(-50%);
+                                    -o-transform: translateY(-50%);
+                                    transform: translateY(-50%);
+                                    background-color: $white;
+                                  }
 								}
 
 								span {
@@ -4832,7 +4850,7 @@
 					display: flex;
 					align-items: center;
 
-					.post-time {
+					.time {
 						font-family: $inter;
 						@include fontSize(13px);
 						font-weight: 600;
@@ -4859,13 +4877,14 @@
 						}
 					}
 
-					.post-calendar {
+					.date {
 						font-family: $inter;
 						@include fontSize(13px);
 						font-weight: 400;
 						line-height: 20px;
 						text-align: left;
 						color: #6E6E6E;
+						text-transform: uppercase;
 					}
 				}
 			}

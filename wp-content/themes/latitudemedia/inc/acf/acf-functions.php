@@ -234,6 +234,28 @@ $blocks = array(
             )
         )
     ),
+
+    array(
+        'attrs' => array(
+            'name'  		=> 'sidebar-info-block',
+            'title' 		=> __('Sidebar info block', 'ltm'),
+            'path'  		=> 'sidebar',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Sidebar info block', 'ltm'),
+//        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Sidebar info block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/sidebar-info-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'sidebar-info-block.png',
+                )
+            )
+        )
+    ),
     // END Sidebar blocks
 
     array(
@@ -653,6 +675,28 @@ $blocks = array(
         )
     ),
     // END Single Research
+
+    array(
+        'attrs' => array(
+            'name'  		=> 'podcast-overview-block',
+            'title' 		=> __('Podcast overview block', 'ltm'),
+            'path'  		=> 'podcast',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Podcast overview block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Podcast overview block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/podcast-overview-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'podcast-overview-block.png',
+                )
+            )
+        )
+    ),
 );
 
 new ACFBlocks( $blocks );

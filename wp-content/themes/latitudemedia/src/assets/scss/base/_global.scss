@@ -254,22 +254,6 @@ article {
   }
 }
 
-.info-block {
-  padding: 40px 32px;
-  background-color: #F5F5F5;
-  .info-block-wrapper {
-    text-align: center;
-    h5 {
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    .button {
-      @include shadowButton
-    }
-  }
-}
-
 /* modal styles */
 .modal-content {
   display: none;

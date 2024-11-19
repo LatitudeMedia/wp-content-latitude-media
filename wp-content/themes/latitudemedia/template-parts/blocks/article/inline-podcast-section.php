@@ -24,23 +24,6 @@ if( empty($embed_code) ) {
     return;
 }
 
-$links = [];
-$apple_link     = get_field('apple_episode_link', $post_id);
-$spotify_link   = get_field('spotify_episode_link', $post_id);
-if( !empty($apple_link) ) {
-    $links[] = [
-            'icon' => 'icon_apple_podcast.svg',
-            'link' => $apple_link,
-    ];
-}
-
-if( !empty($spotify_link) ) {
-    $links[] = [
-            'icon' => 'icon_spotify.svg',
-            'link' => $spotify_link,
-    ];
-}
-
 ?>
 <div
     <?php
@@ -59,14 +42,15 @@ if( !empty($spotify_link) ) {
     <?php if( !empty($links) ) : ?>
     <div class="podcast-info">
         <div class="row">
-            <span class="label"><?php _e('Listen to the episode on:', 'tlm'); ?></span>
-            <ul class="socials">
-                <?php
-                foreach ($links as $link) {
-                    printf('<li><a href="%s"><img src="%s" alt="icon" class="icon"></a></li>', $link['link'], get_stylesheet_directory_uri() . '/src/images/' . $link['icon']);
-                }
-                ?>
-            </ul>
+            <?php
+            get_template_part('template-parts/podcast/listening', 'links', [
+                'title' => 'Listen to the episode on:',
+                'links' => [
+                    'apple'     => $apple_link,
+                    'spotify'   => $spotify_link,
+                ]
+            ]);
+            ?>
         </div>
     </div>
     <?php endif; ?>

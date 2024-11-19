@@ -43,21 +43,7 @@ if( empty($columns) ) {
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
         <div class="podcasts-large-blue-section-wrapper">
             <?php foreach ($columns as $column) :
-
-                $items = \LatitudeMedia\Manage_Data()->curated_query(
-                    [
-                        'post_type'         => 'post',
-                        'posts_per_page'    => $number_of_items ?? 3,
-                        'meta_query'        => array(
-                            array(
-                                'key'       => 'podcast',
-                                'value'     => $column,
-                                'compare'   => '=',
-                            ),
-                        ),
-
-                    ]
-                );
+                $items = get_podcast_episodes($column, ['posts_per_page'    => $number_of_items ?? 3,]);
                 if( !$items->have_posts() ) {
                     continue;
                 }
@@ -104,7 +90,6 @@ if( empty($columns) ) {
                                     [title]
                                     <div class="info">
                                         [time]
-                                        <span></span>
                                         [date]
                                     </div>
                                 </div>

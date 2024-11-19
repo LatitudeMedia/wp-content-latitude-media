@@ -249,7 +249,9 @@ if ( ! function_exists( 'print_podcast_time' ) ) :
 
         $podcast_time = get_field('podcast_time', $post_id);
 
-        echo '<span class="time">' . $podcast_time . ' MIN</span>';
+        if( !empty($podcast_time) ) {
+            echo '<div class="time">' . $podcast_time . ' min</div>';
+        }
     }
     add_action('print_podcast_time', 'print_podcast_time', 10, 4);
 endif;
@@ -350,14 +352,14 @@ endif;
 
 
 if ( ! function_exists( 'paginator' ) ) :
-    function paginator( $wp_query = null, $dynamic = false ) {
+    function paginator( $wp_query = null, $dynamic = false, $base = 'page' ) {
         if(!$wp_query) {
             global $wp_query;
         }
 
         if ( !$wp_query->max_num_pages <= 1 ) {
             $args = [
-                'format' => $dynamic ? '?page=%#%' : '',
+                'format' => $dynamic ? "?{$base}=%#%" : '',
                 'total' => $wp_query->max_num_pages,
                 'current' => max(1, $wp_query->get('paged')),
                 'end_size' => 1,
@@ -385,5 +387,5 @@ if ( ! function_exists( 'paginator' ) ) :
         }
 
     }
-    add_action('paginator', 'paginator', 10, 2);
+    add_action('paginator', 'paginator', 10, 3);
 endif;

@@ -1,0 +1,94 @@
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/sidebar-info-block.scss ***!
+  \***************************************************************************************************************************************************************************************************************/
+.info-block {
+  padding: 40px 32px;
+  background-color: #F5F5F5;
+}
+.info-block .info-block-wrapper {
+  text-align: center;
+}
+.info-block .info-block-wrapper h5 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.info-block .info-block-wrapper .button {
+  outline: none;
+  background-color: #ffffff;
+  color: #C6168D;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid #C6168D;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4;
+  -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
+  box-shadow: -10px 10px 0 0 #F9E8F4;
+}
+.info-block .info-block-wrapper .button:hover {
+  background-color: #C6168D;
+  color: #ffffff;
+}
+.info-block .info-block-wrapper .button.pink {
+  background-color: #ffffff;
+  color: #C6168D !important;
+  border: 1px solid #C6168D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+}
+.info-block .info-block-wrapper .button.pink:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
+}
+.info-block .info-block-wrapper .button.green {
+  background-color: #ffffff;
+  color: #00B48D !important;
+  border: 1px solid #00B48D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+  -moz-box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+  box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+}
+.info-block .info-block-wrapper .button.green:hover {
+  background-color: #00B48D !important;
+  color: #ffffff !important;
+}
+.info-block .info-block-wrapper .button.blue {
+  background-color: #ffffff;
+  color: #0095DA !important;
+  border: 1px solid #0095DA !important;
+  -webkit-box-shadow: -10px 10px 0 0 #E5F4FC !important;
+  -moz-box-shadow: -10px 10px 0 0 #E5F4FC !important;
+  box-shadow: -10px 10px 0 0 #E5F4FC !important;
+}
+.info-block .info-block-wrapper .button.blue:hover {
+  background-color: #0095DA !important;
+  color: #ffffff !important;
+}
+.info-block .info-block-wrapper .button.orange {
+  background-color: #ffffff;
+  color: #F99D1C !important;
+  border: 1px solid #F99D1C !important;
+  -webkit-box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+  -moz-box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+  box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+}
+.info-block .info-block-wrapper .button.orange:hover {
+  background-color: #F99D1C !important;
+  color: #ffffff !important;
+}
+
+/*# sourceMappingURL=sidebar-info-block.min.css.map*/
