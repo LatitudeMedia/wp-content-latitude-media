@@ -1981,80 +1981,6 @@
 	}
 }
 
-@mixin pager {
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		li {
-			margin: 0 12px;
-			@include below_sm {
-				margin: 0 4px;
-			}
-
-			a, .current {
-				width: auto;
-				display: block;
-				padding: 16px 24px;
-				@include transition3;
-				font-family: $inter;
-				@include fontSize(14px);
-				font-weight: 800;
-				line-height: 22px;
-				letter-spacing: 0.3em;
-				text-align: center;
-				box-shadow: -10px 10px 0 -1px;
-				border: 1px solid;
-				margin-left: 10px;
-				text-decoration: none;
-				@include below_sm {
-					padding: 8px 6px 8px 10px;
-					line-height: 16px;
-					box-shadow: -4px 4px 0 -1px;
-					border: 1px solid;
-					margin-left: 4px;
-				}
-			}
-
-			span {
-				@include transition3;
-			}
-		}
-	}
-	&.pink {
-		ul {
-			li {
-				@include pagination_item_colored($primary-pink, $pink_shadow, $white);
-			}
-		}
-	}
-	&.green {
-		ul {
-			li {
-				@include pagination_item_colored($green, $green_shadow, $white);
-			}
-		}
-	}
-	&.blue {
-		ul {
-			li {
-				@include pagination_item_colored($blue, $blue_shadow, $white);
-			}
-		}
-	}
-	&.orange {
-		ul {
-			li {
-				@include pagination_item_colored($orange, $orange_shadow, $white);
-			}
-		}
-	}
-}
-
 @mixin podcastPostListItem {
 	.image-folder {
 		margin-bottom: 46px;
@@ -6026,7 +5952,7 @@
 				}
 
 				.content-folder {
-					.category {
+					.tag {
 						font-family: $inter;
 						@include fontSize(14px);
 						font-weight: 500;
@@ -6075,7 +6001,7 @@
 					}
 
 					.content-folder {
-						.category {
+						.tag {
 							color: $primary-pink;
 						}
 
@@ -6100,7 +6026,7 @@
 					}
 
 					.content-folder {
-						.category {
+						.tag {
 							color: $green;
 						}
 
@@ -6125,7 +6051,7 @@
 					}
 
 					.content-folder {
-						.category {
+						.tag {
 							color: $blue;
 						}
 
@@ -6150,7 +6076,7 @@
 					}
 
 					.content-folder {
-						.category {
+						.tag {
 							color: $orange;
 						}
 

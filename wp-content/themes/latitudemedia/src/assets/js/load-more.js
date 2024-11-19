@@ -12,11 +12,11 @@ $(document).ready(function($) {
         $.get({
             url: url,
             success: (responce) => {
-                const newxPageContent = $($.parseHTML(responce)).find(".posts-list-section");
+                const newxPageContent = $($.parseHTML(responce)).find(".load-more-posts");
                 if(newxPageContent) {
                     // loadMoreContainer.replaceWith(newxPageContent);
                     history.pushState({}, "", url);
-                    $('.posts-list-section', loadMoreContainer).replaceWith(newxPageContent);
+                    $('.load-more-posts', loadMoreContainer).replaceWith(newxPageContent);
                     pageLinks = $('.pager a', loadMoreContainer);
                     pageLinks.on( 'click', loadMore);
                 }

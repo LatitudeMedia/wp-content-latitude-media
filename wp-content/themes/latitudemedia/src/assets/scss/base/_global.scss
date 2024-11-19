@@ -195,7 +195,7 @@ article {
         margin: 0 4px;
       }
 
-      a {
+      a, .current {
         width: auto;
         display: block;
         padding: 16px 24px;
@@ -227,168 +227,28 @@ article {
   &.pink {
     ul {
       li {
-        a {
-          span {
-            color: $primary-pink;
-          }
-
-          box-shadow: -7px 7px 0 -1px $pink_shadow;
-          border-color: $primary-pink;
-
-          &.active {
-            background-color: $primary-pink;
-
-            span {
-              color: $white;
-            }
-          }
-
-          &:hover {
-            background-color: $primary-pink;
-
-            span {
-              color: $white;
-            }
-
-            &.active {
-              background-color: $primary-pink;
-
-              span {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        span {
-          color: $primary-pink;
-        }
+        @include pagination_item_colored($primary-pink, $pink_shadow, $white);
       }
     }
   }
   &.green {
     ul {
       li {
-        a {
-          span {
-            color: $green;
-          }
-
-          box-shadow: -7px 7px 0 -1px $green_shadow;
-          border-color: $green;
-
-          &.active {
-            background-color: $green;
-
-            span {
-              color: $white;
-            }
-          }
-
-          &:hover {
-            background-color: $green;
-
-            span {
-              color: $white;
-            }
-
-            &.active {
-              background-color: $green;
-
-              span {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        span {
-          color: $green;
-        }
+        @include pagination_item_colored($green, $green_shadow, $white);
       }
     }
   }
   &.blue {
     ul {
       li {
-        a {
-          span {
-            color: $blue;
-          }
-
-          box-shadow: -7px 7px 0 -1px $blue_shadow;
-          border-color: $blue;
-
-          &.active {
-            background-color: $blue;
-
-            span {
-              color: $white;
-            }
-          }
-
-          &:hover {
-            background-color: $blue;
-
-            span {
-              color: $white;
-            }
-
-            &.active {
-              background-color: $blue;
-
-              span {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        span {
-          color: $blue;
-        }
+        @include pagination_item_colored($blue, $blue_shadow, $white);
       }
     }
   }
   &.orange {
     ul {
       li {
-        a {
-          span {
-            color: $orange;
-          }
-
-          box-shadow: -7px 7px 0 -1px $orange_shadow;
-          border-color: $orange;
-
-          &.active {
-            background-color: $orange;
-
-            span {
-              color: $white;
-            }
-          }
-
-          &:hover {
-            background-color: $orange;
-
-            span {
-              color: $white;
-            }
-
-            &.active {
-              background-color: $orange;
-
-              span {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        span {
-          color: $orange;
-        }
+        @include pagination_item_colored($orange, $orange_shadow, $white);
       }
     }
   }

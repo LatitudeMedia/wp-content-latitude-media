@@ -12,6 +12,7 @@ $blocks = array(
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('News with hero block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-hero.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -275,7 +276,6 @@ $blocks = array(
             )
         )
     ),
-
     array(
         'attrs' => array(
             'name'  		=> 'large-event-section',
@@ -329,6 +329,7 @@ $blocks = array(
         'post_types' 	=> array( 'sections-landing' ),
         'category'  	=> 'ltm-section-landing-blocks',
         'keywords'    => array( __('Categories section block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/categories-section-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -349,6 +350,7 @@ $blocks = array(
         'post_types' 	=> array( 'sections-landing' ),
         'category'  	=> 'ltm-section-landing-blocks',
         'keywords'    => array( __('News list with hero section block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-hero.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -369,6 +371,7 @@ $blocks = array(
         'post_types' 	=> array( 'sections-landing' ),
         'category'  	=> 'ltm-section-landing-blocks',
         'keywords'    => array( __('News with sidebar section block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-sidebar-section-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -400,6 +403,11 @@ $blocks = array(
             [
                 'name' => 'type2',
                 'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type3',
+                'label' => __('Type 3', 'ltm'),
                 'isDefault' => true,
             ]
         ],
@@ -666,6 +674,12 @@ if( function_exists('acf_add_options_sub_page') ) {
         'page_title' => 'Footer Settings',
         'menu_title' => 'Footer Settings',
         'parent_slug' => 'acf-options',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title' => 'Resources Settings',
+        'menu_title' => 'Resources Settings',
+        'parent_slug' => 'edit.php?post_type=resources',
     ));
 }
 

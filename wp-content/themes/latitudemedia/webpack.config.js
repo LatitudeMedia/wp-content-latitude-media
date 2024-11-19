@@ -38,6 +38,9 @@ module.exports = (env) => {
       'css/blocks/authors-list-block': './src/assets/scss/blocks/authors-list-block.scss',
       'css/blocks/order-form-block': './src/assets/scss/blocks/order-form-block.scss',
       'css/blocks/subscribe-form-block': './src/assets/scss/blocks/subscribe-form-block.scss',
+      'css/blocks/categories-section-block': './src/assets/scss/blocks/categories-section-block.scss',
+      'css/blocks/news-with-hero': './src/assets/scss/blocks/news-with-hero.scss',
+      'css/blocks/news-with-sidebar-section-block': './src/assets/scss/blocks/news-with-sidebar-section-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

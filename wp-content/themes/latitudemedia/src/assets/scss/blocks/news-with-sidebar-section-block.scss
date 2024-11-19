@@ -1,8 +1,16 @@
-.posts-list-section {
-  @include postsListSection;
-}
-
-.topics-archive-section {
+@import "../core/core_loader";
+.section-topics-section {
+  .right-sidebar-layout {
+    .right-sidebar-layout-wrapper {
+      .sidebar {
+        width: 160px;
+        margin-left: 56px;
+        @include below_md {
+          display: none;
+        }
+      }
+    }
+  }
   .posts-list-section {
     .posts {
       li {
@@ -35,11 +43,8 @@
         }
         .content-folder {
           border-bottom: 1px solid $primary-pink;
-          padding-bottom: 16px;
-          @include below_md {
-            padding-bottom: 32px;
-            margin-bottom: 32px;
-          }
+          padding-bottom: 32px;
+          margin-bottom: 32px;
           .tags-list {
             padding-bottom: 6px;
           }
@@ -58,10 +63,10 @@
         }
       }
     }
-    .pager {
-      @include below_md {
-        padding-top: 32px;
-      }
+    .more-button {
+      @include shadowButton;
+      display: table;
+      margin: 0 auto;
     }
   }
 }

@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.posts-hero-section {
+  @include postsHeroSection;
+}

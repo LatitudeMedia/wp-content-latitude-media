@@ -155,6 +155,22 @@ function get_order_report_data($orderId) {
 }
 
 /**
+ * @param $order_id
+ * @return array
+ */
+function get_resource_data($resourceId) {
+    if(!$resourceId) {
+        return [];
+    }
+
+    return [
+        'form_code'             => get_field('form_code', $resourceId),
+        'sponsor'               => get_field('sponsor', $resourceId),
+        'resource_type'         => get_field('resource_type', $resourceId),
+    ];
+}
+
+/**
  * @param null $author
  * @return array
  */
@@ -232,4 +248,28 @@ function ltm_get_block_style($classes = '') {
     }
 
     return 'default';
+}
+
+/**
+ * @param null $post_id
+ * @param array $args
+ * @return bool
+ */
+function get_published_post_by_id($post_id = null, $args = []) {
+    if( empty($post_id) ) {
+        return false;
+    }
+
+    $defaultArgs = [
+        'post_type'        => 'post',
+        'posts_per_page'   => 1
+    ];
+    $queryArgs = wp_parse_args($args, $defaultArgs);
+    $result = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, [$post_id]);
+
+    if($result->found_posts > 0) {
+        return $result->posts[0];
+    }
+
+    return false;
 }

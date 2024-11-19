@@ -1,0 +1,172 @@
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/news-with-sidebar-section-block.scss ***!
+  \****************************************************************************************************************************************************************************************************************************/
+.section-topics-section .right-sidebar-layout .right-sidebar-layout-wrapper .sidebar {
+  width: 160px;
+  margin-left: 56px;
+}
+.section-topics-section .posts-list-section .posts li {
+  align-items: center;
+  margin-bottom: 46px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.section-topics-section .posts-list-section .posts li .image-folder {
+  width: 416px;
+  margin-right: 64px;
+}
+.section-topics-section .posts-list-section .posts li .image-folder {
+  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
+  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
+  box-shadow: -14px 14px 0 0 #F9E8F4;
+  margin-left: 14px;
+}
+.section-topics-section .posts-list-section .posts li .image-folder.pink {
+  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
+  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
+  box-shadow: -14px 14px 0 0 #F9E8F4;
+}
+.section-topics-section .posts-list-section .posts li .image-folder.green {
+  -webkit-box-shadow: -14px 14px 0 0 #CCF0E8;
+  -moz-box-shadow: -14px 14px 0 0 #CCF0E8;
+  box-shadow: -14px 14px 0 0 #CCF0E8;
+}
+.section-topics-section .posts-list-section .posts li .image-folder.blue {
+  -webkit-box-shadow: -14px 14px 0 0 #E5F4FC;
+  -moz-box-shadow: -14px 14px 0 0 #E5F4FC;
+  box-shadow: -14px 14px 0 0 #E5F4FC;
+}
+.section-topics-section .posts-list-section .posts li .image-folder.orange {
+  -webkit-box-shadow: -14px 14px 0 0 #FEEBD2;
+  -moz-box-shadow: -14px 14px 0 0 #FEEBD2;
+  box-shadow: -14px 14px 0 0 #FEEBD2;
+}
+.section-topics-section .posts-list-section .posts li .image-folder a {
+  padding-top: 72.5%;
+}
+.section-topics-section .posts-list-section .posts li .content-folder {
+  border-bottom: 1px solid #C6168D;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+.section-topics-section .posts-list-section .posts li .content-folder .tags-list {
+  padding-bottom: 6px;
+}
+.section-topics-section .posts-list-section .posts li .content-folder .title {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 32px;
+  margin-bottom: 18px;
+  color: #0F1E42;
+  font-weight: 700;
+}
+.section-topics-section .posts-list-section .posts li .content-folder p {
+  font-size: 18px;
+  font-size: 1.125rem;
+  margin-bottom: 16px;
+}
+.section-topics-section .posts-list-section .more-button {
+  outline: none;
+  background-color: #ffffff;
+  color: #C6168D;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid #C6168D;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4;
+  -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
+  box-shadow: -10px 10px 0 0 #F9E8F4;
+  display: table;
+  margin: 0 auto;
+}
+.section-topics-section .posts-list-section .more-button:hover {
+  background-color: #C6168D;
+  color: #ffffff;
+}
+.section-topics-section .posts-list-section .more-button.pink {
+  background-color: #ffffff;
+  color: #C6168D !important;
+  border: 1px solid #C6168D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+}
+.section-topics-section .posts-list-section .more-button.pink:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
+}
+.section-topics-section .posts-list-section .more-button.green {
+  background-color: #ffffff;
+  color: #00B48D !important;
+  border: 1px solid #00B48D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+  -moz-box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+  box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+}
+.section-topics-section .posts-list-section .more-button.green:hover {
+  background-color: #00B48D !important;
+  color: #ffffff !important;
+}
+.section-topics-section .posts-list-section .more-button.blue {
+  background-color: #ffffff;
+  color: #0095DA !important;
+  border: 1px solid #0095DA !important;
+  -webkit-box-shadow: -10px 10px 0 0 #E5F4FC !important;
+  -moz-box-shadow: -10px 10px 0 0 #E5F4FC !important;
+  box-shadow: -10px 10px 0 0 #E5F4FC !important;
+}
+.section-topics-section .posts-list-section .more-button.blue:hover {
+  background-color: #0095DA !important;
+  color: #ffffff !important;
+}
+.section-topics-section .posts-list-section .more-button.orange {
+  background-color: #ffffff;
+  color: #F99D1C !important;
+  border: 1px solid #F99D1C !important;
+  -webkit-box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+  -moz-box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+  box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+}
+.section-topics-section .posts-list-section .more-button.orange:hover {
+  background-color: #F99D1C !important;
+  color: #ffffff !important;
+}
+@media screen and (max-width: 992px) {
+  .section-topics-section .right-sidebar-layout .right-sidebar-layout-wrapper .sidebar {
+    display: none;
+  }
+  .section-topics-section .posts-list-section .posts li {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .section-topics-section .posts-list-section .posts li .image-folder {
+    width: calc(100% - 15px);
+    margin-bottom: 32px;
+    margin-right: 0;
+  }
+  .section-topics-section .posts-list-section .posts li .image-folder a {
+    padding-top: 65%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .section-topics-section .posts-list-section .posts li .image-folder {
+    margin-left: 0;
+  }
+}
+
+/*# sourceMappingURL=news-with-sidebar-section-block.min.css.map*/

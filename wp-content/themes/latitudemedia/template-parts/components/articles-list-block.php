@@ -14,7 +14,7 @@ $paginationClass = ($options['dynamic_pagination'] && isset($options['pagination
 <div class="topics-archive-section">
     <div class="container-narrow">
         <div class="topics-archive-section-wrapper <?php echo $paginationClass; ?>">
-            <div class="posts-list-section">
+            <div class="posts-list-section load-more-posts">
                 <?php
                 get_template_part('template-parts/category/articles', 'list',
                     $options

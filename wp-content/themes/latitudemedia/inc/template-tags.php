@@ -254,6 +254,19 @@ if ( ! function_exists( 'print_podcast_time' ) ) :
     add_action('print_podcast_time', 'print_podcast_time', 10, 4);
 endif;
 
+if ( ! function_exists( 'print_resource_tag' ) ) :
+    function print_resource_tag( $post_id = null ) {
+        if ( ! $post_id ) {
+            $post_id = get_the_ID();
+        }
+
+        $resourceTag = get_field('resource_type', $post_id);
+
+        echo '<div class="tag">' . $resourceTag . ' </div>';
+    }
+    add_action('print_resource_tag', 'print_resource_tag', 10, 4);
+endif;
+
 if ( ! function_exists( 'print_article_authors' ) ) :
     function print_article_authors( $post_id = null, $args = [] ) {
         if ( ! $post_id ) {

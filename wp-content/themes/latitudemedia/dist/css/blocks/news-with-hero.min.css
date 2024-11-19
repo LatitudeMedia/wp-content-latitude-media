@@ -1,0 +1,397 @@
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/news-with-hero.scss ***!
+  \***********************************************************************************************************************************************************************************************************/
+.posts-hero-section {
+  margin-bottom: 64px;
+}
+.posts-hero-section .posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.posts-hero-section .posts li {
+  width: 48%;
+  margin-right: 4%;
+}
+.posts-hero-section .posts li:last-child {
+  margin-right: 0;
+}
+.posts-hero-section .posts li .content-folder .tags-list {
+  list-style: none;
+  margin: 0 0 6px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.posts-hero-section .posts li .content-folder .tags-list li {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: inline-block;
+  color: #0F1E42;
+  text-transform: uppercase;
+  margin-right: 8px;
+  width: auto;
+  margin-bottom: 10px;
+}
+.posts-hero-section .posts li .content-folder .tags-list li span {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: block;
+  color: #0F1E42;
+  text-transform: uppercase;
+  padding: 0;
+}
+.posts-hero-section .posts li .content-folder .tags-list li span.sponsored {
+  background-color: #C6168D;
+  color: #ffffff;
+  padding: 0 6px;
+}
+.posts-hero-section .posts li .content-folder .tags-list li span a {
+  padding: 0 6px;
+}
+.posts-hero-section .posts li .content-folder .tags-list li a {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: block;
+  color: #0F1E42;
+  text-decoration: none;
+  background-color: #E1CFDB;
+  text-transform: uppercase;
+  padding: 0 6px;
+}
+.posts-hero-section .posts li .content-folder .tags-list li a.sponsored {
+  background-color: #C6168D;
+  color: #ffffff;
+}
+.posts-hero-section .posts li .content-folder h6 {
+  font-family: "Lora", Arial, Helvetica, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  color: #0F1E42;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+.posts-hero-section .posts li .content-folder h6:hover {
+  text-decoration: underline;
+}
+.posts-hero-section .posts li .content-folder h6 a {
+  font-family: "Lora", Arial, Helvetica, serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: left;
+  color: #0F1E42;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+.posts-hero-section .posts li .content-folder h6 a:hover {
+  text-decoration: underline;
+}
+.posts-hero-section .posts li .content-folder .info {
+  display: flex;
+  align-items: center;
+}
+.posts-hero-section .posts li .content-folder .info .time {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  text-decoration: none;
+  color: #0F1E42;
+  text-transform: uppercase;
+  width: auto;
+  height: auto;
+  padding-left: 0;
+  margin-left: 0;
+}
+.posts-hero-section .posts li .content-folder .info .author {
+  position: relative;
+  padding-left: 14px;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  text-decoration: none;
+  color: #0F1E42;
+  text-transform: uppercase;
+}
+.posts-hero-section .posts li .content-folder .info .author:before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 2px;
+  background-color: #C6168D;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+}
+.posts-hero-section .posts li .content-folder .info span {
+  display: block;
+  height: 14px;
+  width: 2px;
+  background-color: #0F1E42;
+  margin: 0 8px;
+}
+.posts-hero-section .posts li .content-folder .info .date {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  color: #6E6E6E;
+  text-transform: uppercase;
+}
+.posts-hero-section .posts li .image-folder {
+  margin-bottom: 30px;
+}
+.posts-hero-section .posts li .image-folder {
+  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
+  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
+  box-shadow: -14px 14px 0 0 #F9E8F4;
+  margin-left: 14px;
+}
+.posts-hero-section .posts li .image-folder.pink {
+  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
+  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
+  box-shadow: -14px 14px 0 0 #F9E8F4;
+}
+.posts-hero-section .posts li .image-folder.green {
+  -webkit-box-shadow: -14px 14px 0 0 #CCF0E8;
+  -moz-box-shadow: -14px 14px 0 0 #CCF0E8;
+  box-shadow: -14px 14px 0 0 #CCF0E8;
+}
+.posts-hero-section .posts li .image-folder.blue {
+  -webkit-box-shadow: -14px 14px 0 0 #E5F4FC;
+  -moz-box-shadow: -14px 14px 0 0 #E5F4FC;
+  box-shadow: -14px 14px 0 0 #E5F4FC;
+}
+.posts-hero-section .posts li .image-folder.orange {
+  -webkit-box-shadow: -14px 14px 0 0 #FEEBD2;
+  -moz-box-shadow: -14px 14px 0 0 #FEEBD2;
+  box-shadow: -14px 14px 0 0 #FEEBD2;
+}
+.posts-hero-section .posts li .image-folder a img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  inset: 0%;
+}
+.posts-hero-section .posts li.prime-post {
+  flex: 1 0 100%;
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding-bottom: 38px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #C6168D;
+}
+.posts-hero-section .posts li.prime-post .content-folder {
+  width: 48%;
+  margin-right: 5%;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list {
+  list-style: none;
+  margin: 0 0 6px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list li {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: inline-block;
+  color: #0F1E42;
+  text-transform: uppercase;
+  margin-right: 8px;
+  width: auto;
+  margin-bottom: 10px;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list li span {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: block;
+  color: #0F1E42;
+  text-transform: uppercase;
+  padding: 0;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list li span.sponsored {
+  background-color: #C6168D;
+  color: #ffffff;
+  padding: 0 6px;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list li span a {
+  padding: 0 6px;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list li a {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: block;
+  color: #0F1E42;
+  text-decoration: none;
+  background-color: #E1CFDB;
+  text-transform: uppercase;
+  padding: 0 6px;
+}
+.posts-hero-section .posts li.prime-post .content-folder .tags-list li a.sponsored {
+  background-color: #C6168D;
+  color: #ffffff;
+}
+.posts-hero-section .posts li.prime-post .content-folder h1 {
+  color: #0F1E42;
+  font-family: "Lora", Arial, Helvetica, serif;
+  font-weight: 700;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 36px;
+  letter-spacing: -1px;
+}
+.posts-hero-section .posts li.prime-post .content-folder h1 a {
+  color: #0F1E42;
+  font-family: "Lora", Arial, Helvetica, serif;
+  font-weight: 700;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 36px;
+  letter-spacing: -1px;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+.posts-hero-section .posts li.prime-post .content-folder h1 a:hover {
+  text-decoration: underline;
+}
+.posts-hero-section .posts li.prime-post .content-folder p {
+  color: #0F1E42;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+}
+.posts-hero-section .posts li.prime-post .image-folder {
+  width: 48%;
+  margin-bottom: 0;
+}
+.posts-hero-section .posts.two-columns li:nth-child(2n-1) {
+  margin-right: 0;
+}
+.posts-hero-section .posts.three-small li {
+  width: 30.6%;
+}
+.posts-hero-section .posts.three-small li .image-folder a img {
+  aspect-ratio: 3/2.4;
+}
+.posts-hero-section .posts.three-small li.prime-post {
+  flex: 1 0 100%;
+  width: 100%;
+}
+.posts-hero-section .posts.three-small li.prime-post.reverse .content-folder {
+  margin-right: 0;
+}
+.posts-hero-section .posts.three-small li.prime-post.reverse .image-folder {
+  margin-right: 5%;
+}
+.posts-hero-section .posts.three-small li:last-child {
+  margin-right: 0;
+}
+@media screen and (max-width: 768px) {
+  .posts-hero-section .posts li {
+    width: 100%;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 38px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #C6168D;
+  }
+  .posts-hero-section .posts li .content-folder {
+    margin-bottom: 20px;
+  }
+  .posts-hero-section .posts li .content-folder .tags-list li {
+    padding-bottom: 0;
+    border: none;
+  }
+  .posts-hero-section .posts li .image-folder {
+    margin-bottom: 0;
+  }
+  .posts-hero-section .posts li.prime-post .content-folder .tags-list li {
+    padding-bottom: 0;
+    border: none;
+  }
+  .posts-hero-section .posts.three-small li {
+    width: 100%;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 38px;
+    margin-bottom: 24px;
+    border-bottom: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .posts-hero-section .posts li .image-folder {
+    margin-left: 0;
+  }
+  .posts-hero-section .posts li.prime-post {
+    flex-direction: column;
+  }
+  .posts-hero-section .posts li.prime-post .content-folder {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .posts-hero-section .posts li.prime-post .image-folder {
+    width: 100%;
+  }
+  .posts-hero-section .posts li.prime-post .image-folder {
+    margin-left: 0;
+  }
+  .posts-hero-section .posts.three-small li.prime-post.reverse {
+    flex-direction: column-reverse;
+  }
+  .posts-hero-section .posts.three-small li.prime-post.reverse .content-folder {
+    margin-bottom: 30px;
+    margin-right: 0;
+    width: 100%;
+  }
+  .posts-hero-section .posts.three-small li.prime-post.reverse .image-folder {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .posts-hero-section .posts li.prime-post .content-folder h1 {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 31px;
+  }
+  .posts-hero-section .posts li.prime-post .content-folder h1 a {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 31px;
+  }
+}
+
+/*# sourceMappingURL=news-with-hero.min.css.map*/
