@@ -32,7 +32,7 @@ if( !$research ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "style" => '--event-embed-info-color: ' . $base_color . '; --event-embed-info-shadow-color: ' . $shadow_color,
+                "style" => '--custom-block-base-color: ' . $base_color . '; --custom-block-shadow-color: ' . $shadow_color,
                 "class" => 'content-block event-large-item-section blue',
                 "id" => 'featured-research-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]

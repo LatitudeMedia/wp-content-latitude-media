@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.news-rec-banner-section {
+  margin-bottom: 24px;
+  @include newsRecBannerSection;
+}

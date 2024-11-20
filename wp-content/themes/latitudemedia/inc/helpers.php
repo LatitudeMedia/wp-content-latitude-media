@@ -188,6 +188,27 @@ function ltm_get_author_data($author = null) {
 }
 
 /**
+ * @param null $inHouseAdId
+ * @return array|bool
+ */
+function ltm_get_inhouse_ad_data($inHouseAdId = null) {
+    if(!$inHouseAdId) {
+        return [];
+    }
+
+//        'type'
+//        'banner_text'
+//        'layout'
+//        'background_image'
+//        'additional_image'
+//        'heading'
+//        'button'
+//        'base_color'
+//        'shadow_color'
+    return get_fields($inHouseAdId);
+}
+
+/**
  * @param null $member
  * @return array
  */

@@ -189,29 +189,11 @@
   left: 0;
   background-color: #C6168D;
 }
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.pink .eyebrow-label {
-  background-color: #C6168D !important;
+.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow:before {
+  background-color: var(--custom-block-base-color);
 }
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.pink:before {
-  background-color: #C6168D !important;
-}
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.green .eyebrow-label {
-  background-color: #00B48D !important;
-}
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.green:before {
-  background-color: #00B48D !important;
-}
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.blue .eyebrow-label {
-  background-color: #0095DA !important;
-}
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.blue:before {
-  background-color: #0095DA !important;
-}
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.orange .eyebrow-label {
-  background-color: #F99D1C !important;
-}
-.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow.orange:before {
-  background-color: #F99D1C !important;
+.podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow .eyebrow-label {
+  background-color: var(--custom-block-base-color);
 }
 .podcasts-hero-section .podcasts-hero-section-wrapper ul {
   list-style: none;

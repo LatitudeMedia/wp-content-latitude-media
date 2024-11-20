@@ -1656,42 +1656,14 @@
 		left: 0;
 		background-color: $primary-pink;
 	}
-	&.pink {
-		.eyebrow-label {
-			background-color: $primary-pink !important;
-		}
-
-		&:before {
-			background-color: $primary-pink !important;
-		}
+	&:before {
+		background-color: var(--custom-block-base-color);
 	}
-	&.green {
-		.eyebrow-label {
-			background-color: $green !important;
-		}
 
-		&:before {
-			background-color: $green !important;
-		}
+	.eyebrow-label {
+		background-color: var(--custom-block-base-color);
 	}
-	&.blue {
-		.eyebrow-label {
-			background-color: $blue !important;
-		}
 
-		&:before {
-			background-color: $blue !important;
-		}
-	}
-	&.orange {
-		.eyebrow-label {
-			background-color: $orange !important;
-		}
-
-		&:before {
-			background-color: $orange !important;
-		}
-	}
 }
 
 @mixin shadowButton {
@@ -1786,14 +1758,6 @@
 		.eyebrow {
 			@include eyebrow;
 			margin-bottom: 24px;
-
-			&:before {
-				background-color: var(--event-embed-info-color);
-			}
-
-			.eyebrow-label {
-				background-color: var(--event-embed-info-color);
-			}
 		}
 
 		h1 {
@@ -1823,7 +1787,7 @@
 				padding: 8px 72px;
 				text-align: center;
 				font-family: $inter;
-				color: var(--event-embed-info-color);
+				color: var(--custom-block-base-color);
 				@include fontSize(16px);
 				font-weight: 700;
 				line-height: 24px;
@@ -1873,16 +1837,16 @@
 
 		.event-button {
 			@include shadowButton;
-			color: var(--event-embed-info-color) !important;
+			color: var(--custom-block-base-color) !important;
 			span {
-				color: var(--event-embed-info-color);
+				color: var(--custom-block-base-color);
 			}
 
-			box-shadow: -7px 7px 0 -1px var(--event-embed-info-shadow-color);
-			border-color: var(--event-embed-info-color);
+			box-shadow: -7px 7px 0 -1px var(--custom-block-shadow-color);
+			border-color: var(--custom-block-base-color);
 
 			&:hover {
-				background-color: var(--event-embed-info-color);
+				background-color: var(--custom-block-base-color);
 
 				span {
 					color: $white;
@@ -2137,8 +2101,6 @@
 
 @mixin shadowButton {
 	outline: none;
-	background-color: $white;
-	color: $primary-pink;
 	text-align: center;
 	@include transition3;
 	font-family: $inter;
@@ -2148,68 +2110,19 @@
 	letter-spacing: 0.3em;
 	cursor: pointer;
 	text-transform: uppercase;
-	border: 1px solid $primary-pink;
 	text-decoration: none;
 	display: inline-block;
 	padding: 16px 32px;
-	-webkit-box-shadow: -10px 10px 0 0 $pink_shadow;
-	-moz-box-shadow: -10px 10px 0 0 $pink_shadow;
-	box-shadow: -10px 10px 0 0 $pink_shadow;
+	-webkit-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+	-moz-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+	box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+
+	background-color: $white;
+	color: var(--custom-block-base-color) !important;
+	border: 1px solid var(--custom-block-base-color) !important;
 	&:hover {
-		background-color: $primary-pink;
-		color: $white;
-	}
-	&.pink {
-		background-color: $white;
-		color: $primary-pink !important;
-		border: 1px solid $primary-pink !important;
-		-webkit-box-shadow: -10px 10px 0 0 $pink_shadow !important;
-		-moz-box-shadow: -10px 10px 0 0 $pink_shadow !important;
-		box-shadow: -10px 10px 0 0 $pink_shadow !important;
-
-		&:hover {
-			background-color: $primary-pink !important;
-			color: $white !important;
-		}
-	}
-	&.green {
-		background-color: $white;
-		color: $green !important;
-		border: 1px solid $green !important;
-		-webkit-box-shadow: -10px 10px 0 0 $green_shadow !important;
-		-moz-box-shadow: -10px 10px 0 0 $green_shadow !important;
-		box-shadow: -10px 10px 0 0 $green_shadow !important;
-
-		&:hover {
-			background-color: $green !important;
-			color: $white !important;
-		}
-	}
-	&.blue {
-		background-color: $white;
-		color: $blue !important;
-		border: 1px solid $blue !important;
-		-webkit-box-shadow: -10px 10px 0 0 $blue_shadow !important;
-		-moz-box-shadow: -10px 10px 0 0 $blue_shadow !important;
-		box-shadow: -10px 10px 0 0 $blue_shadow !important;
-
-		&:hover {
-			background-color: $blue !important;
-			color: $white !important;
-		}
-	}
-	&.orange {
-		background-color: $white;
-		color: $orange !important;
-		border: 1px solid $orange !important;
-		-webkit-box-shadow: -10px 10px 0 0 $orange_shadow !important;
-		-moz-box-shadow: -10px 10px 0 0 $orange_shadow !important;
-		box-shadow: -10px 10px 0 0 $orange_shadow !important;
-
-		&:hover {
-			background-color: $orange !important;
-			color: $white !important;
-		}
+		background-color: var(--custom-block-base-color) !important;
+		color: $white !important;
 	}
 }
 
@@ -6462,29 +6375,6 @@
 
 		.cta-button {
 			@include shadowButton;
-			-webkit-box-shadow: -5px 5px 0 0 $pink_shadow;
-			-moz-box-shadow: -5px 5px 0 0 $pink_shadow;
-			box-shadow: -5px 5px 0 0 $pink_shadow;
-			&.pink {
-				-webkit-box-shadow: -5px 5px 0 0 $pink_shadow !important;
-				-moz-box-shadow: -5px 5px 0 0 $pink_shadow !important;
-				box-shadow: -5px 5px 0 0 $pink_shadow !important;
-			}
-			&.green {
-				-webkit-box-shadow: -5px 5px 0 0 $green_shadow !important;
-				-moz-box-shadow: -5px 5px 0 0 $green_shadow !important;
-				box-shadow: -5px 5px 0 0 $green_shadow !important;
-			}
-			&.blue {
-				-webkit-box-shadow: -5px 5px 0 0 $blue_shadow !important;
-				-moz-box-shadow: -5px 5px 0 0 $blue_shadow !important;
-				box-shadow: -5px 5px 0 0 $blue_shadow !important;
-			}
-			&.orange {
-				-webkit-box-shadow: -5px 5px 0 0 $orange_shadow !important;
-				-moz-box-shadow: -5px 5px 0 0 $orange_shadow !important;
-				box-shadow: -5px 5px 0 0 $orange_shadow !important;
-			}
 		}
 	}
 }

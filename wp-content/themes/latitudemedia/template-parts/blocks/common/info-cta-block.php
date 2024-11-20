@@ -24,6 +24,7 @@ if(!$display && !is_admin()) {
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
+          "style" => '--custom-block-base-color: #f99d1c; --custom-block-shadow-color: #feebd2',
           "class" => 'content-block grey-cta-block',
           "id" => 'info-cta-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]

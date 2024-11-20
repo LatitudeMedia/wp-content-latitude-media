@@ -1,31 +1,11 @@
 <?php
 
 // Set defaults In house ad block.
-//                array(
-//                    'attrs' => array(
-//                        'name'  		=> 'in-house-ad-section',
-//                        'title' 		=> __('In house ad block', 'ltm'),
-//                        'path'  		=> 'common',
-//                    ),
-//                    'icon'  		=> 'table-col-before',
-//                    'description' => __('In house ad section block', 'ltm'),
-//                    'post_types' 	=> array( 'page' ),
-//                    'category'  	=> 'ltm-page-blocks',
-//                    'keywords'    => array( __('In house ad block', 'ltm') ),
-//                    'example'  	=> array(
-//                        'attributes' => array(
-//                            'mode' => 'preview',
-//                            'data' => array(
-//                                'image' => 'in-house-ad-section.png',
-//                            )
-//                        )
-//                    )
-//                ),
-
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, get_fields() ?: []),
     [
-        'display' => false,
+        'in_house_ad'   => false,
+        'display'       => false,
         'blockAttributes' => [],
     ]
 );
@@ -36,6 +16,21 @@ if(!$display && !is_admin()) {
     return;
 }
 
+if( empty($in_house_ad) ) {
+    return;
+}
+
+$inHouseAdPost = get_published_post_by_id($in_house_ad, ['post_type' => 'in-house-ads']);
+if(!$inHouseAdPost) {
+    return;
+}
+$inHouseAdPostData = ltm_get_inhouse_ad_data($in_house_ad);
+
+$backgroundImage = $inHouseAdPostData['background_image']['url'] ?? '';
+if ( !empty($backgroundImage) && class_exists('Jetpack_PostImages')) {
+    $backgroundImage = Jetpack_PostImages::fit_image_url($backgroundImage, 700, 285);
+}
+
 ?>
 
 <div
@@ -43,6 +38,7 @@ if(!$display && !is_admin()) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
+                "style" => '--custom-block-base-color: ' . ($inHouseAdPostData['base_color'] ?: '#0095DA') . '; --custom-block-shadow-color: ' . ($inHouseAdPostData['shadow_color'] ?: '#E5F4FC'),
                 "class" => 'content-block',
                 "id" => 'in-house-ad-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
@@ -50,15 +46,15 @@ if(!$display && !is_admin()) {
     );
     ?>
 >
-    <img src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/in_house_ad.png" alt="In house ad">
-    <div class="news-rec-banner-section" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/src/images/banner_rec_bg.png);">
+    <div class="news-rec-banner-section" style="background-image: url(<?php echo $backgroundImage; ?>)">
         <div class="overlay"></div>
         <div class="news-rec-banner-section-wrapper">
-            <div class="eyebrow green">
-                <div class="eyebrow-label">Infographic</div></div>
-            <h5>Transition-AI 2024 | Washington DC | December 3</h5>
-            <p>Join industry experts for a one-day conference on the impacts of AI on the power sector across three themes: reliability, customer experience, and load growth.</p>
-            <a href="#" class="cta-button green">Register</a>
+            <div class="eyebrow">
+                <div class="eyebrow-label"><?php _e($inHouseAdPostData['banner_text']); ?></div>
+            </div>
+            <h5><?php _e($inHouseAdPostData['heading']); ?></h5>
+            <?php echo apply_filters( 'the_content', $inHouseAdPost->post_content ); ?>
+            <?php do_action('button_unit', $inHouseAdPostData['button'], null, 'cta-button'); ?>
         </div>
     </div>
 </div>
