@@ -731,6 +731,29 @@ $blocks = array(
             )
         )
     ),
+
+    array(
+        'attrs' => array(
+            'name'  		=> 'info-cta-block',
+            'title' 		=> __('Info cta block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Info cta block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Info cta block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/info-cta-block.min.css',
+        'mode' => 'preview',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'info-cta-block.png',
+                )
+            )
+        )
+    ),
 );
 
 new ACFBlocks( $blocks );
@@ -899,13 +922,13 @@ function registerCustomBlocks() {
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
         'display' => true,
         'example'  	=> array(
-        'attributes' => array(
-            'mode' => 'preview',
-            'data' => array(
-                'image' => 'styled-button-block.png',
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'styled-button-block.png',
+                )
             )
         )
-    )
     ]);
 }
 add_action('acf/init', 'registerCustomBlocks');
