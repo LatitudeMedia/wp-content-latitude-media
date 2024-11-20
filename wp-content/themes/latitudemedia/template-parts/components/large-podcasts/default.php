@@ -2,8 +2,8 @@
 if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Large podcasts block DEFAULT', 'ltm') . '</h3>';
 }
-// Set defaults Large podcasts block.
 
+// Set defaults Large podcasts block.
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
     [

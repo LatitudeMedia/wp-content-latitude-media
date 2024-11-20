@@ -13,7 +13,7 @@ class ACFBlocks {
 
         if ( function_exists( 'acf_register_block_type' ) ) {
             add_action( 'acf/init', array( $this, 'registerBlocks' ) );
-            add_action( 'block_categories', array( $this, 'custom_block_categories' ), 10, 2 );
+            add_action( 'block_categories_all', array( $this, 'custom_block_categories' ), 10, 2 );
         }
     }
 
@@ -34,7 +34,6 @@ class ACFBlocks {
                     'icon'            => 'admin-comments',
                     'mode'            => 'edit',
                     'display' => $attrs['display'] ?? NULL,
-                    'post_acf' => $attrs['post_acf'] ?? NULL,
                     'keywords'        => array_merge( explode( '-', $attrs['name'] ), array( $attrs['name'] ) ),
                     "supports" =>  array(
                         "anchor" =>  true,
@@ -66,17 +65,21 @@ class ACFBlocks {
         $acfName = preg_replace('/-/', '_', $blockName);
         $displayBlock = true;
 
-        if ( $attributes['post_acf'] && ! $sectionData = get_field( $acfName, $post_id ) ) {
-            $displayBlock = false;
-
+        $sectionData = get_fields();
+        if(isset($attributes['display']) && !$attributes['display']) {
+            $displayBlock = true;
         }
-
-        $sectionData['display'] = get_field('display');
-        if ( (!isset($sectionData['display']) || !$sectionData['display']) && !is_admin() && (!isset($attributes['display']) || !$attributes['display']) ) {
+        elseif ( (isset($sectionData['display']) && !$sectionData['display']) && ! is_admin() ) {
             $displayBlock = false;
         }
 
-        if($displayBlock) {
+        if( $is_preview && isset($attributes['data']['image']) ) {
+            $blockType = ltm_get_block_style($attributes['className'] ?? '');
+            if( $blockType !== 'default' ) {
+                $attributes['data']['image'] = str_replace(".png", "-{$blockType}.png", $attributes['data']['image'] );
+            }
+            echo '<img width="100%" src="' . get_template_directory_uri() . '/src/images/blocks-preview/' . $attributes['data']['image'] . '">';
+        } elseif($displayBlock) {
             if( !isset($attributes['anchor']) ) {
                 $attributes['anchor'] = '';
             }
@@ -89,8 +92,6 @@ class ACFBlocks {
                     'blockAttributes'   => $attributes,
                 )
             );
-        } elseif( $is_preview && isset($attributes['data']['image']) ) {
-            echo '<img width="100%" src="' . get_template_directory_uri() . '/src/images/blocks-preview/' . $attributes['data']['image'] . '">';
         } else {
             return;
         }
@@ -106,6 +107,14 @@ class ACFBlocks {
                 [
                     'slug'  => 'ltm-page-blocks',
                     'title' => __( 'Latitude Media Page Blocks', 'ltm' ),
+                ],
+                [
+                    'slug'  => 'ltm-post-blocks',
+                    'title' => __( 'Latitude Media Post Blocks', 'ltm' ),
+                ],
+                [
+                    'slug'  => 'ltm-sidebar-blocks',
+                    'title' => __( 'Latitude Media Sidebar Blocks', 'ltm' ),
                 ],
                 [
                     'slug'  => 'ltm-section-landing-blocks',

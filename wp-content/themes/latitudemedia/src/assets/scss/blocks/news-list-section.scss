@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.posts-list-section {
+  @include postsListSection;
+}

@@ -1,59 +1,19 @@
 <?php
 
 $blocks = array(
-    array(
-        'attrs' => array(
-            'name'  		=> 'news-with-hero-section',
-            'title' 		=> __('News with hero block', 'ltm'),
-            'path'  		=> 'homepage',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('News with hero block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('News with hero block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-hero.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'news-with-hero-section.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'news-list-section',
-            'title' 		=> __('News list block', 'ltm'),
-            'path'  		=> 'homepage',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('News list block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('News list block', 'ltm') ),
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'news-list-section.png',
-                )
-            )
-        )
-    ),
-
+    // START POST blocks
     array(
         'attrs' => array(
             'name'  		=> 'spotlight-quote-section',
             'title' 		=> __('Spotlight quote block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'editor-quote',
         'description' => __('Spotlight quote block', 'ltm'),
         'post_types' 	=> array( 'post' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-post-blocks',
         'keywords'    => array( __('Spotlight quote block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/spotlight-quote-section.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -70,10 +30,10 @@ $blocks = array(
             'title' 		=> __('In house ad block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'pressthis',
         'description' => __('In house ad block', 'ltm'),
         'post_types' 	=> array( 'post' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-post-blocks',
         'keywords'    => array( __('In house ad block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/in-house-ad-section.min.css',
         'mode' => 'preview',
@@ -94,11 +54,12 @@ $blocks = array(
             'path'  		=> 'article',
             'display' => true,
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'email-alt',
         'description' => __('Signup form block', 'ltm'),
         'post_types' 	=> array( 'post' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-post-blocks',
         'keywords'    => array( __('Signup form block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/signup-form-section.min.css',
         'mode' => false,
         'example'  	=> array(
             'attributes' => array(
@@ -116,10 +77,10 @@ $blocks = array(
             'title' 		=> __('Inline podcast block', 'ltm'),
             'path'  		=> 'article',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'embed-audio',
         'description' => __('Inline podcast block', 'ltm'),
         'post_types' 	=> array( 'post' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-post-blocks',
         'keywords'    => array( __('Inline podcast block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
@@ -130,6 +91,7 @@ $blocks = array(
             )
         )
     ),
+    // END POST blocks
 
     // Sidebar blocks
     array(
@@ -141,7 +103,7 @@ $blocks = array(
         'icon'  		=> 'table-col-before',
         'description' => __('Sidebar editors picks block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar editors picks block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
@@ -162,8 +124,9 @@ $blocks = array(
         'icon'  		=> 'table-col-before',
         'description' => __('Sidebar form block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar form block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/signup-form-section.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -183,7 +146,7 @@ $blocks = array(
         'icon'  		=> 'table-col-before',
         'description' => __('Sidebar news list block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar news list block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
@@ -204,7 +167,7 @@ $blocks = array(
         'icon'  		=> 'table-col-before',
         'description' => __('Related reading block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Related reading block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
@@ -225,7 +188,7 @@ $blocks = array(
         'icon'  		=> 'table-col-before',
         'description' => __('Sidebar ad banner block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar ad banner block', 'ltm') ),
         'example'  	=> array(
             'attributes' => array(
@@ -246,7 +209,7 @@ $blocks = array(
         'icon'  		=> 'table-col-before',
         'description' => __('Sidebar info block', 'ltm'),
 //        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar info block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/sidebar-info-block.min.css',
         'example'  	=> array(
@@ -259,6 +222,49 @@ $blocks = array(
         )
     ),
     // END Sidebar blocks
+
+    array(
+        'attrs' => array(
+            'name'  		=> 'news-with-hero-section',
+            'title' 		=> __('News with hero block', 'ltm'),
+            'path'  		=> 'homepage',
+        ),
+        'icon'  		=> 'table-row-before',
+        'description' => __('News with hero block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('News with hero block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-hero.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'news-with-hero-section.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'news-list-section',
+            'title' 		=> __('News list block', 'ltm'),
+            'path'  		=> 'homepage',
+        ),
+        'icon'  		=> 'feedback',
+        'description' => __('News list block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('News list block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-list-section.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'news-list-section.png',
+                )
+            )
+        )
+    ),
 
     array(
         'attrs' => array(
@@ -286,7 +292,7 @@ $blocks = array(
             'title' 		=> __('Large podcasts block', 'ltm'),
             'path'  		=> 'homepage',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'grid-view',
         'description' => __('Large podcasts block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
@@ -964,3 +970,40 @@ function custom_insert_post_data( $data, $postarr ) {
 }
 
 add_filter( 'wp_insert_post_data', 'custom_insert_post_data', 10, 2 );
+
+function ltm_allowed_post_type_blocks( $allowed_block_types, $editor_context ) {
+    if ( $editor_context->name !== 'core/edit-widgets' ) {
+        $disallowed_blocks = array(
+            'acf/sidebar-editors-picks-section',
+            'acf/sidebar-form-section',
+            'acf/sidebar-news-list-section',
+            'acf/related-reading-section',
+            'acf/sidebar-ad-banner-section',
+            'acf/sidebar-info-block',
+        );
+
+        // Get all registered blocks if $allowed_block_types is not already set.
+        if ( ! is_array( $allowed_block_types ) || empty( $allowed_block_types ) ) {
+            $registered_blocks   = WP_Block_Type_Registry::get_instance()->get_all_registered();
+            $allowed_block_types = array_keys( $registered_blocks );
+        }
+
+        // Create a new array for the allowed blocks.
+        $filtered_blocks = array();
+
+        // Loop through each block in the allowed blocks list.
+        foreach ( $allowed_block_types as $block ) {
+            // Check if the block is not in the disallowed blocks list.
+            if ( ! in_array( $block, $disallowed_blocks, true ) ) {
+                // If it's not disallowed, add it to the filtered list.
+                $filtered_blocks[] = $block;
+            }
+        }
+        // Return the filtered list of allowed blocks
+        return $filtered_blocks;
+    }
+
+    return $allowed_block_types;
+}
+
+add_filter( 'allowed_block_types_all', 'ltm_allowed_post_type_blocks', 10, 2 );

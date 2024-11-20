@@ -12,7 +12,7 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge(
         $args,
-        get_field('post_in_content_form', 'options') ?? []
+        get_field('post_in_content_form', 'options') ?: []
     ),
     [
         'post_id' => null,

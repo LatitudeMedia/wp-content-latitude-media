@@ -16,14 +16,8 @@
 .editors-picks-block {
   @include editorsPickBlock;
 }
-.posts-list-section {
-  @include postsListSection;
-}
 .banner-ad-block {
   @include bannerAdBlock;
-}
-.form-block {
-  @include formBlock;
 }
 .event-large-item-section {
   @include eventLargeItemSection;

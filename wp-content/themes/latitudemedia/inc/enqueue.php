@@ -31,10 +31,16 @@ if( !function_exists( 'ltm_styles' ) ) {
         wp_register_style('ltm-base', get_template_directory_uri() . '/dist/css/base.min.css', array(), filemtime( get_template_directory() . '/dist/css/base.min.css') );
         wp_register_style('ltm-header', get_template_directory_uri() . '/dist/css/header.min.css', array(), filemtime( get_template_directory() . '/dist/css/header.min.css') );
         wp_register_style('ltm-footer', get_template_directory_uri() . '/dist/css/footer.min.css', array(), filemtime( get_template_directory() . '/dist/css/footer.min.css') );
+        wp_register_style('block-acf-news-list-section', get_template_directory_uri() . '/dist/css/blocks/news-list-section.min.css', array(), filemtime( get_template_directory() . '/dist/css/blocks/news-list-section.min.css') );
+        wp_enqueue_style('block-acf-news-list-section');
+        wp_register_style('block-acf-signup-form-section', get_template_directory_uri() . '/dist/css/blocks/signup-form-section.min.css', array(), filemtime( get_template_directory() . '/dist/css/blocks/signup-form-section.min.css') );
+        wp_enqueue_style('block-acf-signup-form-section');
         if( is_front_page() ) {
             wp_register_style('ltm-homepage', get_template_directory_uri() . '/dist/css/homepage.min.css', array(), filemtime( get_template_directory() . '/dist/css/homepage.min.css') );
             wp_enqueue_style('ltm-homepage');
         }
+
+
 
         if( !is_front_page() ) {
             wp_register_style('ltm-pages', get_template_directory_uri() . '/dist/css/pages.min.css', array(), filemtime( get_template_directory() . '/dist/css/pages.min.css') );

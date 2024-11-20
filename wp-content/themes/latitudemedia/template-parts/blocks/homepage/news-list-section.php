@@ -64,54 +64,54 @@ if( !$items->have_posts() ) {
 
 ?>
 <div class="topics-archive-section-wrapper">
-<div
-    <?php
-    echo wp_kses_data(
-        get_block_wrapper_attributes(
-            [
-                "class" => 'content-block posts-list-section',
-                "id" => 'news-list-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
-            ]
-        )
-    );
-
-    ?>
->
-    <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
-    <ul class="posts">
+    <div
         <?php
-        while($items->have_posts() ) {
-            $items->the_post();
+        echo wp_kses_data(
+            get_block_wrapper_attributes(
+                [
+                    "class" => 'content-block posts-list-section',
+                    "id" => 'news-list-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                ]
+            )
+        );
 
-            \LatitudeMedia\Page_Data()->addItems([get_the_ID()]);
-            get_template_part(
-                'template-parts/components/post',
-                'item',
-                array(
-                    'post_id'  => get_the_ID(),
-                    'rows'     => $rows,
-                    'settings' => array(
-                        'thumb'   => array(
-                            'size'       => 'news-with-hero',
-                            'link'       => true,
-                            'link_class' => '',
-                            'alt_image'  => false,
-                            'type'       => true,
-                        ),
-                        'author' => array(
-                            'link_class' => 'author'
-                        ),
-                        'date' => array(
-                            'format' => 'M j, Y'
-                        ),
-                    ),
-                    'wrap'     => $wrap,
-                )
-            );
-            wp_reset_postdata();
-        }
         ?>
-    </ul>
-    <?php do_action('button_unit', $more, null, 'see-all'); ?>
-</div>
+    >
+        <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
+        <ul class="posts">
+            <?php
+            while($items->have_posts() ) {
+                $items->the_post();
+
+                \LatitudeMedia\Page_Data()->addItems([get_the_ID()]);
+                get_template_part(
+                    'template-parts/components/post',
+                    'item',
+                    array(
+                        'post_id'  => get_the_ID(),
+                        'rows'     => $rows,
+                        'settings' => array(
+                            'thumb'   => array(
+                                'size'       => 'news-with-hero',
+                                'link'       => true,
+                                'link_class' => '',
+                                'alt_image'  => false,
+                                'type'       => true,
+                            ),
+                            'author' => array(
+                                'link_class' => 'author'
+                            ),
+                            'date' => array(
+                                'format' => 'M j, Y'
+                            ),
+                        ),
+                        'wrap'     => $wrap,
+                    )
+                );
+                wp_reset_postdata();
+            }
+            ?>
+        </ul>
+        <?php do_action('button_unit', $more, null, 'see-all'); ?>
+    </div>
 </div>

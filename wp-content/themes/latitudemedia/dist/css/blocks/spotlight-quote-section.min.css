@@ -1,0 +1,37 @@
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/spotlight-quote-section.scss ***!
+  \********************************************************************************************************************************************************************************************************************/
+.testimonial-block {
+  margin-bottom: 64px;
+}
+.testimonial-block .testimonial-block-wrapper {
+  padding-left: 72px;
+  position: relative;
+}
+.testimonial-block .testimonial-block-wrapper:before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 24px;
+  background: transparent url(../../images/quotes.svg) top left no-repeat;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.testimonial-block .testimonial-block-wrapper h5 {
+  margin-bottom: 4px;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+.testimonial-block .testimonial-block-wrapper .author {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #0F1E42;
+}
+
+/*# sourceMappingURL=spotlight-quote-section.min.css.map*/

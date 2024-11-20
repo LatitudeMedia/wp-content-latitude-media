@@ -1,4 +1,7 @@
 <?php
+if (is_admin()) {
+    echo '<h3 style="text-align: center;">' . __('In house ad block', 'ltm') . '</h3>';
+}
 
 // Set defaults In house ad block.
 $options = wp_parse_args(

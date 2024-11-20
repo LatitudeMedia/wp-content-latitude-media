@@ -1,8 +1,7 @@
 <?php
 // Set defaults Large podcasts block.
-
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, get_fields() ?: []),
     [
         'title'             => 'Podcasts',
         'number_of_items'   => 3,
@@ -14,10 +13,6 @@ $options = wp_parse_args(
 
 $blockType = ltm_get_block_style($options['blockAttributes']['className'] ?? []);
 if(!$options['display'] && !is_admin()) {
-    return;
-}
-
-if( empty($options['columns']) ) {
     return;
 }
 

@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.testimonial-block {
+  @include testimonialBlock;
+  margin-bottom: 64px;
+}
