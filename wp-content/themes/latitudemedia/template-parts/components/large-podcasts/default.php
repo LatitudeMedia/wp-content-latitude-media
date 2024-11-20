@@ -126,7 +126,7 @@ if( !$podcastPosts->have_posts() ) {
                         <?php do_action('button_unit', ['url' => get_the_permalink($basePodcastId), 'title' => 'Browse episodes'], null, 'browse'); ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endwhile; ?>
         </div>
     </div>
 </div>
