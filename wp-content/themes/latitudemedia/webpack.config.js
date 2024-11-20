@@ -42,6 +42,8 @@ module.exports = (env) => {
       'css/blocks/news-with-hero': './src/assets/scss/blocks/news-with-hero.scss',
       'css/blocks/news-with-sidebar-section-block': './src/assets/scss/blocks/news-with-sidebar-section-block.scss',
       'css/blocks/sidebar-info-block': './src/assets/scss/blocks/sidebar-info-block.scss',
+      'css/blocks/large-podcasts-section': './src/assets/scss/blocks/large-podcasts-section.scss',
+      'css/blocks/partner-porcasts-block': './src/assets/scss/blocks/partner-porcasts-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

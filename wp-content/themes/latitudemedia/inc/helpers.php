@@ -260,18 +260,32 @@ function get_published_post_by_id($post_id = null, $args = []) {
         return false;
     }
 
-    $defaultArgs = [
-        'post_type'        => 'post',
-        'posts_per_page'   => 1
-    ];
-    $queryArgs = wp_parse_args($args, $defaultArgs);
-    $result = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, [$post_id]);
-
+    $result = get_published_posts_by_ids([$post_id], $args);
     if($result->found_posts > 0) {
         return $result->posts[0];
     }
 
     return false;
+}
+
+/**
+ * @param array $post_ids
+ * @param array $args
+ * @return WP_Query
+ */
+function get_published_posts_by_ids($post_ids = [], $args = []) {
+    if( empty($post_ids) ) {
+        return new WP_Query();
+    }
+
+    $defaultArgs = [
+        'post_type'        => 'post',
+        'posts_per_page'   => -1
+    ];
+    $queryArgs = wp_parse_args($args, $defaultArgs);
+    $result = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $post_ids);
+
+    return $result;
 }
 
 /**

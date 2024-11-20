@@ -1,0 +1,8 @@
+@import "../core/core_loader";
+.podcasts-large-blue-section {
+  @include podcastsLargeBlueSection;
+}
+
+.podcasts-hero-section {
+  @include podcastsHeroSection;
+}

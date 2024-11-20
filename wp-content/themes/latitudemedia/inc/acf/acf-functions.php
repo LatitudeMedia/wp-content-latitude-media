@@ -280,20 +280,33 @@ $blocks = array(
 
     array(
         'attrs' => array(
-            'name'  		=> 'three-podcasts-section',
-            'title' 		=> __('Three podcasts block', 'ltm'),
+            'name'  		=> 'large-podcasts-section',
+            'title' 		=> __('Large podcasts block', 'ltm'),
             'path'  		=> 'homepage',
         ),
         'icon'  		=> 'table-col-before',
-        'description' => __('Three podcasts block', 'ltm'),
+        'description' => __('Large podcasts block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Three podcasts block', 'ltm') ),
+        'keywords'    => array( __('Large podcasts block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/large-podcasts-section.min.css',
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ]
+        ],
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
                 'data' => array(
-                    'image' => 'three-podcasts-section.png',
+                    'image' => 'large-podcasts-section.png',
                 )
             )
         )
@@ -693,6 +706,27 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'podcast-overview-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'partner-porcasts-block',
+            'title' 		=> __('Partner porcasts block', 'ltm'),
+            'path'  		=> 'podcast',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Partner porcasts block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Partner porcasts block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/partner-porcasts-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'partner-porcasts-block.png',
                 )
             )
         )

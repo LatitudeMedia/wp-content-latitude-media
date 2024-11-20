@@ -1,11 +1,11 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Three podcasts block', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Large podcasts block DEFAULT', 'ltm') . '</h3>';
 }
-// Set defaults Three podcasts block.
+// Set defaults Large podcasts block.
 
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, get_fields() ?: []),
     [
         'title'             => 'Podcasts',
         'number_of_items'   => 3,
@@ -25,25 +25,31 @@ if( empty($columns) ) {
     return;
 }
 
+$blockAttrs = wp_kses_data(
+    get_block_wrapper_attributes(
+        [
+            "class" => 'content-block podcasts-large-blue-section',
+            "id" => 'three-podcasts-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+        ]
+    )
+);
+
+$podcastPosts = get_published_posts_by_ids($columns, ['post_type' => 'podcasts']);
+if( !$podcastPosts->have_posts() ) {
+    return;
+}
 ?>
 
 <div
-    <?php
-    echo wp_kses_data(
-        get_block_wrapper_attributes(
-            [
-                "class" => 'content-block podcasts-large-blue-section',
-                "id" => 'three-podcasts-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
-            ]
-        )
-    );
-    ?>
+    <?php echo $blockAttrs; ?>
 >
     <div class="container">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
         <div class="podcasts-large-blue-section-wrapper">
-            <?php foreach ($columns as $column) :
-                $items = get_podcast_episodes($column, ['posts_per_page'    => $number_of_items ?? 3,]);
+            <?php while ($podcastPosts->have_posts()) :
+                $podcastPosts->the_post();
+                $basePodcastId = get_the_ID();
+                $items = get_podcast_episodes($basePodcastId, ['posts_per_page'    => $number_of_items ?? 3,]);
                 if( !$items->have_posts() ) {
                     continue;
                 }
@@ -66,7 +72,7 @@ if( empty($columns) ) {
                                 'template-parts/components/post',
                                 'item',
                                 array(
-                                    'post_id'  => $column,
+                                    'post_id'  => $basePodcastId,
                                     'settings' => array(
                                         'title' => array(
                                             'wrap' => '<span class="title">%1$s</span>',
@@ -75,9 +81,6 @@ if( empty($columns) ) {
                                         'thumb'   => array(
                                             'size'       => 'news-with-hero',
                                             'link'       => true,
-                                            'link_class' => '',
-                                            'alt_image'  => false,
-                                            'type'       => true,
                                         ),
                                     ),
                                     'rows'          => $rows,
@@ -120,7 +123,7 @@ if( empty($columns) ) {
                             }
                             ?>
                         </ul>
-                        <?php do_action('button_unit', ['url' => get_the_permalink($column), 'title' => 'Browse episodes'], null, 'browse'); ?>
+                        <?php do_action('button_unit', ['url' => get_the_permalink($basePodcastId), 'title' => 'Browse episodes'], null, 'browse'); ?>
                     </div>
                 </div>
             <?php endforeach; ?>

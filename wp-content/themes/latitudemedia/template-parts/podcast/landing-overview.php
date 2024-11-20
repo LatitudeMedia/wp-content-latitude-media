@@ -15,16 +15,7 @@ $podcastData = get_fields(get_the_ID());
                         <span class="value"><?php do_action('print_article_authors', get_the_ID()); ?></span>
                     </div>
                     <div class="row">
-                        <?php
-                            get_template_part('template-parts/podcast/listening', 'links', [
-                                    'title' => 'listen on:',
-                                    'links' => [
-                                        'apple'     => $podcastData['apple_podcast'],
-                                        'spotify'   => $podcastData['spotify'],
-                                        'rss'       => $podcastData['rss_feed'],
-                                    ]
-                            ]);
-                        ?>
+                        <?php do_action('print_podcast_listening', get_the_ID(), 'listen on:'); ?>
                     </div>
                     <div class="row">
                         <?php

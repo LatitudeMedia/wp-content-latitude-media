@@ -65,6 +65,8 @@ foreach ( $rows as $row ) {
         case 'author': do_action('print_article_authors', $post_id, $settings[$row]); break;
         case 'excerpt': do_action('print_article_excerpt', $post_id); break;
         case 'time': do_action('print_podcast_time', $post_id); break;
+        case 'podcast-listening': do_action('print_podcast_listening', $post_id, 'listen on:'); break;
+        case 'podcast-organization': do_action('print_podcast_organization', $post_id); break;
         case 'resource-tag': do_action('print_resource_tag', $post_id); break;
 //        case 'read_more': do_action('print_article_read_more', $post_id); break;
     }

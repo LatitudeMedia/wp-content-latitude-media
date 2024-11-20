@@ -4654,11 +4654,11 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
 
     acf_add_local_field_group( array(
         'key' => 'group_67129adc49add',
-        'title' => 'Three podcasts block',
+        'title' => 'Large podcasts block',
         'fields' => array(
             array(
                 'key' => 'field_67129ab748d4b',
-                'label' => 'Three podcasts block',
+                'label' => 'Large podcasts block',
                 'name' => '',
                 'aria-label' => '',
                 'type' => 'message',
@@ -4720,8 +4720,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                     1 => 'taxonomy',
                 ),
                 'return_format' => 'id',
-                'min' => 3,
-                'max' => 3,
                 'elements' => '',
                 'bidirectional' => 0,
                 'bidirectional_target' => array(
@@ -4775,7 +4773,7 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 array(
                     'param' => 'block',
                     'operator' => '==',
-                    'value' => 'acf/three-podcasts-section',
+                    'value' => 'acf/large-podcasts-section',
                 ),
             ),
         ),
@@ -6189,4 +6187,3 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'show_in_rest' => 0,
     ) );
 } );
-

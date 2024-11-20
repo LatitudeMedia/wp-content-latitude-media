@@ -256,13 +256,43 @@ if ( ! function_exists( 'print_podcast_time' ) ) :
     add_action('print_podcast_time', 'print_podcast_time', 10, 4);
 endif;
 
+if ( ! function_exists( 'print_podcast_listening' ) ) :
+    function print_podcast_listening( $podcast_id = null, $title = '' ) {
+        if ( ! $podcast_id ) {
+            $podcast_id = get_the_ID();
+        }
+
+        get_template_part('template-parts/podcast/listening', 'links', [
+            'title' => $title,
+            'links' => [
+                'apple'     => get_field('apple_podcast', $podcast_id),
+                'spotify'   => get_field('spotify', $podcast_id),
+                'rss'       => get_field('rss_feed', $podcast_id),
+            ]
+        ]);
+    }
+    add_action('print_podcast_listening', 'print_podcast_listening', 10, 4);
+endif;
+
+if ( ! function_exists( 'print_podcast_organization' ) ) :
+    function print_podcast_organization( $podcast_id = null ) {
+        if ( ! $podcast_id ) {
+            $podcast_id = get_the_ID();
+        }
+        $podcastOrganization = get_field('organization', $podcast_id);
+
+        echo '<div class="company">' . $podcastOrganization . ' </div>';
+
+    }
+    add_action('print_podcast_organization', 'print_podcast_organization', 10, 4);
+endif;
+
 if ( ! function_exists( 'print_resource_tag' ) ) :
     function print_resource_tag( $post_id = null ) {
         if ( ! $post_id ) {
             $post_id = get_the_ID();
         }
 
-        $resourceTag = get_field('resource_type', $post_id);
 
         echo '<div class="tag">' . $resourceTag . ' </div>';
     }
