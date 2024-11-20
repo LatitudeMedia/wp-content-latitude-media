@@ -292,7 +292,7 @@ if ( ! function_exists( 'print_resource_tag' ) ) :
         if ( ! $post_id ) {
             $post_id = get_the_ID();
         }
-
+        $resourceTag = get_field('resource_type', $post_id);
 
         echo '<div class="tag">' . $resourceTag . ' </div>';
     }
