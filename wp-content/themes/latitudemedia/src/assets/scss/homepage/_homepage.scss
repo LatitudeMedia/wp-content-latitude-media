@@ -10,15 +10,6 @@
     }
   }
 }
-.posts-hero-section {
-  @include postsHeroSection;
-}
-.editors-picks-block {
-  @include editorsPickBlock;
-}
-.banner-ad-block {
-  @include bannerAdBlock;
-}
 .event-large-item-section {
   @include eventLargeItemSection;
 }

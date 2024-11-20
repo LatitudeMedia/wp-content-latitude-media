@@ -1,6 +1,28 @@
 <?php
 
 $blocks = array(
+    // START COMMON blocks
+    array(
+        'attrs' => array(
+            'name'  		=> 'ad-banner-section',
+            'title' 		=> __('Ad banner block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Ad banner block', 'ltm'),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Ad banner block', 'ltm') ),
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'ad-banner-section.png',
+                )
+            )
+        )
+    ),
+    // END COMMON blocks
+
     // START POST blocks
     array(
         'attrs' => array(
@@ -100,11 +122,11 @@ $blocks = array(
             'title' 		=> __('Sidebar editors picks block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'edit-page',
         'description' => __('Sidebar editors picks block', 'ltm'),
-//        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar editors picks block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/sidebar-editors-picks-section.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -121,9 +143,8 @@ $blocks = array(
             'title' 		=> __('Sidebar form block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'email-alt2',
         'description' => __('Sidebar form block', 'ltm'),
-//        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar form block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/signup-form-section.min.css',
@@ -143,11 +164,11 @@ $blocks = array(
             'title' 		=> __('Sidebar news list block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'align-pull-left',
         'description' => __('Sidebar news list block', 'ltm'),
-//        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar news list block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-list-section.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -164,11 +185,11 @@ $blocks = array(
             'title' 		=> __('Related reading block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'star-filled',
         'description' => __('Related reading block', 'ltm'),
-//        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Related reading block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/related-reading-section.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -185,9 +206,8 @@ $blocks = array(
             'title' 		=> __('Sidebar ad banner block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'pressthis',
         'description' => __('Sidebar ad banner block', 'ltm'),
-//        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar ad banner block', 'ltm') ),
         'example'  	=> array(
@@ -206,9 +226,8 @@ $blocks = array(
             'title' 		=> __('Sidebar info block', 'ltm'),
             'path'  		=> 'sidebar',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'info',
         'description' => __('Sidebar info block', 'ltm'),
-//        'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-sidebar-blocks',
         'keywords'    => array( __('Sidebar info block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/sidebar-info-block.min.css',
@@ -223,6 +242,7 @@ $blocks = array(
     ),
     // END Sidebar blocks
 
+    // START PAGE blocks
     array(
         'attrs' => array(
             'name'  		=> 'news-with-hero-section',
@@ -265,27 +285,6 @@ $blocks = array(
             )
         )
     ),
-
-    array(
-        'attrs' => array(
-            'name'  		=> 'ad-banner-section',
-            'title' 		=> __('Ad banner block', 'ltm'),
-            'path'  		=> 'common',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('Ad banner block', 'ltm'),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Ad banner block', 'ltm') ),
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'ad-banner-section.png',
-                )
-            )
-        )
-    ),
-
     array(
         'attrs' => array(
             'name'  		=> 'large-podcasts-section',
@@ -319,6 +318,10 @@ $blocks = array(
             )
         )
     ),
+
+
+
+
     array(
         'attrs' => array(
             'name'  		=> 'large-event-section',

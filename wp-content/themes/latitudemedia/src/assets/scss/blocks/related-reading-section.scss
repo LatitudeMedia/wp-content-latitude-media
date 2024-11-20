@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.related-reading-block {
+  @include relatedReadingBlock;
+}

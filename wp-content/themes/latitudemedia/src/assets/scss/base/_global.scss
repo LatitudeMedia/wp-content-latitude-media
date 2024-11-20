@@ -160,23 +160,7 @@ article {
 }
 
 .banner-ad-block {
-  margin-bottom: 40px;
-  .banner-ad-block-wrapper {
-    text-align: center;
-
-    img {
-      display: inline-block;
-    }
-
-    a {
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    iframe {
-      display: inline-block;
-    }
-  }
+  @include bannerAdBlock;
 }
 
 .pager {
