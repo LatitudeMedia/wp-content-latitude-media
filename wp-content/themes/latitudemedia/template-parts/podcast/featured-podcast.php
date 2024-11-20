@@ -30,6 +30,7 @@ if( !$podcast ) {
                                 <div class="content-folder">
                                     [tags-list]
                                     <h2>[title]</h2>
+                                    [excerpt]
                                     <div class="info">
                                         <div class="post-date">
                                             [time]
