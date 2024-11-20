@@ -8,7 +8,7 @@ $blocks = array(
             'title' 		=> __('Ad banner block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'pressthis',
         'description' => __('Ad banner block', 'ltm'),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Ad banner block', 'ltm') ),
@@ -318,21 +318,18 @@ $blocks = array(
             )
         )
     ),
-
-
-
-
     array(
         'attrs' => array(
             'name'  		=> 'large-event-section',
             'title' 		=> __('Large event block', 'ltm'),
             'path'  		=> 'homepage',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'cover-image',
         'description' => __('Large event block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Large event block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/featured-research-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -348,7 +345,7 @@ $blocks = array(
             'title' 		=> __('News plates block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'schedule',
         'description' => __('News plates block', 'ltm'),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('News plates block', 'ltm') ),
@@ -362,6 +359,9 @@ $blocks = array(
             )
         )
     ),
+    // END PAGE blocks
+
+
 
     // START Section landing
     array(
