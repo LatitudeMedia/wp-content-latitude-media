@@ -62,6 +62,56 @@ $blocks = array(
             )
         )
     ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'content-with-background-block',
+            'title' 		=> __('Content with background block', 'ltm'),
+            'path'  		=> 'common',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'align-full-width',
+        'description' => __('Content with background block', 'ltm'),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Content with background block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'mode' => 'preview',
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'content-with-background-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'styled-button-block',
+            'title' 		=> __('Styled button block', 'ltm'),
+            'path'  		=> 'common',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'button',
+        'description' => __('Styled button block', 'ltm'),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Styled button block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'mode' => 'preview',
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'styled-button-block.png',
+                )
+            )
+        )
+    ),
     // END COMMON blocks
 
     // START POST blocks
@@ -284,6 +334,50 @@ $blocks = array(
     // END Sidebar blocks
 
     // START PAGE blocks
+    array(
+        'attrs' => array(
+            'name'  		=> 'begin-sidebar',
+            'title' 		=> __('Begin Sidebar', 'ltm'),
+            'path'  		=> 'homepage',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'insert-before',
+        'description' => __('Begin Sidebar', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-sidebar-blocks',
+        'keywords'    => array( __('Begin Sidebar', 'ltm') ),
+        'mode' => 'preview',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'custom-sidebar.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'end-sidebar',
+            'title' 		=> __('End Sidebar', 'ltm'),
+            'path'  		=> 'homepage',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'insert-after',
+        'description' => __('End Sidebar', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-sidebar-blocks',
+        'keywords'    => array( __('End Sidebar', 'ltm') ),
+        'mode' => 'preview',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'custom-sidebar.png',
+                )
+            )
+        )
+    ),
     array(
         'attrs' => array(
             'name'  		=> 'news-with-hero-section',
@@ -741,106 +835,6 @@ $blocks = array(
         )
     ),
     // END Single Research
-
-
-
-
-    array(
-        'attrs' => array(
-            'name'  		=> 'begin-sidebar',
-            'title' 		=> __('Begin Sidebar', 'ltm'),
-            'path'  		=> 'homepage',
-            'display'  		=> true,
-        ),
-        'icon'  		=> 'insert-before',
-        'description' => __('Begin Sidebar', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-sidebar-blocks',
-        'keywords'    => array( __('Begin Sidebar', 'ltm') ),
-        'mode' => 'preview',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'custom-sidebar.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'end-sidebar',
-            'title' 		=> __('End Sidebar', 'ltm'),
-            'path'  		=> 'homepage',
-            'display'  		=> true,
-        ),
-        'icon'  		=> 'insert-after',
-        'description' => __('End Sidebar', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-sidebar-blocks',
-        'keywords'    => array( __('End Sidebar', 'ltm') ),
-        'mode' => 'preview',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'custom-sidebar.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'content-with-background-block',
-            'title' 		=> __('Content with background block', 'ltm'),
-            'path'  		=> 'common',
-            'display'  		=> true,
-        ),
-        'icon'  		=> 'align-full-width',
-        'description' => __('Content with background block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Content with background block', 'ltm') ),
-        "supports" =>  array(
-            "jsx" =>  true,
-        ),
-        'mode' => 'preview',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'content-with-background-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'styled-button-block',
-            'title' 		=> __('Styled button block', 'ltm'),
-            'path'  		=> 'common',
-            'display'  		=> true,
-        ),
-        'icon'  		=> 'button',
-        'description' => __('Styled button block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Styled button block', 'ltm') ),
-        "supports" =>  array(
-            "jsx" =>  true,
-        ),
-        'mode' => 'preview',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'styled-button-block.png',
-                )
-            )
-        )
-    ),
 );
 
 new ACFBlocks( $blocks );
