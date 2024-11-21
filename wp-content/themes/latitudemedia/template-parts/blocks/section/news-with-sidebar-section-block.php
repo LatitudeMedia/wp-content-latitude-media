@@ -58,7 +58,7 @@ if(!$section) {
                         $args
                     );
                     ?>
-                    <a href="<?php echo get_term_link($section->term_id, 'section'); ?>" class="more-button pink"><span><?php _e('See more', 'ltm'); ?></span></a>
+                    <a href="<?php echo get_term_link($section->term_id, 'section'); ?>" class="cta-button pink"><span><?php _e('See more', 'ltm'); ?></span></a>
                 </div>
             </div>
             <?php get_template_part('template-parts/blocks/homepage/end','sidebar', array('sidebar_widget' => $sidebar_widget)); ?>

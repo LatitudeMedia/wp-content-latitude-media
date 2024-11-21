@@ -1,9 +1,9 @@
 <?php
 // Set defaults Logo and text.
 $options = wp_parse_args(
-    get_fields() ?: [],
+    array_merge($args, get_fields() ?: []),
     [
-        'blockAttributes' => $block,
+        'blockAttributes' => [],
     ]
 );
 

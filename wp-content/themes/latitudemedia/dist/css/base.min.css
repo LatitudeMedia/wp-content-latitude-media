@@ -731,6 +731,36 @@ article ul li {
   all: unset;
 }
 
+.cta-button {
+  outline: none;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+  -webkit-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+  -moz-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+  box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+  background-color: #ffffff;
+  color: var(--custom-block-base-color) !important;
+  border: 1px solid var(--custom-block-base-color) !important;
+}
+.cta-button:hover {
+  background-color: var(--custom-block-base-color) !important;
+  color: #ffffff !important;
+}
 @media screen and (max-width: 992px) {
   .wrapper {
     margin: 0;
@@ -779,7 +809,6 @@ article ul li {
     width: 90%;
   }
 }
-
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 32px;
@@ -827,7 +856,6 @@ article ul li {
     padding: 34px;
   }
 }
-
 @media screen and (max-width: 576px) {
   .modal-content .bio {
     flex-direction: column;

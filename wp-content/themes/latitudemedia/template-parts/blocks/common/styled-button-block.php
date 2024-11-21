@@ -18,4 +18,4 @@ if( empty($button) ) {
 }
 ?>
 
-<?php do_action('button_unit', $button, null, 'button'); ?>
+<?php do_action('button_unit', $button, null, 'cta-button'); ?>

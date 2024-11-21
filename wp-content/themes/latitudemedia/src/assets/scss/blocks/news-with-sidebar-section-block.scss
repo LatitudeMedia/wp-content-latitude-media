@@ -63,8 +63,7 @@
         }
       }
     }
-    .more-button {
-      @include shadowButton;
+    .cta-button {
       display: table;
       margin: 0 auto;
     }

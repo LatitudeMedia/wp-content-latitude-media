@@ -35,6 +35,6 @@ $blockAttrs = wp_kses_data(
 >
     <div class="info-block-wrapper">
         <?php do_action('section_title', $title, '<h5>%1$s</h5>'); ?>
-        <?php do_action('button_unit', $button, null, 'button pink'); ?>
+        <?php do_action('button_unit', $button, null, 'cta-button'); ?>
     </div>
 </div>

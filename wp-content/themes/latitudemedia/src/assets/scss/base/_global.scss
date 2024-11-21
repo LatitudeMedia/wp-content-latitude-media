@@ -518,3 +518,7 @@ article {
     }
   }
 }
+
+.cta-button {
+  @include shadowButton
+}

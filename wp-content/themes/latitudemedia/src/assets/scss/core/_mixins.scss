@@ -1835,8 +1835,7 @@
 			}
 		}
 
-		.event-button {
-			@include shadowButton;
+		.cta-button {
 			color: var(--custom-block-base-color) !important;
 			span {
 				color: var(--custom-block-base-color);
@@ -1853,93 +1852,6 @@
 				}
 			}
 
-		}
-	}
-	.more-events {
-		@include shadowButton;
-	}
-	&.pink {
-		.event-large-item-section-wrapper {
-			.event-button {
-				span {
-					color: $primary-pink;
-				}
-
-				box-shadow: -7px 7px 0 -1px $pink_shadow;
-				border-color: $primary-pink;
-
-				&:hover {
-					background-color: $primary-pink;
-
-					span {
-						color: $white;
-					}
-				}
-			}
-		}
-	}
-
-	&.green {
-		.event-large-item-section-wrapper {
-			.event-button {
-				span {
-					color: $green;
-				}
-
-				box-shadow: -7px 7px 0 -1px $green_shadow;
-				border-color: $green;
-
-				&:hover {
-					background-color: $green;
-
-					span {
-						color: $white;
-					}
-				}
-			}
-		}
-	}
-
-	&.blue {
-		.event-large-item-section-wrapper {
-			.event-button {
-				span {
-					color: $blue;
-				}
-
-				box-shadow: -7px 7px 0 -1px $blue_shadow;
-				border-color: $blue;
-
-				&:hover {
-					background-color: $blue;
-
-					span {
-						color: $white;
-					}
-				}
-			}
-		}
-	}
-
-	&.orange {
-		.event-large-item-section-wrapper {
-
-			.event-button {
-				span {
-					color: $orange;
-				}
-
-				box-shadow: -7px 7px 0 -1px $orange_shadow;
-				border-color: $orange;
-
-				&:hover {
-					background-color: $orange;
-
-					span {
-						color: $white;
-					}
-				}
-			}
 		}
 	}
 }
@@ -2153,7 +2065,6 @@
 		}
 
 		.cta-button {
-			@include shadowButton;
 			display: inline-block;
 		}
 	}
@@ -2384,7 +2295,6 @@
 		}
 
 		.more-events {
-			@include shadowButton;
 			display: table;
 			margin: 0 auto;
 		}
@@ -2467,10 +2377,6 @@
 
 			ol {
 				padding-left: 20px;
-			}
-
-			.button {
-				@include shadowButton;
 			}
 		}
 	}
@@ -4360,18 +4266,18 @@
 				&:hover {
 					text-decoration: none;
 				}
-			}
 
-			.button {
-				@include shadowButton;
-				display: inline-block;
-				margin-top: 24px;
-				@include below_sm {
-					display: table;
-					margin: 24px auto 0;
+				&.cta-button {
+					display: inline-block;
+					margin-top: 24px;
+					@include fontSize(14px);
+					text-decoration: none;
+					@include below_sm {
+						display: table;
+						margin: 24px auto 0;
+					}
 				}
 			}
-
 			.contact-folder {
 				display: flex;
 				justify-content: space-between;
@@ -6371,10 +6277,6 @@
 			line-height: 23px;
 			color: $primary-dark-blue;
 			margin-bottom: 20px;
-		}
-
-		.cta-button {
-			@include shadowButton;
 		}
 	}
 }

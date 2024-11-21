@@ -58,7 +58,7 @@ $eventStartDate = get_event_start_date($event->ID);
                 <div class="decription-title"><?php _e('Latitude events Presents:', 'ltm')?></div>
                 <?php do_action('print_article_excerpt', $event->ID); ?>
             </div>
-            <a href="<?php the_permalink($event->ID)?>" class="event-button "><span><?php _e('register now', 'ltm'); ?></span></a>
+            <a href="<?php the_permalink($event->ID)?>" class="cta-button "><span><?php _e('register now', 'ltm'); ?></span></a>
         </div>
     </div>
 </div>

@@ -21,6 +21,47 @@ $blocks = array(
             )
         )
     ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'logo-and-text',
+            'title' 		=> __('Logo and text', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'align-left',
+        'description' => __('Logo and text', 'ltm'),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Logo and text', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'mode' => 'preview',
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type3',
+                'label' => __('Type 3', 'ltm'),
+                'isDefault' => true,
+            ],
+        ],
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'logo-and-text.png',
+                )
+            )
+        )
+    ),
     // END COMMON blocks
 
     // START POST blocks
@@ -52,7 +93,7 @@ $blocks = array(
             'title' 		=> __('In house ad block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'pressthis',
+        'icon'  		=> 'media-document',
         'description' => __('In house ad block', 'ltm'),
         'post_types' 	=> array( 'post' ),
         'category'  	=> 'ltm-post-blocks',
@@ -359,82 +400,13 @@ $blocks = array(
             )
         )
     ),
-    // END PAGE blocks
-
-
-
-    // START Section landing
-    array(
-        'attrs' => array(
-            'name'  		=> 'categories-section-block',
-            'title' 		=> __('Categories section block', 'ltm'),
-            'path'  		=> 'section',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('Categories section block', 'ltm'),
-        'post_types' 	=> array( 'sections-landing' ),
-        'category'  	=> 'ltm-section-landing-blocks',
-        'keywords'    => array( __('Categories section block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/categories-section-block.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'categories-section-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'news-list-with-hero-section-block',
-            'title' 		=> __('News list with hero section block', 'ltm'),
-            'path'  		=> 'section',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('News list with hero section block', 'ltm'),
-        'post_types' 	=> array( 'sections-landing' ),
-        'category'  	=> 'ltm-section-landing-blocks',
-        'keywords'    => array( __('News list with hero section block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-hero.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'news-list-with-hero-section-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'news-with-sidebar-section-block',
-            'title' 		=> __('News with sidebar section block', 'ltm'),
-            'path'  		=> 'section',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('News with sidebar section block', 'ltm'),
-        'post_types' 	=> array( 'sections-landing' ),
-        'category'  	=> 'ltm-section-landing-blocks',
-        'keywords'    => array( __('News with sidebar section block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-sidebar-section-block.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'news-with-sidebar-section-block.png',
-                )
-            )
-        )
-    ),
-    // END Section landing
     array(
         'attrs' => array(
             'name'  		=> 'subscribe-form-block',
             'title' 		=> __('Subscribe form block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'email-alt',
         'description' => __('Subscribe form block', 'ltm'),
         'post_types' 	=> array( 'page', 'sections-landing' ),
         'category'  	=> 'ltm-page-blocks',
@@ -472,7 +444,7 @@ $blocks = array(
             'title' 		=> __('Authors list block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'admin-users',
         'description' => __('Authors list block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
@@ -493,7 +465,7 @@ $blocks = array(
             'title' 		=> __('Our team block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'groups',
         'description' => __('Our team block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
@@ -514,7 +486,7 @@ $blocks = array(
             'title' 		=> __('Image and text block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'align-pull-left',
         'description' => __('Image and text block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
@@ -535,7 +507,7 @@ $blocks = array(
             'title' 		=> __('Featured research block', 'ltm'),
             'path'  		=> 'research',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'chart-area',
         'description' => __('Featured research block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
@@ -550,6 +522,117 @@ $blocks = array(
             )
         )
     ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'partner-porcasts-block',
+            'title' 		=> __('Partner porcasts block', 'ltm'),
+            'path'  		=> 'podcast',
+        ),
+        'icon'  		=> 'businessman',
+        'description' => __('Partner porcasts block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Partner porcasts block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/partner-porcasts-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'partner-porcasts-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'info-cta-block',
+            'title' 		=> __('Info cta block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'info',
+        'description' => __('Info cta block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Info cta block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/info-cta-block.min.css',
+        'mode' => 'preview',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'info-cta-block.png',
+                )
+            )
+        )
+    ),
+    // END PAGE blocks
+
+
+    // START Section landing
+    array(
+        'attrs' => array(
+            'name'  		=> 'categories-section-block',
+            'title' 		=> __('Categories section block', 'ltm'),
+            'path'  		=> 'section',
+        ),
+        'icon'  		=> 'editor-insertmore',
+        'description' => __('Categories section block', 'ltm'),
+        'post_types' 	=> array( 'sections-landing' ),
+        'category'  	=> 'ltm-section-landing-blocks',
+        'keywords'    => array( __('Categories section block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/categories-section-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'categories-section-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'news-list-with-hero-section-block',
+            'title' 		=> __('News list with hero section block', 'ltm'),
+            'path'  		=> 'section',
+        ),
+        'icon'  		=> 'table-row-before',
+        'description' => __('News list with hero section block', 'ltm'),
+        'post_types' 	=> array( 'sections-landing' ),
+        'category'  	=> 'ltm-section-landing-blocks',
+        'keywords'    => array( __('News list with hero section block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-hero.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'news-list-with-hero-section-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'news-with-sidebar-section-block',
+            'title' 		=> __('News with sidebar section block', 'ltm'),
+            'path'  		=> 'section',
+        ),
+        'icon'  		=> 'align-pull-right',
+        'description' => __('News with sidebar section block', 'ltm'),
+        'post_types' 	=> array( 'sections-landing' ),
+        'category'  	=> 'ltm-section-landing-blocks',
+        'keywords'    => array( __('News with sidebar section block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/news-with-sidebar-section-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'news-with-sidebar-section-block.png',
+                )
+            )
+        )
+    ),
+    // END Section landing
 
     // START Single Research
     array(
@@ -558,10 +641,10 @@ $blocks = array(
             'title' 		=> __('Research banner block', 'ltm'),
             'path'  		=> 'research',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'align-wide',
         'description' => __('Research banner block', 'ltm'),
         'post_types' 	=> array( 'research', 'order-reports' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-research-blocks',
         'keywords'    => array( __('Research banner block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css',
         'example'  	=> array(
@@ -579,10 +662,10 @@ $blocks = array(
             'title' 		=> __('Research preview block', 'ltm'),
             'path'  		=> 'research',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'welcome-view-site',
         'description' => __('Research preview block', 'ltm'),
         'post_types' 	=> array( 'research' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-research-blocks',
         'keywords'    => array( __('Research preview block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text-block.min.css',
         'example'  	=> array(
@@ -594,57 +677,16 @@ $blocks = array(
             )
         )
     ),
-//    array(
-//        'attrs' => array(
-//            'name'  		=> 'logo-and-text',
-//            'title' 		=> __('Logo and text', 'ltm'),
-//            'path'  		=> 'research',
-//        ),
-//        'icon'  		=> 'table-col-before',
-//        'description' => __('Logo and text', 'ltm'),
-//        'post_types' 	=> array( 'research', 'page', 'post' ),
-//        'category'  	=> 'ltm-page-blocks',
-//        'keywords'    => array( __('Logo and text', 'ltm') ),
-//        "supports" =>  array(
-//            "jsx" =>  true,
-//        ),
-//        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
-//        'styles'  => [
-//            [
-//                'name' => 'default',
-//                'label' => __('Default', 'ltm'),
-//                'isDefault' => true,
-//            ],
-//            [
-//                'name' => 'type2',
-//                'label' => __('Type 2', 'ltm'),
-//                'isDefault' => true,
-//            ],
-//            [
-//                'name' => 'type3',
-//                'label' => __('Type 3', 'ltm'),
-//                'isDefault' => true,
-//            ],
-//        ],
-//        'example'  	=> array(
-//            'attributes' => array(
-//                'mode' => 'preview',
-//                'data' => array(
-//                    'image' => 'logo-and-text.png',
-//                )
-//            )
-//        )
-//    ),
     array(
         'attrs' => array(
             'name'  		=> 'research-overview-block',
             'title' 		=> __('Research overview block', 'ltm'),
             'path'  		=> 'research',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'welcome-widgets-menus',
         'description' => __('Research overview block', 'ltm'),
         'post_types' 	=> array( 'research' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-research-blocks',
         'keywords'    => array( __('Research overview block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-overview-block.min.css',
         'example'  	=> array(
@@ -662,10 +704,10 @@ $blocks = array(
             'title' 		=> __('Order preview block', 'ltm'),
             'path'  		=> 'order-report',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'welcome-view-site',
         'description' => __('Order preview block', 'ltm'),
         'post_types' 	=> array( 'order-reports' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-order-report-blocks',
         'keywords'    => array( __('Order preview block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text-block.min.css',
         'example'  	=> array(
@@ -683,10 +725,10 @@ $blocks = array(
             'title' 		=> __('Order form block', 'ltm'),
             'path'  		=> 'order-report',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'forms',
         'description' => __('Order form block', 'ltm'),
         'post_types' 	=> array( 'order-reports' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-order-report-blocks',
         'keywords'    => array( __('Order form block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/order-form-block.min.css',
         'example'  	=> array(
@@ -700,67 +742,101 @@ $blocks = array(
     ),
     // END Single Research
 
-    array(
-        'attrs' => array(
-            'name'  		=> 'podcast-overview-block',
-            'title' 		=> __('Podcast overview block', 'ltm'),
-            'path'  		=> 'podcast',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('Podcast overview block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Podcast overview block', 'ltm') ),
-        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/podcast-overview-block.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'podcast-overview-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'  		=> 'partner-porcasts-block',
-            'title' 		=> __('Partner porcasts block', 'ltm'),
-            'path'  		=> 'podcast',
-        ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('Partner porcasts block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Partner porcasts block', 'ltm') ),
-        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/partner-porcasts-block.min.css',
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'partner-porcasts-block.png',
-                )
-            )
-        )
-    ),
+
+
 
     array(
         'attrs' => array(
-            'name'  		=> 'info-cta-block',
-            'title' 		=> __('Info cta block', 'ltm'),
-            'path'  		=> 'common',
+            'name'  		=> 'begin-sidebar',
+            'title' 		=> __('Begin Sidebar', 'ltm'),
+            'path'  		=> 'homepage',
+            'display'  		=> true,
         ),
-        'icon'  		=> 'table-col-before',
-        'description' => __('Info cta block', 'ltm'),
+        'icon'  		=> 'insert-before',
+        'description' => __('Begin Sidebar', 'ltm'),
         'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Info cta block', 'ltm') ),
-        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/info-cta-block.min.css',
+        'category'  	=> 'ltm-sidebar-blocks',
+        'keywords'    => array( __('Begin Sidebar', 'ltm') ),
         'mode' => 'preview',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
                 'data' => array(
-                    'image' => 'info-cta-block.png',
+                    'image' => 'custom-sidebar.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'end-sidebar',
+            'title' 		=> __('End Sidebar', 'ltm'),
+            'path'  		=> 'homepage',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'insert-after',
+        'description' => __('End Sidebar', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-sidebar-blocks',
+        'keywords'    => array( __('End Sidebar', 'ltm') ),
+        'mode' => 'preview',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'custom-sidebar.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'content-with-background-block',
+            'title' 		=> __('Content with background block', 'ltm'),
+            'path'  		=> 'common',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'align-full-width',
+        'description' => __('Content with background block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Content with background block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'mode' => 'preview',
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'content-with-background-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'styled-button-block',
+            'title' 		=> __('Styled button block', 'ltm'),
+            'path'  		=> 'common',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'button',
+        'description' => __('Styled button block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Styled button block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'mode' => 'preview',
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'styled-button-block.png',
                 )
             )
         )
@@ -846,103 +922,6 @@ if( !function_exists('acf_load_articles_with_sidebar_choices') ) {
 
     add_filter('acf/load_field/name=sidebar_widget', 'acf_load_articles_with_sidebar_choices');
 }
-
-function registerCustomBlocks() {
-    acf_register_block_type([
-        'name' => 'begin-sidebar',
-        'title' => 'Begin Sidebar',
-        'path' => 'homepage',
-        'render_template' => 'template-parts/blocks/homepage/begin-sidebar.php',
-        'icon' => 'insert-before',
-        'mode' => 'preview',
-        'display' => true
-    ]);
-    acf_register_block_type([
-        'name' => 'end-sidebar',
-        'title' => 'End Sidebar',
-        'path' => 'homepage',
-        'render_template' => 'template-parts/blocks/homepage/end-sidebar.php',
-        'icon' => 'insert-after',
-        'mode' => 'preview',
-        'display' => true
-    ]);
-    acf_register_block_type([
-        'name' => 'content-with-background-block',
-        'title' => 'Content with background block',
-        'path' => 'common',
-        'render_template' => 'template-parts/blocks/common/content-with-background-block.php',
-        'icon' => 'insert-after',
-        'mode' => 'preview',
-        "supports" =>  array(
-            "jsx" =>  true,
-        ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css',
-        'display' => true
-    ]);
-    acf_register_block_type([
-        'name'  		=> 'logo-and-text',
-        'title' 		=> __('Logo and text', 'ltm'),
-        'path'  		=> 'research',
-        'icon'  		=> 'table-col-before',
-        'description' => __('Logo and text', 'ltm'),
-        'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Logo and text', 'ltm') ),
-        "supports" =>  array(
-            "jsx" =>  true,
-        ),
-        'mode' => 'preview',
-        'render_template' => 'template-parts/blocks/common/logo-and-text.php',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/logo-and-text.min.css',
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type3',
-                'label' => __('Type 3', 'ltm'),
-                'isDefault' => true,
-            ],
-        ],
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'logo-and-text.png',
-                )
-            )
-        ),
-    ]);
-
-    acf_register_block_type([
-        'name' => 'styled-button-block',
-        'title' => 'Styled button block',
-        'path' => 'common',
-        'render_template' => 'template-parts/blocks/common/styled-button-block.php',
-        'icon' => 'insert-after',
-        'mode' => 'preview',
-        "supports" =>  array(
-            "jsx" =>  true,
-        ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
-        'display' => true,
-        'example'  	=> array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'styled-button-block.png',
-                )
-            )
-        )
-    ]);
-}
-add_action('acf/init', 'registerCustomBlocks');
 
 function custom_insert_post_data( $data, $postarr ) {
     if (0 === $postarr['ID'] || $postarr['ID'] !== intval(get_option( 'page_on_front' )) ) {

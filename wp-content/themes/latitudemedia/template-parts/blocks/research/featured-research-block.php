@@ -33,7 +33,7 @@ if( !$research ) {
         get_block_wrapper_attributes(
             [
                 "style" => '--custom-block-base-color: ' . $base_color . '; --custom-block-shadow-color: ' . $shadow_color,
-                "class" => 'content-block event-large-item-section blue',
+                "class" => 'content-block event-large-item-section',
                 "id" => 'featured-research-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )
@@ -60,7 +60,7 @@ if( !$research ) {
                     }
                     ?>
             </div>
-            <a href="<?php the_permalink($research); ?>" class="event-button"><span><?php _e('learn more', 'ltm')?></span></a>
+            <a href="<?php the_permalink($research); ?>" class="cta-button"><span><?php _e('learn more', 'ltm')?></span></a>
         </div>
     </div>
 </div>
