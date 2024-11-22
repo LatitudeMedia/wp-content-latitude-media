@@ -835,6 +835,29 @@ $blocks = array(
         )
     ),
     // END Single Research
+    // START Events
+    array(
+        'attrs' => array(
+            'name'  		=> 'events-list-block',
+            'title' 		=> __('Events list block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'tickets-alt',
+        'description' => __('Events list block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Events list block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/events-list-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'events-list-block.png',
+                )
+            )
+        )
+    ),
+    // END Events
 );
 
 new ACFBlocks( $blocks );
