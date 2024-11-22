@@ -102,10 +102,10 @@
   text-align: left;
 }
 
-.industry-news .topics-archive-section .posts-list-section .posts li .content-folder h4 {
+.post-type-archive-industry-news .topics-archive-section .posts-list-section .posts li .content-folder h4 {
   font-family: "Lora", Arial, Helvetica, serif;
 }
-.industry-news .topics-archive-section .posts-list-section .posts li .content-folder h4 .title {
+.post-type-archive-industry-news .topics-archive-section .posts-list-section .posts li .content-folder h4 .title {
   font-family: "Lora", Arial, Helvetica, serif;
 }
 
