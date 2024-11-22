@@ -180,6 +180,7 @@
 .posts-list-section .posts li .content-folder .info {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .posts-list-section .posts li .content-folder .info .time {
   font-family: "inter", Arial, Helvetica, sans-serif;

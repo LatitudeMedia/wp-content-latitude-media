@@ -67,7 +67,7 @@ if( !$items->have_posts() ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-block related-news-section blue',
+                "class" => 'content-block related-news-section pink',
                 "id" => 'news-plates-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )

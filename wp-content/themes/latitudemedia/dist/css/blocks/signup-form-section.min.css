@@ -39,10 +39,18 @@
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 24px;
   text-align: left;
   margin-bottom: 6px;
+}
+.form-block .form-block-wrapper form label.hs-form-checkbox-display {
+  padding-left: 20px;
+}
+.form-block .form-block-wrapper form label.hs-form-checkbox-display input {
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 .form-block .form-block-wrapper form input {
   padding: 12px;
@@ -109,6 +117,9 @@
   background-color: #ffffff;
   width: 100%;
   outline: none;
+}
+.form-block .form-block-wrapper form select.hs-input {
+  margin-top: 0 !important;
 }
 .form-block .form-block-wrapper form label {
   color: #ffffff;

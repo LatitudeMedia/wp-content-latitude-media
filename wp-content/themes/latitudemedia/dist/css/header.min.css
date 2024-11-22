@@ -40,7 +40,7 @@ header .header-wrapper .top-head .top-search-form fieldset:before {
 header .header-wrapper .top-head .top-search-form fieldset input {
   height: 100%;
   background-color: #0F1E42;
-  color: #999999;
+  color: rgba(255, 255, 255, 0.7490196078);
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -52,6 +52,7 @@ header .header-wrapper .top-head .top-search-form fieldset input {
   -moz-box-shadow: none;
   box-shadow: none;
   display: block;
+  text-transform: uppercase;
 }
 header .header-wrapper .top-head .top-search-form fieldset input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   opacity: 1;
@@ -60,6 +61,7 @@ header .header-wrapper .top-head .top-search-form fieldset input::-webkit-input-
   -ms-transition: all ease-in-out 0.3s;
   -o-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
+  color: #999999;
 }
 header .header-wrapper .top-head .top-search-form fieldset input::-moz-placeholder { /* Firefox 19+ */
   opacity: 1;
@@ -68,6 +70,7 @@ header .header-wrapper .top-head .top-search-form fieldset input::-moz-placehold
   -ms-transition: all ease-in-out 0.3s;
   -o-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
+  color: #999999;
 }
 header .header-wrapper .top-head .top-search-form fieldset input:-ms-input-placeholder { /* IE 10+ */
   opacity: 1;
@@ -76,6 +79,7 @@ header .header-wrapper .top-head .top-search-form fieldset input:-ms-input-place
   -ms-transition: all ease-in-out 0.3s;
   -o-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
+  color: #999999;
 }
 header .header-wrapper .top-head .top-search-form fieldset input:-moz-placeholder { /* Firefox 18- */
   opacity: 1;
@@ -84,6 +88,7 @@ header .header-wrapper .top-head .top-search-form fieldset input:-moz-placeholde
   -ms-transition: all ease-in-out 0.3s;
   -o-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
+  color: #999999;
 }
 header .header-wrapper .top-head .top-search-form fieldset input:focus::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   opacity: 0;

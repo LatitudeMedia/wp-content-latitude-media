@@ -46,7 +46,7 @@ header {
           input {
             height: 100%;
             background-color: $primary-dark-blue;
-            color: #999999;
+            color: #ffffffbf;
             font-family: $inter;
             font-weight: 700;
             @include fontSize(14px);
@@ -57,21 +57,26 @@ header {
             -moz-box-shadow: none;
             box-shadow: none;
             display: block;
+            text-transform: uppercase;
             &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
               opacity: 1;
               @include transition3;
+              color: #999999;
             }
             &::-moz-placeholder { /* Firefox 19+ */
               opacity: 1;
               @include transition3;
+              color: #999999;
             }
             &:-ms-input-placeholder { /* IE 10+ */
               opacity: 1;
               @include transition3;
+              color: #999999;
             }
             &:-moz-placeholder { /* Firefox 18- */
               opacity: 1;
               @include transition3;
+              color: #999999;
             }
             &:focus {
               &::-webkit-input-placeholder { /* Chrome/Opera/Safari */

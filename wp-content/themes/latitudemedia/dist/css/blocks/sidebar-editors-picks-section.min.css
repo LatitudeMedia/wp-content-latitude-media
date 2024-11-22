@@ -119,6 +119,7 @@
 .editors-picks-block .editors-picks-block-wrapper .posts li .info {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .info .time {
   font-family: "inter", Arial, Helvetica, sans-serif;

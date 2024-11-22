@@ -494,10 +494,18 @@
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 24px;
   text-align: left;
   margin-bottom: 6px;
+}
+.wide-form-section .wide-form-section-wrapper form label.hs-form-checkbox-display {
+  padding-left: 20px;
+}
+.wide-form-section .wide-form-section-wrapper form label.hs-form-checkbox-display input {
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 .wide-form-section .wide-form-section-wrapper form input {
   padding: 12px;
@@ -564,6 +572,9 @@
   background-color: #ffffff;
   width: 100%;
   outline: none;
+}
+.wide-form-section .wide-form-section-wrapper form select.hs-input {
+  margin-top: 0 !important;
 }
 .wide-form-section .wide-form-section-wrapper form .fieldset {
   display: flex;
@@ -2680,6 +2691,7 @@
 .single-post-heading-section .single-post-heading-section-wrapper .info {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .single-post-heading-section .single-post-heading-section-wrapper .info .time {
   font-family: "inter", Arial, Helvetica, sans-serif;

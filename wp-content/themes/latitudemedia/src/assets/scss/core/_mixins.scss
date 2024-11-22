@@ -293,6 +293,7 @@
 @mixin postInfo {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	.time {
 		font-family: $inter;
 		@include fontSize(13px);
@@ -1263,10 +1264,18 @@
 		display: block;
 		font-family: $inter;
 		@include fontSize(16px);
-		font-weight: 700;
+		font-weight: 400;
 		line-height: 24px;
 		text-align: left;
 		margin-bottom: 6px;
+		&.hs-form-checkbox-display {
+			padding-left: 20px;
+			input {
+				margin-left: 0 !important;
+				margin-bottom: 0 !important;
+				margin-top: 0 !important;
+			}
+		}
 	}
 	input {
 		padding: 12px;
@@ -1330,6 +1339,9 @@
 		background-color: $white;
 		width: 100%;
 		outline: none;
+		&.hs-input {
+			margin-top: 0 !important;
+		}
 	}
 }
 
@@ -2346,11 +2358,10 @@
 
 			p {
 				font-family: $inter;
-				@include fontSize(18px);
-				font-weight: 400;
+				@include fontSize(22px);
+				font-weight: 300;
 				line-height: 24px;
 				text-align: left;
-
 				&.large {
 					@include fontSize(32px);
 					font-weight: 400;
