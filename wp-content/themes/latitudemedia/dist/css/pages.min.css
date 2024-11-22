@@ -2,10 +2,11 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/pages/pages_loader.scss ***!
   \********************************************************************************************************************************************************************************************************/
 .topics-archive-section .posts-list-section .posts li {
-  align-items: center;
-  margin-bottom: 46px;
-  padding-bottom: 0;
+  align-items: flex-end;
+  margin-bottom: 36px;
+  padding-bottom: 46px;
   border-bottom: none;
+  border-bottom: 1px solid #C6168D;
 }
 .topics-archive-section .posts-list-section .posts li .image-folder {
   width: 416px;
@@ -39,10 +40,6 @@
 }
 .topics-archive-section .posts-list-section .posts li .image-folder a {
   padding-top: 72.5%;
-}
-.topics-archive-section .posts-list-section .posts li .content-folder {
-  border-bottom: 1px solid #C6168D;
-  padding-bottom: 16px;
 }
 .topics-archive-section .posts-list-section .posts li .content-folder .tags-list {
   padding-bottom: 6px;
@@ -2994,6 +2991,19 @@
   -moz-box-shadow: -14px 14px 0 0 #FEEBD2;
   box-shadow: -14px 14px 0 0 #FEEBD2;
 }
+.team-member-hero-unit .team-member-hero-unit-wrapper .image-folder a {
+  object-fit: cover;
+  padding-top: 72.5%;
+  position: relative;
+  display: block;
+}
+.team-member-hero-unit .team-member-hero-unit-wrapper .image-folder a img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
 .team-member-hero-unit .team-member-hero-unit-wrapper .contact-folder {
   flex: 1 0 0px;
   min-width: 1px;
@@ -3185,7 +3195,8 @@
 @media screen and (max-width: 992px) {
   .topics-archive-section .posts-list-section .posts li {
     flex-direction: column;
-    margin-bottom: 0;
+    margin-bottom: 36px;
+    padding-bottom: 36px;
   }
   .topics-archive-section .posts-list-section .posts li .image-folder {
     width: calc(100% - 15px);
@@ -3196,8 +3207,7 @@
     padding-top: 65%;
   }
   .topics-archive-section .posts-list-section .posts li .content-folder {
-    padding-bottom: 32px;
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
   .topics-archive-section .posts-list-section .pager {
     padding-top: 32px;
@@ -3313,6 +3323,11 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .search-results .topics-archive-section .posts-list-section .posts li .content-folder h4 .title {
+    font-size: 32px;
+    font-size: 2rem;
+    line-height: 48px;
+  }
   .advertise-podcasts-featured-section .advertise-podcasts-featured-section-wrapper {
     padding: 98px 0;
   }

@@ -2,13 +2,15 @@
   .posts-list-section {
     .posts {
       li {
-        align-items: center;
-        margin-bottom: 46px;
-        padding-bottom: 0;
+        align-items: flex-end;
+        margin-bottom: 36px;
+        padding-bottom: 46px;
         border-bottom: none;
+        border-bottom: 1px solid $primary-pink;
         @include below_md {
           flex-direction: column;
-          margin-bottom: 0;
+          margin-bottom: 36px;
+          padding-bottom: 36px;
         }
         .image-folder {
           width: 416px;
@@ -30,11 +32,8 @@
           }
         }
         .content-folder {
-          border-bottom: 1px solid $primary-pink;
-          padding-bottom: 16px;
           @include below_md {
-            padding-bottom: 32px;
-            margin-bottom: 32px;
+            margin-bottom: 0;
           }
           .tags-list {
             padding-bottom: 6px;

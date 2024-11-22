@@ -2360,7 +2360,7 @@
 				font-family: $inter;
 				@include fontSize(22px);
 				font-weight: 300;
-				line-height: 24px;
+				line-height: 29px;
 				text-align: left;
 				&.large {
 					@include fontSize(32px);
@@ -6028,8 +6028,18 @@
 					width: 100%;
 				}
 			}
-			img {
-
+			a {
+				object-fit: cover;
+				padding-top: 72.5%;
+				position: relative;
+				display: block;
+				img {
+					object-fit: cover;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					inset: 0%;
+				}
 			}
 		}
 		.contact-folder {

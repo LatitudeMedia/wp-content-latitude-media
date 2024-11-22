@@ -65,7 +65,7 @@ $footerData = get_field('footer_data', 'options');
                     ?>
                 </div>
                 <div class="footer-copyright">
-                    <?php printf('copyright %1$s Latitude media', date('Y')); ?>
+                    <?php printf('copyright &commat; %1$s Latitude media.inc', date('Y')); ?>
                 </div>
             </div>
         </div>

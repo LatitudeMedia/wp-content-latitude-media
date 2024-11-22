@@ -21,6 +21,10 @@
                 line-height: 56px;
                 letter-spacing: -2px;
                 text-align: left;
+                @include below_sm {
+                  @include fontSize(32px);
+                  line-height: 48px;
+                }
               }
             }
           }
