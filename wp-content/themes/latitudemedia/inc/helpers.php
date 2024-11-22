@@ -54,33 +54,6 @@ function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-
     }
 }
 
-function get_event_start_date($event_id, $format = 'F d Y') {
-    if ( ! $event_id ) {
-        $event_id = get_the_ID();
-    }
-
-    $start_date = get_field('start_date', $event_id);
-    if( empty($start_date) ) {
-        return '';
-    }
-
-    return date_to_format($start_date, 'm/d/Y g:i a', $format);
-}
-
-function get_event__end_date($event_id, $format = 'F d Y') {
-    if ( ! $event_id ) {
-        $event_id = get_the_ID();
-    }
-
-    $start_date = get_field('end_date', $event_id);
-    if( empty($start_date) ) {
-        return '';
-    }
-
-    return date_to_format($start_date, 'm/d/Y g:i a', $format);
-}
-
-
 function get_research_date($research_id, $format = 'F Y') {
     if ( ! $research_id ) {
         $research_id = get_the_ID();
@@ -330,6 +303,82 @@ function get_podcast_episodes($podcast_id = null, $args = []) {
         ),
     ];
     $queryArgs = wp_parse_args($args, $defaultArgs);
+
+    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
+}
+
+function get_event_start_date($event_id, $format = 'F d Y') {
+    if ( ! $event_id ) {
+        $event_id = get_the_ID();
+    }
+
+    $start_date = get_field('start_date', $event_id);
+    if( empty($start_date) ) {
+        return '';
+    }
+
+    return date_to_format($start_date, 'm/d/Y g:i a', $format);
+}
+
+function get_event__end_date($event_id, $format = 'F d Y') {
+    if ( ! $event_id ) {
+        $event_id = get_the_ID();
+    }
+
+    $start_date = get_field('end_date', $event_id);
+    if( empty($start_date) ) {
+        return '';
+    }
+
+    return date_to_format($start_date, 'm/d/Y g:i a', $format);
+}
+
+/**
+ * @return WP_Query         the query object
+ */
+function get_upcoming_events() {
+    $queryArgs = [
+        'post_type'     => 'events',
+        'posts_per_page'=> 3,
+        'meta_query'    => array(
+            'relation'  => 'AND',
+            array(
+                'key'       => 'end_date',
+                'value'     => date("Y-m-d"),
+                'compare'   => '>=',
+            ),
+            array(
+                'key'       => 'past_event',
+                'value'     => true,
+                'compare'   => '!=',
+            ),
+        )
+    ];
+
+    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
+}
+
+/**
+ * @return WP_Query         the query object
+ */
+function get_past_events() {
+    $queryArgs = [
+        'post_type'     => 'events',
+        'posts_per_page'=> 3,
+        'meta_query'    => array(
+            'relation'  => 'OR',
+            array(
+                'key'       => 'end_date',
+                'value'     => date("Y-m-d"),
+                'compare'   => '<',
+            ),
+            array(
+                'key'       => 'past_event',
+                'value'     => true,
+                'compare'   => '=',
+            ),
+        )
+    ];
 
     return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
 }

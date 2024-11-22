@@ -284,7 +284,7 @@ if ( ! function_exists( 'print_podcast_organization' ) ) :
         echo '<div class="company">' . $podcastOrganization . ' </div>';
 
     }
-    add_action('print_podcast_organization', 'print_podcast_organization', 10, 4);
+    add_action('print_podcast_organization', 'print_podcast_organization', 10, 1);
 endif;
 
 if ( ! function_exists( 'print_resource_tag' ) ) :
@@ -296,8 +296,40 @@ if ( ! function_exists( 'print_resource_tag' ) ) :
 
         echo '<div class="tag">' . $resourceTag . ' </div>';
     }
-    add_action('print_resource_tag', 'print_resource_tag', 10, 4);
+    add_action('print_resource_tag', 'print_resource_tag', 10, 1);
 endif;
+
+
+if ( ! function_exists( 'print_event_start_date' ) ) :
+    function print_event_start_date( $post_id = null ) {
+        if ( ! $post_id ) {
+            $post_id = get_the_ID();
+        }
+
+        $eventStartDate = get_event_start_date($post_id, 'M d, Y');
+
+        if( !empty($eventStartDate) ) {
+            echo '<div class="date">' . $eventStartDate . '</div>';
+        }
+    }
+    add_action('print_event_start_date', 'print_event_start_date', 10, 1);
+endif;
+
+if ( ! function_exists( 'print_event_type' ) ) :
+    function print_event_type( $post_id = null ) {
+        if ( ! $post_id ) {
+            $post_id = get_the_ID();
+        }
+
+        $eventType = get_field('event_type', $post_id);
+
+        if( !empty($eventType) ) {
+            echo '<span class="solid">' . $eventType . '</span>';
+        }
+    }
+    add_action('print_event_type', 'print_event_type', 10, 1);
+endif;
+
 
 if ( ! function_exists( 'print_article_authors' ) ) :
     function print_article_authors( $post_id = null, $args = [] ) {
