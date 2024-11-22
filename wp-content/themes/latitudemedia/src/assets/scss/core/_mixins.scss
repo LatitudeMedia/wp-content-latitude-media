@@ -1679,91 +1679,6 @@
 
 }
 
-@mixin shadowButton {
-	display: inline-block;
-	text-decoration: none;
-	outline: none;
-	font-family: $inter;
-	@include fontSize(14px);
-	font-weight: 800;
-	line-height: 22px;
-	letter-spacing: 0.3em;
-	text-align: center;
-	padding: 16px 32px;
-	@include transition3;
-	box-shadow: -7px 7px 0 -1px;
-	border: 1px solid;
-	margin-left: 7px;
-	text-transform: uppercase;
-	span {
-		@include transition3;
-	}
-	&.pink {
-		span {
-			color: $primary-pink !important;
-		}
-
-		box-shadow: -7px 7px 0 -1px $pink_shadow !important;
-		border-color: $primary-pink !important;
-
-		&:hover {
-			background-color: $primary-pink !important;
-
-			span {
-				color: $white;
-			}
-		}
-	}
-	&.green {
-		span {
-			color: $green !important;
-		}
-
-		box-shadow: -7px 7px 0 -1px $green_shadow !important;
-		border-color: $green !important;
-
-		&:hover {
-			background-color: $green !important;
-
-			span {
-				color: $white;
-			}
-		}
-	}
-	&.blue {
-		span {
-			color: $blue !important;
-		}
-
-		box-shadow: -7px 7px 0 -1px $blue_shadow !important;
-		border-color: $blue !important;
-
-		&:hover {
-			background-color: $blue !important;
-
-			span {
-				color: $white;
-			}
-		}
-	}
-	&.orange {
-		span {
-			color: $orange !important;
-		}
-
-		box-shadow: -7px 7px 0 -1px $orange_shadow !important;
-		border-color: $orange !important;
-
-		&:hover {
-			background-color: $orange !important;
-
-			span {
-				color: $white;
-			}
-		}
-	}
-}
-
 @mixin eventLargeItemSection {
 	width: 100%;
 	margin-bottom: 50px;
@@ -2038,16 +1953,99 @@
 	text-decoration: none;
 	display: inline-block;
 	padding: 16px 32px;
-	-webkit-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
-	-moz-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
-	box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+	-webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, $pink_shadow);
+	-moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, $pink_shadow);
+	box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, $pink_shadow);
 
 	background-color: $white;
-	color: var(--custom-block-base-color) !important;
-	border: 1px solid var(--custom-block-base-color) !important;
+	color: var(--custom-block-base-color, $primary-pink) !important;
+	border: 1px solid var(--custom-block-base-color, $primary-pink) !important;
 	&:hover {
-		background-color: var(--custom-block-base-color) !important;
+		background-color: var(--custom-block-base-color, $primary-pink) !important;
 		color: $white !important;
+	}
+	span {
+		@include transition3;
+	}
+	&.pink {
+		background-color: $white;
+		color: $primary-pink !important;
+		border: 1px solid $primary-pink !important;
+		-webkit-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+		-moz-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+		box-shadow: -10px 10px 0 0 $pink_shadow !important;
+
+		span {
+			color: $primary-pink !important;
+		}
+
+		&:hover {
+			background-color: $primary-pink !important;
+			color: $white !important;
+			span {
+				color: $white !important;
+			}
+		}
+	}
+	&.green {
+		background-color: $white;
+		color: $green !important;
+		border: 1px solid $green !important;
+		-webkit-box-shadow: -10px 10px 0 0 $green_shadow !important;
+		-moz-box-shadow: -10px 10px 0 0 $green_shadow !important;
+		box-shadow: -10px 10px 0 0 $green_shadow !important;
+
+		span {
+			color: $green !important;
+		}
+
+		&:hover {
+			background-color: $green !important;
+			color: $white !important;
+			span {
+				color: $white !important;
+			}
+		}
+	}
+	&.blue {
+		background-color: $white;
+		color: $blue !important;
+		border: 1px solid $blue !important;
+		-webkit-box-shadow: -10px 10px 0 0 $blue_shadow !important;
+		-moz-box-shadow: -10px 10px 0 0 $blue_shadow !important;
+		box-shadow: -10px 10px 0 0 $blue_shadow !important;
+
+		span {
+			color: $blue !important;
+		}
+
+		&:hover {
+			background-color: $blue !important;
+			color: $white !important;
+			span {
+				color: $white !important;
+			}
+		}
+	}
+	&.orange {
+		background-color: $white;
+		color: $orange !important;
+		border: 1px solid $orange !important;
+		-webkit-box-shadow: -10px 10px 0 0 $orange_shadow !important;
+		-moz-box-shadow: -10px 10px 0 0 $orange_shadow !important;
+		box-shadow: -10px 10px 0 0 $orange_shadow !important;
+
+		span {
+			color: $orange !important;
+		}
+
+		&:hover {
+			background-color: $orange !important;
+			color: $white !important;
+			span {
+				color: $white !important;
+			}
+		}
 	}
 }
 
@@ -2307,7 +2305,7 @@
 			}
 		}
 
-		.more-events {
+		.cta-button {
 			display: table;
 			margin: 0 auto;
 		}

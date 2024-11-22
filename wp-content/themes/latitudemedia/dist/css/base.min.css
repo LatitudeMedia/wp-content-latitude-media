@@ -750,15 +750,94 @@ article ul li {
   text-decoration: none;
   display: inline-block;
   padding: 16px 32px;
-  -webkit-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
-  -moz-box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
-  box-shadow: -5px 5px 0 0 var(--custom-block-shadow-color);
+  -webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
   background-color: #ffffff;
-  color: var(--custom-block-base-color) !important;
-  border: 1px solid var(--custom-block-base-color) !important;
+  color: var(--custom-block-base-color, #C6168D) !important;
+  border: 1px solid var(--custom-block-base-color, #C6168D) !important;
 }
 .cta-button:hover {
-  background-color: var(--custom-block-base-color) !important;
+  background-color: var(--custom-block-base-color, #C6168D) !important;
+  color: #ffffff !important;
+}
+.cta-button span {
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.cta-button.pink {
+  background-color: #ffffff;
+  color: #C6168D !important;
+  border: 1px solid #C6168D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+}
+.cta-button.pink span {
+  color: #C6168D !important;
+}
+.cta-button.pink:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
+}
+.cta-button.pink:hover span {
+  color: #ffffff !important;
+}
+.cta-button.green {
+  background-color: #ffffff;
+  color: #00B48D !important;
+  border: 1px solid #00B48D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+  -moz-box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+  box-shadow: -10px 10px 0 0 #CCF0E8 !important;
+}
+.cta-button.green span {
+  color: #00B48D !important;
+}
+.cta-button.green:hover {
+  background-color: #00B48D !important;
+  color: #ffffff !important;
+}
+.cta-button.green:hover span {
+  color: #ffffff !important;
+}
+.cta-button.blue {
+  background-color: #ffffff;
+  color: #0095DA !important;
+  border: 1px solid #0095DA !important;
+  -webkit-box-shadow: -10px 10px 0 0 #E5F4FC !important;
+  -moz-box-shadow: -10px 10px 0 0 #E5F4FC !important;
+  box-shadow: -10px 10px 0 0 #E5F4FC !important;
+}
+.cta-button.blue span {
+  color: #0095DA !important;
+}
+.cta-button.blue:hover {
+  background-color: #0095DA !important;
+  color: #ffffff !important;
+}
+.cta-button.blue:hover span {
+  color: #ffffff !important;
+}
+.cta-button.orange {
+  background-color: #ffffff;
+  color: #F99D1C !important;
+  border: 1px solid #F99D1C !important;
+  -webkit-box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+  -moz-box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+  box-shadow: -10px 10px 0 0 #FEEBD2 !important;
+}
+.cta-button.orange span {
+  color: #F99D1C !important;
+}
+.cta-button.orange:hover {
+  background-color: #F99D1C !important;
+  color: #ffffff !important;
+}
+.cta-button.orange:hover span {
   color: #ffffff !important;
 }
 @media screen and (max-width: 992px) {
