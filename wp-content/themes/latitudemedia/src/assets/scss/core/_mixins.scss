@@ -6023,7 +6023,7 @@
 				margin-right: 0;
 			}
 			@include below_mob {
-				width: 100%;
+				width: calc(100% - 15px);
 				img {
 					width: 100%;
 				}

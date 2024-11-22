@@ -3560,7 +3560,7 @@
     padding: 0;
   }
   .team-member-hero-unit .team-member-hero-unit-wrapper .image-folder {
-    width: 100%;
+    width: calc(100% - 15px);
   }
   .team-member-hero-unit .team-member-hero-unit-wrapper .image-folder img {
     width: 100%;
