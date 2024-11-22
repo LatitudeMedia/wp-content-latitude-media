@@ -14,13 +14,15 @@
   .posts-list-section {
     .posts {
       li {
-        align-items: center;
+        align-items: flex-end;
         margin-bottom: 46px;
-        padding-bottom: 0;
+        padding-bottom: 46px;
         border-bottom: none;
+        border-bottom: 1px solid $primary-pink;
         @include below_md {
           flex-direction: column;
-          margin-bottom: 0;
+          margin-bottom: 36px;
+          padding-bottom: 36px;
         }
         .image-folder {
           width: 416px;
@@ -42,7 +44,6 @@
           }
         }
         .content-folder {
-          border-bottom: 1px solid $primary-pink;
           padding-bottom: 32px;
           margin-bottom: 32px;
           .tags-list {

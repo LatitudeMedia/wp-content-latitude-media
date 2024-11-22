@@ -6,10 +6,11 @@
   margin-left: 56px;
 }
 .section-topics-section .posts-list-section .posts li {
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 46px;
-  padding-bottom: 0;
+  padding-bottom: 46px;
   border-bottom: none;
+  border-bottom: 1px solid #C6168D;
 }
 .section-topics-section .posts-list-section .posts li .image-folder {
   width: 416px;
@@ -45,7 +46,6 @@
   padding-top: 72.5%;
 }
 .section-topics-section .posts-list-section .posts li .content-folder {
-  border-bottom: 1px solid #C6168D;
   padding-bottom: 32px;
   margin-bottom: 32px;
 }
@@ -76,7 +76,8 @@
   }
   .section-topics-section .posts-list-section .posts li {
     flex-direction: column;
-    margin-bottom: 0;
+    margin-bottom: 36px;
+    padding-bottom: 36px;
   }
   .section-topics-section .posts-list-section .posts li .image-folder {
     width: calc(100% - 15px);
