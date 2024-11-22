@@ -2993,7 +2993,7 @@
 }
 .team-member-hero-unit .team-member-hero-unit-wrapper .image-folder a {
   object-fit: cover;
-  padding-top: 72.5%;
+  padding-top: 100%;
   position: relative;
   display: block;
 }
