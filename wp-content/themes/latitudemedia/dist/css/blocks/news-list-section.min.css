@@ -93,6 +93,7 @@
 }
 .posts-list-section .posts li .content-folder {
   flex: 1 0 0px;
+  width: 100%;
 }
 .posts-list-section .posts li .content-folder .tags-list {
   margin-bottom: 0;

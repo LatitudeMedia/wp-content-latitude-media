@@ -45,6 +45,9 @@
 .section-topics-section .posts-list-section .posts li .image-folder a {
   padding-top: 72.5%;
 }
+.section-topics-section .posts-list-section .posts li .content-folder {
+  width: 100%;
+}
 .section-topics-section .posts-list-section .posts li .content-folder .tags-list {
   padding-bottom: 6px;
 }

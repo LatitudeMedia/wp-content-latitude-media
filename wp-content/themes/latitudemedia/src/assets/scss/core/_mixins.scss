@@ -1113,6 +1113,7 @@
 
 			.content-folder {
 				flex: 1 0 0px;
+				width: 100%;
 				@include below_sm {
 					margin-bottom: 20px;
 				}
