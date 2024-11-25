@@ -847,7 +847,10 @@ $blocks = array(
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Events list block', 'ltm') ),
-        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/events-list-block.min.css',
+        'enqueue_assets' => function(){
+            wp_enqueue_style( 'block-acf-events-list-block', get_template_directory_uri() . '/dist/css/blocks/events-list-block.min.css' );
+            wp_enqueue_script( 'block-acf-events-list-block', get_template_directory_uri() . '/dist/js/blocks/load-more-events.min.js', array('jquery'), '', true );
+        },
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',

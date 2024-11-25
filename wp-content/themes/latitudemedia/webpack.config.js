@@ -50,8 +50,9 @@ module.exports = (env) => {
       'css/blocks/signup-form-section'      : './src/assets/scss/blocks/signup-form-section.scss',
       'css/blocks/sidebar-editors-picks-section': './src/assets/scss/blocks/sidebar-editors-picks-section.scss',
       'css/blocks/related-reading-section'  : './src/assets/scss/blocks/related-reading-section.scss',
-      'css/blocks/events-list-block': './src/assets/scss/blocks/events-list-block.scss',
-      'css/blocks/image-and-text-block': './src/assets/scss/blocks/image-and-text-block.scss',
+      'css/blocks/events-list-block'        : './src/assets/scss/blocks/events-list-block.scss',
+      'js/blocks/load-more-events'          : './src/assets/js/blocks/load-more-events.js',
+      'css/blocks/image-and-text-block'     : './src/assets/scss/blocks/image-and-text-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

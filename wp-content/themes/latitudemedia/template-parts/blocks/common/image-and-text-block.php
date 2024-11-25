@@ -10,6 +10,8 @@ $options = wp_parse_args(
         'title'         => '',
         'image'         => null,
         'content'       => '',
+        'base_color'        => '#C6168D',
+        'shadow_color'      => '#F9E8F4',
         'blockAttributes' => [],
     ]
 );
@@ -27,7 +29,8 @@ if(!$display && !is_admin()) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-block image-text-section blue',
+                "style" => '--custom-block-base-color: ' . $base_color . '; --custom-block-shadow-color: ' . $shadow_color,
+                "class" => 'content-block image-text-section',
                 "id" => 'image-and-text-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
             ]
         )

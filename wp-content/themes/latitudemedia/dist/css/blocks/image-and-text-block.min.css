@@ -105,38 +105,16 @@
 .image-text-section .image-text-section-wrapper .content-folder ol {
   padding-left: 20px;
 }
-.image-text-section.green .bordered-title {
-  border-bottom-color: #00B48D;
+.image-text-section .bordered-title {
+  border-bottom-color: var(--custom-block-base-color, #C6168D);
 }
-.image-text-section.green .image-text-section-wrapper .image-folder {
-  -webkit-box-shadow: -10px 10px 0 0 #CCF0E8;
-  -moz-box-shadow: -10px 10px 0 0 #CCF0E8;
-  box-shadow: -10px 10px 0 0 #CCF0E8;
+.image-text-section .image-text-section-wrapper .image-folder {
+  -webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
 }
-.image-text-section.green .image-text-section-wrapper .content-folder p a {
-  color: #00B48D;
-}
-.image-text-section.blue .bordered-title {
-  border-bottom-color: #0095DA;
-}
-.image-text-section.blue .image-text-section-wrapper .image-folder {
-  -webkit-box-shadow: -10px 10px 0 0 #E5F4FC;
-  -moz-box-shadow: -10px 10px 0 0 #E5F4FC;
-  box-shadow: -10px 10px 0 0 #E5F4FC;
-}
-.image-text-section.blue .image-text-section-wrapper .content-folder p a {
-  color: #0095DA;
-}
-.image-text-section.pink .bordered-title {
-  border-bottom-color: #C6168D;
-}
-.image-text-section.pink .image-text-section-wrapper .image-folder {
-  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4;
-  -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
-  box-shadow: -10px 10px 0 0 #F9E8F4;
-}
-.image-text-section.pink .image-text-section-wrapper .content-folder p a {
-  color: #C6168D;
+.image-text-section .image-text-section-wrapper .content-folder p a {
+  color: var(--custom-block-base-color, #C6168D);
 }
 .image-text-section.pink .image-text-section-wrapper .content-folder ul {
   padding-left: 30px;
@@ -166,17 +144,6 @@
 }
 .image-text-section.pink .image-text-section-wrapper .content-folder h4 {
   font-weight: 700;
-}
-.image-text-section.orange .bordered-title {
-  border-bottom-color: #F99D1C;
-}
-.image-text-section.orange .image-text-section-wrapper .image-folder {
-  -webkit-box-shadow: -10px 10px 0 0 #FEEBD2;
-  -moz-box-shadow: -10px 10px 0 0 #FEEBD2;
-  box-shadow: -10px 10px 0 0 #FEEBD2;
-}
-.image-text-section.orange .image-text-section-wrapper .content-folder p a {
-  color: #F99D1C;
 }
 .image-text-section.tall-it-block .image-text-section-wrapper .image-folder {
   width: 45%;

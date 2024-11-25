@@ -4,6 +4,12 @@
  *
  */
 
+
+/**
+ * Instance trait
+ */
+require_once ("inc/trait-instance.php");
+
 /**
  * Setup theme
  */
@@ -26,11 +32,6 @@ require_once ("inc/helpers.php");
  * Enqueue styles and scripts
  */
 require_once ("inc/enqueue.php");
-
-/**
- * Instance trait
- */
-require_once ("inc/trait-instance.php");
 
 /**
  * Manage user queries

@@ -2390,67 +2390,29 @@
 			}
 		}
 	}
-	&.green {
-		.bordered-title {
-			border-bottom-color: $green;
+	.bordered-title {
+		border-bottom-color: var(--custom-block-base-color, #C6168D);
+	}
+
+	.image-text-section-wrapper {
+		.image-folder {
+			-webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+			-moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+			box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
 		}
 
-		.image-text-section-wrapper {
-			.image-folder {
-				-webkit-box-shadow: -10px 10px 0 0 $green-shadow;
-				-moz-box-shadow: -10px 10px 0 0 $green-shadow;
-				box-shadow: -10px 10px 0 0 $green-shadow;
-			}
-
-			.content-folder {
-				p {
-					a {
-						color: $green;
-					}
+		.content-folder {
+			p {
+				a {
+					color: var(--custom-block-base-color, #C6168D);
 				}
 			}
 		}
 	}
-	&.blue {
-		.bordered-title {
-			border-bottom-color: $blue;
-		}
 
-		.image-text-section-wrapper {
-			.image-folder {
-				-webkit-box-shadow: -10px 10px 0 0 $blue-shadow;
-				-moz-box-shadow: -10px 10px 0 0 $blue-shadow;
-				box-shadow: -10px 10px 0 0 $blue-shadow;
-			}
-
-			.content-folder {
-				p {
-					a {
-						color: $blue;
-					}
-				}
-			}
-		}
-	}
 	&.pink {
-		.bordered-title {
-			border-bottom-color: $primary-pink;
-		}
-
 		.image-text-section-wrapper {
-			.image-folder {
-				-webkit-box-shadow: -10px 10px 0 0 $pink_shadow;
-				-moz-box-shadow: -10px 10px 0 0 $pink_shadow;
-				box-shadow: -10px 10px 0 0 $pink_shadow;
-			}
-
 			.content-folder {
-				p {
-					a {
-						color: $primary-pink;
-					}
-				}
-
 				ul {
 					padding-left: 30px;
 					margin-bottom: 20px;
@@ -2481,27 +2443,6 @@
 
 				h4 {
 					font-weight: 700;
-				}
-			}
-		}
-	}
-	&.orange {
-		.bordered-title {
-			border-bottom-color: $orange;
-		}
-
-		.image-text-section-wrapper {
-			.image-folder {
-				-webkit-box-shadow: -10px 10px 0 0 $orange-shadow;
-				-moz-box-shadow: -10px 10px 0 0 $orange-shadow;
-				box-shadow: -10px 10px 0 0 $orange-shadow;
-			}
-
-			.content-folder {
-				p {
-					a {
-						color: $orange;
-					}
 				}
 			}
 		}

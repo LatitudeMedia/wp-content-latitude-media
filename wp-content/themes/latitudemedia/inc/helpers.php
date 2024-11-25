@@ -334,51 +334,52 @@ function get_event__end_date($event_id, $format = 'F d Y') {
 }
 
 /**
+ * @param string $type
+ * @param int $page
+ * @param array $ids
  * @return WP_Query         the query object
+ *
  */
-function get_upcoming_events() {
+function get_events_list($type = '', $args = [], $ids = []) {
     $queryArgs = [
         'post_type'     => 'events',
         'posts_per_page'=> 3,
-        'meta_query'    => array(
-            'relation'  => 'AND',
-            array(
-                'key'       => 'end_date',
-                'value'     => date("Y-m-d"),
-                'compare'   => '>=',
-            ),
-            array(
-                'key'       => 'past_event',
-                'value'     => true,
-                'compare'   => '!=',
-            ),
-        )
     ];
 
-    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
-}
+    $queryArgs = wp_parse_args($args, $queryArgs);
 
-/**
- * @return WP_Query         the query object
- */
-function get_past_events() {
-    $queryArgs = [
-        'post_type'     => 'events',
-        'posts_per_page'=> 3,
-        'meta_query'    => array(
-            'relation'  => 'OR',
-            array(
-                'key'       => 'end_date',
-                'value'     => date("Y-m-d"),
-                'compare'   => '<',
-            ),
-            array(
-                'key'       => 'past_event',
-                'value'     => true,
-                'compare'   => '=',
-            ),
-        )
-    ];
+    switch($type) {
+        case 'upcoming':
+            $queryArgs['meta_query'] = array(
+                'relation'  => 'AND',
+                array(
+                    'key'       => 'end_date',
+                    'value'     => date("Y-m-d"),
+                    'compare'   => '>=',
+                ),
+                array(
+                    'key'       => 'past_event',
+                    'value'     => true,
+                    'compare'   => '!=',
+                ),
+            );
+            break;
+        case 'past':
+            $queryArgs['meta_query'] = array(
+                'relation'  => 'OR',
+                array(
+                    'key'       => 'end_date',
+                    'value'     => date("Y-m-d"),
+                    'compare'   => '<',
+                ),
+                array(
+                    'key'       => 'past_event',
+                    'value'     => true,
+                    'compare'   => '=',
+                ),
+            );
+            break;
+    }
 
-    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
+    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $ids);
 }

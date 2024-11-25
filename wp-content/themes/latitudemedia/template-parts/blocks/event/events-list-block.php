@@ -9,6 +9,7 @@ $options = wp_parse_args(
         'title'     => 'Upcoming events',
         'type'      => [],
         'events'    => [],
+        'page'      => 1,
         'display'   => false,
         'blockAttributes' => [],
     ]
@@ -32,13 +33,13 @@ $blockAttrs = wp_kses_data(
 
 switch ($type) {
     case 'upcoming':
-        $eventsList = get_upcoming_events();
+        $eventsList = get_events_list('upcoming', ['paged' => $page]);
         break;
     case 'past':
-        $eventsList = get_past_events();
+        $eventsList = get_events_list('past', ['paged' => $page]);
         break;
     default:
-        $eventsList = \LatitudeMedia\Manage_Data()->curated_query(['post_type' => 'events', 'posts_per_page' => 3], $events);
+        $eventsList = get_events_list('', ['paged' => $page], $events);
         break;
 }
 
@@ -61,9 +62,11 @@ $postItemTemplate = get_wrap_rows_from_template('
     </div>
 </li>
 ');
+
+$listID = uniqid();
 ?>
 
-<div <?php echo $blockAttrs; ?>
+<div <?php echo $blockAttrs; ?> data-list-id="<?php echo $listID;?>"
 >
     <div class="container">
         <div class="bordered-title green"><?php _e($title); ?></div>
@@ -97,7 +100,12 @@ $postItemTemplate = get_wrap_rows_from_template('
                 }
                 ?>
             </ul>
-            <a href="#" class="cta-button green">load more</a>
+            <?php
+                if($eventsList->max_num_pages > 1 && $eventsList->max_num_pages > $page) {
+                    $page++;
+                    printf('<a href="#" class="cta-button green load-more-events" data-page="%s" data-type="%s" data-events="%s" data-list-id="%s">%s</a>', $page, $type, implode(',', $events), $listID, __('load more'));
+                }
+            ?>
         </div>
     </div>
 </div>
