@@ -2,6 +2,36 @@
 
 $blocks = array(
     // START COMMON blocks
+
+    array(
+        'attrs' => array(
+            'name'  		=> 'content-wrapper',
+            'title' 		=> __('Content wrapper', 'ltm'),
+            'path'  		=> 'common',
+            'display'  		=> true,
+        ),
+        'icon'  		=> 'align-center',
+        'description' => __('Content wrapper', 'ltm'),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Content wrapper', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+            "anchor" =>  true,
+            "color" => true,
+            "baseColor" => true,
+            "align" => true,
+            "mode"  => false
+        ),
+        'mode' => 'preview',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                )
+            )
+        )
+    ),
+
     array(
         'attrs' => array(
             'name'  		=> 'ad-banner-section',
@@ -123,7 +153,7 @@ $blocks = array(
         ),
         'icon'  		=> 'editor-quote',
         'description' => __('Spotlight quote block', 'ltm'),
-        'post_types' 	=> array( 'post' ),
+        'post_types' 	=> array( 'post', 'events' ),
         'category'  	=> 'ltm-post-blocks',
         'keywords'    => array( __('Spotlight quote block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/spotlight-quote-section.min.css',
@@ -645,7 +675,7 @@ $blocks = array(
         ),
         'icon'  		=> 'info',
         'description' => __('Info cta block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
+        'post_types' 	=> array( 'page', 'events' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Info cta block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/info-cta-block.min.css',
@@ -856,6 +886,132 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'events-list-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-preview-block',
+            'title' 		=> __('Event preview block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'welcome-view-site',
+        'description' => __('Event preview block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event preview block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-preview-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-description-block',
+            'title' 		=> __('Event description block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'media-text',
+        'description' => __('Event description block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event description block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-description-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-speakers-block',
+            'title' 		=> __('Event speakers block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'megaphone',
+        'description' => __('Event speakers block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event speakers block', 'ltm') ),
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-speakers-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-sponsors-block',
+            'title' 		=> __('Event sponsors block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'money',
+        'description' => __('Event sponsors block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event sponsors block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-sponsors-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-agenda-block',
+            'title' 		=> __('Event agenda block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'calendar-alt',
+        'description' => __('Event agenda block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event agenda block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-agenda-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-agenda-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-venue-block',
+            'title' 		=> __('Event venue block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'location-alt',
+        'description' => __('Event venue block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event venue block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-venue-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-venue-block.png',
                 )
             )
         )

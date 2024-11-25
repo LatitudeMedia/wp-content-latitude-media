@@ -558,70 +558,19 @@ add_action( 'acf/include_fields', function() {
         'show_in_rest' => 0,
     ) );
 
+    // start_date
+    // end_date
+    // event_typ
+    // event_series
+    // location
+    // link
+    // cover_image
+    // background_image
+    // past_event
     acf_add_local_field_group( array(
-        'key' => 'group_6713acf86c81d',
-        'title' => 'Event options',
+        'key' => 'group_6744b701b9197',
+        'title' => 'General event options',
         'fields' => array(
-            array(
-                'key' => 'field_6713acf8e1564',
-                'label' => 'Title tag',
-                'name' => 'title_tag',
-                'aria-label' => '',
-                'type' => 'text',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'maxlength' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-            ),
-            array(
-                'key' => 'field_6713ad18e1565',
-                'label' => 'Featured',
-                'name' => 'featured',
-                'aria-label' => '',
-                'type' => 'true_false',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'message' => '',
-                'default_value' => 0,
-                'ui' => 0,
-                'ui_on_text' => '',
-                'ui_off_text' => '',
-            ),
-            array(
-                'key' => 'field_6713ad28e1566',
-                'label' => 'Past event',
-                'name' => 'past_event',
-                'aria-label' => '',
-                'type' => 'true_false',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'message' => '',
-                'default_value' => 0,
-                'ui' => 0,
-                'ui_on_text' => '',
-                'ui_off_text' => '',
-            ),
             array(
                 'key' => 'field_6713ad31e1567',
                 'label' => 'Start date',
@@ -659,33 +608,6 @@ add_action( 'acf/include_fields', function() {
                 'first_day' => 1,
             ),
             array(
-                'key' => 'field_6713ad88e1569',
-                'label' => 'Event series',
-                'name' => 'event_series',
-                'aria-label' => '',
-                'type' => 'select',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'choices' => array(
-                    'frontier-forum' => 'Frontier Forum',
-                    'transition-ai' => 'Transition AI',
-                    'webinar' => 'Webinar',
-                ),
-                'default_value' => false,
-                'return_format' => 'value',
-                'multiple' => 0,
-                'allow_null' => 0,
-                'ui' => 0,
-                'ajax' => 0,
-                'placeholder' => '',
-            ),
-            array(
                 'key' => 'field_6713ade8e156a',
                 'label' => 'Event type',
                 'name' => 'event_type',
@@ -714,11 +636,38 @@ add_action( 'acf/include_fields', function() {
                 'placeholder' => '',
             ),
             array(
+                'key' => 'field_6713ad88e1569',
+                'label' => 'Event series',
+                'name' => 'event_series',
+                'aria-label' => '',
+                'type' => 'select',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'frontier-forum' => 'Frontier Forum',
+                    'transition-ai' => 'Transition AI',
+                    'webinar' => 'Webinar',
+                ),
+                'default_value' => false,
+                'return_format' => 'value',
+                'multiple' => 0,
+                'allow_null' => 0,
+                'ui' => 0,
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
                 'key' => 'field_6713ae1fe156b',
                 'label' => 'Location',
                 'name' => 'location',
                 'aria-label' => '',
-                'type' => 'textarea',
+                'type' => 'text',
                 'instructions' => '',
                 'required' => 0,
                 'conditional_logic' => 0,
@@ -729,29 +678,9 @@ add_action( 'acf/include_fields', function() {
                 ),
                 'default_value' => '',
                 'maxlength' => '',
-                'rows' => '',
                 'placeholder' => '',
-                'new_lines' => '',
-            ),
-            array(
-                'key' => 'field_6713ae4ce156c',
-                'label' => 'Location details',
-                'name' => 'location_details',
-                'aria-label' => '',
-                'type' => 'textarea',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'maxlength' => '',
-                'rows' => '',
-                'placeholder' => '',
-                'new_lines' => '',
+                'prepend' => '',
+                'append' => '',
             ),
             array(
                 'key' => 'field_6713ae62e156d',
@@ -823,6 +752,113 @@ add_action( 'acf/include_fields', function() {
                 'mime_types' => '',
                 'preview_size' => 'medium',
             ),
+            array(
+                'key' => 'field_6713ad28e1566',
+                'label' => 'Past event',
+                'name' => 'past_event',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 0,
+                'ui' => 0,
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'events',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'side',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_6713acf86c81d',
+        'title' => 'Event options',
+        'fields' => array(
+            array(
+                'key' => 'field_6713acf8e1564',
+                'label' => 'Title tag',
+                'name' => 'title_tag',
+                'aria-label' => '',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+            ),
+            array(
+                'key' => 'field_6713ad18e1565',
+                'label' => 'Featured',
+                'name' => 'featured',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 0,
+                'ui' => 0,
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+            array(
+                'key' => 'field_6713ae4ce156c',
+                'label' => 'Location details',
+                'name' => 'location_details',
+                'aria-label' => '',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'placeholder' => '',
+                'new_lines' => '',
+            ),
+
+
             array(
                 'key' => 'field_6713ae8de1570',
                 'label' => 'Form text',
@@ -6243,10 +6279,10 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
             ),
             array(
                 'key' => 'field_673dddf9079c1',
-                'label' => 'Title',
-                'name' => 'title',
+                'label' => 'Copy',
+                'name' => 'copy',
                 'aria-label' => '',
-                'type' => 'text',
+                'type' => 'wysiwyg',
                 'instructions' => '',
                 'required' => 0,
                 'conditional_logic' => 0,
@@ -6256,10 +6292,10 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                     'id' => '',
                 ),
                 'default_value' => '',
-                'maxlength' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
             ),
             array(
                 'key' => 'field_673dddff079c2',
@@ -6276,6 +6312,42 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                     'id' => '',
                 ),
                 'return_format' => 'array',
+            ),
+            array(
+                'key' => 'field_674484b91c106',
+                'label' => 'Base color',
+                'name' => 'base_color',
+                'aria-label' => '',
+                'type' => 'color_picker',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '#00B48D',
+                'enable_opacity' => 0,
+                'return_format' => 'string',
+            ),
+            array(
+                'key' => 'field_674484c41c107',
+                'label' => 'Shadow color',
+                'name' => 'shadow_color',
+                'aria-label' => '',
+                'type' => 'color_picker',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '#CCF0E8',
+                'enable_opacity' => 0,
+                'return_format' => 'string',
             ),
             array(
                 'key' => 'field_673dda0a1e7b7',
@@ -6600,3 +6672,189 @@ Or select event manually.',
         'show_in_rest' => 0,
     ) );
 } );
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_67447f65a31a5',
+  'title' => 'Event preview block',
+  'fields' => array (
+       array (
+           'key' => 'field_67447f65a31a6',
+           'label' => 'Event preview block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_67447f65a31a7',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/event-preview-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_674481518f9b2',
+  'title' => 'Event description block',
+  'fields' => array (
+       array (
+           'key' => 'field_674481518f9b4',
+           'label' => 'Event description block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_674481518f9b5',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/event-description-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_67449c4ecdcd7',
+  'title' => 'Event speakers block',
+  'fields' => array (
+       array (
+           'key' => 'field_67449c4ecdcd9',
+           'label' => 'Event speakers block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_67449c4ecdcda',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/event-speakers-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_67449c54b1bee',
+  'title' => 'Event sponsors block',
+  'fields' => array (
+       array (
+           'key' => 'field_67449c54b1bf0',
+           'label' => 'Event sponsors block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_67449c54b1bf1',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/event-sponsors-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_6744a1d23baa2',
+  'title' => 'Event agenda block',
+  'fields' => array (
+       array (
+           'key' => 'field_6744a1d23baa4',
+           'label' => 'Event agenda block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_6744a1d23baa5',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/event-agenda-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));
+
+
+acf_add_local_field_group(array(
+  'key' => 'field_6744a68e84048',
+  'title' => 'Event venue block',
+  'fields' => array (
+       array (
+           'key' => 'field_6744a68e8404a',
+           'label' => 'Event venue block',
+           'name' => '',
+           'type' => 'message',
+       ),
+       array(
+            'key' => 'field_6744a68e8404b',
+           'label' => 'Display',
+           'name' => 'display',
+           'type' => 'true_false',
+           'ui' => 1,
+       ),
+   ),
+  'location' => array (
+       array (
+           array (
+               'param' => 'block',
+               'operator' => '==',
+               'value' => 'acf/event-venue-block',
+           ),
+       ),
+  ),
+  'style' => 'seamless'
+));

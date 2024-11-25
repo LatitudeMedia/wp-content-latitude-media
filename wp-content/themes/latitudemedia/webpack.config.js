@@ -20,6 +20,7 @@ module.exports = (env) => {
     entry: {
       //Admin assets
       'css/admin': './src/assets/scss/admin/admin.scss',
+      'css/editor': './src/assets/scss/admin/editor.scss',
       'css/base': './src/assets/scss/base/base_loader.scss',
       'css/fonts': './src/assets/scss/fonts/fonts_loader.scss',
       'css/header': './src/assets/scss/header/header_loader.scss',
@@ -53,6 +54,11 @@ module.exports = (env) => {
       'css/blocks/events-list-block'        : './src/assets/scss/blocks/events-list-block.scss',
       'js/blocks/load-more-events'          : './src/assets/js/blocks/load-more-events.js',
       'css/blocks/image-and-text-block'     : './src/assets/scss/blocks/image-and-text-block.scss',
+      'css/blocks/event-preview-block'      : './src/assets/scss/blocks/event-preview-block.scss',
+      'css/blocks/event-description-block'  : './src/assets/scss/blocks/event-description-block.scss',
+      'css/blocks/event-sponsors-block'     : './src/assets/scss/blocks/event-sponsors-block.scss',
+      'css/blocks/event-agenda-block'       : './src/assets/scss/blocks/event-agenda-block.scss',
+      'css/blocks/event-venue-block'        : './src/assets/scss/blocks/event-venue-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

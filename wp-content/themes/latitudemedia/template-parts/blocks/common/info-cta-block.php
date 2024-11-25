@@ -6,9 +6,10 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
     [
-        'title'         => false,
-        'background'    => false,
-        'button'        => false,
+        'copy'          => '',
+        'button'        => [],
+        'base_color'    => '#00B48D',
+        'shadow_color'  => '#CCF0E8',
         'display'       => false,
         'blockAttributes' => [],
     ]
@@ -24,7 +25,7 @@ if(!$display && !is_admin()) {
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
-          "style" => '--custom-block-base-color: #f99d1c; --custom-block-shadow-color: #feebd2',
+          "style" => '--custom-block-base-color: ' . $base_color . '; --custom-block-shadow-color: ' . $shadow_color,
           "class" => 'content-block grey-cta-block',
           "id" => 'info-cta-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]
@@ -37,8 +38,12 @@ $blockAttrs = wp_kses_data(
 >
     <div class="container-narrow">
         <div class="grey-cta-block-wrapper">
-            <?php do_action('section_title', $title, '<h2>%1$s</h2>'); ?>
-            <?php do_action('button_unit', $button, null, 'cta-button orange'); ?>
+            <?php
+                if( !empty($copy) ) {
+                    echo $copy;
+                }
+                do_action('button_unit', $button, null, 'cta-button');
+            ?>
         </div>
     </div>
 </div>

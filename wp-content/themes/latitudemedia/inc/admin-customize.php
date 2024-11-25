@@ -19,6 +19,19 @@ function add_new_category_column_section( $columns ) {
 }
 add_filter( 'manage_edit-category_columns', 'add_new_category_column_section' );
 
+if ( ! function_exists( 'custom_block_editor_scripts' ) ) {
+    /**
+     * Enqueue block editor scripts
+     *
+     */
+    function custom_block_editor_scripts() {
+        wp_register_style('ltm-admin-cms', get_template_directory_uri() . '/dist/css/editor.min.css', array(), filemtime( get_template_directory() . '/dist/css/editor.min.css') );
+        wp_enqueue_style('ltm-admin-cms');
+    }
+    add_action( 'enqueue_block_editor_assets', 'custom_block_editor_scripts' );
+
+}
+
 if( !function_exists( 'ltm_admin_styles' ) ) {
     /**
      * Enqueue site styles

@@ -1,0 +1,4 @@
+@import "../core/core_loader";
+.single-event-hero-section {
+  @include singleEventHeroSection;
+}

@@ -127,6 +127,10 @@ class ACFBlocks {
                 [
                     'slug'  => 'ltm-order-report-blocks',
                     'title' => __( 'Latitude Media Order Report Blocks', 'ltm' ),
+                ],
+                [
+                    'slug'  => 'ltm-event-blocks',
+                    'title' => __( 'Latitude Media Event Blocks', 'ltm' ),
                 ]
             ],
             $categories

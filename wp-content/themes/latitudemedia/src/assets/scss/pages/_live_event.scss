@@ -1,4 +1,4 @@
-.live-event {
+.single-events {
   header {
     padding-bottom: 0;
   }
@@ -13,12 +13,7 @@
     }
   }
 }
-.single-event-hero-section {
-  @include singleEventHeroSection;
-}
-.event-text-section {
-  @include eventTextSection;
-}
+
 .grey-cta-block {
   .grey-cta-block-wrapper {
     h2 {
@@ -38,14 +33,6 @@
 
 .grey-icon-block {
   @include greyIconBlock;
-}
-.agenda-section {
-  margin-bottom: 64px;
-  @include agendaSection;
-}
-.event-sponsors-section {
-  margin-bottom: 64px;
-  @include eventSponsorsSection;
 }
 
 .event-image-text-section {
@@ -71,9 +58,4 @@
       }
     }
   }
-}
-
-.venue-section {
-  margin-bottom: 64px;
-  @include venueSection;
 }

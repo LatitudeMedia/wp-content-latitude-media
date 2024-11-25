@@ -170,4 +170,37 @@ function resources_archive_custom_query( $query ) {
 }
 add_action( 'pre_get_posts', 'resources_archive_custom_query' );
 
-?>
+register_block_pattern(
+    'ltm-patterns/event-images-and-quotes',
+    array(
+        'title'       => __( 'Event images and quotes', 'ltm' ),
+        'description' => _x( 'Two horizontal images, and quotes below.', '', 'ltm' ),
+        'categories'  => array('ltm-events'),
+        'content'     => "<!-- wp:acf/content-wrapper {\"name\":\"acf/content-wrapper\",\"align\":\"center\",\"mode\":\"preview\"} -->
+<!-- wp:columns -->
+<div class=\"wp-block-columns\"><!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:image -->
+<figure class=\"wp-block-image\"><img alt=\"\"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class=\"wp-block-column\"><!-- wp:image -->
+<figure class=\"wp-block-image\"><img alt=\"\"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:spacer {\"height\":\"32px\"} -->
+<div style=\"height:32px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:acf/spotlight-quote-section {\"name\":\"acf/spotlight-quote-section\",\"data\":{\"field_6706990eeed8e\":\"Copy\",\"field_67069930eed8f\":\"Name\",\"field_67069833ec942\":\"1\"},\"mode\":\"edit\"} /-->
+<!-- /wp:acf/content-wrapper -->",
+    )
+);
+
+register_block_pattern_category(
+    'ltm-events',
+    array( 'label' => __( 'Latitude Media Event', 'ltm' ) )
+);

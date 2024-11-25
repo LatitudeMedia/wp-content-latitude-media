@@ -69,16 +69,3 @@ if( !function_exists( 'add_rel_preload' ) ) {
 
     add_filter('style_loader_tag', 'add_rel_preload', 10, 4);
 }
-
-
-//if ( ! function_exists( 'custom_block_editor_scripts' ) ) {
-//    /**
-//     * Enqueue block editor scripts
-//     *
-//     */
-//    function custom_block_editor_scripts() {
-//        wp_enqueue_script( 'admin-custom', get_template_directory_uri() . '/dist/js/admin.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/admin.min.js'),true );
-//    }
-//    add_action( 'enqueue_block_editor_assets', 'custom_block_editor_scripts' );
-//
-//}

@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.venue-section {
+  margin-bottom: 64px;
+  @include venueSection;
+}
