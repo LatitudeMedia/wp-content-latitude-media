@@ -6,7 +6,11 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge($args, get_fields() ?? []),
     [
-        'display' => false,
+        'title'             => 'Venue',
+        'embed_code'        => false,
+        'location_details'  => false,
+        'post_id'           => null,
+        'display'           => false,
         'blockAttributes' => [],
     ]
 );
@@ -26,26 +30,30 @@ $blockAttrs = wp_kses_data(
       ]
   )
 );
-
 ?>
 
 <div <?php echo $blockAttrs; ?>
 >
     <div class="container-narrow">
         <div class="venue-section-wrapper">
-            <div class="bordered-title">Venue</div>
-            <img alt="map" src="client/assets/images/map.png">
+            <div class="bordered-title"><?php _e($title); ?></div>
+            <?php
+                if( !empty($embed_code) ) {
+                    echo $embed_code;
+                }
+            ?>
             <div class="venue-info">
                 <div class="date">
                     <h2>Date</h2>
-                    <div class="venue-date">December 3, 2024</div>
+                    <?php do_action('print_event_start_date', $post_id, ['wrap' => '<div class="venue-date">%1$s</div>', 'format' => 'F d, Y']); ?>
                 </div>
                 <div class="location">
                     <h2>Location</h2>
                     <address>
-                        <div class="place">Washington, DC</div>
-                        <p><strong>Convene, Arlington Virginia</strong></p>
-                        <p>1201 Wilson Boulevard Arlington, VA 22209</p>
+                        <?php
+                            do_action('print_event_location', $post_id);
+                            echo $location_details;
+                        ?>
                     </address>
                 </div>
             </div>

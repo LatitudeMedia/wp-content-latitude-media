@@ -70,11 +70,13 @@ foreach ( $rows as $row ) {
         case 'resource-tag': do_action('print_resource_tag', $post_id); break;
         case 'event-start-date': do_action('print_event_start_date', $post_id); break;
         case 'event-type': do_action('print_event_type', $post_id); break;
-//        case 'read_more': do_action('print_article_read_more', $post_id); break;
+        case 'speaker-job-title': do_action('print_speaker_job_title', $post_id, $settings[$row]); break;
+        case 'speaker-company': do_action('print_speaker_company', $post_id, $settings[$row]); break;
+        case 'speaker-socials': do_action('print_speaker_socials', $post_id, $settings[$row]); break;
+        case 'content': do_action('print_content', $post_id); break;
     }
     if($wrap) $resultRows[] = ob_get_clean();
 }
-
 if($wrap) {
     printf($wrap, ...$resultRows);
 }

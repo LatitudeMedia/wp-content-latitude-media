@@ -1779,141 +1779,6 @@
   color: #0F1E42;
 }
 
-.event-image-text-section .image-text-section-wrapper .image-folder {
-  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
-  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
-  box-shadow: -14px 14px 0 0 #F9E8F4;
-  margin-left: 14px;
-}
-.event-image-text-section .image-text-section-wrapper .image-folder.pink {
-  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
-  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
-  box-shadow: -14px 14px 0 0 #F9E8F4;
-}
-.event-image-text-section .image-text-section-wrapper .image-folder.green {
-  -webkit-box-shadow: -14px 14px 0 0 #CCF0E8;
-  -moz-box-shadow: -14px 14px 0 0 #CCF0E8;
-  box-shadow: -14px 14px 0 0 #CCF0E8;
-}
-.event-image-text-section .image-text-section-wrapper .image-folder.blue {
-  -webkit-box-shadow: -14px 14px 0 0 #E5F4FC;
-  -moz-box-shadow: -14px 14px 0 0 #E5F4FC;
-  box-shadow: -14px 14px 0 0 #E5F4FC;
-}
-.event-image-text-section .image-text-section-wrapper .image-folder.orange {
-  -webkit-box-shadow: -14px 14px 0 0 #FEEBD2;
-  -moz-box-shadow: -14px 14px 0 0 #FEEBD2;
-  box-shadow: -14px 14px 0 0 #FEEBD2;
-}
-.event-image-text-section .image-text-section-wrapper .image-folder a {
-  padding-top: 53.8%;
-}
-.event-image-text-section .image-text-section-wrapper .content-folder p a {
-  font-weight: 400;
-  text-decoration: underline;
-}
-.event-image-text-section .image-text-section-wrapper .content-folder p a:hover {
-  text-decoration: none;
-}
-.venue-section {
-  margin-bottom: 64px;
-}
-.venue-section .venue-section-wrapper .bordered-title {
-  margin-bottom: 32px;
-}
-.venue-section .venue-section-wrapper img {
-  margin-bottom: 32px;
-}
-.venue-section .venue-section-wrapper iframe {
-  margin-bottom: 32px;
-}
-.venue-section .venue-section-wrapper .venue-info {
-  display: flex;
-  justify-content: space-between;
-}
-.venue-section .venue-section-wrapper .venue-info .date {
-  padding-left: 24px;
-  border-left: 1px solid #CCF0E8;
-}
-.venue-section .venue-section-wrapper .venue-info .date h2 {
-  margin-bottom: 8px;
-}
-.venue-section .venue-section-wrapper .venue-info .date .venue-date {
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  color: #0F1E42;
-}
-.venue-section .venue-section-wrapper .venue-info .location {
-  padding-left: 24px;
-  border-left: 1px solid #CCF0E8;
-}
-.venue-section .venue-section-wrapper .venue-info .location h2 {
-  margin-bottom: 8px;
-}
-.venue-section .venue-section-wrapper .venue-info .location address {
-  font-style: normal;
-}
-.venue-section .venue-section-wrapper .venue-info .location address .place {
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  color: #0F1E42;
-  margin-bottom: 8px;
-}
-.venue-section .venue-section-wrapper .venue-info .location address p {
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  color: #0F1E42;
-  margin-bottom: 0;
-}
-.venue-section.pink .bordered-title {
-  border-color: #C6168D;
-}
-.venue-section.pink .venue-section-wrapper .venue-info .date {
-  border-color: #F9E8F4;
-}
-.venue-section.pink .venue-section-wrapper .venue-info .location {
-  border-color: #F9E8F4;
-}
-.venue-section.green .bordered-title {
-  border-color: #00B48D;
-}
-.venue-section.green .venue-section-wrapper .venue-info .date {
-  border-color: #CCF0E8;
-}
-.venue-section.green .venue-section-wrapper .venue-info .location {
-  border-color: #CCF0E8;
-}
-.venue-section.blue .bordered-title {
-  border-color: #0095DA;
-}
-.venue-section.blue .venue-section-wrapper .venue-info .date {
-  border-color: #E5F4FC;
-}
-.venue-section.blue .venue-section-wrapper .venue-info .location {
-  border-color: #E5F4FC;
-}
-.venue-section.orange .bordered-title {
-  border-color: #F99D1C;
-}
-.venue-section.orange .venue-section-wrapper .venue-info .date {
-  border-color: #FEEBD2;
-}
-.venue-section.orange .venue-section-wrapper .venue-info .location {
-  border-color: #FEEBD2;
-}
-
 .past-event header {
   padding-bottom: 0;
 }
@@ -3045,9 +2910,6 @@
   .podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder {
     margin-left: 0;
   }
-  .event-image-text-section .image-text-section-wrapper .image-folder {
-    margin-left: 0;
-  }
   .resource-hero-section .resource-hero-section-wrapper .image-folder {
     margin-left: 0;
   }
@@ -3147,12 +3009,6 @@
   }
   .half-wide-section .half-wide-section-wrapper .half {
     width: 100%;
-    margin-bottom: 32px;
-  }
-  .venue-section .venue-section-wrapper .venue-info {
-    flex-direction: column;
-  }
-  .venue-section .venue-section-wrapper .venue-info .date {
     margin-bottom: 32px;
   }
   .partners-logos-section .partners-logos-section-wrapper .logos {

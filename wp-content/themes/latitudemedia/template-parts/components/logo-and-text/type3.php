@@ -11,6 +11,7 @@ $options = wp_parse_args(
         'logo'          => null,
         'description'   => '',
         'base_color'    => '#c6168d',
+        'shadow_color'  => '#F9E8F4',
         'display'       => false,
         'blockAttributes' => [],
     ]
@@ -26,7 +27,7 @@ $blockType = ltm_get_block_style($blockAttributes['className'] ?? []);
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
-          "style" => "--custom-block-base-color: {$base_color};",
+          "style" => '--custom-block-base-color: ' . $base_color . '; --custom-block-shadow-color: ' . $shadow_color,
           "class" => 'content-block icon-text-block',
           "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]

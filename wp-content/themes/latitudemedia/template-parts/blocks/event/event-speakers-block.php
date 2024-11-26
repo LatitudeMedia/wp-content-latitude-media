@@ -6,7 +6,9 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge($args, get_fields() ?? []),
     [
-        'display' => false,
+        'title'     => 'Featured speakers',
+        'speakers'  => [],
+        'display'   => false,
         'blockAttributes' => [],
     ]
 );
@@ -17,6 +19,9 @@ if(!$display && !is_admin()) {
     return;
 }
 
+if( empty($speakers) ) {
+    return;
+}
 
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
@@ -27,182 +32,102 @@ $blockAttrs = wp_kses_data(
   )
 );
 
+$speakersPosts = get_published_posts_by_ids($speakers, ['post_type' => 'speakers']);
+if(!$speakersPosts->have_posts()) {
+    return;
+}
+
+$postItemTemplate = get_wrap_rows_from_template('
+    <div class="image-folder green"><a href="#" data-target="{uniqid}" class="js-modal-open">[thumb]</a></div>
+    <div class="content-folder">
+        <a href="#" class="name green js-modal-open" data-target="{uniqid}">[title]</a>
+        [speaker-job-title]
+        <a class="more-link js-modal-open" href="#" data-target="{uniqid}">Read more</a>
+    </div>
+');
+
+$modalItemTemplate = get_wrap_rows_from_template('
+<div id="{uniqid}" class="modal-content green">
+    <div class="modal-folder">
+        <a class="cross js-modal-close"></a>
+        <div class="bio">
+            [thumb]
+            <div class="info">
+                [title]
+                [speaker-job-title]
+                [speaker-company]
+                <p class="connect">
+                    <span class="label">Connect via:</span>
+                    [speaker-socials]
+                </p>
+            </div>
+        </div>
+        <div class="description">
+            [content]
+        </div>
+        <a class="btn js-modal-close">Close</a>
+    </div>
+</div>');
 ?>
 
 <div <?php echo $blockAttrs; ?>
 >
     <div class="container-narrow">
         <div class="our-team-section-wrapper">
-            <div class="bordered-title green">featured speakers</div>
+            <div class="bordered-title green"><?php echo $title; ?></div>
             <ul class="team">
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker1.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Peter Freed</a>
-                        <div class="occupation">Former Meta + Near Horizon Group</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker2.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Julia Lundin</a>
-                        <div class="occupation">AES</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker3.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Chris Shelton</a>
-                        <div class="occupation">AES</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker4.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Abid Suddiqui</a>
-                        <div class="occupation">AI Fund</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker5.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Chase Lochmiller</a>
-                        <div class="occupation">Crusoe</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker6.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Helena Fu</a>
-                        <div class="occupation">DOE</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker7.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Charles Yang</a>
-                        <div class="occupation">DOE</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker8.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Kevin Jones</a>
-                        <div class="occupation">Dominion Energy</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker9.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Jeremy Renshaw</a>
-                        <div class="occupation">EPRI</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker10.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Sayles Braga</a>
-                        <div class="occupation">Sidewalk Infrastructure Partners</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker11.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Sean Murphy</a>
-                        <div class="occupation">PingThings</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker12.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Josh Wong</a>
-                        <div class="occupation">ThinkLabs AI</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker13.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Stephen Lacey</a>
-                        <div class="occupation">Latitude Media</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="image-folder green">
-                        <a href="#">
-                            <img alt="member" src="client/assets/images/speaker14.png">
-                        </a>
-                    </div>
-                    <div class="content-folder">
-                        <a class="name green" href="#">Maeve Allsup</a>
-                        <div class="occupation">Latitude Media</div>
-                        <a class="more-link" href="#">Read more</a>
-                    </div>
-                </li>
+                <?php
+                    while($speakersPosts->have_posts()) {
+                        echo '<li>';
+                        $speakersPosts->the_post();
+                        $modalId = uniqid();
+                        get_template_part(
+                            'template-parts/components/post',
+                            'item',
+                            array(
+                                'post_id'  => get_the_ID(),
+                                'settings' => array(
+                                    'thumb'   => array(
+                                        'size'       => 'event-speakers-list',
+                                        'link'       => false,
+                                    ),
+                                    'title' => array(
+                                        'wrap' => '%1$s',
+                                        'link' => false
+                                    ),
+                                ),
+                                'rows'     => $postItemTemplate['rows'],
+                                'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $postItemTemplate['wrap']),
+                            )
+                        );
+
+                        get_template_part(
+                            'template-parts/components/post',
+                            'item',
+                            array(
+                                'post_id'  => get_the_ID(),
+                                'settings' => array(
+                                    'thumb'   => array(
+                                        'size'       => 'event-speakers-modal',
+                                        'class'      => 'avatar',
+                                        'link'       => false,
+                                        'img_attr'   => [
+                                                'class'     => 'avatar',
+                                        ]
+                                    ),
+                                    'title' => array(
+                                        'wrap' => '<h3>%1$s</h3>',
+                                        'link' => false
+                                    ),
+                                ),
+                                'rows'     => $modalItemTemplate['rows'],
+                                'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $modalItemTemplate['wrap']),
+                            )
+                        );
+                        wp_reset_postdata();
+                        echo '</li>';
+                    }
+                ?>
             </ul>
         </div>
     </div>

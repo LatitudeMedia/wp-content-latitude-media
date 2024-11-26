@@ -3,3 +3,27 @@
   margin-bottom: 64px;
   @include imageTextSection;
 }
+.image-text-section.is-style-type4 {
+  .image-text-section-wrapper {
+    .image-folder {
+      @include imageFolderLarge;
+
+      a {
+        padding-top: 53.8%;
+      }
+    }
+
+    .content-folder {
+      p {
+        a {
+          font-weight: 400;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

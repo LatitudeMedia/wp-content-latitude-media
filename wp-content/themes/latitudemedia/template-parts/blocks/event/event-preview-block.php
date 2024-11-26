@@ -31,15 +31,6 @@ $blockAttrs = wp_kses_data(
 
 $date       = get_event_start_date($post_id, 'F d, Y H:i');
 $eventData  = get_fields($post_id);
-// start_date
-// end_date
-// event_typ
-// event_series
-// location
-// link
-// cover_image
-// background_image
-// past_event
 ?>
 
 <div <?php echo $blockAttrs; ?>
@@ -57,10 +48,12 @@ $eventData  = get_fields($post_id);
             </div>
             <h1><?php echo get_the_title($post_id);?></h1>
             <?php
-                printf('<div class="place">%s</div>', $eventData['location'])
-            ?>
+                do_action('print_event_location', $post_id);
 
-            <a class="reg-button green" href="#">Register</a>
+                if( !empty($eventData['link']) ) {
+                    do_action('button_unit', ['title' => 'Register', 'url' => $eventData['link']], null, 'reg-button green');
+                }
+            ?>
         </div>
     </div>
 </div>

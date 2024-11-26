@@ -837,26 +837,7 @@ add_action( 'acf/include_fields', function() {
                 'ui_on_text' => '',
                 'ui_off_text' => '',
             ),
-            array(
-                'key' => 'field_6713ae4ce156c',
-                'label' => 'Location details',
-                'name' => 'location_details',
-                'aria-label' => '',
-                'type' => 'textarea',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'default_value' => '',
-                'maxlength' => '',
-                'rows' => '',
-                'placeholder' => '',
-                'new_lines' => '',
-            ),
+
 
 
             array(
@@ -5704,6 +5685,24 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'return_format' => 'string',
             ),
             array(
+                'key' => 'field_6745b76159f4c',
+                'label' => 'Shadow color',
+                'name' => 'shadow_color',
+                'aria-label' => '',
+                'type' => 'color_picker',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '#F9E8F4',
+                'enable_opacity' => 0,
+                'return_format' => 'string',
+            ),
+            array(
                 'key' => 'field_67354f9994828',
                 'label' => 'Display',
                 'name' => 'display',
@@ -6671,131 +6670,253 @@ Or select event manually.',
         'description' => '',
         'show_in_rest' => 0,
     ) );
+    acf_add_local_field_group(array(
+        'key' => 'field_67447f65a31a5',
+        'title' => 'Event preview block',
+        'fields' => array (
+            array (
+                'key' => 'field_67447f65a31a6',
+                'label' => 'Event preview block',
+                'name' => '',
+                'type' => 'message',
+            ),
+            array(
+                'key' => 'field_67447f65a31a7',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/event-preview-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
+
+    acf_add_local_field_group( array(
+        'key' => 'group_674595857108f',
+        'title' => 'Event description block',
+        'fields' => array(
+            array(
+                'key' => 'field_674481518f9b4',
+                'label' => 'Event description block',
+                'name' => '',
+                'aria-label' => '',
+                'type' => 'message',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_674595b6064e9',
+                'label' => 'Title',
+                'name' => 'title',
+                'aria-label' => '',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+            ),
+            array(
+                'key' => 'field_674595c2064ea',
+                'label' => 'Content',
+                'name' => 'content',
+                'aria-label' => '',
+                'type' => 'wysiwyg',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
+            ),
+            array(
+                'key' => 'field_674481518f9b5',
+                'label' => 'Display',
+                'name' => 'display',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => false,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'ui' => 1,
+                'default_value' => 0,
+                'message' => '',
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/event-description-block',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_674597e182742',
+        'title' => 'Event speakers block',
+        'fields' => array(
+            array(
+                'key' => 'field_67449c4ecdcd9',
+                'label' => 'Event speakers block',
+                'name' => '',
+                'aria-label' => '',
+                'type' => 'message',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_674597fdb07ad',
+                'label' => 'Title',
+                'name' => 'title',
+                'aria-label' => '',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+            ),
+            array(
+                'key' => 'field_67459804b07ae',
+                'label' => 'Speakers',
+                'name' => 'speakers',
+                'aria-label' => '',
+                'type' => 'relationship',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'post_type' => array(
+                    0 => 'speakers',
+                ),
+                'post_status' => '',
+                'taxonomy' => '',
+                'filters' => array(
+                    0 => 'search',
+                ),
+                'return_format' => 'id',
+                'min' => '',
+                'max' => '',
+                'elements' => '',
+                'bidirectional' => 0,
+                'bidirectional_target' => array(
+                ),
+            ),
+            array(
+                'key' => 'field_67449c4ecdcda',
+                'label' => 'Display',
+                'name' => 'display',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => false,
+                'conditional_logic' => false,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'ui' => 1,
+                'default_value' => 0,
+                'message' => '',
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/event-speakers-block',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
 } );
 
-
-acf_add_local_field_group(array(
-  'key' => 'field_67447f65a31a5',
-  'title' => 'Event preview block',
-  'fields' => array (
-       array (
-           'key' => 'field_67447f65a31a6',
-           'label' => 'Event preview block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_67447f65a31a7',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/event-preview-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_674481518f9b2',
-  'title' => 'Event description block',
-  'fields' => array (
-       array (
-           'key' => 'field_674481518f9b4',
-           'label' => 'Event description block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_674481518f9b5',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/event-description-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_67449c4ecdcd7',
-  'title' => 'Event speakers block',
-  'fields' => array (
-       array (
-           'key' => 'field_67449c4ecdcd9',
-           'label' => 'Event speakers block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_67449c4ecdcda',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/event-speakers-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_67449c54b1bee',
-  'title' => 'Event sponsors block',
-  'fields' => array (
-       array (
-           'key' => 'field_67449c54b1bf0',
-           'label' => 'Event sponsors block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_67449c54b1bf1',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/event-sponsors-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
 
 
 acf_add_local_field_group(array(
@@ -6822,37 +6943,6 @@ acf_add_local_field_group(array(
                'param' => 'block',
                'operator' => '==',
                'value' => 'acf/event-agenda-block',
-           ),
-       ),
-  ),
-  'style' => 'seamless'
-));
-
-
-acf_add_local_field_group(array(
-  'key' => 'field_6744a68e84048',
-  'title' => 'Event venue block',
-  'fields' => array (
-       array (
-           'key' => 'field_6744a68e8404a',
-           'label' => 'Event venue block',
-           'name' => '',
-           'type' => 'message',
-       ),
-       array(
-            'key' => 'field_6744a68e8404b',
-           'label' => 'Display',
-           'name' => 'display',
-           'type' => 'true_false',
-           'ui' => 1,
-       ),
-   ),
-  'location' => array (
-       array (
-           array (
-               'param' => 'block',
-               'operator' => '==',
-               'value' => 'acf/event-venue-block',
            ),
        ),
   ),
