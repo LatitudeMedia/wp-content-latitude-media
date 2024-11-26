@@ -8,8 +8,6 @@ $options = wp_parse_args(
     ]
 );
 
-$blockType = ltm_get_block_style($options['blockAttributes']['className'] ?? []);
-
 get_template_part(
-    'template-parts/components/event-gray-icon/' . $options['type'], $options
+    'template-parts/components/event-gray-icon/' . $options['type'], '', $options
 );

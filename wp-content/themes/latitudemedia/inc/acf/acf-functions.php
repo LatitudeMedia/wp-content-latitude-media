@@ -930,6 +930,21 @@ $blocks = array(
         'post_types' 	=> array( 'events' ),
         'category'  	=> 'ltm-event-blocks',
         'keywords'    => array( __('Event description block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+        ),
+        'styles'  => [
+            [
+                'name' => 'default',
+                'label' => __('Default', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type2',
+                'label' => __('Type 2 (with form)', 'ltm'),
+                'isDefault' => true,
+            ]
+        ],
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css',
         'example'  	=> array(
             'attributes' => array(
