@@ -6679,6 +6679,7 @@ Or select event manually.',
                 'label' => 'Event preview block',
                 'name' => '',
                 'type' => 'message',
+                'message' => 'Display event general information: <ul><li>Date</li><li>Type</li><li>Title</li><li>Location</li><li>Register link</li></ul> From <b>General event options</b> in sidebar'
             ),
             array(
                 'key' => 'field_67447f65a31a7',
@@ -6915,6 +6916,36 @@ Or select event manually.',
         'description' => '',
         'show_in_rest' => 0,
     ) );
+    acf_add_local_field_group(array(
+        'key' => 'field_6745ca5e34889',
+        'title' => 'Event short description block',
+        'fields' => array (
+            array (
+                'key' => 'field_6745ca5e3488b',
+                'label' => 'Event short description block',
+                'name' => '',
+                'type' => 'message',
+                'message' => 'Display the text from the post Excerpt field.',
+            ),
+            array(
+                'key' => 'field_6745ca5e3488c',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/event-short-description-block',
+                ),
+            ),
+        ),
+        'style' => 'seamless'
+    ));
 } );
 
 
@@ -6948,3 +6979,5 @@ acf_add_local_field_group(array(
   ),
   'style' => 'seamless'
 ));
+
+

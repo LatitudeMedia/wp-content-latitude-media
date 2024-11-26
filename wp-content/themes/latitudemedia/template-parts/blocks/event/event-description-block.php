@@ -34,7 +34,6 @@ $blockAttrs = wp_kses_data(
 >
     <div class="container-narrow">
         <div class="event-text-section-wrapper">
-            <h2>The state of play for AI in the power sector</h2>
             <div class="bordered-title green"><?php _e($title); ?></div>
             <article>
                 <?php echo $content; ?>

@@ -159,7 +159,7 @@ $blocks = array(
             'title' 		=> __('Spotlight quote block', 'ltm'),
             'path'  		=> 'common',
         ),
-        'icon'  		=> 'editor-quote',
+        'icon'  		=> 'testimonial',
         'description' => __('Spotlight quote block', 'ltm'),
         'post_types' 	=> array( 'post', 'events' ),
         'category'  	=> 'ltm-post-blocks',
@@ -1020,6 +1020,27 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'event-venue-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-short-description-block',
+            'title' 		=> __('Event short description block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'text-page',
+        'description' => __('Event short description block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event short description block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-short-description-block.png',
                 )
             )
         )
