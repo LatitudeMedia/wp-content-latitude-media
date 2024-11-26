@@ -1729,56 +1729,6 @@
   margin-bottom: 16px;
 }
 
-.half-wide-section {
-  margin-bottom: 32px;
-}
-.half-wide-section .half-wide-section-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-.half-wide-section .half-wide-section-wrapper .half {
-  width: 48%;
-}
-
-.single-grey-icon-block {
-  margin-bottom: 56px;
-}
-
-.grey-icon-block {
-  height: 100%;
-}
-.grey-icon-block .grey-icon-block-wrapper {
-  padding: 40px;
-  position: relative;
-  background-color: #F5F5F5;
-  height: 100%;
-}
-.grey-icon-block .grey-icon-block-wrapper .icon {
-  position: absolute;
-  right: 24px;
-  top: -25px;
-}
-.grey-icon-block .grey-icon-block-wrapper h5 {
-  margin-bottom: 16px;
-  color: #0F1E42;
-}
-.grey-icon-block .grey-icon-block-wrapper p {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 24px;
-  color: #0F1E42;
-}
-.grey-icon-block .grey-icon-block-wrapper ul {
-  padding: 0 0 0 20px;
-}
-.grey-icon-block .grey-icon-block-wrapper ul li {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 24px;
-  margin-bottom: 8px;
-  color: #0F1E42;
-}
-
 .past-event header {
   padding-bottom: 0;
 }
@@ -3003,13 +2953,6 @@
   .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li {
     padding-bottom: 0;
     border: none;
-  }
-  .half-wide-section .half-wide-section-wrapper {
-    flex-direction: column;
-  }
-  .half-wide-section .half-wide-section-wrapper .half {
-    width: 100%;
-    margin-bottom: 32px;
   }
   .partners-logos-section .partners-logos-section-wrapper .logos {
     width: 48%;

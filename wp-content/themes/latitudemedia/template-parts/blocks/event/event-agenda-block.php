@@ -4,9 +4,11 @@ if (is_admin()) {
 }
 // Set defaults Event agenda block.
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, get_fields() ?: []),
     [
-        'display' => false,
+        'title'     => false,
+        'schedule'  => [],
+        'display'   => false,
         'blockAttributes' => [],
     ]
 );
@@ -17,6 +19,9 @@ if(!$display && !is_admin()) {
     return;
 }
 
+if( empty( $schedule ) ) {
+    return;
+}
 
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
@@ -29,178 +34,45 @@ $blockAttrs = wp_kses_data(
 
 ?>
 
-<div <?php echo $blockAttrs; ?>
->
+<div <?php echo $blockAttrs; ?> >
     <div class="container-narrow">
-        <div class="bordered-title green">Agenda</div>
+        <div class="bordered-title green"><?php _e($title)?></div>
         <div class="agenda-section-wrapper">
             <ul>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">8:00 am - 9:00 am</div>
-                        <h5>Registration and networking breakfast</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">9:00 AM - 9:15 AM</div>
-                        <h5>Welcome, and opening comments from Latitude Media</h5>
-                        <p>Kicking off Transition-AI with an overview of our coverage of the space, key themes in
-                            the market in 2024, and the plan for the conference</p>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Stephen Lacey</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">9:15 AM - 9:45 AM</div>
-                        <h5>Keynote interview</h5>
-                        <p></p>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Stephen Lacey</span>, <span class="company">Latitude Media</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">9:45 AM - 10:15 AM</div>
-                        <h5>In conversation - Building an AI startup ecosystem for energy</h5>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Julia Lundin</span>, <span class="company">AES</span>
-                            </li>
-                            <li>
-                                <span class="name">Abid Suddiqui</span>, <span class="company">AI Fund</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">10:15 AM - 10:45 AM</div>
-                        <h5>Networking Break</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">10:45 AM - 11:30 AM</div>
-                        <h5>Panel session - Meeting the load growth challenge</h5>
-                        <p>A panel discussion diving deep into the outlook for load growth driven by data center
-                            demand from AI</p>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Jeremy Renshaw</span>, <span class="company">EPRI</span>
-                            </li>
-                            <li>
-                                <span class="name">Page Crahan</span>, <span
-                                        class="company">Google X - Tapestry</span>
-                            </li>
-                            <li>
-                                <span class="name">Chris Shelton</span>, <span class="company">AES</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">11:30 AM - 12:00 PM</div>
-                        <h5>Case Study - AI and the customer</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">12:00 PM - 1:00 PM</div>
-                        <h5>Lunch</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">8:00 am - 9:00 am</div>
-                        <h5>Registration and networking breakfast</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">9:00 AM - 9:15 AM</div>
-                        <h5>Welcome, and opening comments from Latitude Media</h5>
-                        <p>Kicking off Transition-AI with an overview of our coverage of the space, key themes in
-                            the market in 2024, and the plan for the conference</p>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Stephen Lacey</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">9:15 AM - 9:45 AM</div>
-                        <h5>Keynote interview</h5>
-                        <p></p>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Stephen Lacey</span>, <span class="company">Latitude Media</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">9:45 AM - 10:15 AM</div>
-                        <h5>In conversation - Building an AI startup ecosystem for energy</h5>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Julia Lundin</span>, <span class="company">AES</span>
-                            </li>
-                            <li>
-                                <span class="name">Abid Suddiqui</span>, <span class="company">AI Fund</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">10:15 AM - 10:45 AM</div>
-                        <h5>Networking Break</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">10:45 AM - 11:30 AM</div>
-                        <h5>Panel session - Meeting the load growth challenge</h5>
-                        <p>A panel discussion diving deep into the outlook for load growth driven by data center
-                            demand from AI</p>
-                        <ul class="speakers">
-                            <li>
-                                <span class="name">Jeremy Renshaw</span>, <span class="company">EPRI</span>
-                            </li>
-                            <li>
-                                <span class="name">Page Crahan</span>, <span
-                                        class="company">Google X - Tapestry</span>
-                            </li>
-                            <li>
-                                <span class="name">Chris Shelton</span>, <span class="company">AES</span>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">11:30 AM - 12:00 PM</div>
-                        <h5>Case Study - AI and the customer</h5>
-                    </div>
-                </li>
-                <li>
-                    <div class="agenda-data">
-                        <div class="time">12:00 PM - 1:00 PM</div>
-                        <h5>Lunch</h5>
-                    </div>
-                </li>
+                <?php
+                    foreach ($schedule as $item) {
+                        $dataHtml = '';
+                        $imageHtml = '';
+                        $speakersListHtml = '';
+                        if( !empty($item['image']) ) {
+                            $imageHtml = thumbnail_formatting(null, ['image_id' => $item['image'], 'link' => false, 'img_attr' => ['class' => 'agenda-thumbnail'] ], false);
+                        }
+
+                        if( !empty($item['time']) ) {
+                            $dataHtml = sprintf('<div class="time">%s</div>', $item['time']);
+                        }
+                        if( !empty($item['title']) ) {
+                            $dataHtml .= sprintf('<h5>%s</h5>', $item['title']);
+                        }
+                        if( !empty($item['description']) ) {
+                            $dataHtml .= sprintf('<p>%s</p>', $item['description']);
+                        }
+                        if( !empty($item['speakers']) ) {
+                            $speakersPosts = get_published_posts_by_ids($item['speakers'], ['post_type' => 'speakers']);
+                            $speakersListHtml = '';
+                            while($speakersPosts->have_posts()) {
+                                $speakersPosts->the_post();
+                                $speakersListHtml .= sprintf('<li><span class="name">%s</span></li>', get_the_title());
+                            }
+                        }
+
+                        if( $speakersListHtml ) {
+                            $dataHtml .= sprintf('<ul class="speakers">%s</ul>', $speakersListHtml);
+                        }
+
+                        printf('<li>%s<div class="agenda-data">%s</div></li>', $imageHtml, $dataHtml);
+                    }
+                ?>
             </ul>
         </div>
     </div>

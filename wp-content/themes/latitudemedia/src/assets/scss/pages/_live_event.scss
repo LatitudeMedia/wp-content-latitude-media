@@ -21,16 +21,3 @@
     }
   }
 }
-
-.half-wide-section {
-  margin-bottom: 32px;
-  @include halfWidesSection;
-}
-
-.single-grey-icon-block {
-  margin-bottom: 56px;
-}
-
-.grey-icon-block {
-  @include greyIconBlock;
-}
