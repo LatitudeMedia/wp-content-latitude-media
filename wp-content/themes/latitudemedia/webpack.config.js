@@ -60,6 +60,8 @@ module.exports = (env) => {
       'css/blocks/event-agenda-block'       : './src/assets/scss/blocks/event-agenda-block.scss',
       'css/blocks/event-venue-block'        : './src/assets/scss/blocks/event-venue-block.scss',
       'css/blocks/event-gray-icon-block'    : './src/assets/scss/blocks/event-gray-icon-block.scss',
+      'css/blocks/event-partners-block'     : './src/assets/scss/blocks/event-partners-block.scss',
+      'css/blocks/event-about-sponsors-block': './src/assets/scss/blocks/event-about-sponsors-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

@@ -1081,6 +1081,48 @@ $blocks = array(
             )
         )
     ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-partners-block',
+            'title' 		=> __('Event partners block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'buddicons-buddypress-logo',
+        'description' => __('Event partners block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event partners block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-partners-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-partners-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'event-about-sponsors-block',
+            'title' 		=> __('Event about sponsors block', 'ltm'),
+            'path'  		=> 'event',
+        ),
+        'icon'  		=> 'vault',
+        'description' => __('Event about sponsors block', 'ltm'),
+        'post_types' 	=> array( 'events' ),
+        'category'  	=> 'ltm-event-blocks',
+        'keywords'    => array( __('Event about sponsors block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-about-sponsors-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'event-about-sponsors-block.png',
+                )
+            )
+        )
+    ),
     // END Events
 );
 

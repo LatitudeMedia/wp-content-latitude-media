@@ -1750,120 +1750,6 @@
   margin-bottom: 32px;
 }
 
-.partners-logos-section {
-  margin-bottom: 40px;
-}
-.partners-logos-section .partners-logos-section-wrapper h2 {
-  margin-bottom: 64px;
-  text-align: center;
-}
-.partners-logos-section .partners-logos-section-wrapper .logos {
-  list-style: none;
-  margin: 0 0 0 -2%;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.partners-logos-section .partners-logos-section-wrapper .logos li {
-  width: 23%;
-  margin-left: 2%;
-  margin-bottom: 24px;
-}
-.partners-logos-section .partners-logos-section-wrapper .logos li a {
-  display: block;
-}
-.about-sponsors-section {
-  margin-bottom: 64px;
-}
-.about-sponsors-section .bordered-title {
-  margin-bottom: 32px;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li {
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li:last-child {
-  margin-bottom: 0;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .logo-wrapper {
-  width: 430px;
-  margin-right: 64px;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .logo-wrapper a {
-  display: block;
-  text-decoration: none;
-  margin: 0 auto;
-  text-align: center;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .logo-wrapper a img {
-  display: inline-block;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .content-wrapper {
-  flex: 1 0 0px;
-  min-width: 1px;
-  width: 100%;
-  border-bottom: 1px solid #00B48D;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .content-wrapper p {
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  margin-bottom: 16px;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .content-wrapper p a {
-  text-decoration: underline;
-  color: #00B48D;
-}
-.about-sponsors-section .about-sponsors-section-wrapper ul li .content-wrapper p a:hover {
-  text-decoration: none;
-}
-.about-sponsors-section.pink .bordered-title {
-  border-color: #C6168D;
-}
-.about-sponsors-section.pink .about-sponsors-section-wrapper ul li .content-wrapper {
-  border-bottom-color: #C6168D;
-}
-.about-sponsors-section.pink .about-sponsors-section-wrapper ul li .content-wrapper p a {
-  color: #C6168D;
-}
-.about-sponsors-section.green .bordered-title {
-  border-color: #00B48D;
-}
-.about-sponsors-section.green .about-sponsors-section-wrapper ul li .content-wrapper {
-  border-bottom-color: #00B48D;
-}
-.about-sponsors-section.green .about-sponsors-section-wrapper ul li .content-wrapper p a {
-  color: #00B48D;
-}
-.about-sponsors-section.blue .bordered-title {
-  border-color: #0095DA;
-}
-.about-sponsors-section.blue .about-sponsors-section-wrapper ul li .content-wrapper {
-  border-bottom-color: #0095DA;
-}
-.about-sponsors-section.blue .about-sponsors-section-wrapper ul li .content-wrapper p a {
-  color: #0095DA;
-}
-.about-sponsors-section.orange .bordered-title {
-  border-color: #F99D1C;
-}
-.about-sponsors-section.orange .about-sponsors-section-wrapper ul li .content-wrapper {
-  border-bottom-color: #F99D1C;
-}
-.about-sponsors-section.orange .about-sponsors-section-wrapper ul li .content-wrapper p a {
-  color: #F99D1C;
-}
-
 .single-post header {
   padding-bottom: 0;
 }
@@ -2804,12 +2690,6 @@
   .single-events .right-sidebar-layout .right-sidebar-layout-wrapper .sidebar {
     width: 100%;
   }
-  .partners-logos-section .partners-logos-section-wrapper .logos {
-    width: 31.3%;
-  }
-  .about-sponsors-section .about-sponsors-section-wrapper ul li .logo-wrapper {
-    width: 300px;
-  }
   .single-post .right-sidebar-layout .sidebar .form-block {
     position: initial;
     top: auto;
@@ -2946,17 +2826,6 @@
   .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li {
     padding-bottom: 0;
     border: none;
-  }
-  .partners-logos-section .partners-logos-section-wrapper .logos {
-    width: 48%;
-  }
-  .about-sponsors-section .about-sponsors-section-wrapper ul li {
-    flex-direction: column;
-  }
-  .about-sponsors-section .about-sponsors-section-wrapper ul li .logo-wrapper {
-    margin-right: 0;
-    margin-bottom: 16px;
-    width: 100%;
   }
   .single-post-heading-section .single-post-heading-section-wrapper .tags-list li {
     padding-bottom: 0;

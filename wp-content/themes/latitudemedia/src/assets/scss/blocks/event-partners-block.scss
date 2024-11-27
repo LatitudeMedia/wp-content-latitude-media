@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.partners-logos-section {
+  margin-bottom: 40px;
+  @include partnersLogosSection;
+}

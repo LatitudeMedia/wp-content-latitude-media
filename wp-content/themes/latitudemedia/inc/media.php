@@ -9,3 +9,4 @@ add_image_size( 'event-speakers-list', 230, 230, true );
 add_image_size( 'event-speakers-modal', 200, 200, true );
 add_image_size( 'event-sponsors-list', 261, 160, false );
 add_image_size( 'image-and-text-type4', 558, 300, true );
+add_image_size( 'event-sponsors-about-list', 430, 200, true );
