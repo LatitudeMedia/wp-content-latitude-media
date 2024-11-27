@@ -4,10 +4,10 @@ if (is_admin()) {
 }
 // Set defaults Ad banner block.
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args, get_fields() ?: []),
     [
-        'code'      => false,
-        'display'   => false,
+        'banner'        => null,
+        'display'       => false,
         'blockAttributes' => [],
     ]
 );
@@ -18,9 +18,17 @@ if(!$display && !is_admin()) {
     return;
 }
 
-if( empty($code) ) {
+if( empty($banner) ) {
     return;
 }
+
+$bannerPost = get_published_post_by_id($banner, ['post_type' => 'in-house-ads']);
+
+if( !$bannerPost ) {
+    return;
+}
+
+$code = get_field('google_ad_code', $bannerPost->ID);
 ?>
 
 <div

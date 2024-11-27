@@ -29,6 +29,11 @@ require_once ("inc/menu/menu.php");
 require_once ("inc/helpers.php");
 
 /**
+ * Include ACF configs
+ */
+require_once('inc/acf/init.php');
+
+/**
  * Enqueue styles and scripts
  */
 require_once ("inc/enqueue.php");
@@ -42,10 +47,7 @@ require_once ("inc/class-page-data.php");
 
 require_once ("inc/template-tags.php");
 
-/**
- * Include ACF configs
- */
-require_once('inc/acf/init.php');
+
 
 require_once('inc/cli.php');
 

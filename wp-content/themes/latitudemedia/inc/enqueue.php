@@ -9,7 +9,6 @@ if( !function_exists( 'ltm_scripts' ) ) {
      */
 
     function ltm_scripts() {
-
         if ( ! defined( 'ENV_TYPE' ) || ENV_TYPE === 'dev') {
             wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/src/assets/js/dfp-ads.js', array(), filemtime( get_template_directory() . '/src/assets/js/dfp-ads.js' ), false );
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/src/assets/js/custom.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/custom.js'),true );
@@ -21,6 +20,7 @@ if( !function_exists( 'ltm_scripts' ) ) {
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/dist/js/load-more.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/load-more.min.js'),true );
         }
     }
+
     wp_localize_script(
         'ltm-ads',
         'wpDfpAdsSettings',

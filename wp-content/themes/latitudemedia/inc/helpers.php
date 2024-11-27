@@ -247,7 +247,7 @@ function ltm_get_block_style($classes = '') {
 /**
  * @param null $post_id
  * @param array $args
- * @return bool
+ * @return bool|WP_Post
  */
 function get_published_post_by_id($post_id = null, $args = []) {
     if( empty($post_id) ) {
