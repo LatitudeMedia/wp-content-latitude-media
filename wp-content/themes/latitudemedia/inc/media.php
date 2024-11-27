@@ -11,3 +11,4 @@ add_image_size( 'event-sponsors-list', 261, 160, false );
 add_image_size( 'image-and-text-type4', 558, 300, true );
 add_image_size( 'event-sponsors-about-list', 430, 200, true );
 add_image_size( 'list-three-events', 367, 210, true );
+add_image_size( 'event-preview-hosted', 129, 64, false );
