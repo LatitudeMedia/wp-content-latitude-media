@@ -21,14 +21,6 @@ if(!$display && !is_admin()) {
 if( empty($banner) ) {
     return;
 }
-
-$bannerPost = get_published_post_by_id($banner, ['post_type' => 'in-house-ads']);
-
-if( !$bannerPost ) {
-    return;
-}
-
-$code = get_field('google_ad_code', $bannerPost->ID);
 ?>
 
 <div
@@ -48,7 +40,7 @@ $code = get_field('google_ad_code', $bannerPost->ID);
         'template-parts/components/ad',
         'banner',
         array(
-            'code'  => $code,
+            'banner_id'  => $banner,
         )
     );
     ?>

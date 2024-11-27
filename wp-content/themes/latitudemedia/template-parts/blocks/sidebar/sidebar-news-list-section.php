@@ -105,7 +105,7 @@ if( !$items->have_posts() ) {
                     'template-parts/components/ad',
                     'banner',
                     array(
-                        'code'  => $ad_banner,
+                        'banner_id'  => $ad_banner,
                         'wrap'  => '<li>%s</li>',
                     )
                 );

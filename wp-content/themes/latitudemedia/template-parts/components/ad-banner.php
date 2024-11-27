@@ -5,16 +5,23 @@
 $options = wp_parse_args(
     $args,
     [
-        'code' => '',
+        'banner_id' => null,
         'wrap' => '',
     ]
 );
 
 extract($options);
 
-if( empty($code) ) {
+if( empty($banner_id) ) {
     return;
 }
+
+$bannerPost = get_published_post_by_id($banner_id, ['post_type' => 'in-house-ads']);
+if( !$bannerPost ) {
+    return;
+}
+
+$code = get_field('google_ad_code', $bannerPost->ID);
 
 if($wrap) ob_start();
 ?>
