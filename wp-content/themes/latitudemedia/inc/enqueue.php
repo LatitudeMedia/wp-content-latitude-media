@@ -10,12 +10,12 @@ if( !function_exists( 'ltm_scripts' ) ) {
 
     function ltm_scripts() {
         if ( ! defined( 'ENV_TYPE' ) || ENV_TYPE === 'dev') {
-            wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/src/assets/js/dfp-ads.js', array(), filemtime( get_template_directory() . '/src/assets/js/dfp-ads.js' ), false );
+            wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/src/assets/js/dfp-ads.js', array(), filemtime( get_template_directory() . '/src/assets/js/dfp-ads.js' ), true );
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/src/assets/js/custom.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/custom.js'),true );
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/src/assets/js/load-more.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/load-more.js'),true );
         }
         else {
-            wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/dist/js/dfp-ads.min.js', array(), filemtime( get_template_directory() . '/dist/js/dfp-ads.min.js' ), false );
+            wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/dist/js/dfp-ads.min.js', array(), filemtime( get_template_directory() . '/dist/js/dfp-ads.min.js' ), true );
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/dist/js/custom.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/custom.min.js'),true );
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/dist/js/load-more.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/load-more.min.js'),true );
         }
@@ -78,4 +78,20 @@ if( !function_exists( 'add_rel_preload' ) ) {
     }
 
     add_filter('style_loader_tag', 'add_rel_preload', 10, 4);
+}
+
+add_action('wp_head', 'ltm_add_pubads_script');
+function ltm_add_pubads_script()
+{
+    ?>
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/23014735799/homepage_leaderboard', [970, 90], 'div-gpt-ad-1732666498389-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <?php
 }
