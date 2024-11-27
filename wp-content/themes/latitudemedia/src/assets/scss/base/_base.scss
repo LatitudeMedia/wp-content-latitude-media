@@ -74,6 +74,9 @@ h1 {
     @include fontSize(32px);
     line-height: 35px;
   }
+  &.has-text-align-center {
+    text-align: center;
+  }
 }
 h2 {
   font-family: $lora;
