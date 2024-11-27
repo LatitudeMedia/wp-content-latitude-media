@@ -31,6 +31,11 @@ $blockAttrs = wp_kses_data(
 
 $date       = get_event_start_date($post_id, 'F d, Y H:i');
 $eventData  = get_fields($post_id);
+$registerButtonTitle = 'Register';
+if( $eventData['event_type'] === 'virtual') {
+    $registerButtonTitle = 'Watch Recording';
+}
+
 ?>
 
 <div <?php echo $blockAttrs; ?>
@@ -46,6 +51,11 @@ $eventData  = get_fields($post_id);
                 <div class="date"><?php _e($date); ?> ET</div>
                 <div class="location"><?php _e(ucfirst($eventData['event_type']) ?? ''); ?></div>
             </div>
+            <?php
+                if( !empty($eventData['event_series']['label']) ) {
+                    printf('<div class="upper-heading">%s</div>', $eventData['event_series']['label']);
+                }
+            ?>
             <h1><?php echo get_the_title($post_id);?></h1>
             <?php
                 do_action('print_event_location', $post_id);

@@ -34,7 +34,8 @@ $my_block_template = array(
     ),
 );
 
-$eventForm = get_field('form_code__registration_cta', $post_id);
+$eventForm  = get_field('form_code__registration_cta', $post_id);
+$formText   = get_field('form_text', $post_id);
 ?>
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
@@ -54,7 +55,7 @@ $eventForm = get_field('form_code__registration_cta', $post_id);
             <div class="sidebar">
                 <div class="form-block green">
                     <div class="form-block-wrapper">
-                        <div class="form-title">Watch the event recording:</div>
+                        <div class="form-title"><?php echo $formText; ?></div>
                         <?php echo $eventForm; ?>
                     </div>
                 </div>
