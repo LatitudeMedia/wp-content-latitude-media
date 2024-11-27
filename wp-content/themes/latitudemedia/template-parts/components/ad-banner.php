@@ -5,14 +5,22 @@
 $options = wp_parse_args(
     $args,
     [
-        'banner_id' => null,
-        'wrap' => '',
+        'banner_id'     => null,
+        'screen_type'   => null,
+        'wrap'          => '',
     ]
 );
 
 extract($options);
 
 if( empty($banner_id) ) {
+    return;
+}
+
+if($screen_type === 'mobile' && !wp_is_mobile()) {
+    return;
+}
+elseif ($screen_type === 'desktop' && wp_is_mobile()) {
     return;
 }
 

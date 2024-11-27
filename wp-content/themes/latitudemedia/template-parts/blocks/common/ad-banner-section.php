@@ -7,6 +7,7 @@ $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
     [
         'dynamic_ad_banner' => null,
+        'screen_type'       => null,
         'display'           => false,
         'blockAttributes'   => [],
     ]
@@ -35,20 +36,24 @@ if( empty($dynamic_ad_banner) ) {
     );
     ?>
 >
-
-    <div class="banner-ad-block">
-        <div class="container">
-            <div class="banner-ad-block-wrapper">
-                <?php
-                get_template_part(
-                    'template-parts/components/ad',
-                    'banner',
-                    array(
-                        'banner_id'  => $dynamic_ad_banner,
-                    )
-                );
-                ?>
+    <?php
+    get_template_part(
+        'template-parts/components/ad',
+        'banner',
+        array(
+            'banner_id'  => $dynamic_ad_banner,
+            'screen_type'=> $screen_type,
+            'wrap'       => '
+            <div class="banner-ad-block">
+                <div class="container">
+                    <div class="banner-ad-block-wrapper">
+                        %s
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+            ',
+        )
+    );
+    ?>
+
 </div>
