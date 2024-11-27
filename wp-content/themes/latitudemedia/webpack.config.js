@@ -29,6 +29,7 @@ module.exports = (env) => {
       'css/footer': './src/assets/scss/footer/footer_loader.scss',
       'js/custom': './src/assets/js/custom.js',
       'js/load-more': './src/assets/js/load-more.js',
+      'js/dfp-ads': './src/assets/js/dfp-ads.js',
       //Blocks styles
       'css/blocks/news-plates-section'      : './src/assets/scss/blocks/news-plates-section.scss',
       'css/blocks/featured-research-block'  : './src/assets/scss/blocks/featured-research-block.scss',

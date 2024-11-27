@@ -9,15 +9,25 @@ if( !function_exists( 'ltm_scripts' ) ) {
      */
 
     function ltm_scripts() {
+
         if ( ! defined( 'ENV_TYPE' ) || ENV_TYPE === 'dev') {
+            wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/src/assets/js/dfp-ads.js', array(), filemtime( get_template_directory() . '/src/assets/js/dfp-ads.js' ), false );
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/src/assets/js/custom.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/custom.js'),true );
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/src/assets/js/load-more.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/load-more.js'),true );
         }
         else {
+            wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/dist/js/dfp-ads.min.js', array(), filemtime( get_template_directory() . '/dist/js/dfp-ads.min.js' ), false );
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/dist/js/custom.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/custom.min.js'),true );
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/dist/js/load-more.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/load-more.min.js'),true );
         }
     }
+    wp_localize_script(
+        'ltm-ads',
+        'wpDfpAdsSettings',
+        array(
+            'slots'   => get_field('dfp_ad_slots', 'options'),
+        )
+    );
 
     add_action( 'wp_enqueue_scripts', 'ltm_scripts' );
 }

@@ -1152,26 +1152,32 @@ if( function_exists('acf_add_options_sub_page') ) {
         'menu_title' => 'Resources Settings',
         'parent_slug' => 'edit.php?post_type=resources',
     ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => __('DFP Ad Slots'),
+        'menu_title'  => __('DFP Ad Slots'),
+        'parent_slug' => 'edit.php?post_type=in-house-ads',
+    ));
 }
 
 if( !function_exists('relationship_orderby_date') ) {
 
-	/**
-	 * Adding filter that allow ordering posts in search by date
-	 *
-	 * @param array $args The arguments.
-	 * @param string $field The field.
-	 * @param int $post_id The post ID.
-	 * @return mixed
-	 */
-	function relationship_orderby_date($args, $field, $post_id)
-	{
-		$args['orderby'] = 'date';
-		$args['order'] = 'desc';
-		return $args;
-	}
+    /**
+     * Adding filter that allow ordering posts in search by date
+     *
+     * @param array $args The arguments.
+     * @param string $field The field.
+     * @param int $post_id The post ID.
+     * @return mixed
+     */
+    function relationship_orderby_date($args, $field, $post_id)
+    {
+        $args['orderby'] = 'date';
+        $args['order'] = 'desc';
+        return $args;
+    }
 
-	add_filter('acf/fields/relationship/query', 'relationship_orderby_date', 10, 3);
+    add_filter('acf/fields/relationship/query', 'relationship_orderby_date', 10, 3);
 }
 
 if( !function_exists('acf_load_articles_with_sidebar_choices') ) {
@@ -1272,3 +1278,17 @@ function ltm_allowed_post_type_blocks( $allowed_block_types, $editor_context ) {
 }
 
 add_filter( 'allowed_block_types_all', 'ltm_allowed_post_type_blocks', 10, 2 );
+
+add_filter( 'acf/load_field/name=ad_size_dynamic', 'acf_load_ad_size_choises' );
+function acf_load_ad_size_choises( $field ) {
+    $dfpAdsSizes = get_field('dfp_ad_sizes', 'option');
+    if( !empty($dfpAdsSizes) ) {
+        $choices = [];
+        foreach ($dfpAdsSizes as $size) {
+            $choices[$size['width'] . 'x' . $size['height'] ] = $size['width'] . 'x' . $size['height'];
+        }
+
+        $field['choices'] = $choices;
+    }
+    return $field;
+}
