@@ -19,15 +19,15 @@ if( !function_exists( 'ltm_scripts' ) ) {
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/dist/js/custom.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/custom.min.js'),true );
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/dist/js/load-more.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/load-more.min.js'),true );
         }
-    }
 
-    wp_localize_script(
-        'ltm-ads',
-        'wpDfpAdsSettings',
-        array(
-            'slots'   => get_field('dfp_ad_slots', 'options'),
-        )
-    );
+        wp_localize_script(
+            'ltm-ads',
+            'wpDfpAdsSettings',
+            array(
+                'slots'   => get_field('dfp_ad_slots', 'options'),
+            )
+        );
+    }
 
     add_action( 'wp_enqueue_scripts', 'ltm_scripts' );
 }
@@ -88,7 +88,6 @@ function ltm_add_pubads_script()
     <script>
         window.googletag = window.googletag || {cmd: []};
         googletag.cmd.push(function() {
-            googletag.defineSlot('/23014735799/homepage_leaderboard', [970, 90], 'div-gpt-ad-1732666498389-0').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
         });
