@@ -51,7 +51,7 @@ $eventStartDate = get_event_start_date($event->ID);
             <div class="image-folder">
                 <div class="date "><?php _e($eventStartDate); ?></div>
                 <?php
-                    do_action('thumbnail_formatting', $event->ID, ['size' => 'large-event-thumbnail', 'link' => true, 'img_attr' => ['class' => 'event-thumbnail']]);
+                    do_action('thumbnail_formatting', $event->ID, ['size' => 'full', 'link' => true, 'img_attr' => ['class' => 'event-thumbnail']]);
                 ?>
             </div>
             <div class="description-bar">
