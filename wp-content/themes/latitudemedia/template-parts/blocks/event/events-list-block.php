@@ -85,11 +85,10 @@ $listID = uniqid();
                             'post_id'  => get_the_ID(),
                             'settings' => array(
                                 'thumb'   => array(
-                                    'size'       => 'news-with-hero',
+                                    'size'       => 'list-three-events',
                                     'link'       => true,
                                     'link_class' => '',
                                     'alt_image'  => false,
-                                    'type'       => true,
                                 ),
                             ),
                             'rows'          => $rows,
