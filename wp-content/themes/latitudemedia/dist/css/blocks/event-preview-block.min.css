@@ -171,6 +171,15 @@
   background-color: #ffffff;
   color: #F99D1C;
 }
+.single-event-hero-section:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(15, 30, 66, 0.8), rgba(15, 30, 66, 0.8));
+}
 @media screen and (max-width: 768px) {
   .single-event-hero-section .single-event-hero-section-wrapper .data-row {
     flex-direction: column;
