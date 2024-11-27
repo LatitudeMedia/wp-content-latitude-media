@@ -61,7 +61,7 @@ if( $eventData['event_type'] === 'virtual') {
                 do_action('print_event_location', $post_id);
 
                 if( !empty($eventData['link']) ) {
-                    do_action('button_unit', ['title' => 'Register', 'url' => $eventData['link']], null, 'reg-button green');
+                    do_action('button_unit', ['title' => $registerButtonTitle, 'url' => $eventData['link']], null, 'reg-button green');
                 }
             ?>
         </div>
