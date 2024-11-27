@@ -6,9 +6,9 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
     [
-        'banner'        => null,
-        'display'       => false,
-        'blockAttributes' => [],
+        'dynamic_ad_banner' => null,
+        'display'           => false,
+        'blockAttributes'   => [],
     ]
 );
 
@@ -18,7 +18,7 @@ if(!$display && !is_admin()) {
     return;
 }
 
-if( empty($banner) ) {
+if( empty($dynamic_ad_banner) ) {
     return;
 }
 ?>
@@ -35,13 +35,20 @@ if( empty($banner) ) {
     );
     ?>
 >
-    <?php
-    get_template_part(
-        'template-parts/components/ad',
-        'banner',
-        array(
-            'banner_id'  => $banner,
-        )
-    );
-    ?>
+
+    <div class="banner-ad-block">
+        <div class="container">
+            <div class="banner-ad-block-wrapper">
+                <?php
+                get_template_part(
+                    'template-parts/components/ad',
+                    'banner',
+                    array(
+                        'banner_id'  => $dynamic_ad_banner,
+                    )
+                );
+                ?>
+            </div>
+        </div>
+    </div>
 </div>

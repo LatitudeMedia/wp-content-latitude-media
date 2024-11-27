@@ -332,6 +332,34 @@ function get_event__end_date($event_id, $format = 'F d Y') {
 
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
+function get_ad_banner_data($bannerId) {
+    if ( ! $bannerId ) {
+        return false;
+    }
+
+    $dfpAdsSlots = get_field('dfp_ad_slots', 'option');
+    if( empty($dfpAdsSlots['slot']) ) {
+        return false;
+    }
+
+    $bannerData = array_search($bannerId, array_column($dfpAdsSlots['slot'], 'spot_id'));
+
+    return $dfpAdsSlots['slot'][$bannerData] ?? false;
+}
+function get_ad_banner_sizes($bannerId) {
+    if ( ! $bannerId ) {
+        return false;
+    }
+
+    $dfpAdsSlots = get_field('dfp_ad_slots', 'option');
+    if( empty($dfpAdsSlots['slot']) ) {
+        return false;
+    }
+
+    $bannerData = array_search($bannerId, array_column($dfpAdsSlots['slot'], 'spot_id'));
+
+    return $dfpAdsSlots['slot'][$bannerData] ?? false;
+}
 
 /**
  * @param string $type

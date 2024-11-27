@@ -1292,3 +1292,19 @@ function acf_load_ad_size_choises( $field ) {
     }
     return $field;
 }
+
+add_filter( 'acf/load_field/name=dynamic_ad_banner', 'acf_load_ad_canner_choises' );
+function acf_load_ad_canner_choises( $field ) {
+    $dfpAdsSlots = get_field('dfp_ad_slots', 'option');
+    if( empty($dfpAdsSlots['slot']) ) {
+        return $field;
+    }
+
+    $choices = [];
+    foreach ($dfpAdsSlots['slot'] as $slot) {
+        $choices[$slot['spot_id']] = $slot['name'];
+    }
+
+    $field['choices'] = $choices;
+    return $field;
+}

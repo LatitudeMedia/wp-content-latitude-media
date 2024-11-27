@@ -28,7 +28,7 @@ $options = wp_parse_args(
         'post_type'         => '',
         'custom'            => [],
         'page_data'         => false,
-        'ad_banner'         => '',
+        'dynamic_ad_banner' => '',
         'more'              => [],
         'display'           => false,
         'blockAttributes'   => [],
@@ -100,13 +100,21 @@ if( !$items->have_posts() ) {
             );
             wp_reset_postdata();
 
-            if( !empty($ad_banner) && $items->current_post === 1) {
+            if( !empty($dynamic_ad_banner) && $items->current_post === 1) {
                 get_template_part(
                     'template-parts/components/ad',
                     'banner',
                     array(
-                        'banner_id'  => $ad_banner,
-                        'wrap'  => '<li>%s</li>',
+                        'banner_id'  => $dynamic_ad_banner,
+                        'wrap'  => '<li>    
+                                    <div class="banner-ad-block">
+                                        <div class="container">
+                                            <div class="banner-ad-block-wrapper">
+                                                %s
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>',
                     )
                 );
             }

@@ -29,7 +29,7 @@
 				var mapSizes = [];
 				var adsSizes = [];
 				slot.size_mapping.forEach(function(sizes) {
-					if(!sizes.screen_size_dynamic) {
+					if(!sizes.screen_size) {
 						var baseSizes = sizes.ad_size_dynamic.map(function(size) {
 							return size.split('x').map(function(e) { return Number(e)});
 						});
@@ -39,7 +39,7 @@
 					}
 					else {
 						mapSizes.push({
-							screen: sizes.screen_size_dynamic.split('x').map(function(e) { return Number(e)}),
+							screen: sizes.screen_size.split('x').map(function(e) { return Number(e)}),
 							ad: 	sizes.ad_size_dynamic.map(function(size) {
 								return size.split('x').map(function(e) { return Number(e)});
 							})
