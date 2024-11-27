@@ -40,7 +40,7 @@ $eventStartDate = get_event_start_date($event->ID);
     );
     ?>
 >
-    <div class="container">
+    <div class="container-narrow">
         <div class="event-large-item-section-wrapper">
             <div class="eyebrow ">
                 <div class="eyebrow-label">
