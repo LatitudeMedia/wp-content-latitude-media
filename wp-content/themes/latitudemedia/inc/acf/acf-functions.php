@@ -1124,6 +1124,30 @@ $blocks = array(
         )
     ),
     // END Events
+
+    //START PAGE Full Width
+    array(
+        'attrs' => array(
+            'name'  		=> 'page-hero-block',
+            'title' 		=> __('Page hero block', 'ltm'),
+            'path'  		=> 'page',
+        ),
+        'icon'  		=> 'table-col-before',
+        'description' => __('Page hero block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Page hero block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/page-hero-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'page-hero-block.png',
+                )
+            )
+        )
+    ),
+    //END PAGE Full Width
 );
 
 new ACFBlocks( $blocks );

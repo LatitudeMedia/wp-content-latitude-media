@@ -17,12 +17,17 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<?php
+    $disableMenu = get_field('disable_top_menu');
+?>
+<body <?php body_class($disableMenu ? 'disable-menu' : ''); ?>>
 <?php wp_body_open(); ?>
 
     <div class="wrapper">
 
     <!-- HEADER -->
-<?php get_template_part( 'template-parts/header/nav' ); ?>
+<?php
+    get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
+?>
 
 

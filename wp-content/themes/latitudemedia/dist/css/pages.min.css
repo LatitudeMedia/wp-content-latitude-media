@@ -1460,6 +1460,10 @@
   text-decoration: none;
 }
 
+.disable-menu header {
+  padding-bottom: 0;
+}
+
 .single-sections-landing header {
   margin-bottom: 40px;
   padding-bottom: 0;

@@ -29,6 +29,7 @@ $options = wp_parse_args(
         'custom'            => [],
         'page_data'         => false,
         'dynamic_ad_banner' => '',
+        'screen_type'       => '',
         'more'              => [],
         'display'           => false,
         'blockAttributes'   => [],
@@ -106,6 +107,7 @@ if( !$items->have_posts() ) {
                     'banner',
                     array(
                         'banner_id'  => $dynamic_ad_banner,
+                        'screen_type'=> $screen_type,
                         'wrap'  => '<li>    
                                     <div class="banner-ad-block">
                                         <div class="container">
