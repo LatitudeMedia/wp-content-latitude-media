@@ -41,7 +41,7 @@ $postItemTemplate = get_wrap_rows_from_template('
     <div class="image-folder green"><a href="#" data-target="{uniqid}" class="js-modal-open">[thumb]</a></div>
     <div class="content-folder">
         <a href="#" class="name green js-modal-open" data-target="{uniqid}">[title]</a>
-        [speaker-job-title]
+        [speaker-company]
         <a class="more-link js-modal-open" href="#" data-target="{uniqid}">Read more</a>
     </div>
 ');
@@ -95,6 +95,9 @@ $modalItemTemplate = get_wrap_rows_from_template('
                                         'wrap' => '%1$s',
                                         'link' => false
                                     ),
+                                    'speaker-company' => [
+                                            'wrap' => '<p class="occupation">%1$s</p>',
+                                    ]
                                 ),
                                 'rows'     => $postItemTemplate['rows'],
                                 'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $postItemTemplate['wrap']),
