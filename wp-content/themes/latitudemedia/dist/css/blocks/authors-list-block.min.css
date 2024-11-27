@@ -41,9 +41,9 @@
 }
 .our-team-section .our-team-section-wrapper .team li .image-folder {
   margin-bottom: 26px;
-  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4;
-  -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
-  box-shadow: -10px 10px 0 0 #F9E8F4;
+  -webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
   margin-left: 10px;
 }
 .our-team-section .our-team-section-wrapper .team li .image-folder.green {

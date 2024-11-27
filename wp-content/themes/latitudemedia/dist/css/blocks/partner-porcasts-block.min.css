@@ -56,9 +56,9 @@
   margin-bottom: 46px;
 }
 .three-podcasts-section ul li .image-folder {
-  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
-  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
-  box-shadow: -14px 14px 0 0 #F9E8F4;
+  -webkit-box-shadow: -14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);
   margin-left: 14px;
 }
 .three-podcasts-section ul li .image-folder.pink {
@@ -153,9 +153,9 @@
 }
 .three-podcasts-section ul li .image-folder {
   margin-bottom: 34px;
-  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4;
-  -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
-  box-shadow: -10px 10px 0 0 #F9E8F4;
+  -webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
   margin-left: 10px;
 }
 .three-podcasts-section ul li .image-folder.green {

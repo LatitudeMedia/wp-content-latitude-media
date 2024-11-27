@@ -45,9 +45,9 @@
 .posts-list-section .posts li .image-folder {
   width: 217px;
   margin-right: 24px;
-  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4;
-  -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
-  box-shadow: -10px 10px 0 0 #F9E8F4;
+  -webkit-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -10px 10px 0 0 var(--custom-block-shadow-color, #F9E8F4);
   margin-left: 10px;
 }
 .posts-list-section .posts li .image-folder.green {
