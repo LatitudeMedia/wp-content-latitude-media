@@ -2111,6 +2111,7 @@
 }
 .resource-hero-section .resource-hero-section-wrapper .content-folder h2 a {
   color: #0F1E42;
+  text-decoration: none;
 }
 .resource-hero-section .resource-hero-section-wrapper .content-folder h2 a:hover {
   text-decoration: underline;
