@@ -63,6 +63,7 @@ module.exports = (env) => {
       'css/blocks/event-gray-icon-block'    : './src/assets/scss/blocks/event-gray-icon-block.scss',
       'css/blocks/event-partners-block'     : './src/assets/scss/blocks/event-partners-block.scss',
       'css/blocks/event-about-sponsors-block': './src/assets/scss/blocks/event-about-sponsors-block.scss',
+      'css/blocks/page-hero-block'          : './src/assets/scss/blocks/page-hero-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

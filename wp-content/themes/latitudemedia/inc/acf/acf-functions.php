@@ -1132,7 +1132,7 @@ $blocks = array(
             'title' 		=> __('Page hero block', 'ltm'),
             'path'  		=> 'page',
         ),
-        'icon'  		=> 'table-col-before',
+        'icon'  		=> 'laptop',
         'description' => __('Page hero block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',

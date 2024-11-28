@@ -2,12 +2,15 @@
 if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Page hero block', 'ltm') . '</h3>';
 }
-// Set defaults Page hero block. 
-// 'css/blocks/page-hero-block': './src/assets/scss/blocks/page-hero-block.scss',
+// Set defaults Page hero block.
 $options = wp_parse_args(
     array_merge($args, get_fields() ?? []),
     [
-        'display' => false,
+        'background'=> null,
+        'logo'      => null,
+        'title'     => false,
+        'link'      => [],
+        'display'   => false,
         'blockAttributes' => [],
     ]
 );
@@ -31,15 +34,25 @@ $blockAttrs = wp_kses_data(
 ?>
 
 <div <?php echo $blockAttrs; ?>>
-    <img class="bg-img" src="client/assets/images/advertise_podcasts_featured.jpg" alt="img">
+    <?php
+        if ( !empty($background) ) {
+            do_action('thumbnail_formatting', null, ['image_id' => $background, 'link' => false, 'img_attr' => ['class' => 'bg-img'] ]);
+        }
+    ?>
     <div class="container">
         <div class="advertise-podcasts-featured-section-wrapper">
             <div class="content-block">
                 <a href="#" class="logo">
-                    <img src="client/assets/images/advertise_logo.svg" alt="Advertise podcasts">
+                    <?php
+                        if (!empty($logo)) {
+                            do_action('thumbnail_formatting', null, ['image_id' => $logo, 'link' => false]);
+                        }
+                    ?>
                 </a>
-                <h1 class="title">Engage with clean energy and climate tech professionals through podcast advertising</h1>
-                <a href="#" class="learn-more pink">Learn more</a>
+                <h1 class="title"><?php echo $title; ?></h1>
+                <?php
+                    do_action('button_unit', $link, null, 'learn-more pink');
+                ?>
             </div>
         </div>
     </div>
