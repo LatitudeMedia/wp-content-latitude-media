@@ -2196,9 +2196,6 @@
   -moz-box-shadow: -10px 10px 0 0 #F9E8F4;
   box-shadow: -10px 10px 0 0 #F9E8F4;
 }
-.resources-list.pink .resources-list-wrapper ul li .content-folder .tag {
-  color: #C6168D;
-}
 .resources-list.pink .resources-list-wrapper ul li .content-folder .title:hover {
   color: #C6168D;
 }
@@ -2206,9 +2203,6 @@
   -webkit-box-shadow: -10px 10px 0 0 #CCF0E8;
   -moz-box-shadow: -10px 10px 0 0 #CCF0E8;
   box-shadow: -10px 10px 0 0 #CCF0E8;
-}
-.resources-list.green .resources-list-wrapper ul li .content-folder .tag {
-  color: #00B48D;
 }
 .resources-list.green .resources-list-wrapper ul li .content-folder .title:hover {
   color: #00B48D;
@@ -2218,9 +2212,6 @@
   -moz-box-shadow: -10px 10px 0 0 #E5F4FC;
   box-shadow: -10px 10px 0 0 #E5F4FC;
 }
-.resources-list.blue .resources-list-wrapper ul li .content-folder .tag {
-  color: #0095DA;
-}
 .resources-list.blue .resources-list-wrapper ul li .content-folder .title:hover {
   color: #0095DA;
 }
@@ -2228,9 +2219,6 @@
   -webkit-box-shadow: -10px 10px 0 0 #FEEBD2;
   -moz-box-shadow: -10px 10px 0 0 #FEEBD2;
   box-shadow: -10px 10px 0 0 #FEEBD2;
-}
-.resources-list.orange .resources-list-wrapper ul li .content-folder .tag {
-  color: #F99D1C;
 }
 .resources-list.orange .resources-list-wrapper ul li .content-folder .title:hover {
   color: #F99D1C;
