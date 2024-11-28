@@ -14,3 +14,9 @@
   margin-bottom: 40px;
   @include resourcesList;
 }
+
+.post-type-archive-resources {
+  h1 {
+    text-align: center;
+  }
+}

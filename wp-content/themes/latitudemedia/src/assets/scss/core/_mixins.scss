@@ -5525,7 +5525,10 @@
 		padding: 56px;
 		display: flex;
 		align-items: center;
-		background-color: #F5F5F5;
+		@include transition3;
+		&:hover {
+			background-color: #F5F5F5;
+		}
 		@include below_sm {
 			padding: 26px;
 		}
@@ -5575,13 +5578,11 @@
 
 			h2 {
 				margin-bottom: 16px;
-
 				a {
-					text-decoration: underline;
 					color: $primary-dark-blue;
-
+					text-decoration: none;
 					&:hover {
-						text-decoration: none;
+						text-decoration: underline;
 					}
 				}
 			}
@@ -5893,9 +5894,9 @@
 
 				h1 {
 					font-family: $lora;
-					@include fontSize(40px);
+					@include fontSize(32px);
 					font-weight: 700;
-					line-height: 56px;
+					line-height: 45px;
 					letter-spacing: 0;
 					text-align: left;
 					@include below_md {
@@ -5916,7 +5917,26 @@
 				color: $primary-dark-blue;
 				margin-bottom: 24px;
 			}
-
+			ol {
+				margin: 0 0 40px 0;
+				padding: 0 0 0 20px;
+				li {
+					margin-bottom: 8px;
+					@include fontSize(18px);
+					line-height: 24px;
+					font-weight: normal;
+				}
+			}
+			ul {
+				margin: 0 0 40px 0;
+				padding: 0 0 0 20px;
+				li {
+					margin-bottom: 8px;
+					@include fontSize(18px);
+					line-height: 24px;
+					font-weight: normal;
+				}
+			}
 			.sponsor {
 				display: flex;
 				align-items: center;

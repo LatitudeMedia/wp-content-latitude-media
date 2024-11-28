@@ -2047,6 +2047,13 @@
   padding: 56px;
   display: flex;
   align-items: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+.resource-hero-section .resource-hero-section-wrapper:hover {
   background-color: #F5F5F5;
 }
 .resource-hero-section .resource-hero-section-wrapper .image-folder {
@@ -2107,11 +2114,11 @@
   margin-bottom: 16px;
 }
 .resource-hero-section .resource-hero-section-wrapper .content-folder h2 a {
-  text-decoration: underline;
   color: #0F1E42;
+  text-decoration: none;
 }
 .resource-hero-section .resource-hero-section-wrapper .content-folder h2 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 .resource-hero-section .resource-hero-section-wrapper .content-folder p {
   font-family: "inter", Arial, Helvetica, sans-serif;
@@ -2303,6 +2310,10 @@
   color: #F99D1C;
 }
 
+.post-type-archive-resources h1 {
+  text-align: center;
+}
+
 .single-resources .right-sidebar-layout .right-sidebar-layout-wrapper .sidebar {
   width: 488px;
   margin-left: 80px;
@@ -2363,10 +2374,10 @@
 }
 .single-resource-main-post .single-resource-main-post-wrapper .hero .content-folder h1 {
   font-family: "Lora", Arial, Helvetica, serif;
-  font-size: 40px;
-  font-size: 2.5rem;
+  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 45px;
   letter-spacing: 0;
   text-align: left;
 }
@@ -2378,6 +2389,28 @@
   text-align: left;
   color: #0F1E42;
   margin-bottom: 24px;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ol {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 20px;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ol li {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: normal;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ul {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 20px;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ul li {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: normal;
 }
 .single-resource-main-post .single-resource-main-post-wrapper .description .sponsor {
   display: flex;
@@ -2532,6 +2565,11 @@
 
 .advertise-page h1 {
   margin-bottom: 64px;
+}
+
+.advertise-media-block .icon-text-block-wrapper {
+  margin: 0 auto;
+  max-width: 760px;
 }
 
 .four-o-four-section {
