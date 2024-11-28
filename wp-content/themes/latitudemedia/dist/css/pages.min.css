@@ -2231,14 +2231,14 @@
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-size: 0.875rem;
-  font-weight: 500;
   line-height: 22px;
-  text-align: left;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 8px;
   color: #0F1E42;
+  text-decoration: none;
+  background-color: #E1CFDB;
   text-transform: uppercase;
+  padding: 0 6px;
+  display: inline-block;
+  margin-bottom: 8px;
 }
 .resources-list .resources-list-wrapper ul li .content-folder .title {
   display: inline-block;
