@@ -255,3 +255,7 @@ article {
 .cta-button {
   @include shadowButton
 }
+
+.strict-button {
+  @include pinkButton;
+}

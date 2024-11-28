@@ -13,7 +13,7 @@ get_header();
                 <h1><?php _e('404', 'ltm'); ?></h1>
                 <h2><?php _e('Oops! Nothing was found.', 'ltm'); ?></h2>
                 <p><?php _e('The page you are looking for might have been removed, had it’s name changed, or is temporarily unavailable.', 'ltm'); ?></p>
-                <a href="<?php echo home_url(); ?>" class="button"><?php _e('Go back home', 'ltm'); ?></a>
+                <a href="<?php echo home_url(); ?>" class="strict-button"><?php _e('Go back home', 'ltm'); ?></a>
             </div>
         </div>
     </div>

@@ -194,57 +194,6 @@
   color: #0F1E42;
   margin-bottom: 20px;
 }
-.modal-content .btn {
-  outline: none;
-  background-color: #C6168D;
-  color: #ffffff;
-  text-align: center;
-  -webkit-transition: all ease-in-out 0.3s;
-  -moz-transition: all ease-in-out 0.3s;
-  -ms-transition: all ease-in-out 0.3s;
-  -o-transition: all ease-in-out 0.3s;
-  transition: all ease-in-out 0.3s;
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 22px;
-  letter-spacing: 0.3em;
-  cursor: pointer;
-  text-transform: uppercase;
-  border: 1px solid #C6168D;
-  text-decoration: none;
-  display: inline-block;
-  padding: 16px 32px;
-}
-.modal-content .btn:hover {
-  background-color: #ffffff;
-  color: #C6168D;
-}
-.modal-content .btn.green {
-  background-color: #00B48D;
-  border: 1px solid #00B48D;
-}
-.modal-content .btn.green:hover {
-  background-color: #ffffff;
-  color: #00B48D;
-}
-.modal-content .btn.blue {
-  background-color: #0095DA;
-  border: 1px solid #0095DA;
-}
-.modal-content .btn.blue:hover {
-  background-color: #ffffff;
-  color: #0095DA;
-}
-.modal-content .btn.orange {
-  background-color: #F99D1C;
-  border: 1px solid #F99D1C;
-}
-.modal-content .btn.orange:hover {
-  background-color: #ffffff;
-  color: #F99D1C;
-}
 .modal-content .cross {
   position: absolute;
   width: 44px;
@@ -292,14 +241,6 @@
 .modal-content.pink .bio .info .connect .icon:hover svg {
   color: #C6168D;
 }
-.modal-content.pink .btn {
-  background-color: #C6168D;
-  border: 1px solid #C6168D;
-}
-.modal-content.pink .btn:hover {
-  background-color: #ffffff;
-  color: #C6168D;
-}
 .modal-content.green .cross:before {
   background-color: #00B48D;
 }
@@ -307,14 +248,6 @@
   background-color: #00B48D;
 }
 .modal-content.green .bio .info .connect .icon:hover svg {
-  color: #00B48D;
-}
-.modal-content.green .btn {
-  background-color: #00B48D;
-  border: 1px solid #00B48D;
-}
-.modal-content.green .btn:hover {
-  background-color: #ffffff;
   color: #00B48D;
 }
 .modal-content.blue .cross:before {
@@ -326,14 +259,6 @@
 .modal-content.blue .bio .info .connect .icon:hover svg {
   color: #0095DA;
 }
-.modal-content.blue .btn {
-  background-color: #0095DA;
-  border: 1px solid #0095DA;
-}
-.modal-content.blue .btn:hover {
-  background-color: #ffffff;
-  color: #0095DA;
-}
 .modal-content.orange .cross:before {
   background-color: #F99D1C;
 }
@@ -341,14 +266,6 @@
   background-color: #F99D1C;
 }
 .modal-content.orange .bio .info .connect .icon:hover svg {
-  color: #F99D1C;
-}
-.modal-content.orange .btn {
-  background-color: #F99D1C;
-  border: 1px solid #F99D1C;
-}
-.modal-content.orange .btn:hover {
-  background-color: #ffffff;
   color: #F99D1C;
 }
 

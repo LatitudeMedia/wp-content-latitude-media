@@ -123,6 +123,20 @@
 	}
 }
 
+@mixin buttonResetShadow {
+	background-color: var(--custom-block-base-color, $primary-pink) !important;
+	color: $white !important;
+	border: 1px solid var(--custom-block-base-color, $primary-pink) !important;;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+
+	&:hover {
+		background-color: $white !important;;
+		color: var(--custom-block-base-color, $primary-pink) !important;;
+	}
+}
+
 @mixin pinkButton {
 	outline: none;
 	background-color: $primary-pink;
@@ -145,6 +159,7 @@
 		color: $primary-pink;
 	}
 	&.green {
+		color: $white;
 		background-color: $green;
 		border: 1px solid $green;
 
@@ -154,6 +169,7 @@
 		}
 	}
 	&.blue {
+		color: $white;
 		background-color: $blue;
 		border: 1px solid $blue;
 
@@ -163,6 +179,7 @@
 		}
 	}
 	&.orange {
+		color: $white;
 		background-color: $orange;
 		border: 1px solid $orange;
 
@@ -1631,8 +1648,7 @@
 					}
 				}
 
-				.browse {
-					@include pinkButton;
+				.strict-button {
 					@include below_sm {
 						margin-top: 20px;
 					}
@@ -3245,7 +3261,6 @@
 }
 
 @mixin podcastsSponsorshipSection {
-	background-color: $primary-dark-blue;
 	padding: 64px 0;
 	.bordered-title {
 		@include borderedTitle;
@@ -3298,22 +3313,22 @@
 				text-align: left;
 			}
 
-			.top-info {
-				margin-bottom: 24px;
-
-				p {
-					color: $white;
-					font-family: $inter;
-					@include fontSize(18px);
-					font-weight: 400;
-					line-height: 24px;
-					text-align: left;
-					margin-bottom: 8px;
-				}
+			p {
+				color: $white;
+				font-family: $inter;
+				@include fontSize(18px);
+				font-weight: 400;
+				line-height: 24px;
+				text-align: left;
+				margin-bottom: 8px;
 			}
 
-			.bottom-info {
-				p {
+			ul {
+				list-style: none;
+				margin: 0 0 24px 0;
+				padding: 0;
+
+				li {
 					color: $white;
 					font-family: $inter;
 					@include fontSize(18px);
@@ -3321,40 +3336,24 @@
 					line-height: 24px;
 					text-align: left;
 					margin-bottom: 8px;
-				}
+					position: relative;
+					padding: 0 0 0 32px;
 
-				ul {
-					list-style: none;
-					margin: 0 0 24px 0;
-					padding: 0;
-
-					li {
-						color: $white;
-						font-family: $inter;
-						@include fontSize(18px);
-						font-weight: 400;
-						line-height: 24px;
-						text-align: left;
-						margin-bottom: 8px;
-						position: relative;
-						padding: 0 0 0 32px;
-
-						&:before {
-							content: '';
-							display: block;
-							width: 24px;
-							height: 24px;
-							position: absolute;
-							left: 0;
-							top: 0;
-							background: transparent url(../../../images/icon_right_pink_arrow.svg) top left no-repeat;
-						}
+					&:before {
+						content: '';
+						display: block;
+						width: 24px;
+						height: 24px;
+						position: absolute;
+						left: 0;
+						top: 0;
+						background: transparent url(../../../images/icon_right_pink_arrow.svg) top left no-repeat;
 					}
 				}
 			}
 
-			.button {
-				@include pinkButton;
+			.cta-button {
+				@include buttonResetShadow;
 			}
 		}
 	}
@@ -4835,12 +4834,6 @@
 			text-align: center;
 			margin-bottom: 48px;
 		}
-
-		.reg-button {
-			@include pinkButton;
-			background-color: $green;
-			display: inline-block;
-		}
 	}
 }
 
@@ -6097,11 +6090,9 @@
 			@include fontSize(18px);
 			font-weight: 400;
 			line-height: 24px;
-			text-align: center;
 			margin-bottom: 24px;
 		}
-		.button {
-			@include pinkButton;
+		.strict-button {
 			display: table;
 			margin: 0 auto;
 		}

@@ -11,3 +11,8 @@
     margin-bottom: 32px;
   }
 }
+
+.podcasts-sponsorship-section {
+  margin-bottom: 64px;
+  @include podcastsSponsorshipSection;
+}

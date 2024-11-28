@@ -131,6 +131,10 @@ class ACFBlocks {
                 [
                     'slug'  => 'ltm-event-blocks',
                     'title' => __( 'Latitude Media Event Blocks', 'ltm' ),
+                ],
+                [
+                    'slug'  => 'ltm-page-custom-blocks',
+                    'title' => __( 'Latitude Page Custom Blocks', 'ltm' ),
                 ]
             ],
             $categories

@@ -8650,4 +8650,3 @@ Or select event manually.',
         'show_in_rest' => 0,
     ) );
 } );
-

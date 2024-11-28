@@ -119,59 +119,6 @@
   text-align: center;
   margin-bottom: 48px;
 }
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button {
-  outline: none;
-  background-color: #C6168D;
-  color: #ffffff;
-  text-align: center;
-  -webkit-transition: all ease-in-out 0.3s;
-  -moz-transition: all ease-in-out 0.3s;
-  -ms-transition: all ease-in-out 0.3s;
-  -o-transition: all ease-in-out 0.3s;
-  transition: all ease-in-out 0.3s;
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 22px;
-  letter-spacing: 0.3em;
-  cursor: pointer;
-  text-transform: uppercase;
-  border: 1px solid #C6168D;
-  text-decoration: none;
-  display: inline-block;
-  padding: 16px 32px;
-  background-color: #00B48D;
-  display: inline-block;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button:hover {
-  background-color: #ffffff;
-  color: #C6168D;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button.green {
-  background-color: #00B48D;
-  border: 1px solid #00B48D;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button.green:hover {
-  background-color: #ffffff;
-  color: #00B48D;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button.blue {
-  background-color: #0095DA;
-  border: 1px solid #0095DA;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button.blue:hover {
-  background-color: #ffffff;
-  color: #0095DA;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button.orange {
-  background-color: #F99D1C;
-  border: 1px solid #F99D1C;
-}
-.single-event-hero-section .single-event-hero-section-wrapper .reg-button.orange:hover {
-  background-color: #ffffff;
-  color: #F99D1C;
-}
 .single-event-hero-section:before {
   content: "";
   position: absolute;

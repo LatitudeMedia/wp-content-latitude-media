@@ -107,57 +107,6 @@
 .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .posts li:first-child .content-folder .title {
   margin-bottom: 24px;
 }
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse {
-  outline: none;
-  background-color: #C6168D;
-  color: #ffffff;
-  text-align: center;
-  -webkit-transition: all ease-in-out 0.3s;
-  -moz-transition: all ease-in-out 0.3s;
-  -ms-transition: all ease-in-out 0.3s;
-  -o-transition: all ease-in-out 0.3s;
-  transition: all ease-in-out 0.3s;
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 22px;
-  letter-spacing: 0.3em;
-  cursor: pointer;
-  text-transform: uppercase;
-  border: 1px solid #C6168D;
-  text-decoration: none;
-  display: inline-block;
-  padding: 16px 32px;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse:hover {
-  background-color: #ffffff;
-  color: #C6168D;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse.green {
-  background-color: #00B48D;
-  border: 1px solid #00B48D;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse.green:hover {
-  background-color: #ffffff;
-  color: #00B48D;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse.blue {
-  background-color: #0095DA;
-  border: 1px solid #0095DA;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse.blue:hover {
-  background-color: #ffffff;
-  color: #0095DA;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse.orange {
-  background-color: #F99D1C;
-  border: 1px solid #F99D1C;
-}
-.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse.orange:hover {
-  background-color: #ffffff;
-  color: #F99D1C;
-}
 
 .podcasts-hero-section .podcasts-hero-section-wrapper .eyebrow {
   width: 100%;
@@ -338,7 +287,7 @@
   .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .posts li .content-folder .title {
     margin-bottom: 8px;
   }
-  .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .browse {
+  .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .strict-button {
     margin-top: 20px;
   }
   .podcasts-hero-section .podcasts-hero-section-wrapper ul {

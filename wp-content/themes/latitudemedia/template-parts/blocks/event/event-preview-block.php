@@ -78,7 +78,7 @@ if( $eventData['event_type'] === 'virtual') {
                 }
 
                 if( in_array('button', $rows) && !empty($eventData['link']) ) {
-                    do_action('button_unit', ['title' => $registerButtonTitle, 'url' => $eventData['link']], null, 'reg-button green');
+                    do_action('button_unit', ['title' => $registerButtonTitle, 'url' => $eventData['link']], null, 'strict-button green');
                 }
 
                 if( !empty($subtitle) ) {

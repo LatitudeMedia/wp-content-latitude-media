@@ -21,11 +21,6 @@
   }
 }
 
-.downloads-counter-section {
-  margin-bottom: 88px;
-  @include downloadsCounterSection;
-}
-
 .tall-it-block {
   margin-bottom: 78px;
 }
@@ -46,21 +41,6 @@
       }
     }
   }
-}
-
-.listeners-section {
-  margin-bottom: 64px;
-  @include listenersSection;
-}
-
-.podcasts-sponsorship-section {
-  margin-bottom: 64px;
-  @include podcastsSponsorshipSection;
-}
-
-.adv-options-section {
-  margin-bottom: 64px;
-  @include advOptionsSection;
 }
 
 .text-cta-line {

@@ -65,7 +65,7 @@ $modalItemTemplate = get_wrap_rows_from_template('
         <div class="description">
             [content]
         </div>
-        <a class="btn js-modal-close">Close</a>
+        <a class="strict-button green js-modal-close">Close</a>
     </div>
 </div>');
 ?>

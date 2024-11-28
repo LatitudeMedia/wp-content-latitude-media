@@ -1,0 +1,5 @@
+@import "../core/core_loader";
+.adv-options-section {
+  margin-bottom: 64px;
+  @include advOptionsSection;
+}

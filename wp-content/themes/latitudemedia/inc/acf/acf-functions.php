@@ -63,6 +63,10 @@ $blocks = array(
         'keywords'    => array( __('Logo and text', 'ltm') ),
         "supports" =>  array(
             "jsx" =>  true,
+            "anchor" =>  true,
+            "color" => true,
+            "baseColor" => true,
+            "align" => true,
         ),
         'mode' => 'preview',
         'enqueue_assets' => function(){
@@ -88,6 +92,11 @@ $blocks = array(
             [
                 'name' => 'type4',
                 'label' => __('Type 4', 'ltm'),
+                'isDefault' => true,
+            ],
+            [
+                'name' => 'type5',
+                'label' => __('Type 5', 'ltm'),
                 'isDefault' => true,
             ],
         ],
@@ -1135,7 +1144,7 @@ $blocks = array(
         'icon'  		=> 'laptop',
         'description' => __('Page hero block', 'ltm'),
         'post_types' 	=> array( 'page' ),
-        'category'  	=> 'ltm-page-blocks',
+        'category'  	=> 'ltm-page-custom-blocks',
         'keywords'    => array( __('Page hero block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/page-hero-block.min.css',
         'example'  	=> array(
@@ -1143,6 +1152,69 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'page-hero-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'downloads-info-block',
+            'title' 		=> __('Downloads info block', 'ltm'),
+            'path'  		=> 'page',
+        ),
+        'icon'  		=> 'download',
+        'description' => __('Downloads info block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-custom-blocks',
+        'keywords'    => array( __('Downloads info block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/downloads-info-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'downloads-info-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'listeners-info-block',
+            'title' 		=> __('Listeners info block', 'ltm'),
+            'path'  		=> 'page',
+        ),
+        'icon'  		=> 'chart-pie',
+        'description' => __('Listeners info block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-custom-blocks',
+        'keywords'    => array( __('Listeners info block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/listeners-info-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'listeners-info-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'advertising-options-block',
+            'title' 		=> __('Advertising options block', 'ltm'),
+            'path'  		=> 'page',
+        ),
+        'icon'  		=> 'admin-settings',
+        'description' => __('Advertising options block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-custom-blocks',
+        'keywords'    => array( __('Advertising options block', 'ltm') ),
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/advertising-options-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'advertising-options-block.png',
                 )
             )
         )

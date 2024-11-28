@@ -123,7 +123,7 @@ if( !$podcastPosts->have_posts() ) {
                             }
                             ?>
                         </ul>
-                        <?php do_action('button_unit', ['url' => get_the_permalink($basePodcastId), 'title' => 'Browse episodes'], null, 'browse'); ?>
+                        <?php do_action('button_unit', ['url' => get_the_permalink($basePodcastId), 'title' => 'Browse episodes'], null, 'strict-button'); ?>
                     </div>
                 </div>
             <?php endwhile; ?>

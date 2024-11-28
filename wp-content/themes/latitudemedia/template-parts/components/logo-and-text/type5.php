@@ -1,6 +1,6 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Logo and text TYPE 3', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Logo and text TYPE 5', 'ltm') . '</h3>';
 }
 // Set defaults Logo and text.
 
@@ -28,7 +28,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
-          "class" => 'content-block icon-text-block',
+          "class" => 'content-block podcasts-sponsorship-section',
           "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]
   )
@@ -45,10 +45,10 @@ $my_block_template = array(
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
-        <div class="icon-text-block-wrapper">
+        <div class="podcasts-sponsorship-section-wrapper">
             <?php if( !empty($logo) ) : ?>
-                <div class="icon-folder">
-                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]); ?>
+                <div class="image-folder">
+                    <?php do_action('thumbnail_formatting', null, ['size' => 'image-and-text-type4', 'link' => true, 'image_id' => $logo['ID']]); ?>
                 </div>
             <?php endif; ?>
 

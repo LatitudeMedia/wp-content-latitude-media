@@ -28,7 +28,7 @@ $blockType = ltm_get_block_style($blockAttributes['className'] ?? []);
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
-          "style" => '--custom-block-base-color: ' . $base_color . '; --custom-block-shadow-color: ' . $shadow_color,
+          "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
           "class" => 'content-block logo-description-block reverse logo-description-block-bordered',
           "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]

@@ -607,6 +607,61 @@ article ul li {
 .cta-button.orange:hover span {
   color: #ffffff !important;
 }
+
+.strict-button {
+  outline: none;
+  background-color: #C6168D;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid #C6168D;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+}
+.strict-button:hover {
+  background-color: #ffffff;
+  color: #C6168D;
+}
+.strict-button.green {
+  color: #ffffff;
+  background-color: #00B48D;
+  border: 1px solid #00B48D;
+}
+.strict-button.green:hover {
+  background-color: #ffffff;
+  color: #00B48D;
+}
+.strict-button.blue {
+  color: #ffffff;
+  background-color: #0095DA;
+  border: 1px solid #0095DA;
+}
+.strict-button.blue:hover {
+  background-color: #ffffff;
+  color: #0095DA;
+}
+.strict-button.orange {
+  color: #ffffff;
+  background-color: #F99D1C;
+  border: 1px solid #F99D1C;
+}
+.strict-button.orange:hover {
+  background-color: #ffffff;
+  color: #F99D1C;
+}
 @media screen and (max-width: 992px) {
   .wrapper {
     margin: 0;
