@@ -2099,12 +2099,13 @@
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-size: 0.875rem;
-  font-weight: 500;
   line-height: 22px;
-  text-align: left;
-  margin-bottom: 16px;
+  color: #0F1E42;
+  text-decoration: none;
+  background-color: #E1CFDB;
   text-transform: uppercase;
-  color: #C6168D;
+  padding: 0 6px;
+  display: inline-block;
 }
 .resource-hero-section .resource-hero-section-wrapper .content-folder h2 {
   margin-bottom: 16px;

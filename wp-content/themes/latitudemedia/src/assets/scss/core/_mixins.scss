@@ -5568,12 +5568,13 @@
 			.tag {
 				font-family: $inter;
 				@include fontSize(14px);
-				font-weight: 500;
 				line-height: 22px;
-				text-align: left;
-				margin-bottom: 16px;
+				color: #0F1E42;
+				text-decoration: none;
+				background-color: #E1CFDB;
 				text-transform: uppercase;
-				color: $primary-pink;
+				padding: 0 6px;
+				display: inline-block;
 			}
 
 			h2 {
