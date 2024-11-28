@@ -2359,10 +2359,10 @@
 }
 .single-resource-main-post .single-resource-main-post-wrapper .hero .content-folder h1 {
   font-family: "Lora", Arial, Helvetica, serif;
-  font-size: 40px;
-  font-size: 2.5rem;
+  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 45px;
   letter-spacing: 0;
   text-align: left;
 }
@@ -2374,6 +2374,28 @@
   text-align: left;
   color: #0F1E42;
   margin-bottom: 24px;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ol {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 20px;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ol li {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: normal;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ul {
+  margin: 0 0 40px 0;
+  padding: 0 0 0 20px;
+}
+.single-resource-main-post .single-resource-main-post-wrapper .description ul li {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: normal;
 }
 .single-resource-main-post .single-resource-main-post-wrapper .description .sponsor {
   display: flex;

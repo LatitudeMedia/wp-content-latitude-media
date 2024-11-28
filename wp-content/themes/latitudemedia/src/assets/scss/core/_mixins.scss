@@ -5893,9 +5893,9 @@
 
 				h1 {
 					font-family: $lora;
-					@include fontSize(40px);
+					@include fontSize(32px);
 					font-weight: 700;
-					line-height: 56px;
+					line-height: 45px;
 					letter-spacing: 0;
 					text-align: left;
 					@include below_md {
@@ -5916,7 +5916,26 @@
 				color: $primary-dark-blue;
 				margin-bottom: 24px;
 			}
-
+			ol {
+				margin: 0 0 40px 0;
+				padding: 0 0 0 20px;
+				li {
+					margin-bottom: 8px;
+					@include fontSize(18px);
+					line-height: 24px;
+					font-weight: normal;
+				}
+			}
+			ul {
+				margin: 0 0 40px 0;
+				padding: 0 0 0 20px;
+				li {
+					margin-bottom: 8px;
+					@include fontSize(18px);
+					line-height: 24px;
+					font-weight: normal;
+				}
+			}
 			.sponsor {
 				display: flex;
 				align-items: center;
