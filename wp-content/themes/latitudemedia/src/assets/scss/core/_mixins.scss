@@ -5525,7 +5525,10 @@
 		padding: 56px;
 		display: flex;
 		align-items: center;
-		background-color: #F5F5F5;
+		@include transition3;
+		&:hover {
+			background-color: #F5F5F5;
+		}
 		@include below_sm {
 			padding: 26px;
 		}
@@ -5575,13 +5578,10 @@
 
 			h2 {
 				margin-bottom: 16px;
-
 				a {
-					text-decoration: underline;
 					color: $primary-dark-blue;
-
 					&:hover {
-						text-decoration: none;
+						text-decoration: underline;
 					}
 				}
 			}
