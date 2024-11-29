@@ -1,8 +1,8 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Logo and text TYPE 2', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Image and text TYPE 3', 'ltm') . '</h3>';
 }
-// Set defaults Logo and text.
+// Set defaults Image and text.
 
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
@@ -16,7 +16,6 @@ $options = wp_parse_args(
         'blockAttributes' => [],
     ]
 );
-
 extract($options);
 
 if(!$display && !is_admin()) {
@@ -29,8 +28,8 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
-          "class" => 'content-block logo-description-block reverse logo-description-block-bordered',
-          "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "class" => 'content-block icon-text-block',
+          "id" => 'image-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]
   )
 );
@@ -46,14 +45,14 @@ $my_block_template = array(
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
-        <div class="logo-description-block-wrapper">
+        <div class="icon-text-block-wrapper">
             <?php if( !empty($logo) ) : ?>
-                <div class="logo-image">
+                <div class="icon-folder">
                     <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]); ?>
                 </div>
             <?php endif; ?>
 
-            <div class="description">
+            <div class="content-folder">
                 <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />
             </div>
         </div>

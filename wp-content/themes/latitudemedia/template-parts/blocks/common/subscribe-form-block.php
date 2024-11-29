@@ -5,7 +5,7 @@ $options = wp_parse_args(
     [
         'title'         => 'Get Latitude Media in your inbox',
         'form_code'     => false,
-        'left_content'  => 'Subscribe to Latitude\'s free newsletters today to receive the latest news on the energy transition:',
+        'description'  => 'Subscribe to Latitude\'s free newsletters today to receive the latest news on the energy transition:',
         'display'       => false,
         'blockAttributes' => [],
     ]

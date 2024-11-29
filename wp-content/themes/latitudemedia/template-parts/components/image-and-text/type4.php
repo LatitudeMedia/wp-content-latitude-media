@@ -1,8 +1,8 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Logo and text TYPE 5', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Image and text TYPE 4', 'ltm') . '</h3>';
 }
-// Set defaults Logo and text.
+// Set defaults Image and text.
 
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
@@ -28,8 +28,8 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
-          "class" => 'content-block podcasts-sponsorship-section',
-          "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "class" => 'content-block image-text-section',
+          "id" => 'image-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]
   )
 );
@@ -45,7 +45,7 @@ $my_block_template = array(
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
-        <div class="podcasts-sponsorship-section-wrapper">
+        <div class="image-text-section-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="image-folder">
                     <?php do_action('thumbnail_formatting', null, ['size' => 'image-and-text-type4', 'link' => true, 'image_id' => $logo['ID']]); ?>

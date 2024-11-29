@@ -1,8 +1,8 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Logo and text TYPE 4', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Image and text DEFAULT', 'ltm') . '</h3>';
 }
-// Set defaults Logo and text.
+// Set defaults Image and text.
 
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
@@ -16,6 +16,7 @@ $options = wp_parse_args(
         'blockAttributes' => [],
     ]
 );
+
 extract($options);
 
 if(!$display && !is_admin()) {
@@ -28,11 +29,12 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
-          "class" => 'content-block image-text-section',
-          "id" => 'logo-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "class" => 'content-block logo-description-block',
+          "id" => 'image-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
       ]
   )
 );
+
 
 $my_block_template = array(
     array(
@@ -40,19 +42,19 @@ $my_block_template = array(
     ),
 );
 
+
 ?>
 
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
-        <div class="image-text-section-wrapper">
+        <div class="logo-description-block-wrapper">
             <?php if( !empty($logo) ) : ?>
-                <div class="image-folder">
-                    <?php do_action('thumbnail_formatting', null, ['size' => 'image-and-text-type4', 'link' => true, 'image_id' => $logo['ID']]); ?>
+                <div class="logo-image">
+                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]); ?>
                 </div>
             <?php endif; ?>
-
-            <div class="content-folder">
+            <div class="description">
                 <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-// Set defaults Logo and text.
+// Set defaults Image and text.
 $options = wp_parse_args(
     array_merge($args, get_fields() ?: []),
     [

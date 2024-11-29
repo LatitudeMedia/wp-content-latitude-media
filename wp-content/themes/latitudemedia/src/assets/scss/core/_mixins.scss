@@ -2423,43 +2423,17 @@
 					color: var(--custom-block-base-color, #C6168D);
 				}
 			}
+
+			h4 {
+				font-weight: 700;
+			}
 		}
 	}
 
 	&.pink {
 		.image-text-section-wrapper {
 			.content-folder {
-				ul {
-					padding-left: 30px;
-					margin-bottom: 20px;
 
-					li {
-						font-family: $inter;
-						@include fontSize(18px);
-						font-weight: 400;
-						line-height: 24px;
-						text-align: left;
-						margin-bottom: 5px;
-					}
-				}
-
-				ol {
-					padding-left: 30px;
-					margin-bottom: 20px;
-
-					li {
-						font-family: $inter;
-						@include fontSize(18px);
-						font-weight: 400;
-						line-height: 24px;
-						text-align: left;
-						margin-bottom: 5px;
-					}
-				}
-
-				h4 {
-					font-weight: 700;
-				}
 			}
 		}
 	}
@@ -2486,6 +2460,34 @@
 			.content-folder {
 				@include below_sm {
 					margin-bottom: 20px;
+				}
+
+				ul {
+					padding-left: 30px;
+					margin-bottom: 20px;
+
+					li {
+						font-family: $inter;
+						@include fontSize(18px);
+						font-weight: 400;
+						line-height: 24px;
+						text-align: left;
+						margin-bottom: 5px;
+					}
+				}
+
+				ol {
+					padding-left: 30px;
+					margin-bottom: 20px;
+
+					li {
+						font-family: $inter;
+						@include fontSize(18px);
+						font-weight: 400;
+						line-height: 24px;
+						text-align: left;
+						margin-bottom: 5px;
+					}
 				}
 			}
 		}
@@ -3422,38 +3424,9 @@
 		margin: 0 auto;
 
 		a {
-			color: $primary-pink;
-
+			color: inherit;
 			&:hover {
 				text-decoration: none;
-			}
-		}
-	}
-	&.pink {
-		h5 {
-			a {
-				color: $primary-pink;
-			}
-		}
-	}
-	&.green {
-		h5 {
-			a {
-				color: $green;
-			}
-		}
-	}
-	&.blue {
-		h5 {
-			a {
-				color: $blue;
-			}
-		}
-	}
-	&.orange {
-		h5 {
-			a {
-				color: $orange;
 			}
 		}
 	}
@@ -3795,36 +3768,30 @@
 }
 
 @mixin studiosTextBlock {
-	.studios-text-block-wrapper {
-		.large-text {
-			font-family: $inter;
-			@include fontSize(32px);
-			line-height: 44px;
-			text-align: left;
-			color: $primary-dark-blue;
-			margin-bottom: 40px;
+	p.large-text {
+		font-family: $inter;
+		@include fontSize(32px);
+		line-height: 44px;
+		text-align: left;
+		color: $primary-dark-blue;
+		margin-bottom: 40px;
 
-			.orange {
-				color: $orange;
-			}
+		.orange {
+			color: $orange;
 		}
+	}
 
-		p {
-			font-family: $inter;
-			@include fontSize(18px);
-			font-weight: 400;
-			line-height: 24px;
-			text-align: left;
-			color: $primary-dark-blue;
-		}
+	p {
+		font-family: $inter;
+		@include fontSize(18px);
+		font-weight: 400;
+		line-height: 24px;
+		text-align: left;
+		color: $primary-dark-blue;
+	}
 
-		ul {
-			padding-left: 20px;
-
-			li {
-
-			}
-		}
+	ul {
+		padding-left: 20px;
 	}
 }
 

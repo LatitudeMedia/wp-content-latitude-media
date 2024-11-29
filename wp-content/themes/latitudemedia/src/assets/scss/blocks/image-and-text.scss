@@ -1,4 +1,22 @@
 @import "../core/core_loader";
+.logo-description-block {
+  margin-bottom: 64px;
+  @include logoDescriptionBlock;
+}
+
+.icon-text-block {
+  margin-bottom: 64px;
+  @include iconTextBlock;
+  @include below_sm {
+    margin-bottom: 32px;
+  }
+}
+
+.podcasts-sponsorship-section {
+  margin-bottom: 64px;
+  @include podcastsSponsorshipSection;
+}
+
 .image-text-section {
   margin-bottom: 64px;
   @include imageTextSection;

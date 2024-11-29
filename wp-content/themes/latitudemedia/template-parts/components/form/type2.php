@@ -2,14 +2,14 @@
 if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Subscribe form block TYPE 2', 'ltm') . '</h3>';
 }
-// Set defaults Logo and text.
+// Set defaults Image and text.
 
 $options = wp_parse_args(
     $args,
     [
         'title'         => 'Get Latitude Media in your inbox',
         'form_code'     => false,
-        'left_content'  => 'Subscribe to Latitude\'s free newsletters today to receive the latest news on the energy transition:',
+        'description'  => 'Subscribe to Latitude\'s free newsletters today to receive the latest news on the energy transition:',
         'display'       => false,
         'blockAttributes' => [],
     ]
@@ -37,7 +37,7 @@ $blockAttrs = wp_kses_data(
             <div class="flex-wrapper">
                 <div class="text-side">
                     <p>
-                        <?php _e($left_content); ?>
+                        <?php _e($description); ?>
                     </p>
                 </div>
                 <div class="form-side">
