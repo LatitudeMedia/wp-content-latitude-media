@@ -20,4 +20,4 @@ if( empty($button) ) {
 $customClasses = $blockAttributes['className'] ?? [];
 ?>
 
-<?php do_action('button_unit', $button, null, 'cta-button ' . $customClasses); ?>
+<?php do_action('button_unit', $button, null, 'cta-button ' . implode(' ', $customClasses)); ?>
