@@ -72,7 +72,7 @@ if(!$result->have_posts()) {
                     'post_id'  => get_the_ID(),
                     'settings' => array(
                         'thumb'   => array(
-                            'size'       => 'article-related',
+                            'size'       => 'articles-list',
                             'link'       => true,
                             'alt_image'  => false,
                         ),

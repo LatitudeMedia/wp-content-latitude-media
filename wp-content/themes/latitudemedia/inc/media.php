@@ -12,4 +12,5 @@ add_image_size( 'image-and-text-type4', 558, 300, true );
 add_image_size( 'event-sponsors-about-list', 430, 200, true );
 add_image_size( 'list-three-events', 367, 210, true );
 add_image_size( 'event-preview-hosted', 129, 64, false );
-add_image_size( 'news-with-hero', 414, 331, false );
+add_image_size( 'news-with-hero', 414, 331, true );
+add_image_size( 'articles-list', 416, 301, true );
