@@ -15,81 +15,78 @@
   --custom-block-shadow-color: #F9E8F4;
 }
 
-.has-background  {
-  &.has-black-background-color {
-    background-color: var(--black);
-  }
-  &.has-white-background-color {
-    background-color: var(--white);
-  }
-  &.has-dark-blue-background-color {
-    background-color: var(--dark-blue);
-  }
-  &.has-grey-background-color {
-    background-color: var(--grey);
-  }
-  &.has-primary-pink-background-color {
-    background-color: var(--primary-pink);
-  }
-  &.has-pink-shadow-background-color {
-    background-color: var(--pink-shadow);
-  }
-  &.has-blue-background-color {
-    background-color: var(--blue);
-  }
-  &.has-blue-shadow-background-color {
-    background-color: var(--blue-shadow);
-  }
-  &.has-green-background-color {
-    background-color: var(--green);
-  }
-  &.has-green-shadow-background-color {
-    background-color: var(--green-shadow);
-  }
-  &.has-orange-background-color {
-    background-color: var(--orange);
-  }
-  &.has-orange-shadow-background-color {
-    background-color: var(--orange-shadow);
-  }
+.has-black-background-color {
+  background-color: var(--black);
 }
-.has-text-color, .has-inline-color {
-  &.has-black-color {
-    color: var(--black);
-  }
-  &.has-white-color {
-    color: var(--white);
-  }
-  &.has-dark-blue-color {
-    color: var(--dark-blue);
-  }
-  &.has-grey-color {
-    color: var(--grey);
-  }
-  &.has-primary-pink-color {
-    color: var(--primary-pink);
-  }
-  &.has-pink-shadow-color {
-    color: var(--pink-shadow);
-  }
-  &.has-blue-color {
-    color: var(--blue);
-  }
-  &.has-blue-shadow-color {
-    color: var(--blue-shadow);
-  }
-  &.has-green-color {
-    color: var(--green);
-  }
-  &.has-green-shadow-color {
-    color: var(--green-shadow);
-  }
-  &.has-orange-color {
-    color: var(--orange);
-  }
-  &.has-orange-shadow-color {
-    color: var(--orange-shadow);
-  }
+.has-white-background-color {
+  background-color: var(--white);
+}
+.has-dark-blue-background-color {
+  background-color: var(--dark-blue);
+}
+.has-grey-background-color {
+  background-color: var(--grey);
+}
+.has-primary-pink-background-color {
+  background-color: var(--primary-pink);
+}
+.has-pink-shadow-background-color {
+  background-color: var(--pink-shadow);
+}
+.has-blue-background-color {
+  background-color: var(--blue);
+}
+.has-blue-shadow-background-color {
+  background-color: var(--blue-shadow);
+}
+.has-green-background-color {
+  background-color: var(--green);
+}
+.has-green-shadow-background-color {
+  background-color: var(--green-shadow);
+}
+.has-orange-background-color {
+  background-color: var(--orange);
+}
+.has-orange-shadow-background-color {
+  background-color: var(--orange-shadow);
+}
+
+.has-black-color {
+  color: var(--black);
+}
+.has-white-color {
+  color: var(--white);
+}
+.has-dark-blue-color {
+  color: var(--dark-blue);
+}
+.has-grey-color {
+  color: var(--grey);
+}
+.has-primary-pink-color {
+  color: var(--primary-pink);
+}
+.has-pink-shadow-color {
+  color: var(--pink-shadow);
+}
+.has-blue-color {
+  color: var(--blue);
+}
+.has-blue-shadow-color {
+  color: var(--blue-shadow);
+}
+.has-green-color {
+  color: var(--green);
+}
+.has-green-shadow-color {
+  color: var(--green-shadow);
+}
+.has-orange-color {
+  color: var(--orange);
+}
+.has-orange-shadow-color {
+  color: var(--orange-shadow);
 }
 
 header {

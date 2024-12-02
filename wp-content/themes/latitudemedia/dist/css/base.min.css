@@ -249,77 +249,99 @@ p {
   --custom-block-shadow-color: #F9E8F4;
 }
 
-.has-background.has-black-background-color {
+.has-black-background-color {
   background-color: var(--black);
 }
-.has-background.has-white-background-color {
+
+.has-white-background-color {
   background-color: var(--white);
 }
-.has-background.has-dark-blue-background-color {
+
+.has-dark-blue-background-color {
   background-color: var(--dark-blue);
 }
-.has-background.has-grey-background-color {
+
+.has-grey-background-color {
   background-color: var(--grey);
 }
-.has-background.has-primary-pink-background-color {
+
+.has-primary-pink-background-color {
   background-color: var(--primary-pink);
 }
-.has-background.has-pink-shadow-background-color {
+
+.has-pink-shadow-background-color {
   background-color: var(--pink-shadow);
 }
-.has-background.has-blue-background-color {
+
+.has-blue-background-color {
   background-color: var(--blue);
 }
-.has-background.has-blue-shadow-background-color {
+
+.has-blue-shadow-background-color {
   background-color: var(--blue-shadow);
 }
-.has-background.has-green-background-color {
+
+.has-green-background-color {
   background-color: var(--green);
 }
-.has-background.has-green-shadow-background-color {
+
+.has-green-shadow-background-color {
   background-color: var(--green-shadow);
 }
-.has-background.has-orange-background-color {
+
+.has-orange-background-color {
   background-color: var(--orange);
 }
-.has-background.has-orange-shadow-background-color {
+
+.has-orange-shadow-background-color {
   background-color: var(--orange-shadow);
 }
 
-.has-text-color.has-black-color, .has-inline-color.has-black-color {
+.has-black-color {
   color: var(--black);
 }
-.has-text-color.has-white-color, .has-inline-color.has-white-color {
+
+.has-white-color {
   color: var(--white);
 }
-.has-text-color.has-dark-blue-color, .has-inline-color.has-dark-blue-color {
+
+.has-dark-blue-color {
   color: var(--dark-blue);
 }
-.has-text-color.has-grey-color, .has-inline-color.has-grey-color {
+
+.has-grey-color {
   color: var(--grey);
 }
-.has-text-color.has-primary-pink-color, .has-inline-color.has-primary-pink-color {
+
+.has-primary-pink-color {
   color: var(--primary-pink);
 }
-.has-text-color.has-pink-shadow-color, .has-inline-color.has-pink-shadow-color {
+
+.has-pink-shadow-color {
   color: var(--pink-shadow);
 }
-.has-text-color.has-blue-color, .has-inline-color.has-blue-color {
+
+.has-blue-color {
   color: var(--blue);
 }
-.has-text-color.has-blue-shadow-color, .has-inline-color.has-blue-shadow-color {
+
+.has-blue-shadow-color {
   color: var(--blue-shadow);
 }
-.has-text-color.has-green-color, .has-inline-color.has-green-color {
+
+.has-green-color {
   color: var(--green);
 }
-.has-text-color.has-green-shadow-color, .has-inline-color.has-green-shadow-color {
+
+.has-green-shadow-color {
   color: var(--green-shadow);
 }
-.has-text-color.has-orange-color, .has-inline-color.has-orange-color {
+
+.has-orange-color {
   color: var(--orange);
 }
-.has-text-color.has-orange-shadow-color, .has-inline-color.has-orange-shadow-color {
+
+.has-orange-shadow-color {
   color: var(--orange-shadow);
 }
 
