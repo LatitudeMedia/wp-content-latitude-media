@@ -77,9 +77,7 @@ $blocks = array(
             "align" => true,
         ),
         'mode' => 'preview',
-        'enqueue_assets' => function(){
-            wp_enqueue_style( 'block-acf-image-and-text', get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css' );
-        },
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
         'styles'  => [
             [
                 'name' => 'default',
@@ -88,12 +86,12 @@ $blocks = array(
             ],
             [
                 'name' => 'type2',
-                'label' => __('Type 2', 'ltm'),
+                'label' => __('Type 2 (inverse)', 'ltm'),
                 'isDefault' => true,
             ],
             [
                 'name' => 'type3',
-                'label' => __('Type 3 (inverse)', 'ltm'),
+                'label' => __('Type 3', 'ltm'),
                 'isDefault' => true,
             ],
             [
