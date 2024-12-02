@@ -2659,6 +2659,7 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'name' => 'disable_top_menu',
                 'type' => 'true_false',
                 'default_value' => 0,
+                'ui' => 1,
             ),
         ),
         'location' => array(
