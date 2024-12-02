@@ -53,7 +53,7 @@
     background-color: var(--orange-shadow);
   }
 }
-.has-text-color {
+.has-text-color, .has-inline-color {
   &.has-black-color {
     color: var(--black);
   }
