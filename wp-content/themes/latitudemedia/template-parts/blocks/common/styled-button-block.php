@@ -16,6 +16,8 @@ if( empty($button) ) {
       'url' => '/',
     ];
 }
+
+$customClasses = $blockAttributes['className'] ?? [];
 ?>
 
-<?php do_action('button_unit', $button, null, 'cta-button'); ?>
+<?php do_action('button_unit', $button, null, 'cta-button ' . $customClasses); ?>
