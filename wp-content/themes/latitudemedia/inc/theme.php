@@ -44,14 +44,91 @@ if ( ! function_exists( 'ltm_setup' ) ) {
             )
         );
 
+        add_theme_support('custom-spacing');
+
+//        $black              = '#000000';
+//        $white              = '#ffffff';
+//        $primaryPink        = '#C6168D';
+//        $pinkShadow         = '#F9E8F4';
+//        $blue               = '#0095da';
+//        $blueShadow         = '#E5F4FC';
+//        $green              = '#00B48D';
+//        $greenShadow        = '#CCF0E8';
+//        $orange             = '#F99D1C';
+//        $orangeShadow       = '#FEEBD2';
+//        $primaryDarkBlue    = '#0F1E42';
+//        $greyBackground     = '#F5F5F5';
+//
+//        add_theme_support(
+//            'editor-color-palette',
+//            array(
+//                array(
+//                    'name'  => esc_html__( 'Black', 'ltm' ),
+//                    'slug'  => 'black',
+//                    'color' => $black,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'White', 'ltm' ),
+//                    'slug'  => 'white',
+//                    'color' => $white,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Dark blue', 'ltm' ),
+//                    'slug'  => 'dark-blue',
+//                    'color' => $primaryDarkBlue,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Grey', 'ltm' ),
+//                    'slug'  => 'grey',
+//                    'color' => $greyBackground,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Primary pink', 'ltm' ),
+//                    'slug'  => 'primary-pink',
+//                    'color' => $primaryPink,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Pink shadow', 'ltm' ),
+//                    'slug'  => 'pink-shadow',
+//                    'color' => $pinkShadow,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Blue', 'ltm' ),
+//                    'slug'  => 'blue',
+//                    'color' => $blue,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Blue shadow', 'ltm' ),
+//                    'slug'  => 'blue-shadow',
+//                    'color' => $blueShadow,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Green', 'ltm' ),
+//                    'slug'  => 'green',
+//                    'color' => $green,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Green shadow', 'ltm' ),
+//                    'slug'  => 'green-shadow',
+//                    'color' => $greenShadow,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Orange', 'ltm' ),
+//                    'slug'  => 'orange',
+//                    'color' => $orange,
+//                ),
+//                array(
+//                    'name'  => esc_html__( 'Orange shadow', 'ltm' ),
+//                    'slug'  => 'orange-shadow',
+//                    'color' => $orangeShadow,
+//                ),
+//            )
+//        );
     }
 }
 add_action( 'after_setup_theme', 'ltm_setup' );
 
-add_action('after_setup_theme', function () {
-    // Enable support for custom spacing (padding and margin)
-    add_theme_support('custom-spacing');
-});
+
 /**
  * Register widget area.
  *
