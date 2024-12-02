@@ -1,7 +1,95 @@
 :root {
+  --black: #000000;
+  --white: #ffffff;
+  --dark-blue: #0F1E42;
+  --grey: #F5F5F5;
   --primary-pink: #C6168D;
+  --pink-shadow: #F9E8F4;
+  --blue: #0095da;
+  --blue-shadow: #E5F4FC;
+  --green: #00B48D;
+  --green-shadow: #CCF0E8;
+  --orange: #F99D1C;
+  --orange-shadow: #FEEBD2;
   --custom-block-base-color: #C6168D;
   --custom-block-shadow-color: #F9E8F4;
+}
+
+.has-background  {
+  &.has-black-background-color {
+    background-color: var(--black);
+  }
+  &.has-white-background-color {
+    background-color: var(--white);
+  }
+  &.has-dark-blue-background-color {
+    background-color: var(--dark-blue);
+  }
+  &.has-grey-background-color {
+    background-color: var(--grey);
+  }
+  &.has-primary-pink-background-color {
+    background-color: var(--primary-pink);
+  }
+  &.has-pink-shadow-background-color {
+    background-color: var(--pink-shadow);
+  }
+  &.has-blue-background-color {
+    background-color: var(--blue);
+  }
+  &.has-blue-shadow-background-color {
+    background-color: var(--blue-shadow);
+  }
+  &.has-green-background-color {
+    background-color: var(--green);
+  }
+  &.has-green-shadow-background-color {
+    background-color: var(--green-shadow);
+  }
+  &.has-orange-background-color {
+    background-color: var(--orange);
+  }
+  &.has-orange-shadow-background-color {
+    background-color: var(--orange-shadow);
+  }
+}
+.has-text-color {
+  &.has-black-color {
+    color: var(--black);
+  }
+  &.has-white-color {
+    color: var(--white);
+  }
+  &.has-dark-blue-color {
+    color: var(--dark-blue);
+  }
+  &.has-grey-color {
+    color: var(--grey);
+  }
+  &.has-primary-pink-color {
+    color: var(--primary-pink);
+  }
+  &.has-pink-shadow-color {
+    color: var(--pink-shadow);
+  }
+  &.has-blue-color {
+    color: var(--blue);
+  }
+  &.has-blue-shadow-color {
+    color: var(--blue-shadow);
+  }
+  &.has-green-color {
+    color: var(--green);
+  }
+  &.has-green-shadow-color {
+    color: var(--green-shadow);
+  }
+  &.has-orange-color {
+    color: var(--orange);
+  }
+  &.has-orange-shadow-color {
+    color: var(--orange-shadow);
+  }
 }
 
 header {
