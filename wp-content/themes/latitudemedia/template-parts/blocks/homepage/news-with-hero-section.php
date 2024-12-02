@@ -56,6 +56,7 @@ switch ($style) {
         $classes['hero_post'] = 'reverse';
     break;
 }
+
 ?>
 
 <div
@@ -82,7 +83,7 @@ switch ($style) {
                         <div class="content-folder">
                             [tags-list]
                             <h6>[title]</h6>
-                            ' . ($style === 'hero_left_three' ?: '[excerpt]') . '
+                            ' . ($style === 'hero_left_three' ? '[excerpt]' : '') . '
                             <div class="info">
                                 [author]<span></span>[date]
                             </div>
