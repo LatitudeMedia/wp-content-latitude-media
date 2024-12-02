@@ -77,7 +77,10 @@ $blocks = array(
             "align" => true,
         ),
         'mode' => 'preview',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
+        'enqueue_assets' => function(){
+            wp_enqueue_style( 'block-acf-image-and-text', get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css' );
+            wp_enqueue_style( 'block-acf-popup-modal', get_template_directory_uri() . '/dist/css/blocks/popup-modal.min.css' );
+        },
         'styles'  => [
             [
                 'name' => 'default',
@@ -1000,7 +1003,10 @@ $blocks = array(
         'post_types' 	=> array( 'events' ),
         'category'  	=> 'ltm-event-blocks',
         'keywords'    => array( __('Event speakers block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
+        'enqueue_assets' => function(){
+            wp_enqueue_style( 'block-acf-authors-list-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css' );
+            wp_enqueue_style( 'block-acf-popup-modal', get_template_directory_uri() . '/dist/css/blocks/popup-modal.min.css' );
+        },
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
