@@ -41,7 +41,7 @@ $blockAttrs = wp_kses_data(
                 <ul class="posts">
                     <?php foreach ($items as $item) : ?>
                         <li>
-                            <div class="image-folder">
+                            <div class="image-folder orange">
                                 <div>
                                     <?php
                                         if (!empty($item['image'])) {

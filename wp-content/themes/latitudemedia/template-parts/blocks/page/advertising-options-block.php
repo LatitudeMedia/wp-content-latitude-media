@@ -43,7 +43,7 @@ if ( empty($options) ) {
                 <?php
                     foreach ($options as $option) {
                         $linkHtml = !empty($option['link']) ? sprintf('<a href="%s" class="listen-link">Listen to sample</a>', $option['link']) : '';
-                        printf('<li><div class="title">%s<p>%s</p>%s</div></li>', $option['title'], $option['copy'], $linkHtml);
+                        printf('<li><div class="title">%s</div><p>%s</p>%s</li>', $option['title'], $option['copy'], $linkHtml);
                     }
                 ?>
             </ul>
