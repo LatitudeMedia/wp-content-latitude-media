@@ -251,6 +251,15 @@ function resources_archive_custom_query( $query ) {
 }
 add_action( 'pre_get_posts', 'resources_archive_custom_query' );
 
+add_filter( 'pre_get_posts', 'exclude_pages_from_search' );
+function exclude_pages_from_search($query) {
+    if ( !is_admin() && $query->is_main_query() && $query->is_search ) {
+        $query->set( 'post_type', 'post' );
+    }
+
+    return $query;
+}
+
 register_block_pattern(
     'ltm-patterns/event-images-and-quotes',
     array(
