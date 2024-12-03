@@ -69,7 +69,7 @@ if( empty($authors) ) {
 >
     <div class="container-narrow">
         <div class="our-team-section-wrapper">
-            <?php do_action('section_title', $authors_type['label'], '<h2>%1$s</h2>'); ?>
+            <?php do_action('section_title', $options['authors_type']['label'] ?? '', '<h2>%1$s</h2>'); ?>
             <ul class="team">
                 <?php foreach ($authors as $author) :
                     $authorData = ltm_get_author_data($author);
