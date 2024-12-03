@@ -9,6 +9,7 @@ $options = wp_parse_args(
     [
         'title'         => '',
         'logo'          => null,
+        'image_link'    => null,
         'description'   => '',
         'base_color'    => '#c6168d',
         'shadow_color'  => '#F9E8F4',
@@ -49,7 +50,15 @@ $my_block_template = array(
         <div class="logo-description-block-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="logo-image">
-                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]); ?>
+                    <?php
+                        $imageHtml = thumbnail_formatting(null, ['image_id' => $logo['ID'], 'size' => 'image-text-type2', 'link' => false], false);
+                        if( !empty($image_link) ) {
+                            printf('<a href="%1$s">%2$s</a>', $image_link, $imageHtml);
+                        }
+                        else {
+                            echo $imageHtml;
+                        }
+                    ?>
                 </div>
             <?php endif; ?>
 

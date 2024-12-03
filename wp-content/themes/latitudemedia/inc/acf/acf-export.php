@@ -2453,6 +2453,12 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'preview_size' => 'medium',
             ),
             array(
+                'key' => 'field_674f062c18efb',
+                'label' => 'Image link',
+                'name' => 'image_link',
+                'type' => 'text',
+            ),
+            array(
                 'key' => 'field_67362db82424e',
                 'label' => 'Base color',
                 'name' => 'base_color',

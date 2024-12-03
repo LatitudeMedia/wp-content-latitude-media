@@ -9,6 +9,7 @@ $options = wp_parse_args(
     [
         'title'         => '',
         'logo'          => null,
+        'image_link'    => null,
         'description'   => '',
         'base_color'    => '#c6168d',
         'shadow_color'  => '#F9E8F4',
