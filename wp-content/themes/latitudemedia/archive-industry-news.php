@@ -6,7 +6,7 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
                     <div class="content-folder">
                         <h4>[title]</h4>
                         <div class="info">
-                            [author]
+                            [industry-news-company]
                             <span></span>
                             [date]
                         </div>

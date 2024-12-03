@@ -569,3 +569,30 @@ if ( ! function_exists( 'print_event_location' ) ) :
     }
     add_action('print_event_location', 'print_event_location', 10, 2);
 endif;
+
+
+if ( ! function_exists( 'print_industry_news_company' ) ) :
+    function print_industry_news_company( $post_id = null, $args = array()): void
+    {
+        if ( ! $post_id ) {
+            $post_id = get_the_ID();
+        }
+        $companyName = get_field('company_name', $post_id);
+        $companyLink = get_field('company_link', $post_id);
+        if(empty($companyName) && empty($companyLink)) {
+            return;
+        }
+
+        $defaults = [
+            'wrap' => '<a class="author" href="%s">%s</a>',
+        ];
+
+        $args = wp_parse_args($args, $defaults);
+        extract($args);
+
+        $companyLine = sprintf( $wrap, $companyLink, $companyName);
+
+        echo $companyLine;
+    }
+    add_action('print_industry_news_company', 'print_industry_news_company', 10, 2);
+endif;
