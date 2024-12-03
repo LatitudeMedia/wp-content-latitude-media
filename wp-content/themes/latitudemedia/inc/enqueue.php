@@ -50,11 +50,15 @@ if( !function_exists( 'ltm_styles' ) ) {
             wp_enqueue_style('ltm-homepage');
         }
 
-
-
         if( !is_front_page() ) {
             wp_register_style('ltm-pages', get_template_directory_uri() . '/dist/css/pages.min.css', array(), filemtime( get_template_directory() . '/dist/css/pages.min.css') );
             wp_enqueue_style('ltm-pages');
+        }
+
+        if( is_singular('research')) {
+            wp_register_style('block-acf-news-plates-section', get_template_directory_uri() . '/dist/css/blocks/news-plates-section.min.css', array(), filemtime( get_template_directory() . '/dist/css/blocks/news-plates-section.min.css') );
+            wp_enqueue_style('block-acf-news-plates-section');
+
         }
         wp_enqueue_style( array( 'ltm-base', 'ltm-fonts', 'ltm-header', 'ltm-footer') );
     }

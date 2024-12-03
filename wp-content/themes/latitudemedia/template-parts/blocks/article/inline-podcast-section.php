@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Inline podcast block.
  
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args),
     [
         'post_id' => null,
         'display' => false,

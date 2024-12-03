@@ -4,9 +4,9 @@ if (is_admin()) {
 }
 // Set defaults Content with background block.
 
-$options = wp_parse_args(get_fields() ?: [],
+$options = wp_parse_args($args,
     [
-        'blockAttributes'   => $block,
+        'blockAttributes'   => [],
     ]
 );
 

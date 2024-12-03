@@ -16,9 +16,8 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
                     </li>');
 
 $options = wp_parse_args(
-    array_merge($args,
-        get_fields() ?? [],
-        $postItemTemplate
+    array_merge($postItemTemplate,
+        $args
     ),
     [
         'title'             => 'Latest news',

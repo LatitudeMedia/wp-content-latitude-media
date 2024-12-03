@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Listeners info block.
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args),
     [
         'title'     => 'What listeners are saying',
         'list'      => [],

@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Info cta block.
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?: []),
+    array_merge($args),
     [
         'copy'          => '',
         'button'        => [],

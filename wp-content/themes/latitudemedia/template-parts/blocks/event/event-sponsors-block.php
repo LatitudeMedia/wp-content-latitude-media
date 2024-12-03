@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Event sponsors block.
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args),
     [
         'title'             => 'Sponsors',
         'sponsors_category' => [],

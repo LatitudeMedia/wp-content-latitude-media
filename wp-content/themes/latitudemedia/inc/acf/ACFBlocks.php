@@ -84,10 +84,12 @@ class ACFBlocks {
                 $attributes['anchor'] = '';
             }
 
+            $blockFields = get_fields() ?: [];
             get_template_part(
                 'template-parts/blocks/' . implode('/', array($attributes['path'], $blockName)),
                 '',
                 array(
+                    ...$blockFields,
                     'post_id' => $post_id,
                     'blockAttributes'   => $attributes,
                 )

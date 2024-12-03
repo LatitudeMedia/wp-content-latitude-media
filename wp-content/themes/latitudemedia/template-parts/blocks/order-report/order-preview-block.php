@@ -3,10 +3,8 @@ if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Order preview block', 'ltm') . '</h3>';
 }
 // Set defaults Order preview block. 
-// 'css/blocks/order-preview-block': './src/assets/scss/blocks/order-preview-block.scss',
- 
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?? []),
+    array_merge($args),
     [
         'display' => false,
         'blockAttributes' => [],

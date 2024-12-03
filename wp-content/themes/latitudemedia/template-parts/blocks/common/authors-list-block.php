@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Authors list block.
 
 $options = wp_parse_args(
-    array_merge($args, get_fields() ?: []),
+    array_merge($args),
     [
         'authors_type' => [
                 "value" => "latitude-media-staff",

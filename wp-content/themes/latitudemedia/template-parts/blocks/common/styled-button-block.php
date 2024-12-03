@@ -1,10 +1,10 @@
 <?php
 // Set defaults Styled button block.
 $options = wp_parse_args(
-    get_fields() ?: [],
+    $args,
     [
         'button' => [],
-        'blockAttributes' => $block,
+        'blockAttributes' => [],
     ]
 );
 
