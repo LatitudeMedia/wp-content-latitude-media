@@ -73,7 +73,7 @@ $footerData = get_field('footer_data', 'options');
 
 
 
-    <div id="modal2" class="advertise-modal-content pink">
+    <div id="modal2" class="advertise-modal-content modal-content pink">
         <div class="modal-folder">
             <a href="#" class="cross js-modal-close"></a>
             <div class="podcast-modal-content">
