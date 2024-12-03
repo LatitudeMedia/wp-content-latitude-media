@@ -63,7 +63,7 @@ class OrderReports {
                 'has_archive'   => false,
                 'show_ui'       => true,
                 'show_in_rest'  => true,
-//                'taxonomies'    => [ 'sectors' ],
+                'exclude_from_search' => true,
                 'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
             ]
         );

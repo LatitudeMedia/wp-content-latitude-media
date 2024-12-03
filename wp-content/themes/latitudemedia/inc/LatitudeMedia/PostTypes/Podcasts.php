@@ -63,6 +63,7 @@ class Podcasts {
                 'has_archive'   => false,
                 'show_ui'       => true,
                 'show_in_rest'  => true,
+                'exclude_from_search' => true,
                 'taxonomies'    => [ 'podcast-type' ],
                 'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'author' ],
             ]

@@ -63,6 +63,7 @@ class Research {
                 'has_archive'   => false,
                 'show_ui'       => true,
                 'show_in_rest'  => true,
+                'exclude_from_search' => true,
                 'taxonomies'    => [ 'category', 'report-category' ],
                 'supports'      => [ 'title', 'editor', 'thumbnail', 'author', 'excerpt' ],
             ]

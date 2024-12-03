@@ -68,6 +68,7 @@ class SectionsLanding {
                     'slug' => 'section',
                     'with_front' => false
                 ),
+                'exclude_from_search' => true,
                 'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
             ]
         );
