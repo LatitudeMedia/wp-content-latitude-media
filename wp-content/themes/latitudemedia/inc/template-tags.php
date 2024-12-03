@@ -331,6 +331,7 @@ if ( ! function_exists( 'print_article_authors' ) ) :
             'link_class' => '',
             'link' => true,
             'wrap' => '',
+            'separator' => '<span></span> ',
         ];
 
         $args = wp_parse_args($args, $defaults);
@@ -370,9 +371,9 @@ if ( ! function_exists( 'print_article_authors' ) ) :
         }
 
         if(!$wrap) {
-            echo implode('<span></span> ', $authorsHtml);
+            echo implode($separator, $authorsHtml);
         } else {
-            printf($wrap, implode('<span></span> ', $authorsHtml));
+            printf($wrap, implode($separator, $authorsHtml));
         }
     }
     add_action('print_article_authors', 'print_article_authors', 10, 2);

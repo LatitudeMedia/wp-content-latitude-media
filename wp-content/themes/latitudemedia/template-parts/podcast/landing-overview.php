@@ -12,7 +12,7 @@ $podcastData = get_fields(get_the_ID());
                 <div class="info">
                     <div class="row">
                         <span class="label"><?php _e('Host', 'ltm')?>:&nbsp</span>
-                        <span class="value"><?php do_action('print_article_authors', get_the_ID()); ?></span>
+                        <span class="value"><?php do_action('print_article_authors', get_the_ID(), ['separator' => '<span> + </span>']); ?></span>
                     </div>
                     <div class="row">
                         <?php do_action('print_podcast_listening', get_the_ID(), 'listen on:'); ?>
