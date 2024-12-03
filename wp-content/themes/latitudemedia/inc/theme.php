@@ -241,12 +241,18 @@ add_action( 'pre_get_posts', 'custom_pagination_base' );
 
 // Modify pagination base to use a GET parameter
 function resources_archive_custom_query( $query ) {
-    if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'resources' ) ) {
-        $query->set( 'posts_per_page', 9 );
-        $featured = get_field('featured_resource', 'options');
-        if($featured) {
-            $query->set( 'post__not_in', [$featured]);
-        }
+    if ( is_admin() || !$query->is_main_query() || !is_post_type_archive( 'resources' ) ) {
+        return;
+    }
+    $offset = 1;
+    $ppp = 9;
+    $query->set( 'posts_per_page', $ppp );
+    if ( isset( $_GET['page'] ) ) {
+        $page_offset = $offset + ( ($query->query_vars['paged']-1) * $ppp );
+        $query->set('offset', $page_offset );
+    }
+    else {
+        $query->set('offset', $offset);
     }
 }
 add_action( 'pre_get_posts', 'resources_archive_custom_query' );

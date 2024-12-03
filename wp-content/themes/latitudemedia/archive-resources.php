@@ -1,7 +1,6 @@
 <?php
 global $wp_query;
 $current_page = max(1, $wp_query->get('paged'));
-
 get_header();
 
 ?>

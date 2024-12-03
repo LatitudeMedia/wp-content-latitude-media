@@ -3,19 +3,16 @@
 $options = wp_parse_args(
     $args,
     [
-        'resource_id' => get_field('featured_resource', 'options'),
+        'resource_id' => null,
     ]
 );
-
-if( empty($options['resource_id']) ) {
-    return;
-}
 
 $queryArgs = [
     'post_type'        => 'resources',
     'posts_per_page'   => 1,
 ];
-$featuredResource = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, [$options['resource_id']]);
+$resourceId = $options['resource_id'] ? [$options['resource_id']] : [];
+$featuredResource = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $resourceId);
 
 if(!$featuredResource->have_posts()) {
     return;

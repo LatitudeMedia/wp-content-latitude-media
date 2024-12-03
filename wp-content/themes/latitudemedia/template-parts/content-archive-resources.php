@@ -14,9 +14,6 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
             </div>
         </li>');
 
-$i = 0;
-
-$resourceForm = get_field('subscribe_form', 'options');
 ?>
 <div class="resources-list pink">
     <div class="container">

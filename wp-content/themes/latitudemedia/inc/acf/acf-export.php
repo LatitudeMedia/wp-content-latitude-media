@@ -1585,60 +1585,6 @@ add_action('acf/include_fields', function () {
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_673b545a3145a',
-        'title' => 'Resources settings',
-        'fields' => array(
-            array(
-                'key' => 'field_673b545a3c603',
-                'label' => 'Featured resource',
-                'name' => 'featured_resource',
-                'type' => 'post_object',
-                'post_type' => array(
-                    0 => 'resources',
-                ),
-                'post_status' => '',
-                'taxonomy' => '',
-                'return_format' => 'id',
-                'allow_null' => 0,
-                'bidirectional' => 0,
-                'ui' => 1,
-                'bidirectional_target' => array(),
-            ),
-            array(
-                'key' => 'field_673b54a83c604',
-                'label' => 'Subscribe form',
-                'name' => 'subscribe_form',
-                'type' => 'group',
-                'layout' => 'block',
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_673b54d93c605',
-                        'label' => 'Title',
-                        'name' => 'title',
-                        'type' => 'text',
-                    ),
-                    array(
-                        'key' => 'field_673b54de3c606',
-                        'label' => 'Form code',
-                        'name' => 'form_code',
-                        'type' => 'textarea',
-                    ),
-                ),
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'options_page',
-                    'operator' => '==',
-                    'value' => 'acf-options-resources-settings',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_6712436d7624c',
         'title' => 'Sidebar editors picks block',
         'fields' => array(

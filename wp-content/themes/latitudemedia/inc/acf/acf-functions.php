@@ -1317,12 +1317,6 @@ if( function_exists('acf_add_options_sub_page') ) {
     ));
 
     acf_add_options_sub_page(array(
-        'page_title' => 'Resources Settings',
-        'menu_title' => 'Resources Settings',
-        'parent_slug' => 'edit.php?post_type=resources',
-    ));
-
-    acf_add_options_sub_page(array(
         'page_title'  => __('DFP Ad Slots'),
         'menu_title'  => __('DFP Ad Slots'),
         'parent_slug' => 'edit.php?post_type=in-house-ads',
