@@ -461,14 +461,12 @@ header {
                     }
                   }
                 }
-                &:last-child {
+                &:last-child, &:has(+ .see-all) {
                   &:after {
                     display: none;
                   }
                 }
               }
-
-
             }
           }
           &:last-child {
@@ -486,6 +484,9 @@ header {
               }
             }
           }
+        }
+        .see-all {
+          display: none;
         }
       }
 
