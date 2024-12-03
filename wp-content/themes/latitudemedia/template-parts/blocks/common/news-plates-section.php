@@ -10,7 +10,6 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
             <div class="content-folder">
                 [article-type]
                 [title]
-                [excerpt]
                 [author]
             </div>
         </li>');
