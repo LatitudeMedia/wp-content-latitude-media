@@ -41,7 +41,7 @@ $(document).ready(function($) {
         $('.js-modal-open, .podcasts-sponsorship-section .cta-button, .advertise-description-block .cta-button').on('click', function(e) {
             e.preventDefault();
             const podcastCtaModal = $('.podcasts-sponsorship-section .modal-content');
-            const advertiseCtaModal = $('.advertise-modal-content .modal-content');
+            const advertiseCtaModal = $('.advertise-modal-content');
             var fadeSpeed = 300,
                 modalTarget = '#' + $(this).attr('data-target');
             $('.modal-content').append('<div class="js-modal-overlay"></div>');
@@ -81,6 +81,7 @@ $(document).ready(function($) {
                 e.preventDefault();
                 $(modalTarget).fadeOut(fadeSpeed);
                 $(podcastCtaModal).fadeOut(fadeSpeed);
+                $(advertiseCtaModal).fadeOut(fadeSpeed);
                 $('.js-modal-overlay').fadeOut(fadeSpeed, function() {
                     $(this).remove();
                 });
