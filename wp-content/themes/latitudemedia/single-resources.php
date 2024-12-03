@@ -46,7 +46,7 @@ $sponsor = get_published_post_by_id($sponsorId, ['post_type' => 'sponsors']);
                         <div class="form-block-wrapper">
                             <?php
                                 if( !empty($resourceData['form_code']) ) {
-                                    printf('<div class="form-title">%s</div>%s', __('To download this resource, please fill out the form below', 'tlm'), $resourceData['form_code']);
+                                    printf('%s', $resourceData['form_code']);
                                 }
                             ?>
                         </div>
