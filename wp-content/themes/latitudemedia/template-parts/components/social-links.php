@@ -10,6 +10,7 @@ $options = wp_parse_args(
 
 extract($options);
 
+$links = array_filter($links);
 if( empty($links) ) {
     return;
 }
