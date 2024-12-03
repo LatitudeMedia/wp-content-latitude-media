@@ -30,7 +30,7 @@ wp-content/plugins/index.php
 wp-content/plugins/ACF-PHP-Recovery-master
 wp-content/plugins/create-acf-gutenberg-block
 node_modules/
-wp-content/themes/latitudemedia/static/
+wp-content/static/
 
 # wp core (as of 4.9.5)
 /db-config.php

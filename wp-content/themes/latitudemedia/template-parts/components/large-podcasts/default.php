@@ -62,7 +62,7 @@ if( !$podcastPosts->have_posts() ) {
                                 <div class="content-folder">
                                     [title]                                   
                                 </div>
-                                <div class="image-folder">
+                                <div class="image-folder blue">
                                         [thumb]
                                     </div>
                             </li>');
