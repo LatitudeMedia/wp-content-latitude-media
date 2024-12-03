@@ -2,6 +2,10 @@
 if(!have_posts()) {
     return;
 }
+global $wp_query;
+if($wp_query->found_posts <= 10) {
+    $wp_query->max_num_pages = 1;
+}
 
 $postItemTemplate = get_wrap_rows_from_template('<li>
             <div class="image-folder">

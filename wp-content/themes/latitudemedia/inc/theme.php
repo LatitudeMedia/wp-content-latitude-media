@@ -247,15 +247,10 @@ function resources_archive_custom_query( $query ) {
     $offset = 1;
     $ppp = 9;
     $query->set( 'posts_per_page', $ppp );
-    if ( isset( $_GET['page'] ) ) {
-        $page_offset = $offset + ( ($query->query_vars['paged']-1) * $ppp );
-        $query->set('offset', $page_offset );
-    }
-    else {
-        $query->set('offset', $offset);
-    }
+    $page_offset = $offset + ( ($query->query_vars['paged']-1) * $ppp );
+    $query->set('offset', $page_offset );
 }
-add_action( 'pre_get_posts', 'resources_archive_custom_query' );
+add_action( 'pre_get_posts', 'resources_archive_custom_query', 20 );
 
 add_filter( 'pre_get_posts', 'exclude_pages_from_search' );
 function exclude_pages_from_search($query) {

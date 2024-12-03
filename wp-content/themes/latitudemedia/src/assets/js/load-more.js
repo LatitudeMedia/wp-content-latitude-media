@@ -19,6 +19,9 @@ $(document).ready(function($) {
                     $('.load-more-posts', loadMoreContainer).replaceWith(newxPageContent);
                     pageLinks = $('.pager a', loadMoreContainer);
                     pageLinks.on( 'click', loadMore);
+                    $('html, body').animate({
+                        scrollTop: $('.load-more-posts', loadMoreContainer).offset().top
+                    }, 500);
                 }
             },
             error: (err) => {
