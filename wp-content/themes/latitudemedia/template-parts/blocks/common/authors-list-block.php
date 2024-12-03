@@ -31,6 +31,9 @@ if(!$authors_type) {
 $authors_args = array(
     'hide_empty' => false,
     'taxonomy'  => 'author',
+    'order'         => 'ASC',
+    'orderby'       => 'meta_value',
+    'meta_key'      => 'last_name',
 );
 if( $options['authors_type']['value'] !== 'custom' ) {
     $authors_args['meta_query'] = array(
