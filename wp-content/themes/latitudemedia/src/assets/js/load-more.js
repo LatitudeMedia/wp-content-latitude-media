@@ -20,7 +20,7 @@ $(document).ready(function($) {
                     pageLinks = $('.pager a', loadMoreContainer);
                     pageLinks.on( 'click', loadMore);
                     $('html, body').animate({
-                        scrollTop: $('.load-more-posts', loadMoreContainer).offset().top
+                        scrollTop: $('.load-more-posts', loadMoreContainer).offset().top  - 250
                     }, 500);
                 }
             },
