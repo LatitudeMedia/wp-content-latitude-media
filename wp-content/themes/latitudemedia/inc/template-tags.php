@@ -584,7 +584,7 @@ if ( ! function_exists( 'print_industry_news_company' ) ) :
         }
 
         $defaults = [
-            'wrap' => '<a class="author" href="%s">%s</a>',
+            'wrap' => '<a class="author" href="%s" target="_blank">%s</a>',
         ];
 
         $args = wp_parse_args($args, $defaults);
