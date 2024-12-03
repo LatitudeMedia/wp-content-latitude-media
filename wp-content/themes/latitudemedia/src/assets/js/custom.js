@@ -37,13 +37,17 @@ $(document).ready(function($) {
         });
     }
 
-    if($(".js-modal-open").length > 0) {
-        $('.js-modal-open').on('click', function(e) {
+    if($(".js-modal-open, .podcasts-sponsorship-section .cta-button").length > 0) {
+        $('.js-modal-open, .podcasts-sponsorship-section .cta-button').on('click', function(e) {
             e.preventDefault();
+            const podcastCtaModal = $('.podcasts-sponsorship-section .modal-content');
             var fadeSpeed = 300,
                 modalTarget = '#' + $(this).attr('data-target');
             $('.modal-content').append('<div class="js-modal-overlay"></div>');
             $('.js-modal-overlay').fadeIn(fadeSpeed);
+            $(podcastCtaModal).fadeIn(fadeSpeed).on('click', function(e) {
+                e.stopPropagation();
+            });
             $(modalTarget).fadeIn(fadeSpeed).on('click', function(e) {
                 e.stopPropagation();
             });
@@ -69,8 +73,10 @@ $(document).ready(function($) {
             //     }, 10);
             // });
 
-            $('.js-modal-overlay, .js-modal-close').on('click', function() {
+            $('.js-modal-overlay, .js-modal-close').on('click', function(e) {
+                e.preventDefault();
                 $(modalTarget).fadeOut(fadeSpeed);
+                $(podcastCtaModal).fadeOut(fadeSpeed);
                 $('.js-modal-overlay').fadeOut(fadeSpeed, function() {
                     $(this).remove();
                 });
