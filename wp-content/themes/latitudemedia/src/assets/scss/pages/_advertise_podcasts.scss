@@ -27,9 +27,9 @@
 
 .wide-form-section {
   margin-bottom: 64px;
-  background-color: #F5F5F5;
   @include wideFormSection;
   .wide-form-section-wrapper {
+    background-color: #F5F5F5;
     form {
       input {
         color: $primary-pink;
@@ -40,6 +40,11 @@
           margin: 0 auto;
         }
       }
+    }
+  }
+  &.has-background {
+    .wide-form-section-wrapper {
+      background-color: inherit;
     }
   }
 }

@@ -129,7 +129,6 @@
 
 .wide-form-section {
   margin-bottom: 64px;
-  background-color: #F5F5F5;
 }
 .wide-form-section .wide-form-section-wrapper {
   padding: 80px 20px;
@@ -597,6 +596,9 @@
   background-color: #F99D1C !important;
   color: #ffffff !important;
 }
+.wide-form-section .wide-form-section-wrapper {
+  background-color: #F5F5F5;
+}
 .wide-form-section .wide-form-section-wrapper form input {
   color: #C6168D;
   font-weight: 700;
@@ -605,6 +607,9 @@
   width: 141px;
   display: table;
   margin: 0 auto;
+}
+.wide-form-section.has-background .wide-form-section-wrapper {
+  background-color: inherit;
 }
 
 .text-cta-line {
