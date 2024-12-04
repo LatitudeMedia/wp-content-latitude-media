@@ -1072,7 +1072,7 @@
   position: absolute;
   inset: 0%;
 }
-.single-post .right-sidebar-layout .main-column .post-hero-image-block .credit, .single-industry-news .right-sidebar-layout .main-column .post-hero-image-block .credit {
+.single-post .right-sidebar-layout .main-column .post-hero-image-block .credit *, .single-industry-news .right-sidebar-layout .main-column .post-hero-image-block .credit * {
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-size: 0.75rem;

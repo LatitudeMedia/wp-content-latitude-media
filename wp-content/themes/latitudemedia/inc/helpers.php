@@ -408,8 +408,9 @@ function get_events_list($type = '', $args = [], $ids = []) {
                 'relation'  => 'AND',
                 array(
                     'key'       => 'end_date',
-                    'value'     => date("Y-m-d"),
+                    'value'     => get_date_from_gmt(date('Y-m-d')),
                     'compare'   => '>=',
+                    'type'      => 'DATE'
                 ),
                 array(
                     'key'       => 'past_event',
@@ -423,8 +424,9 @@ function get_events_list($type = '', $args = [], $ids = []) {
                 'relation'  => 'OR',
                 array(
                     'key'       => 'end_date',
-                    'value'     => date("Y-m-d"),
+                    'value'     => get_date_from_gmt(date('Y-m-d')),
                     'compare'   => '<',
+                    'type'      => 'DATE',
                 ),
                 array(
                     'key'       => 'past_event',

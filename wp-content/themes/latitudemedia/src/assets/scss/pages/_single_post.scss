@@ -22,12 +22,14 @@
 					}
 				}
 				.credit {
-					font-family: $inter;
-					@include fontSize(12px);
-					font-weight: 400;
-					line-height: 18px;
-					text-align: left;
-					color: $primary-dark-blue;
+					* {
+						font-family: $inter;
+						@include fontSize(12px);
+						font-weight: 400;
+						line-height: 18px;
+						text-align: left;
+						color: $primary-dark-blue;
+					}
 				}
 			}
 			article {

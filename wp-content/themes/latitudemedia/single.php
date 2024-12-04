@@ -36,7 +36,11 @@ get_header();
                                 echo thumbnail_formatting(get_the_ID(), ['link' => false], false);
                             ?>
                         </div>
-                        <div class="credit"><span>Photo credit:</span> Josh Edelson / AFP via Getty Images</div>
+                        <?php
+                        if($thumbId = get_post_thumbnail_id()) {
+                            printf('<div class="credit">%s</div>', wp_get_attachment_caption($thumbId));
+                        }
+                        ?>
                     </div>
                     <?php endif; ?>
                     <article>
