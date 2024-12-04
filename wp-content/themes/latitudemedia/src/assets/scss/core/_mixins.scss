@@ -2808,7 +2808,7 @@
 @mixin wideFormSection {
 	.wide-form-section-wrapper {
 		padding: 80px 20px;
-		background-color: #F5F5F5;
+		background-color: inherit;
 
 		h2 {
 			text-align: center;

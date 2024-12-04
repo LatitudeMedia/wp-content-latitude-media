@@ -129,10 +129,11 @@
 
 .wide-form-section {
   margin-bottom: 64px;
+  background-color: #F5F5F5;
 }
 .wide-form-section .wide-form-section-wrapper {
   padding: 80px 20px;
-  background-color: #F5F5F5;
+  background-color: inherit;
 }
 .wide-form-section .wide-form-section-wrapper h2 {
   text-align: center;
