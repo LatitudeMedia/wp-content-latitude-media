@@ -370,6 +370,10 @@ if ( ! function_exists( 'print_article_authors' ) ) :
             }
         }
 
+        if( is_news_type('podcast') && $podcast = get_post_assigned_podcast($post_id)) {
+            $authorsHtml[] = sprintf('<a class="%1$s" href="%2$s">%3$s</a>', $link_class, get_the_permalink($podcast->ID), $podcast->post_title);
+        }
+
         if(!$wrap) {
             echo implode($separator, $authorsHtml);
         } else {

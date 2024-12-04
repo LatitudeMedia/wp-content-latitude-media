@@ -875,7 +875,7 @@ add_action('acf/include_fields', function () {
                     'commentary' => 'Commentary',
                     'podcast' => 'Podcast',
                 ),
-                'default_value' => false,
+                'default_value' => 'news',
                 'return_format' => 'array',
                 'allow_null' => 0,
             ),

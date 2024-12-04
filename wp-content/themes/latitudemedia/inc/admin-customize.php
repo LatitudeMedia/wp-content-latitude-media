@@ -19,6 +19,24 @@ function add_new_category_column_section( $columns ) {
 }
 add_filter( 'manage_edit-category_columns', 'add_new_category_column_section' );
 
+function add_post_column_news_type( $column_name, $post_id ) {
+    switch ( $column_name ) {
+        case 'type':
+            $type = get_field( 'news_type', $post_id);
+            if( isset($type['label']) ) {
+                printf('<span>%s</span>', $type['label']);
+            }
+            break;
+    }
+}
+add_filter( 'manage_posts_custom_column', 'add_post_column_news_type', 10, 2 );
+
+function add_new_post_column_type( $columns ) {
+    $columns['type'] = __( 'News Type', 'ltm' );
+    return $columns;
+}
+add_filter( 'manage_edit-post_columns', 'add_new_post_column_type' );
+
 if ( ! function_exists( 'custom_block_editor_scripts' ) ) {
     /**
      * Enqueue block editor scripts
@@ -87,3 +105,87 @@ function my_acf_collor_pallete_script() {
 }
 
 add_action('acf/input/admin_footer', 'my_acf_collor_pallete_script');
+
+function categories_limit() {
+    if ( is_admin() && get_post_type() === 'post' ) {
+        echo "
+	<script language=\"javascript\" type=\"text/javascript\">
+			if(wp.data.select('core/editor')) {
+					const { select, dispatch, subscribe } = wp.data;
+
+					const saveableAction = select( 'core/editor' ).isEditedPostSaveable;
+					const getTerms = (taxonomy) => { return select( 'core/editor' ).getEditedPostAttribute( taxonomy ); };
+
+					var initValues = [
+							{
+									'type' : 'categories',
+									'name' : 'Category',
+									'values' : getTerms('categories')
+							},
+					];
+					initValues.forEach( (taxonomy) => {
+						 subscribe( () => {
+								const newCategories = getTerms(taxonomy.type);
+								const categoriesChanged = newCategories !== taxonomy.values;
+								taxonomy.values = newCategories;
+								if ( taxonomy.values && taxonomy.values.length >= 3 ) {
+    								jQuery('.editor-post-taxonomies__hierarchical-terms-list[aria-label=\"Categories\"] input:not(:checked)').prop( \"disabled\", true );
+								}
+								else
+								{
+    								jQuery('.editor-post-taxonomies__hierarchical-terms-list[aria-label=\"Categories\"] input:not(:checked)').prop( \"disabled\", false );
+								}
+								if ( categoriesChanged ) {
+									if ( taxonomy.values.length > 3 ) {
+										// show notice
+										dispatch( 'core/notices' ).createNotice(
+											'error',
+											'Please select less than four ' + taxonomy.name,
+											{
+												id: 'required_notice_' + taxonomy.type,
+												isDismissible: false,
+											}
+										);
+
+										// Make sure post cannot be saved, by adding a save lock
+										dispatch( 'core/editor' ).lockPostSaving( taxonomy.type + '_lock' );
+										dispatch( 'core/editor' ).lockPostAutosaving( taxonomy.type + '_lock' );
+
+										select( 'core/editor' ).isEditedPostSaveable = function() { return false; };
+									} else {
+										// remove notice
+										dispatch( 'core/notices' ).removeNotice( 'required_notice_' + taxonomy.type );
+
+										//remove save lock
+										dispatch( 'core/editor' ).unlockPostSaving( taxonomy.type +'_lock' );
+										dispatch( 'core/editor' ).unlockPostAutosaving( taxonomy.type + '_lock' );
+
+										if(!select('core/editor').isPostAutosavingLocked()) {
+											select( 'core/editor' ).isEditedPostSaveable = function() { return saveableAction; };
+										}
+									}
+								}
+							} );
+					});
+
+			} else {
+					jQuery(document).ready(function() {
+							jQuery( '#publish, #save-post' ).click(function(){
+									let publish = true;
+									if( $('#taxonomy-category input:checked').length <= 0) {
+											alert( 'Please select at least one Category' );
+											publish = false;
+									}
+
+                                    if(!publish) {
+											return false;
+									}
+
+						 });
+					});
+			}
+	</script>			
+	";
+    }//end if
+}
+add_action( 'admin_head', 'categories_limit' );

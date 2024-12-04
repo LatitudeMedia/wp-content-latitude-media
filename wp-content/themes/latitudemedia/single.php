@@ -29,6 +29,7 @@ get_header();
         <div class="container-narrow">
             <div class="right-sidebar-layout-wrapper">
                 <div class="main-column">
+                    <?php if( !is_news_type('podcast') ) : ?>
                     <div class="post-hero-image-block">
                         <div class="img-holder">
                             <?php
@@ -37,6 +38,7 @@ get_header();
                         </div>
                         <div class="credit"><span>Photo credit:</span> Josh Edelson / AFP via Getty Images</div>
                     </div>
+                    <?php endif; ?>
                     <article>
                         <?php
                             the_content();

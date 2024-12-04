@@ -39,6 +39,21 @@ function ltm_get_news_type($post_id = null) {
 }
 
 /**
+ * @param $type
+ * @param $post_id
+ * @return bool|string
+ */
+function is_news_type($type = '', $post_id = null) {
+    if ( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
+
+    $news_type = get_field('news_type', $post_id);
+
+    return $type == $news_type['value'] ?? 'news';
+}
+
+/**
  * @param $dateString
  * @param string $inputFormat
  * @param string $format
@@ -307,6 +322,17 @@ function get_podcast_episodes($podcast_id = null, $args = []) {
     return \LatitudeMedia\Manage_Data()->curated_query($queryArgs);
 }
 
+/**
+ * @param $post_id
+ * @return false|WP_Post
+ */
+function get_post_assigned_podcast( $post_id = null ) {
+    if ( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
+
+    return get_field('podcast', $post_id) ?: false;
+}
 function get_event_start_date($event_id, $format = 'F d Y') {
     if ( ! $event_id ) {
         $event_id = get_the_ID();
