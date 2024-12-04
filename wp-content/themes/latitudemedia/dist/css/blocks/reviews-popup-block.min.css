@@ -1,0 +1,104 @@
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/reviews-popup-block.scss ***!
+  \****************************************************************************************************************************************************************************************************************/
+.reviews-popup-block .modal-folder .cross:before {
+  background-color: #C6168D;
+}
+.reviews-popup-block .modal-folder .cross:after {
+  background-color: #C6168D;
+}
+.reviews-popup-block .modal-folder .close-button {
+  outline: none;
+  background-color: #C6168D;
+  color: #ffffff;
+  text-align: center;
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -ms-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid #C6168D;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+}
+.reviews-popup-block .modal-folder .close-button:hover {
+  background-color: #ffffff;
+  color: #C6168D;
+}
+.reviews-popup-block .modal-folder .close-button.green {
+  color: #ffffff;
+  background-color: #00B48D;
+  border: 1px solid #00B48D;
+}
+.reviews-popup-block .modal-folder .close-button.green:hover {
+  background-color: #ffffff;
+  color: #00B48D;
+}
+.reviews-popup-block .modal-folder .close-button.blue {
+  color: #ffffff;
+  background-color: #0095DA;
+  border: 1px solid #0095DA;
+}
+.reviews-popup-block .modal-folder .close-button.blue:hover {
+  background-color: #ffffff;
+  color: #0095DA;
+}
+.reviews-popup-block .modal-folder .close-button.orange {
+  color: #ffffff;
+  background-color: #F99D1C;
+  border: 1px solid #F99D1C;
+}
+.reviews-popup-block .modal-folder .close-button.orange:hover {
+  background-color: #ffffff;
+  color: #F99D1C;
+}
+.reviews-popup-block .podcast-modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.reviews-popup-block .podcast-modal-content ul li {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #C6168D;
+  padding-left: 0;
+}
+.reviews-popup-block .podcast-modal-content ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.reviews-popup-block .podcast-modal-content ul li:before {
+  display: none;
+}
+.reviews-popup-block .podcast-modal-content ul li h5 {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  color: #C6168D;
+  margin-bottom: 20px;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+}
+.reviews-popup-block .podcast-modal-content ul li p {
+  margin-bottom: 20px;
+  color: #0f1e42;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 21px;
+}
+.reviews-popup-block .podcast-modal-content ul li .stars {
+  display: flex;
+}
+.reviews-popup-block .podcast-modal-content ul li .stars .star {
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=reviews-popup-block.min.css.map*/

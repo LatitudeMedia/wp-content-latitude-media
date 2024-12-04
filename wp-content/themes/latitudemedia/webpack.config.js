@@ -68,7 +68,8 @@ module.exports = (env) => {
       'css/blocks/advertising-options-block': './src/assets/scss/blocks/advertising-options-block.scss',
       'css/blocks/our-approach-block'       : './src/assets/scss/blocks/our-approach-block.scss',
       'css/blocks/sample-campaign-block'    : './src/assets/scss/blocks/sample-campaign-block.scss',
-      'css/blocks/popup-modal'              : './src/assets/scss/blocks/popup-modal.scss',
+      'css/blocks/popup-modal-block'        : './src/assets/scss/blocks/popup-modal-block.scss',
+      'css/blocks/reviews-popup-block'      : './src/assets/scss/blocks/reviews-popup-block.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),

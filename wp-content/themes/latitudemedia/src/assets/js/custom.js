@@ -37,51 +37,24 @@ $(document).ready(function($) {
         });
     }
 
-    if($(".js-modal-open, .podcasts-sponsorship-section .cta-button, .advertise-description-block .cta-button").length > 0) {
-        $('.js-modal-open, .podcasts-sponsorship-section .cta-button, .advertise-description-block .cta-button').on('click', function(e) {
+    if($(".js-modal-open").length > 0) {
+        $('.js-modal-open').on('click', function(e) {
             e.preventDefault();
-            const podcastCtaModal = $('.podcasts-sponsorship-section .modal-content');
-            const advertiseCtaModal = $('.advertise-modal-content');
-            var fadeSpeed = 300,
-                modalTarget = '#' + $(this).attr('data-target');
-            $('.modal-content').append('<div class="js-modal-overlay"></div>');
+            const modalTarget = $(this).attr('href');
+            const fadeSpeed = 300;
+            const modalContent = $(`${modalTarget}.modal-content`);
+            if( !modalTarget || modalContent.length < 1) {
+                return;
+            }
+            modalContent.append('<div class="js-modal-overlay"></div>');
             $('.js-modal-overlay').fadeIn(fadeSpeed);
-            $(podcastCtaModal).fadeIn(fadeSpeed).on('click', function(e) {
-                e.stopPropagation();
-            });
-            $(advertiseCtaModal).fadeIn(fadeSpeed).on('click', function(e) {
-                e.stopPropagation();
-            });
             $(modalTarget).fadeIn(fadeSpeed).on('click', function(e) {
                 e.stopPropagation();
             });
 
-            // modalResize();
-            //
-            // function modalResize() {
-            //     var x = ( $(window).width() - $(modalTarget).outerWidth() ) / 2,
-            //         y = ( $(window).height() - $(modalTarget).outerHeight() ) / 2;
-            //         height = ( $(window).height() - $(modalTarget).outerHeight() );
-            //     $(modalTarget).css({
-            //         'top': y + 'px',
-            //         'left': x + 'px',
-            //         'height': height + 'px'
-            //     });
-            // }
-            //
-            // var resizeTimer;
-            // $(window).on('resize', function() {
-            //     clearTimeout(resizeTimer);
-            //     resizeTimer = setTimeout(function() {
-            //         modalResize();
-            //     }, 10);
-            // });
-
             $('.js-modal-overlay, .js-modal-close').on('click', function(e) {
                 e.preventDefault();
                 $(modalTarget).fadeOut(fadeSpeed);
-                $(podcastCtaModal).fadeOut(fadeSpeed);
-                $(advertiseCtaModal).fadeOut(fadeSpeed);
                 $('.js-modal-overlay').fadeOut(fadeSpeed, function() {
                     $(this).remove();
                 });

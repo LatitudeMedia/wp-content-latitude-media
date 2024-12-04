@@ -38,11 +38,11 @@ if(!$speakersPosts->have_posts()) {
 }
 
 $postItemTemplate = get_wrap_rows_from_template('
-    <div class="image-folder green"><a href="#" data-target="{uniqid}" class="js-modal-open">[thumb]</a></div>
+    <div class="image-folder green"><a href="#{uniqid}" class="js-modal-open">[thumb]</a></div>
     <div class="content-folder">
-        <a href="#" class="name green js-modal-open" data-target="{uniqid}">[title]</a>
+        <a href="#{uniqid}" class="name green js-modal-open">[title]</a>
         [speaker-company]
-        <a class="more-link js-modal-open" href="#" data-target="{uniqid}">Read more</a>
+        <a class="more-link js-modal-open" href="#{uniqid}">Read more</a>
     </div>
 ');
 

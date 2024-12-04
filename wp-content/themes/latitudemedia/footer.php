@@ -70,20 +70,6 @@ $footerData = get_field('footer_data', 'options');
             </div>
         </div>
     </div>
-
-
-
-    <div id="modal2" class="advertise-modal-content modal-content pink">
-        <div class="modal-folder">
-            <a href="#" class="cross js-modal-close"></a>
-                <div class="form">
-                    FORM!!!
-                </div>
-        </div>
-    </div>
-
-
-
 </footer>
 <?php wp_footer(); ?>
 

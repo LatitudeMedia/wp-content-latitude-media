@@ -77,10 +77,7 @@ $blocks = array(
             "align" => true,
         ),
         'mode' => 'preview',
-        'enqueue_assets' => function(){
-            wp_enqueue_style( 'block-acf-image-and-text', get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css' );
-            wp_enqueue_style( 'block-acf-popup-modal', get_template_directory_uri() . '/dist/css/blocks/popup-modal.min.css' );
-        },
+        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
         'styles'  => [
             [
                 'name' => 'default',
@@ -1005,7 +1002,7 @@ $blocks = array(
         'keywords'    => array( __('Event speakers block', 'ltm') ),
         'enqueue_assets' => function(){
             wp_enqueue_style( 'block-acf-authors-list-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css' );
-            wp_enqueue_style( 'block-acf-popup-modal', get_template_directory_uri() . '/dist/css/blocks/popup-modal.min.css' );
+            wp_enqueue_style( 'block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css' );
         },
         'example'  	=> array(
             'attributes' => array(
@@ -1293,6 +1290,65 @@ $blocks = array(
         )
     ),
     //END PAGE Full Width
+
+    array(
+        'attrs' => array(
+            'name'  		=> 'popup-modal-block',
+            'title' 		=> __('Popup modal block', 'ltm'),
+            'path'  		=> 'common',
+        ),
+        'icon'  		=> 'admin-comments',
+        'description' => __('Popup modal block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Popup modal block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+            "spacing" => array(
+                "margin" => true,
+                "padding" => true,
+            ),
+            "anchor" =>  true,
+            "color" => true,
+            "baseColor" => true,
+            "align" => true,
+            "mode"  => false
+        ),
+        'mode' => 'preview',
+        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css',
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'popup-modal-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
+            'name'  		=> 'reviews-popup-block',
+            'title' 		=> __('Reviews popup block', 'ltm'),
+            'path'  		=> 'page',
+        ),
+        'icon'  		=> 'star-filled',
+        'description' => __('Reviews popup block', 'ltm'),
+        'post_types' 	=> array( 'page' ),
+        'category'  	=> 'ltm-page-blocks',
+        'keywords'    => array( __('Reviews popup block', 'ltm') ),
+        'enqueue_assets' => function(){
+            wp_enqueue_style( 'block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css' );
+            wp_enqueue_style( 'block-acf-reviews-popup-block', get_template_directory_uri() . '/dist/css/blocks/reviews-popup-block.min.css' );
+        },
+        'example'  	=> array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'reviews-popup-block.png',
+                )
+            )
+        )
+    ),
 );
 
 new ACFBlocks( $blocks );
