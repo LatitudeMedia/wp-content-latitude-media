@@ -179,6 +179,7 @@ add_action('acf/include_fields', function () {
                 'return_format' => 'object',
                 'field_type' => 'select',
                 'allow_null' => 1,
+                'required'  => true
             ),
         ),
         'location' => array(
