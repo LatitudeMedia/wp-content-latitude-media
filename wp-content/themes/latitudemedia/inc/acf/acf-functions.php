@@ -713,6 +713,17 @@ $blocks = array(
         'post_types' 	=> array( 'page', 'events' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Info cta block', 'ltm') ),
+        "supports" =>  array(
+            "jsx" =>  true,
+            "spacing" => array(
+                "margin" => true,
+                "padding" => true,
+            ),
+            "anchor" =>  true,
+            "color" => true,
+            "baseColor" => true,
+            "align" => true,
+        ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/info-cta-block.min.css',
         'mode' => 'preview',
         'example'  	=> array(

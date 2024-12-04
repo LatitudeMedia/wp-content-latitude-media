@@ -6,8 +6,6 @@ if (is_admin()) {
 $options = wp_parse_args(
     array_merge($args),
     [
-        'copy'          => '',
-        'button'        => [],
         'base_color'    => '#00B48D',
         'shadow_color'  => '#CCF0E8',
         'display'       => false,
@@ -32,18 +30,22 @@ $blockAttrs = wp_kses_data(
   )
 );
 
+$my_block_template = array(
+    array(
+        'core/paragraph',
+    ),
+    array(
+        'acf/styled-button-block',
+    ),
+);
+
 ?>
 
 <div <?php echo $blockAttrs; ?>
 >
     <div class="container-narrow">
         <div class="grey-cta-block-wrapper">
-            <?php
-                if( !empty($copy) ) {
-                    echo $copy;
-                }
-                do_action('button_unit', $button, null, 'cta-button');
-            ?>
+            <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />
         </div>
     </div>
 </div>

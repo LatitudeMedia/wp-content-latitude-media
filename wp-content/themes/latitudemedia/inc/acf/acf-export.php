@@ -2775,23 +2775,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'new_lines' => 'wpautop',
             ),
             array(
-                'key' => 'field_673dddf9079c1',
-                'label' => 'Copy',
-                'name' => 'copy',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
-            ),
-            array(
-                'key' => 'field_673dddff079c2',
-                'label' => 'Button',
-                'name' => 'button',
-                'type' => 'link',
-                'return_format' => 'array',
-            ),
-            array(
                 'key' => 'field_674484b91c106',
                 'label' => 'Base color',
                 'name' => 'base_color',
