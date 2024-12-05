@@ -5,7 +5,7 @@ $term = get_queried_object();
 
 get_template_part( 'template-parts/author/landing', 'info', ['author' => $term] );
 
-get_template_part( 'template-parts/content-archive', 'listing' );
+get_template_part( 'template-parts/content-archive', 'listing', ['layout_wrapper'=> 'container'] );
 
 get_footer();
 

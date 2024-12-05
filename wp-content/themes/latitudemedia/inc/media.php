@@ -20,3 +20,4 @@ add_image_size( 'posts-list-small', 217, 163, true );
 add_image_size( 'large-podcast-default', 597, 448, false );
 add_image_size( 'large-event', 1270, 715, false );
 add_image_size( 'article-related-news', 329, 256, true );
+add_image_size( 'author-archive-hero', 427, 427, true );

@@ -5,6 +5,7 @@ $options = wp_parse_args(
     $args,
     [
         'dynamic_pagination' => true,
+        'layout_wrapper' => 'container-narrow',
     ]
 );
 
@@ -12,7 +13,7 @@ $paginationClass = ($options['dynamic_pagination'] && isset($options['pagination
 ?>
 
 <div class="topics-archive-section">
-    <div class="container-narrow">
+    <div class="<?php echo $options['layout_wrapper']; ?>">
         <div class="topics-archive-section-wrapper <?php echo $paginationClass; ?>">
             <div class="posts-list-section load-more-posts">
                 <?php
