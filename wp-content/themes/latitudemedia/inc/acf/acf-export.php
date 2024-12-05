@@ -1285,7 +1285,7 @@ add_action('acf/include_fields', function () {
                     'custom' => 'Custom',
                     'category' => 'Category',
                     'tag' => 'Tag',
-                    'type' => 'Type',
+                    'type' => 'News Type',
                 ),
                 'default_value' => false,
                 'allow_null' => 1,
@@ -1364,8 +1364,8 @@ add_action('acf/include_fields', function () {
             ),
             array(
                 'key' => 'field_620664767b7d0',
-                'label' => 'Post Type',
-                'name' => 'post_type',
+                'label' => 'News Type',
+                'name' => 'news_type',
                 'type' => 'select',
                 'conditional_logic' => array(
                     array(
@@ -1377,8 +1377,15 @@ add_action('acf/include_fields', function () {
                     ),
                 ),
                 'choices' => array(
-                    'post' => 'Post',
-                    'podcasts' => 'Podcasts',
+                    'analysis' => 'Analysis',
+                    'explainer' => 'Explainer',
+                    'news' => 'News',
+                    'feature' => 'Feature',
+                    'interview' => 'Interview',
+                    'opinion' => 'Opinion',
+                    'newsletter' => 'Newsletter',
+                    'commentary' => 'Commentary',
+                    'podcast' => 'Podcast',
                 ),
                 'default_value' => false,
                 'return_format' => 'value',

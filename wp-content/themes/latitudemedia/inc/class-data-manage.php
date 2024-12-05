@@ -61,8 +61,12 @@ class Manage_Data
             case 'tag' && !empty($customArgs['tag']):
                 $this->manualSearchArgs['tag_id'] = $customArgs['tag'];
                 break;
-            case 'type' && !empty($customArgs['post_type']):
-                $this->manualSearchArgs['post_type'] = $customArgs['post_type'];
+            case 'type' && !empty($customArgs['news_type']):
+                $this->manualSearchArgs['meta_query'][] = [
+                    'key'       => 'news_type',
+                    'value'     => $customArgs['news_type'],
+                    'compare'   => '='
+                ];
                 break;
             case 'custom' && !empty($customArgs['custom']):
                 $post_ids = array_diff((!empty($customArgs['custom']) ? $customArgs['custom'] : []), $customArgs['exclude']);
