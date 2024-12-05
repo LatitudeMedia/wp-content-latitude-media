@@ -51,7 +51,7 @@ $my_block_template = array(
                 <a href="#">
                     <?php
                         if( !empty($logo) ) {
-                            do_action('thumbnail_formatting', null, ['size' => 'image-and-text-type6', 'link' => false, 'image_id' => $logo['ID']]);
+                            do_action('thumbnail_formatting', null, ['size' => 'image-text-type6', 'link' => false, 'image_id' => $logo['ID']]);
                         }
                     ?>
                 </a>
