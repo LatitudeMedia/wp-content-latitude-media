@@ -327,6 +327,11 @@ if ( ! function_exists( 'print_article_authors' ) ) :
             $post_id = get_the_ID();
         }
 
+        if(get_post_type($post_id) == 'industry-news') {
+            print_industry_news_company($post_id);
+            return;
+        }
+
         $defaults = [
             'link_class' => '',
             'link' => true,
