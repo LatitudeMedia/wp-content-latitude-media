@@ -9,7 +9,7 @@ add_image_size( 'event-speakers-list', 230, 230, true );
 add_image_size( 'event-speakers-modal', 200, 200, true );
 add_image_size( 'event-sponsors-list', 261, 160, false );
 add_image_size( 'image-and-text-type4', 558, 300, true );
-add_image_size( 'image-text-type2', 430, 200, false );
+add_image_size( 'image-text-type2', 430, 0, false );
 add_image_size( 'list-three-events', 367, 210, true );
 add_image_size( 'event-preview-hosted', 129, 64, false );
 add_image_size( 'news-with-hero', 405, 270, true );
