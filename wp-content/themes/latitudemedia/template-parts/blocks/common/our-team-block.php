@@ -58,10 +58,11 @@ if(!$teamMembers->have_posts()) {
                             <a href="#">
                                 <?php
                                 if( has_post_thumbnail() ) {
-                                    do_action('thumbnail_formatting', get_the_ID(), ['link' => false]);
+                                    do_action('thumbnail_formatting', get_the_ID(), ['link' => false, 'size' => 'event-speakers-list']);
                                 }
                                 else {
-                                    printf('<img src="%s/src/images/latitude_author_default.png" alt="member">', get_template_directory_uri());
+                                    $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
+                                    jetpack_get_resized_image($teamMemberDefaultImg, 230, 230, get_the_title());
                                 }
                                 ?>
                             </a>

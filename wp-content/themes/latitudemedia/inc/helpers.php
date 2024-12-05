@@ -442,3 +442,27 @@ function get_events_list($type = '', $args = [], $ids = []) {
 
     return \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $ids);
 }
+
+/**
+ * @param string $imgPath
+ * @param int $width
+ * @param int $height
+ * @param string $alt
+ * @param bool $echo
+ * @return string|void
+ */
+function jetpack_get_resized_image(string $imgPath, int $width, int $height, string $alt="", bool $echo = true) {
+    if( empty($imgPath) && empty($width) && empty($height) ) {
+        return $imgPath;
+    }
+
+    if (class_exists('Jetpack_PostImages')) {
+        $imgPath = Jetpack_PostImages::fit_image_url($imgPath, $width, $height);
+    }
+    if( $echo ) {
+        printf('<img src="%s" width="%s" height="%s" alt="%s">', $imgPath, $width, $height, $alt);
+    }
+    else {
+        return $imgPath;
+    }
+}

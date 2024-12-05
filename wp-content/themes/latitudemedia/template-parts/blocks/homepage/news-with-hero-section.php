@@ -130,14 +130,10 @@ switch ($style) {
                     'item',
                     array(
                         'post_id'  => get_the_ID(),
-                        'rows'     => $rows,
                         'settings' => array(
                             'thumb'   => array(
                                 'size'       => 'news-with-hero',
                                 'link'       => true,
-                                'link_class' => '',
-                                'alt_image'  => false,
-                                'type'       => true,
                             ),
                             'author' => array(
                                 'link_class' => 'author'
@@ -146,6 +142,7 @@ switch ($style) {
                                 'format' => 'M j, Y'
                             ),
                         ),
+                        'rows'     => $rows,
                         'wrap'     => $wrap,
                     )
                 );

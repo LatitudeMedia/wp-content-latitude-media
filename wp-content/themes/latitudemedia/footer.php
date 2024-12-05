@@ -17,7 +17,7 @@ $footerData = get_field('footer_data', 'options');
         <div class="footer-wrapper">
             <div class="top-row">
                 <a href="<?php echo home_url('/'); ?>" class="footer-logo">
-                    <img alt="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/Logo.svg">
+                    <img alt="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/src/images/Logo.svg" width="380" height="53">
                 </a>
                 <?php
                 $args = array(

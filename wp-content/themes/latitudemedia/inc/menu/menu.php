@@ -31,12 +31,14 @@ add_filter('wp_nav_menu_objects', 'wp_nav_menu_logos', 10, 2);
 function wp_nav_menu_logos( $items, $args ) {
 
     if( $args->theme_location == 'footer-social' || $args->theme_location == 'footer-logos' ) {
-        // loop
+        $size = ' width="180" height="70"';
+        if($args->theme_location == 'footer-social') {
+            $size = ' width="24" height="24"';
+        }
         foreach ($items as &$item) {
             $logo = get_field('logo', $item);
-            // append icon
             if ($logo) {
-                $item->title = sprintf('<img src="%1$s" alt="%2$s" />', $logo, $item->title);
+                $item->title = sprintf('<img src="%1$s" alt="%2$s" %3$s />', $logo, $item->title, $size);
             }
 
         }

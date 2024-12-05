@@ -33,7 +33,7 @@ get_header();
                     <div class="post-hero-image-block">
                         <div class="img-holder">
                             <?php
-                                echo thumbnail_formatting(get_the_ID(), ['link' => false], false);
+                                echo thumbnail_formatting(get_the_ID(), ['link' => false, '', 'size' => 'large'], false);
                             ?>
                         </div>
                         <?php

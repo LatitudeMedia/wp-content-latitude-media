@@ -90,6 +90,10 @@ if( !$items->have_posts() ) {
                         array(
                             'post_id'  => get_the_ID(),
                             'settings' => array(
+                                'thumb'   => array(
+                                    'size'       => 'article-related-news',
+                                    'link'       => true,
+                                ),
                                 'author' => array(
                                     'link_class' => 'author'
                                 ),

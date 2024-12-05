@@ -79,7 +79,7 @@ if( !$podcastPosts->have_posts() ) {
                                             'link' => false
                                         ),
                                         'thumb'   => array(
-                                            'size'       => 'news-with-hero',
+                                            'size'       => 'large-podcast-default',
                                             'link'       => true,
                                         ),
                                     ),
