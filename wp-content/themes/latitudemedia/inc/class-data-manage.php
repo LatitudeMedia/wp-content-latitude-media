@@ -68,7 +68,11 @@ class Manage_Data
                     'compare'   => '='
                 ];
                 break;
+            case 'post_type' && !empty($customArgs['post_type']):
+                $this->manualSearchArgs['post_type'] = $customArgs['post_type'];
+                break;
             case 'custom' && !empty($customArgs['custom']):
+                $this->manualSearchArgs['post_type'] = ['post', 'industry-news', 'resources', 'research', 'events', 'podcasts'];
                 $post_ids = array_diff((!empty($customArgs['custom']) ? $customArgs['custom'] : []), $customArgs['exclude']);
                 break;
         }

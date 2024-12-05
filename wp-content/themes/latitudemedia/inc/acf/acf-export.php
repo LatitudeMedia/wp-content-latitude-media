@@ -1286,6 +1286,7 @@ add_action('acf/include_fields', function () {
                     'category' => 'Category',
                     'tag' => 'Tag',
                     'type' => 'News Type',
+                    'post_type' => 'Post Type',
                 ),
                 'default_value' => false,
                 'allow_null' => 1,
@@ -1390,6 +1391,31 @@ add_action('acf/include_fields', function () {
                 'default_value' => false,
                 'return_format' => 'value',
                 'allow_null' => 0,
+            ),
+            array(
+                'key' => 'field_6751b0136e346',
+                'label' => 'Post type',
+                'name' => 'post_type',
+                'type' => 'select',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6203e8678b566',
+                            'operator' => '==',
+                            'value' => 'post_type',
+                        ),
+                    ),
+                ),
+                'choices' => array(
+                    'post' => 'Post',
+                    'industry-news' => 'Industry News',
+                    'resources' => 'Resources',
+                    'research' => 'Researches',
+                    'events' => 'Events',
+                    'podcasts' => 'Podcasts',
+                ),
+                'default_value' => false,
+                'return_format' => 'value',
             ),
             array(
                 'key' => 'field_6203e9388b56a',
