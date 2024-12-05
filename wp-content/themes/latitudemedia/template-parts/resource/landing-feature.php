@@ -44,11 +44,8 @@ if(!$featuredResource->have_posts()) {
                         'post_id'  => get_the_ID(),
                         'settings' => array(
                             'thumb'   => array(
-                                'size'       => 'news-with-hero',
+                                'size'       => 'single-resource-featured',
                                 'link'       => true,
-                                'link_class' => '',
-                                'alt_image'  => false,
-                                'type'       => true,
                             ),
                         ),
                         'rows'          => $rows,

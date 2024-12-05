@@ -33,7 +33,7 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
                             'post_id'  => get_the_ID(),
                             'settings' => array(
                                 'thumb'   => array(
-                                    'size'       => 'article-related',
+                                    'size'       => 'single-resource-featured',
                                     'link'       => true,
                                     'alt_image'  => false,
                                 ),
