@@ -41,7 +41,7 @@ if ( !empty($backgroundImage) && class_exists('Jetpack_PostImages')) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "style" => '--custom-block-base-color: ' . ($inHouseAdPostData['base_color'] ?: '#0095DA') . '; --custom-block-shadow-color: ' . ($inHouseAdPostData['shadow_color'] ?: '#E5F4FC') . '; ',
+                "style" => '--custom-block-base-color: ' . ($inHouseAdPostData['base_color'] ?? '#0095DA') . '; --custom-block-shadow-color: ' . ($inHouseAdPostData['shadow_color'] ?? '#E5F4FC') . '; ',
                 "class" => 'content-block',
                 "id" => 'in-house-ad-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
