@@ -80,10 +80,11 @@ if( empty($authors) ) {
                             <a href="<?php echo get_term_link($author,'author')?>">
                                 <?php
                                 if( !empty($authorData['logo']) ) {
-                                    do_action('thumbnail_formatting', ['link' => false], ['image_id' => $authorData['logo']['ID']]);
+                                    do_action('thumbnail_formatting', ['link' => false, 'size' => 'event-speakers-list', 'image_id' => $authorData['logo']['ID']]);
                                 }
                                 else {
-                                    printf('<img src="%s/src/images/latitude_author_default.png" alt="member">', get_template_directory_uri());
+                                    $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
+                                    jetpack_get_resized_image($teamMemberDefaultImg, 230, 230, $author->name);
                                 }
                                 ?>
                             </a>

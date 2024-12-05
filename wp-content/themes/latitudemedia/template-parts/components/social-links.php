@@ -29,7 +29,7 @@ $icons = [
 <ul class="socials">
     <?php
         foreach ($links as $key => $item) {
-            printf('<li><a href="%s" target="_blank"><img src="%s/src/images/%s" alt="icon" class="icon"></a></li>', $item, get_template_directory_uri(), $icons[$key] ?? '');
+            printf('<li><a href="%s" target="_blank"><img src="%s/src/images/%s" alt="icon" class="icon" width="24" height="24"></a></li>', $item, get_template_directory_uri(), $icons[$key] ?? '');
         }
     ?>
 </ul>
