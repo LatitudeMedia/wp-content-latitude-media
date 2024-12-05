@@ -29,7 +29,7 @@ $blockAttrs = wp_kses_data(
 );
 
 $subtitle = get_field('subtitle', $post_id);
-$date = get_research_date($post_id['ID'])
+$date = get_research_date($post_id)
 ?>
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
