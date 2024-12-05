@@ -45,7 +45,7 @@ $blockAttrs = wp_kses_data(
                         $imageHtml = '';
                         $speakersListHtml = '';
                         if( !empty($item['image']) ) {
-                            $imageHtml = thumbnail_formatting(null, ['image_id' => $item['image'], 'link' => false, 'img_attr' => ['class' => 'agenda-thumbnail'] ], false);
+                            $imageHtml = thumbnail_formatting(null, ['image_id' => $item['image'], 'size' => 'event-agenda', 'link' => false, 'img_attr' => ['class' => 'agenda-thumbnail'] ], false);
                         }
 
                         if( !empty($item['time']) ) {

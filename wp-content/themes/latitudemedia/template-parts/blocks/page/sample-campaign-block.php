@@ -45,7 +45,7 @@ $blockAttrs = wp_kses_data(
                                 <div>
                                     <?php
                                         if (!empty($item['image'])) {
-                                            do_action('thumbnail_formatting', null, ['image_id' => $item['image'], 'link' => false]);
+                                            do_action('thumbnail_formatting', null, ['image_id' => $item['image'], 'size' => 'articles-list', 'link' => false]);
                                         }
                                     ?>
                                 </div>
