@@ -41,7 +41,7 @@ function ltm_get_news_type($post_id = null) {
 /**
  * @param $type
  * @param $post_id
- * @return bool|string
+ * @return bool
  */
 function is_news_type($type = '', $post_id = null) {
     if ( ! $post_id ) {
@@ -49,8 +49,11 @@ function is_news_type($type = '', $post_id = null) {
     }
 
     $news_type = get_field('news_type', $post_id);
+    if ( !empty($news_type['value']) ) {
+        return $news_type['value'] === $type;
+    }
 
-    return $type == $news_type['value'] ?? 'news';
+    return false;
 }
 
 /**

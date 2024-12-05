@@ -1,7 +1,7 @@
 <?php
 // Set defaults leads block.
 $default_settings = [
-    'thumb' => [
+    'thumb'                 => [
         'image_id'      => null,
         'size'          => '',
         'mobile_size'   => null,
@@ -10,18 +10,31 @@ $default_settings = [
         'img_attr'      => [],
         'default'       => true,
     ],
-    'title'     => [
+    'title'                 => [
         'link' => true,
     ],
-    'tags-list' => [],
-    'excerpt'   => [],
-    'author'    => [
-        'wrap' => '%1$s'
-    ],
-    'date' => [
+    'tags-list'             => [],
+    'article-type'          => [],
+    'date'                  => [
         'wrap' => '<div class="date">%1$s</div>',
         'format' => 'F j, Y',
     ],
+    'author'                => [
+        'wrap' => '%1$s'
+    ],
+    'excerpt'               => [],
+    'time'                  => [],
+    'industry-news-company' => [],
+    'podcast-listening'     => [],
+    'podcast-organization'  => [],
+    'resource-tag'          => [],
+    'event-start-date'      => [],
+    'event-type'            => [],
+    'speaker-job-title'     => [],
+    'speaker-company'       => [],
+    'speaker-socials'       => [],
+    'content'               => [],
+
 ];
 $options = wp_parse_args(
     $args,
