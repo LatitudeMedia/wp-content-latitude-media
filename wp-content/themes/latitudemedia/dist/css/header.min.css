@@ -387,9 +387,6 @@ header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li a {
   display: block;
   position: relative;
 }
-header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li a.active {
-  color: #0095DA;
-}
 header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li a:after {
   content: "";
   position: absolute;
@@ -409,6 +406,9 @@ header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li a:hover
 }
 header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li:last-child:after, header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li:has(+ .see-all):after {
   display: none;
+}
+header .header-wrapper .bottom-head .bottom-head-menu li .dropdown ul li.current-menu-item a {
+  color: #0095DA;
 }
 header .header-wrapper .bottom-head .bottom-head-menu li:last-child a:before {
   display: none;

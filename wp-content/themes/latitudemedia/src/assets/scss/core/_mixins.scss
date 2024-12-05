@@ -4042,8 +4042,8 @@
 					width: 45%;
 				}
 				@include below_mob {
-					width: 100%;
-					margin-left: 0;
+					width: 100% !important;
+					margin-left: 0 !important;
 				}
 
 				.image-folder {

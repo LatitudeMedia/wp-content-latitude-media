@@ -435,9 +435,6 @@ header {
                   padding: 0 0 24px 0;
                   display: block;
                   position: relative;
-                  &.active {
-                    color: $blue;
-                  }
                   @include below_sm {
                     @include fontSize(16px);
                   }
@@ -464,6 +461,11 @@ header {
                 &:last-child, &:has(+ .see-all) {
                   &:after {
                     display: none;
+                  }
+                }
+                &.current-menu-item {
+                  a {
+                    color: $blue;
                   }
                 }
               }
