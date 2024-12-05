@@ -73,7 +73,7 @@ $postItemTemplate = get_wrap_rows_from_template('
                                 'post_id'  => get_the_ID(),
                                 'settings' => array(
                                     'thumb'   => array(
-                                        'size'       => 'news-with-hero',
+                                        'size'       => 'large-podcast-type2',
                                         'link'       => true,
                                     ),
                                 ),

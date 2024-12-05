@@ -27,7 +27,7 @@ $icons = [
     <?php
     foreach ($links as $key => $link) {
         if( empty($link) ) continue;
-        printf('<li><a href="%s"><img src="%s" alt="icon" class="icon"></a></li>', $link, get_stylesheet_directory_uri() . '/src/images/' . $icons[$key] ?? '');
+        printf('<li><a href="%s"><img src="%s" alt="icon" class="icon" width="32" height="32"></a></li>', $link, get_stylesheet_directory_uri() . '/src/images/' . $icons[$key] ?? '');
     }
     ?>
 </ul>

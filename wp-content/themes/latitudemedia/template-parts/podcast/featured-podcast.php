@@ -48,11 +48,8 @@ if( !$podcast ) {
                     'post_id'  => $podcast->ID,
                     'settings' => array(
                         'thumb'   => array(
-                            'size'       => 'news-with-hero',
+                            'size'       => 'podcast-landing-overview',
                             'link'       => true,
-                            'link_class' => '',
-                            'alt_image'  => false,
-                            'type'       => true,
                         ),
                         'date' => array(
                             'format' => 'M j, Y'
