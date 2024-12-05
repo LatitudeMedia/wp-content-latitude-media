@@ -19,4 +19,4 @@ if( empty($button) ) {
 
 ?>
 
-<?php do_action('button_unit', $button, null, 'cta-button ' . $blockAttributes['className'] ?? ''); ?>
+<?php do_action('button_unit', $button, null, 'cta-button ' . ($blockAttributes['className'] ?? '')); ?>

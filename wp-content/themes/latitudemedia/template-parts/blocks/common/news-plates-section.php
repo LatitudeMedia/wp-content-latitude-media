@@ -68,7 +68,7 @@ if( !$items->have_posts() ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block related-news-section pink',
-                "id" => 'news-plates-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'news-plates-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

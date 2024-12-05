@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Event venue block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'             => 'Venue',
         'embed_code'        => false,
@@ -26,7 +26,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block venue-section green',
-          "id" => 'event-venue-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'event-venue-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Sidebar info block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'     => '',
         'button'    => [],
@@ -24,7 +24,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'sidebar-block info-block',
-          "id" => 'sidebar-info-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'sidebar-info-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

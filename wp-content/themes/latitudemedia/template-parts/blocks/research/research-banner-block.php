@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Research banner block.
 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'post_id'           => false,
         'display'           => false,
@@ -23,7 +23,7 @@ $blockAttrs =  wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block single-research-featured-section',
-          "id" => 'research-banner-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'research-banner-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

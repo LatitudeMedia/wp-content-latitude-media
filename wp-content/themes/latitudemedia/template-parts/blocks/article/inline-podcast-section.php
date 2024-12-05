@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Inline podcast block.
  
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'post_id' => null,
         'display' => false,
@@ -31,7 +31,7 @@ if( empty($embed_code) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block',
-                "id" => 'inline-podcast-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'inline-podcast-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

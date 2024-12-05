@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Partner porcasts block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'         => false,
         'description'   => false,
@@ -25,7 +25,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block',
-          "id" => 'partner-porcasts-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'partner-porcasts-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

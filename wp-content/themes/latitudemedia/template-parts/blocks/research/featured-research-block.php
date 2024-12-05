@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Featured research block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display'       => false,
         'research'      => null,
@@ -34,7 +34,7 @@ if( !$research ) {
             [
                 "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
                 "class" => 'content-block event-large-item-section',
-                "id" => 'featured-research-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'featured-research-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

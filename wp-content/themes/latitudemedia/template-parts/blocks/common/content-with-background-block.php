@@ -17,7 +17,7 @@ $blockAttrs = wp_kses_data(
       [
           "style" => "--custom-block-base-color: {$background_color};",
           "class" => 'content-block about-page-hero',
-          "id" => 'content-with-background-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'content-with-background-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

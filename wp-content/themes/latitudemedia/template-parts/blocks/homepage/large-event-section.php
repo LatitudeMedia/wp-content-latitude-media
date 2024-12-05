@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Large event block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'event'             => null,
         'base_color'        => '#C6168D',
@@ -34,7 +34,7 @@ $eventStartDate = get_event_start_date($event->ID);
             [
                 "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
                 "class" => 'content-block event-large-item-section',
-                "id" => 'large-event-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'large-event-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

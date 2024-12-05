@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Info cta block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'base_color'    => '#00B48D',
         'shadow_color'  => '#CCF0E8',
@@ -25,7 +25,7 @@ $blockAttrs = wp_kses_data(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
           "class" => 'content-block grey-cta-block',
-          "id" => 'info-cta-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'info-cta-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Image and text.
 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'         => '',
         'logo'          => null,
@@ -31,7 +31,7 @@ $blockAttrs = wp_kses_data(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
           "class" => 'content-block logo-description-block reverse logo-description-block-bordered',
-          "id" => 'image-and-text' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'image-and-text' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

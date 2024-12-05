@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Our approach block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'     => 'OUR APPROACH',
         'copy'      => '',
@@ -25,7 +25,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block approach-section orange',
-          "id" => 'our-approach-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'our-approach-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

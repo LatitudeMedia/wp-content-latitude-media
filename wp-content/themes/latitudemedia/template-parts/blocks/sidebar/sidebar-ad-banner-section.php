@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Sidebar ad banner block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'dynamic_ad_banner' => null,
         'screen_type'       => null,
@@ -32,7 +32,7 @@ if( empty($dynamic_ad_banner) ) {
             get_block_wrapper_attributes(
                 [
                     "class" => 'sidebar-block banner-ad-block',
-                    "id" => 'sidebar-ad-banner-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                    "id" => 'sidebar-ad-banner-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
                 ]
             )
         );

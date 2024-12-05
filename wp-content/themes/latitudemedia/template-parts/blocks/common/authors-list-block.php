@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Authors list block.
 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'authors_type' => [
                 "value" => "latitude-media-staff",
@@ -61,7 +61,7 @@ if( empty($authors) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block our-team-section',
-                "id" => 'authors-list-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'authors-list-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

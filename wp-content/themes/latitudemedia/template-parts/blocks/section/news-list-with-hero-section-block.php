@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults News list with hero section block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display' => false,
         'blockAttributes' => [],

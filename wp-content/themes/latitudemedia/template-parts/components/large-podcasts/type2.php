@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Large podcasts block.
 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'             => 'Podcasts',
         'columns'           => [],
@@ -28,7 +28,7 @@ $blockAttrs = wp_kses_data(
     get_block_wrapper_attributes(
         [
             "class" => 'content-block podcasts-hero-section',
-            "id" => 'three-podcasts-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+            "id" => 'three-podcasts-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
         ]
     )
 );

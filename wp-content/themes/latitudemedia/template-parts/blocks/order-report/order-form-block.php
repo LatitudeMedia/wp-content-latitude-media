@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Order form block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'post_id' => null,
         'display' => false,
@@ -23,7 +23,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block order-form-section',
-          "id" => 'order-form-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'order-form-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

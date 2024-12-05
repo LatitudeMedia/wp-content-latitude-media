@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Research preview block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display' => false,
         'post_id' => null,
@@ -23,7 +23,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block image-text-section report-image-text-block blue',
-          "id" => 'research-preview-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'research-preview-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

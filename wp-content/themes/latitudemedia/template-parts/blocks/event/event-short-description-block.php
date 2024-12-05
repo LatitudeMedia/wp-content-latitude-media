@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Event short description block. 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display' => false,
         'blockAttributes' => [],
@@ -22,7 +22,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block event-text-section',
-          "id" => 'event-short-description-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'event-short-description-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

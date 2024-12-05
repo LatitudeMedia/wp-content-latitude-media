@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Event preview block.
 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'post_id'   => null,
         'rows'      => [
@@ -32,7 +32,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block single-event-hero-section',
-          "id" => 'event-preview-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'event-preview-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

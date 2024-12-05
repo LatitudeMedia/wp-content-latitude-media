@@ -65,7 +65,7 @@ if( !$items->have_posts() ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'sidebar-block editors-picks-block',
-                "id" => 'sidebar-editors-picks-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'sidebar-editors-picks-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

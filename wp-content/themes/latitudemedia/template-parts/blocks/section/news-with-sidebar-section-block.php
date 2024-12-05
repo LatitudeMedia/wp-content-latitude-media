@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults News with sidebar section block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'post_id'           => null,
         'sidebar_widget'    => null,
@@ -33,7 +33,7 @@ if(!$section) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block section-topics-section',
-                "id" => 'news-with-sidebar-section-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'news-with-sidebar-section-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

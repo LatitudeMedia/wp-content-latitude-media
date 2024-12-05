@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Page hero block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'background'=> null,
         'logo'      => null,
@@ -26,7 +26,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block advertise-podcasts-featured-section',
-          "id" => 'page-hero-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'page-hero-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

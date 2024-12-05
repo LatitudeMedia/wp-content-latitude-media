@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Event about sponsors block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title' => 'About our sponsors',
         'sponsors' => [],
@@ -27,7 +27,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block about-sponsors-section green',
-          "id" => 'event-about-sponsors-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'event-about-sponsors-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

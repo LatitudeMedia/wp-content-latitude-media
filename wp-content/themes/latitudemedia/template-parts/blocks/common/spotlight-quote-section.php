@@ -5,7 +5,7 @@ if (is_admin()) {
 }
 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'copy'      => false,
         'name'      => false,
@@ -32,7 +32,7 @@ if( empty($copy) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block testimonial-block',
-                "id" => 'spotlight-quote-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'spotlight-quote-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

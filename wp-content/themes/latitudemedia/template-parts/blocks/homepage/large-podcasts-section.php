@@ -1,7 +1,7 @@
 <?php
 // Set defaults Large podcasts block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'             => 'Podcasts',
         'number_of_items'   => 3,

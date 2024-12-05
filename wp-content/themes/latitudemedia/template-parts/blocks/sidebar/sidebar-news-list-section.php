@@ -70,7 +70,7 @@ if( !$items->have_posts() ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'sidebar-block posts-list-section',
-                "id" => 'sidebar-news-list-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'sidebar-news-list-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Categories section block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display'           => false,
         'post_id'           => null,
@@ -32,7 +32,7 @@ $categories = get_section_cats($section->term_id, 'all');
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block section-top-nav-section',
-                "id" => 'categories-section-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'categories-section-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

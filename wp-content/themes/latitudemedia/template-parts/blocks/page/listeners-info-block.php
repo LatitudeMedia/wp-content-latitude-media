@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Listeners info block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'     => 'What listeners are saying',
         'list'      => [],
@@ -24,7 +24,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block listeners-section',
-          "id" => 'listeners-info-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'listeners-info-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

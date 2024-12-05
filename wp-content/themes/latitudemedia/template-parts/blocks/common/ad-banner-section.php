@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Ad banner block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'dynamic_ad_banner' => null,
         'screen_type'       => null,
@@ -30,7 +30,7 @@ if( empty($dynamic_ad_banner) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block',
-                "id" => 'ad-banner-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'ad-banner-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

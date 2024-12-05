@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Order preview block. 
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display' => false,
         'blockAttributes' => [],
@@ -22,7 +22,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block image-text-section report-image-text-block blue',
-          "id" => 'order-preview-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'order-preview-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

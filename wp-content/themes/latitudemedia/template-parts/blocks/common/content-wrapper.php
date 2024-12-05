@@ -15,7 +15,7 @@ $blockAttrs = wp_kses_data(
     get_block_wrapper_attributes(
         [
             "class" => 'content-block editor-content-wrapper',
-            "id" => 'editor-content-wrapper' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+            "id" => 'editor-content-wrapper' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
         ]
     )
 );

@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults News with hero block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'number_of_items'   => 3,
         'type'              => '',
@@ -67,7 +67,7 @@ switch ($style) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block posts-hero-section',
-                "id" => 'news-with-hero-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'news-with-hero-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );

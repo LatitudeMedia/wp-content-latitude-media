@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Event speakers block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'     => 'Featured speakers',
         'speakers'  => [],
@@ -27,7 +27,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block our-team-section',
-          "id" => 'event-speakers-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'event-speakers-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

@@ -5,7 +5,7 @@ if (is_admin()) {
 
 // Set defaults Large event block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'sidebar_widget'   => null,
     ]

@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Event partners block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'display'   => false,
         'title'     => '',
@@ -27,7 +27,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block partners-logos-section',
-          "id" => 'event-partners-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+          "id" => 'event-partners-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
       ]
   )
 );

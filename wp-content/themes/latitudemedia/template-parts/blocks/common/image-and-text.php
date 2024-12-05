@@ -1,7 +1,7 @@
 <?php
 // Set defaults Image and text.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'blockAttributes' => [],
     ]

@@ -4,7 +4,7 @@ if (is_admin()) {
 }
 // Set defaults Sidebar form block.
 $options = wp_parse_args(
-    array_merge($args),
+    $args,
     [
         'title'             => false,
         'form_code'         => false,
@@ -30,7 +30,7 @@ if( empty($form_code) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'sidebar-block form-block',
-                "id" => 'sidebar-form-block' . ($options['blockAttributes']['anchor'] ? ' ' . $options['blockAttributes']['anchor'] : ''),
+                "id" => 'sidebar-form-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
     );
