@@ -65,7 +65,7 @@ class Research {
                 'show_in_rest'  => true,
                 'exclude_from_search' => true,
                 'taxonomies'    => [ 'category', 'report-category' ],
-                'supports'      => [ 'title', 'editor', 'thumbnail', 'author', 'excerpt' ],
+                'supports'      => [ 'title', 'editor', 'thumbnail', 'author', 'excerpt', 'revisions' ],
             ]
         );
     }

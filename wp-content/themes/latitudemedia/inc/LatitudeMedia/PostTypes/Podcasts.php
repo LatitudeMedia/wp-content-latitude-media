@@ -65,7 +65,7 @@ class Podcasts {
                 'show_in_rest'  => true,
                 'exclude_from_search' => true,
                 'taxonomies'    => [ 'podcast-type' ],
-                'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'author' ],
+                'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'author', 'revisions' ],
             ]
         );
     }

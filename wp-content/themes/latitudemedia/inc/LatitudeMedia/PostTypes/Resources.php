@@ -64,7 +64,7 @@ class Resources {
                 'show_ui'       => true,
                 'show_in_rest'  => true,
                 'exclude_from_search' => true,
-                'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+                'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
             ]
         );
     }

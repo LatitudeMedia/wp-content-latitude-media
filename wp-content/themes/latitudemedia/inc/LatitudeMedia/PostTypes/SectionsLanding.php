@@ -69,7 +69,7 @@ class SectionsLanding {
                     'with_front' => false
                 ),
                 'exclude_from_search' => true,
-                'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
+                'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
             ]
         );
     }

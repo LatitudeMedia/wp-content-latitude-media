@@ -63,7 +63,7 @@ class Guides {
                 'has_archive'   => false,
                 'show_ui'       => true,
                 'show_in_rest'  => true,
-                'supports'      => [ 'title', 'editor' ],
+                'supports'      => [ 'title', 'editor', 'revisions' ],
                 'menu_position' => 100,
             ]
         );
