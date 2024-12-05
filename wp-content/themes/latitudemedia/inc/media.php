@@ -13,7 +13,7 @@ add_image_size( 'image-text-type4', 558);
 add_image_size( 'image-text-type5', 416);
 add_image_size( 'image-text-type6', 622);
 add_image_size( 'image-text-type7', 513);
-add_image_size( 'list-three-events', 367, 210, false );
+add_image_size( 'list-three-events', 367 );
 add_image_size( 'event-preview-hosted', 129, 64, false );
 add_image_size( 'news-with-hero', 405, 270, true );
 add_image_size( 'articles-list', 416, 301, true );
