@@ -52,7 +52,7 @@ $my_block_template = array(
         <div class="logo-description-block-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="logo-image">
-                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'image_id' => $logo['ID']]); ?>
+                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'image-text-default', 'image_id' => $logo['ID']]); ?>
                 </div>
             <?php endif; ?>
             <div class="description">

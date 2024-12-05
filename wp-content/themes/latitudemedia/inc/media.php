@@ -8,7 +8,7 @@ add_image_size( 'podcast-landing-overview', 413, 310, true );
 add_image_size( 'event-speakers-list', 230, 230, true );
 add_image_size( 'event-speakers-modal', 200, 200, true );
 add_image_size( 'event-sponsors-list', 261, 160, false );
-add_image_size( 'image-text-type2', 430);
+add_image_size( 'image-text-default', 430);
 add_image_size( 'image-text-type5', 416);
 add_image_size( 'image-text-type6', 622);
 add_image_size( 'image-text-type7', 513);

@@ -38,7 +38,7 @@ $date = get_research_date($post_id['ID'])
                 <a href="#">
                     <?php
                     if( has_post_thumbnail($post_id) ) {
-                        do_action('thumbnail_formatting', $post_id, ['link' => false]);
+                        do_action('thumbnail_formatting', $post_id, ['link' => false, 'size' => 'image-text-type7']);
                     }
                     ?>
                 </a>

@@ -49,7 +49,7 @@ $my_block_template = array(
         <div class="icon-text-block-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="icon-folder">
-                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'image-text-type2', 'image_id' => $logo['ID']]); ?>
+                    <?php do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'image-text-default', 'image_id' => $logo['ID']]); ?>
                 </div>
             <?php endif; ?>
 

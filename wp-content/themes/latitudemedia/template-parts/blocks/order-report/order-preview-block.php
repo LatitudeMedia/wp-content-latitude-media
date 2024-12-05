@@ -40,7 +40,7 @@ if( empty($researchData['research_id']) ) {
                 <a href="#">
                     <?php
                     if( has_post_thumbnail($researchData['research_id']) ) {
-                        do_action('thumbnail_formatting', $researchData['research_id'], ['link' => false]);
+                        do_action('thumbnail_formatting', $researchData['research_id'], ['link' => false, 'size' => 'image-text-type7']);
                     }
                     ?>
                 </a>

@@ -44,7 +44,7 @@ $blockAttrs = wp_kses_data(
                     <div class="logo-wrapper">
                         <?php
                         if ( !empty($sponsor['logo']) ) {
-                            $imageHtml = thumbnail_formatting(null, ['image_id' => $sponsor['logo'], 'size' => 'image-text-type2', 'link' => false], false);
+                            $imageHtml = thumbnail_formatting(null, ['image_id' => $sponsor['logo'], 'size' => 'image-text-default', 'link' => false], false);
                             printf('<a href="#">%s</a>', $imageHtml);
                         }
                         ?>

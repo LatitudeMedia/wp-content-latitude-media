@@ -56,7 +56,7 @@ if( !$research ) {
                     }
                     
                     if( has_post_thumbnail($research) ) {
-                        do_action('thumbnail_formatting', $research->ID, ['link' => true]);
+                        do_action('thumbnail_formatting', $research->ID, ['link' => true, 'size' => 'large-event']);
                     }
                     ?>
             </div>
