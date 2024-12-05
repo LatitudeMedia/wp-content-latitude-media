@@ -25,6 +25,7 @@ $options = wp_parse_args(
         'post_type'         => '',
         'custom'            => [],
         'page_data'         => false,
+        'post_id'           => null,
         'display'           => false,
         'blockAttributes'   => [],
     ]
@@ -36,6 +37,11 @@ if(!$display && !is_admin()) {
     return;
 }
 
+if( empty($type) && !empty($post_id) ) {
+    $categories = get_the_terms( $post_id, 'category' );
+    $type = 'category';
+    $category = wp_list_pluck($categories, 'term_id');
+}
 
 \LatitudeMedia\Manage_Data()->setManualSearchArgs(
     [
