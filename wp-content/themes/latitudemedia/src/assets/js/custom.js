@@ -37,6 +37,11 @@ $(document).ready(function($) {
         });
     }
 
+    // Open modal on click corresponding button
+    // Requirements:
+    // button class = js-modal-open
+    // button link should have hash to corresponding popup id
+    // popup should have corresponding id.
     if($(".js-modal-open").length > 0) {
         $('.js-modal-open').on('click', function(e) {
             e.preventDefault();
@@ -62,6 +67,7 @@ $(document).ready(function($) {
         });
     }
 
+    // Copy post link in share buttons
     const copyArticleLink = $(".social-share-link");
     if(copyArticleLink.length > 0) {
         copyArticleLink.on("click", function(e) {
@@ -77,6 +83,7 @@ $(document).ready(function($) {
         })
     }
 
+    //Mobile menu click on parent item prevent
     const mobileMenuParentItems = $('.accordion-menu .menu-main-menu-container .menu-item-has-children');
     if(mobileMenuParentItems.length > 0) {
         mobileMenuParentItems.on('click', function(e) {
