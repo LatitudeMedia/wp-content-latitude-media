@@ -46,7 +46,7 @@ $linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurl
         </li>
 		<?php } ?>
         <li>
-            <a class="social-share-link" href="#">
+            <a class="social-share-link" href="<?php _e($post_link); ?>">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_4475_3028)">
                         <path d="M8 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -60,6 +60,7 @@ $linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurl
                     </defs>
                 </svg>
             </a>
+            <span class="copied-to-clipboard" hidden>Copied to clipboard</span>
         </li>
 	</ul>
 </div>

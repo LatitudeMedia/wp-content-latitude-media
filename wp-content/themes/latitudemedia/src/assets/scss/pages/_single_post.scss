@@ -79,6 +79,12 @@
 							color: $primary-dark-blue;
 
 						}
+						.copied-to-clipboard {
+							background-color: var(--primary-pink);
+							color: #ffffff;
+							line-height: 28px;
+							padding: .2rem .5rem;
+						}
 					}
 				}
 			}

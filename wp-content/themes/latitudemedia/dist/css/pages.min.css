@@ -1129,6 +1129,12 @@
   text-decoration: none;
   color: #0F1E42;
 }
+.single-post .right-sidebar-layout .main-column .post-share-block ul li .copied-to-clipboard, .single-industry-news .right-sidebar-layout .main-column .post-share-block ul li .copied-to-clipboard {
+  background-color: var(--primary-pink);
+  color: #ffffff;
+  line-height: 28px;
+  padding: 0.2rem 0.5rem;
+}
 .single-post .right-sidebar-layout .sidebar .form-block, .single-industry-news .right-sidebar-layout .sidebar .form-block {
   position: sticky;
   top: 130px;

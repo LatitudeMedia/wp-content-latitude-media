@@ -61,5 +61,20 @@ $(document).ready(function($) {
             });
         });
     }
+
+    const copyArticleLink = $(".social-share-link");
+    if(copyArticleLink.length > 0) {
+        copyArticleLink.on("click", function(e) {
+            e.preventDefault();
+            const textarea = document.createElement("textarea");
+            textarea.value = e.currentTarget.getAttribute('href');
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            copyArticleLink.hide(1).delay(1000).show(1);
+            $('.copied-to-clipboard').show(1).delay(1000).hide(1);
+        })
+    }
 });
 
