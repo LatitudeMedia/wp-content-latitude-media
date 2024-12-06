@@ -76,5 +76,12 @@ $(document).ready(function($) {
             $('.copied-to-clipboard').show(1).delay(1000).hide(1);
         })
     }
+
+    const mobileMenuParentItems = $('.accordion-menu .menu-main-menu-container .menu-item-has-children');
+    if(mobileMenuParentItems.length > 0) {
+        mobileMenuParentItems.on('click', function(e) {
+            e.preventDefault();
+        })
+    }
 });
 
