@@ -17,7 +17,7 @@ $utm_medium   = 'social';
 $utm_params   = '?utm_medium=' . $utm_medium;
 
 $facebook_link = "https://www.facebook.com/dialog/share?app_id=" . rawurlencode( $fb_app_id ) . "&display=popup&href=" . rawurlencode( $post_link . $utm_params ) . "&utm_source=facebook&redirect_uri=";
-$twitter_link  = "https://twitter.com/intent/tweet?url=" . rawurlencode( $post_link . $utm_params . '&utm_source=twitter' ) . ">&text=" . rawurlencode( $post_title );
+$twitter_link  = "https://x.com/intent/tweet?url=" . rawurlencode( $post_link . $utm_params . '&utm_source=twitter' ) . ">&text=" . rawurlencode( $post_title );
 $linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurlencode( $post_link . $utm_params . '&utm_source=linkedin' ) ."&title=" . rawurlencode( $post_title );
 ?>
 <div id="social-share-icons" class="">
