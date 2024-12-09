@@ -29,6 +29,11 @@
       transform: translate(-50%, 0);
       padding: 34px;
     }
+    .wide-form-section {
+      .wide-form-section-wrapper {
+        padding: 0;
+      }
+    }
   }
   .bio {
     display: flex;

@@ -25,6 +25,9 @@
   position: absolute;
   z-index: 2;
 }
+.modal-content .modal-folder .wide-form-section .wide-form-section-wrapper {
+  padding: 0;
+}
 .modal-content .bio {
   display: flex;
   align-items: center;
