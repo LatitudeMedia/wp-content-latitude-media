@@ -24,15 +24,5 @@
 .partners-logos-section .partners-logos-section-wrapper .logos li a {
   display: block;
 }
-@media screen and (max-width: 992px) {
-  .partners-logos-section .partners-logos-section-wrapper .logos {
-    width: 31.3%;
-  }
-}
-@media screen and (max-width: 768px) {
-  .partners-logos-section .partners-logos-section-wrapper .logos {
-    width: 48%;
-  }
-}
 
 /*# sourceMappingURL=event-partners-block.min.css.map*/

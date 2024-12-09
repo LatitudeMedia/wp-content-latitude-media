@@ -5311,12 +5311,6 @@
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
-			@include below_md {
-				width: 31.3%;
-			}
-			@include below_sm {
-				width: 48%;
-			}
 
 			li {
 				width: 23%;
