@@ -47,7 +47,7 @@
 .single-event-hero-section .single-event-hero-section-wrapper .data-row .location {
   color: #ffffff;
   display: flex;
-  align-content: center;
+  align-items: center;
   margin: 0 8px;
 }
 .single-event-hero-section .single-event-hero-section-wrapper .data-row .location:before {
