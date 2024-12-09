@@ -1310,7 +1310,7 @@ $blocks = array(
         ),
         'icon'  		=> 'admin-comments',
         'description' => __('Popup modal block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
+        'post_types' 	=> array( 'page', 'events' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Popup modal block', 'ltm') ),
         "supports" =>  array(
