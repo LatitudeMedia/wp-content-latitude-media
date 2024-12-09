@@ -23,7 +23,7 @@
                 text-align: left;
                 @include below_sm {
                   @include fontSize(32px);
-                  line-height: 48px;
+                  line-height: 38px;
                 }
               }
             }
