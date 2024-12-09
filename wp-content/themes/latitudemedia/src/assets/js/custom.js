@@ -96,6 +96,7 @@ $(document).ready(function($) {
     const registerScrollCta = $('.register-scroll-cta');
     const watchRecordingCta = $('.single-event-hero-section .strict-button')
     const watchEventForm = $('.wp-block-acf-event-description-block')
+    const contactForm = $('.wp-block-acf-subscribe-form-block')
     if(eventHeroSection.length > 0) {
         $(registerScrollCta).on("click", function(e) {
             $("html, body").animate({
@@ -107,6 +108,15 @@ $(document).ready(function($) {
 
     if(watchEventForm.length > 0) {
         $(watchRecordingCta).on("click", function(e) {
+            $("html, body").animate({
+                scrollTop: $(watchEventForm).offset().top
+            }, 1000);
+            return false;
+        });
+    }
+
+    if(contactForm.length > 0) {
+        $(registerScrollCta).on("click", function(e) {
             $("html, body").animate({
                 scrollTop: $(watchEventForm).offset().top
             }, 1000);
