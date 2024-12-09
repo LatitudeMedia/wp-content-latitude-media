@@ -30,8 +30,14 @@
       padding: 34px;
     }
     .wide-form-section {
+      margin-bottom: 0;
       .wide-form-section-wrapper {
         padding: 0;
+        input {
+          &[type="text"] {
+            width: 100% !important;
+          }
+        }
       }
     }
   }

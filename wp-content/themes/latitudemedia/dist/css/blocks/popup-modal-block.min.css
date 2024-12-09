@@ -25,8 +25,14 @@
   position: absolute;
   z-index: 2;
 }
+.modal-content .modal-folder .wide-form-section {
+  margin-bottom: 0;
+}
 .modal-content .modal-folder .wide-form-section .wide-form-section-wrapper {
   padding: 0;
+}
+.modal-content .modal-folder .wide-form-section .wide-form-section-wrapper input[type=text] {
+  width: 100% !important;
 }
 .modal-content .bio {
   display: flex;
