@@ -362,16 +362,22 @@
   -moz-box-shadow: -10px 10px 0 0 #FEEBD2;
   box-shadow: -10px 10px 0 0 #FEEBD2;
 }
+.image-text-section .image-text-section-wrapper .image-folder span {
+  padding-top: 86.6%;
+  position: relative;
+  display: block;
+}
+.image-text-section .image-text-section-wrapper .image-folder span img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
 .image-text-section .image-text-section-wrapper .image-folder a {
   padding-top: 86.6%;
   position: relative;
   display: block;
   text-decoration: none;
-}
-.image-text-section .image-text-section-wrapper .image-folder a span {
-  padding-top: 86.6%;
-  position: relative;
-  display: block;
 }
 .image-text-section .image-text-section-wrapper .image-folder a img {
   width: 100%;

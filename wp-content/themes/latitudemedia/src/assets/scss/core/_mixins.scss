@@ -2357,16 +2357,23 @@
 				margin-bottom: 32px;
 			}
 
+			span {
+				padding-top: 86.6%;
+				position: relative;
+				display: block;
+				img {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					inset: 0%;
+				}
+			}
+
 			a {
 				padding-top: 86.6%;
 				position: relative;
 				display: block;
 				text-decoration: none;
-				span {
-					padding-top: 86.6%;
-					position: relative;
-					display: block;
-				}
 				img {
 					width: 100%;
 					height: 100%;
