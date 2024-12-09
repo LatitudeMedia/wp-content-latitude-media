@@ -2015,8 +2015,8 @@
 }
 @media screen and (max-width: 768px) {
   .search-results .topics-archive-section .posts-list-section .posts li .content-folder h4 .title {
-    font-size: 32px;
-    font-size: 2rem;
+    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 38px;
   }
   .company-search-block.image-text-section .image-text-section-wrapper .image-folder {

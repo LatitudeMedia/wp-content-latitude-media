@@ -22,7 +22,7 @@
                 letter-spacing: -2px;
                 text-align: left;
                 @include below_sm {
-                  @include fontSize(32px);
+                  @include fontSize(28px);
                   line-height: 38px;
                 }
               }
