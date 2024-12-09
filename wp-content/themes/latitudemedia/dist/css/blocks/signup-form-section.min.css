@@ -17,6 +17,10 @@
   margin-bottom: 27px;
 }
 .form-block .form-block-wrapper .submitted-message {
+  color: #ffffff;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+}
+.form-block .form-block-wrapper .submitted-message span {
   color: #ffffff !important;
   font-family: "inter", Arial, Helvetica, sans-serif !important;
 }

@@ -1378,8 +1378,12 @@
 			margin-bottom: 27px;
 		}
 		.submitted-message {
-			color: $white !important;
-			font-family: $inter !important;
+			color: $white;
+			font-family: $inter;
+			span {
+				color: $white !important;
+				font-family: $inter !important;
+			}
 		}
 		form {
 			@include form;
