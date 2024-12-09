@@ -5311,12 +5311,16 @@
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
-
 			li {
 				width: 23%;
 				margin-left: 2%;
 				margin-bottom: 24px;
-
+				@include below_md {
+					width: 31.3%;
+				}
+				@include below_sm {
+					width: 40%;
+				}
 				a {
 					display: block;
 
