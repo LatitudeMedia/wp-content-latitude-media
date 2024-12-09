@@ -90,5 +90,18 @@ $(document).ready(function($) {
             e.preventDefault();
         })
     }
+
+    //Single Event scroll on CTA click
+    const eventHeroSection = $('.single-event-hero-section');
+    const registerScrollCta = $('.register-scroll-cta');
+    if(eventHeroSection.length > 0) {
+        $(registerScrollCta).on("click", function(e) {
+            console.log(scroll)
+            $("html, body").animate({
+                scrollTop: $(eventHeroSection).offset().top
+            }, 1000);
+            return false;
+        });
+    }
 });
 
