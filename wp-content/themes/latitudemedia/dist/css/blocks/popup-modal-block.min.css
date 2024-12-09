@@ -31,6 +31,9 @@
 .modal-content .modal-folder .wide-form-section .wide-form-section-wrapper {
   padding: 0;
 }
+.modal-content .modal-folder .wide-form-section .wide-form-section-wrapper .hs-error-msg {
+  color: red;
+}
 .modal-content .modal-folder .wide-form-section .wide-form-section-wrapper input[type=text] {
   width: 100% !important;
 }

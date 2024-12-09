@@ -33,6 +33,9 @@
       margin-bottom: 0;
       .wide-form-section-wrapper {
         padding: 0;
+        .hs-error-msg {
+          color: red;
+        }
         input {
           &[type="text"] {
             width: 100% !important;
