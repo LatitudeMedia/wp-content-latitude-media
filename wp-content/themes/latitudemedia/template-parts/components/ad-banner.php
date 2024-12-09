@@ -25,8 +25,15 @@ elseif ($screen_type === 'desktop' && wp_is_mobile()) {
 }
 
 $bannerData = get_ad_banner_data($banner_id);
+if(!$bannerData['size_mapping']) {
+    return;
+}
 $adSizes = array_column($bannerData['size_mapping'], 'ad_size_dynamic');
 $adSizes = array_unique(array_merge(...$adSizes));
+
+if( empty($adSizes) ) {
+    return;
+}
 
 $width  = 0;
 $height = 0;
