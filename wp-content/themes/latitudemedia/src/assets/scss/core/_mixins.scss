@@ -3599,7 +3599,7 @@
 					}
 
 					.title {
-						display: inline-block;
+						display: block;
 						font-family: $lora;
 						@include fontSize(20px);
 						font-weight: 700;
@@ -3631,7 +3631,7 @@
 						text-decoration: none;
 						color: $primary-dark-blue;
 						text-transform: uppercase;
-
+						display: inline-block;
 						&:before {
 							content: '';
 							display: block;
