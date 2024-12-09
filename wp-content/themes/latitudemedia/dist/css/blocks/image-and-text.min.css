@@ -478,6 +478,9 @@
 .image-text-section.report-image-text-block .image-text-section-wrapper .image-folder {
   width: 45%;
 }
+.image-text-section.report-image-text-block .image-text-section-wrapper .image-folder span {
+  padding-top: 55.6%;
+}
 .image-text-section.report-image-text-block .image-text-section-wrapper .image-folder a {
   padding-top: 55.6%;
 }
