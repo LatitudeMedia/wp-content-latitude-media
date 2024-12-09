@@ -883,6 +883,9 @@
   font-size: 20px;
   font-size: 1.25rem;
 }
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder a {
+  color: #C6168D;
+}
 .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row {
   margin-bottom: 16px;
   display: flex;
