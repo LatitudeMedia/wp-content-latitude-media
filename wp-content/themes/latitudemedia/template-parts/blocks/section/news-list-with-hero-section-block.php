@@ -31,6 +31,7 @@ get_template_part(
         'type'            => 'category',
         'category'        => $categories,
         'style'           => 'hero_left_three',
+        'display'         => true,
         'blockAttributes' => $blockAttributes,
     )
 );
