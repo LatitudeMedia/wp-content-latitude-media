@@ -16,6 +16,10 @@
   color: #ffffff;
   margin-bottom: 27px;
 }
+.form-block .form-block-wrapper .submitted-message {
+  color: #ffffff !important;
+  font-family: "inter", Arial, Helvetica, sans-serif !important;
+}
 .form-block .form-block-wrapper form .fieldset {
   width: 100%;
   margin-bottom: 16px;
