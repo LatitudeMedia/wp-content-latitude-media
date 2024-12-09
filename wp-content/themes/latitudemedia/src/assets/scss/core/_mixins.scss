@@ -2467,6 +2467,15 @@
 				a {
 					padding-top: 100.6%;
 				}
+				span {
+					padding-top: 100.6%;
+					img {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						inset: 0%;
+					}
+				}
 
 				@include below_sm {
 					width: 100%;

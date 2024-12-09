@@ -442,6 +442,15 @@
 .image-text-section.tall-it-block .image-text-section-wrapper .image-folder a {
   padding-top: 100.6%;
 }
+.image-text-section.tall-it-block .image-text-section-wrapper .image-folder span {
+  padding-top: 100.6%;
+}
+.image-text-section.tall-it-block .image-text-section-wrapper .image-folder span img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
 .image-text-section.tall-it-block .image-text-section-wrapper .content-folder ul {
   padding-left: 30px;
   margin-bottom: 20px;
