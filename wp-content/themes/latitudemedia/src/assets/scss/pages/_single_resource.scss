@@ -4,13 +4,13 @@
       .sidebar {
         width: 488px;
         margin-left: 80px;
-        @include below_lg {
-          width: 360px;
-          margin-left: 40px;
-        }
         @include below_md {
           width: 100%;
           margin-left: 0;
+        }
+        @include below_lg {
+          width: 360px;
+          margin-left: 40px;
         }
       }
     }
