@@ -117,8 +117,9 @@ $(document).ready(function($) {
 
     if(contactForm.length > 0) {
         $(registerScrollCta).on("click", function(e) {
+            e.preventDefault()
             $("html, body").animate({
-                scrollTop: $(watchEventForm).offset().top
+                scrollTop: $(contactForm).offset().top
             }, 1000);
             return false;
         });
