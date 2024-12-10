@@ -377,6 +377,9 @@ header {
   font-size: 1.125rem;
   line-height: 24px;
 }
+.right-sidebar-layout .right-sidebar-layout-wrapper .sidebar .form-block .form-block-wrapper form input:last-child {
+  margin-bottom: 20px;
+}
 
 .topics-title-block .topics-title-block-wrapper .parent-category-link {
   text-decoration: underline;
