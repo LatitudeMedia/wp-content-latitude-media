@@ -37,13 +37,13 @@ if( empty($researchData['research_id']) ) {
     <div class="container-narrow">
         <div class="image-text-section-wrapper">
             <div class="image-folder">
-                <a href="#">
+                <span>
                     <?php
                     if( has_post_thumbnail($researchData['research_id']) ) {
                         do_action('thumbnail_formatting', $researchData['research_id'], ['link' => false, 'size' => 'image-text-type7']);
                     }
                     ?>
-                </a>
+                </span>
             </div>
             <div class="content-folder">
                 <?php

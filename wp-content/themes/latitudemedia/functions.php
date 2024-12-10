@@ -15,6 +15,7 @@ require_once ("inc/trait-instance.php");
  */
 require_once ("inc/media.php");
 require_once ("inc/theme.php");
+require_once ("inc/override.php");
 require_once ("inc/latitudemedia-autoloader.php");
 
 
