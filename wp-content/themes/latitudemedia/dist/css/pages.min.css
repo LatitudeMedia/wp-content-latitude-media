@@ -101,6 +101,9 @@
   letter-spacing: -2px;
   text-align: left;
 }
+.search-results .topics-archive-section .posts-list-section .posts li .content-folder .info {
+  display: block;
+}
 .search-results .topics-archive-section .posts-list-section .posts li .content-folder .info .date {
   float: left;
   font-family: "inter", Arial, Helvetica, sans-serif;
@@ -109,10 +112,12 @@
   line-height: 24px;
   font-weight: 400;
   color: #0F1E42;
+  text-transform: non;
 }
 .search-results .topics-archive-section .posts-list-section .posts li .content-folder .info span {
   margin: 4px 8px 0 8px;
   height: 15px;
+  float: left;
 }
 
 .post-type-archive-industry-news .topics-archive-section .posts-list-section .posts li .content-folder h4 {
