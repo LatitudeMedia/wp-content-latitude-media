@@ -24,7 +24,7 @@ $blockAttrs = wp_kses_data(
     get_block_wrapper_attributes(
         [
             "class" => 'content-block grey-icon-block single-grey-icon-block',
-            "id" => 'event-gray-icon-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+            "id" => $blockAttributes['anchor'] ?: '',
         ]
     )
 );

@@ -32,7 +32,7 @@ if( empty($dynamic_ad_banner) ) {
             get_block_wrapper_attributes(
                 [
                     "class" => 'sidebar-block banner-ad-block',
-                    "id" => 'sidebar-ad-banner-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                    "id" => $blockAttributes['anchor'] ?: '',
                 ]
             )
         );

@@ -22,7 +22,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block image-text-section report-image-text-block blue',
-          "id" => 'order-preview-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+          "id" => $blockAttributes['anchor'] ?: '',
       ]
   )
 );

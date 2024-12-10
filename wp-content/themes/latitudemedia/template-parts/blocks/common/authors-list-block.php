@@ -61,7 +61,7 @@ if( empty($authors) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block our-team-section',
-                "id" => 'authors-list-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

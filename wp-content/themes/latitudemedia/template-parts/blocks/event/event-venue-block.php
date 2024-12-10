@@ -26,7 +26,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block venue-section green',
-          "id" => 'event-venue-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+          "id" => $blockAttributes['anchor'] ?: '',
       ]
   )
 );

@@ -67,7 +67,7 @@ switch ($style) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block posts-hero-section',
-                "id" => 'news-with-hero-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

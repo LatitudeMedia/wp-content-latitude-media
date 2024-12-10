@@ -27,7 +27,7 @@ $blockAttrs = wp_kses_data(
     get_block_wrapper_attributes(
         [
             "class" => 'content-block half-wide-section',
-            "id" => 'event-gray-icon-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+            "id" => $blockAttributes['anchor'] ?: '',
         ]
     )
 );

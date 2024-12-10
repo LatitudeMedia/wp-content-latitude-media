@@ -21,7 +21,7 @@ $blockAttrs = wp_kses_data(
     get_block_wrapper_attributes(
         [
             "class" => 'content-block subscribe-form-section',
-            "id" => 'subscribe-form-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+            "id" => $blockAttributes['anchor'] ?: '',
         ]
     )
 );

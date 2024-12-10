@@ -31,7 +31,7 @@ if( empty($embed_code) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block',
-                "id" => 'inline-podcast-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

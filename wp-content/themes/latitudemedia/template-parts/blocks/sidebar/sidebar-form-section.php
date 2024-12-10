@@ -30,7 +30,7 @@ if( empty($form_code) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'sidebar-block form-block',
-                "id" => 'sidebar-form-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

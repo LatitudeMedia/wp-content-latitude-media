@@ -73,7 +73,7 @@ if( !$items->have_posts() ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'sidebar-block related-reading-block',
-                "id" => 'related-reading-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

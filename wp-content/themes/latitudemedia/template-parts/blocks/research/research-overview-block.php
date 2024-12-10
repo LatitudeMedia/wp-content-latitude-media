@@ -24,7 +24,7 @@ $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block right-sidebar-layout',
-          "id" => 'research-overview-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+          "id" => $blockAttributes['anchor'] ?: '',
       ]
   )
 );

@@ -78,7 +78,7 @@ if( !$items->have_posts() ) {
             [
                 "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
                 "class" => 'content-block related-news-section',
-                "id" => 'news-plates-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

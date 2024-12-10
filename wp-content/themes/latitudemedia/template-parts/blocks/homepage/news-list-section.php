@@ -71,7 +71,7 @@ if( !$items->have_posts() ) {
             get_block_wrapper_attributes(
                 [
                     "class" => 'content-block posts-list-section',
-                    "id" => 'news-list-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                    "id" => $blockAttributes['anchor'] ?: '',
                 ]
             )
         );

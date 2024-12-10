@@ -23,7 +23,7 @@ $blockAttrs =  wp_kses_data(
   get_block_wrapper_attributes(
       [
           "class" => 'content-block single-research-featured-section',
-          "id" => 'research-banner-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+          "id" => $blockAttributes['anchor'] ?: '',
       ]
   )
 );

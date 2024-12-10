@@ -34,7 +34,7 @@ if( !$research ) {
             [
                 "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
                 "class" => 'content-block event-large-item-section',
-                "id" => 'featured-research-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

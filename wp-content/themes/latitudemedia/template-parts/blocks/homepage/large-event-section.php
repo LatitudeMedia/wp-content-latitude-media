@@ -34,7 +34,7 @@ $eventStartDate = get_event_start_date($event->ID);
             [
                 "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
                 "class" => 'content-block event-large-item-section',
-                "id" => 'large-event-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

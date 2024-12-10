@@ -32,7 +32,7 @@ if( empty($copy) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block testimonial-block',
-                "id" => 'spotlight-quote-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

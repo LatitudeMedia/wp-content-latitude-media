@@ -32,7 +32,7 @@ $categories = get_section_cats($section->term_id, 'all');
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block section-top-nav-section',
-                "id" => 'categories-section-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

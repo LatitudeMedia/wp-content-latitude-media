@@ -33,7 +33,7 @@ if(!$section) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block section-topics-section',
-                "id" => 'news-with-sidebar-section-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

@@ -30,7 +30,7 @@ if( empty($dynamic_ad_banner) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block',
-                "id" => 'ad-banner-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

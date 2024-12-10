@@ -29,7 +29,7 @@ $blockAttrs = wp_kses_data(
     get_block_wrapper_attributes(
         [
             "class" => 'content-block podcasts-large-blue-section',
-            "id" => 'three-podcasts-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+            "id" => $blockAttributes['anchor'] ?: '',
         ]
     )
 );

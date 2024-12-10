@@ -52,7 +52,7 @@ if( !empty($inHouseAdPostData['shadow_color']) ) {
             [
                 "style" => '--custom-block-base-color: ' . $baseColor . '; --custom-block-shadow-color: ' . $shadowColor . '; ',
                 "class" => 'content-block',
-                "id" => 'in-house-ad-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );

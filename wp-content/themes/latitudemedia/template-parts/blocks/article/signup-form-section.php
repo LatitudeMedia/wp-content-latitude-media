@@ -42,7 +42,7 @@ if( empty($form_code) ) {
         get_block_wrapper_attributes(
             [
                 "class" => 'content-block form-block',
-                "id" => 'signup-form-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+                "id" => $blockAttributes['anchor'] ?: '',
             ]
         )
     );
