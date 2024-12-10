@@ -27,6 +27,20 @@
                 }
               }
             }
+            .info {
+              .date {
+                float: left;
+                font-family: $inter;
+                @include fontSize(18px);
+                line-height: 24px;
+                font-weight: 400;
+                color: #0F1E42;
+              }
+              span {
+                margin: 4px 8px 0 8px;
+                height: 15px;
+              }
+            }
           }
         }
       }
