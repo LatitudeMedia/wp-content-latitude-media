@@ -40,7 +40,9 @@ $authorData = ltm_get_author_data($author);
                     //Author bio
                     echo $authorData['bio'];
                     //Author socials
-                    get_template_part('template-parts/author/social','links', ['author' => $author]);
+                    if( $socialLinks = ltm_get_author_socials($author) ) {
+                        get_template_part('template-parts/author/social','links', ['links' => $socialLinks]);
+                    }
                 ?>
             </div>
         </div>

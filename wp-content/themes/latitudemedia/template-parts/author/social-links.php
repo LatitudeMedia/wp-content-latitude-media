@@ -9,15 +9,16 @@
 $options = wp_parse_args(
     $args,
     [
-        'author' => null,
+        'links'   => [],
     ]
 );
 
-if( empty($options['author']) ) {
+if( empty($options['links']) ) {
     return;
 }
 
-if( !$socialsData = ltm_get_author_socials($options['author']) ) {
+$links = array_filter($options['links']);
+if( empty($links) ) {
     return;
 }
 
@@ -38,11 +39,11 @@ $socialLogos = [
     <ul class="icons">
         <?php
         foreach ($socialLogos as $key => $socialLogo) {
-            if( empty($socialsData[$key]) ) {
+            if( empty($links[$key]) ) {
                 continue;
             }
 
-            printf('<li><a href="%1$s">%2$s</a></li>', $socialsData[$key], $socialLogo);
+            printf('<li><a href="%1$s">%2$s</a></li>', $links[$key], $socialLogo);
         }
         ?>
     </ul>
