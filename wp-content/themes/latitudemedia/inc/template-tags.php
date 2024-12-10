@@ -606,3 +606,23 @@ if ( ! function_exists( 'print_industry_news_company' ) ) :
     }
     add_action('print_industry_news_company', 'print_industry_news_company', 10, 2);
 endif;
+
+if ( ! function_exists( 'print_image_and_text_image' ) ) :
+    function print_image_and_text_image( $logo = null, $size = '', $imageLink = null ): void
+    {
+        if( empty($logo) ) {
+            return;
+        }
+
+        $imageHtml = thumbnail_formatting(null, ['image_id' => $logo['ID'], 'size' => $size, 'link' => false], false);
+        if( !empty($imageLink) )
+        {
+            printf('<a href="%1$s">%2$s</a>', $imageLink, $imageHtml);
+        }
+        else
+        {
+            printf('<span>%1$s</span>', $imageHtml);
+        }
+    }
+    add_action('print_image_and_text_image', 'print_image_and_text_image', 10, 3);
+endif;

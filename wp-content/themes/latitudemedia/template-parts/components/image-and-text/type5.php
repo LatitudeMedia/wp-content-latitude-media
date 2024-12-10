@@ -49,7 +49,7 @@ $my_block_template = array(
         <div class="podcasts-sponsorship-section-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="image-folder">
-                    <?php do_action('thumbnail_formatting', null, ['size' => 'image-text-type5', 'link' => true, 'image_id' => $logo['ID']]); ?>
+                    <?php do_action('print_image_and_text_image', $logo, 'image-text-type5', $image_link); ?>
                 </div>
             <?php endif; ?>
 

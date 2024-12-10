@@ -48,13 +48,7 @@ $my_block_template = array(
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
         <div class="image-text-section-wrapper">
             <div class="image-folder">
-                <a href="#">
-                    <?php
-                        if( !empty($logo) ) {
-                            do_action('thumbnail_formatting', null, ['size' => 'image-text-type6', 'link' => false, 'image_id' => $logo['ID']]);
-                        }
-                    ?>
-                </a>
+                <?php do_action('print_image_and_text_image', $logo, 'image-text-type6', $image_link); ?>
             </div>
             <div class="content-folder">
                 <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />

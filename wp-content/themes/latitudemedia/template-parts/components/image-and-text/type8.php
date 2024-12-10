@@ -51,13 +51,7 @@ $my_block_template = array(
                 <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />
             </div>
             <div class="image-folder">
-                <a href="#">
-                    <?php
-                        if( !empty($logo) ) {
-                            do_action('thumbnail_formatting', null, ['size' => 'image-text-type7', 'link' => false, 'image_id' => $logo['ID']]);
-                        }
-                    ?>
-                </a>
+                <?php do_action('print_image_and_text_image', $logo, 'image-text-type7', $image_link); ?>
             </div>
         </div>
     </div>

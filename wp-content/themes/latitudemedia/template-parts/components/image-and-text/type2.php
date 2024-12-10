@@ -50,15 +50,7 @@ $my_block_template = array(
         <div class="logo-description-block-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="logo-image">
-                    <?php
-                        $imageHtml = thumbnail_formatting(null, ['image_id' => $logo['ID'], 'size' => 'image-text-default', 'link' => false], false);
-                        if( !empty($image_link) ) {
-                            printf('<a href="%1$s">%2$s</a>', $image_link, $imageHtml);
-                        }
-                        else {
-                            echo $imageHtml;
-                        }
-                    ?>
+                    <?php do_action('print_image_and_text_image', $logo, 'image-text-default', $image_link); ?>
                 </div>
             <?php endif; ?>
 
