@@ -112,7 +112,7 @@
   line-height: 24px;
   font-weight: 400;
   color: #0F1E42;
-  text-transform: non;
+  text-transform: none;
 }
 .search-results .topics-archive-section .posts-list-section .posts li .content-folder .info span {
   margin: 4px 8px 0 8px;
