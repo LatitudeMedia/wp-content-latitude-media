@@ -6,6 +6,10 @@
   margin-bottom: 64px;
   background-color: #0F1E42;
 }
+.podcasts-large-blue-section .container {
+  display: flex;
+  flex-direction: column;
+}
 .podcasts-large-blue-section .bordered-title {
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 24px;
@@ -37,6 +41,7 @@
   display: flex;
   margin: 0 0 0 -4%;
   flex-wrap: wrap;
+  max-width: 1150px;
 }
 .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col {
   width: 46%;
