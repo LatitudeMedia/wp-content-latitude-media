@@ -35,13 +35,13 @@ $date = get_research_date($post_id)
     <div class="container-narrow">
         <div class="image-text-section-wrapper">
             <div class="image-folder">
-                <a href="#">
+                <span>
                     <?php
                     if( has_post_thumbnail($post_id) ) {
                         do_action('thumbnail_formatting', $post_id, ['link' => false, 'size' => 'image-text-type7']);
                     }
                     ?>
-                </a>
+                </span>
             </div>
             <div class="content-folder">
                 <?php
