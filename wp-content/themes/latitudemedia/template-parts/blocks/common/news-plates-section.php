@@ -35,6 +35,15 @@ $options = wp_parse_args(
 
 extract($options);
 
+$base_color = "#C6168D";
+$shadow_color  = "#F9E8F4";
+if( !empty($options['blockAttributes']['data']['base_color']) ) {
+    $base_color = $options['blockAttributes']['data']['base_color'];
+}
+if( !empty($options['blockAttributes']['data']['shadow_color']) ) {
+    $shadow_color  = $options['blockAttributes']['data']['shadow_color'];
+}
+
 if(!$display && !is_admin()) {
     return;
 }
@@ -67,7 +76,8 @@ if( !$items->have_posts() ) {
     echo wp_kses_data(
         get_block_wrapper_attributes(
             [
-                "class" => 'content-block related-news-section pink',
+                "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
+                "class" => 'content-block related-news-section',
                 "id" => 'news-plates-block' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
             ]
         )
