@@ -2,7 +2,7 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/pages/pages_loader.scss ***!
   \********************************************************************************************************************************************************************************************************/
 .topics-archive-section .posts-list-section .posts li {
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 36px;
   padding-bottom: 46px;
   border-bottom: none;
@@ -45,7 +45,7 @@
   padding-bottom: 6px;
 }
 .topics-archive-section .posts-list-section .posts li .content-folder .title {
-  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-family: "Lora", Arial, Helvetica, serif;
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 32px;
