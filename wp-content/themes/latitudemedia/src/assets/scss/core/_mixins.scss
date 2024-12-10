@@ -1518,6 +1518,11 @@
 	padding: 64px 70px;
 	margin-bottom: 64px;
 	background-color: $primary-dark-blue;
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	@include below_md {
 		padding: 40px 0;
 	}
@@ -1525,11 +1530,13 @@
 		@include borderedTitle;
 		color: $white;
 		margin-bottom: 32px;
+		width: 100%;
 	}
 	.podcasts-large-blue-section-wrapper {
 		display: flex;
 		margin: 0 0 0 -4%;
 		flex-wrap: wrap;
+		max-width: 1150px;
 		@include below_md {
 			margin: 0;
 			flex-direction: column;

@@ -344,3 +344,9 @@ article {
 .strict-button {
   @include pinkButton;
 }
+
+.page-id-2016 {
+  header {
+    padding-bottom: 0;
+  }
+}

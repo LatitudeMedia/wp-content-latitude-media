@@ -6,6 +6,11 @@
   margin-bottom: 64px;
   background-color: #0F1E42;
 }
+.podcasts-large-blue-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .podcasts-large-blue-section .bordered-title {
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 24px;
@@ -20,6 +25,7 @@
   margin-bottom: 16px;
   color: #ffffff;
   margin-bottom: 32px;
+  width: 100%;
 }
 .podcasts-large-blue-section .bordered-title.pink {
   border-bottom: 5px solid #C6168D;
@@ -37,6 +43,7 @@
   display: flex;
   margin: 0 0 0 -4%;
   flex-wrap: wrap;
+  max-width: 1150px;
 }
 .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col {
   width: 46%;
