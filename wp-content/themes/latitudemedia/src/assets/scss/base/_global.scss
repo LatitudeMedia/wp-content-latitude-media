@@ -136,6 +136,17 @@ header {
           }
         }
       }
+      .form-block {
+        .form-block-wrapper {
+          form {
+            input {
+              &:last-child {
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
     }
 
     @include below_md {
