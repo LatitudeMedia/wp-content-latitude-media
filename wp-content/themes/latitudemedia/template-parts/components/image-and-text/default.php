@@ -31,7 +31,7 @@ $blockAttrs = wp_kses_data(
       [
           "style" => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
           "class" => 'content-block logo-description-block',
-          "id" => 'image-and-text' . ($blockAttributes['anchor'] ? ' ' . $blockAttributes['anchor'] : ''),
+          "id" => $blockAttributes['anchor'] ?: '',
       ]
   )
 );
