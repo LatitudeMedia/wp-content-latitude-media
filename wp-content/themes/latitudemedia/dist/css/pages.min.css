@@ -101,6 +101,19 @@
   letter-spacing: -2px;
   text-align: left;
 }
+.search-results .topics-archive-section .posts-list-section .posts li .content-folder .info .date {
+  float: left;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 24px;
+  font-weight: 400;
+  color: #0F1E42;
+}
+.search-results .topics-archive-section .posts-list-section .posts li .content-folder .info span {
+  margin: 4px 8px 0 8px;
+  height: 15px;
+}
 
 .post-type-archive-industry-news .topics-archive-section .posts-list-section .posts li .content-folder h4 {
   font-family: "Lora", Arial, Helvetica, serif;
