@@ -49,7 +49,7 @@ $my_block_template = array(
         <div class="image-text-section-wrapper">
             <?php if( !empty($logo) ) : ?>
                 <div class="image-folder">
-                    <?php do_action('thumbnail_formatting', null, ['size' => 'image-text-type4', 'link' => true, 'image_id' => $logo['ID']]); ?>
+                    <?php do_action('thumbnail_formatting', null, ['size' => 'image-text-type4', 'link' => false, 'image_id' => $logo['ID']]); ?>
                 </div>
             <?php endif; ?>
 
