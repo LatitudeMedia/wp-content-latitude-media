@@ -45,7 +45,7 @@ $blockAttrs = wp_kses_data(
             <div class="venue-info">
                 <div class="date">
                     <h2>Date</h2>
-                    <?php do_action('print_event_start_date', $post_id, ['wrap' => '<div class="venue-date">%1$s</div>', 'format' => 'F d, Y']); ?>
+                    <?php do_action('print_event_start_date', $post_id, ['wrap' => '<div class="venue-date">%1$s</div>', 'format' => 'F j, Y']); ?>
                 </div>
                 <div class="location">
                     <h2>Location</h2>

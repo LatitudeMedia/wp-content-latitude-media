@@ -62,7 +62,7 @@ function is_news_type($type = '', $post_id = null) {
  * @param string $format
  * @return int|string
  */
-function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-d H:i:s') {
+function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-j H:i:s') {
     $date = DateTime::createFromFormat($inputFormat, $dateString);
 
     if ($date) {
@@ -336,7 +336,7 @@ function get_post_assigned_podcast( $post_id = null ) {
 
     return get_field('podcast', $post_id) ?: false;
 }
-function get_event_start_date($event_id, $format = 'F d Y') {
+function get_event_start_date($event_id, $format = 'F j Y') {
     if ( ! $event_id ) {
         $event_id = get_the_ID();
     }
@@ -349,7 +349,7 @@ function get_event_start_date($event_id, $format = 'F d Y') {
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
 
-function get_event__end_date($event_id, $format = 'F d Y') {
+function get_event__end_date($event_id, $format = 'F j Y') {
     if ( ! $event_id ) {
         $event_id = get_the_ID();
     }

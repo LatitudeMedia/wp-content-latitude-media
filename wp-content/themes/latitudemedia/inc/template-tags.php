@@ -560,7 +560,7 @@ if ( ! function_exists( 'print_event_start_date' ) ) :
         }
         $defaults = [
             'wrap'  => '<div class="date">%1s</div>',
-            'format' => 'M d, Y',
+            'format' => 'M j, Y',
         ];
         $args = wp_parse_args($args, $defaults);
         extract($args);
