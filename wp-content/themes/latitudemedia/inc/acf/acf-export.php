@@ -743,6 +743,14 @@ add_action('acf/include_fields', function () {
                 'new_lines' => 'wpautop',
             ),
             array(
+                'key' => 'field_67588a7de031e',
+                'label' => 'Title',
+                'name' => 'title',
+                'type' => 'text',
+                'default_value' => 'Events',
+                'allow_in_bindings' => 0,
+            ),
+            array(
                 'key' => 'field_67151f4d8d544',
                 'label' => 'Event',
                 'name' => 'event',

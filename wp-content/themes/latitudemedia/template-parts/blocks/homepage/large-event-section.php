@@ -7,6 +7,7 @@ $options = wp_parse_args(
     $args,
     [
         'event'             => null,
+        'title'             => __('Events', 'ltm'),
         'base_color'        => '#C6168D',
         'shadow_color'      => '#F9E8F4',
         'display'           => false,
@@ -44,7 +45,7 @@ $eventStartDate = get_event_start_date($event->ID);
         <div class="event-large-item-section-wrapper">
             <div class="eyebrow ">
                 <div class="eyebrow-label">
-                    <?php _e('Events', 'ltm'); ?>
+                    <?php echo $title; ?>
                 </div>
             </div>
             <h3 class="event-title"><?php _e($event->post_title); ?></h3>
