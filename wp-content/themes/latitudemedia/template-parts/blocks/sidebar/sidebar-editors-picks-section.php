@@ -5,7 +5,7 @@ if (is_admin()) {
 // Set defaults Sidebar editors picks block.
 
 $postItemTemplate = get_wrap_rows_from_template('<li>
-            [tags-list]
+            <ul class="tags-list"><li><span>[article-type]</span></li></ul>
             [title]
             <div class="info">
                 [author]<span></span>[date]
@@ -91,6 +91,9 @@ if( !$items->have_posts() ) {
                             'date' => array(
                                 'format' => 'M j, Y'
                             ),
+                            'article-type' => array(
+                                    'wrap' => '%s'
+                            )
                         ),
                         'rows'          => $rows,
                         'wrap'          => $wrap,
