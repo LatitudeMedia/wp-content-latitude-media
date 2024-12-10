@@ -762,6 +762,11 @@ article ul li {
   background-color: #ffffff;
   color: #F99D1C;
 }
+
+.page-id-2016 header {
+  padding-bottom: 0;
+}
+
 @media screen and (max-width: 992px) {
   .wrapper {
     margin: 0;
@@ -807,6 +812,7 @@ article ul li {
     flex-direction: column;
   }
 }
+
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 32px;
