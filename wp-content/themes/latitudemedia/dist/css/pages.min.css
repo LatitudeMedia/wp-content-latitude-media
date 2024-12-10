@@ -911,6 +911,7 @@
 }
 .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .value a {
   color: #0f1e42;
+  text-transform: uppercase;
 }
 .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials {
   list-style: none;
