@@ -97,6 +97,7 @@ $(document).ready(function($) {
     const watchRecordingCta = $('.single-event-hero-section .strict-button')
     const watchEventForm = $('.wp-block-acf-event-description-block')
     const contactForm = $('.wp-block-acf-subscribe-form-block')
+    const advertisePodcastCta = $('.advertise-podcasts-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more')
     if(eventHeroSection.length > 0) {
         $(registerScrollCta).on("click", function(e) {
             $("html, body").animate({
@@ -117,6 +118,13 @@ $(document).ready(function($) {
 
     if(contactForm.length > 0) {
         $(registerScrollCta).on("click", function(e) {
+            e.preventDefault()
+            $("html, body").animate({
+                scrollTop: $(contactForm).offset().top
+            }, 1000);
+            return false;
+        });
+        $(advertisePodcastCta).on("click", function(e) {
             e.preventDefault()
             $("html, body").animate({
                 scrollTop: $(contactForm).offset().top
