@@ -1521,6 +1521,7 @@
 	.container {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 	@include below_md {
 		padding: 40px 0;
@@ -1529,6 +1530,7 @@
 		@include borderedTitle;
 		color: $white;
 		margin-bottom: 32px;
+		width: 100%;
 	}
 	.podcasts-large-blue-section-wrapper {
 		display: flex;

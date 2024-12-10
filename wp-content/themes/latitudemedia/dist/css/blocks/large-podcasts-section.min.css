@@ -9,6 +9,7 @@
 .podcasts-large-blue-section .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .podcasts-large-blue-section .bordered-title {
   font-family: "inter", Arial, Helvetica, sans-serif;
@@ -24,6 +25,7 @@
   margin-bottom: 16px;
   color: #ffffff;
   margin-bottom: 32px;
+  width: 100%;
 }
 .podcasts-large-blue-section .bordered-title.pink {
   border-bottom: 5px solid #C6168D;
