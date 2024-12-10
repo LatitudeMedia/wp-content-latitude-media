@@ -21,17 +21,15 @@ $authorData = ltm_get_author_data($author);
     <div class="container">
         <div class="team-member-hero-unit-wrapper">
             <div class="image-folder">
-                <a href="<?php echo get_term_link($author,'author')?>">
-                    <?php
-                    if( !empty($authorData['logo']) ) {
-                        do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $authorData['logo']['ID']]);
-                    }
-                    else {
-                        $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
-                        jetpack_get_resized_image($teamMemberDefaultImg, 427, 427, $author->name);
-                    }
-                    ?>
-                </a>
+                <?php
+                if( !empty($authorData['logo']) ) {
+                    do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $authorData['logo']['ID']]);
+                }
+                else {
+                    $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
+                    jetpack_get_resized_image($teamMemberDefaultImg, 427, 427, $author->name);
+                }
+                ?>
             </div>
             <div class="contact-folder">
                 <?php

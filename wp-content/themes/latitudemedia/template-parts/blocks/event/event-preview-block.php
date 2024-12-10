@@ -40,7 +40,7 @@ $blockAttrs = wp_kses_data(
 $date       = get_event_start_date($post_id, 'F d, Y H:i');
 $eventData  = get_fields($post_id);
 $registerButtonTitle = 'Register';
-if( $eventData['event_type'] === 'virtual') {
+if( !empty($eventData['event_type']) && $eventData['event_type'] === 'virtual') {
     $registerButtonTitle = 'Watch Recording';
 }
 ?>
