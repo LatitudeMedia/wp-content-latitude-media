@@ -3679,6 +3679,20 @@
 							bottom: 3px;
 						}
 					}
+					.authors {
+						display: flex;
+						align-items: center;
+						.author {
+							margin-right: 5px;
+						}
+						span {
+							height: 12px;
+							width: 2px;
+							background-color: $black;
+							display: block;
+							margin-right: 5px;
+						}
+					}
 				}
 			}
 		}
