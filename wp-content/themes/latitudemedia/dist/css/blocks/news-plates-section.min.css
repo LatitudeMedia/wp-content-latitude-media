@@ -115,6 +115,19 @@
   left: 0;
   bottom: 3px;
 }
+.related-news-section .related-news-section-wrapper ul li .content-folder .authors {
+  display: flex;
+  align-items: center;
+}
+.related-news-section .related-news-section-wrapper ul li .content-folder .authors .author {
+  margin-right: 5px;
+  padding-right: 5px;
+}
+.related-news-section .related-news-section-wrapper ul li .content-folder .authors span {
+  height: 10px;
+  width: 1px;
+  background-color: #000000;
+}
 @media screen and (max-width: 768px) {
   .related-news-section .related-news-section-wrapper ul {
     flex-direction: column;
