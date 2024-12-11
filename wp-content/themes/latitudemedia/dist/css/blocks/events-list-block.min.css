@@ -152,6 +152,9 @@
   display: table;
   margin: 0 auto;
 }
+.three-events-section .three-events-section-wrapper .hidden {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .three-events-section .three-events-section-wrapper ul {
     margin: 0;

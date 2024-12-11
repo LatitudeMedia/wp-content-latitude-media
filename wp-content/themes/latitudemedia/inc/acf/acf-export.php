@@ -331,6 +331,14 @@ add_action('acf/include_fields', function () {
                 'type' => 'true_false',
                 'default_value' => 0,
             ),
+            array(
+                'key' => 'field_6713b049e1582',
+                'label' => 'Gated?',
+                'name' => 'gated',
+                'type' => 'true_false',
+                'instructions' => '(RECAP) This will cause the page not show throughout the site.',
+                'default_value' => 0,
+            ),
         ),
         'location' => array(
             array(
@@ -519,14 +527,6 @@ add_action('acf/include_fields', function () {
                 'name' => 'map_iframe',
                 'type' => 'textarea',
                 'rows' => '',
-            ),
-            array(
-                'key' => 'field_6713b049e1582',
-                'label' => 'Gated?',
-                'name' => 'gated',
-                'type' => 'true_false',
-                'instructions' => '(RECAP) This will cause the page to be nonindexable by Google and not show throughout the site.',
-                'default_value' => 0,
             ),
             array(
                 'key' => 'field_6713b05de1583',

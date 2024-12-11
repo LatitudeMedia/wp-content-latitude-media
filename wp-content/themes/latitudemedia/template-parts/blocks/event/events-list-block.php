@@ -44,7 +44,7 @@ switch ($type) {
 }
 
 $postItemTemplate = get_wrap_rows_from_template('
-<li>
+<li class="{hiddenClass}">
     <div class="image-folder green">
         [thumb]
     </div>
@@ -87,9 +87,13 @@ if( $type !== 'upcoming' && !$eventsList->have_posts() ) {
                     <?php
                     while( $eventsList->have_posts() ) {
                         $eventsList->the_post();
-
                         $rows = $postItemTemplate['rows'];
-                        $wrap = $postItemTemplate['wrap'];
+                        if($eventsList->current_post > 2) {
+                            $wrap = preg_replace("/\{hiddenClass\}/", "hidden", $postItemTemplate['wrap']);
+                        }
+                        else {
+                            $wrap = preg_replace("/\{hiddenClass\}/", "", $postItemTemplate['wrap']);
+                        }
                         get_template_part(
                             'template-parts/components/post',
                             'item',
@@ -112,9 +116,8 @@ if( $type !== 'upcoming' && !$eventsList->have_posts() ) {
                     ?>
                 </ul>
                 <?php
-                    if($eventsList->max_num_pages > 1 && $eventsList->max_num_pages > $page) {
-                        $page++;
-                        printf('<a href="#" class="cta-button green load-more-events" data-page="%s" data-type="%s" data-events="%s" data-list-id="%s">%s</a>', $page, $type, implode(',', $events), $listID, __('load more'));
+                    if($eventsList->found_posts > 3) {
+                        printf('<a href="#" class="cta-button green load-more-events" data-page="%s" data-list-id="%s">%s</a>', $page, $listID, __('load more'));
                     }
                 ?>
             </div>

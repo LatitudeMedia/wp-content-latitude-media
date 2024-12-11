@@ -2282,7 +2282,6 @@
 					width: 100%;
 					margin-left: 0;
 				}
-
 				.image-folder {
 					margin-bottom: 26px;
 					@include imageFolder;
@@ -2337,6 +2336,10 @@
 		.cta-button {
 			display: table;
 			margin: 0 auto;
+		}
+
+		.hidden {
+			display: none;
 		}
 	}
 }

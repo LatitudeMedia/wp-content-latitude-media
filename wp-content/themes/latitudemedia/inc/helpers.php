@@ -400,7 +400,7 @@ function get_ad_banner_sizes($bannerId) {
 function get_events_list($type = '', $args = [], $ids = []) {
     $queryArgs = [
         'post_type'     => 'events',
-        'posts_per_page'=> 3,
+        'posts_per_page'=> -1,
     ];
 
     $queryArgs = wp_parse_args($args, $queryArgs);
@@ -420,22 +420,35 @@ function get_events_list($type = '', $args = [], $ids = []) {
                     'value'     => true,
                     'compare'   => '!=',
                 ),
+                array(
+                    'key'       => 'gated',
+                    'value'     => true,
+                    'compare'   => '!=',
+                ),
             );
             break;
         case 'past':
             $queryArgs['meta_query'] = array(
-                'relation'  => 'OR',
+                'relation'  => 'AND',
                 array(
-                    'key'       => 'end_date',
-                    'value'     => get_date_from_gmt(date('Y-m-d')),
-                    'compare'   => '<',
-                    'type'      => 'DATE',
-                ),
-                array(
-                    'key'       => 'past_event',
+                    'key'       => 'gated',
                     'value'     => true,
-                    'compare'   => '=',
+                    'compare'   => '!=',
                 ),
+                array(
+                    'relation'  => 'OR',
+                    array(
+                        'key'       => 'end_date',
+                        'value'     => get_date_from_gmt(date('Y-m-d')),
+                        'compare'   => '<',
+                        'type'      => 'DATE',
+                    ),
+                    array(
+                        'key'       => 'past_event',
+                        'value'     => true,
+                        'compare'   => '=',
+                    ),
+                )
             );
             break;
     }
