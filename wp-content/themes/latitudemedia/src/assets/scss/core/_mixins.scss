@@ -3684,12 +3684,13 @@
 						align-items: center;
 						.author {
 							margin-right: 5px;
-							padding-right: 5px;
 						}
 						span {
-							height: 10px;
-							width: 1px;
+							height: 12px;
+							width: 2px;
 							background-color: $black;
+							display: block;
+							margin-right: 5px;
 						}
 					}
 				}
