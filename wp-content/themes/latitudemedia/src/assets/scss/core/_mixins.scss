@@ -2124,6 +2124,7 @@
 		letter-spacing: -2px;
 		text-align: left;
 		margin-bottom: 32px;
+		text-align: center;
 		@include below_sm {
 			@include fontSize(32px);
 			line-height: 45px;
