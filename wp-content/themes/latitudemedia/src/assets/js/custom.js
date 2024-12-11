@@ -95,7 +95,7 @@ $(document).ready(function($) {
     // strict-button
     const ctaButtonsWithAnchors = $('.cta-button:not(.js-modal-close,.js-modal-open), .strict-button:not(.js-modal-close,.js-modal-open), .learn-more');
     if(ctaButtonsWithAnchors.length > 0) {
-        $(ctaButtonsWithAnchors).on("click", function(e) {
+        ctaButtonsWithAnchors.on("click", function(e) {
             const anchor = e.target.getAttribute('href');
             if( !anchor.startsWith('#') || anchor.length === 1 ) {
                 return;
