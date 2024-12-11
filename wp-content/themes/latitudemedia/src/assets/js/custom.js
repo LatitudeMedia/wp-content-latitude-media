@@ -91,43 +91,18 @@ $(document).ready(function($) {
         })
     }
 
-    //Single Event scroll on CTA click
-    const eventHeroSection = $('.single-event-hero-section');
-    const registerScrollCta = $('.register-scroll-cta');
-    const watchRecordingCta = $('.single-event-hero-section .strict-button')
-    const watchEventForm = $('.wp-block-acf-event-description-block')
-    const contactForm = $('.wp-block-acf-subscribe-form-block')
-    const advertisePodcastCta = $('.advertise-podcasts-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more')
-    if(eventHeroSection.length > 0) {
-        $(registerScrollCta).on("click", function(e) {
-            $("html, body").animate({
-                scrollTop: $(eventHeroSection).offset().top
-            }, 1000);
-            return false;
-        });
-    }
+    // cta-button
+    // strict-button
+    const ctaButtonsWithAnchors = $('.cta-button:not(.js-modal-close,.js-modal-open), .strict-button:not(.js-modal-close,.js-modal-open), .learn-more');
+    if(ctaButtonsWithAnchors.length > 0) {
+        $(ctaButtonsWithAnchors).on("click", function(e) {
+            const anchor = e.target.getAttribute('href');
+            if( !anchor.startsWith('#') || anchor.length === 1 ) {
+                return;
+            }
 
-    if(watchEventForm.length > 0) {
-        $(watchRecordingCta).on("click", function(e) {
             $("html, body").animate({
-                scrollTop: $(watchEventForm).offset().top
-            }, 1000);
-            return false;
-        });
-    }
-
-    if(contactForm.length > 0) {
-        $(registerScrollCta).on("click", function(e) {
-            e.preventDefault()
-            $("html, body").animate({
-                scrollTop: $(contactForm).offset().top
-            }, 1000);
-            return false;
-        });
-        $(advertisePodcastCta).on("click", function(e) {
-            e.preventDefault()
-            $("html, body").animate({
-                scrollTop: $(contactForm).offset().top
+                scrollTop: $(anchor).offset().top
             }, 1000);
             return false;
         });
