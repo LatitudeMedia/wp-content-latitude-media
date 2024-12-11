@@ -339,37 +339,6 @@ add_action('acf/include_fields', function () {
                 'instructions' => '(RECAP) This will cause the page not show throughout the site.',
                 'default_value' => 0,
             ),
-            array(
-                'key' => 'field_6713b05de1583',
-                'label' => 'Recap hero',
-                'name' => 'recap_hero',
-                'type' => 'text',
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field' => 'field_6713b049e1582',
-                            'operator' => '==',
-                            'value' => '1',
-                        ),
-                    ),
-                ),
-            ),
-            array(
-                'key' => 'field_6713b067e1584',
-                'label' => 'Recap video intro',
-                'name' => 'recap_video_intro',
-                'type' => 'text',
-                'instructions' => 'H2 text before the video (center aligned)',
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field' => 'field_6713b049e1582',
-                            'operator' => '==',
-                            'value' => '1',
-                        ),
-                    ),
-                ),
-            ),
         ),
         'location' => array(
             array(
@@ -558,6 +527,19 @@ add_action('acf/include_fields', function () {
                 'name' => 'map_iframe',
                 'type' => 'textarea',
                 'rows' => '',
+            ),
+            array(
+                'key' => 'field_6713b05de1583',
+                'label' => 'Recap hero',
+                'name' => 'recap_hero',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_6713b067e1584',
+                'label' => 'Recap video intro',
+                'name' => 'recap_video_intro',
+                'type' => 'text',
+                'instructions' => 'H2 text before the video (center aligned)',
             ),
             array(
                 'key' => 'field_6713b078e1585',
