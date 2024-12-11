@@ -1,0 +1,17 @@
+.upcoming-events-empty {
+	background-color: #f5f5f5;
+	padding: 40px;
+	font-family: $lora;
+	@include fontSize(24px);
+	line-height: 34px;
+	color: $primary-dark-blue;
+	text-align: center;
+	font-weight: 700;
+	a {
+		text-decoration: underline;
+		color: $primary-dark-blue;
+		&:hover {
+			color: $primary-pink;
+		}
+	}
+}
