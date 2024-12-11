@@ -2282,7 +2282,6 @@
 					width: 100%;
 					margin-left: 0;
 				}
-
 				.image-folder {
 					margin-bottom: 26px;
 					@include imageFolder;
@@ -2337,6 +2336,10 @@
 		.cta-button {
 			display: table;
 			margin: 0 auto;
+		}
+
+		.hidden {
+			display: none;
 		}
 	}
 }
@@ -3674,6 +3677,19 @@
 							position: absolute;
 							left: 0;
 							bottom: 3px;
+						}
+					}
+					.authors {
+						display: flex;
+						align-items: center;
+						.author {
+							margin-right: 5px;
+							padding-right: 5px;
+						}
+						span {
+							height: 10px;
+							width: 1px;
+							background-color: $black;
 						}
 					}
 				}

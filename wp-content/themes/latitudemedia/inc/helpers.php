@@ -62,7 +62,7 @@ function is_news_type($type = '', $post_id = null) {
  * @param string $format
  * @return int|string
  */
-function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-d H:i:s') {
+function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-j H:i:s') {
     $date = DateTime::createFromFormat($inputFormat, $dateString);
 
     if ($date) {
@@ -336,7 +336,7 @@ function get_post_assigned_podcast( $post_id = null ) {
 
     return get_field('podcast', $post_id) ?: false;
 }
-function get_event_start_date($event_id, $format = 'F d Y') {
+function get_event_start_date($event_id, $format = 'F j Y') {
     if ( ! $event_id ) {
         $event_id = get_the_ID();
     }
@@ -349,7 +349,7 @@ function get_event_start_date($event_id, $format = 'F d Y') {
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
 
-function get_event__end_date($event_id, $format = 'F d Y') {
+function get_event__end_date($event_id, $format = 'F j Y') {
     if ( ! $event_id ) {
         $event_id = get_the_ID();
     }
@@ -400,13 +400,18 @@ function get_ad_banner_sizes($bannerId) {
 function get_events_list($type = '', $args = [], $ids = []) {
     $queryArgs = [
         'post_type'     => 'events',
-        'posts_per_page'=> 3,
+        'meta_key' => 'start_date',
+        'orderby' => 'meta_value',
+        'meta_type' => 'DATE',
+        'order' => 'DESC',
+        'posts_per_page'=> -1,
     ];
 
     $queryArgs = wp_parse_args($args, $queryArgs);
 
     switch($type) {
         case 'upcoming':
+            $queryArgs['order'] = 'ASC';
             $queryArgs['meta_query'] = array(
                 'relation'  => 'AND',
                 array(
@@ -420,22 +425,35 @@ function get_events_list($type = '', $args = [], $ids = []) {
                     'value'     => true,
                     'compare'   => '!=',
                 ),
+                array(
+                    'key'       => 'gated',
+                    'value'     => true,
+                    'compare'   => '!=',
+                ),
             );
             break;
         case 'past':
             $queryArgs['meta_query'] = array(
-                'relation'  => 'OR',
+                'relation'  => 'AND',
                 array(
-                    'key'       => 'end_date',
-                    'value'     => get_date_from_gmt(date('Y-m-d')),
-                    'compare'   => '<',
-                    'type'      => 'DATE',
-                ),
-                array(
-                    'key'       => 'past_event',
+                    'key'       => 'gated',
                     'value'     => true,
-                    'compare'   => '=',
+                    'compare'   => '!=',
                 ),
+                array(
+                    'relation'  => 'OR',
+                    array(
+                        'key'       => 'end_date',
+                        'value'     => get_date_from_gmt(date('Y-m-d')),
+                        'compare'   => '<',
+                        'type'      => 'DATE',
+                    ),
+                    array(
+                        'key'       => 'past_event',
+                        'value'     => true,
+                        'compare'   => '=',
+                    ),
+                )
             );
             break;
     }

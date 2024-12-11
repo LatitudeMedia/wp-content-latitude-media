@@ -8,7 +8,11 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
                         </div>
                         <div class="content-folder">
                             <h4>[title]</h4>
-                            [excerpt]
+                            <div class="info">
+                                [date]
+                                <span></span>
+                                [excerpt]
+                            </div>
                         </div>
                 </li>');
 

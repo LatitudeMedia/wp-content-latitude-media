@@ -7,6 +7,8 @@ $options = wp_parse_args(
     $args,
     [
         'event'             => null,
+        'title'             => __('Events', 'ltm'),
+        'button_copy'       => __('Register now', 'ltm'),
         'base_color'        => '#C6168D',
         'shadow_color'      => '#F9E8F4',
         'display'           => false,
@@ -24,6 +26,7 @@ if( empty($event) ) {
     return;
 }
 
+\LatitudeMedia\Page_Data()->addItems([$event->ID]);
 $eventStartDate = get_event_start_date($event->ID);
 ?>
 
@@ -44,7 +47,7 @@ $eventStartDate = get_event_start_date($event->ID);
         <div class="event-large-item-section-wrapper">
             <div class="eyebrow ">
                 <div class="eyebrow-label">
-                    <?php _e('Events', 'ltm'); ?>
+                    <?php echo $title; ?>
                 </div>
             </div>
             <h3 class="event-title"><?php _e($event->post_title); ?></h3>
@@ -58,7 +61,7 @@ $eventStartDate = get_event_start_date($event->ID);
                 <div class="decription-title"><?php _e('Latitude events Presents:', 'ltm')?></div>
                 <?php do_action('print_article_excerpt', $event->ID); ?>
             </div>
-            <a href="<?php the_permalink($event->ID)?>" class="cta-button "><span><?php _e('register now', 'ltm'); ?></span></a>
+            <a href="<?php the_permalink($event->ID)?>" class="cta-button "><span><?php _e($button_copy); ?></span></a>
         </div>
     </div>
 </div>

@@ -41,15 +41,15 @@ $sponsor = get_published_post_by_id($sponsorId, ['post_type' => 'sponsors']);
                         </div>
                     </div>
                 </div>
-                <div class="sidebar">
-                    <?php if( !empty($resourceData['form_code']) ) : ?>
-                    <div class="form-block pink">
-                        <div class="form-block-wrapper">
-                            <?php printf('%s', $resourceData['form_code']); ?>
+                <?php if( !empty($resourceData['form_code']) ) : ?>
+                    <div class="sidebar">
+                        <div class="form-block pink">
+                            <div class="form-block-wrapper">
+                                <?php printf('%s', $resourceData['form_code']); ?>
+                            </div>
                         </div>
                     </div>
-                    <?php endif; ?>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

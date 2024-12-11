@@ -14,30 +14,13 @@ $(document).ready(function($) {
     pageLinks.on( 'click', loadMoreEvents);
     function loadMoreEvents(e) {
         e.preventDefault();
-        if(!appRest) {
-            return;
+        const listHiddenEvents = $('.three-events-section[data-list-id="' + e.target.dataset.listId + '"] ul .hidden');
+        const nextItems = listHiddenEvents.slice(0,3)
+        if(nextItems.length) {
+            nextItems.removeClass('hidden');
         }
-        let postBody = e.target.dataset;
-
-        $.get({
-            url: appRest.rest_endpoints.load_more_events,
-            data: postBody,
-            success: (wpRes) => {
-                if ('content' in wpRes) {
-                    let listContainer = $('.three-events-section[data-list-id="' + e.target.dataset.listId + '"] ul');
-                    if(listContainer.length) {
-                        listContainer.append(wpRes.content);
-                    }
-                }
-                if ('next_page' in wpRes && wpRes.next_page) {
-                    e.target.dataset.page = wpRes.next_page;
-                } else {
-                    e.target.style.display = 'none';
-                }
-            },
-            error: (err) => {
-                console.log(err);
-            },
-        });
+        if(listHiddenEvents.length < 3) {
+            e.target.classList.add('hidden');
+        }
     }
 });

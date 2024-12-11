@@ -331,6 +331,14 @@ add_action('acf/include_fields', function () {
                 'type' => 'true_false',
                 'default_value' => 0,
             ),
+            array(
+                'key' => 'field_6713b049e1582',
+                'label' => 'Gated?',
+                'name' => 'gated',
+                'type' => 'true_false',
+                'instructions' => '(RECAP) This will cause the page not show throughout the site.',
+                'default_value' => 0,
+            ),
         ),
         'location' => array(
             array(
@@ -519,14 +527,6 @@ add_action('acf/include_fields', function () {
                 'name' => 'map_iframe',
                 'type' => 'textarea',
                 'rows' => '',
-            ),
-            array(
-                'key' => 'field_6713b049e1582',
-                'label' => 'Gated?',
-                'name' => 'gated',
-                'type' => 'true_false',
-                'instructions' => '(RECAP) This will cause the page to be nonindexable by Google and not show throughout the site.',
-                'default_value' => 0,
             ),
             array(
                 'key' => 'field_6713b05de1583',
@@ -743,6 +743,14 @@ add_action('acf/include_fields', function () {
                 'new_lines' => 'wpautop',
             ),
             array(
+                'key' => 'field_67588a7de031e',
+                'label' => 'Title',
+                'name' => 'title',
+                'type' => 'text',
+                'default_value' => 'Events',
+                'allow_in_bindings' => 0,
+            ),
+            array(
                 'key' => 'field_67151f4d8d544',
                 'label' => 'Event',
                 'name' => 'event',
@@ -758,6 +766,13 @@ add_action('acf/include_fields', function () {
                 'bidirectional' => 0,
                 'ui' => 1,
                 'bidirectional_target' => array(),
+            ),
+            array(
+                'key' => 'field_675975313b2dc',
+                'label' => 'Button copy',
+                'name' => 'button_copy',
+                'type' => 'text',
+                'default_value' => 'Register now',
             ),
             array(
                 'key' => 'field_67154c1fe8658',
@@ -2848,11 +2863,11 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
     ));
     acf_add_local_field_group(array(
         'key' => 'group_673dbb6f2ff61',
-        'title' => 'Partner porcasts block',
+        'title' => 'Partner podcasts block',
         'fields' => array(
             array(
                 'key' => 'field_673db9fd12133',
-                'label' => 'Partner porcasts block',
+                'label' => 'Partner podcasts block',
                 'name' => '',
                 'type' => 'message',
                 'esc_html' => 0,

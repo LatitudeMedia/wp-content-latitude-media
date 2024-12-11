@@ -55,7 +55,7 @@ if(!$teamMembers->have_posts()) {
                     ?>
                     <li>
                         <div class="image-folder">
-                            <a href="#">
+                            <a href="<?php the_permalink(); ?>">
                                 <?php
                                 if( has_post_thumbnail() ) {
                                     do_action('thumbnail_formatting', get_the_ID(), ['link' => false, 'size' => 'event-speakers-list']);

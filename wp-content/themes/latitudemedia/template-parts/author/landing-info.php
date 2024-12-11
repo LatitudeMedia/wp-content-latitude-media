@@ -21,15 +21,17 @@ $authorData = ltm_get_author_data($author);
     <div class="container">
         <div class="team-member-hero-unit-wrapper">
             <div class="image-folder">
-                <?php
-                if( !empty($authorData['logo']) ) {
-                    do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $authorData['logo']['ID']]);
-                }
-                else {
-                    $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
-                    jetpack_get_resized_image($teamMemberDefaultImg, 427, 427, $author->name);
-                }
-                ?>
+                <span>
+                    <?php
+                    if( !empty($authorData['logo']) ) {
+                        do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $authorData['logo']['ID']]);
+                    }
+                    else {
+                        $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
+                        jetpack_get_resized_image($teamMemberDefaultImg, 427, 427, $author->name);
+                    }
+                    ?>
+                </span>
             </div>
             <div class="contact-folder">
                 <?php
@@ -38,7 +40,9 @@ $authorData = ltm_get_author_data($author);
                     //Author bio
                     echo $authorData['bio'];
                     //Author socials
-                    get_template_part('template-parts/author/social','links', ['author' => $author]);
+                    if( $socialLinks = ltm_get_author_socials($author) ) {
+                        get_template_part('template-parts/author/social','links', ['links' => $socialLinks]);
+                    }
                 ?>
             </div>
         </div>

@@ -235,16 +235,27 @@ if ( ! function_exists( 'print_article_tags_list' ) ) :
 endif;
 
 if ( ! function_exists( 'print_article_type' ) ) :
-    function print_article_type( $post_id = null ) {
+    function print_article_type( $post_id = null, $args ) {
         if ( ! $post_id ) {
             $post_id = get_the_ID();
         }
 
         $news_type = ltm_get_news_type($post_id);
+        if(!$news_type) {
+            return;
+        }
+        $defaults = [
+            'wrap' => '<div class="category">%1s</div>',
+        ];
 
-        echo '<div class="category">' . $news_type . '</div>';
+        $args = wp_parse_args($args, $defaults);
+        extract($args);
+
+        $typeLine = sprintf( $wrap, $news_type);
+
+        echo $typeLine;
     }
-    add_action('print_article_type', 'print_article_type', 10, 4);
+    add_action('print_article_type', 'print_article_type', 10, 2);
 endif;
 
 if ( ! function_exists( 'print_podcast_time' ) ) :
@@ -549,7 +560,7 @@ if ( ! function_exists( 'print_event_start_date' ) ) :
         }
         $defaults = [
             'wrap'  => '<div class="date">%1s</div>',
-            'format' => 'M d, Y',
+            'format' => 'M j, Y',
         ];
         $args = wp_parse_args($args, $defaults);
         extract($args);

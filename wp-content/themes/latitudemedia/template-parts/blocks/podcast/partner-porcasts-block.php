@@ -1,8 +1,8 @@
 <?php
 if (is_admin()) {
-    echo '<h3 style="text-align: center;">' . __('Partner porcasts block', 'ltm') . '</h3>';
+    echo '<h3 style="text-align: center;">' . __('Partner podcasts block', 'ltm') . '</h3>';
 }
-// Set defaults Partner porcasts block.
+// Set defaults Partner podcasts block.
 $options = wp_parse_args(
     $args,
     [
