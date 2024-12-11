@@ -25,6 +25,7 @@ if( empty($event) ) {
     return;
 }
 
+\LatitudeMedia\Page_Data()->addItems([$event->ID]);
 $eventStartDate = get_event_start_date($event->ID);
 ?>
 

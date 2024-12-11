@@ -31,15 +31,16 @@ $blockAttrs = wp_kses_data(
   )
 );
 
+$exclude = \LatitudeMedia\Page_Data()->getItems();
 switch ($type) {
     case 'upcoming':
-        $eventsList = get_events_list('upcoming', ['paged' => $page]);
+        $eventsList = get_events_list('upcoming', ['post__not_in' => $exclude]);
         break;
     case 'past':
-        $eventsList = get_events_list('past', ['paged' => $page]);
+        $eventsList = get_events_list('past', ['post__not_in' => $exclude]);
         break;
     default:
-        $eventsList = get_events_list('', ['paged' => $page], $events);
+        $eventsList = get_events_list('', ['post__not_in' => $exclude], $events);
         break;
 }
 
