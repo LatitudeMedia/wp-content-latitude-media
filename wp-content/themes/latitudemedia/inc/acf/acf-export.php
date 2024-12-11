@@ -768,6 +768,13 @@ add_action('acf/include_fields', function () {
                 'bidirectional_target' => array(),
             ),
             array(
+                'key' => 'field_675975313b2dc',
+                'label' => 'Button copy',
+                'name' => 'button_copy',
+                'type' => 'text',
+                'default_value' => 'Register now',
+            ),
+            array(
                 'key' => 'field_67154c1fe8658',
                 'label' => 'Base color',
                 'name' => 'base_color',
