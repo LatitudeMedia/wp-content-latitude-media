@@ -16,14 +16,16 @@
 	}
 }
 
-.is-style-type4 {
-	.image-text-section-wrapper {
-		.image-folder {
-			span {
-				padding: initial;
-				img {
-					height: auto;
-					position: initial;
+.image-text-section {
+	&.is-style-type4 {
+		.image-text-section-wrapper {
+			.image-folder {
+				span {
+					padding: initial;
+					img {
+						height: auto;
+						position: initial;
+					}
 				}
 			}
 		}
