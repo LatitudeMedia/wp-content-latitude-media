@@ -146,10 +146,10 @@
   color: #C6168D;
 }
 
-.is-style-type4 .image-text-section-wrapper .image-folder span {
+.image-text-section.is-style-type4 .image-text-section-wrapper .image-folder span {
   padding: initial;
 }
-.is-style-type4 .image-text-section-wrapper .image-folder span img {
+.image-text-section.is-style-type4 .image-text-section-wrapper .image-folder span img {
   height: auto;
   position: initial;
 }
