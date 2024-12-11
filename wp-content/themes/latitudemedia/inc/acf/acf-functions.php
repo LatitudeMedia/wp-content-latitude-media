@@ -684,14 +684,14 @@ $blocks = array(
     array(
         'attrs' => array(
             'name'  		=> 'partner-porcasts-block',
-            'title' 		=> __('Partner porcasts block', 'ltm'),
+            'title' 		=> __('Partner podcasts block', 'ltm'),
             'path'  		=> 'podcast',
         ),
         'icon'  		=> 'businessman',
-        'description' => __('Partner porcasts block', 'ltm'),
+        'description' => __('Partner podcasts block', 'ltm'),
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
-        'keywords'    => array( __('Partner porcasts block', 'ltm') ),
+        'keywords'    => array( __('Partner podcasts block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/partner-porcasts-block.min.css',
         'example'  	=> array(
             'attributes' => array(

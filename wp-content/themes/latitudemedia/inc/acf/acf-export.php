@@ -2856,11 +2856,11 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
     ));
     acf_add_local_field_group(array(
         'key' => 'group_673dbb6f2ff61',
-        'title' => 'Partner porcasts block',
+        'title' => 'Partner podcasts block',
         'fields' => array(
             array(
                 'key' => 'field_673db9fd12133',
-                'label' => 'Partner porcasts block',
+                'label' => 'Partner podcasts block',
                 'name' => '',
                 'type' => 'message',
                 'esc_html' => 0,
