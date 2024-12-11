@@ -411,6 +411,7 @@ function get_events_list($type = '', $args = [], $ids = []) {
 
     switch($type) {
         case 'upcoming':
+            $queryArgs['order'] = 'ASC';
             $queryArgs['meta_query'] = array(
                 'relation'  => 'AND',
                 array(
