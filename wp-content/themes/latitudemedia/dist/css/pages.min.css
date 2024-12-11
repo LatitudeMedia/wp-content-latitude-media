@@ -146,6 +146,14 @@
   color: #C6168D;
 }
 
+.image-text-section.is-style-type4 .image-text-section-wrapper .image-folder span {
+  padding: initial;
+}
+.image-text-section.is-style-type4 .image-text-section-wrapper .image-folder span img {
+  height: auto;
+  position: initial;
+}
+
 .advertise-podcasts header {
   padding-bottom: 0;
 }
