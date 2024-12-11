@@ -400,6 +400,10 @@ function get_ad_banner_sizes($bannerId) {
 function get_events_list($type = '', $args = [], $ids = []) {
     $queryArgs = [
         'post_type'     => 'events',
+        'meta_key' => 'start_date',
+        'orderby' => 'meta_value_num',
+        'meta_type' => 'DATE',
+        'order' => 'DESC',
         'posts_per_page'=> -1,
     ];
 
