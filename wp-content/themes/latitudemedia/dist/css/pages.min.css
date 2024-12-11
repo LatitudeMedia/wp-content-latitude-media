@@ -136,6 +136,7 @@
   line-height: 34px;
   color: #0F1E42;
   text-align: center;
+  font-weight: 700;
 }
 .upcoming-events-empty a {
   text-decoration: underline;
