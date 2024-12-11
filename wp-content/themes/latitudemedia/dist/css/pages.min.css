@@ -676,6 +676,10 @@
   margin-bottom: 64px;
 }
 
+.single-research .logo-description-block .logo-description-block-wrapper .logo-image {
+  max-width: 340px;
+}
+
 .right-sidebar-layout {
   margin-bottom: 64px;
 }
