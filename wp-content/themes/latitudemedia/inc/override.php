@@ -52,3 +52,31 @@ function search_page_order_by_date( $orderby, $query ){
 
     return  $orderby;
 }
+
+/**
+ * Add post rewrite slug url segment /news/
+ * @param $args
+ * @param $post_type
+ * @return mixed
+ */
+function ltm_custom_post_type_args( $args, $post_type ) {
+    if ( $post_type == "post" ) {
+        $args['rewrite'] = array(
+            'slug' => 'news'
+        );
+    }
+
+    return $args;
+}
+add_filter( 'register_post_type_args', 'ltm_custom_post_type_args', 20, 2 );
+
+/**
+ * Append to permalink segment /news/
+ */
+add_filter('pre_post_link', 'ltm_change_post_link', 10, 3);
+function ltm_change_post_link($permalink, $post, $leavename) {
+    if (get_post_type($post) == 'post') {
+        return "/news" . $permalink;
+    }
+    return $permalink;
+}

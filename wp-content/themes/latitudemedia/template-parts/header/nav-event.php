@@ -14,7 +14,7 @@
         </div>
         <div class="middle-head">
             <div class="container">
-                <a class="logo" href="<?php echo home_url('/'); ?>">
+                <a class="logo" href="<?php echo home_url('/events/'); ?>">
                     <img class="event-background" src="<?php echo get_template_directory_uri() . '/src/images/events_logo.svg'; ?>" alt="logo" />
                 </a>
                 <div class="logo-description"><?php _e('Covering the new frontiers of the energy transition','ltm'); ?></div>

@@ -2640,7 +2640,7 @@
 			}
 
 			.learn-more {
-				color: $primary-pink;
+				color: var(--custom-block-base-color, $primary-pink);
 				font-family: $inter;
 				@include fontSize(16px);
 				font-weight: 700;
@@ -2649,22 +2649,6 @@
 				text-align: left;
 				text-decoration: none;
 				text-transform: uppercase;
-
-				&.pink {
-					color: $primary-pink;
-				}
-
-				&.green {
-					color: $green;
-				}
-
-				&.blue {
-					color: $blue;
-				}
-
-				&.orange {
-					color: $orange;
-				}
 			}
 		}
 	}

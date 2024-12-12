@@ -743,7 +743,7 @@
   margin-bottom: 32px;
 }
 .studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more {
-  color: #C6168D;
+  color: var(--custom-block-base-color, #C6168D);
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-size: 1rem;
@@ -753,18 +753,6 @@
   text-align: left;
   text-decoration: none;
   text-transform: uppercase;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.pink {
-  color: #C6168D;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.green {
-  color: #00B48D;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.blue {
-  color: #0095DA;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.orange {
-  color: #F99D1C;
 }
 
 .studios-text-block {
