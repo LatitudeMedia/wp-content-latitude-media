@@ -12,6 +12,7 @@ $options = wp_parse_args(
                 'date',
                 'type',
                 'series',
+                'title',
                 'location',
                 'button',
         ],
@@ -71,7 +72,10 @@ if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                 }
             ?>
             <?php
-                printf('<h1>%s</h1>', get_the_title($post_id));
+
+                if( in_array('title', $rows) ) {
+                    printf('<h1>%s</h1>', get_the_title($post_id));
+                }
 
                 if( in_array('location', $rows) ) {
                     do_action('print_event_location', $post_id);

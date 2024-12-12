@@ -154,6 +154,30 @@
   position: initial;
 }
 
+.wp-block-acf-recap-video-block {
+  margin-bottom: 64px;
+}
+.wp-block-acf-recap-video-block .recap-video-section-wrapper h2 {
+  font-size: 48px;
+  font-size: 3rem;
+  line-height: 67px;
+  color: #0F1E42;
+  text-align: center;
+  margin-bottom: 56px;
+}
+.wp-block-acf-recap-video-block .recap-video-section-wrapper .recap-iframe-folder {
+  padding-top: 56.206088993%;
+  position: relative;
+}
+.wp-block-acf-recap-video-block .recap-video-section-wrapper .recap-iframe-folder iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .advertise-podcasts header {
   padding-bottom: 0;
 }
@@ -743,7 +767,7 @@
   margin-bottom: 32px;
 }
 .studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more {
-  color: #C6168D;
+  color: var(--custom-block-base-color, #C6168D);
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-size: 1rem;
@@ -753,18 +777,6 @@
   text-align: left;
   text-decoration: none;
   text-transform: uppercase;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.pink {
-  color: #C6168D;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.green {
-  color: #00B48D;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.blue {
-  color: #0095DA;
-}
-.studios-featured-section .advertise-podcasts-featured-section-wrapper .content-block .learn-more.orange {
-  color: #F99D1C;
 }
 
 .studios-text-block {
@@ -2089,6 +2101,10 @@
     font-size: 1.75rem;
     line-height: 38px;
   }
+  .wp-block-acf-recap-video-block .recap-video-section-wrapper h2 {
+    font-size: 40px;
+    font-size: 2.5rem;
+  }
   .company-search-block.image-text-section .image-text-section-wrapper .image-folder {
     width: 100%;
   }
@@ -2176,6 +2192,10 @@
   }
 }
 @media screen and (max-width: 576px) {
+  .wp-block-acf-recap-video-block .recap-video-section-wrapper h2 {
+    font-size: 32px;
+    font-size: 2rem;
+  }
   .wide-form-section .wide-form-section-wrapper form .fieldset.double {
     flex-direction: column;
     margin-bottom: 0;

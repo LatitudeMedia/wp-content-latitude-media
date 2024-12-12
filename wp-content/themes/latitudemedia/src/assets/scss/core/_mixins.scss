@@ -2640,7 +2640,7 @@
 			}
 
 			.learn-more {
-				color: $primary-pink;
+				color: var(--custom-block-base-color, $primary-pink);
 				font-family: $inter;
 				@include fontSize(16px);
 				font-weight: 700;
@@ -2649,22 +2649,6 @@
 				text-align: left;
 				text-decoration: none;
 				text-transform: uppercase;
-
-				&.pink {
-					color: $primary-pink;
-				}
-
-				&.green {
-					color: $green;
-				}
-
-				&.blue {
-					color: $blue;
-				}
-
-				&.orange {
-					color: $orange;
-				}
 			}
 		}
 	}
@@ -6171,6 +6155,36 @@
 			line-height: 23px;
 			color: $primary-dark-blue;
 			margin-bottom: 20px;
+		}
+	}
+}
+
+@mixin recapVideoSection {
+	.recap-video-section-wrapper {
+		h2 {
+			@include fontSize(48px);
+			line-height: 67px;
+			color: $primary-dark-blue;
+			text-align: center;
+			margin-bottom: 56px;
+			@include below_sm {
+				@include fontSize(40px);
+			}
+			@include below_mob {
+				@include fontSize(32px);
+			}
+		}
+		.recap-iframe-folder {
+			padding-top: 56.20608899297424%;
+			position: relative;
+			iframe {
+				border: none;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
 		}
 	}
 }

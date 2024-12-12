@@ -10,6 +10,7 @@ $options = wp_parse_args(
         'logo'      => null,
         'title'     => false,
         'link'      => [],
+        'link_color'=> "#C6168D",
         'display'   => false,
         'blockAttributes' => [],
     ]
@@ -21,10 +22,11 @@ if(!$display && !is_admin()) {
     return;
 }
 
-
+$link_color = $link_color ?: "#C6168D";
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
       [
+          "style" => "--custom-block-base-color: {$link_color};",
           "class" => 'content-block advertise-podcasts-featured-section',
           "id" => $blockAttributes['anchor'] ?: '',
       ]

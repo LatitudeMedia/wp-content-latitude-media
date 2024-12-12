@@ -19,7 +19,7 @@ $(document).ready(function($) {
         if(nextItems.length) {
             nextItems.removeClass('hidden');
         }
-        if(listHiddenEvents.length < 3) {
+        if(listHiddenEvents.length <= 3) {
             e.target.classList.add('hidden');
         }
     }

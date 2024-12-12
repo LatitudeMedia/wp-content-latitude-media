@@ -31,3 +31,8 @@
 		}
 	}
 }
+
+.wp-block-acf-recap-video-block {
+	@include recapVideoSection;
+	margin-bottom: 64px;
+}
