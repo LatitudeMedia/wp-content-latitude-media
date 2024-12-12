@@ -128,7 +128,7 @@ function categories_limit() {
 								const newCategories = getTerms(taxonomy.type);
 								const categoriesChanged = newCategories !== taxonomy.values;
 								taxonomy.values = newCategories;
-								if ( taxonomy.values && taxonomy.values.length >= 3 ) {
+								if ( taxonomy.values && taxonomy.values.length >= 2 ) {
     								jQuery('.editor-post-taxonomies__hierarchical-terms-list[aria-label=\"Categories\"] input:not(:checked)').prop( \"disabled\", true );
 								}
 								else
