@@ -5027,9 +5027,10 @@
 				li {
 					margin: 0 16px 16px 16px;
 					a {
-						display: block;
+						display: flex;
 						text-decoration: none;
 						max-width: 150px;
+						align-items: center;
 						img {
 
 						}
