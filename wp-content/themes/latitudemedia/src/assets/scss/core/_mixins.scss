@@ -6174,3 +6174,24 @@
 		}
 	}
 }
+
+@mixin recapVideoSection {
+	.recap-video-section-wrapper {
+		h2 {
+			@include fontSize(48px);
+			line-height: 67px;
+			color: $primary-dark-blue;
+			text-align: center;
+			margin-bottom: 56px;
+			@include below_sm {
+				@include fontSize(40px);
+			}
+			@include below_mob {
+				@include fontSize(32px);
+			}
+		}
+		iframe {
+
+		}
+	}
+}
