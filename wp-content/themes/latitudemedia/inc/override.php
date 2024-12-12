@@ -35,6 +35,14 @@ function resources_archive_custom_query( $query ) {
 }
 add_action( 'pre_get_posts', 'resources_archive_custom_query', 20 );
 
+function news_page_posts_number( $query ) {
+    if ( is_admin() || !$query->is_main_query() || !is_home() ) {
+        return;
+    }
+    $query->set( 'posts_per_page', 15 );
+}
+add_action( 'pre_get_posts', 'news_page_posts_number', 20 );
+
 add_filter( 'pre_get_posts', 'exclude_pages_from_search' );
 function exclude_pages_from_search($query) {
     if ( !is_admin() && $query->is_main_query() && $query->is_search ) {
