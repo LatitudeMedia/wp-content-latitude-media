@@ -5026,11 +5026,12 @@
 				flex-wrap: wrap;
 				li {
 					margin: 0 16px 16px 16px;
+					align-items: center;
+					display: flex;
 					a {
-						display: flex;
+						display: block;
 						text-decoration: none;
 						max-width: 150px;
-						align-items: center;
 						img {
 
 						}

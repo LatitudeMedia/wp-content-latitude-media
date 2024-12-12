@@ -25,12 +25,13 @@
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
   margin: 0 16px 16px 16px;
+  align-items: center;
+  display: flex;
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a {
-  display: flex;
+  display: block;
   text-decoration: none;
   max-width: 150px;
-  align-items: center;
 }
 .event-sponsors-section.pink .bordered-title {
   border-color: #C6168D;
