@@ -90,6 +90,7 @@
 }
 .agenda-section.green .agenda-section-wrapper ul li {
   border-color: #CCF0E8;
+  display: inline-block;
 }
 .agenda-section.green .agenda-section-wrapper ul li .speakers li {
   background-color: #CCF0E8;
