@@ -6169,9 +6169,11 @@
 			margin-bottom: 56px;
 			@include below_sm {
 				@include fontSize(40px);
+				line-height: 59px;
 			}
 			@include below_mob {
 				@include fontSize(32px);
+				line-height: 45px;
 			}
 		}
 		.recap-iframe-folder {
