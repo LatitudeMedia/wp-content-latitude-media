@@ -9,6 +9,7 @@ $args = [
     'display'       => true,
     'forced'        => true,
     'pagination'    => true,
+    'pagination_base'=> 'paged',
 ];
 
 get_template_part('template-parts/components/titles/topic-title', '', ['title' => 'Latest News']);
