@@ -37,11 +37,13 @@ $blockAttrs = wp_kses_data(
     <div class="container-narrow">
         <div class="recap-video-section-wrapper">
             <h2><?php echo $title; ?></h2>
-            <?php
+            <div class="recap-iframe-folder">
+                <?php
                 if( !empty($video) )  {
                     echo $video;
                 }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 </div>
