@@ -2104,6 +2104,7 @@
   .wp-block-acf-recap-video-block .recap-video-section-wrapper h2 {
     font-size: 40px;
     font-size: 2.5rem;
+    line-height: 59px;
   }
   .company-search-block.image-text-section .image-text-section-wrapper .image-folder {
     width: 100%;
@@ -2195,6 +2196,7 @@
   .wp-block-acf-recap-video-block .recap-video-section-wrapper h2 {
     font-size: 32px;
     font-size: 2rem;
+    line-height: 45px;
   }
   .wide-form-section .wide-form-section-wrapper form .fieldset.double {
     flex-direction: column;
