@@ -99,6 +99,7 @@
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li {
   border-bottom: none;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .title {
   font-family: "Lora", Arial, Helvetica, serif;
