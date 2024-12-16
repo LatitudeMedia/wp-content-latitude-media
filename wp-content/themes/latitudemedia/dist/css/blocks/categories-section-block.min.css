@@ -12,6 +12,7 @@
   font-weight: 700;
   line-height: 56px;
   text-transform: capitalize;
+  margin-bottom: 32px;
 }
 .section-top-nav-section .section-top-nav-section-wrapper .section-categories {
   flex: 1 0 0px;
@@ -50,7 +51,6 @@
   }
   .section-top-nav-section .section-top-nav-section-wrapper .section-name {
     width: 100%;
-    margin-bottom: 32px;
     margin-right: 0;
   }
   .section-top-nav-section .section-top-nav-section-wrapper .section-categories ul {
