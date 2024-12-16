@@ -4185,25 +4185,20 @@
 @mixin sectionTopNavSection {
 	margin-bottom: 40px;
 	.section-top-nav-section-wrapper {
-		display: flex;
-		align-items: center;
 		@include below_md {
-			flex-direction: column;
 			max-width: 760px;
 			margin: 0 auto;
 		}
 
 		.section-name {
 			margin-right: 40px;
-			font-family: $inter;
+			font-family: $lora;
 			@include fontSize(40px);
 			font-weight: 700;
 			line-height: 56px;
-			text-align: center;
-			text-transform: uppercase;
+			text-transform: capitalize;
 			@include below_md {
 				width: 100%;
-				text-align: center;
 				margin-bottom: 32px;
 				margin-right: 0;
 			}
