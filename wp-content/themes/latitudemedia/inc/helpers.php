@@ -484,3 +484,22 @@ function jetpack_get_resized_image(string $imgPath, int $width, int $height, str
         return $imgPath;
     }
 }
+
+/**
+ * @param $termId
+ * @return false|WP_Post
+ */
+function get_section_landing_type_by_term( $termId ) {
+    $sectionLanding = get_posts([
+        'numberposts'   => 1,
+        'meta_key'      => 'section_type',
+        'meta_value'    => $termId,
+        'post_type'     => 'sections-landing',
+    ]);
+
+    if( count($sectionLanding) ) {
+        return $sectionLanding[0];
+    }
+
+    return false;
+}
