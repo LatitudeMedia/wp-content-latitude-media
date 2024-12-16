@@ -68,7 +68,7 @@ $postItemTemplate = get_wrap_rows_from_template('
                                     'settings' => array(
                                         'thumb'   => array(
                                             'size'       => 'author-archive-hero',
-                                            'link'       => true,
+                                            'link'       => false,
                                         ),
                                     ),
                                     'rows'          => $postItemTemplate['rows'],
