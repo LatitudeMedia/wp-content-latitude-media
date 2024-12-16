@@ -68,7 +68,7 @@ if(!$teamMembers->have_posts()) {
                             </a>
                         </div>
                         <div class="content-folder">
-                            <a href="#" class="name"><?php the_title(); ?></a>
+                            <a href="<?php the_permalink(); ?>" class="name"><?php the_title(); ?></a>
                             <?php
                             if( !empty($memberData['job_title']) ) {
                                 printf('<div class="occupation">%s</div>', $memberData['job_title']);
