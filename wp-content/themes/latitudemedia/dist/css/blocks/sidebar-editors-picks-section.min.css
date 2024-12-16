@@ -49,6 +49,7 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 0 3px 0;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li {
   font-family: "inter", Arial, Helvetica, sans-serif;
