@@ -1637,6 +1637,11 @@
 									inset: 0%;
 								}
 							}
+							&.blue {
+								-webkit-box-shadow: -10px 10px 0 0 #4b5671;
+								-moz-box-shadow: -10px 10px 0 0 #4b5671;
+								box-shadow: -10px 10px 0 0 #4b5671;
+							}
 						}
 
 						&:first-child {
