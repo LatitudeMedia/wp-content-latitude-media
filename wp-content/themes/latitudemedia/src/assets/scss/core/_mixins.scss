@@ -327,7 +327,7 @@
 	}
 	.author {
 		position: relative;
-		padding-left: 14px;
+		padding-left: 10px;
 		font-family: $inter;
 		@include fontSize(13px);
 		font-weight: 600;
@@ -336,7 +336,6 @@
 		text-decoration: none;
 		color: $primary-dark-blue;
 		text-transform: uppercase;
-
 		&:before {
 			content: '';
 			display: block;
