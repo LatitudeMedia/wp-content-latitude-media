@@ -13,7 +13,10 @@ if( empty($options['title']) ) {
     return;
 }
 
-$sectionLanding = get_section_landing_type_by_term($options['section']->term_id);
+$sectionLanding = false;
+if( $options['section'] ) {
+    $sectionLanding = get_section_landing_type_by_term($options['section']->term_id);
+}
 ?>
 
 <div class="topics-title-block">
