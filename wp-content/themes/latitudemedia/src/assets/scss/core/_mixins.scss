@@ -644,7 +644,7 @@
 
 				.tags-list {
 					@include tagsList;
-
+					margin: 0 0 3px 0;
 					li {
 						border-bottom: none;
 						padding-bottom: 0;
