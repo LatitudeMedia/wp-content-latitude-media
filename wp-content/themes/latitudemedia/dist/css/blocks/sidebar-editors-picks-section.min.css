@@ -49,6 +49,7 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 0 3px 0;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li {
   font-family: "inter", Arial, Helvetica, sans-serif;
@@ -99,6 +100,7 @@
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li {
   border-bottom: none;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .title {
   font-family: "Lora", Arial, Helvetica, serif;
@@ -138,7 +140,7 @@
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .info .author {
   position: relative;
-  padding-left: 14px;
+  padding-left: 10px;
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-size: 0.8125rem;

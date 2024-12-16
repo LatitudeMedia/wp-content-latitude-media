@@ -327,7 +327,7 @@
 	}
 	.author {
 		position: relative;
-		padding-left: 14px;
+		padding-left: 10px;
 		font-family: $inter;
 		@include fontSize(13px);
 		font-weight: 600;
@@ -336,7 +336,6 @@
 		text-decoration: none;
 		color: $primary-dark-blue;
 		text-transform: uppercase;
-
 		&:before {
 			content: '';
 			display: block;
@@ -645,10 +644,11 @@
 
 				.tags-list {
 					@include tagsList;
-
+					margin: 0 0 3px 0;
 					li {
 						border-bottom: none;
 						padding-bottom: 0;
+						margin-bottom: 0;
 					}
 				}
 
@@ -1637,6 +1637,11 @@
 									position: absolute;
 									inset: 0%;
 								}
+							}
+							&.blue {
+								-webkit-box-shadow: -10px 10px 0 0 #4b5671;
+								-moz-box-shadow: -10px 10px 0 0 #4b5671;
+								box-shadow: -10px 10px 0 0 #4b5671;
 							}
 						}
 
@@ -3642,7 +3647,7 @@
 
 					.author {
 						position: relative;
-						padding-left: 14px;
+						padding-left: 10px;
 						font-family: $inter;
 						@include fontSize(13px);
 						font-weight: 600;
@@ -4180,27 +4185,23 @@
 @mixin sectionTopNavSection {
 	margin-bottom: 40px;
 	.section-top-nav-section-wrapper {
-		display: flex;
-		align-items: center;
 		@include below_md {
-			flex-direction: column;
 			max-width: 760px;
 			margin: 0 auto;
 		}
 
 		.section-name {
 			margin-right: 40px;
-			font-family: $inter;
+			font-family: $lora;
 			@include fontSize(40px);
 			font-weight: 700;
 			line-height: 56px;
-			text-align: center;
-			text-transform: uppercase;
+			text-transform: capitalize;
+			margin-bottom: 32px;
 			@include below_md {
 				width: 100%;
-				text-align: center;
-				margin-bottom: 32px;
 				margin-right: 0;
+				text-align: center;
 			}
 		}
 

@@ -100,6 +100,11 @@
   position: absolute;
   inset: 0%;
 }
+.podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .posts li .image-folder.blue {
+  -webkit-box-shadow: -10px 10px 0 0 #4b5671;
+  -moz-box-shadow: -10px 10px 0 0 #4b5671;
+  box-shadow: -10px 10px 0 0 #4b5671;
+}
 .podcasts-large-blue-section .podcasts-large-blue-section-wrapper .col .posts-list-section .posts li:first-child {
   border-bottom: none;
   margin-bottom: 0;
