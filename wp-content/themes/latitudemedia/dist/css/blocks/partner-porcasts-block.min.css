@@ -93,6 +93,18 @@
   position: absolute;
   inset: 0%;
 }
+.three-podcasts-section ul li .image-folder span {
+  padding-top: 78%;
+  position: relative;
+  display: block;
+}
+.three-podcasts-section ul li .image-folder span img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
 .three-podcasts-section ul li .content-folder .title {
   font-family: "Lora", Arial, Helvetica, serif;
   font-size: 24px;
@@ -171,6 +183,9 @@
   box-shadow: -10px 10px 0 0 #FEEBD2;
 }
 .three-podcasts-section ul li .image-folder a {
+  padding-top: 100%;
+}
+.three-podcasts-section ul li .image-folder span {
   padding-top: 100%;
 }
 .three-podcasts-section ul li .content-folder .title {

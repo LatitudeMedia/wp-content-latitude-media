@@ -1847,8 +1847,20 @@
 		@include below_sm {
 			margin-bottom: 30px;
 		}
-
 		a {
+			padding-top: 78%;
+			position: relative;
+			display: block;
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				inset: 0%;
+			}
+		}
+		span {
 			padding-top: 78%;
 			position: relative;
 			display: block;
@@ -2156,6 +2168,9 @@
 				margin-bottom: 34px;
 				@include imageFolder;
 				a {
+					padding-top: 100%;
+				}
+				span {
 					padding-top: 100%;
 				}
 			}

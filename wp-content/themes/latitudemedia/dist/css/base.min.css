@@ -436,6 +436,30 @@ article p {
   margin-bottom: 24px;
   color: #0F1E42;
 }
+article h2 {
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 45px;
+  font-weight: 700;
+  color: #0F1E42;
+  margin-bottom: 24px;
+}
+article h3 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 34px;
+  font-weight: 700;
+  color: #0F1E42;
+  margin-bottom: 24px;
+}
+article h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 28px;
+  font-weight: 700;
+  color: #0F1E42;
+  margin-bottom: 24px;
+}
 article a {
   color: #0095DA;
 }
@@ -856,6 +880,14 @@ article ul li {
     box-shadow: -4px 4px 0 -1px;
     border: 1px solid;
     margin-left: 4px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  article h2 {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 39px;
   }
 }
 

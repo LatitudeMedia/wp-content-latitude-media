@@ -209,6 +209,18 @@
   position: absolute;
   inset: 0%;
 }
+.podcasts-hero-section .podcasts-hero-section-wrapper ul li .image-folder span {
+  padding-top: 78%;
+  position: relative;
+  display: block;
+}
+.podcasts-hero-section .podcasts-hero-section-wrapper ul li .image-folder span img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
 .podcasts-hero-section .podcasts-hero-section-wrapper ul li .content-folder .title {
   font-family: "Lora", Arial, Helvetica, serif;
   font-size: 24px;
