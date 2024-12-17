@@ -1157,7 +1157,17 @@
   text-decoration: none;
 }
 .single-post .right-sidebar-layout .main-column article img, .single-industry-news .right-sidebar-layout .main-column article img {
+  margin-bottom: 6px;
+}
+.single-post .right-sidebar-layout .main-column article .figcaption, .single-industry-news .right-sidebar-layout .main-column article .figcaption {
   margin-bottom: 24px;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #0F1E42;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 16px;
+  text-align: left;
 }
 .single-post .right-sidebar-layout .main-column article iframe, .single-industry-news .right-sidebar-layout .main-column article iframe {
   margin-bottom: 24px;
