@@ -46,11 +46,13 @@ $blockAttrs = wp_kses_data(
                     <?php foreach ($podcasts as $podcast) : ?>
                         <li>
                             <div class="image-folder orange">
-                                <?php
-                                if( !empty($podcast['image']) ) {
-                                    do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $podcast['image']['ID']]);
-                                }
-                                ?>
+                                <span>
+                                    <?php
+                                    if( !empty($podcast['image']) ) {
+                                        do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $podcast['image']['ID']]);
+                                    }
+                                    ?>
+                                </span>
                             </div>
                             <div class="content-folder">
                                 <?php
