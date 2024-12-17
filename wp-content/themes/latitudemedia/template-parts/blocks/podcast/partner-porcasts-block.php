@@ -8,7 +8,7 @@ $options = wp_parse_args(
     [
         'title'         => false,
         'description'   => false,
-        'podcasts'      => false,
+        'podcasts'      => [],
         'display'       => false,
         'blockAttributes' => [],
     ]
@@ -20,6 +20,9 @@ if(!$display && !is_admin()) {
     return;
 }
 
+if ( empty($podcasts) ) {
+    return;
+}
 
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
@@ -30,22 +33,6 @@ $blockAttrs = wp_kses_data(
   )
 );
 
-$podcastPosts = get_published_posts_by_ids($podcasts, ['post_type' => 'podcasts']);
-$postItemTemplate = get_wrap_rows_from_template('
-<li>
-    <div class="image-folder orange">
-        [thumb]                                   
-    </div>
-    <div class="content-folder">
-        [title]
-        [podcast-organization]
-        [excerpt]
-        <div class="listen-block">
-            [podcast-listening]
-        </div>
-    </div>
-</li>
-');
 ?>
 
 <div <?php echo $blockAttrs; ?>
@@ -56,31 +43,41 @@ $postItemTemplate = get_wrap_rows_from_template('
                 <div class="bordered-title orange"><?php _e($title); ?></div>
                 <h3 class="heading"><?php _e($description); ?></h3>
                 <ul>
-                    <?php
-                        while ($podcastPosts->have_posts()) {
-                            $podcastPosts->the_post();
-
-                            get_template_part(
-                                'template-parts/components/post',
-                                'item',
-                                array(
-                                    'post_id'  => get_the_ID(),
-                                    'settings' => array(
-                                        'title'   => [
-                                            'link' => false,
-                                        ],
-                                        'thumb'   => array(
-                                            'size'       => 'author-archive-hero',
-                                            'link'       => false,
-                                        ),
-                                    ),
-                                    'rows'          => $postItemTemplate['rows'],
-                                    'wrap'          => $postItemTemplate['wrap'],
-                                )
-                            );
-
-                        }
-                    ?>
+                    <?php foreach ($podcasts as $podcast) : ?>
+                        <li>
+                            <div class="image-folder orange">
+                                <?php
+                                if( !empty($podcast['image']) ) {
+                                    do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $podcast['image']['ID']]);
+                                }
+                                ?>
+                            </div>
+                            <div class="content-folder">
+                                <?php
+                                    if(!empty($podcast['title'])) {
+                                        printf('<div class="title">%s</div>', $podcast['title']);
+                                    }
+                                    if(!empty($podcast['company'])) {
+                                        printf('<div class="company">%s</div>', $podcast['company']);
+                                    }
+                                    if(!empty($podcast['description'])) {
+                                        printf('<p>%s</p>', $podcast['description']);
+                                    }
+                                ?>
+                                <div class="listen-block">
+                                    <?php
+                                    get_template_part('template-parts/podcast/listening', 'links', [
+                                        'title' => 'listen on:',
+                                        'links' => [
+                                            'apple'     => $podcast['apple_link'],
+                                            'spotify'   => $podcast['spotify_link'],
+                                        ]
+                                    ]);
+                                    ?>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
