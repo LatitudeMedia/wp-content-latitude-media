@@ -216,6 +216,31 @@ article {
     margin-bottom: 24px;
     color: $primary-dark-blue
   }
+  h2 {
+    @include fontSize(32px);
+    line-height: 45px;
+    font-weight: 700;
+    color: $primary-dark-blue;
+    margin-bottom: 24px;
+    @include below_mob {
+      @include fontSize(28px);
+      line-height: 39px;
+    }
+  }
+  h3 {
+    @include fontSize(24px);
+    line-height: 34px;
+    font-weight: 700;
+    color: $primary-dark-blue;
+    margin-bottom: 24px;
+  }
+  h4 {
+    @include fontSize(20px);
+    line-height: 28px;
+    font-weight: 700;
+    color: $primary-dark-blue;
+    margin-bottom: 24px;
+  }
   a {
     color: $blue;
   }
