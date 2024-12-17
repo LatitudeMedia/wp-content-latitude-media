@@ -2,6 +2,9 @@
 if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('News with sidebar section block', 'ltm') . '</h3>';
 }
+global $wp_query;
+$current_page = intval(max(1, $_GET['current_page'] ?? 1));
+
 // Set defaults News with sidebar section block.
 $options = wp_parse_args(
     $args,
@@ -42,16 +45,19 @@ if(!$section) {
     <div class="container">
         <div class="section-topics-section-wrapper">
             <?php get_template_part('template-parts/blocks/homepage/begin','sidebar'); ?>
-            <div class="topics-archive-section-wrapper">
-                <div class="posts-list-section">
+            <div class="topics-archive-section-wrapper load-more-container">
+                <div class="posts-list-section load-more-posts">
                     <?php
                     $categories = get_section_cats($section->term_id, 'ids');
                     $args = [
                         'number_of_items'   => 8,
                         'display'           => true,
                         'page_data'         => true,
+                        'pagination'        => true,
+                        'pagination_base'   => 'current_page',
                         'custom_args' => [
-                            'cat' => $categories
+                            'cat'   => $categories,
+                            'paged' => $current_page,
                         ]
                     ];
 
@@ -60,7 +66,6 @@ if(!$section) {
                     );
 
                     ?>
-                    <a href="<?php echo get_term_link($section->term_id, 'section'); ?>" class="cta-button pink"><span><?php _e('See more', 'ltm'); ?></span></a>
                 </div>
             </div>
             <?php get_template_part('template-parts/blocks/homepage/end','sidebar', array('sidebar_widget' => $sidebar_widget)); ?>
