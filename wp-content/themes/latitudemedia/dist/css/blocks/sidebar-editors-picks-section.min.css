@@ -49,7 +49,6 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 0 3px 0;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li {
   font-family: "inter", Arial, Helvetica, sans-serif;
@@ -96,6 +95,9 @@
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li a.sponsored {
   background-color: #C6168D;
   color: #ffffff;
+}
+.editors-picks-block .editors-picks-block-wrapper .posts li .tags-list {
+  margin: 0 0 3px 0;
 }
 .editors-picks-block .editors-picks-block-wrapper .posts li .tags-list li {
   border-bottom: none;

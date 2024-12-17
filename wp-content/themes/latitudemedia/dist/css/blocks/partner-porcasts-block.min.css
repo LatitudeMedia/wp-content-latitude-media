@@ -105,9 +105,6 @@
   text-decoration: none;
   display: inline-block;
 }
-.three-podcasts-section ul li .content-folder .title:hover {
-  text-decoration: underline;
-}
 .three-podcasts-section ul li .content-folder p {
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 18px;

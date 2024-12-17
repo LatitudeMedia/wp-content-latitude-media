@@ -29,6 +29,7 @@ $options = wp_parse_args(
         'forced'        => false,
         'pagination'    => false,
         'display'       => false,
+        'pagination_base' => 'page',
     ]
 );
 
@@ -94,6 +95,6 @@ if(!$result->have_posts()) {
 
 <?php
     if($pagination) {
-        do_action('paginator', $result, true);
+        do_action('paginator', $result, true, $pagination_base);
     }
 ?>

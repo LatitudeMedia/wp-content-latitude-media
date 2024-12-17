@@ -9,7 +9,7 @@ if( !function_exists( 'ltm_scripts' ) ) {
      */
 
     function ltm_scripts() {
-        if ( ! defined( 'ENV_TYPE' ) || ENV_TYPE === 'dev') {
+        if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) || WP_ENVIRONMENT_TYPE === 'dev') {
             wp_enqueue_script( 'ltm-ads', get_template_directory_uri() . '/src/assets/js/dfp-ads.js', array(), filemtime( get_template_directory() . '/src/assets/js/dfp-ads.js' ), true );
             wp_enqueue_script( 'theme-app', get_template_directory_uri() . '/src/assets/js/custom.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/custom.js'),true );
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/src/assets/js/load-more.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/src/assets/js/load-more.js'),true );

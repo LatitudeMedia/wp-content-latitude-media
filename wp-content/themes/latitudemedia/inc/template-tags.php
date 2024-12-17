@@ -220,7 +220,8 @@ if ( ! function_exists( 'print_article_tags_list' ) ) :
         $categories = get_the_terms( $post_id, 'category' );
         if( !empty($categories) ) {
             foreach ($categories as $category) {
-                $tags[] = sprintf('<a href="%s">%s</a>', get_category_link($category), $category->name);
+                $abbreviatedName = get_field('abbreviated_name', 'category_' . $category->term_id, true);
+                $tags[] = sprintf('<a href="%s">%s</a>', get_category_link($category), $abbreviatedName);
             }
         }
 
@@ -232,6 +233,19 @@ if ( ! function_exists( 'print_article_tags_list' ) ) :
         echo '<ul class="tags-list">' . $tags_markup . '</ul>';
     }
     add_action('print_article_tags_list', 'print_article_tags_list', 10, 4);
+endif;
+
+if ( ! function_exists( 'print_article_sponsored_label' ) ) :
+    function print_article_sponsored_label( $post_id = null ) {
+        if ( ! $post_id ) {
+            $post_id = get_the_ID();
+        }
+
+        if( is_sponsored($post_id) ) {
+            echo '<ul class="tags-list"><li><span class="sponsored">Sponsored</span></li></ul>';
+        }
+    }
+    add_action('print_article_sponsored_label', 'print_article_sponsored_label', 10, 1);
 endif;
 
 if ( ! function_exists( 'print_article_type' ) ) :

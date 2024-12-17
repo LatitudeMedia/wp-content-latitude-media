@@ -5,6 +5,7 @@ $options = wp_parse_args(
     $args,
     [
         'dynamic_pagination' => true,
+        'pagination_base' => 'page',
         'layout_wrapper' => 'container-narrow',
     ]
 );
