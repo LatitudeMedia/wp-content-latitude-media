@@ -34,7 +34,9 @@ $podcastPosts = get_published_posts_by_ids($podcasts, ['post_type' => 'podcasts'
 $postItemTemplate = get_wrap_rows_from_template('
 <li>
     <div class="image-folder orange">
-        [thumb]                                   
+        <span>
+            [thumb]
+        </span>                                   
     </div>
     <div class="content-folder">
         [title]
