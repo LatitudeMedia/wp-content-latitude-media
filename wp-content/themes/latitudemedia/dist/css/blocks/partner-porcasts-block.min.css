@@ -185,6 +185,9 @@
 .three-podcasts-section ul li .image-folder a {
   padding-top: 100%;
 }
+.three-podcasts-section ul li .image-folder span {
+  padding-top: 100%;
+}
 .three-podcasts-section ul li .content-folder .title {
   font-family: "Lora", Arial, Helvetica, serif;
   font-size: 20px;
