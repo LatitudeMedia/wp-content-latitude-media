@@ -1159,7 +1159,7 @@
 .single-post .right-sidebar-layout .main-column article img, .single-industry-news .right-sidebar-layout .main-column article img {
   margin-bottom: 6px;
 }
-.single-post .right-sidebar-layout .main-column article .figcaption, .single-industry-news .right-sidebar-layout .main-column article .figcaption {
+.single-post .right-sidebar-layout .main-column article figcaption, .single-industry-news .right-sidebar-layout .main-column article figcaption {
   margin-bottom: 24px;
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-weight: normal;
