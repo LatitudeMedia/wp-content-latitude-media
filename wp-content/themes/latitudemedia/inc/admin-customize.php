@@ -27,12 +27,17 @@ function add_post_column_news_type( $column_name, $post_id ) {
                 printf('<span>%s</span>', $type['label']);
             }
             break;
+        case 'sponsored':
+            $sponsored = get_field( 'sponsored', $post_id);
+            printf('<span>%s</span>', ($sponsored ? 'Yes' : 'No') );
+            break;
     }
 }
 add_filter( 'manage_posts_custom_column', 'add_post_column_news_type', 10, 2 );
 
 function add_new_post_column_type( $columns ) {
     $columns['type'] = __( 'News Type', 'ltm' );
+    $columns['sponsored'] = __( 'Sponsored', 'ltm' );
     return $columns;
 }
 add_filter( 'manage_edit-post_columns', 'add_new_post_column_type' );
