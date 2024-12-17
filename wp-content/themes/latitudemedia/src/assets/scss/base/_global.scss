@@ -217,6 +217,7 @@ article {
     color: $primary-dark-blue
   }
   h2 {
+    font-family: $lora;
     @include fontSize(32px);
     line-height: 45px;
     font-weight: 700;
@@ -228,6 +229,7 @@ article {
     }
   }
   h3 {
+    font-family: $lora;
     @include fontSize(24px);
     line-height: 34px;
     font-weight: 700;
@@ -235,6 +237,7 @@ article {
     margin-bottom: 24px;
   }
   h4 {
+    font-family: $lora;
     @include fontSize(20px);
     line-height: 28px;
     font-weight: 700;
