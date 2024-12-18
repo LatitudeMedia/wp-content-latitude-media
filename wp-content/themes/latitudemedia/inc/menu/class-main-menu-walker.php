@@ -1,4 +1,3 @@
-
 <?php
 
 class Walker_Main_Menu extends Walker_Nav_Menu {
@@ -15,5 +14,3 @@ class Walker_Main_Menu extends Walker_Nav_Menu {
         $output .= "$indent</ul></div>\n";
     }
 }
-
-?>
