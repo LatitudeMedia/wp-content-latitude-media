@@ -2295,14 +2295,6 @@
 				@include below_md {
 					width: 45%;
 				}
-				@include below_sm {
-					width: 100%;
-					margin-left: 0;
-				}
-				@include below_mob {
-					width: 100%;
-					margin-left: 0;
-				}
 				.image-folder {
 					margin-bottom: 26px;
 					@include imageFolder;
@@ -2350,6 +2342,12 @@
 						line-height: 24px;
 						text-align: left;
 					}
+				}
+			}
+			li {
+				@include below_sm {
+					width: 100%;
+					margin-left: 0;
 				}
 			}
 		}
