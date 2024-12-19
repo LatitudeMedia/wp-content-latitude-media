@@ -169,6 +169,12 @@
     width: 45%;
   }
 }
+@media screen and (max-width: 576px) {
+  .three-events-section .three-events-section-wrapper ul li {
+    width: 100%;
+    margin-left: 0;
+  }
+}
 @media screen and (max-width: 1200px) {
   .three-events-section .three-events-section-wrapper ul li .image-folder {
     margin-left: 0;

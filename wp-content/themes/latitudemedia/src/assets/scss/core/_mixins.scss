@@ -2292,12 +2292,16 @@
 				width: 28.3%;
 				margin-bottom: 32px;
 				margin-left: 5%;
+				@include below_md {
+					width: 45%;
+				}
 				@include below_sm {
 					width: 100%;
 					margin-left: 0;
 				}
-				@include below_md {
-					width: 45%;
+				@include below_mob {
+					width: 100%;
+					margin-left: 0;
 				}
 				.image-folder {
 					margin-bottom: 26px;
