@@ -571,7 +571,7 @@ add_action('acf/include_fields', function () {
             ),
         ),
         'style' => 'default',
-        'active' => true,
+        'active' => false,
     ));
     acf_add_local_field_group(array(
         'key' => 'group_670fc2101a5c5',
@@ -695,6 +695,7 @@ add_action('acf/include_fields', function () {
                 ),
             ),
         ),
+        'position' => 'side',
         'style' => 'default',
         'active' => true,
     ));
@@ -1141,6 +1142,7 @@ add_action('acf/include_fields', function () {
                 ),
             ),
         ),
+        'position' => 'side',
         'style' => 'default',
         'active' => true,
     ));
@@ -1859,6 +1861,7 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 ),
             ),
         ),
+        'position' => 'side',
         'style' => 'default',
         'active' => true,
     ));
@@ -1888,6 +1891,7 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 ),
             ),
         ),
+        'position' => 'side',
         'style' => 'default',
         'active' => true,
     ));

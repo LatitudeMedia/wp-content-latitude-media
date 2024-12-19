@@ -59,6 +59,12 @@ class Latitude_CLI_Command {
             'posts_per_page'   => 100,
             'paged'            => 1,
             'append_author' => false,
+            'date_query' => array(
+                array(
+                    'column'     => 'post_date',
+                    'after'   => '- 10 days'
+                ),
+            ),
         ];
         $this->args = wp_parse_args($assocArgs, $defaults);
 

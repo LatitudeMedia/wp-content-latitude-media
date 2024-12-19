@@ -88,3 +88,25 @@ function ltm_change_post_link($permalink, $post, $leavename) {
     }
     return $permalink;
 }
+
+add_filter( 'register_taxonomy_args', 'ltm_change_author_base_slug', 100, 3);
+/**
+ * @param $args
+ * @param $taxonomy
+ * @param $object_type
+ * @return mixed
+ */
+function ltm_change_author_base_slug( $args, $taxonomy, $object_type )
+{
+    // Only target the built-in taxonomy 'author'
+    if ( 'author' !== $taxonomy ) {
+        return $args;
+    }
+
+    $args["rewrite"] = [
+        'slug' => 'authors',
+        'with_front' => true
+    ];
+
+    return $args;
+}

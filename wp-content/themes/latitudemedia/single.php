@@ -5,7 +5,7 @@
  */
 
 get_header();
-
+\LatitudeMedia\Page_Data()->addItems([get_the_ID()]);
 ?>
 
     <div class="single-post-heading-section">
