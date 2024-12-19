@@ -98,3 +98,19 @@ function ltm_add_pubads_script()
     </script>
     <?php
 }
+
+add_action('wp_head', 'ltm_add_google_analytics_script');
+function ltm_add_google_analytics_script()
+{
+    ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4827S951CT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-4827S951CT');
+    </script>
+    <?php
+}
