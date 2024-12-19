@@ -2286,7 +2286,7 @@
 			flex-wrap: wrap;
 			margin: 0 0 0 -5%;
 			@include below_sm {
-				margin: 0;
+				margin: 0 !important;
 			}
 			li {
 				width: 28.3%;
@@ -2294,6 +2294,10 @@
 				margin-left: 5%;
 				@include below_md {
 					width: 45%;
+				}
+				@include below_sm {
+					width: 100% !important;
+					margin-left: 0 !important;
 				}
 				.image-folder {
 					margin-bottom: 26px;
@@ -2342,12 +2346,6 @@
 						line-height: 24px;
 						text-align: left;
 					}
-				}
-			}
-			li {
-				@include below_sm {
-					width: 100%;
-					margin-left: 0;
 				}
 			}
 		}

@@ -157,11 +157,11 @@
 }
 @media screen and (max-width: 768px) {
   .three-events-section .three-events-section-wrapper ul {
-    margin: 0;
+    margin: 0 !important;
   }
   .three-events-section .three-events-section-wrapper ul li {
-    width: 100%;
-    margin-left: 0;
+    width: 100% !important;
+    margin-left: 0 !important;
   }
 }
 @media screen and (max-width: 992px) {
