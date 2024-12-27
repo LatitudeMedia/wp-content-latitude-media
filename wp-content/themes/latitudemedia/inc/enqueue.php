@@ -114,3 +114,9 @@ function ltm_add_google_analytics_script()
     </script>
     <?php
 }
+//Dequeue Styles
+function ltm_dequeue_unnecessary_styles() {
+    wp_dequeue_style( 'multiple-authors-page-css' );
+    wp_deregister_style( 'multiple-authors-page-css' );
+}
+add_action( 'wp_print_styles', 'ltm_dequeue_unnecessary_styles' );
