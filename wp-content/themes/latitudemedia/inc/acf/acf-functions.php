@@ -183,7 +183,6 @@ $blocks = array(
             "baseColor" => true
         ),
         'mode' => 'preview',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/styled-button-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
