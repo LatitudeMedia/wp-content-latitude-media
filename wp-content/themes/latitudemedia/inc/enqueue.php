@@ -114,6 +114,16 @@ function ltm_add_google_analytics_script()
     </script>
     <?php
 }
+
+add_action('wp_head', 'ltm_add_hubspot_tracking_script');
+function ltm_add_hubspot_tracking_script()
+{
+    ?>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44409563.js"></script>
+    <!-- End of HubSpot Embed Code -->
+    <?php
+}
 //Dequeue Styles
 function ltm_dequeue_unnecessary_styles() {
     wp_dequeue_style( 'multiple-authors-page-css' );
