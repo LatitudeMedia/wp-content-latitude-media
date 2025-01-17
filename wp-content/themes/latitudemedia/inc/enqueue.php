@@ -140,6 +140,11 @@ function hook_critical_css() {
     if ( has_block( 'acf/categories-section-block' ) ) {
         $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/categories-section-block.min.css' );
     }
+
+    // Detect the categories-section-block and loading assets as critical.
+    if ( has_block( 'acf/sidebar-editors-picks-section' ) ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/sidebar-editors-picks-section.min.css' );
+    }
     echo '<style id="ltm-critical-css">' . $critical_css . '</style>';
 }
 add_action('wp_head','hook_critical_css');
