@@ -1732,6 +1732,10 @@
 		.event-title {
 			color: $primary-dark-blue;
 			margin-bottom: 24px;
+			a {
+				color: $primary-dark-blue;
+				text-decoration: none;
+			}
 		}
 
 		p {

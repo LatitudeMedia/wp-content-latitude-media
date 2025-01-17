@@ -1,1 +1,16 @@
-.about-page-hero{background-color:var(--custom-block-base-color);margin-bottom:64px}.about-page-hero .about-page-hero-wrapper{padding:64px 0}.about-page-hero .about-page-hero-wrapper p{font-size:18px;font-size:1.125rem}
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/content-with-background-block.scss ***!
+  \**************************************************************************************************************************************************************************************************************************/
+.about-page-hero {
+  background-color: var(--custom-block-base-color);
+  margin-bottom: 64px;
+}
+.about-page-hero .about-page-hero-wrapper {
+  padding: 64px 0;
+}
+.about-page-hero .about-page-hero-wrapper p {
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+/*# sourceMappingURL=content-with-background-block.min.css.map*/
