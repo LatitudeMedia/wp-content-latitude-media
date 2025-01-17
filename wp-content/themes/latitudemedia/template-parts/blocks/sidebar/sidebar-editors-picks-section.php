@@ -7,7 +7,7 @@ if (is_admin()) {
 $postItemTemplate = get_wrap_rows_from_template('<li>
             <ul class="tags-list">
                 <li><span>[article-type]</span></li>
-                <li><span class="sponsored">[sponsored-label]</span></li>
+                [sponsored-label]
             </ul>
             [title]
             <div class="info">
@@ -98,7 +98,7 @@ if( !$items->have_posts() ) {
                                     'wrap' => '%s'
                             ),
                             'sponsored-label' => array(
-                                    'wrap' => '%s'
+                                    'wrap' => '<li><span class="sponsored">%s</span></li>'
                             )
                         ),
                         'rows'          => $rows,
