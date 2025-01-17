@@ -1,1 +1,131 @@
-.downloads-counter-section{margin-bottom:88px}.downloads-counter-section .downloads-counter-section-wrapper{display:flex;align-items:center}.downloads-counter-section .downloads-counter-section-wrapper .description{width:40%;margin-right:5%;margin-bottom:32px}.downloads-counter-section .downloads-counter-section-wrapper .description h2{color:#0f1e42;margin-bottom:8px;font-weight:600}.downloads-counter-section .downloads-counter-section-wrapper .description p{font-family:"inter",Arial,Helvetica,sans-serif;font-size:18px;font-size:1.125rem;font-weight:400;line-height:24px;text-align:left;color:#0f1e42;margin-bottom:0}.downloads-counter-section .downloads-counter-section-wrapper .digits{display:flex;align-items:center}.downloads-counter-section .downloads-counter-section-wrapper .digits .digit{font-family:"Lora",Arial,Helvetica,serif;font-size:80px;font-size:5rem;font-weight:700;line-height:104px;text-align:center;color:#c6168d}.downloads-counter-section .downloads-counter-section-wrapper .digits .caption{text-align:center;font-family:"inter",Arial,Helvetica,sans-serif;font-size:18px;font-size:1.125rem;font-weight:400;line-height:24px}.downloads-counter-section .downloads-counter-section-wrapper .digits .left{margin-right:54px;padding-right:54px;position:relative;text-align:center}.downloads-counter-section .downloads-counter-section-wrapper .digits .left:after{content:"";display:block;width:1px;height:176px;background-color:#c6168d;position:absolute;right:0;top:50%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%)}.downloads-counter-section.pink .downloads-counter-section-wrapper .digits .digit{color:#c6168d}.downloads-counter-section.pink .downloads-counter-section-wrapper .digits .left:after{background-color:#c6168d}.downloads-counter-section.green .downloads-counter-section-wrapper .digits .digit{color:#00b48d}.downloads-counter-section.green .downloads-counter-section-wrapper .digits .left:after{background-color:#00b48d}.downloads-counter-section.blue .downloads-counter-section-wrapper .digits .digit{color:#0095da}.downloads-counter-section.blue .downloads-counter-section-wrapper .digits .left:after{background-color:#0095da}.downloads-counter-section.orange .downloads-counter-section-wrapper .digits .digit{color:#f99d1c}.downloads-counter-section.orange .downloads-counter-section-wrapper .digits .left:after{background-color:#f99d1c}@media screen and (max-width: 992px){.downloads-counter-section .downloads-counter-section-wrapper{flex-direction:column}.downloads-counter-section .downloads-counter-section-wrapper .description{width:100%;text-align:center;margin-right:0}.downloads-counter-section .downloads-counter-section-wrapper .description h2{text-align:center}.downloads-counter-section .downloads-counter-section-wrapper .description p{text-align:center}.downloads-counter-section .downloads-counter-section-wrapper .digits{margin:0 auto}}@media screen and (max-width: 576px){.downloads-counter-section .downloads-counter-section-wrapper .digits .digit{font-size:40px;font-size:2.5rem;line-height:52px}.downloads-counter-section .downloads-counter-section-wrapper .digits .left{margin-right:20px;padding-right:20px}.downloads-counter-section .downloads-counter-section-wrapper .digits .left:after{height:80px}}
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/downloads-info-block.scss ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.downloads-counter-section {
+  margin-bottom: 88px;
+}
+.downloads-counter-section .downloads-counter-section-wrapper {
+  display: flex;
+  align-items: center;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .description {
+  width: 40%;
+  margin-right: 5%;
+  margin-bottom: 32px;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .description h2 {
+  color: #0F1E42;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .description p {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #0F1E42;
+  margin-bottom: 0;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .digits {
+  display: flex;
+  align-items: center;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .digits .digit {
+  font-family: "Lora", Arial, Helvetica, serif;
+  font-size: 80px;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 104px;
+  text-align: center;
+  color: #C6168D;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .digits .caption {
+  text-align: center;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 24px;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .digits .left {
+  margin-right: 54px;
+  padding-right: 54px;
+  position: relative;
+  text-align: center;
+}
+.downloads-counter-section .downloads-counter-section-wrapper .digits .left:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 176px;
+  background-color: #C6168D;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.downloads-counter-section.pink .downloads-counter-section-wrapper .digits .digit {
+  color: #C6168D;
+}
+.downloads-counter-section.pink .downloads-counter-section-wrapper .digits .left:after {
+  background-color: #C6168D;
+}
+.downloads-counter-section.green .downloads-counter-section-wrapper .digits .digit {
+  color: #00B48D;
+}
+.downloads-counter-section.green .downloads-counter-section-wrapper .digits .left:after {
+  background-color: #00B48D;
+}
+.downloads-counter-section.blue .downloads-counter-section-wrapper .digits .digit {
+  color: #0095DA;
+}
+.downloads-counter-section.blue .downloads-counter-section-wrapper .digits .left:after {
+  background-color: #0095DA;
+}
+.downloads-counter-section.orange .downloads-counter-section-wrapper .digits .digit {
+  color: #F99D1C;
+}
+.downloads-counter-section.orange .downloads-counter-section-wrapper .digits .left:after {
+  background-color: #F99D1C;
+}
+@media screen and (max-width: 992px) {
+  .downloads-counter-section .downloads-counter-section-wrapper {
+    flex-direction: column;
+  }
+  .downloads-counter-section .downloads-counter-section-wrapper .description {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+  .downloads-counter-section .downloads-counter-section-wrapper .description h2 {
+    text-align: center;
+  }
+  .downloads-counter-section .downloads-counter-section-wrapper .description p {
+    text-align: center;
+  }
+  .downloads-counter-section .downloads-counter-section-wrapper .digits {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 576px) {
+  .downloads-counter-section .downloads-counter-section-wrapper .digits .digit {
+    font-size: 40px;
+    font-size: 2.5rem;
+    line-height: 52px;
+  }
+  .downloads-counter-section .downloads-counter-section-wrapper .digits .left {
+    margin-right: 20px;
+    padding-right: 20px;
+  }
+  .downloads-counter-section .downloads-counter-section-wrapper .digits .left:after {
+    height: 80px;
+  }
+}
+
+/*# sourceMappingURL=downloads-info-block.min.css.map*/
