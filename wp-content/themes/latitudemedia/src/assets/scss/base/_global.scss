@@ -156,9 +156,7 @@ header {
 }
 
 .topics-title-block {
-
   .topics-title-block-wrapper {
-
     .parent-category-link {
       text-decoration: underline;
       text-transform: uppercase;
@@ -329,34 +327,8 @@ article {
       span {
         @include transition3;
       }
-    }
-  }
-  &.pink {
-    ul {
-      li {
-        @include pagination_item_colored($primary-pink, $pink_shadow, $white);
-      }
-    }
-  }
-  &.green {
-    ul {
-      li {
-        @include pagination_item_colored($green, $green_shadow, $white);
-      }
-    }
-  }
-  &.blue {
-    ul {
-      li {
-        @include pagination_item_colored($blue, $blue_shadow, $white);
-      }
-    }
-  }
-  &.orange {
-    ul {
-      li {
-        @include pagination_item_colored($orange, $orange_shadow, $white);
-      }
+
+      @include pagination_item_colored($primary-pink, $pink_shadow, $white);
     }
   }
 }
