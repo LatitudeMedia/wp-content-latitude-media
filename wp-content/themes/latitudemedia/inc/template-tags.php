@@ -469,7 +469,7 @@ if ( ! function_exists( 'paginator' ) ) :
                     $paginator_content .= sprintf('<li>%1$s</li>', $page);
                 }
 
-                printf('<div class="pager pink"><ul>%1$s</ul></div>', $paginator_content);
+                printf('<div class="pager"><ul>%1$s</ul></div>', $paginator_content);
             }
         }
 

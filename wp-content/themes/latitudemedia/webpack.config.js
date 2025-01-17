@@ -71,6 +71,7 @@ module.exports = (env) => {
       'css/blocks/popup-modal-block'        : './src/assets/scss/blocks/popup-modal-block.scss',
       'css/blocks/reviews-popup-block'      : './src/assets/scss/blocks/reviews-popup-block.scss',
       'css/blocks/recap-video-block'        : './src/assets/scss/blocks/recap-video-block.scss',
+      'css/blocks/in-house-ad-section'      : './src/assets/scss/blocks/in-house-ad-section.scss',
     },
     output: {
       path: path.resolve(__dirname, "dist"),
