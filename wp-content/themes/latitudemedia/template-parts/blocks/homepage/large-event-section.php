@@ -50,7 +50,7 @@ $eventStartDate = get_event_start_date($event->ID);
                     <?php echo $title; ?>
                 </div>
             </div>
-            <h3 class="event-title"><?php _e($event->post_title); ?></h3>
+            <h3 class="event-title"><a href="<?php the_permalink($event);?>"><?php _e($event->post_title); ?></a></h3>
             <div class="image-folder">
                 <div class="date "><?php _e($eventStartDate); ?></div>
                 <?php
