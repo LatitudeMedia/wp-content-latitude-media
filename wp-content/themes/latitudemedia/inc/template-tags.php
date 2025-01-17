@@ -236,16 +236,24 @@ if ( ! function_exists( 'print_article_tags_list' ) ) :
 endif;
 
 if ( ! function_exists( 'print_article_sponsored_label' ) ) :
-    function print_article_sponsored_label( $post_id = null ) {
+    function print_article_sponsored_label( $post_id = null, $args = array() ) {
         if ( ! $post_id ) {
             $post_id = get_the_ID();
         }
 
+        $defaults = [
+            'wrap' => '<ul class="tags-list"><li><span class="sponsored">%s</span></li></ul>',
+        ];
+
+        $args = wp_parse_args($args, $defaults);
+        extract($args);
+
         if( is_sponsored($post_id) ) {
-            echo '<ul class="tags-list"><li><span class="sponsored">Sponsored</span></li></ul>';
+            $sponsoredLine = sprintf( $wrap, 'Sponsored');
+            echo $sponsoredLine;
         }
     }
-    add_action('print_article_sponsored_label', 'print_article_sponsored_label', 10, 1);
+    add_action('print_article_sponsored_label', 'print_article_sponsored_label', 10, 2);
 endif;
 
 if ( ! function_exists( 'print_article_type' ) ) :
