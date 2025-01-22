@@ -23,7 +23,10 @@ $args = [
 $episodes = get_podcast_episodes(get_the_ID(), $args);
 $wp_query = $episodes;
 
-$sidebar = get_field('sidebar_widget', get_the_ID()) ?: 'podcast-default-sidebar';
+$sidebar = get_field('sidebar_widget', get_the_ID());
+if( empty($sidebar) ) {
+    $sidebar = 'podcast-default-sidebar';
+}
 ?>
     <div class="right-sidebar-layout">
         <div class="container">
