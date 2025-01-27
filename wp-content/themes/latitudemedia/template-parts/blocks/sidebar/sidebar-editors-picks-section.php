@@ -39,6 +39,13 @@ if(!$display && !is_admin()) {
     return;
 }
 
+if($type === 'custom' && !empty($custom) ) {
+    $diff = array_diff($custom, \LatitudeMedia\Page_Data()->getItems());
+    if(!$diff) {
+        return;
+    }
+}
+
 \LatitudeMedia\Manage_Data()->setManualSearchArgs(
     [
         'type'      => $type,

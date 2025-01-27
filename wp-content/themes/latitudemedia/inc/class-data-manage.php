@@ -78,7 +78,7 @@ class Manage_Data
         }
 
         if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
-            $this->manualSearchArgs['post__in'] = $post_ids;
+            $this->manualSearchArgs['post__in'] = array_diff($post_ids, $customArgs['exclude']);
             if(!isset($this->manualSearchArgs['orderby'])) {
                 $this->manualSearchArgs['orderby']  = 'post__in';
             }
