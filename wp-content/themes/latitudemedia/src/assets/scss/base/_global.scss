@@ -97,6 +97,13 @@ header {
   .right-sidebar-layout-wrapper {
     display: flex;
 
+    &.sidebar-inverse {
+      flex-direction: row-reverse;
+      @include below_md {
+        flex-direction: column-reverse;
+      }
+    }
+
     .main-column {
       width: 100%;
       flex: 1 0 0px;

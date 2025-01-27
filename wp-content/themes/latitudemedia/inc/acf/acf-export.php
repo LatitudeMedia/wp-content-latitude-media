@@ -214,7 +214,7 @@ add_action('acf/include_fields', function () {
                 array(
                     'param' => 'block',
                     'operator' => '==',
-                    'value' => 'acf/end-sidebar',
+                    'value' => 'acf/begin-sidebar',
                 ),
             ),
         ),
