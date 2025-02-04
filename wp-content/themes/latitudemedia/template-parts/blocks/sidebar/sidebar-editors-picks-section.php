@@ -15,24 +15,27 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
             </div>
         </li>');
 
+$editorsPicksGlobal = get_field('editors_picks_global', 'options');
 $options = wp_parse_args(
     array_merge($postItemTemplate,
-        $args
+        $args,
     ),
     [
         'title'             => 'Editor’s picks',
         'number_of_items'   => 4,
-        'type'              => '',
+        'type'              => 'custom',
         'category'          => '',
         'tag'               => '',
         'news_type'         => '',
         'post_type'         => '',
-        'custom'            => [],
+        'custom'            => $editorsPicksGlobal,
         'page_data'         => false,
         'display'           => false,
         'blockAttributes'   => [],
     ]
 );
+
+var_dump($options);
 extract($options);
 
 if(!$display && !is_admin()) {
@@ -62,6 +65,15 @@ if($type === 'custom' && !empty($custom) ) {
         'posts_per_page'    => 4,
     ]
 );
+//
+//$queryArgs = [
+//    'post_type'        => 'resources',
+//    'posts_per_page'   => 1,
+//];
+//$resourceId = $options['resource_id'] ? [$options['resource_id']] : [];
+//$featuredResource = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $resourceId);
+//
+
 $items = \LatitudeMedia\Manage_Data()->curated_query();
 
 if( !$items->have_posts() ) {
