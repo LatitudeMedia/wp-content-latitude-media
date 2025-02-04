@@ -12,4 +12,4 @@ if (!is_admin()) :
         <div class="right-sidebar-layout-wrapper">
             <div class="main-column">
 
-<?php endif; ?>
+                <?php endif; ?>

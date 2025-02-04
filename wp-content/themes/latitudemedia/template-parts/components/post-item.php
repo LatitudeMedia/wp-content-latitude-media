@@ -74,7 +74,7 @@ foreach ( $rows as $row ) {
         case 'thumb': do_action('thumbnail_formatting', $post_id, $settings[$row]); break;
         case 'title': do_action('print_article_title', $post_id, $settings[$row]); break;
         case 'tags-list': do_action('print_article_tags_list', $post_id); break;
-        case 'sponsored-label': do_action('print_article_sponsored_label', $post_id); break;
+        case 'sponsored-label': do_action('print_article_sponsored_label', $post_id, $settings[$row]); break;
         case 'article-type': do_action('print_article_type', $post_id, $settings[$row]); break;
         case 'date': do_action('print_article_date', $post_id, $settings[$row]); break;
         case 'author': do_action('print_article_authors', $post_id, $settings[$row]); break;

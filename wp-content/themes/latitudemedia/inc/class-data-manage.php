@@ -40,7 +40,7 @@ class Manage_Data
         return new \WP_Query( $args );
     }
 
-    public function setManualSearchArgs( $customArgs = [], $defaults = [] ) {
+    public function setManualSearchArgs( $customArgs = [], $defaults = [], $force = false ) {
         $this->manualSearchArgs = $defaults;
         if( !empty($customArgs['number_of_items']) ) {
             $this->manualSearchArgs['posts_per_page'] = $customArgs['number_of_items'];
@@ -78,7 +78,7 @@ class Manage_Data
         }
 
         if ( ! empty( $post_ids ) && is_array( $post_ids ) ) {
-            $this->manualSearchArgs['post__in'] = $post_ids;
+            $this->manualSearchArgs['post__in'] = array_diff($post_ids, $customArgs['exclude']);
             if(!isset($this->manualSearchArgs['orderby'])) {
                 $this->manualSearchArgs['orderby']  = 'post__in';
             }

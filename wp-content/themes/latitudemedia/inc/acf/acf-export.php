@@ -32,7 +32,7 @@ add_action('acf/include_fields', function () {
                 array(
                     'param' => 'options_page',
                     'operator' => '==',
-                    'value' => 'acf-options',
+                    'value' => 'acf-options-sidebar-settings',
                 ),
             ),
         ),
@@ -1654,19 +1654,6 @@ add_action('acf/include_fields', function () {
                 'type' => 'text',
             ),
             array(
-                'key' => 'field_67124af32f069',
-                'label' => 'Items',
-                'name' => 'items',
-                'type' => 'clone',
-                'clone' => array(
-                    0 => 'group_6203e845d6408',
-                ),
-                'display' => 'seamless',
-                'layout' => 'block',
-                'prefix_label' => 0,
-                'prefix_name' => 0,
-            ),
-            array(
                 'key' => 'field_67124217e5cb2',
                 'label' => 'Display',
                 'name' => 'display',
@@ -1686,6 +1673,66 @@ add_action('acf/include_fields', function () {
         'style' => 'seamless',
         'active' => true,
     ));
+
+    acf_add_local_field_group( array(
+        'key' => 'group_67a0e723aee43',
+        'title' => 'Editors picks global settings',
+        'fields' => array(
+            array(
+                'key' => 'field_67a0e72476cd4',
+                'label' => 'Editors picks global',
+                'name' => 'editors_picks_global',
+                'aria-label' => '',
+                'type' => 'relationship',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'post_type' => array(
+                    0 => 'post',
+                ),
+                'post_status' => '',
+                'taxonomy' => '',
+                'filters' => array(
+                    0 => 'search',
+                    1 => 'taxonomy',
+                ),
+                'return_format' => 'id',
+                'min' => '',
+                'max' => '',
+                'allow_in_bindings' => 1,
+                'elements' => array(
+                    0 => 'featured_image',
+                ),
+                'bidirectional' => 0,
+                'bidirectional_target' => array(
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'acf-options-sidebar-settings',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
+
     acf_add_local_field_group(array(
         'key' => 'group_6712436e13ec8',
         'title' => 'Sidebar form block',

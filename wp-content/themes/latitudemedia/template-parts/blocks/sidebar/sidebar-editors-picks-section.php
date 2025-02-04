@@ -5,7 +5,10 @@ if (is_admin()) {
 // Set defaults Sidebar editors picks block.
 
 $postItemTemplate = get_wrap_rows_from_template('<li>
-            <ul class="tags-list"><li><span>[article-type]</span></li></ul>
+            <ul class="tags-list">
+                <li><span>[article-type]</span></li>
+                [sponsored-label]
+            </ul>
             [title]
             <div class="info">
                 [author]<span></span>[date]
@@ -14,45 +17,31 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
 
 $options = wp_parse_args(
     array_merge($postItemTemplate,
-        $args
+        $args,
     ),
     [
         'title'             => 'Editor’s picks',
-        'number_of_items'   => 4,
-        'type'              => '',
-        'category'          => '',
-        'tag'               => '',
-        'news_type'         => '',
-        'post_type'         => '',
-        'custom'            => [],
-        'page_data'         => false,
         'display'           => false,
         'blockAttributes'   => [],
     ]
 );
+
 extract($options);
 
 if(!$display && !is_admin()) {
     return;
 }
 
-\LatitudeMedia\Manage_Data()->setManualSearchArgs(
-    [
-        'type'      => $type,
-        'category'  => $category,
-        'tag'       => $tag,
-        'news_type' => $news_type,
-        'post_type' => $post_type,
-        'custom'    => $custom,
-        'exclude'   => true,
-        'number_of_items'  => $number_of_items,
-    ],
-    [
-        'post_type'         => 'post',
-        'posts_per_page'    => 4,
-    ]
-);
-$items = \LatitudeMedia\Manage_Data()->curated_query();
+$editorsPicksGlobal = get_field('editors_picks_global', 'options') ?: [];
+if( empty($editorsPicksGlobal) ) {
+    return;
+}
+
+$queryArgs = [
+    'post_type'        => 'post',
+    'posts_per_page'   => -1,
+];
+$items = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $editorsPicksGlobal);
 
 if( !$items->have_posts() ) {
     return;
@@ -93,6 +82,9 @@ if( !$items->have_posts() ) {
                             ),
                             'article-type' => array(
                                     'wrap' => '%s'
+                            ),
+                            'sponsored-label' => array(
+                                    'wrap' => '<li><span class="sponsored">%s</span></li>'
                             )
                         ),
                         'rows'          => $rows,
