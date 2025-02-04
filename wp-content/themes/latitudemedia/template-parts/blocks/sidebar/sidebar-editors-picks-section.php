@@ -15,66 +15,33 @@ $postItemTemplate = get_wrap_rows_from_template('<li>
             </div>
         </li>');
 
-$editorsPicksGlobal = get_field('editors_picks_global', 'options');
 $options = wp_parse_args(
     array_merge($postItemTemplate,
         $args,
     ),
     [
         'title'             => 'Editor’s picks',
-        'number_of_items'   => 4,
-        'type'              => 'custom',
-        'category'          => '',
-        'tag'               => '',
-        'news_type'         => '',
-        'post_type'         => '',
-        'custom'            => $editorsPicksGlobal,
-        'page_data'         => false,
         'display'           => false,
         'blockAttributes'   => [],
     ]
 );
 
-var_dump($options);
 extract($options);
 
 if(!$display && !is_admin()) {
     return;
 }
 
-if($type === 'custom' && !empty($custom) ) {
-    $diff = array_diff($custom, \LatitudeMedia\Page_Data()->getItems());
-    if(!$diff) {
-        return;
-    }
+$editorsPicksGlobal = get_field('editors_picks_global', 'options') ?: [];
+if( empty($editorsPicksGlobal) ) {
+    return;
 }
 
-\LatitudeMedia\Manage_Data()->setManualSearchArgs(
-    [
-        'type'      => $type,
-        'category'  => $category,
-        'tag'       => $tag,
-        'news_type' => $news_type,
-        'post_type' => $post_type,
-        'custom'    => $custom,
-        'exclude'   => true,
-        'number_of_items'  => $number_of_items,
-    ],
-    [
-        'post_type'         => 'post',
-        'posts_per_page'    => 4,
-    ]
-);
-//
-//$queryArgs = [
-//    'post_type'        => 'resources',
-//    'posts_per_page'   => 1,
-//];
-//$resourceId = $options['resource_id'] ? [$options['resource_id']] : [];
-//$featuredResource = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $resourceId);
-//
-
-$items = \LatitudeMedia\Manage_Data()->curated_query();
+$queryArgs = [
+    'post_type'        => 'post',
+    'posts_per_page'   => -1,
+];
+$items = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $editorsPicksGlobal);
 
 if( !$items->have_posts() ) {
     return;
