@@ -68,7 +68,7 @@ if( !function_exists( 'add_rel_preload' ) ) {
     function add_rel_preload($tag, $handle, $href, $media)
     {
         if (!is_admin()) {
-            if($handle = 'wp-block-library') {
+            if($handle === 'wp-block-library') {
                 return str_replace('rel=\'stylesheet\'', 'rel=\'stylesheet\' class="lazy-styles" disabled ', $tag);
             }
             else {
