@@ -148,3 +148,12 @@ function hook_critical_css() {
     echo '<style id="ltm-critical-css">' . $critical_css . '</style>';
 }
 add_action('wp_head','hook_critical_css');
+
+
+add_action('wp_enqueue_scripts', function () {
+    wp_dequeue_style( 'wp-block-library' );
+});
+function custom_add_footer_styles() {
+    wp_enqueue_style( 'wp-block-library' );
+};
+add_action( 'get_footer', 'custom_add_footer_styles' );
