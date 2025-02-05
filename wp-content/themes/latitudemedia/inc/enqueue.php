@@ -68,8 +68,14 @@ if( !function_exists( 'add_rel_preload' ) ) {
     function add_rel_preload($tag, $handle, $href, $media)
     {
         if (!is_admin()) {
-            return str_replace('rel=\'stylesheet\'', 'rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"', $tag)
+            if($handle = 'wp-block-library') {
+                return str_replace('rel=\'stylesheet\'', 'rel=\'stylesheet\' class="lazy-styles" disabled ', $tag);
+            }
+            else {
+                return str_replace('rel=\'stylesheet\'', 'rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"', $tag)
                     . '<noscript><link rel="stylesheet" href="' . $href . '"></noscript>';
+            }
+
         } else {
             return $tag;
         }
@@ -89,6 +95,15 @@ function ltm_add_pubads_script()
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
         });
+    </script>
+
+    <script>
+        const lazyStyles = document.querySelectorAll('.lazy-styles');
+        if(lazyStyles.length) {
+            lazyStyles.forEach(style => {
+                style.removeAttribute('disabled')
+            });
+        }
     </script>
     <?php
 }
@@ -148,12 +163,3 @@ function hook_critical_css() {
     echo '<style id="ltm-critical-css">' . $critical_css . '</style>';
 }
 add_action('wp_head','hook_critical_css');
-
-
-add_action('wp_enqueue_scripts', function () {
-    wp_dequeue_style( 'wp-block-library' );
-});
-function custom_add_footer_styles() {
-    wp_enqueue_style( 'wp-block-library' );
-};
-add_action( 'get_footer', 'custom_add_footer_styles' );
