@@ -109,3 +109,17 @@ $(document).ready(function($) {
     }
 });
 
+(function () {
+    const hbsptScript = document.getElementById('hbspt-script');
+    if(hbsptScript) {
+        addEventListener('load', function () {
+            if (window.hbspt && window.hbspt.forms && typeof window.hbspt.forms.create === 'function') {
+                window.dispatchEvent(new CustomEvent('hbspt-ready'));
+            }
+            else {
+                console.error('hbspt object is not available.');
+            }
+        });
+    }
+})()
+
