@@ -1404,6 +1404,12 @@ if( function_exists('acf_add_options_sub_page') ) {
     ));
 
     acf_add_options_sub_page(array(
+        'page_title' => 'Sidebar Settings',
+        'menu_title' => 'Sidebar Settings',
+        'parent_slug' => 'acf-options',
+    ));
+
+    acf_add_options_sub_page(array(
         'page_title'  => __('DFP Ad Slots'),
         'menu_title'  => __('DFP Ad Slots'),
         'parent_slug' => 'edit.php?post_type=in-house-ads',
