@@ -69,7 +69,8 @@ if( !function_exists( 'add_rel_preload' ) ) {
     {
         if (!is_admin()) {
             return str_replace('rel=\'stylesheet\'', 'rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"', $tag)
-                    . '<noscript><link rel="stylesheet" href="' . $href . '"></noscript>';
+                . '<noscript><link rel="stylesheet" href="' . $href . '"></noscript>';
+
         } else {
             return $tag;
         }
@@ -148,3 +149,14 @@ function hook_critical_css() {
     echo '<style id="ltm-critical-css">' . $critical_css . '</style>';
 }
 add_action('wp_head','hook_critical_css');
+
+add_filter('script_loader_tag', 'add_script_defer_attribute', 10, 2);
+
+function add_script_defer_attribute($tag, $handle)
+{
+    if( !is_admin() && !str_contains($tag, 'defer') ) {
+        $tag = str_replace(' src', ' defer src', $tag);
+    }
+
+    return $tag;
+}
