@@ -134,6 +134,9 @@ switch ($style) {
                             'thumb'   => array(
                                 'size'       => 'news-with-hero',
                                 'link'       => true,
+                                'img_attr'   => [
+                                    'class'     => 'skip-lazy',
+                                ]
                             ),
                             'author' => array(
                                 'link_class' => 'author'
