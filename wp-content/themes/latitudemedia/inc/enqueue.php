@@ -154,7 +154,7 @@ add_filter('script_loader_tag', 'add_script_defer_attribute', 10, 2);
 
 function add_script_defer_attribute($tag, $handle)
 {
-    if( !str_contains($tag, 'defer') ) {
+    if( !is_admin() && !str_contains($tag, 'defer') ) {
         $tag = str_replace(' src', ' defer src', $tag);
     }
 
