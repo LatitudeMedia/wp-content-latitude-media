@@ -94,7 +94,9 @@ add_action('acf/include_fields', function () {
                 ),
                 'default_value' => false,
                 'return_format' => 'value',
+                'multiple' => 1,
                 'allow_null' => 1,
+                'ui' => 1,
             ),
             array(
                 'key' => 'field_66fbe53bed04e',
