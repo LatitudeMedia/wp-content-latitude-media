@@ -40,7 +40,7 @@ if( $options['authors_type']['value'] !== 'custom' ) {
         array(
             'key'       => 'author_type',
             'value'     => $authors_type['value'],
-            'compare'   => '='
+            'compare'   => 'LIKE'
         )
     );
 } else {

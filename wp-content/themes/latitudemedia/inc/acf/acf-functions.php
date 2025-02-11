@@ -582,7 +582,7 @@ $blocks = array(
         ),
         'icon'  		=> 'email-alt',
         'description' => __('Subscribe form block', 'ltm'),
-        'post_types' 	=> array( 'page', 'sections-landing' ),
+        'post_types' 	=> array( 'page', 'sections-landing', 'podcasts' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Subscribe form block', 'ltm') ),
         'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/subscribe-form-block.min.css',
