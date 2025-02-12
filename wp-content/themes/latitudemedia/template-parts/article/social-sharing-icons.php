@@ -19,6 +19,7 @@ $utm_params   = '?utm_medium=' . $utm_medium;
 $facebook_link = "https://www.facebook.com/dialog/share?app_id=" . rawurlencode( $fb_app_id ) . "&display=popup&href=" . rawurlencode( $post_link . $utm_params ) . "&utm_source=facebook&redirect_uri=";
 $twitter_link  = "https://x.com/intent/tweet?url=" . rawurlencode( $post_link . $utm_params . '&utm_source=twitter' ) . ">&text=" . rawurlencode( $post_title );
 $linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurlencode( $post_link . $utm_params . '&utm_source=linkedin' ) ."&title=" . rawurlencode( $post_title );
+$bluesky_link  = "https://bsky.app/intent/compose?text=" . rawurlencode( $post_title ) . '+' . rawurlencode( $post_link . $utm_params . '&utm_source=bluesky' );
 ?>
 <div id="social-share-icons" class="">
 	<ul>
@@ -45,6 +46,13 @@ $linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurl
             </a>
         </li>
 		<?php } ?>
+        <li>
+            <a target="popup" title="Share on Bluesky" onclick="window.open('<?php echo esc_url( $bluesky_link ); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url( $bluesky_link ); ?>">
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.93639 3.88142C10.6051 6.61368 14.551 12.1538 16 15.1266C17.449 12.1538 21.3949 6.61368 25.0636 3.88142C27.7108 1.9099 32 0.384492 32 5.2385C32 6.20793 31.4397 13.3821 31.1111 14.547C29.9688 18.5962 25.8066 19.629 22.1041 19.0039C28.5759 20.0966 30.2222 23.7159 26.6666 27.3352C19.914 34.2091 16.9612 25.6106 16.2046 23.4074C16.0659 23.0035 16.001 22.8145 16 22.9752C15.999 22.8145 15.9341 23.0035 15.7954 23.4074C15.0388 25.6106 12.086 34.2091 5.33335 27.3352C1.7778 23.7159 3.42411 20.0966 9.89594 19.0039C6.19341 19.629 2.03115 18.5962 0.888901 14.547C0.560282 13.3821 0 6.20793 0 5.2385C0 0.384492 4.28924 1.9099 6.93639 3.88142Z" fill="currentColor"/>
+                </svg>
+            </a>
+        </li>
         <li>
             <a class="social-share-link" href="<?php _e($post_link); ?>">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
