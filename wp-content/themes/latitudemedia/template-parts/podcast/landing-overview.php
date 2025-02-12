@@ -25,7 +25,8 @@ $podcastData = get_fields(get_the_ID());
                                 'x_twitter' => $podcastData['x_twitter'],
                                 'linkedin'  => $podcastData['linkedin'],
                                 'instagram' => $podcastData['instagram'],
-                                'facebook'  => $podcastData['facebook']
+                                'facebook'  => $podcastData['facebook'],
+                                'bluesky'   => $podcastData['bluesky']
                             ]
                         ]);
                         ?>

@@ -213,6 +213,7 @@ function ltm_get_team_member_data($member = null) {
         'job_title'     => get_field('job_title', $member->ID, true),
         'linkedin'      => get_field('linkedin', $member->ID, true),
         'x_twitter'     => get_field('x_twitter', $member->ID, true),
+        'bluesky'       => get_field('bluesky', $member->ID, true),
         'other_socials' => get_field('other_socials', $member->ID, true)
     ];
 }
@@ -233,6 +234,9 @@ function ltm_get_author_socials($author = null) {
     }
     if( $social = get_field('x_twitter', 'author_' . $author->term_id, true) ) {
         $socials['x_twitter'] = $social;
+    }
+    if( $social = get_field('bluesky', 'author_' . $author->term_id, true) ) {
+        $socials['bluesky'] = $social;
     }
     if( $social = get_field('other_social', 'author_' . $author->term_id, true) ) {
         $socials['other_social'] = $social;

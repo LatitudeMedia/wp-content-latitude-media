@@ -42,6 +42,7 @@ $memberData = ltm_get_team_member_data($teamMember->ID);
                     get_template_part('template-parts/author/social','links', ['links' => [
                         'x_twitter'     => $memberData['x_twitter'],
                         'linkedin'      => $memberData['linkedin'],
+                        'bluesky'       => $memberData['bluesky'],
                         'other_social'  => $memberData['other_socials'],
                     ]]);
                 ?>

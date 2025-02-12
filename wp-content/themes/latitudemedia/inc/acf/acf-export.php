@@ -111,6 +111,12 @@ add_action('acf/include_fields', function () {
                 'type' => 'text',
             ),
             array(
+                'key' => 'field_67acc3d28e7b8',
+                'label' => 'Bluesky',
+                'name' => 'bluesky',
+                'type' => 'text',
+            ),
+            array(
                 'key' => 'field_66fbe5c1ed050',
                 'label' => 'Other Social',
                 'name' => 'other_social',
@@ -1204,6 +1210,12 @@ add_action('acf/include_fields', function () {
                 'type' => 'text',
             ),
             array(
+                'key' => 'field_67acc3d28e7b8',
+                'label' => 'Bluesky',
+                'name' => 'bluesky',
+                'type' => 'text',
+            ),
+            array(
                 'key' => 'field_67052c52a2094',
                 'label' => 'LinkedIn',
                 'name' => 'linkedin',
@@ -2019,6 +2031,12 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'key' => 'field_67050b391481f',
                 'label' => 'X (Twitter)',
                 'name' => 'x_twitter',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_67acc3aa3bd5a',
+                'label' => 'Bluesky',
+                'name' => 'bluesky',
                 'type' => 'text',
             ),
             array(

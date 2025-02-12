@@ -20,6 +20,7 @@ $icons = [
     'x_twitter'     => 'icon_vector_X.svg',
     'instagram'     => 'icon_vector_instagram.svg',
     'facebook'      => 'icon_vector_facebook.svg',
+    'bluesky'       => 'bluesky_2_logo_black.svg',
     'other_social'  => 'icon_world.svg',
 ];
 
