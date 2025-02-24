@@ -15,7 +15,7 @@
         <div class="middle-head">
             <div class="container">
                 <a class="logo" href="<?php echo home_url('/research/'); ?>">
-                    <img src="<?php echo get_template_directory_uri() . '/src/images/intelligence_logo.svg'; ?>" alt="logo" />
+                    <img src="<?php echo get_template_directory_uri() . '/src/images/intelligence_logo.svg'; ?>" alt="logo" width="180" height="70" />
                 </a>
                 <div class="logo-description"><?php _e('Covering the new frontiers of the energy transition','ltm'); ?></div>
             </div>
