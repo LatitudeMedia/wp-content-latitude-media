@@ -4613,6 +4613,7 @@
 
 @mixin singleEventHeroSection {
 	width: 100%;
+	min-height: 424px;
 	@include bg_cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -4631,7 +4632,6 @@
 		text-align: center;
 		position: relative;
 		z-index: 2;
-
 		.data-row {
 			display: flex;
 			align-items: center;
@@ -4640,7 +4640,6 @@
 			@include below_sm {
 				flex-direction: column;
 			}
-
 			.date {
 				color: $white;
 				display: flex;
@@ -4649,7 +4648,6 @@
 				@include below_sm {
 					margin-bottom: 16px;
 				}
-
 				&:before {
 					content: '';
 					display: block;
@@ -4659,7 +4657,6 @@
 					margin-right: 8px;
 				}
 			}
-
 			.location {
 				color: $white;
 				display: flex;

@@ -3,6 +3,7 @@
   \****************************************************************************************************************************************************************************************************************/
 .single-event-hero-section {
   width: 100%;
+  min-height: 424px;
   -webkit-background-size: cover !important;
   background-size: cover !important;
   background-position: center center;
