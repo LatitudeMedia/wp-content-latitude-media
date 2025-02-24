@@ -559,64 +559,19 @@ article ul li {
   -o-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
 }
-.pager.pink ul li .current {
+.pager ul li .current {
   background-color: #C6168D;
   color: #ffffff;
   box-shadow: -7px 7px 0 -1px #F9E8F4;
   border-color: #C6168D;
 }
-.pager.pink ul li a {
+.pager ul li a {
   color: #C6168D;
   box-shadow: -7px 7px 0 -1px #F9E8F4;
   border-color: #C6168D;
 }
-.pager.pink ul li a:hover {
+.pager ul li a:hover {
   background-color: #C6168D;
-  color: #ffffff;
-}
-.pager.green ul li .current {
-  background-color: #00B48D;
-  color: #ffffff;
-  box-shadow: -7px 7px 0 -1px #CCF0E8;
-  border-color: #00B48D;
-}
-.pager.green ul li a {
-  color: #00B48D;
-  box-shadow: -7px 7px 0 -1px #CCF0E8;
-  border-color: #00B48D;
-}
-.pager.green ul li a:hover {
-  background-color: #00B48D;
-  color: #ffffff;
-}
-.pager.blue ul li .current {
-  background-color: #0095DA;
-  color: #ffffff;
-  box-shadow: -7px 7px 0 -1px #E5F4FC;
-  border-color: #0095DA;
-}
-.pager.blue ul li a {
-  color: #0095DA;
-  box-shadow: -7px 7px 0 -1px #E5F4FC;
-  border-color: #0095DA;
-}
-.pager.blue ul li a:hover {
-  background-color: #0095DA;
-  color: #ffffff;
-}
-.pager.orange ul li .current {
-  background-color: #F99D1C;
-  color: #ffffff;
-  box-shadow: -7px 7px 0 -1px #FEEBD2;
-  border-color: #F99D1C;
-}
-.pager.orange ul li a {
-  color: #F99D1C;
-  box-shadow: -7px 7px 0 -1px #FEEBD2;
-  border-color: #F99D1C;
-}
-.pager.orange ul li a:hover {
-  background-color: #F99D1C;
   color: #ffffff;
 }
 
