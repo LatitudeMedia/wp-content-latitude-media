@@ -13,7 +13,7 @@ header {
       .container {
         display: flex;
         align-items: center;
-        justify-content: stretch;
+        position: relative;
         @include below_md {
           justify-content: flex-end;
         }
@@ -23,6 +23,8 @@ header {
         }
       }
       .top-search-form {
+        position: absolute;
+        left: 0;
         @include below_md {
           display: none;
         }
@@ -103,6 +105,7 @@ header {
         display: none;
       }
       .top-head-menu {
+        margin: 0 auto;
         @include below_md {
           overflow: auto;
           white-space: nowrap;
@@ -118,7 +121,6 @@ header {
           list-style: none;
           display: flex;
           align-items: center;
-          padding-left: 112px;
           height: 43px;
           @include below_lg {
             padding-left: 0;
