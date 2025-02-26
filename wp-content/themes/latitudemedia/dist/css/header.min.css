@@ -17,7 +17,11 @@ header .header-wrapper .top-head {
 header .header-wrapper .top-head .container {
   display: flex;
   align-items: center;
-  justify-content: stretch;
+  position: relative;
+}
+header .header-wrapper .top-head .top-search-form {
+  position: absolute;
+  left: 0;
 }
 header .header-wrapper .top-head .top-search-form fieldset {
   position: relative;
@@ -107,11 +111,13 @@ header .header-wrapper .top-head .top-search-form fieldset input:focus:-moz-plac
 header .header-wrapper .top-head .top-head-menu::-webkit-scrollbar {
   display: none;
 }
+header .header-wrapper .top-head .top-head-menu {
+  margin: 0 auto;
+}
 header .header-wrapper .top-head .top-head-menu ul {
   list-style: none;
   display: flex;
   align-items: center;
-  padding-left: 112px;
   height: 43px;
 }
 header .header-wrapper .top-head .top-head-menu ul li {
