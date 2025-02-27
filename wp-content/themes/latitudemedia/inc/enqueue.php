@@ -142,10 +142,58 @@ function hook_critical_css() {
         $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/categories-section-block.min.css' );
     }
 
+    // Detect the landing podcast and loading assets as critical.
+    if ( has_block( 'acf/large-podcasts-section') ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/large-podcasts-section.min.css' );
+    }
+
+    // Detect the landing podcast and loading assets as critical.
+    if ( has_block( 'acf/large-event-section') ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/featured-research-block.min.css' );
+    }
+
+    // Detect the landing podcast and loading assets as critical.
+    if ( has_block( 'acf/research-banner-block') ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css' );
+    }
+
+    // Detect the landing podcast and loading assets as critical.
+    if ( has_block( 'acf/content-with-background-block') ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/content-with-background-block.min.css' );
+    }
+
+    // Detect the landing podcast and loading assets as critical.
+    if ( has_block( 'acf/event-preview-block')
+        || has_block( 'acf/event-short-description-block') ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css' );
+    }
+
     // Detect the categories-section-block and loading assets as critical.
     if ( is_front_page() ) {
         $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/sidebar-editors-picks-section.min.css' );
     }
+    else
+    {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/post.min.css' );
+    }
+
+    // Detect the single post and loading assets as critical.
+    if ( is_singular(['podcasts']) ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/single-podcast.min.css' );
+    }
+
+    if ( is_singular(['research']) ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css' );
+    }
+
+    if ( is_post_type_archive(['resources']) ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/resources-archive.min.css' );
+    }
+
+    if ( is_singular(['resources']) ) {
+        $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/single-resource.min.css' );
+    }
+
     echo '<style id="ltm-critical-css">' . $critical_css . '</style>';
 }
 add_action('wp_head','hook_critical_css');
