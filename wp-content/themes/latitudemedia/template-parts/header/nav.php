@@ -16,7 +16,7 @@
         <div class="middle-head">
             <div class="container">
                 <a class="logo" href="<?php echo home_url('/'); ?>">
-                    <img src="<?php echo get_template_directory_uri() . '/src/images/Logo.svg'; ?>" width="380" height="53" alt="logo" />
+                    <img class="skip-lazy" src="<?php echo get_template_directory_uri() . '/src/images/Logo.svg'; ?>" width="380" height="53" alt="logo" />
                 </a>
                 <div class="logo-description"><?php _e('Covering the new frontiers of the energy transition','ltm'); ?></div>
             </div>
