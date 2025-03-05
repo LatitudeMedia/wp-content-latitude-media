@@ -63,7 +63,7 @@ if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                     }
 
                     if( in_array('type', $rows) ) {
-                        printf('<div class="location">%s</div>', ucfirst($eventData['event_type']) ?? '');
+                        printf('<div class="location">%s</div>', ucfirst($eventData['event_type'] ?? ''));
                     }
                 ?>
             </div>
