@@ -17,6 +17,7 @@ $options = wp_parse_args(
                 'button',
         ],
         'subtitle'      => '',
+        'logos_title'=> 'Co-hosted with:',
         'co_hosted_logo'=> null,
         'display'   => false,
         'blockAttributes' => [],
@@ -88,9 +89,12 @@ if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                 if( !empty($subtitle) ) {
                     printf('<div class="subtitle">%s</div>', $subtitle);
                 }
-                if ( !empty($co_hosted_logo) ) {
-                    $imageHtml = thumbnail_formatting(null, ['image_id' => $co_hosted_logo, 'size' => 'event-preview-hosted', 'link' => false], false);
-                    printf('<div class="logo-wrapper"><div class="label">Co-hosted with:</div>%s</div>', $imageHtml);
+                if ( !empty($co_hosted_logo) && is_array($co_hosted_logo) ) {
+                    $imageHtml = "";
+                    foreach ($co_hosted_logo as $logo) {
+                        $imageHtml .= thumbnail_formatting(null, ['image_id' => $logo, 'size' => 'event-preview-hosted', 'link' => false, 'img_attr' => ['class' => 'logo'] ], false);
+                    }
+                    printf('<div class="logo-wrapper"><div class="label">%s</div>%s</div>', $logos_title ?? 'Co-hosted with:', $imageHtml);
                 }
             ?>
         </div>
