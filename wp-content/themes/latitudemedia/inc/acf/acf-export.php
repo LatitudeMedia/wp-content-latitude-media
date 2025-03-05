@@ -4156,6 +4156,7 @@ Or select event manually.',
                 'key' => 'field_67c85bd4fda75',
                 'label' => 'Logos title',
                 'name' => 'logos_title',
+                'type' => 'text',
                 'default_value' => 'Co-hosted with:',
             ),
             array(
