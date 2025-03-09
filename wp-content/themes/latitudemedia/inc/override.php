@@ -111,3 +111,11 @@ function ltm_change_author_base_slug( $args, $taxonomy, $object_type )
 
     return $args;
 }
+
+add_filter( 'relevanssi_indexing_restriction', 'rlv_exclude_in_house_ad' );
+function rlv_exclude_in_house_ad( $restriction ) {
+    global $wpdb;
+    $restriction['mysql']  .= " AND post.post_type NOT IN ('in-house-ads') ";
+    $restriction['reason'] .= ' In the wrong post type';
+    return $restriction;
+}
