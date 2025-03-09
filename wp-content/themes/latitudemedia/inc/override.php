@@ -43,7 +43,7 @@ function news_page_posts_number( $query ) {
 }
 add_action( 'pre_get_posts', 'news_page_posts_number', 20 );
 
-add_filter( 'pre_get_posts', 'exclude_pages_from_search' );
+add_filter( 'pre_get_posts', 'exclude_pages_from_search', 9, 1);
 function exclude_pages_from_search($query) {
     if ( !is_admin() && $query->is_main_query() && $query->is_search ) {
         $query->set( 'post_type', 'post' );
