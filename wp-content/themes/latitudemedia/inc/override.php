@@ -119,3 +119,15 @@ function rlv_exclude_in_house_ad( $restriction ) {
     $restriction['reason'] .= ' In the wrong post type';
     return $restriction;
 }
+
+add_filter( 'relevanssi_hits_to_show', 'rlv_modify_found_posts', 100, 2 );
+
+function rlv_modify_found_posts( $posts, $query )
+{
+    $filteredPosts = [];
+    foreach ($posts as $post) {
+        if($post->post_type === 'in-house-ads') continue;
+        $filteredPosts[] = $post;
+    }
+    return $filteredPosts;
+}
