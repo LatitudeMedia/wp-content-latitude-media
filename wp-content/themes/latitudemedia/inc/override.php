@@ -120,7 +120,7 @@ function rlv_exclude_in_house_ad( $restriction ) {
     return $restriction;
 }
 
-add_filter( 'posts_pre_query', 'rlv_modify_found_posts', 100, 2 );
+add_filter( 'posts_pre_query', 'rlv_modify_found_posts', 999, 2 );
 
 function rlv_modify_found_posts( $posts, $query = false  )
 {
