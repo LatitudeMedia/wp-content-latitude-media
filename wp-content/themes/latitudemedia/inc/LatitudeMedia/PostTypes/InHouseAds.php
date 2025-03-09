@@ -62,7 +62,7 @@ class InHouseAds {
                 'map_meta_cap'  => true,
                 'has_archive'   => false,
                 'show_ui'       => true,
-                'show_in_rest'  => true,
+                'show_in_rest'  => false,
                 'exclude_from_search' => true,
                 'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
             ]
