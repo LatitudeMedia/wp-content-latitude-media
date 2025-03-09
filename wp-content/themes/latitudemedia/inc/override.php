@@ -124,6 +124,10 @@ add_filter( 'relevanssi_hits_to_show', 'rlv_modify_found_posts', 100, 2 );
 
 function rlv_modify_found_posts( $posts, $query )
 {
+    if( isset($_GET['RLV_DEBUG']) ) {
+        var_dump(wp_list_pluck($posts, 'post_type', 'ID'));
+        var_dump(wp_list_pluck($posts, 'post_title', 'ID'));
+    }
     $filteredPosts = [];
     foreach ($posts as $post) {
         if($post->post_type === 'in-house-ads') continue;
