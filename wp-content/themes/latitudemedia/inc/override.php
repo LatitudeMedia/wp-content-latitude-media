@@ -10,17 +10,17 @@ function set_pagination_base () {
 add_action( 'init', 'set_pagination_base' );
 
 // Modify pagination base to use a GET parameter
-function custom_pagination_base( $query ) {
-    if ( !is_admin() && ($query->is_main_query() || is_tax('section')) ) {
-        // Check if the `page` GET parameter is set
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        if ( isset( $_GET['page'] ) ) {
-            $paged = $_GET['page'];
-        }
-        $query->set( 'paged', $paged );
-    }
-}
-add_action( 'pre_get_posts', 'custom_pagination_base' );
+//function custom_pagination_base( $query ) {
+//    if ( !is_admin() && ($query->is_main_query() || is_tax('section')) ) {
+//        // Check if the `page` GET parameter is set
+//        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+//        if ( isset( $_GET['page'] ) ) {
+//            $paged = $_GET['page'];
+//        }
+//        $query->set( 'paged', $paged );
+//    }
+//}
+//add_action( 'pre_get_posts', 'custom_pagination_base' );
 
 // Modify pagination base to use a GET parameter
 function resources_archive_custom_query( $query ) {
