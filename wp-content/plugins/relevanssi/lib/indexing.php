@@ -341,9 +341,11 @@ function relevanssi_build_index( $extend_offset = false, $verbose = null, $post_
 
 	/* This action documented earlier in lib/indexing.php. */
 	do_action( 'relevanssi_pre_indexing_query' );
+    var_dump($query);
 
 	$content = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-	if ( defined( 'WP_CLI' ) && WP_CLI ) {
+
+    if ( defined( 'WP_CLI' ) && WP_CLI ) {
 		// @codeCoverageIgnoreStart
 		$progress = WP_CLI\Utils\make_progress_bar( 'Indexing posts', count( $content ) );
 		// @codeCoverageIgnoreEnd
