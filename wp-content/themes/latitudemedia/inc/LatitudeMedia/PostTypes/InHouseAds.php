@@ -58,7 +58,7 @@ class InHouseAds {
                     'menu_name'             => __( 'In House Ads', 'ltm' ),
                 ],
                 'menu_icon'     => 'dashicons-media-document',
-                'public'        => true,
+                'public'        => false,
                 'map_meta_cap'  => true,
                 'has_archive'   => false,
                 'show_ui'       => true,
