@@ -341,7 +341,6 @@ function relevanssi_build_index( $extend_offset = false, $verbose = null, $post_
 
 	/* This action documented earlier in lib/indexing.php. */
 	do_action( 'relevanssi_pre_indexing_query' );
-    var_dump($query);
 
 	$content = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
