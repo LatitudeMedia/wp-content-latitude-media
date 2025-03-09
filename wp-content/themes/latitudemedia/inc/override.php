@@ -120,18 +120,70 @@ function rlv_exclude_in_house_ad( $restriction ) {
     return $restriction;
 }
 
-add_filter( 'relevanssi_hits_to_show', 'rlv_modify_found_posts', 100, 2 );
+add_filter( 'posts_pre_query', 'rlv_modify_found_posts', 100, 2 );
 
-function rlv_modify_found_posts( $posts, $query )
+function rlv_modify_found_posts( $posts, $query = false  )
 {
-    if( isset($_GET['RLV_DEBUG']) ) {
-        var_dump(wp_list_pluck($posts, 'post_type', 'ID'));
-        var_dump(wp_list_pluck($posts, 'post_title', 'ID'));
+    global $relevanssi_active;
+
+    if ( ! $query ) {
+        return $posts;
     }
-    $filteredPosts = [];
-    foreach ($posts as $post) {
-        if($post->post_type === 'in-house-ads') continue;
-        $filteredPosts[] = $post;
+
+    $search_ok = true; // We will search!
+    if ( ! $query->is_search() ) {
+        $search_ok = false; // No, we can't, not a search.
     }
-    return $filteredPosts;
+    if ( ! $query->is_main_query() ) {
+        $search_ok = false; // No, we can't, not the main query.
+    }
+
+    // Uses $wp_query->is_admin instead of is_admin() to help with Ajax queries that
+    // use 'admin_ajax' hook (which sets is_admin() to true whether it's an admin search
+    // or not.
+    if ( $query->is_search() && $query->is_admin ) {
+        $search_ok           = false; // But if this is an admin search, reconsider.
+        $admin_search_option = get_option( 'relevanssi_admin_search' );
+        if ( 'on' === $admin_search_option ) {
+            $search_ok = true; // Yes, we can search!
+        }
+    }
+
+    if ( $query->is_admin && empty( $query->query_vars['s'] ) ) {
+        $search_ok = false; // No search term.
+    }
+
+    if ( $query->is_feed ) {
+        $search_ok = false;
+    }
+
+    if ( $query->get( 'relevanssi' ) ) {
+        $search_ok = true; // Manual override, always search.
+    }
+
+    /**
+     * Filters whether Relevanssi search can be run or not.
+     *
+     * This can be used to for example activate Relevanssi in cases where there is
+     * no search term available.
+     *
+     * @param boolean  True, if Relevanssi can be allowed to run.
+     * @param WP_Query The current query object.
+     */
+    $search_ok = apply_filters( 'relevanssi_search_ok', $search_ok, $query );
+
+    if ( $relevanssi_active ) {
+        $search_ok = false; // Relevanssi is already in action.
+    }
+
+    if ( $search_ok ) {
+        $filteredPosts = [];
+        foreach ($posts as $post) {
+            if($post->post_type === 'in-house-ads') continue;
+            $filteredPosts[] = $post;
+        }
+        return $filteredPosts;
+    }
+
+    return $posts;
 }
