@@ -22,9 +22,6 @@ get_template_part('template-parts/components/titles/topic', 'title',
     ['title' => 'Search results']
 );
 
-if(isset($_GET['grandiz_debug'])) {
-    var_dump($wp_query);
-}
 ?>
 
 <div class="topics-archive-section">
@@ -37,7 +34,7 @@ if(isset($_GET['grandiz_debug'])) {
                     <?php
                     while($wp_query->have_posts()) {
                         $wp_query->the_post();
-
+                        if(get_post_type() === 'in-house-ads') continue;
                         get_template_part(
                             'template-parts/components/post',
                             'item',
