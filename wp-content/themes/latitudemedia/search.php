@@ -63,8 +63,8 @@ get_template_part('template-parts/components/titles/topic', 'title',
                 </ul>
 
                 <?php
-                endif;
-                do_action('paginator', $wp_query, true, 'page');
+                    endif;
+                    do_action('paginator', $wp_query, true, 'page');
                 ?>
             </div>
         </div>
