@@ -22,6 +22,9 @@ get_template_part('template-parts/components/titles/topic', 'title',
     ['title' => 'Search results']
 );
 
+if(isset($_GET['grandiz_debug'])) {
+    var_dump($wp_query);
+}
 ?>
 
 <div class="topics-archive-section">
