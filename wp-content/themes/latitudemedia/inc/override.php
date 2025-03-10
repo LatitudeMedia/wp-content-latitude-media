@@ -112,13 +112,11 @@ function ltm_change_author_base_slug( $args, $taxonomy, $object_type )
     return $args;
 }
 
-add_filter('relevanssi_do_not_index', 'exclude_post_types_from_indexing', 10, 2);
-function exclude_post_types_from_indexing($do_not_index, $post) {
-    // List of post types to exclude
-    $excluded_post_types = ['in-house-ads'];
-    if (in_array(get_post_type($post), $excluded_post_types)) {
-        $do_not_index = true;
+add_filter( 'pre_get_posts', 'exclude_ih_house_ads_from_search', 10000, 1 );
+function exclude_ih_house_ads_from_search($query) {
+    if ( !is_admin() && $query->is_main_query() && $query->is_search ) {
+        $query->set( 'post_type', 'posts' );
     }
 
-    return $do_not_index;
+    return $query;
 }
