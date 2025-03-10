@@ -10,7 +10,7 @@
  * @see     https://www.relevanssi.com/
  */
 
-add_action( 'pre_get_posts', 'relevanssi_jetsmartfilters', 999 );
+add_action( 'pre_get_posts', 'relevanssi_jetsmartfilters', 9999 );
 
 /**
  * Makes JetSmartFilters use posts from Relevanssi.
