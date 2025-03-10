@@ -111,3 +111,14 @@ function ltm_change_author_base_slug( $args, $taxonomy, $object_type )
 
     return $args;
 }
+
+add_filter('relevanssi_do_not_index', 'exclude_post_types_from_indexing', 10, 2);
+function exclude_post_types_from_indexing($do_not_index, $post) {
+    // List of post types to exclude
+    $excluded_post_types = ['in-house-ads'];
+    if (in_array(get_post_type($post), $excluded_post_types)) {
+        $do_not_index = true;
+    }
+
+    return $do_not_index;
+}
