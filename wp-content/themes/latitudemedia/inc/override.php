@@ -115,6 +115,9 @@ function ltm_change_author_base_slug( $args, $taxonomy, $object_type )
 add_filter( 'pre_get_posts', 'exclude_ih_house_ads_from_search', 10000, 1 );
 function exclude_ih_house_ads_from_search($query) {
     if ( !is_admin() && $query->is_main_query() && $query->is_search ) {
+        if( isset($_GET['grandiz_debug']) ) {
+            var_dump($query);
+        }
         $query->set( 'post_type', 'post' );
     }
 
