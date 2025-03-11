@@ -191,7 +191,7 @@ add_action('acf/include_fields', function () {
             ),
             array(
                 'key' => 'field_67d0444e61ea1',
-                'label' => 'Topic top banner',
+                'label' => 'Top banner - ',
                 'name' => 'topic_top_banner',
                 'type' => 'clone',
                 'clone' => array(
@@ -199,6 +199,7 @@ add_action('acf/include_fields', function () {
                 ),
                 'display' => 'seamless',
                 'layout' => 'block',
+                'prefix_label' => 1,
             ),
         ),
         'location' => array(
@@ -974,7 +975,7 @@ add_action('acf/include_fields', function () {
 
             array(
                 'key' => 'field_67d0390515013',
-                'label' => 'Article Top banner',
+                'label' => 'Top banner - ',
                 'name' => 'article_top_banner',
                 'type' => 'clone',
                 'clone' => array(
@@ -982,6 +983,7 @@ add_action('acf/include_fields', function () {
                 ),
                 'display' => 'seamless',
                 'layout' => 'block',
+                'prefix_label' => 1,
             ),
         ),
         'location' => array(
