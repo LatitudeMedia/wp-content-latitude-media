@@ -29,6 +29,9 @@
     <!-- HEADER -->
 <?php
     get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
+
+    do_action('print_ad_banner', get_site_header_banner(), ['class' => 'header-top-banner']);
+
 ?>
 
 

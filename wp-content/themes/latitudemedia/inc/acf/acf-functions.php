@@ -1414,6 +1414,18 @@ if( function_exists('acf_add_options_sub_page') ) {
         'menu_title'  => __('DFP Ad Slots'),
         'parent_slug' => 'edit.php?post_type=in-house-ads',
     ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => __('Articles Ads'),
+        'menu_title'  => __('Articles Ads'),
+        'parent_slug' => 'edit.php?post_type=in-house-ads',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => __('Topics Ads'),
+        'menu_title'  => __('Topics Ads'),
+        'parent_slug' => 'edit.php?post_type=in-house-ads',
+    ));
 }
 
 if( !function_exists('relationship_orderby_date') ) {
