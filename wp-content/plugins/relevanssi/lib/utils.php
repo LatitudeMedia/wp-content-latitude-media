@@ -359,7 +359,7 @@ function relevanssi_get_an_object( $source ) {
 		// Convert from post ID to post.
 		$object = relevanssi_get_post_object( $source );
 		$format = 'id';
-	} elseif ( isset( $source->type ) ) {
+	} elseif ( is_object( $source ) && property_exists( $source, 'type' ) ) {
 		// Convert from id=>type to post.
 		$object = relevanssi_get_post_object( $source->ID );
 		$format = 'id=>type';
@@ -1248,7 +1248,12 @@ function relevanssi_strip_invisibles( $text ) {
  */
 function relevanssi_strip_tags( $content ) {
 	if ( ! is_string( $content ) ) {
-		$content = strval( $content );
+		try {
+			$content = strval( $content );
+		} catch ( Exception $e ) {
+			// Likely an object without a toString method.
+			return $content;
+		}
 	}
 	$content = relevanssi_strip_invisibles( $content );
 

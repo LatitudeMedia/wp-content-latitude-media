@@ -659,3 +659,35 @@ if ( ! function_exists( 'print_image_and_text_image' ) ) :
     }
     add_action('print_image_and_text_image', 'print_image_and_text_image', 10, 3);
 endif;
+
+if ( ! function_exists( 'print_ad_banner' ) ) :
+    function print_ad_banner( $banner, $args = array() ): void
+    {
+        if( empty($banner['dynamic_ad_banner']) ) {
+            return;
+        }
+
+        if( isset($banner['display']) && !$banner['display'] )
+        {
+            return;
+        }
+
+        $defaults = [
+            'wrap' => '<div class="banner-ad-block ' . ($args['class'] ?? '') . '"><div class="container"><div class="banner-ad-block-wrapper">%s</div></div></div>',
+        ];
+
+        $args = wp_parse_args($args, $defaults);
+        extract($args);
+
+        get_template_part(
+            'template-parts/components/ad',
+            'banner',
+            array(
+                'banner_id'  => $banner['dynamic_ad_banner'],
+                'screen_type'=> $banner['screen_type'],
+                'wrap'       => $wrap,
+            )
+        );
+    }
+    add_action('print_ad_banner', 'print_ad_banner', 10, 2);
+endif;
