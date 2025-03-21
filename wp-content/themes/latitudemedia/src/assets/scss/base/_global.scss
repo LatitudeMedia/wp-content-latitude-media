@@ -88,7 +88,11 @@
 .has-orange-shadow-color {
   color: var(--orange-shadow);
 }
-
+.single-events {
+  header {
+    padding-bottom: 0;
+  }
+}
 header {
   padding-bottom: 64px;
 }

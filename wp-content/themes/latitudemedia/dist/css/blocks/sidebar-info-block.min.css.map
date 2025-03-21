@@ -1,1 +1,1 @@
-{"version":3,"file":"css/blocks/sidebar-info-block.min.css","mappings":"AACA,YACE,kBACA,yBACA,mBACA,gCACE,kBACA,mCACE,mBACA,kB","sources":["webpack://static/./src/assets/scss/blocks/sidebar-info-block.scss"],"names":[],"sourceRoot":""}
+{"version":3,"file":"css/blocks/sidebar-info-block.min.css","mappings":";;;AACA;EACE;EACA;EACA;AAAF;AACE;EACE;AACJ;AAAI;EACE;EACA;AAEN,C","sources":["webpack://static/./src/assets/scss/blocks/sidebar-info-block.scss"],"names":[],"sourceRoot":""}
