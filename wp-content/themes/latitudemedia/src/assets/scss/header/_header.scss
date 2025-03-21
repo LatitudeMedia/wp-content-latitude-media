@@ -106,6 +106,7 @@ header {
       }
       .top-head-menu {
         margin: 0 auto;
+        height: 43px;
         @include below_md {
           overflow: auto;
           white-space: nowrap;
