@@ -13,6 +13,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><?php wp_title("",true);?></title>
+    <link rel="preload" href="<?php echo get_template_directory_uri() . '/src/images/Logo.svg'; ?>" as="image">
 
     <?php wp_head(); ?>
 </head>
@@ -28,6 +29,9 @@
     <!-- HEADER -->
 <?php
     get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
+
+    do_action('print_ad_banner', get_site_header_banner(), ['class' => 'header-top-banner']);
+
 ?>
 
 

@@ -43,7 +43,7 @@ function news_page_posts_number( $query ) {
 }
 add_action( 'pre_get_posts', 'news_page_posts_number', 20 );
 
-add_filter( 'pre_get_posts', 'exclude_pages_from_search' );
+add_filter( 'pre_get_posts', 'exclude_pages_from_search', 20, 1);
 function exclude_pages_from_search($query) {
     if ( !is_admin() && $query->is_main_query() && $query->is_search ) {
         $query->set( 'post_type', 'post' );
@@ -51,6 +51,7 @@ function exclude_pages_from_search($query) {
 
     return $query;
 }
+
 add_filter('posts_orderby','search_page_order_by_date', 10, 2);
 function search_page_order_by_date( $orderby, $query ){
     global $wpdb;

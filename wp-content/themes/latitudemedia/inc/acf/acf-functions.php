@@ -511,7 +511,7 @@ $blocks = array(
         'post_types' 	=> array( 'page' ),
         'category'  	=> 'ltm-page-blocks',
         'keywords'    => array( __('Large podcasts block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/large-podcasts-section.min.css',
+//        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/large-podcasts-section.min.css',
         'styles'  => [
             [
                 'name' => 'default',
@@ -815,7 +815,7 @@ $blocks = array(
         'post_types' 	=> array( 'research', 'order-reports' ),
         'category'  	=> 'ltm-research-blocks',
         'keywords'    => array( __('Research banner block', 'ltm') ),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css',
+//        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -946,7 +946,7 @@ $blocks = array(
         'post_types' 	=> array( 'events' ),
         'category'  	=> 'ltm-event-blocks',
         'keywords'    => array( __('Event preview block', 'ltm') ),
-        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css',
+//        'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css',
         'example'  	=> array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -1412,6 +1412,18 @@ if( function_exists('acf_add_options_sub_page') ) {
     acf_add_options_sub_page(array(
         'page_title'  => __('DFP Ad Slots'),
         'menu_title'  => __('DFP Ad Slots'),
+        'parent_slug' => 'edit.php?post_type=in-house-ads',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => __('Articles Ads'),
+        'menu_title'  => __('Articles Ads'),
+        'parent_slug' => 'edit.php?post_type=in-house-ads',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => __('Topics Ads'),
+        'menu_title'  => __('Topics Ads'),
         'parent_slug' => 'edit.php?post_type=in-house-ads',
     ));
 }

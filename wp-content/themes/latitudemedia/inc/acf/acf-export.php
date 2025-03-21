@@ -189,6 +189,18 @@ add_action('acf/include_fields', function () {
                 'allow_null' => 1,
                 'required'  => true
             ),
+            array(
+                'key' => 'field_67d0444e61ea1',
+                'label' => 'Top banner - ',
+                'name' => 'topic_top_banner',
+                'type' => 'clone',
+                'clone' => array(
+                    0 => 'group_67d03d01f1e19',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 1,
+            ),
         ),
         'location' => array(
             array(
@@ -284,6 +296,7 @@ add_action('acf/include_fields', function () {
                     'frontier-forum' => 'Frontier Forum',
                     'transition-ai' => 'Transition AI',
                     'webinar' => 'Webinar',
+                    'open-circuit' => 'Open Circuit',
                 ),
                 'default_value' => false,
                 'return_format' => 'array',
@@ -958,6 +971,19 @@ add_action('acf/include_fields', function () {
                 'name' => 'sponsored',
                 'type' => 'true_false',
                 'ui' => 1,
+            ),
+
+            array(
+                'key' => 'field_67d0390515013',
+                'label' => 'Top banner - ',
+                'name' => 'article_top_banner',
+                'type' => 'clone',
+                'clone' => array(
+                    0 => 'group_67d03d01f1e19',
+                ),
+                'display' => 'seamless',
+                'layout' => 'block',
+                'prefix_label' => 1,
             ),
         ),
         'location' => array(
@@ -4152,12 +4178,23 @@ Or select event manually.',
                 'type' => 'text',
             ),
             array(
+                'key' => 'field_67c85bd4fda75',
+                'label' => 'Logos title',
+                'name' => 'logos_title',
+                'type' => 'text',
+                'default_value' => 'Co-hosted with:',
+            ),
+            array(
                 'key' => 'field_67473b7ea1f7e',
-                'label' => 'Co-hosted logo',
+                'label' => 'Logos',
                 'name' => 'co_hosted_logo',
-                'type' => 'image',
+                'type' => 'gallery',
                 'return_format' => 'id',
                 'library' => 'all',
+                'min' => '',
+                'max' => 2,
+                'mime_types' => '',
+                'insert' => 'append',
                 'preview_size' => 'medium',
             ),
             array(
@@ -5010,6 +5047,134 @@ Or select event manually.',
         'hide_on_screen' => '',
         'active' => true,
         'description' => '',
+        'show_in_rest' => 0,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_67d03d01f1e19',
+        'title' => 'Google Ad banner with display',
+        'fields' => array(
+            array(
+                'key' => 'field_67d03d020b9d8',
+                'label' => 'Ad banner',
+                'name' => 'dynamic_ad_banner',
+                'type' => 'select',
+                'choices' => array(
+                ),
+                'default_value' => false,
+                'return_format' => 'value',
+                'multiple' => 0,
+                'allow_null' => 1,
+            ),
+            array(
+                'key' => 'field_67d03d020ba48',
+                'label' => 'Display ad',
+                'name' => 'display',
+                'type' => 'true_false',
+                'default_value' => 1,
+                'ui' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => false,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_67d033a8110d4',
+        'title' => 'Articles Ads Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_67d033a8ab0ea',
+                'label' => 'Article Top banner',
+                'name' => 'article_top_banner',
+                'type' => 'group',
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_67d03425ab0eb',
+                        'type' => 'clone',
+                        'relevanssi_exclude' => 0,
+                        'clone' => array(
+                            0 => 'field_67d03d020b9d8',
+                        ),
+                        'display' => 'seamless',
+                        'layout' => 'block',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'acf-options-articles-ads',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
+        'show_in_rest' => 0,
+    ) );
+
+    acf_add_local_field_group( array(
+        'key' => 'group_67d04326614d1',
+        'title' => 'Topics Ads Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_67d04326715ec',
+                'label' => 'Topic Top banner',
+                'name' => 'topic_top_banner',
+                'type' => 'group',
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_67d04326752cf',
+                        'type' => 'clone',
+                        'clone' => array(
+                            0 => 'field_67d03d020b9d8',
+                        ),
+                        'display' => 'seamless',
+                        'layout' => 'block',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'acf-options-topics-ads',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
         'show_in_rest' => 0,
     ) );
 });
