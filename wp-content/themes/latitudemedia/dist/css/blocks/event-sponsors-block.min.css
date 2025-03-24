@@ -45,6 +45,11 @@
   flex-direction: column-reverse;
   align-items: flex-start;
 }
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .bio img {
+  border: 1px solid #00B48D;
+  padding: 10px;
+  box-sizing: content-box;
+}
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .description {
   font-size: 16px;
   font-size: 1rem;
