@@ -34,6 +34,25 @@
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .image-folder {
   margin-bottom: 26px;
 }
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .content-folder .more-link {
+  text-decoration: underline;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 23px;
+  color: #00B48D;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .bio {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .description {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .strict-button {
+  display: inline-block;
+}
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a {
   display: block;
   text-decoration: none;

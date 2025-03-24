@@ -5060,6 +5060,27 @@
 					.image-folder {
 						margin-bottom: 26px;
 					}
+					.content-folder {
+						.more-link {
+							text-decoration: underline;
+							@include fontSize(16px);
+							line-height: 23px;
+							color: $green;
+						}
+					}
+					.modal-content {
+						.bio {
+							flex-direction: column-reverse;
+							align-items: flex-start;
+						}
+						.description {
+							@include fontSize(16px);
+							line-height: 24px;
+						}
+						.strict-button {
+							display: inline-block;
+						}
+					}
 					a {
 						display: block;
 						text-decoration: none;
