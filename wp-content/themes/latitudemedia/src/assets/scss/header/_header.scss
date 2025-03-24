@@ -128,6 +128,7 @@ header {
           }
           li {
             margin-right: 32px;
+            height: 43px;
             @include below_mob {
               margin-right: 16px;
             }
@@ -135,6 +136,7 @@ header {
               margin-right: 0;
             }
             a {
+              height: 43px;
               text-decoration: none;
               text-transform: uppercase;
               color: $white;

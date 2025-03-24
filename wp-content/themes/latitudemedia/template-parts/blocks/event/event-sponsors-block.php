@@ -49,9 +49,33 @@ $blockAttrs = wp_kses_data(
                 $listHtml = '';
                 while($sponsorsPosts->have_posts()) {
                     $sponsorsPosts->the_post();
+                    $modalId = uniqid();
+
                     $sponsorUrl = get_field('website_link', get_the_ID()) ?: '#';
                     $img = thumbnail_formatting(get_the_ID(), ['size' => 'event-sponsors-list', 'link' => false], false);
-                    $listHtml .= sprintf('<li><a href="%s" target="_blank">%s</a></li>', $sponsorUrl, $img);
+                    $sponsorHtml = sprintf('<div class="image-folder green"><a href="#%1$s" class="js-modal-open">%2$s</a></div>
+                        <div class="content-folder">
+                            <a class="more-link" href="%3$s" target="_blank">Read more</a>
+                        </div>', $modalId, $img, $sponsorUrl);
+
+                    $sponsorModalHtml = sprintf('<div id="%1$s" class="modal-content green">
+                        <div class="modal-folder">
+                            <a class="cross js-modal-close"></a>
+                            <div class="bio">
+                                %2$s
+                                
+                                <div class="info">
+                                    <h3>%3$s</h3>
+                                </div>
+                            </div>
+                            <div class="description">
+                                %4$s
+                            </div>
+                            <a class="strict-button green js-modal-close">Close</a>
+                        </div>
+                    </div>', $modalId, $img, get_the_title(), get_the_content());
+
+                    $listHtml .= sprintf('<li>%1$s %2$s</li>', $sponsorHtml, $sponsorModalHtml);
                 }
 
                 if( !empty($category['title']) ) {
