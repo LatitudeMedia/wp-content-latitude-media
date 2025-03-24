@@ -5072,6 +5072,11 @@
 						.bio {
 							flex-direction: column-reverse;
 							align-items: flex-start;
+							img {
+								border: 1px solid $green;
+								padding: 10px;
+								box-sizing: content-box;
+							}
 						}
 						.description {
 							@include fontSize(16px);
