@@ -5031,19 +5031,35 @@
 				margin-bottom: 24px;
 				text-align: center;
 			}
-
 			ul {
 				list-style: none;
-				margin: 0;
 				padding: 0;
 				display: flex;
 				align-self: center;
 				justify-content: center;
 				flex-wrap: wrap;
+				margin: 0 0 0 -5%;
 				li {
-					margin: 0 16px 16px 16px;
+					margin-left: 5%;
+					width: 20%;
+					margin-bottom: 64px;
+					@include below_md {
+						width: 28.3%;
+					}
+					@include below_sm {
+						margin-bottom: 32px;
+						width: 45%;
+					}
+					@include below_mob {
+						width: 100% !important;
+						margin-left: 0 !important;
+					}
 					align-items: center;
 					display: flex;
+					flex-direction: column;
+					.image-folder {
+						margin-bottom: 26px;
+					}
 					a {
 						display: block;
 						text-decoration: none;

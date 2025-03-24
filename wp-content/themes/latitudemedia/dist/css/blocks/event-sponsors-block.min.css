@@ -1,1 +1,72 @@
-.event-sponsors-section{margin-bottom:64px}.event-sponsors-section .bordered-title{margin-bottom:32px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row{margin-bottom:32px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row h5{margin-bottom:24px;text-align:center}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul{list-style:none;margin:0;padding:0;display:flex;align-self:center;justify-content:center;flex-wrap:wrap}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li{margin:0 16px 16px 16px;align-items:center;display:flex}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a{display:block;text-decoration:none;max-width:150px}.event-sponsors-section.pink .bordered-title{border-color:#c6168d}.event-sponsors-section.green .bordered-title{border-color:#00b48d}.event-sponsors-section.blue .bordered-title{border-color:#0095da}.event-sponsors-section.orange .bordered-title{border-color:#f99d1c}
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/event-sponsors-block.scss ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.event-sponsors-section {
+  margin-bottom: 64px;
+}
+.event-sponsors-section .bordered-title {
+  margin-bottom: 32px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row {
+  margin-bottom: 32px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row h5 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 0 -5%;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+  margin-left: 5%;
+  width: 20%;
+  margin-bottom: 64px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .image-folder {
+  margin-bottom: 26px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a {
+  display: block;
+  text-decoration: none;
+  max-width: 150px;
+}
+.event-sponsors-section.pink .bordered-title {
+  border-color: #C6168D;
+}
+.event-sponsors-section.green .bordered-title {
+  border-color: #00B48D;
+}
+.event-sponsors-section.blue .bordered-title {
+  border-color: #0095DA;
+}
+.event-sponsors-section.orange .bordered-title {
+  border-color: #F99D1C;
+}
+@media screen and (max-width: 992px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+    width: 28.3%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+    margin-bottom: 32px;
+    width: 45%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+/*# sourceMappingURL=event-sponsors-block.min.css.map*/
