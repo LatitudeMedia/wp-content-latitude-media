@@ -5082,8 +5082,20 @@
 							@include fontSize(16px);
 							line-height: 24px;
 						}
-						.strict-button {
-							display: inline-block;
+						.control-buttons {
+							@include below_mob {
+								display: flex;
+								flex-direction: column;
+							}
+							.strict-button {
+								display: inline-block;
+								@include below_mob {
+									display: block;
+									&:first-child {
+										margin-bottom: 16px;
+									}
+								}
+							}
 						}
 					}
 					a {
