@@ -5089,8 +5089,10 @@
 							}
 							.strict-button {
 								display: inline-block;
+								margin-right: 10px;
 								@include below_mob {
 									display: block;
+									margin-right: 0;
 									&:first-child {
 										margin-bottom: 16px;
 									}
