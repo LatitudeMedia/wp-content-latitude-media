@@ -71,8 +71,10 @@ $blockAttrs = wp_kses_data(
                             <div class="description">
                                 %4$s
                             </div>
-                            <a href="%5$s" class="strict-button green" target="_blank">Visit Website</a>
-                            <a class="strict-button green js-modal-close">Close</a>
+                            <div class="control-buttons">
+                                <a href="%5$s" class="strict-button green" target="_blank">Visit Website</a>
+                                <a class="strict-button green js-modal-close">Close</a>
+                            </div>                           
                         </div>
                     </div>', $modalId, $img, get_the_title(), get_the_content(), $sponsorUrl);
 
