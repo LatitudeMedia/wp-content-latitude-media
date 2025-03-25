@@ -55,8 +55,8 @@ $blockAttrs = wp_kses_data(
                     $img = thumbnail_formatting(get_the_ID(), ['size' => 'event-sponsors-list', 'link' => false], false);
                     $sponsorHtml = sprintf('<div class="image-folder green"><a href="#%1$s" class="js-modal-open">%2$s</a></div>
                         <div class="content-folder">
-                            <a class="more-link" href="%3$s" target="_blank">Read more</a>
-                        </div>', $modalId, $img, $sponsorUrl);
+                            <a class="more-link js-modal-open" href="#">Read more</a>
+                         </div>', $modalId, $img);
 
                     $sponsorModalHtml = sprintf('<div id="%1$s" class="modal-content green">
                         <div class="modal-folder">
