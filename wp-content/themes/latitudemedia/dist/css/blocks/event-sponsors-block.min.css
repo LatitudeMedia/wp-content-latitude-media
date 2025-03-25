@@ -57,6 +57,7 @@
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button {
   display: inline-block;
+  margin-right: 10px;
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a {
   display: block;
@@ -96,6 +97,7 @@
   }
   .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button {
     display: block;
+    margin-right: 0;
   }
   .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button:first-child {
     margin-bottom: 16px;
