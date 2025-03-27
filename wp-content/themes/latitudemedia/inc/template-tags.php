@@ -684,7 +684,7 @@ if ( ! function_exists( 'print_ad_banner' ) ) :
             'banner',
             array(
                 'banner_id'  => $banner['dynamic_ad_banner'],
-                'screen_type'=> $banner['screen_type'],
+                'screen_type'=> $banner['screen_type'] ?? null,
                 'wrap'       => $wrap,
             )
         );
