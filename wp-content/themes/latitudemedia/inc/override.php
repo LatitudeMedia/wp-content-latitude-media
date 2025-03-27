@@ -1,13 +1,12 @@
 <?php
 
-function set_pagination_base () {
+add_filter('paginate_links', function($link) {
+    if (!is_search()) {
+        $link = str_replace('/page/', '', $link);
+    }
 
-    global $wp_rewrite;
-
-    $wp_rewrite->pagination_base = '';
-
-}
-add_action( 'init', 'set_pagination_base' );
+    return $link;
+});
 
 // Modify pagination base to use a GET parameter
 function custom_pagination_base( $query ) {
@@ -50,16 +49,6 @@ function exclude_pages_from_search($query) {
     }
 
     return $query;
-}
-
-add_filter('posts_orderby','search_page_order_by_date', 10, 2);
-function search_page_order_by_date( $orderby, $query ){
-    global $wpdb;
-
-    if(!is_admin() && is_search())
-        $orderby = " {$wpdb->posts}.post_date DESC ";
-
-    return  $orderby;
 }
 
 /**

@@ -26,15 +26,14 @@ get_template_part('template-parts/components/titles/topic', 'title',
 
 <div class="topics-archive-section">
     <div class="container-narrow">
-        <div class="topics-archive-section-wrapper load-more-container">
-            <div class="posts-list-section load-more-posts">
+        <div class="topics-archive-section-wrapper ">
+            <div class="posts-list-section ">
                 <?php if($wp_query->have_posts()) : ?>
 
                 <ul class="posts">
                     <?php
                     while($wp_query->have_posts()) {
                         $wp_query->the_post();
-                        if(get_post_type() === 'in-house-ads') continue;
                         get_template_part(
                             'template-parts/components/post',
                             'item',
@@ -64,7 +63,8 @@ get_template_part('template-parts/components/titles/topic', 'title',
 
                 <?php
                     endif;
-                    do_action('paginator', $wp_query, true, 'page');
+
+                    do_action('paginator', $wp_query, false, 'page');
                 ?>
             </div>
         </div>
