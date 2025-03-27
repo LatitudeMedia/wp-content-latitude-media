@@ -26,8 +26,8 @@ get_template_part('template-parts/components/titles/topic', 'title',
 
 <div class="topics-archive-section">
     <div class="container-narrow">
-        <div class="topics-archive-section-wrapper ">
-            <div class="posts-list-section ">
+        <div class="topics-archive-section-wrapper load-more-container">
+            <div class="posts-list-section load-more-posts">
                 <?php if($wp_query->have_posts()) : ?>
 
                 <ul class="posts">
