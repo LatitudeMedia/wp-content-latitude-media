@@ -64,7 +64,25 @@ get_template_part('template-parts/components/titles/topic', 'title',
                 <?php
                     endif;
 
-                    do_action('paginator', $wp_query, false, 'page');
+                    $paginator = paginate_links( array(
+                        'end_size' => 1,
+                        'mid_size' => 1,
+                        'prev_next' => false,
+                        'prev_text' => '',
+                        'next_text' => '',
+                        'type' => 'array',
+                    ) );
+                    $paginator_content = '';
+
+
+                    if (is_array($paginator)) {
+                        foreach ($paginator as $page) {
+                            $paginator_content .= sprintf('<li>%1$s</li>', $page);
+                        }
+
+                        printf('<div class="pager"><ul>%1$s</ul></div>', $paginator_content);
+                    }
+//                    do_action('paginator', $wp_query, false, 'page');
                 ?>
             </div>
         </div>
