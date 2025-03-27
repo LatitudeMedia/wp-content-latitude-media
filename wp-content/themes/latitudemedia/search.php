@@ -26,15 +26,14 @@ get_template_part('template-parts/components/titles/topic', 'title',
 
 <div class="topics-archive-section">
     <div class="container-narrow">
-        <div class="topics-archive-section-wrapper load-more-container">
-            <div class="posts-list-section load-more-posts">
+        <div class="topics-archive-section-wrapper ">
+            <div class="posts-list-section ">
                 <?php if($wp_query->have_posts()) : ?>
 
                 <ul class="posts">
                     <?php
                     while($wp_query->have_posts()) {
                         $wp_query->the_post();
-                        if(get_post_type() === 'in-house-ads') continue;
                         get_template_part(
                             'template-parts/components/post',
                             'item',
@@ -64,7 +63,26 @@ get_template_part('template-parts/components/titles/topic', 'title',
 
                 <?php
                     endif;
-                    do_action('paginator', $wp_query, true, 'page');
+
+                    $paginator = paginate_links( array(
+                        'end_size' => 1,
+                        'mid_size' => 1,
+                        'prev_next' => false,
+                        'prev_text' => '',
+                        'next_text' => '',
+                        'type' => 'array',
+                    ) );
+                    $paginator_content = '';
+
+
+                    if (is_array($paginator)) {
+                        foreach ($paginator as $page) {
+                            $paginator_content .= sprintf('<li>%1$s</li>', $page);
+                        }
+
+                        printf('<div class="pager"><ul>%1$s</ul></div>', $paginator_content);
+                    }
+//                    do_action('paginator', $wp_query, false, 'page');
                 ?>
             </div>
         </div>
