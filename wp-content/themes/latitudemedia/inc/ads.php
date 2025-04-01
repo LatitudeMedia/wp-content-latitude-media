@@ -277,12 +277,14 @@ if ( ! function_exists( 'display_content_apply_incontent_ads' ) ) :
 
         $lastParagraph = 0;
         $wordCount = 0;
+        $bannerSettings = get_field('article_in_content_banner_1', 'options');
+        $afterWordsNumber = $bannerSettings['after_words_number'] ?? 2000;
         foreach ($parts as &$part) {
             $textContent = strip_tags($part);
             $wordCount += str_word_count($textContent);
             $lastParagraph++;
 
-            if ($wordCount >= 2000 || $lastParagraph >= count($parts)) {
+            if ($wordCount >= $afterWordsNumber || $lastParagraph >= count($parts)) {
                 ob_start();
                 do_action('print_ad_banner', get_article_in_content_banner(), ['wrap' => '<div class="banner-ad-block in-content-banner"><div class="banner-ad-block-wrapper">%s</div></div>']);
                 $banner = ob_get_clean();
