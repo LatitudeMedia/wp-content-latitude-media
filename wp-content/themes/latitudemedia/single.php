@@ -45,7 +45,7 @@ get_header();
                     <?php endif; ?>
                     <article>
                         <?php
-                            the_content();
+                            do_action('display_content_apply_incontent_ads');
                         ?>
                     </article>
                     <div class="post-share-block">

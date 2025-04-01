@@ -30,6 +30,11 @@ require_once ("inc/menu/menu.php");
 require_once ("inc/helpers.php");
 
 /**
+ * Ads functions
+ */
+require_once ("inc/ads.php");
+
+/**
  * Include ACF configs
  */
 require_once('inc/acf/init.php');

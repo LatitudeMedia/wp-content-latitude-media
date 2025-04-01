@@ -65,9 +65,15 @@
 			})
 		}
 
+		if( typeof wpDfpAdsSettings.targeting !== 'undefined' ) {
+			Object.entries(wpDfpAdsSettings.targeting).forEach(([key, value]) => {
+				googletag.pubads().setTargeting(key, value.toString())
+			});
+		}
+
+		// targeting
 		googletag.pubads().enableSingleRequest();
 		googletag.pubads().collapseEmptyDivs();
-		// googletag.pubads().setTargeting('articletitle', pathParts[0] ? pathParts[0]: 'home-page').setTargeting('cat_target', [wpDfpAdsSettings.categories]);
 		googletag.enableServices();
 
 		window.dispatchEvent(new CustomEvent('gpt-slots-ready', {
