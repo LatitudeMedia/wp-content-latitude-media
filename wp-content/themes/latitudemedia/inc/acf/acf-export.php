@@ -975,15 +975,39 @@ add_action('acf/include_fields', function () {
 
             array(
                 'key' => 'field_67d0390515013',
-                'label' => 'Top banner - ',
+                'label' => 'Top banner',
                 'name' => 'article_top_banner',
-                'type' => 'clone',
-                'clone' => array(
-                    0 => 'group_67d03d01f1e19',
-                ),
-                'display' => 'seamless',
+                'type' => 'group',
                 'layout' => 'block',
-                'prefix_label' => 1,
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_67ebcdfe76cc6',
+                        'type' => 'clone',
+                        'clone' => array(
+                            0 => 'group_67d03d01f1e19',
+                        ),
+                        'display' => 'seamless',
+                        'layout' => 'block',
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_67eb1b6f2cf95',
+                'label' => 'In content banner',
+                'name' => 'article_in_content_banner_1',
+                'type' => 'group',
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_67ebcd10c0861',
+                        'type' => 'clone',
+                        'clone' => array(
+                            0 => 'group_67d03d01f1e19',
+                        ),
+                        'display' => 'seamless',
+                        'layout' => 'block',
+                    ),
+                ),
             ),
         ),
         'location' => array(
@@ -5115,6 +5139,26 @@ Or select event manually.',
                         ),
                         'display' => 'seamless',
                         'layout' => 'block',
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_67eb177580a1b',
+                'label' => 'Article In Content banner',
+                'name' => 'article_in_content_banner_1',
+                'type' => 'group',
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_67eb177580a1d',
+                        'type' => 'clone',
+                        'clone' => array(
+                            0 => 'field_67d03d020b9d8',
+                        ),
+                        'display' => 'seamless',
+                        'layout' => 'block',
+                        'prefix_label' => 0,
+                        'prefix_name' => 0,
                     ),
                 ),
             ),

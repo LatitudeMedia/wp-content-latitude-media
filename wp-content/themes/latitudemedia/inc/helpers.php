@@ -57,67 +57,6 @@ function is_news_type($type = '', $post_id = null) {
 }
 
 /**
- * @param $bannerField
- * @param $post_id
- * @param $options
- * @return array|mixed
- */
-function get_article_banner($bannerField = '', $post_id = null, $options = false) {
-    if ( ! $bannerField ) {
-        return [];
-    }
-
-    if ( ! $post_id ) {
-        $post_id = get_the_ID();
-    }
-
-    $articleBanner = get_field($bannerField, $post_id);
-    if ( empty($articleBanner['dynamic_ad_banner']) && $options) {
-        $banner = get_field($bannerField, 'options');
-        $articleBanner['dynamic_ad_banner'] = $banner['dynamic_ad_banner'];
-        $articleBanner['screen_type'] = $banner['screen_type'];
-    }
-
-    return $articleBanner;
-}
-
-/**
- * @param $bannerField
- * @param $category_id
- * @param $options
- * @return array|mixed
- */
-function get_category_banner($bannerField = '', $category_id = null, $options = false) {
-    if ( ! $bannerField || !$category_id ) {
-        return [];
-    }
-
-    $topicBanner = get_field($bannerField, 'category_' . $category_id, true);
-
-    if ( empty($topicBanner['dynamic_ad_banner']) && $options) {
-        $banner = get_field($bannerField, 'options');
-        $topicBanner['dynamic_ad_banner'] = $banner['dynamic_ad_banner'];
-        $topicBanner['screen_type'] = $banner['screen_type'];
-    }
-
-    return $topicBanner;
-}
-
-function get_site_header_banner()
-{
-    if( is_singular('post'))
-    {
-        return array_merge(get_article_banner('article_top_banner', get_the_ID(), true));
-    }
-    if( is_category() )
-    {
-        $term = get_queried_object();
-        return get_category_banner('topic_top_banner', $term->term_id, true);
-    }
-
-    return [];
-}
-/**
  * @param $dateString
  * @param string $inputFormat
  * @param string $format
