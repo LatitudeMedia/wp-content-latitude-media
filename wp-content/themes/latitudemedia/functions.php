@@ -58,3 +58,35 @@ require_once('inc/cli.php');
  *
  */
 require_once('inc/admin-customize.php');
+
+add_filter( 'wpseo_schema_organization', 'latitude_media_extend_organization_schema', 11, 2 );
+
+/**
+ * Add custom schema data
+ *
+ */
+add_filter( 'wpseo_schema_organization', 'latitude_media_extend_organization_schema', 11, 2 );
+
+function latitude_media_extend_organization_schema( $data, $context ) {
+    // Add a simple location object
+    $data['location'] = [
+        '@type' => 'Place',
+        'name' => 'Remote / Distributed',
+        'address' => [
+            '@type' => 'PostalAddress',
+            'streetAddress' => '444 Somerville Ave',
+            'addressLocality' => 'Somerville',
+            'addressRegion' => 'MA',
+            'postalCode' => '02143',
+            'addressCountry' => 'US'
+        ]
+    ];
+
+    // Add area served (United States)
+    $data['areaServed'] = [
+        '@type' => 'Country',
+        'name' => 'United States'
+    ];
+
+    return $data;
+}
