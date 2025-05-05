@@ -59,8 +59,6 @@ require_once('inc/cli.php');
  */
 require_once('inc/admin-customize.php');
 
-add_filter( 'wpseo_schema_organization', 'latitude_media_extend_organization_schema', 11, 2 );
-
 /**
  * Add custom schema data
  *
