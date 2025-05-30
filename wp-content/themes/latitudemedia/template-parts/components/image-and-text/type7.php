@@ -47,9 +47,11 @@ $my_block_template = array(
     <div class="container-narrow">
         <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
         <div class="image-text-section-wrapper">
-            <div class="image-folder">
-                <?php do_action('print_image_and_text_image', $logo, 'image-text-type7', $image_link); ?>
-            </div>
+            <?php if( $logo ) : ?>
+                <div class="image-folder">
+                    <?php do_action('print_image_and_text_image', $logo, 'image-text-type7', $image_link); ?>
+                </div>
+            <?php endif; ?>
             <div class="content-folder">
                 <InnerBlocks template="<?php echo esc_attr( wp_json_encode( $my_block_template ) ); ?>" />
             </div>
