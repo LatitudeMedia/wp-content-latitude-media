@@ -3761,22 +3761,7 @@
 			@include below_mob {
 				margin: 0;
 			}
-
 			li {
-				width: 31.3%;
-				margin-left: 2%;
-				margin-bottom: 64px;
-				@include below_sm {
-					margin-bottom: 32px;
-				}
-				@include below_sm {
-					width: 48%;
-				}
-				@include below_mob {
-					width: 100%;
-					margin-left: 0;
-				}
-
 				.number {
 					width: auto;
 					padding: 21px 27px;
@@ -3812,6 +3797,55 @@
 						line-height: 24px;
 						text-align: left;
 						color: $primary-dark-blue;
+					}
+				}
+			}
+			&.cols-2 {
+				li {
+					width: 48%;
+					margin-left: 2%;
+					margin-bottom: 64px;
+					@include below_sm {
+						width: 48%;
+						margin-bottom: 32px;
+					}
+					@include below_mob {
+						width: 100%;
+						margin-left: 0;
+					}
+				}
+			}
+			&.cols-3 {
+				li {
+					width: 31.3%;
+					margin-left: 2%;
+					margin-bottom: 64px;
+					@include below_sm {
+						margin-bottom: 32px;
+					}
+					@include below_sm {
+						width: 48%;
+					}
+					@include below_mob {
+						width: 100%;
+						margin-left: 0;
+					}
+				}
+			}
+			&.cols-4 {
+				li {
+					width: 23%;
+					margin-left: 2%;
+					margin-bottom: 64px;
+					@include below_sm {
+						margin-bottom: 32px;
+					}
+					@include below_sm {
+						width: 48%;
+					}
+					@include below_mob {
+						width: 100%;
+						margin-left: 0;
 					}
 				}
 			}
