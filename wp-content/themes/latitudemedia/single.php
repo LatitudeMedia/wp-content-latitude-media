@@ -52,6 +52,13 @@ get_header();
                         <span class="label"><?php _e('Share:', 'ltm')?></span>
                         <?php get_template_part('template-parts/article/social-sharing','icons'); ?>
                     </div>
+                    <div class="post-author-block">
+    					<?php echo do_shortcode('[publishpress_authors_box layout="boxed" 
+                             show_title="false" show_avatar="true" show_bio="true" 
+                             avatar_shape="circle" image_size="100"]'
+                            );
+    					?>
+					</div>
                 </div>
                 <div class="sidebar">
                     <?php
