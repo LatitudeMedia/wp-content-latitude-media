@@ -1292,7 +1292,7 @@ $blocks = array(
         ),
         'icon'  		=> 'editor-ol',
         'description' => __('Our approach block', 'ltm'),
-        'post_types' 	=> array( 'page' ),
+        'post_types' 	=> array( 'page', 'events' ),
         'category'  	=> 'ltm-page-custom-blocks',
         'keywords'    => array( __('Our approach block', 'ltm') ),
         'enqueue_style'=> get_template_directory_uri() . '/dist/css/blocks/our-approach-block.min.css',
