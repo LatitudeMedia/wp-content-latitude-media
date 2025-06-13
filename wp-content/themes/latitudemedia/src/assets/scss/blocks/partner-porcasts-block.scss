@@ -2,3 +2,21 @@
 .three-podcasts-section {
   @include threePodcastsSection;
 }
+.wp-block-acf-partner-porcasts-block {
+  .three-podcasts-section {
+    .heading {
+      font-family: $inter;
+      @include fontSize(32px);
+      font-weight: 400;
+      line-height: 44px;
+      letter-spacing: -1px;
+      text-align: left;
+      color: $primary-dark-blue;
+      margin-bottom: 64px;
+      @include below_sm {
+        @include fontSize(28px);
+        line-height: 40px;
+      }
+    }
+  }
+}
