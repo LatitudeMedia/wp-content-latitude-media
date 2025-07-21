@@ -5240,4 +5240,43 @@ Or select event manually.',
         'active' => true,
         'show_in_rest' => 0,
     ) );
+
+    acf_add_local_field_group(array(
+        'key' => 'group_editors_picks_section_homepage',
+        'title' => 'Editors picks section block',
+        'fields' => array(
+            array(
+                'key' => 'field_editors_picks_section_homepage_message',
+                'label' => 'Editors picks section block',
+                'name' => '',
+                'type' => 'message',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_editors_picks_section_homepage_title',
+                'label' => 'Title',
+                'name' => 'title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_editors_picks_section_homepage_display',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/editors-picks-section',
+                ),
+            ),
+        ),
+        'style' => 'seamless',
+        'active' => true,
+    ));
 });
