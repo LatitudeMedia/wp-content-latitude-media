@@ -9,4 +9,19 @@
       max-width: 880px;
     }
   }
+  .content-block {
+    &.editors-picks-block {
+      display: none;
+      @include below_md {
+        display: block;
+      }
+    }
+  }
+  .sidebar-block {
+    &.editors-picks-block {
+      @include below_md {
+        display: none;
+      }
+    }
+  }
 }

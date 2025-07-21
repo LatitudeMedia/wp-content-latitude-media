@@ -9,5 +9,16 @@
   width: 100%;
   max-width: 880px;
 }
+.home .content-block.editors-picks-block {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .home .content-block.editors-picks-block {
+    display: block;
+  }
+  .home .sidebar-block.editors-picks-block {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=homepage.min.css.map*/
