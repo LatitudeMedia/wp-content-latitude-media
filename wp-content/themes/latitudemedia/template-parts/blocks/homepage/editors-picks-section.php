@@ -47,13 +47,13 @@ if( !$items->have_posts() ) {
     return;
 }
 ?>
-<div class="editors-picks-section-wrapper">
+<div class="editors-picks-block-wrapper">
     <div
         <?php
         echo wp_kses_data(
             get_block_wrapper_attributes(
                 [
-                    "class" => 'content-block editors-picks-section',
+                    "class" => 'content-block editors-picks-block',
                     "id" => $blockAttributes['anchor'] ?: '',
                 ]
             )
