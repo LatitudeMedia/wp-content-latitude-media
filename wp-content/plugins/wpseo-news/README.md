@@ -2,9 +2,9 @@
 
 Yoast News SEO for Yoast SEO
 ==========================
-Requires at least: 6.3
-Tested up to: 6.4
-Stable tag: 13.2
+Requires at least: 6.5
+Tested up to: 6.7
+Stable tag: 13.3
 Requires PHP: 7.2.5
 Depends: Yoast SEO
 
@@ -31,6 +31,24 @@ You can find the [Yoast News SEO FAQ](https://kb.yoast.com/kb/category/news-seo/
 Changelog
 =========
 
+## 13.3
+
+Release date: 2025-02-04
+
+#### Enhancements
+
+* Allows for News Sitemap items to change the language via a new filter `Yoast\WP\News\publication_language`. Props to [dgwatkins](https://github.com/dgwatkins).
+
+#### Bugfixes
+
+* Stops PHP notices on WordPress 6.7 about `_load_textdomain_just_in_time` loading incorrectly.
+
+#### Other
+
+* Sets the minimum required Yoast SEO version to 24.4.
+* Sets the minimum supported WordPress version to 6.5.
+* Sets the _WordPress tested up to_ version to 6.7.
+
 ## 13.2
 
 Release date: 2024-03-05
@@ -47,26 +65,14 @@ Release date: 2024-03-05
 
 #### Other
 
-* Drops compatibility with PHP 5.6, 7.0 and 7.1.
-* Improves discoverability of security policy.
 * Sets the minimum required Yoast SEO version to 22.2.
 * Sets the minimum supported WordPress version to 6.3.
 * Sets the WordPress tested up to version to 6.4.
+* Sets the minimum supported WordPress version to 6.3.
 * The plugin has no known incompatibilities with PHP 8.3.
+* Drops compatibility with PHP 5.6, 7.0 and 7.1.
 * Users requiring this package via [WP]Packagist can now use the `composer/installers` v2.
-
-## 13.1
-
-Release date: 2021-11-16
-
-#### Enhancements
-
-* Huge performance improvement: moves the XML News sitemap to be based on our Indexables architecture.
-* Removes images from the XML News sitemap as they serve no purpose here and this further improves performance.
-
-#### Other
-
-* Excludes attachments and non-indexed post types from the possible post types to include in the News Sitemap.
+* Improves discoverability of security policy.
 
 ### Earlier versions
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/news-seo-changelog).

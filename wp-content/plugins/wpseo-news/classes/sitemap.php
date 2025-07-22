@@ -348,10 +348,10 @@ class WPSEO_News_Sitemap {
 	 * @return string
 	 */
 	private function build_items( $items ) {
-		$publication_tag = $this->build_publication_tag();
-		$output          = '';
+		$output = '';
 		foreach ( $items as $item ) {
-			$output .= new WPSEO_News_Sitemap_Item( $item, $publication_tag );
+			$publication_tag = $this->build_publication_tag( $item );
+			$output         .= new WPSEO_News_Sitemap_Item( $item, $publication_tag );
 		}
 
 		return $output;
@@ -360,11 +360,20 @@ class WPSEO_News_Sitemap {
 	/**
 	 * Builds the publication tag.
 	 *
+	 * @param Indexable $item The post.
+	 *
 	 * @return string
 	 */
-	private function build_publication_tag() {
+	private function build_publication_tag( $item ) {
 		$publication_name = WPSEO_Options::get( 'news_sitemap_name', get_bloginfo( 'name' ) );
-		$publication_lang = $this->get_publication_lang();
+		/**
+		 * Filter: 'Yoast\WP\News\publication_language' - Allow overriding the publication language for a specific Indexable.
+		 *
+		 * @param string    $publication_lang The publication language.
+		 * @param Indexable $item             The post.
+		 */
+		$publication_lang = (string) apply_filters( 'Yoast\WP\News\publication_language', $this->get_publication_lang(), $item );
+		$publication_lang = sanitize_text_field( $publication_lang );
 		$charset          = get_bloginfo( 'charset' );
 
 		$publication_tag  = "\t\t<news:publication>\n";
