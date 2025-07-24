@@ -6,16 +6,17 @@
  *
  * @wordpress-plugin
  * Plugin Name: Yoast SEO: News
- * Version:     13.2
+ * Version:     13.3
  * Plugin URI:  https://yoa.st/4fg
  * Description: Google News plugin for the Yoast SEO plugin
  * Author:      Team Yoast
  * Author URI:  https://yoa.st/team-yoast-news
  * Text Domain: wordpress-seo-news
  * Domain Path: /languages/
- * Requires at least: 6.3
+ * Requires at least: 6.5
  * Requires PHP: 7.2.5
  * Depends:     Yoast SEO
+ * Requires Yoast SEO: 24.4
  * License:     GPL v3
  *
  * Yoast SEO Plugin
@@ -39,7 +40,7 @@ if ( ! defined( 'WPSEO_NEWS_FILE' ) ) {
 	define( 'WPSEO_NEWS_FILE', __FILE__ );
 }
 
-define( 'WPSEO_NEWS_VERSION', '13.2' );
+define( 'WPSEO_NEWS_VERSION', '13.3' );
 
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require __DIR__ . '/vendor/autoload.php';

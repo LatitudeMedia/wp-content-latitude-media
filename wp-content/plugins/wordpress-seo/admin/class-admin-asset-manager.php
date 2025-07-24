@@ -584,6 +584,10 @@ class WPSEO_Admin_Asset_Manager {
 				],
 			],
 			[
+				'name' => 'block-editor',
+				'src'  => 'block-editor-' . $flat_version,
+			],
+			[
 				'name' => 'ai-generator',
 				'src'  => 'ai-generator-' . $flat_version,
 				'deps' => [
@@ -624,13 +628,6 @@ class WPSEO_Admin_Asset_Manager {
 				'src'  => 'admin-global-' . $flat_version,
 			],
 			[
-				'name' => 'extensions',
-				'src'  => 'yoast-extensions-' . $flat_version,
-				'deps' => [
-					'wp-components',
-				],
-			],
-			[
 				'name' => 'filter-explanation',
 				'src'  => 'filter-explanation-' . $flat_version,
 			],
@@ -654,6 +651,11 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'tailwind',
 				'src'  => 'tailwind-' . $flat_version,
+				// Note: The RTL suffix is not added here.
+				// Tailwind and our UI library provide styling that should be standalone compatible with RTL.
+				// To make it easier we should use the logical properties and values when possible.
+				// If there are exceptions, we can use the Tailwind modifier, e.g. `rtl:yst-space-x-reverse`.
+				'rtl'  => false,
 			],
 			[
 				'name' => 'new-settings',
@@ -695,6 +697,11 @@ class WPSEO_Admin_Asset_Manager {
 			[
 				'name' => 'inside-editor',
 				'src'  => 'inside-editor-' . $flat_version,
+			],
+			[
+				'name' => 'plans',
+				'src'  => 'plans-' . $flat_version,
+				'deps' => [ self::PREFIX . 'tailwind' ],
 			],
 		];
 	}

@@ -83,8 +83,6 @@ class WPSEO_News_Meta_Box extends WPSEO_Metabox {
 				'name'        => 'newssitemap-stocktickers',
 				'std'         => '',
 				'type'        => 'hidden',
-				'title'       => __( 'Stock Tickers', 'wordpress-seo-news' ),
-				'description' => __( 'A comma-separated list of up to 5 stock tickers of the companies, mutual funds, or other financial entities that are the main subject of the article. Each ticker must be prefixed by the name of its stock exchange, and must match its entry in Google Finance. For example, "NASDAQ:AMAT" (but not "NASD:AMAT"), or "BOM:500325" (but not "BOM:RIL").', 'wordpress-seo-news' ),
 			],
 			'newssitemap-robots-index' => [
 				'type'          => 'hidden',
@@ -94,8 +92,6 @@ class WPSEO_News_Meta_Box extends WPSEO_Metabox {
 					'0' => 'index',
 					'1' => 'noindex',
 				],
-				'title'         => __( 'Googlebot-News index', 'wordpress-seo-news' ),
-				'description'   => __( 'Using noindex allows you to prevent articles from appearing in Google News.', 'wordpress-seo-news' ),
 			],
 		];
 	}

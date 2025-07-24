@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Advanced Custom Fields PRO
+# Copyright (C) 2025 Advanced Custom Fields PRO
 # This file is distributed under the same license as the Advanced Custom Fields PRO package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: WP Engine <support@advancedcustomfields.com>\n"
-"POT-Creation-Date: 2024-10-02 12:08+0000\n"
+"POT-Creation-Date: 2025-07-21 18:29+0000\n"
 "Report-Msgid-Bugs-To: https://support.advancedcustomfields.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -16,31 +16,31 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: pro/acf-pro.php:21
+#: pro/acf-pro.php:62
 msgid "Advanced Custom Fields PRO"
 msgstr ""
 
-#: pro/acf-pro.php:175
+#: pro/acf-pro.php:199
 msgid "Your ACF PRO license is no longer active. Please renew to continue to have access to updates, support, & PRO features."
 msgstr ""
 
-#: pro/acf-pro.php:172
+#: pro/acf-pro.php:196
 msgid "Your license has expired. Please renew to continue to have access to updates, support &amp; PRO features."
 msgstr ""
 
-#: pro/acf-pro.php:169
+#: pro/acf-pro.php:193
 msgid "Activate your license to enable access to updates, support &amp; PRO features."
 msgstr ""
 
-#: pro/acf-pro.php:190, pro/admin/views/html-settings-updates.php:114
+#: pro/acf-pro.php:214, pro/admin/views/html-settings-updates.php:115
 msgid "Manage License"
 msgstr ""
 
-#: pro/acf-pro.php:258
+#: pro/acf-pro.php:282
 msgid "A valid license is required to edit options pages."
 msgstr ""
 
-#: pro/acf-pro.php:256
+#: pro/acf-pro.php:280
 msgid "A valid license is required to edit field groups assigned to a block."
 msgstr ""
 
@@ -53,41 +53,41 @@ msgstr ""
 msgid "Block type \"%s\" is already registered."
 msgstr ""
 
-#: pro/blocks.php:740
+#: pro/blocks.php:750
 msgid "The render template for this ACF Block was not found"
 msgstr ""
 
-#: pro/blocks.php:790
+#: pro/blocks.php:800
 msgid "Switch to Edit"
 msgstr ""
 
-#: pro/blocks.php:791
+#: pro/blocks.php:801
 msgid "Switch to Preview"
 msgstr ""
 
-#: pro/blocks.php:792
+#: pro/blocks.php:802
 msgid "Change content alignment"
 msgstr ""
 
-#: pro/blocks.php:793
+#: pro/blocks.php:803
 msgid "An error occurred when loading the preview for this block."
 msgstr ""
 
-#: pro/blocks.php:794
+#: pro/blocks.php:804
 msgid "An error occurred when loading the block in edit mode."
 msgstr ""
 
 #. translators: %s: Block type title
-#: pro/blocks.php:797
+#: pro/blocks.php:807
 msgid "%s settings"
 msgstr ""
 
-#: pro/blocks.php:1039
+#: pro/blocks.php:1049
 msgid "This block contains no editable fields."
 msgstr ""
 
 #. translators: %s: an admin URL to the field group edit screen
-#: pro/blocks.php:1045
+#: pro/blocks.php:1055
 msgid "Assign a <a href=\"%s\" target=\"_blank\">field group</a> to add fields to this block."
 msgstr ""
 
@@ -132,16 +132,20 @@ msgstr ""
 msgid "An error occurred when connecting to activation server"
 msgstr ""
 
-#: pro/updates.php:258
+#: pro/updates.php:260
 msgid "The ACF activation service is temporarily unavailable. Please try again later."
 msgstr ""
 
-#: pro/updates.php:256
+#: pro/updates.php:258
 msgid "The ACF activation service is temporarily unavailable for scheduled maintenance. Please try again later."
 msgstr ""
 
-#: pro/updates.php:254
+#: pro/updates.php:256
 msgid "An upstream API error occurred when checking your ACF PRO license status. We will retry again shortly."
+msgstr ""
+
+#: pro/updates.php:254
+msgid "Your license is not valid for this site URL. Please contact support for assistance."
 msgstr ""
 
 #: pro/updates.php:224
@@ -181,32 +185,32 @@ msgid "Your license key has been activated successfully. Access to updates, supp
 msgstr ""
 
 #. translators: %s an untranslatable internal upstream error message
-#: pro/updates.php:262
+#: pro/updates.php:264
 msgid "An unknown error occurred while trying to communicate with the ACF activation service: %s."
 msgstr ""
 
-#: pro/updates.php:333, pro/updates.php:975
+#: pro/updates.php:335, pro/updates.php:951
 msgid "<strong>ACF PRO &mdash;</strong>"
 msgstr ""
 
-#: pro/updates.php:342
+#: pro/updates.php:344
 msgid "Check again"
 msgstr ""
 
-#: pro/updates.php:683
+#: pro/updates.php:659
 msgid "Could not connect to the activation server"
 msgstr ""
 
 #. translators: %s - URL to ACF updates page
-#: pro/updates.php:753
+#: pro/updates.php:729
 msgid "Your license key is valid but not activated on this site. Please <a href=\"%s\">deactivate</a> and then reactivate the license."
 msgstr ""
 
-#: pro/updates.php:975
+#: pro/updates.php:951
 msgid "Your site URL has changed since last activating your license. We've automatically activated it for this site URL."
 msgstr ""
 
-#: pro/updates.php:967
+#: pro/updates.php:943
 msgid "Your site URL has changed since last activating your license, but we weren't able to automatically reactivate it: %s"
 msgstr ""
 
@@ -226,7 +230,7 @@ msgstr ""
 msgid "<strong>Error</strong>. Could not connect to the update server"
 msgstr ""
 
-#: pro/admin/admin-updates.php:117, pro/admin/admin-updates.php:117, pro/admin/views/html-settings-updates.php:132
+#: pro/admin/admin-updates.php:117, pro/admin/admin-updates.php:117, pro/admin/views/html-settings-updates.php:133
 msgid "Updates"
 msgstr ""
 
@@ -276,7 +280,7 @@ msgstr ""
 msgid "Seamless (replaces this field with selected fields)"
 msgstr ""
 
-#: pro/fields/class-acf-field-clone.php:761, pro/fields/class-acf-field-flexible-content.php:509, pro/fields/class-acf-field-flexible-content.php:572, pro/fields/class-acf-field-repeater.php:178
+#: pro/fields/class-acf-field-clone.php:761, pro/fields/class-acf-field-flexible-content.php:509, pro/fields/class-acf-field-flexible-content.php:572, pro/fields/class-acf-field-repeater.php:180
 msgid "Layout"
 msgstr ""
 
@@ -284,15 +288,15 @@ msgstr ""
 msgid "Specify the style used to render the selected fields"
 msgstr ""
 
-#: pro/fields/class-acf-field-clone.php:767, pro/fields/class-acf-field-flexible-content.php:585, pro/fields/class-acf-field-repeater.php:186, pro/locations/class-acf-location-block.php:22
+#: pro/fields/class-acf-field-clone.php:767, pro/fields/class-acf-field-flexible-content.php:585, pro/fields/class-acf-field-repeater.php:188, pro/locations/class-acf-location-block.php:22
 msgid "Block"
 msgstr ""
 
-#: pro/fields/class-acf-field-clone.php:768, pro/fields/class-acf-field-flexible-content.php:584, pro/fields/class-acf-field-repeater.php:185
+#: pro/fields/class-acf-field-clone.php:768, pro/fields/class-acf-field-flexible-content.php:584, pro/fields/class-acf-field-repeater.php:187
 msgid "Table"
 msgstr ""
 
-#: pro/fields/class-acf-field-clone.php:769, pro/fields/class-acf-field-flexible-content.php:586, pro/fields/class-acf-field-repeater.php:187
+#: pro/fields/class-acf-field-clone.php:769, pro/fields/class-acf-field-flexible-content.php:586, pro/fields/class-acf-field-repeater.php:189
 msgid "Row"
 msgstr ""
 
@@ -340,7 +344,7 @@ msgstr ""
 msgid "We do not recommend using this field in ACF Blocks."
 msgstr ""
 
-#: pro/fields/class-acf-field-flexible-content.php:34, pro/fields/class-acf-field-repeater.php:104, pro/fields/class-acf-field-repeater.php:298
+#: pro/fields/class-acf-field-flexible-content.php:34, pro/fields/class-acf-field-repeater.php:104, pro/fields/class-acf-field-repeater.php:300
 msgid "Add Row"
 msgstr ""
 
@@ -379,7 +383,7 @@ msgstr ""
 msgid "Click the \"%s\" button below to start creating your layout"
 msgstr ""
 
-#: pro/fields/class-acf-field-flexible-content.php:375, pro/fields/class-acf-repeater-table.php:364
+#: pro/fields/class-acf-field-flexible-content.php:375, pro/fields/class-acf-repeater-table.php:365
 msgid "Drag to reorder"
 msgstr ""
 
@@ -395,7 +399,7 @@ msgstr ""
 msgid "Remove layout"
 msgstr ""
 
-#: pro/fields/class-acf-field-flexible-content.php:381, pro/fields/class-acf-repeater-table.php:380
+#: pro/fields/class-acf-field-flexible-content.php:381, pro/fields/class-acf-repeater-table.php:381
 msgid "Click to toggle"
 msgstr ""
 
@@ -439,11 +443,11 @@ msgstr ""
 msgid "Maximum Layouts"
 msgstr ""
 
-#: pro/fields/class-acf-field-flexible-content.php:681, pro/fields/class-acf-field-repeater.php:294
+#: pro/fields/class-acf-field-flexible-content.php:681, pro/fields/class-acf-field-repeater.php:296
 msgid "Button Label"
 msgstr ""
 
-#: pro/fields/class-acf-field-flexible-content.php:1552, pro/fields/class-acf-field-repeater.php:913
+#: pro/fields/class-acf-field-flexible-content.php:1552, pro/fields/class-acf-field-repeater.php:915
 msgid "%s must be of type array or null."
 msgstr ""
 
@@ -637,7 +641,7 @@ msgstr ""
 msgid "Provides a solution for repeating content such as slides, team members, and call-to-action tiles, by acting as a parent to a set of subfields which can be repeated again and again."
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:67, pro/fields/class-acf-field-repeater.php:462
+#: pro/fields/class-acf-field-repeater.php:67, pro/fields/class-acf-field-repeater.php:464
 msgid "Minimum rows not reached ({min} rows)"
 msgstr ""
 
@@ -653,93 +657,93 @@ msgstr ""
 msgid "Order will be assigned upon save"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:163
+#: pro/fields/class-acf-field-repeater.php:165
 msgid "Sub Fields"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:196
+#: pro/fields/class-acf-field-repeater.php:198
 msgid "Pagination"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:197
+#: pro/fields/class-acf-field-repeater.php:199
 msgid "Useful for fields with a large number of rows."
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:208
+#: pro/fields/class-acf-field-repeater.php:210
 msgid "Rows Per Page"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:209
+#: pro/fields/class-acf-field-repeater.php:211
 msgid "Set the number of rows to be displayed on a page."
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:241
+#: pro/fields/class-acf-field-repeater.php:243
 msgid "Minimum Rows"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:252
+#: pro/fields/class-acf-field-repeater.php:254
 msgid "Maximum Rows"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:282
+#: pro/fields/class-acf-field-repeater.php:284
 msgid "Collapsed"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:283
+#: pro/fields/class-acf-field-repeater.php:285
 msgid "Select a sub field to show when row is collapsed"
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:1050
+#: pro/fields/class-acf-field-repeater.php:1053
 msgid "Invalid nonce."
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:1055
+#: pro/fields/class-acf-field-repeater.php:1058
 msgid "Invalid field key or name."
 msgstr ""
 
-#: pro/fields/class-acf-field-repeater.php:1064
+#: pro/fields/class-acf-field-repeater.php:1067
 msgid "There was an error retrieving the field."
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:367
+#: pro/fields/class-acf-repeater-table.php:368
 msgid "Click to reorder"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:400
+#: pro/fields/class-acf-repeater-table.php:401
 msgid "Add row"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:401
+#: pro/fields/class-acf-repeater-table.php:402
 msgid "Duplicate row"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:402
+#: pro/fields/class-acf-repeater-table.php:403
 msgid "Remove row"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:446, pro/fields/class-acf-repeater-table.php:463, pro/fields/class-acf-repeater-table.php:464
+#: pro/fields/class-acf-repeater-table.php:447, pro/fields/class-acf-repeater-table.php:464, pro/fields/class-acf-repeater-table.php:465
 msgid "Current Page"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:454, pro/fields/class-acf-repeater-table.php:455
+#: pro/fields/class-acf-repeater-table.php:455, pro/fields/class-acf-repeater-table.php:456
 msgid "First Page"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:458, pro/fields/class-acf-repeater-table.php:459
+#: pro/fields/class-acf-repeater-table.php:459, pro/fields/class-acf-repeater-table.php:460
 msgid "Previous Page"
 msgstr ""
 
 #. translators: 1: Current page, 2: Total pages.
-#: pro/fields/class-acf-repeater-table.php:468
+#: pro/fields/class-acf-repeater-table.php:469
 msgctxt "paging"
 msgid "%1$s of %2$s"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:475, pro/fields/class-acf-repeater-table.php:476
+#: pro/fields/class-acf-repeater-table.php:476, pro/fields/class-acf-repeater-table.php:477
 msgid "Next Page"
 msgstr ""
 
-#: pro/fields/class-acf-repeater-table.php:479, pro/fields/class-acf-repeater-table.php:480
+#: pro/fields/class-acf-repeater-table.php:480, pro/fields/class-acf-repeater-table.php:481
 msgid "Last Page"
 msgstr ""
 
@@ -941,131 +945,131 @@ msgctxt "license status"
 msgid "Inactive"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:34
+#: pro/admin/views/html-settings-updates.php:35
 msgctxt "license status"
 msgid "Cancelled"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:32
+#: pro/admin/views/html-settings-updates.php:33
 msgctxt "license status"
 msgid "Expired"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:30
+#: pro/admin/views/html-settings-updates.php:31
 msgctxt "license status"
 msgid "Active"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:47
+#: pro/admin/views/html-settings-updates.php:48
 msgid "Subscription Status"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:45
+#: pro/admin/views/html-settings-updates.php:46
 msgid "License Status"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:60
+#: pro/admin/views/html-settings-updates.php:61
 msgid "Subscription Type"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:58
+#: pro/admin/views/html-settings-updates.php:59
 msgid "License Type"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:67
+#: pro/admin/views/html-settings-updates.php:68
 msgid "Lifetime - "
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:81
+#: pro/admin/views/html-settings-updates.php:82
 msgid "Subscription Expires"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:79
+#: pro/admin/views/html-settings-updates.php:80
 msgid "Subscription Expired"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:118
+#: pro/admin/views/html-settings-updates.php:119
 msgid "Renew Subscription"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:136
+#: pro/admin/views/html-settings-updates.php:137
 msgid "License Information"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:170
+#: pro/admin/views/html-settings-updates.php:172
 msgid "License Key"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:191, pro/admin/views/html-settings-updates.php:157
+#: pro/admin/views/html-settings-updates.php:194, pro/admin/views/html-settings-updates.php:158
 msgid "Recheck License"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:142
+#: pro/admin/views/html-settings-updates.php:143
 msgid "Your license key is defined in wp-config.php."
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:211
+#: pro/admin/views/html-settings-updates.php:215
 msgid "View pricing & purchase"
 msgstr ""
 
 #. translators: %s - link to ACF website
-#: pro/admin/views/html-settings-updates.php:220
+#: pro/admin/views/html-settings-updates.php:224
 msgid "Don't have an ACF PRO license? %s"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:235
+#: pro/admin/views/html-settings-updates.php:239
 msgid "Update Information"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:242
+#: pro/admin/views/html-settings-updates.php:246
 msgid "Current Version"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:250
+#: pro/admin/views/html-settings-updates.php:254
 msgid "Latest Version"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:258
+#: pro/admin/views/html-settings-updates.php:262
 msgid "Update Available"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:265
+#: pro/admin/views/html-settings-updates.php:269
 msgid "No"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:263
+#: pro/admin/views/html-settings-updates.php:267
 msgid "Yes"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:272
+#: pro/admin/views/html-settings-updates.php:276
 msgid "Upgrade Notice"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:303
+#: pro/admin/views/html-settings-updates.php:307
 msgid "Check For Updates"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:300
+#: pro/admin/views/html-settings-updates.php:304
 msgid "Enter your license key to unlock updates"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:298
+#: pro/admin/views/html-settings-updates.php:302
 msgid "Update Plugin"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:296
+#: pro/admin/views/html-settings-updates.php:300
 msgid "Updates must be manually installed in this configuration"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:294
+#: pro/admin/views/html-settings-updates.php:298
 msgid "Update ACF in Network Admin"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:292
+#: pro/admin/views/html-settings-updates.php:296
 msgid "Please reactivate your license to unlock updates"
 msgstr ""
 
-#: pro/admin/views/html-settings-updates.php:290
+#: pro/admin/views/html-settings-updates.php:294
 msgid "Please upgrade WordPress to update ACF"
 msgstr ""
 

@@ -57,13 +57,6 @@ class AI_Generator_Route implements Route_Interface {
 	public const GET_SUGGESTIONS_ROUTE = self::ROUTE_PREFIX . '/get_suggestions';
 
 	/**
-	 * The fix_assessments route constant.
-	 *
-	 * @var string
-	 */
-	public const FIX_ASSESSMENTS_ROUTE = self::ROUTE_PREFIX . '/fix_assessments';
-
-	/**
 	 * The get_usage route constant.
 	 *
 	 * @var string
@@ -213,51 +206,18 @@ class AI_Generator_Route implements Route_Interface {
 						],
 						'description' => 'The platform the post is intended for.',
 					],
-				],
-				'callback'            => [ $this, 'get_suggestions' ],
-				'permission_callback' => [ $this, 'check_permissions' ],
-			]
-		);
-
-		\register_rest_route(
-			Main::API_V1_NAMESPACE,
-			self::FIX_ASSESSMENTS_ROUTE,
-			[
-				'methods'             => 'POST',
-				'args'                => [
-					'assessment'      => [
+					'editor' => [
 						'required'    => true,
 						'type'        => 'string',
 						'enum'        => [
-							'keyphrase-introduction',
-							'keyphrase-density',
-							'keyphrase-distribution',
-							'keyphrase-subheadings',
+							'classic',
+							'elementor',
+							'gutenberg',
 						],
-						'description' => 'The assessment.',
-					],
-					'prompt_content'  => [
-						'required'    => true,
-						'type'        => 'string',
-						'description' => 'The content needed by the prompt to ask for suggestions.',
-					],
-					'focus_keyphrase' => [
-						'required'    => true,
-						'type'        => 'string',
-						'description' => 'The focus keyphrase associated to the post.',
-					],
-					'synonyms' => [
-						'required'    => false,
-						'type'        => 'string',
-						'description' => 'The synonyms for the focus keyphrase.',
-					],
-					'language'        => [
-						'required'    => true,
-						'type'        => 'string',
-						'description' => 'The language the post is written in.',
+						'description' => 'The current editor.',
 					],
 				],
-				'callback'            => [ $this, 'fix_assessments' ],
+				'callback'            => [ $this, 'get_suggestions' ],
 				'permission_callback' => [ $this, 'check_permissions' ],
 			]
 		);
@@ -316,7 +276,7 @@ class AI_Generator_Route implements Route_Interface {
 	public function get_suggestions( WP_REST_Request $request ) {
 		try {
 			$user = \wp_get_current_user();
-			$data = $this->ai_generator_action->get_suggestions( $user, $request['type'], $request['prompt_content'], $request['focus_keyphrase'], $request['language'], $request['platform'] );
+			$data = $this->ai_generator_action->get_suggestions( $user, $request['type'], $request['prompt_content'], $request['focus_keyphrase'], $request['language'], $request['platform'], $request['editor'] );
 		} catch ( Remote_Request_Exception $e ) {
 			$message = [
 				'message'         => $e->getMessage(),
@@ -331,36 +291,6 @@ class AI_Generator_Route implements Route_Interface {
 			);
 		} catch ( RuntimeException $e ) {
 			return new WP_REST_Response( 'Failed to get suggestions.', 500 );
-		}
-
-		return new WP_REST_Response( $data );
-	}
-
-	/**
-	 * Runs the callback to improve assessment results through AI.
-	 *
-	 * @param WP_REST_Request $request The request object.
-	 *
-	 * @return WP_REST_Response The response of the assess action.
-	 */
-	public function fix_assessments( WP_REST_Request $request ) {
-		try {
-			$user = \wp_get_current_user();
-			$data = $this->ai_generator_action->fix_assessments( $user, $request['assessment'], $request['prompt_content'], $request['focus_keyphrase'], $request['synonyms'], $request['language'] );
-		} catch ( Remote_Request_Exception $e ) {
-			$message = [
-				'message'         => $e->getMessage(),
-				'errorIdentifier' => $e->get_error_identifier(),
-			];
-			if ( $e instanceof Payment_Required_Exception ) {
-				$message['missingLicenses'] = $e->get_missing_licenses();
-			}
-			return new WP_REST_Response(
-				$message,
-				$e->getCode()
-			);
-		} catch ( RuntimeException $e ) {
-			return new WP_REST_Response( 'Failed to retrieve text improvements.', 500 );
 		}
 
 		return new WP_REST_Response( $data );

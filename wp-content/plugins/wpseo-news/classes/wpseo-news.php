@@ -138,7 +138,7 @@ class WPSEO_News {
 	 */
 	protected function check_dependencies( $wp_version ) {
 		// When WordPress function is too low.
-		if ( version_compare( $wp_version, '6.3', '<' ) ) {
+		if ( version_compare( $wp_version, '6.5', '<' ) ) {
 			add_action( 'all_admin_notices', [ $this, 'error_upgrade_wp' ] );
 
 			return false;
@@ -153,7 +153,7 @@ class WPSEO_News {
 			return false;
 		}
 
-		if ( version_compare( $wordpress_seo_version, '22.2-RC1', '<' ) ) {
+		if ( version_compare( $wordpress_seo_version, '24.4-RC1', '<' ) ) {
 			add_action( 'all_admin_notices', [ $this, 'error_upgrade_wpseo' ] );
 
 			return false;
@@ -272,19 +272,29 @@ class WPSEO_News {
 	 * @return void
 	 */
 	public function error_missing_wpseo() {
-		echo '<div class="error"><p>';
-		printf(
-			/* translators: %1$s resolves to the link to search for Yoast SEO, %2$s resolves to the closing tag for this link, %3$s resolves to Yoast SEO, %4$s resolves to News SEO */
-			esc_html__(
-				'Please %1$sinstall &amp; activate %3$s%2$s and then enable its XML sitemap functionality to allow the %4$s module to work.',
-				'wordpress-seo-news'
-			),
-			'<a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&type=term&s=yoast+seo&plugin-search-input=Search+Plugins' ) ) . '">',
-			'</a>',
-			'Yoast SEO',
-			'News SEO'
+		echo (
+			'<div class="error yoast-migrated-notice">'
+				. '<h4 class="yoast-notice-migrated-header">'
+				. sprintf(
+					/* translators: %1$s: Yoast SEO */
+					esc_html__( 'Install %1$s', 'wordpress-seo-news' ),
+					'Yoast SEO'
+				)
+				. '</h4>'
+				. '<div class="notice-yoast-content">'
+					. '<p>'
+						. sprintf(
+							/* translators: %1$s resolves to the link to search for Yoast SEO, %2$s resolves to the closing tag for this link, %3$s resolves to Yoast SEO, %4$s resolves to News SEO */
+							esc_html__( 'Please %1$sinstall &amp; activate %3$s%2$s and then enable its XML sitemap functionality to allow the %4$s module to work.', 'wordpress-seo-news' ),
+							'<a href="' . esc_url( admin_url( 'plugin-install.php?tab=search&type=term&s=yoast+seo&plugin-search-input=Search+Plugins' ) ) . '">',
+							'</a>',
+							'Yoast SEO',
+							'News SEO'
+						)
+					. '</p>'
+				. '</div>'
+			. '</div>'
 		);
-		echo '</p></div>';
 	}
 
 	/**
@@ -295,16 +305,26 @@ class WPSEO_News {
 	 * @return void
 	 */
 	public function error_upgrade_wp() {
-		echo '<div class="error"><p>';
-		printf(
-			/* translators: %1$s resolves to News SEO */
-			esc_html__(
-				'Please upgrade WordPress to the latest version to allow WordPress and the %1$s module to work properly.',
-				'wordpress-seo-news'
-			),
-			'News SEO'
+		echo (
+			'<div class="error yoast-migrated-notice">'
+				. '<h4 class="yoast-notice-migrated-header">'
+				. sprintf(
+					/* translators: %1$s: WordPress */
+					esc_html__( 'Update %1$s', 'wordpress-seo-news' ),
+					'WordPress'
+				)
+				. '</h4>'
+				. '<div class="notice-yoast-content">'
+					. '<p>'
+						. sprintf(
+							/* translators: %s resolves to News SEO */
+							esc_html__( 'Please upgrade WordPress to the latest version to allow WordPress and the %1$s module to work properly.', 'wordpress-seo-news' ),
+							'News SEO'
+						)
+					. '</p>'
+				. '</div>'
+			. '</div>'
 		);
-		echo '</p></div>';
 	}
 
 	/**
@@ -315,17 +335,30 @@ class WPSEO_News {
 	 * @return void
 	 */
 	public function error_upgrade_wpseo() {
-		echo '<div class="error"><p>';
-		printf(
-			/* translators: %1$s resolves to Yoast SEO, %2$s resolves to News SEO */
-			esc_html__(
-				'Please upgrade the %1$s plugin to the latest version to allow the %2$s module to work.',
-				'wordpress-seo-news'
-			),
-			'Yoast SEO',
-			'News SEO'
+		echo (
+			'<div class="error yoast-migrated-notice">'
+				. '<h4 class="yoast-notice-migrated-header">'
+				. sprintf(
+					/* translators: %1$s: Yoast SEO */
+					esc_html__( 'Update %1$s', 'wordpress-seo-news' ),
+					'Yoast SEO'
+				)
+				. '</h4>'
+				. '<div class="notice-yoast-content">'
+					. '<p>'
+					. sprintf(
+						/* translators: %1$s resolves to Yoast SEO, %2$s resolves to News SEO */
+						esc_html__(
+							'Please upgrade the %1$s plugin to the latest version to allow the %2$s module to work.',
+							'wordpress-seo-news'
+						),
+						'Yoast SEO',
+						'News SEO'
+					)
+					. '</p>'
+				. '</div>'
+			. '</div>'
 		);
-		echo '</p></div>';
 	}
 
 	/**

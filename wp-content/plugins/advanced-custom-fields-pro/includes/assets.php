@@ -363,6 +363,9 @@ if ( ! class_exists( 'ACF_Assets' ) ) :
 						// Unload
 						'The changes you made will be lost if you navigate away from this page' => __( 'The changes you made will be lost if you navigate away from this page', 'acf' ),
 
+						// Metaboxes
+						'Toggle panel'                => __( 'Toggle panel', 'acf' ),
+
 						// Validation
 						'Validation successful'       => __( 'Validation successful', 'acf' ),
 						'Validation failed'           => __( 'Validation failed', 'acf' ),
@@ -476,6 +479,7 @@ if ( ! class_exists( 'ACF_Assets' ) ) :
 				'editor'      => acf_is_block_editor() ? 'block' : 'classic',
 				'is_pro'      => acf_is_pro(),
 				'debug'       => acf_is_beta() || ( defined( 'ACF_DEVELOPMENT_MODE' ) && ACF_DEVELOPMENT_MODE ),
+				'StrictMode'  => defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG && version_compare( $wp_version, '6.6', '>=' ),
 			);
 
 			acf_localize_data( $data_to_localize );
