@@ -352,6 +352,28 @@ $blocks = array(
 
     array(
         'attrs' => array(
+            'name'        => 'editors-picks-section',
+            'title'       => __('Editors picks block', 'ltm'),
+            'path'        => 'homepage',
+        ),
+        'icon'          => 'edit-page',
+        'description'   => __('Editors picks block', 'ltm'),
+        'post_types'    => array( 'page' ),
+        'category'      => 'ltm-page-blocks',
+        'keywords'      => array( __('Editors picks block', 'ltm') ),
+        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/sidebar-editors-picks-section.min.css',
+        'example'       => array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'editors-picks-section.png',
+                )
+            )
+        )
+    ),
+
+    array(
+        'attrs' => array(
             'name'  		=> 'related-reading-section',
             'title' 		=> __('Related reading block', 'ltm'),
             'path'  		=> 'sidebar',
