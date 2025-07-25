@@ -58,9 +58,18 @@
 					line-height: 16px;
 					text-align: left;
 				}
+				.wp-block-embed__wrapper {
+					margin-bottom: 20px;
+					.twitter-tweet {
+						margin: 0 auto;
+					}
+					iframe {
+						min-height: 400px;
+						width: 100%;
+					}
+				}
 				iframe {
 					margin-bottom: 24px;
-					width: 100%;
 				}
 				.testimonial-block {
 					margin-bottom: 40px;
