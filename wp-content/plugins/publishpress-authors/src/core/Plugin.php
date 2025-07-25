@@ -18,6 +18,7 @@ use MultipleAuthors\Classes\Query;
 use MultipleAuthors\Classes\Utils;
 use MultipleAuthors\Traits\Author_box;
 use WP_Query;
+use WP_Error;
 
 defined('ABSPATH') or die('No direct script access allowed.');
 
@@ -85,7 +86,7 @@ class Plugin
         add_filter('wp_get_object_terms', [$this, 'filter_wp_get_object_terms'], 10, 4);
 
         // Support Jetpack Open Graph Tags
-        add_filter('jetpack_open_graph_tags', [$this, 'filter_jetpack_open_graph_tags'], 10, 2);
+        add_filter('jetpack_open_graph_tags', [$this, 'filter_jetpack_open_graph_tags']);
 
         // Filter to send comment moderation notification e-mail to multiple authors
         add_filter('comment_moderation_recipients', 'cap_filter_comment_moderation_email_recipients', 10, 2);
@@ -425,6 +426,9 @@ class Plugin
                 'filter_get_the_archive_description',
             ]
         );
+
+        // Prevent ACF Extended from modifying authors list and edit page
+        add_filter('acf/settings/acfe/modules/ui', [$this, 'disable_acfe_ui_for_authors']);
 
         add_filter('cme_multiple_authors_capabilities', [$this, 'filterCMECapabilities'], 20);
 
@@ -792,7 +796,7 @@ class Plugin
         $author = Author::get_by_user_id($user_id);
 
         if (!is_object($author) || is_wp_error($author)) {
-            return 0;
+            return (int) $this->get_user_id_post_counts($user_id);;
         }
 
         $numPosts = $author->getTerm()->count;
@@ -1128,6 +1132,27 @@ class Plugin
         return $terms;
     }
 
+
+    public function get_user_id_post_counts($user_id)
+    {
+        global $wpdb;
+
+        $post_types = array_values(Utils::getAuthorTaxonomyPostTypes());
+
+        $post_types = array_map('esc_sql', $post_types);
+        $post_types_in = "'" . implode("','", $post_types) . "'";
+
+        $count = (int) $wpdb->get_var($wpdb->prepare(
+            "SELECT COUNT(*) FROM {$wpdb->posts}
+            WHERE post_author = %d
+            AND post_type IN ({$post_types_in})
+            AND post_status = 'publish'",
+            $user_id
+        ));
+
+        return $count;
+    }
+
     /**
      * Filter the number of author posts. The author can be mapped to a user or not.
      *
@@ -1143,10 +1168,17 @@ class Plugin
         }
 
         if (!is_object($author) || empty($author) || is_wp_error($author)) {
-            return 0;
+            return $count;
         }
 
-        return $author->getTerm()->count;
+        $term = $author->getTerm();
+
+        // Ensure $term is a valid object before accessing properties incase of legacy data
+        if (!is_object($term) || is_wp_error($term)) {
+            return $count;
+        }
+
+        return $term->count ?? 0;
     }
 
     /**
@@ -1163,7 +1195,8 @@ class Plugin
         $author = Author::get_by_user_id($user_id);
 
         if (!is_object($author)) {
-            return 0;
+            $count = (int) $this->get_user_id_post_counts($user_id);
+            return $count;
         }
 
         return apply_filters('get_authornumposts', $count, $author);
@@ -1455,7 +1488,7 @@ class Plugin
         $author_details   = [];
         $author_display_name_html   = '';
         $enqueue_media_script = false;
-        
+
         if (
             is_admin()
             && $pagenow === 'term.php'
@@ -1482,7 +1515,7 @@ class Plugin
             }
         } elseif (
             is_admin()
-            && isset($_GET['page']) 
+            && isset($_GET['page'])
             && $_GET['page'] === 'ppma-modules-settings'
         ) {
             $enqueue_media_script = true;
@@ -1491,7 +1524,7 @@ class Plugin
         $js_strings = [
             'edit_label'                    => esc_html__('Edit', 'publishpress-authors'),
             'new_button'                    => esc_html__('Add Author', 'publishpress-authors'),
-            'new_name_label'                => esc_html__('Author Name'),
+            'new_name_label'                => esc_html__('Display name publicly as', 'publishpress-authors'),
             'confirm_delete'                => __(
                 'Are you sure you want to remove this author?',
                 'publishpress-authors'
@@ -1612,7 +1645,7 @@ class Plugin
         }
 
         $author     = Author::get_by_user_id(get_current_user_id());
-        if (!$author || !is_object(!$author)) {
+        if (!$author || !is_object($author)) {
             return $default_views;
         }
 
@@ -1693,13 +1726,12 @@ class Plugin
      * Filter non-native users added by Co-Author-Plus in Jetpack
      *
      * @param array $og_tags Required. Array of Open Graph Tags.
-     * @param array $image_dimensions Required. Dimensions for images used.
      *
      * @return array Open Graph Tags either as they were passed or updated.
      * @since 3.1
      *
      */
-    public function filter_jetpack_open_graph_tags($og_tags, $image_dimensions)
+    public function filter_jetpack_open_graph_tags($og_tags)
     {
         if (Util::isAuthor()) {
             $author                        = get_queried_object();
@@ -1804,11 +1836,19 @@ class Plugin
     {
         $legacyPlugin = Factory::getLegacyPlugin();
 
-        // Check if it is configured to append to the content
-        $append_to_content = 'yes' === $legacyPlugin->modules->multiple_authors->options->append_to_content;
+        if ($this->should_display_author_box()) {
 
-        if ($this->should_display_author_box() && $append_to_content) {
-            $content .= $this->get_author_box_markup('the_content');
+            // Check if it is configured to prepend and/or append to the content
+            $preppend_to_content = 'yes' === $legacyPlugin->modules->multiple_authors->options->preppend_to_content;
+            $append_to_content = 'yes' === $legacyPlugin->modules->multiple_authors->options->append_to_content;
+
+            if ($preppend_to_content) {
+                $content = $this->get_author_box_markup('the_content') . $content;
+            }
+
+            if ($append_to_content) {
+                $content .= $this->get_author_box_markup('the_content');
+            }
         }
 
         return $content;
@@ -1988,4 +2028,33 @@ class Plugin
 
         return $capabilities;
     }
+
+        /**
+         * Prevent ACF Extended from modifying authors list and edit page
+         *
+         * @param mixed $value
+         * @return mixed
+         */
+        public function disable_acfe_ui_for_authors($value)
+        {
+            global $current_screen, $pagenow;
+
+            if (!is_admin()) {
+                return $value;
+            }
+
+            if (!in_array($pagenow, ['edit-tags.php', 'term.php'])) {
+                return $value;
+            }
+
+            $screen_taxonomy = $current_screen ? $current_screen->taxonomy : '';
+
+            $taxonomy = isset($_GET['taxonomy']) ? sanitize_key($_GET['taxonomy']) : $screen_taxonomy;
+
+            if ($taxonomy === 'author') {
+                return false;
+            }
+
+            return $value;
+        }
 }

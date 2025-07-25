@@ -114,7 +114,7 @@ class MA_Author_List extends Module
         if (!isset($_GET['page']) || $_GET['page'] !== self::MENU_SLUG) {
             return $args;
         }
-        
+
         return array_merge(
             $args,
             [
@@ -267,13 +267,13 @@ class MA_Author_List extends Module
     /**
      * Show all author lists
      */
-    public function all_author_list() { 
+    public function all_author_list() {
         ?>
         <div class="wrap author-list-wrap all">
             <h1 class="wp-heading-inline"><?php esc_html_e('Author Lists', 'publishpress-authors'); ?></h1>
 
             <a
-                href="<?php echo esc_url(admin_url('admin.php?page='. self::MENU_SLUG .'&author_list_edit=0')); ?>" 
+                href="<?php echo esc_url(admin_url('admin.php?page='. self::MENU_SLUG .'&author_list_edit=0')); ?>"
                 class="page-title-action"
             >
                 <?php esc_html_e('Add New', 'publishpress-authors'); ?>
@@ -338,8 +338,10 @@ class MA_Author_List extends Module
      */
     public function author_list_fields() {
 
+        global $_wp_additional_image_sizes;
+
         $pro_active = Utils::isAuthorsProActive();
-        
+
         $fields = [];
 
         $author_fields = [
@@ -347,6 +349,34 @@ class MA_Author_List extends Module
         ];
         foreach (\MA_Author_Custom_Fields::getAuthorCustomFields() as $field_name => $field_options) {
             $author_fields[$field_name] = $field_options['label'];
+        }
+
+        // featured image size options
+        $sizes = array_reverse(array_merge(
+            get_intermediate_image_sizes(),
+            array('full')
+        ));
+
+        $know_sizes = [
+            'full' => esc_html__('The original size of the uploaded image', 'publishpress-authors'),
+            'large' => esc_html__('Large-sized image (1024px by 1024px)', 'publishpress-authors'),
+            'medium_large' => esc_html__('Medium-large image (768px)', 'publishpress-authors'),
+            'medium' => esc_html__('Medium-sized image (300px by 300px)', 'publishpress-authors'),
+            'thumbnail' => esc_html__('Small-sized image (150px by 150px)', 'publishpress-authors')
+        ];
+
+        $featured_image_options = [];
+
+        foreach ($sizes as $size) {
+            if (isset($_wp_additional_image_sizes[$size])) {
+                $width = $_wp_additional_image_sizes[$size]['width'];
+                $height = $_wp_additional_image_sizes[$size]['height'];
+                $featured_image_options[$size] = "$size: {$width}x{$height}";
+            } elseif (isset($know_sizes[$size])) {
+                $featured_image_options[$size] = $know_sizes[$size];
+            } else {
+                $featured_image_options[$size] = $size;
+            }
         }
 
         // add general fields
@@ -390,17 +420,38 @@ class MA_Author_List extends Module
             ],
             'tab'               => 'general',
         ];
+        $fields['featured_image_size'] = [
+            'label'             => esc_html__('Featured Image Size', 'publishpress-authors'),
+            'description'       => esc_html__('For authors_recent layout, you can select the featured image size..', 'publishpress-authors'),
+            'type'              => 'select',
+            'options'           => $featured_image_options,
+            'sanitize'          => 'sanitize_text_field',
+            'field_visibility'  => [
+                'layout' => ['authors_recent']
+            ],
+            'tab'               => 'general',
+        ];
 
         // add users fields
         $fields['author_type'] = [
-            'label'             => esc_html__('Author Type', 'publishpress-authors'),
-            'description'       => esc_html__('Select an option to limit the results to selected user roles, author types or specific authors.', 'publishpress-authors'),
+            'label'             => esc_html__('Show Authors', 'publishpress-authors'),
+            'description'       => esc_html__('Select an option to limit the results to selected user roles, author types, specific authors or author Categories.', 'publishpress-authors'),
             'type'              => 'tab',
             'options'           => [
                 'roles'         => esc_html__('Roles', 'publishpress-authors'),
                 'authors'       => esc_html__('Author Type', 'publishpress-authors'),
-                'term_id'       => esc_html__('Authors', 'publishpress-authors')
+                'term_id'       => esc_html__('Authors', 'publishpress-authors'),
+                'category_id'   => esc_html__('Author Categories', 'publishpress-authors')
             ],
+            'sanitize'          => 'sanitize_text_field',
+            'field_visibility'  => [],
+            'tab'               => 'users',
+        ];
+        $fields['exclude_term_id'] = [
+            'label'             => esc_html__('Exclude Authors', 'publishpress-authors'),
+            'description'       => esc_html__('Select Authors to be excluded from this list.', 'publishpress-authors'),
+            'type'              => 'multiple_authors',
+            'options'           => [],
             'sanitize'          => 'sanitize_text_field',
             'field_visibility'  => [],
             'tab'               => 'users',
@@ -470,11 +521,13 @@ class MA_Author_List extends Module
             'layout'                => 'authors_recent',
             'layout_columns'        => 2,
             'group_by'              => '',
-            
+
             'author_type'           => 'roles',
             'authors'               => '',
             'roles'                 => '',
             'term_id'               => '',
+            'category_id'           => [],
+            'exclude_term_id'       => [],
 
             'limit_per_page'        => $pro_active ? 20 : '',
             'show_empty'            => $pro_active ? 1 : '',
@@ -514,11 +567,13 @@ class MA_Author_List extends Module
             'layout'                => 'authors_index',
             'layout_columns'        => 1,
             'group_by'              => '',
-            
+
             'author_type'           => 'roles',
             'authors'               => '',
             'roles'                 => '',
             'term_id'               => '',
+            'category_id'           => [],
+            'exclude_term_id'       => [],
 
             'limit_per_page'        => $pro_active ? 20 : '',
             'show_empty'            => $pro_active ? 1 : '',
@@ -559,14 +614,14 @@ class MA_Author_List extends Module
     public function extract_shortcode_params($shortcode) {
         // Use regular expression to extract the attributes part of the shortcode
         preg_match('/\[(\w+)([^\]]*)\]/', $shortcode, $matches);
-        
+
         // Check if we have matches and the second element (attributes part) exists
         if (isset($matches[2])) {
             // Parse the attributes string into an associative array
             $attributes = shortcode_parse_atts($matches[2]);
             return $attributes;
         }
-        
+
         return [];
     }
 
@@ -575,8 +630,8 @@ class MA_Author_List extends Module
      */
     public function authorListAction() {
 
-        if (!empty($_POST['form_type']) 
-            && !empty($_POST['nonce']) 
+        if (!empty($_POST['form_type'])
+            && !empty($_POST['nonce'])
             && wp_verify_nonce(sanitize_key($_POST['nonce']), 'author-list-request-nonce')
             && current_user_can(Capability::getManageOptionsCapability())
         ) {
@@ -608,8 +663,8 @@ class MA_Author_List extends Module
 
             wp_safe_redirect(admin_url('admin.php?page='. self::MENU_SLUG .'&author_list_edit='. $author_list_id .'&update_message='. $update_message .''));
             exit();
-        } else if (!empty($_REQUEST['action']) 
-        && !empty($_REQUEST['_wpnonce']) 
+        } else if (!empty($_REQUEST['action'])
+        && !empty($_REQUEST['_wpnonce'])
         && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'author-list-request-nonce')
         && in_array($_REQUEST['action'], ['ppma-trash-author-list', 'ppma-restore-author-list', 'ppma-delete-author-list'])
         && current_user_can(Capability::getManageOptionsCapability())
@@ -660,11 +715,13 @@ class MA_Author_List extends Module
                 'layout'                => 'authors_index',
                 'layout_columns'        => 1,
                 'group_by'              => '',
-                
+
                 'author_type'           => 'roles',
                 'authors'               => '',
                 'roles'                 => '',
                 'term_id'               => '',
+                'category_id'           => [],
+                'exclude_term_id'       => [],
 
                 'limit_per_page'        => $pro_active ? 20 : '',
                 'show_empty'            => $pro_active ? 1 : '',
@@ -719,7 +776,7 @@ class MA_Author_List extends Module
                                         <ul class="author-list-tab">
                                             <?php foreach ($fields_tabs as $tab_name => $tab_options) :
                                                 $active_class = $tab_name == $active_tab ? 'active' : ''; ?>
-                                                <li 
+                                                <li
                                                     class="<?php echo esc_attr($tab_name); ?>_tab <?php echo esc_attr($active_class); ?>"
                                                     data-tab="<?php echo esc_attr($tab_name); ?>">
                                                     <a href="#<?php echo esc_attr($tab_name); ?>"
@@ -763,8 +820,8 @@ class MA_Author_List extends Module
                                         <div id="minor-publishing"></div>
                                         <div id="major-publishing-actions">
                                             <div id="publishing-action">
-                                                <input type="submit" 
-                                                    value="<?php esc_attr_e('Save Changes', 'publishpress-authors'); ?>" 
+                                                <input type="submit"
+                                                    value="<?php esc_attr_e('Save Changes', 'publishpress-authors'); ?>"
                                                     class="button-primary" id="" name="publish"
                                                 >
                                             </div>
@@ -840,7 +897,7 @@ class MA_Author_List extends Module
 
         ob_start();
         $generate_tab_title = false;
-        if (in_array($args['type'], ['textarea', 'preview', 'tab', 'promo'])) {
+        if (in_array($args['type'], ['textarea', 'preview', 'tab', 'promo', 'multiple_authors'])) {
             $th_style = 'display: none;';
             $colspan  = 2;
         } else {
@@ -852,8 +909,11 @@ class MA_Author_List extends Module
         if ($key === 'group_by' && $option_values['layout'] !== 'authors_index') {
             $tr_style = 'display: none;';
         }
+        if ($key === 'featured_image_size' && $option_values['layout'] !== 'authors_recent') {
+            $tr_style = 'display: none;';
+        }
         ?>
-        <tr 
+        <tr
             class="<?php echo esc_attr($tab_class); ?>"
             data-tab="<?php echo esc_attr($args['tab']); ?>"
             style="<?php echo esc_attr($tr_style); ?>"
@@ -873,7 +933,7 @@ class MA_Author_List extends Module
                 if ('number' === $args['type']) :
                     ?>
                     <input name="author_list[<?php echo esc_attr($key); ?>]"
-                        id="<?php echo esc_attr($key); ?>" 
+                        id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                         min="<?php echo esc_attr($args['min']); ?>"
@@ -885,7 +945,7 @@ class MA_Author_List extends Module
                 elseif ('checkbox' === $args['type']) :
                     ?>
                     <input name="author_list[<?php echo esc_attr($key); ?>]"
-                        id="<?php echo esc_attr($key); ?>" 
+                        id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="1"
                         <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
@@ -896,7 +956,7 @@ class MA_Author_List extends Module
                     <select name="author_list[<?php echo esc_attr($key); ?>]<?php echo ($args['multiple'] === true) ? '[]' : ''; ?>"
                         class="chosen-select"
                         id="<?php echo esc_attr($key); ?>"
-                        placeholder="<?php echo esc_attr($args['placeholder']); ?>"
+                        data-placeholder="<?php echo esc_attr($args['placeholder']); ?>"
                         <?php echo (isset($args['readonly']) && $args['readonly'] === true) ? 'readonly' : ''; ?>
                         <?php echo ($args['multiple'] === true) ? 'multiple' : ''; ?>
                         />
@@ -905,7 +965,7 @@ class MA_Author_List extends Module
                                 continue;
                             }
                             ?>
-                            <option value="<?php echo esc_attr($key); ?>" 
+                            <option value="<?php echo esc_attr($key); ?>"
                                 <?php $args['multiple'] === true && $args['value'] !== '' ? selected(true, in_array($key, (array)$args['value'])) : selected($key, $args['value']); ?>>
                                 <?php echo esc_html($label); ?>
                             </option>
@@ -922,7 +982,7 @@ class MA_Author_List extends Module
                         <?php foreach ($args['options'] as $group_key => $group_option) : ?>
                             <optgroup label="<?php echo esc_attr($group_option['title']); ?>">
                                 <?php foreach ($group_option['options'] as $key => $label) : ?>
-                                    <option value="<?php echo esc_attr($key); ?>" 
+                                    <option value="<?php echo esc_attr($key); ?>"
                                         <?php selected($key, $args['value']); ?>>
                                         <?php echo esc_html($label); ?>
                                     </option>
@@ -933,13 +993,23 @@ class MA_Author_List extends Module
                 <?php
                 elseif ('tab' === $args['type']) :
                     ?>
+                    <h3 style="margin-top: 0;">
+                        <label for="<?php echo esc_attr($key); ?>">
+                            <strong>
+                                <?php echo esc_html($args['label']); ?>
+                                <?php if (isset($args['required']) && $args['required'] === true) : ?>
+                                    <span class="required">*</span>
+                                <?php endif; ?>
+                            </strong>
+                        </label>
+                    </h3>
                     <div class="ppma-group-wrap">
                         <div class="ppma-button-group">
-                            <?php foreach ($args['options'] as $option_key => $options_label) : 
+                            <?php foreach ($args['options'] as $option_key => $options_label) :
                                     $selected_button = $option_key == $args['value'] ? 'selected' : ''; ?>
                                     <label class="<?php echo esc_attr($selected_button); ?>">
-                                        <input type="radio" 
-                                            name="author_list[<?php echo esc_attr($key); ?>]" 
+                                        <input type="radio"
+                                            name="author_list[<?php echo esc_attr($key); ?>]"
                                             value="<?php echo esc_attr($option_key); ?>"
                                             <?php checked($option_key, $args['value']); ?>
                                         >
@@ -948,11 +1018,11 @@ class MA_Author_List extends Module
                             <?php endforeach; ?>
                         </div>
                         <?php
-                            foreach ($args['options'] as $option_key => $options_label) : 
+                            foreach ($args['options'] as $option_key => $options_label) :
                                 $non_selected_style = $option_key == $args['value'] ? '' : 'display: none;'; ?>
                                 <p class="ppma-button-description description <?php echo esc_attr($option_key); ?>" style="<?php echo esc_attr($non_selected_style); ?>">
                                     <?php
-                                    $option_value = isset($option_values[$option_key]) ? (array) $option_values[$option_key] : []; 
+                                    $option_value = isset($option_values[$option_key]) ? (array) $option_values[$option_key] : [];
                                     $option_value = array_filter($option_value);
                                     switch ($option_key) {
                                         case 'roles':
@@ -960,11 +1030,12 @@ class MA_Author_List extends Module
                                             <select name="author_list[<?php echo esc_attr($option_key); ?>][]"
                                                 class="chosen-select"
                                                 id="<?php echo esc_attr($key); ?>-<?php echo esc_attr($option_key); ?>"
+                                                data-placeholder="<?php echo esc_attr__('Select some options', 'publishpress-authors'); ?>"
                                                 multiple
                                                 />
                                                 <?php foreach (get_ppma_get_all_user_roles() as $role => $data) :
                                                     ?>
-                                                    <option value="<?php echo esc_attr($role); ?>" 
+                                                    <option value="<?php echo esc_attr($role); ?>"
                                                         <?php selected(true, in_array($role, $option_value)); ?>>
                                                         <?php echo esc_html($data['name']); ?>
                                                     </option>
@@ -982,11 +1053,12 @@ class MA_Author_List extends Module
                                             <select name="author_list[<?php echo esc_attr($option_key); ?>][]"
                                                 class="chosen-select"
                                                 id="<?php echo esc_attr($key); ?>-<?php echo esc_attr($option_key); ?>"
+                                                data-placeholder="<?php echo esc_attr__('Select some options', 'publishpress-authors'); ?>"
                                                 multiple
                                                 />
                                                 <?php foreach ($authors_options as $sub_key => $sub_label) :
                                                     ?>
-                                                    <option value="<?php echo esc_attr($sub_key); ?>" 
+                                                    <option value="<?php echo esc_attr($sub_key); ?>"
                                                         <?php selected(true, in_array($sub_key, $option_value)); ?>>
                                                         <?php echo esc_html($sub_label); ?>
                                                     </option>
@@ -1004,7 +1076,7 @@ class MA_Author_List extends Module
                                                 multiple
                                                 style="width: 99%;"
                                                 />
-                                                <?php 
+                                                <?php
                                                 if (!empty($option_value)) {
                                                     foreach ($option_value as $term_id) :
                                                         $author = Author::get_by_term_id((int)$term_id);
@@ -1019,8 +1091,31 @@ class MA_Author_List extends Module
                                             </select>
                                             <?php
                                         break;
+                                        case 'category_id':
+                                            $option_value = (array) $option_value;
+                                            $author_categories = get_ppma_author_categories(['category_status' => 1]);
+                                            ?>
+                                            <select name="author_list[<?php echo esc_attr($option_key); ?>][]"
+                                                data-placeholder="<?php esc_html_e('Select Author Category', 'publishpress-authors'); ?>"
+                                                class="chosen-select"
+                                                id="<?php echo esc_attr($key); ?>-<?php echo esc_attr($option_key); ?>"
+                                                multiple
+                                                style="width: 99%;"
+                                                />
+                                                <?php
+                                                if (!empty($author_categories)) {
+                                                    foreach ($author_categories as $author_category) :
+                                                    ?>
+                                                        <option value="<?php echo esc_attr($author_category['id']); ?>" <?php selected(in_array($author_category['id'], $option_value), true); ?>>
+                                                            <?php echo esc_html($author_category['category_name']); ?>
+                                                        </option>
+                                                <?php endforeach;
+                                                } ?>
+                                            </select>
+                                            <?php
+                                        break;
                                         default:
-                                    } 
+                                    }
                                     ?>
                                 </p>
                         <?php endforeach; ?>
@@ -1029,7 +1124,7 @@ class MA_Author_List extends Module
                 elseif ('textarea' === $args['type']) :
                     ?>
                     <textarea name="author_list[<?php echo esc_attr($key); ?>]"
-                        id="<?php echo esc_attr($key); ?>" 
+                        id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         rows="<?php echo esc_attr($args['rows']); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
@@ -1058,7 +1153,7 @@ class MA_Author_List extends Module
                                     <span><?php echo esc_html($args['label']); ?></span>
                                 </h3>
                             </div>
-        
+
                             <div class="inside-content">
                                 <p><?php echo esc_html($args['description']); ?></p>
                                 <div class="upgrade-btn">
@@ -1067,9 +1162,43 @@ class MA_Author_List extends Module
                             </div>
                         </div>
                     </div>
+                <?php
+                elseif ('multiple_authors' === $args['type']) :
+                    ?>
+                    <h3 style="margin-top: 0;">
+                        <label for="<?php echo esc_attr($key); ?>">
+                            <strong>
+                                <?php echo esc_html($args['label']); ?>
+                                <?php if (isset($args['required']) && $args['required'] === true) : ?>
+                                    <span class="required">*</span>
+                                <?php endif; ?>
+                            </strong>
+                        </label>
+                    </h3>
+                    <select name="author_list[<?php echo esc_attr($key); ?>][]"
+                        data-nonce="<?php echo esc_attr(wp_create_nonce('authors-user-search')); ?>"
+                        data-placeholder="<?php esc_html_e('Select Users', 'publishpress-authors'); ?>"
+                        class="authors-user-term-id-search"
+                        id="<?php echo esc_attr($key); ?>-<?php echo esc_attr($key); ?>"
+                        multiple
+                        style="width: 99%;"
+                        />
+                        <?php
+                        if (!empty($args['value']) && is_array($args['value'])) {
+                            foreach ($args['value'] as $term_id) :
+                                $author = Author::get_by_term_id((int)$term_id);
+                                if (is_object($author) && isset($author->display_name)) {
+                            ?>
+                                <option value="<?php echo esc_attr($term_id); ?>" selected>
+                                    <?php echo esc_html($author->display_name); ?>
+                                </option>
+                        <?php }
+                            endforeach;
+                        } ?>
+                    </select>
                 <?php else : ?>
                     <input name="author_list[<?php echo esc_attr($key); ?>]"
-                        id="<?php echo esc_attr($key); ?>" 
+                        id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                         placeholder="<?php echo esc_attr($args['placeholder']); ?>"
@@ -1086,7 +1215,7 @@ class MA_Author_List extends Module
                         </span>
                 <?php endif; ?>
             </td>
-        </tr> 
+        </tr>
         <?php
         return ob_get_clean();
     }
@@ -1101,18 +1230,18 @@ class MA_Author_List extends Module
         $response['content'] = esc_html__('An error occured.', 'publishpress-authors');
 
         //do not process request if nonce validation failed
-        if (empty($_POST['nonce']) 
+        if (empty($_POST['nonce'])
             || !wp_verify_nonce(sanitize_key($_POST['nonce']), 'author-list-request-nonce')
         ) {
             $response['status']  = 'error';
             $response['content'] = esc_html__(
-                'Security error. Kindly reload this page and try again', 
+                'Security error. Kindly reload this page and try again',
                 'publishpress-authors'
             );
         } elseif (empty($_POST['shortcode'])) {
             $response['status']  = 'error';
             $response['content'] = esc_html__(
-                'Invalid form', 
+                'Invalid form',
                 'publishpress-authors'
             );
         } else {

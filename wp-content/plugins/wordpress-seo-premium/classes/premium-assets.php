@@ -327,7 +327,7 @@ class WPSEO_Premium_Assets implements WPSEO_WordPress_Integration {
 				],
 			],
 			[
-				'name'         => 'wp-seo-premium-ai-fix-assessments',
+				'name'         => 'wp-seo-premium-ai-optimize',
 				'path'         => 'assets/js/dist/',
 				'filename'     => 'ai-fix-assessments-' . $version . WPSEO_CSSJS_SUFFIX . '.js',
 				'dependencies' => [
@@ -360,6 +360,7 @@ class WPSEO_Premium_Assets implements WPSEO_WordPress_Integration {
 					'wp-element',
 					'wp-hooks',
 					'wp-i18n',
+					WPSEO_Admin_Asset_Manager::PREFIX . 'editor-modules',
 					WPSEO_Admin_Asset_Manager::PREFIX . 'ui-library-package',
 					WPSEO_Admin_Asset_Manager::PREFIX . 'react-helmet-package',
 				],
@@ -381,6 +382,14 @@ class WPSEO_Premium_Assets implements WPSEO_WordPress_Integration {
 					WPSEO_Admin_Asset_Manager::PREFIX . 'introductions',
 					WPSEO_Admin_Asset_Manager::PREFIX . 'ui-library-package',
 					WPSEO_Admin_Asset_Manager::PREFIX . 'react-helmet-package',
+				],
+			],
+			[
+				'name'         => 'wp-seo-premium-update-plugins',
+				'path'         => 'assets/js/dist/',
+				'filename'     => 'wp-seo-premium-update-plugins-' . $version . WPSEO_CSSJS_SUFFIX . '.js',
+				'dependencies' => [
+					'jquery',
 				],
 			],
 		];
@@ -440,7 +449,11 @@ class WPSEO_Premium_Assets implements WPSEO_WordPress_Integration {
 			],
 			[
 				'name'         => WPSEO_Admin_Asset_Manager::PREFIX . 'premium-tailwind',
-				'source'       => 'assets/css/dist/premium-tailwind-' . $version . $rtl_suffix . '.css',
+				// Note: The RTL suffix is not added here.
+				// Tailwind and our UI library provide styling that should be standalone compatible with RTL.
+				// To make it easier we should use the logical properties and values when possible.
+				// If there are exceptions, we can use the Tailwind modifier, e.g. `rtl:yst-space-x-reverse`.
+				'source'       => 'assets/css/dist/premium-tailwind-' . $version . '.css',
 				'dependencies' => [],
 			],
 			[
@@ -458,6 +471,11 @@ class WPSEO_Premium_Assets implements WPSEO_WordPress_Integration {
 					WPSEO_Admin_Asset_Manager::PREFIX . 'premium-tailwind',
 					WPSEO_Admin_Asset_Manager::PREFIX . 'monorepo',
 				],
+			],
+			[
+				'name'         => WPSEO_Admin_Asset_Manager::PREFIX . 'premium-block-editor',
+				'source'       => 'assets/css/dist/premium-block-editor-' . $version . $rtl_suffix . '.css',
+				'dependencies' => [],
 			],
 		];
 	}

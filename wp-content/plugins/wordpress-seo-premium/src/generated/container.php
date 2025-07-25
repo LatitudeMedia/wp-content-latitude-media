@@ -39,7 +39,6 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\builders\\indexable_term_builder' => 'Yoast\\WP\\SEO\\Builders\\Indexable_Term_Builder',
             'yoast\\wp\\seo\\conditionals\\admin\\post_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin\\posts_overview_or_ajax_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional',
-            'yoast\\wp\\seo\\conditionals\\admin\\yoast_admin_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional',
             'yoast\\wp\\seo\\conditionals\\admin_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional',
             'yoast\\wp\\seo\\conditionals\\front_end_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Front_End_Conditional',
             'yoast\\wp\\seo\\conditionals\\migrations_conditional' => 'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional',
@@ -72,7 +71,9 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\introductions\\infrastructure\\wistia_embed_permission_repository' => 'Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Wistia_Embed_Permission_Repository',
             'yoast\\wp\\seo\\loader' => 'Yoast\\WP\\SEO\\Loader',
             'yoast\\wp\\seo\\memoizers\\meta_tags_context_memoizer' => 'Yoast\\WP\\SEO\\Memoizers\\Meta_Tags_Context_Memoizer',
+            'yoast\\wp\\seo\\premium\\actions\\ai_base_action' => 'Yoast\\WP\\SEO\\Premium\\Actions\\AI_Base_Action',
             'yoast\\wp\\seo\\premium\\actions\\ai_generator_action' => 'Yoast\\WP\\SEO\\Premium\\Actions\\AI_Generator_Action',
+            'yoast\\wp\\seo\\premium\\actions\\ai_optimizer_action' => 'Yoast\\WP\\SEO\\Premium\\Actions\\AI_Optimizer_Action',
             'yoast\\wp\\seo\\premium\\actions\\link_suggestions_action' => 'Yoast\\WP\\SEO\\Premium\\Actions\\Link_Suggestions_Action',
             'yoast\\wp\\seo\\premium\\actions\\prominent_words\\complete_action' => 'Yoast\\WP\\SEO\\Premium\\Actions\\Prominent_Words\\Complete_Action',
             'yoast\\wp\\seo\\premium\\actions\\prominent_words\\content_action' => 'Yoast\\WP\\SEO\\Premium\\Actions\\Prominent_Words\\Content_Action',
@@ -82,20 +83,22 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\premium\\ai_suggestions_postprocessor\\application\\sentence_processor' => 'Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Sentence_Processor',
             'yoast\\wp\\seo\\premium\\ai_suggestions_postprocessor\\application\\suggestion_processor' => 'Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Suggestion_Processor',
             'yoast\\wp\\seo\\premium\\ai_suggestions_postprocessor\\domain\\suggestion' => 'Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Domain\\Suggestion',
+            'yoast\\wp\\seo\\premium\\conditionals\\admin_or_introductions_route_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Admin_Or_Introductions_Route_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\ai_editor_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Ai_Editor_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\algolia_enabled_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Algolia_Enabled_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\cornerstone_enabled_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Cornerstone_Enabled_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\edd_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\EDD_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\inclusive_language_enabled_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Inclusive_Language_Enabled_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\not_woo_order_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Not_Woo_Order_Conditional',
+            'yoast\\wp\\seo\\premium\\conditionals\\plugins_page_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Plugins_Page_Conditional',
             'yoast\\wp\\seo\\premium\\conditionals\\term_overview_or_ajax_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Term_Overview_Or_Ajax_Conditional',
-            'yoast\\wp\\seo\\premium\\conditionals\\yoast_admin_or_introductions_route_conditional' => 'Yoast\\WP\\SEO\\Premium\\Conditionals\\Yoast_Admin_Or_Introductions_Route_Conditional',
             'yoast\\wp\\seo\\premium\\config\\badge_group_names' => 'Yoast\\WP\\SEO\\Premium\\Config\\Badge_Group_Names',
             'yoast\\wp\\seo\\premium\\config\\migrations\\addindexonindexableidandstem' => 'Yoast\\WP\\SEO\\Premium\\Config\\Migrations\\AddIndexOnIndexableIdAndStem',
             'yoast\\wp\\seo\\premium\\database\\migration_runner_premium' => 'Yoast\\WP\\SEO\\Premium\\Database\\Migration_Runner_Premium',
             'yoast\\wp\\seo\\premium\\dom_manager\\application\\dom_parser' => 'Yoast\\WP\\SEO\\Premium\\DOM_Manager\\Application\\DOM_Parser',
             'yoast\\wp\\seo\\premium\\dom_manager\\application\\node_processor' => 'Yoast\\WP\\SEO\\Premium\\DOM_Manager\\Application\\Node_Processor',
             'yoast\\wp\\seo\\premium\\helpers\\ai_generator_helper' => 'Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper',
+            'yoast\\wp\\seo\\premium\\helpers\\ai_optimizer_helper' => 'Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Optimizer_Helper',
             'yoast\\wp\\seo\\premium\\helpers\\current_page_helper' => 'Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper',
             'yoast\\wp\\seo\\premium\\helpers\\prominent_words_helper' => 'Yoast\\WP\\SEO\\Premium\\Helpers\\Prominent_Words_Helper',
             'yoast\\wp\\seo\\premium\\helpers\\version_helper' => 'Yoast\\WP\\SEO\\Premium\\Helpers\\Version_Helper',
@@ -106,10 +109,17 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\premium\\initializers\\woocommerce' => 'Yoast\\WP\\SEO\\Premium\\Initializers\\Woocommerce',
             'yoast\\wp\\seo\\premium\\initializers\\wp_cli_initializer' => 'Yoast\\WP\\SEO\\Premium\\Initializers\\Wp_Cli_Initializer',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\ai_consent_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Consent_Integration',
-            'yoast\\wp\\seo\\premium\\integrations\\admin\\ai_fix_assessments_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Fix_Assessments_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\ai_generator_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Generator_Integration',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\ai_optimize_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Optimize_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\cornerstone_column_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Column_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\cornerstone_taxonomy_column_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Taxonomy_Column_Integration',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\content_processor' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Content_Processor',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\dom_processor' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\DOM_Processor',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\footnote_processor' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\gutenberg_converter' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Gutenberg_Converter',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\importer' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Importer',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\media_manager' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Media_Manager',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\extension_importer\\nested_list_creator' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Nested_List_Creator',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\inclusive_language_column_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Column_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\inclusive_language_filter_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Filter_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\inclusive_language_taxonomy_column_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Taxonomy_Column_Integration',
@@ -122,10 +132,12 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\premium\\integrations\\admin\\replacement_variables_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Replacement_Variables_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\settings_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Settings_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\thank_you_page_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Thank_You_Page_Integration',
+            'yoast\\wp\\seo\\premium\\integrations\\admin\\update_plugins_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Plugins_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\update_premium_notification' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Premium_Notification',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\user_profile_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\User_Profile_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\admin\\workouts_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Workouts_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\alerts\\ai_generator_tip_notification' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Alerts\\Ai_Generator_Tip_Notification',
+            'yoast\\wp\\seo\\premium\\integrations\\blocks\\block_editor_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Block_Editor_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\blocks\\estimated_reading_time_block' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Estimated_Reading_Time_Block',
             'yoast\\wp\\seo\\premium\\integrations\\blocks\\related_links_block' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Related_Links_Block',
             'yoast\\wp\\seo\\premium\\integrations\\cleanup_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Cleanup_Integration',
@@ -141,6 +153,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\premium\\integrations\\organization_schema_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Organization_Schema_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\publishing_principles_schema_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Publishing_Principles_Schema_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\routes\\ai_generator_route' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Generator_Route',
+            'yoast\\wp\\seo\\premium\\integrations\\routes\\ai_optimizer_route' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Optimizer_Route',
             'yoast\\wp\\seo\\premium\\integrations\\routes\\workouts_routes_integration' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\Workouts_Routes_Integration',
             'yoast\\wp\\seo\\premium\\integrations\\third_party\\algolia' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Third_Party\\Algolia',
             'yoast\\wp\\seo\\premium\\integrations\\third_party\\edd' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Third_Party\\EDD',
@@ -152,6 +165,7 @@ class Cached_Container extends Container
             'yoast\\wp\\seo\\premium\\integrations\\watchers\\prominent_words_watcher' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Watchers\\Prominent_Words_Watcher',
             'yoast\\wp\\seo\\premium\\integrations\\watchers\\stale_cornerstone_content_watcher' => 'Yoast\\WP\\SEO\\Premium\\Integrations\\Watchers\\Stale_Cornerstone_Content_Watcher',
             'yoast\\wp\\seo\\premium\\introductions\\application\\ai_fix_assessments_introduction' => 'Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\Ai_Fix_Assessments_Introduction',
+            'yoast\\wp\\seo\\premium\\introductions\\application\\ai_optimize_classic_introduction' => 'Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\AI_Optimize_Classic_Introduction',
             'yoast\\wp\\seo\\premium\\main' => 'Yoast\\WP\\SEO\\Premium\\Main',
             'yoast\\wp\\seo\\premium\\repositories\\prominent_words_repository' => 'Yoast\\WP\\SEO\\Premium\\Repositories\\Prominent_Words_Repository',
             'yoast\\wp\\seo\\premium\\routes\\link_suggestions_route' => 'Yoast\\WP\\SEO\\Premium\\Routes\\Link_Suggestions_Route',
@@ -185,7 +199,6 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Builders\\Indexable_Term_Builder' => 'getIndexableTermBuilderService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Post_Conditional' => 'getPostConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional' => 'getPostsOverviewOrAjaxConditionalService',
-            'Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional' => 'getYoastAdminConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional' => 'getAdminConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Front_End_Conditional' => 'getFrontEndConditionalService',
             'Yoast\\WP\\SEO\\Conditionals\\Migrations_Conditional' => 'getMigrationsConditionalService',
@@ -223,25 +236,29 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Sentence_Processor' => 'getSentenceProcessorService',
             'Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Suggestion_Processor' => 'getSuggestionProcessorService',
             'Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Domain\\Suggestion' => 'getSuggestionService',
+            'Yoast\\WP\\SEO\\Premium\\Actions\\AI_Base_Action' => 'getAIBaseActionService',
             'Yoast\\WP\\SEO\\Premium\\Actions\\AI_Generator_Action' => 'getAIGeneratorActionService',
+            'Yoast\\WP\\SEO\\Premium\\Actions\\AI_Optimizer_Action' => 'getAIOptimizerActionService',
             'Yoast\\WP\\SEO\\Premium\\Actions\\Link_Suggestions_Action' => 'getLinkSuggestionsActionService',
             'Yoast\\WP\\SEO\\Premium\\Actions\\Prominent_Words\\Complete_Action' => 'getCompleteActionService',
             'Yoast\\WP\\SEO\\Premium\\Actions\\Prominent_Words\\Content_Action' => 'getContentActionService',
             'Yoast\\WP\\SEO\\Premium\\Actions\\Prominent_Words\\Save_Action' => 'getSaveActionService',
+            'Yoast\\WP\\SEO\\Premium\\Conditionals\\Admin_Or_Introductions_Route_Conditional' => 'getAdminOrIntroductionsRouteConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\Ai_Editor_Conditional' => 'getAiEditorConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\Algolia_Enabled_Conditional' => 'getAlgoliaEnabledConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\Cornerstone_Enabled_Conditional' => 'getCornerstoneEnabledConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\EDD_Conditional' => 'getEDDConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\Inclusive_Language_Enabled_Conditional' => 'getInclusiveLanguageEnabledConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\Not_Woo_Order_Conditional' => 'getNotWooOrderConditionalService',
+            'Yoast\\WP\\SEO\\Premium\\Conditionals\\Plugins_Page_Conditional' => 'getPluginsPageConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Conditionals\\Term_Overview_Or_Ajax_Conditional' => 'getTermOverviewOrAjaxConditionalService',
-            'Yoast\\WP\\SEO\\Premium\\Conditionals\\Yoast_Admin_Or_Introductions_Route_Conditional' => 'getYoastAdminOrIntroductionsRouteConditionalService',
             'Yoast\\WP\\SEO\\Premium\\Config\\Badge_Group_Names' => 'getBadgeGroupNamesService',
             'Yoast\\WP\\SEO\\Premium\\Config\\Migrations\\AddIndexOnIndexableIdAndStem' => 'getAddIndexOnIndexableIdAndStemService',
             'Yoast\\WP\\SEO\\Premium\\DOM_Manager\\Application\\DOM_Parser' => 'getDOMParserService',
             'Yoast\\WP\\SEO\\Premium\\DOM_Manager\\Application\\Node_Processor' => 'getNodeProcessorService',
             'Yoast\\WP\\SEO\\Premium\\Database\\Migration_Runner_Premium' => 'getMigrationRunnerPremiumService',
             'Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper' => 'getAIGeneratorHelperService',
+            'Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Optimizer_Helper' => 'getAIOptimizerHelperService',
             'Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper' => 'getCurrentPageHelper2Service',
             'Yoast\\WP\\SEO\\Premium\\Helpers\\Prominent_Words_Helper' => 'getProminentWordsHelperService',
             'Yoast\\WP\\SEO\\Premium\\Helpers\\Version_Helper' => 'getVersionHelperService',
@@ -252,10 +269,17 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Premium\\Initializers\\Woocommerce' => 'getWoocommerceService',
             'Yoast\\WP\\SEO\\Premium\\Initializers\\Wp_Cli_Initializer' => 'getWpCliInitializerService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Consent_Integration' => 'getAiConsentIntegrationService',
-            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Fix_Assessments_Integration' => 'getAiFixAssessmentsIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Generator_Integration' => 'getAiGeneratorIntegrationService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Optimize_Integration' => 'getAiOptimizeIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Column_Integration' => 'getCornerstoneColumnIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Taxonomy_Column_Integration' => 'getCornerstoneTaxonomyColumnIntegrationService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Content_Processor' => 'getContentProcessorService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\DOM_Processor' => 'getDOMProcessorService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor' => 'getFootnoteProcessorService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Gutenberg_Converter' => 'getGutenbergConverterService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Importer' => 'getImporterService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Media_Manager' => 'getMediaManagerService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Nested_List_Creator' => 'getNestedListCreatorService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Column_Integration' => 'getInclusiveLanguageColumnIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Filter_Integration' => 'getInclusiveLanguageFilterIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Taxonomy_Column_Integration' => 'getInclusiveLanguageTaxonomyColumnIntegrationService',
@@ -268,10 +292,12 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Replacement_Variables_Integration' => 'getReplacementVariablesIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Settings_Integration' => 'getSettingsIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Thank_You_Page_Integration' => 'getThankYouPageIntegrationService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Plugins_Integration' => 'getUpdatePluginsIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Premium_Notification' => 'getUpdatePremiumNotificationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\User_Profile_Integration' => 'getUserProfileIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Workouts_Integration' => 'getWorkoutsIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Alerts\\Ai_Generator_Tip_Notification' => 'getAiGeneratorTipNotificationService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Block_Editor_Integration' => 'getBlockEditorIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Estimated_Reading_Time_Block' => 'getEstimatedReadingTimeBlockService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Related_Links_Block' => 'getRelatedLinksBlockService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Cleanup_Integration' => 'getCleanupIntegrationService',
@@ -287,6 +313,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Organization_Schema_Integration' => 'getOrganizationSchemaIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Publishing_Principles_Schema_Integration' => 'getPublishingPrinciplesSchemaIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Generator_Route' => 'getAIGeneratorRouteService',
+            'Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Optimizer_Route' => 'getAIOptimizerRouteService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\Workouts_Routes_Integration' => 'getWorkoutsRoutesIntegrationService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Third_Party\\Algolia' => 'getAlgoliaService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Third_Party\\EDD' => 'getEDDService',
@@ -297,6 +324,7 @@ class Cached_Container extends Container
             'Yoast\\WP\\SEO\\Premium\\Integrations\\User_Profile_Integration' => 'getUserProfileIntegration2Service',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Watchers\\Prominent_Words_Watcher' => 'getProminentWordsWatcherService',
             'Yoast\\WP\\SEO\\Premium\\Integrations\\Watchers\\Stale_Cornerstone_Content_Watcher' => 'getStaleCornerstoneContentWatcherService',
+            'Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\AI_Optimize_Classic_Introduction' => 'getAIOptimizeClassicIntroductionService',
             'Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\Ai_Fix_Assessments_Introduction' => 'getAiFixAssessmentsIntroductionService',
             'Yoast\\WP\\SEO\\Premium\\Main' => 'getMainService',
             'Yoast\\WP\\SEO\\Premium\\Repositories\\Prominent_Words_Repository' => 'getProminentWordsRepositoryService',
@@ -483,16 +511,6 @@ class Cached_Container extends Container
     protected function getPostsOverviewOrAjaxConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional'] = \Yoast\WP\Lib\Dependency_Injection\Container_Registry::get('yoast-seo', 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Posts_Overview_Or_Ajax_Conditional');
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Conditionals\Admin\Yoast_Admin_Conditional' shared service.
-     *
-     * @return \Yoast\WP\SEO\Conditionals\Admin\Yoast_Admin_Conditional
-     */
-    protected function getYoastAdminConditionalService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional'] = \Yoast\WP\Lib\Dependency_Injection\Container_Registry::get('yoast-seo', 'Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional');
     }
 
     /**
@@ -814,10 +832,11 @@ class Cached_Container extends Container
         $instance->register_initializer('Yoast\\WP\\SEO\\Premium\\Initializers\\Woocommerce');
         $instance->register_initializer('Yoast\\WP\\SEO\\Premium\\Initializers\\Wp_Cli_Initializer');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Consent_Integration');
-        $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Fix_Assessments_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Generator_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Optimize_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Column_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Taxonomy_Column_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Importer');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Column_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Filter_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Inclusive_Language_Taxonomy_Column_Integration');
@@ -830,10 +849,12 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Replacement_Variables_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Settings_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Thank_You_Page_Integration');
+        $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Plugins_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Premium_Notification');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\User_Profile_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Workouts_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Alerts\\Ai_Generator_Tip_Notification');
+        $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Block_Editor_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Estimated_Reading_Time_Block');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Related_Links_Block');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Cleanup_Integration');
@@ -849,6 +870,7 @@ class Cached_Container extends Container
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Organization_Schema_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Publishing_Principles_Schema_Integration');
         $instance->register_route('Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Generator_Route');
+        $instance->register_route('Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Optimizer_Route');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\Workouts_Routes_Integration');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Third_Party\\Algolia');
         $instance->register_integration('Yoast\\WP\\SEO\\Premium\\Integrations\\Third_Party\\EDD');
@@ -930,6 +952,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Actions\AI_Base_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Actions\AI_Base_Action
+     */
+    protected function getAIBaseActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Actions\\AI_Base_Action'] = new \Yoast\WP\SEO\Premium\Actions\AI_Base_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Premium\Actions\AI_Generator_Action' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Premium\Actions\AI_Generator_Action
@@ -937,6 +969,16 @@ class Cached_Container extends Container
     protected function getAIGeneratorActionService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Actions\\AI_Generator_Action'] = new \Yoast\WP\SEO\Premium\Actions\AI_Generator_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Actions\AI_Optimizer_Action' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Actions\AI_Optimizer_Action
+     */
+    protected function getAIOptimizerActionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Actions\\AI_Optimizer_Action'] = new \Yoast\WP\SEO\Premium\Actions\AI_Optimizer_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Optimizer_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Optimizer_Helper'] : $this->getAIOptimizerHelperService()) && false ?: '_'});
     }
 
     /**
@@ -977,6 +1019,16 @@ class Cached_Container extends Container
     protected function getSaveActionService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Actions\\Prominent_Words\\Save_Action'] = new \Yoast\WP\SEO\Premium\Actions\Prominent_Words\Save_Action(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Repositories\\Prominent_Words_Repository']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Repositories\\Prominent_Words_Repository'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Repositories\\Prominent_Words_Repository'] = new \Yoast\WP\SEO\Premium\Repositories\Prominent_Words_Repository())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository']) ? $this->services['Yoast\\WP\\SEO\\Repositories\\Indexable_Repository'] : $this->getIndexableRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Indexable_Helper'] : $this->getIndexableHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Prominent_Words_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Prominent_Words_Helper'] : $this->getProminentWordsHelperService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Conditionals\Admin_Or_Introductions_Route_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Conditionals\Admin_Or_Introductions_Route_Conditional
+     */
+    protected function getAdminOrIntroductionsRouteConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Conditionals\\Admin_Or_Introductions_Route_Conditional'] = new \Yoast\WP\SEO\Premium\Conditionals\Admin_Or_Introductions_Route_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Admin_Conditional'] : $this->getAdminConditionalService()) && false ?: '_'});
     }
 
     /**
@@ -1040,6 +1092,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Conditionals\Plugins_Page_Conditional' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Conditionals\Plugins_Page_Conditional
+     */
+    protected function getPluginsPageConditionalService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Conditionals\\Plugins_Page_Conditional'] = new \Yoast\WP\SEO\Premium\Conditionals\Plugins_Page_Conditional();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Premium\Conditionals\Term_Overview_Or_Ajax_Conditional' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Premium\Conditionals\Term_Overview_Or_Ajax_Conditional
@@ -1047,16 +1109,6 @@ class Cached_Container extends Container
     protected function getTermOverviewOrAjaxConditionalService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Conditionals\\Term_Overview_Or_Ajax_Conditional'] = new \Yoast\WP\SEO\Premium\Conditionals\Term_Overview_Or_Ajax_Conditional();
-    }
-
-    /**
-     * Gets the public 'Yoast\WP\SEO\Premium\Conditionals\Yoast_Admin_Or_Introductions_Route_Conditional' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Premium\Conditionals\Yoast_Admin_Or_Introductions_Route_Conditional
-     */
-    protected function getYoastAdminOrIntroductionsRouteConditionalService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Premium\\Conditionals\\Yoast_Admin_Or_Introductions_Route_Conditional'] = new \Yoast\WP\SEO\Premium\Conditionals\Yoast_Admin_Or_Introductions_Route_Conditional(${($_ = isset($this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional']) ? $this->services['Yoast\\WP\\SEO\\Conditionals\\Admin\\Yoast_Admin_Conditional'] : $this->getYoastAdminConditionalService()) && false ?: '_'});
     }
 
     /**
@@ -1116,7 +1168,17 @@ class Cached_Container extends Container
      */
     protected function getAIGeneratorHelperService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] = new \Yoast\WP\SEO\Premium\Helpers\AI_Generator_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\AI_Suggestions_Unifier']) ? $this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\AI_Suggestions_Unifier'] : $this->getAISuggestionsUnifierService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Suggestion_Processor']) ? $this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Suggestion_Processor'] : $this->getSuggestionProcessorService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Date_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Date_Helper'] : $this->getDateHelperService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] = new \Yoast\WP\SEO\Premium\Helpers\AI_Generator_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Date_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Date_Helper'] : $this->getDateHelperService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Helpers\AI_Optimizer_Helper' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Helpers\AI_Optimizer_Helper
+     */
+    protected function getAIOptimizerHelperService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Optimizer_Helper'] = new \Yoast\WP\SEO\Premium\Helpers\AI_Optimizer_Helper(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\AI_Suggestions_Unifier']) ? $this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\AI_Suggestions_Unifier'] : $this->getAISuggestionsUnifierService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Suggestion_Processor']) ? $this->services['Yoast\\WP\\SEO\\Premium\\AI_Suggestions_Postprocessor\\Application\\Suggestion_Processor'] : $this->getSuggestionProcessorService()) && false ?: '_'});
     }
 
     /**
@@ -1166,7 +1228,7 @@ class Cached_Container extends Container
      */
     protected function getIntroductionsInitializerService()
     {
-        return $this->services['Yoast\\WP\\SEO\\Premium\\Initializers\\Introductions_Initializer'] = new \Yoast\WP\SEO\Premium\Initializers\Introductions_Initializer(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\Ai_Fix_Assessments_Introduction']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\Ai_Fix_Assessments_Introduction'] : $this->getAiFixAssessmentsIntroductionService()) && false ?: '_'});
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Initializers\\Introductions_Initializer'] = new \Yoast\WP\SEO\Premium\Initializers\Introductions_Initializer(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\Ai_Fix_Assessments_Introduction']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\Ai_Fix_Assessments_Introduction'] : $this->getAiFixAssessmentsIntroductionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\AI_Optimize_Classic_Introduction']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\AI_Optimize_Classic_Introduction'] : $this->getAIOptimizeClassicIntroductionService()) && false ?: '_'});
     }
 
     /**
@@ -1220,16 +1282,6 @@ class Cached_Container extends Container
     }
 
     /**
-     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Fix_Assessments_Integration' shared autowired service.
-     *
-     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Fix_Assessments_Integration
-     */
-    protected function getAiFixAssessmentsIntegrationService()
-    {
-        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Fix_Assessments_Integration'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Fix_Assessments_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['autowired.Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository']) ? $this->services['autowired.Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository'] : $this->getIntroductionsSeenRepositoryService()) && false ?: '_'});
-    }
-
-    /**
      * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Generator_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Generator_Integration
@@ -1237,6 +1289,16 @@ class Cached_Container extends Container
     protected function getAiGeneratorIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Generator_Integration'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Generator_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper'] = new \Yoast\WP\SEO\Premium\Helpers\Current_Page_Helper())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['autowired.Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository']) ? $this->services['autowired.Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository'] : $this->getIntroductionsSeenRepositoryService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Optimize_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Optimize_Integration
+     */
+    protected function getAiOptimizeIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Ai_Optimize_Integration'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Ai_Optimize_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'}, ${($_ = isset($this->services['WPSEO_Addon_Manager']) ? $this->services['WPSEO_Addon_Manager'] : $this->getWPSEOAddonManagerService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'}, ${($_ = isset($this->services['autowired.Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository']) ? $this->services['autowired.Yoast\\WP\\SEO\\Introductions\\Infrastructure\\Introductions_Seen_Repository'] : $this->getIntroductionsSeenRepositoryService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Current_Page_Helper'] : $this->getCurrentPageHelperService()) && false ?: '_'});
     }
 
     /**
@@ -1257,6 +1319,76 @@ class Cached_Container extends Container
     protected function getCornerstoneTaxonomyColumnIntegrationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Cornerstone_Taxonomy_Column_Integration'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Cornerstone_Taxonomy_Column_Integration(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\Current_Page_Helper'] = new \Yoast\WP\SEO\Premium\Helpers\Current_Page_Helper())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Content_Processor' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Content_Processor
+     */
+    protected function getContentProcessorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Content_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Content_Processor();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\DOM_Processor' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\DOM_Processor
+     */
+    protected function getDOMProcessorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\DOM_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\DOM_Processor();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Footnote_Processor' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Footnote_Processor
+     */
+    protected function getFootnoteProcessorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Footnote_Processor();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Gutenberg_Converter' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Gutenberg_Converter
+     */
+    protected function getGutenbergConverterService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Gutenberg_Converter'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Gutenberg_Converter(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Footnote_Processor())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\DOM_Processor']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\DOM_Processor'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\DOM_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\DOM_Processor())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Content_Processor']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Content_Processor'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Content_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Content_Processor())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Nested_List_Creator']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Nested_List_Creator'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Nested_List_Creator'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Nested_List_Creator())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Importer' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Importer
+     */
+    protected function getImporterService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Importer'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Importer(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Media_Manager']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Media_Manager'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Media_Manager'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Media_Manager())) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Gutenberg_Converter']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Gutenberg_Converter'] : $this->getGutenbergConverterService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor'] : ($this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Footnote_Processor'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Footnote_Processor())) && false ?: '_'});
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Media_Manager' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Media_Manager
+     */
+    protected function getMediaManagerService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Media_Manager'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Media_Manager();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Nested_List_Creator' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Nested_List_Creator
+     */
+    protected function getNestedListCreatorService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Extension_Importer\\Nested_List_Creator'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Extension_Importer\Nested_List_Creator();
     }
 
     /**
@@ -1380,6 +1512,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Update_Plugins_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Update_Plugins_Integration
+     */
+    protected function getUpdatePluginsIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Admin\\Update_Plugins_Integration'] = new \Yoast\WP\SEO\Premium\Integrations\Admin\Update_Plugins_Integration();
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Admin\Update_Premium_Notification' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Premium\Integrations\Admin\Update_Premium_Notification
@@ -1417,6 +1559,16 @@ class Cached_Container extends Container
     protected function getAiGeneratorTipNotificationService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Alerts\\Ai_Generator_Tip_Notification'] = new \Yoast\WP\SEO\Premium\Integrations\Alerts\Ai_Generator_Tip_Notification();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Blocks\Block_Editor_Integration' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Blocks\Block_Editor_Integration
+     */
+    protected function getBlockEditorIntegrationService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Blocks\\Block_Editor_Integration'] = new \Yoast\WP\SEO\Premium\Integrations\Blocks\Block_Editor_Integration(${($_ = isset($this->services['WPSEO_Admin_Asset_Manager']) ? $this->services['WPSEO_Admin_Asset_Manager'] : $this->getWPSEOAdminAssetManagerService()) && false ?: '_'});
     }
 
     /**
@@ -1570,6 +1722,16 @@ class Cached_Container extends Container
     }
 
     /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Routes\AI_Optimizer_Route' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Integrations\Routes\AI_Optimizer_Route
+     */
+    protected function getAIOptimizerRouteService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Routes\\AI_Optimizer_Route'] = new \Yoast\WP\SEO\Premium\Integrations\Routes\AI_Optimizer_Route(${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Actions\\AI_Optimizer_Action']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Actions\\AI_Optimizer_Action'] : $this->getAIOptimizerActionService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper']) ? $this->services['Yoast\\WP\\SEO\\Premium\\Helpers\\AI_Generator_Helper'] : $this->getAIGeneratorHelperService()) && false ?: '_'});
+    }
+
+    /**
      * Gets the public 'Yoast\WP\SEO\Premium\Integrations\Routes\Workouts_Routes_Integration' shared autowired service.
      *
      * @return \Yoast\WP\SEO\Premium\Integrations\Routes\Workouts_Routes_Integration
@@ -1667,6 +1829,16 @@ class Cached_Container extends Container
     protected function getStaleCornerstoneContentWatcherService()
     {
         return $this->services['Yoast\\WP\\SEO\\Premium\\Integrations\\Watchers\\Stale_Cornerstone_Content_Watcher'] = new \Yoast\WP\SEO\Premium\Integrations\Watchers\Stale_Cornerstone_Content_Watcher();
+    }
+
+    /**
+     * Gets the public 'Yoast\WP\SEO\Premium\Introductions\Application\AI_Optimize_Classic_Introduction' shared autowired service.
+     *
+     * @return \Yoast\WP\SEO\Premium\Introductions\Application\AI_Optimize_Classic_Introduction
+     */
+    protected function getAIOptimizeClassicIntroductionService()
+    {
+        return $this->services['Yoast\\WP\\SEO\\Premium\\Introductions\\Application\\AI_Optimize_Classic_Introduction'] = new \Yoast\WP\SEO\Premium\Introductions\Application\AI_Optimize_Classic_Introduction(${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\Options_Helper'] : $this->getOptionsHelperService()) && false ?: '_'}, ${($_ = isset($this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper']) ? $this->services['Yoast\\WP\\SEO\\Helpers\\User_Helper'] : $this->getUserHelperService()) && false ?: '_'});
     }
 
     /**

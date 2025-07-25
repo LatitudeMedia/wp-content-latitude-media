@@ -46,6 +46,7 @@ class Post_Editor
         add_action('quick_edit_custom_box', [__CLASS__, 'add_author_bulk_quick_edit_custom_box'], 10, 2);
         add_action('wp_ajax_save_bulk_edit_authors', [__CLASS__, 'save_bulk_edit_authors'], 10, 2);
         add_action('publishpress_authors_flush_cache', [__CLASS__, 'flush_cache'], 15);
+        add_action('publishpress_authors_flush_cache_for_post', [__CLASS__, 'flush_post_cache'], 15);
     }
 
     /**
@@ -54,8 +55,8 @@ class Post_Editor
     public static function add_author_bulk_quick_edit_custom_box($column_name, $post_type)
     {
         if (Utils::is_post_type_enabled($post_type) && $column_name === 'authors') {
-            $legacyPlugin      = Factory::getLegacyPlugin(); 
-            $quick_edit_styles = isset($legacyPlugin->modules->multiple_authors->options->disable_quick_edit_author_box) 
+            $legacyPlugin      = Factory::getLegacyPlugin();
+            $quick_edit_styles = isset($legacyPlugin->modules->multiple_authors->options->disable_quick_edit_author_box)
                 && 'yes' === $legacyPlugin->modules->multiple_authors->options->disable_quick_edit_author_box
                 ? 'display:none;' : '';
             ?>
@@ -142,7 +143,7 @@ class Post_Editor
                         $showedPostAuthorUser = true;
                     }
 
-                    
+
                     $author_category  = get_ppma_author_relations(['post_id' => $post_id, 'author_term_id' => $author->term_id]);
                     if (!empty($author_category) && isset($author_category[0]['category_id'])) {
                         $category_id = $author_category[0]['category_id'];
@@ -218,7 +219,7 @@ class Post_Editor
      * @param object $response
      * @param object $taxonomy
      * @param array $request
-     * 
+     *
      * @return object $response
      */
     public static function action_remove_gutenberg_author_metabox($response, $taxonomy, $request) {
@@ -256,7 +257,7 @@ class Post_Editor
      * @param array $author_relations
      * @param array $authors
      * @param bool $admin_preview
-     * 
+     *
      * @return array
      */
     public static function group_category_authors($author_categories, $author_relations, $authors, $admin_preview = false) {
@@ -301,16 +302,28 @@ class Post_Editor
             $authors_data[] = [
                 'title'             => $author_category['plural_name'],
                 'singular_title'    => $author_category['category_name'],
-                'description'       => sprintf('Drag-and-drop Authors to add them to the %s category', $author_category['category_name']),
+                'description'       => sprintf(esc_html__('Drag-and-drop Authors to add them to the %s category', 'publishpress-authors'), $author_category['category_name']),
                 'slug'              => $author_category['slug'],
                 'id'                => $author_category['id'],
                 'authors'           => array_values($selected_authors)
             ];
         }
 
-        // Add remaining author to first category
+        // Add remaining author to default or first category
         if (!empty($remaining_authors)) {
-            $authors_data[0]['authors'] = array_values(array_merge($authors_data[0]['authors'], $remaining_authors));
+            foreach ($remaining_authors as $remaining_author) {
+                $author_default_category = (int) $remaining_author->author_category;
+
+                $category_index = ($author_default_category > 0)
+                    ? array_search($author_default_category, array_column($authors_data, 'id'))
+                    : false;
+
+                if ($category_index !== false) {
+                    $authors_data[$category_index]['authors'][] = $remaining_author;
+                } else {
+                    $authors_data[0]['authors'][] = $remaining_author;
+                }
+            }
         }
 
 
@@ -364,7 +377,7 @@ class Post_Editor
                         'display_name' => '{{ data.display_name }}',
                         'term'         => '{{ data.id }}',
                         'is_guest'     => '{{ data.is_guest }}',
-                        'category_id'  => 0,
+                        'category_id'  => '{{ data.author_category }}',
                     ]
                 );
                 ?>
@@ -426,7 +439,7 @@ class Post_Editor
             $legacyPlugin           = Factory::getLegacyPlugin();
             $fallbackAuthor         = isset($legacyPlugin->modules->multiple_authors->options->fallback_user_for_guest_post) ?
                 (int)$legacyPlugin->modules->multiple_authors->options->fallback_user_for_guest_post : 0;
-    
+
             if ($fallbackAuthor > 0) {
                 $postAuthorId = $fallbackAuthor;
                 $userAuthor   = Author::get_by_user_id($postAuthorId);
@@ -441,9 +454,9 @@ class Post_Editor
             <?php if (!$bulkEdit) : ?>
                 <div class="ppma-authors-display-option-wrapper">
                     <input name="ppma_save_disable_author_box" type="hidden" value="1" />
-                    <input name="ppma_disable_author_box" 
-                            id="ppma_disable_author_box" 
-                            value="1" 
+                    <input name="ppma_disable_author_box"
+                            id="ppma_disable_author_box"
+                            value="1"
                             type="checkbox"
                             <?php checked((int)get_post_meta($post->ID, 'ppma_disable_author_box', true), 1); ?>
                         />
@@ -484,7 +497,7 @@ class Post_Editor
     public static function post_author_filter_field()
     {
         $post_type = isset($_GET['post_type']) ? sanitize_key($_GET['post_type']) : 'post';
-        
+
         if (Utils::is_post_type_enabled($post_type)) {
 
             $userAuthor = false;
@@ -593,7 +606,7 @@ class Post_Editor
                 Utils::set_post_authors($post_id, $authors, true, $fallbackUserId, $author_categories);
             }
 
-            do_action('publishpress_authors_flush_cache', $post_ids);
+            do_action('publishpress_authors_flush_cache_for_post', $post_ids);
         }
 
         wp_send_json_success(true, 200);
@@ -635,7 +648,7 @@ class Post_Editor
             update_post_meta($post_id, 'ppma_disable_author_box', $disableAuthorBox);
         }
 
-        do_action('publishpress_authors_flush_cache', $post_id);
+        do_action('publishpress_authors_flush_cache_for_post', $post_id);
     }
 
     /**
@@ -693,7 +706,7 @@ class Post_Editor
         $defaultAuthorSetting = isset($legacyPlugin->modules->multiple_authors->options->default_author_for_new_posts) ?
             $legacyPlugin->modules->multiple_authors->options->default_author_for_new_posts : '';
 
-        if (!empty($defaultAuthorSetting)) {
+        if (Utils::is_post_type_enabled($post->post_type) && !empty($defaultAuthorSetting)) {
             $defaultAuthor = Author::get_by_term_id($defaultAuthorSetting);
         } elseif ($post->post_author) {
             $defaultAuthor = Author::get_by_user_id($post->post_author);
@@ -721,7 +734,7 @@ class Post_Editor
 
         Utils::set_post_authors($post_id, [$defaultAuthor]);
 
-        do_action('publishpress_authors_flush_cache', $post_id);
+        do_action('publishpress_authors_flush_cache_for_post', $post_id);
     }
 
     public static function remove_core_author_field()
@@ -758,14 +771,45 @@ class Post_Editor
         return $response;
     }
 
-    public static function flush_cache($post_id)
+    /**
+     * Flush cache
+     * @return void
+     */
+    public static function flush_cache()
     {
-        if (empty($post_id)) {
-            wp_cache_flush_group('get_post_authors');
+        wp_cache_flush_group('get_post_authors');
+        wp_cache_flush_group('author_categories_relation_cache');
+    }
 
+    /**
+     * Flush post cache
+     *
+     * @param array|integer $post_ids
+     *
+     * @return array
+     */
+    public static function flush_post_cache($post_ids = [])
+    {
+        if (empty($post_ids)) {
+            self::flush_cache();
             return;
         }
 
-        wp_cache_delete($post_id, 'get_post_authors:authors');
+        if (!is_array($post_ids)) {
+            $post_ids = [$post_ids];
+        }
+
+        foreach ($post_ids as $post_id) {
+            // author categories relation for the post
+            $args = [
+                'post_id'  => $post_id,
+                'author_term_id' => ''
+            ];
+            $cache_key = 'author_categories_relation_' . md5(serialize($args));
+            wp_cache_delete($cache_key, 'author_categories_relation_cache');
+
+            // post authors
+            wp_cache_delete($post_id, 'get_post_authors:authors');
+        }
     }
 }

@@ -6,6 +6,7 @@ use WPSEO_Admin_Asset_Manager;
 use Yoast\WP\SEO\Actions\Alert_Dismissal_Action;
 use Yoast\WP\SEO\Conditionals\Admin\Non_Network_Admin_Conditional;
 use Yoast\WP\SEO\Conditionals\Admin_Conditional;
+use Yoast\WP\SEO\Dashboard\Application\Configuration\Dashboard_Configuration;
 use Yoast\WP\SEO\Helpers\Current_Page_Helper;
 use Yoast\WP\SEO\Helpers\Notification_Helper;
 use Yoast\WP\SEO\Helpers\Product_Helper;
@@ -29,6 +30,13 @@ class General_Page_Integration implements Integration_Interface {
 	 * @var Notification_Helper
 	 */
 	protected $notification_helper;
+
+	/**
+	 * The dashboard configuration.
+	 *
+	 * @var Dashboard_Configuration
+	 */
+	private $dashboard_configuration;
 
 	/**
 	 * Holds the WPSEO_Admin_Asset_Manager.
@@ -61,27 +69,28 @@ class General_Page_Integration implements Integration_Interface {
 	/**
 	 * The promotion manager.
 	 *
-	 * @var Promotion_Manager $promotion_manager
+	 * @var Promotion_Manager
 	 */
 	private $promotion_manager;
 
 	/**
 	 * The alert dismissal action.
 	 *
-	 * @var Alert_Dismissal_Action $alert_dismissal_action
+	 * @var Alert_Dismissal_Action
 	 */
 	private $alert_dismissal_action;
 
 	/**
 	 * Constructs Academy_Integration.
 	 *
-	 * @param WPSEO_Admin_Asset_Manager $asset_manager          The WPSEO_Admin_Asset_Manager.
-	 * @param Current_Page_Helper       $current_page_helper    The Current_Page_Helper.
-	 * @param Product_Helper            $product_helper         The Product_Helper.
-	 * @param Short_Link_Helper         $shortlink_helper       The Short_Link_Helper.
-	 * @param Notification_Helper       $notification_helper    The Notification_Helper.
-	 * @param Alert_Dismissal_Action    $alert_dismissal_action The alert dismissal action.
-	 * @param Promotion_Manager         $promotion_manager      The promotion manager.
+	 * @param WPSEO_Admin_Asset_Manager $asset_manager           The WPSEO_Admin_Asset_Manager.
+	 * @param Current_Page_Helper       $current_page_helper     The Current_Page_Helper.
+	 * @param Product_Helper            $product_helper          The Product_Helper.
+	 * @param Short_Link_Helper         $shortlink_helper        The Short_Link_Helper.
+	 * @param Notification_Helper       $notification_helper     The Notification_Helper.
+	 * @param Alert_Dismissal_Action    $alert_dismissal_action  The alert dismissal action.
+	 * @param Promotion_Manager         $promotion_manager       The promotion manager.
+	 * @param Dashboard_Configuration   $dashboard_configuration The dashboard configuration.
 	 */
 	public function __construct(
 		WPSEO_Admin_Asset_Manager $asset_manager,
@@ -90,15 +99,17 @@ class General_Page_Integration implements Integration_Interface {
 		Short_Link_Helper $shortlink_helper,
 		Notification_Helper $notification_helper,
 		Alert_Dismissal_Action $alert_dismissal_action,
-		Promotion_Manager $promotion_manager
+		Promotion_Manager $promotion_manager,
+		Dashboard_Configuration $dashboard_configuration
 	) {
-		$this->asset_manager          = $asset_manager;
-		$this->current_page_helper    = $current_page_helper;
-		$this->product_helper         = $product_helper;
-		$this->shortlink_helper       = $shortlink_helper;
-		$this->notification_helper    = $notification_helper;
-		$this->alert_dismissal_action = $alert_dismissal_action;
-		$this->promotion_manager      = $promotion_manager;
+		$this->asset_manager           = $asset_manager;
+		$this->current_page_helper     = $current_page_helper;
+		$this->product_helper          = $product_helper;
+		$this->shortlink_helper        = $shortlink_helper;
+		$this->notification_helper     = $notification_helper;
+		$this->alert_dismissal_action  = $alert_dismissal_action;
+		$this->promotion_manager       = $promotion_manager;
+		$this->dashboard_configuration = $dashboard_configuration;
 	}
 
 	/**
@@ -131,9 +142,9 @@ class General_Page_Integration implements Integration_Interface {
 	/**
 	 * Adds the page.
 	 *
-	 * @param array<string,array<string>> $pages The pages.
+	 * @param array<string, array<string>> $pages The pages.
 	 *
-	 * @return array<string,array<string>> The pages.
+	 * @return array<string, array<string>> The pages.
 	 */
 	public function add_page( $pages ) {
 		\array_splice(
@@ -184,7 +195,7 @@ class General_Page_Integration implements Integration_Interface {
 	/**
 	 * Creates the script data.
 	 *
-	 * @return array<string,array<string|bool,array<string>>> The script data.
+	 * @return array The script data.
 	 */
 	private function get_script_data() {
 		return [
@@ -197,11 +208,13 @@ class General_Page_Integration implements Integration_Interface {
 					'premiumCtbId' => 'f6a84663-465f-4cb5-8ba5-f7a6d72224b2',
 				],
 			],
+			'adminUrl'          => \admin_url( 'admin.php' ),
 			'linkParams'        => $this->shortlink_helper->get_query_params(),
 			'userEditUrl'       => \add_query_arg( 'user_id', '{user_id}', \admin_url( 'user-edit.php' ) ),
 			'alerts'            => $this->notification_helper->get_alerts(),
 			'currentPromotions' => $this->promotion_manager->get_current_promotions(),
 			'dismissedAlerts'   => $this->alert_dismissal_action->all_dismissed(),
+			'dashboard'         => $this->dashboard_configuration->get_configuration(),
 		];
 	}
 }
