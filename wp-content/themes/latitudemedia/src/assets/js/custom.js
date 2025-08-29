@@ -2,12 +2,12 @@ $ = jQuery;
 
 $(document).ready(function($) {
 
-    let menuToggle = $("header .header-wrapper .bottom-head .toggle-container .menu-toggle");
-    let hamburgerMenu = $("header .header-wrapper .bottom-head .hamburger-menu");
+    let menuToggle = $("header .header-wrapper .middle-head  .menu-toggle");
+    let hamburgerMenu = $("header .header-wrapper .middle-head .hamburger-menu");
     let stickyHeader = $("header .header-wrapper .bottom-head");
     let stickyLogo = $("header .header-wrapper .middle-head");
     if((stickyHeader).length > 0) {
-        var stickyTop = $(stickyHeader).offset().top - 43;
+        var stickyTop = $(stickyHeader).offset().top - 80;
     }
 
     $(".hamburger-accordion .accordion_tab").on('click', function () {
@@ -34,6 +34,53 @@ $(document).ready(function($) {
                 $(stickyHeader).removeClass('sticky');
                 $(stickyLogo).removeClass('sticky');
             }
+        });
+    }
+
+    // Podcast dropdown
+    const podcastDropdown = $('.podcast-dropdown');
+    if(podcastDropdown.length > 0) {
+        const trigger = podcastDropdown.find('.default-option');
+        const list = podcastDropdown.find('.options');
+        const arrow = podcastDropdown.find('.arrow svg');
+
+        list.hide();
+
+        function setExpanded(expanded) {
+            podcastDropdown.attr('aria-expanded', expanded ? 'true' : 'false');
+            if(expanded) {
+                arrow.css('transform', 'rotate(180deg)');
+            } else {
+                arrow.css('transform', 'rotate(0deg)');
+            }
+        }
+
+        function closeDropdown() {
+            if(podcastDropdown.hasClass('open')) {
+                podcastDropdown.removeClass('open');
+                list.hide();
+                setExpanded(false);
+            }
+        }
+
+        trigger.on('click', function(e) {
+            e.preventDefault();
+            podcastDropdown.toggleClass('open');
+            const isOpen = podcastDropdown.hasClass('open');
+            list.toggle();
+            setExpanded(isOpen);
+        });
+
+        // Close when clicking outside
+        $(document).on('click', function(e) {
+            if(!$(e.target).closest('.podcast-dropdown').length) {
+                closeDropdown();
+            }
+        });
+
+        // Close when selecting an option
+        list.on('click', 'a', function() {
+            closeDropdown();
         });
     }
 

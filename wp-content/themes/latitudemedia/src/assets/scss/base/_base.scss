@@ -8,7 +8,10 @@ body {
   line-height: 1.428571429;
   color: $primary-dark-blue;
   font-weight: normal;
-  padding-top: 43px;
+  padding-top: 78px;
+  @include below_sm {
+    padding-top: 118px;
+  }
 }
 a {
   //color: $dark;
