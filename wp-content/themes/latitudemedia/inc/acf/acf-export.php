@@ -282,6 +282,7 @@ add_action('acf/include_fields', function () {
                     'webinar' => 'Webinar',
                     'virtual' => 'Virtual',
                     'conference' => 'Conference',
+                    'dispatch' => 'Dispatch',
                 ),
                 'default_value' => false,
                 'return_format' => 'value',
