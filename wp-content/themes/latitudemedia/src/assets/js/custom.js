@@ -6,8 +6,9 @@ $(document).ready(function($) {
     let hamburgerMenu = $("header .header-wrapper .middle-head .hamburger-menu");
     let stickyHeader = $("header .header-wrapper .bottom-head");
     let stickyLogo = $("header .header-wrapper .middle-head");
+    let body = $("body")
     if((stickyHeader).length > 0) {
-        var stickyTop = $(stickyHeader).offset().top - 80;
+        var stickyTop = $(stickyHeader).offset().top + 20;
     }
 
     $(".hamburger-accordion .accordion_tab").on('click', function () {
@@ -28,11 +29,13 @@ $(document).ready(function($) {
             var windowTop = $(window).scrollTop();
 
             if (stickyTop < windowTop) {
-                $(stickyHeader).addClass('sticky');
+                // $(stickyHeader).addClass('sticky');
                 $(stickyLogo).addClass('sticky');
+                $(body).addClass('sticky-active');
             } else {
-                $(stickyHeader).removeClass('sticky');
+                // $(stickyHeader).removeClass('sticky');
                 $(stickyLogo).removeClass('sticky');
+                $(body).removeClass('sticky-active');
             }
         });
     }

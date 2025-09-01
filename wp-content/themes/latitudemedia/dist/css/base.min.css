@@ -108,6 +108,9 @@ body {
   font-weight: normal;
   padding-top: 78px;
 }
+body.sticky-active {
+  padding-top: 150px;
+}
 
 .wrapper {
   height: auto !important;
@@ -758,7 +761,10 @@ article ul li {
 
 @media screen and (max-width: 768px) {
   body {
-    padding-top: 118px;
+    padding-top: 193px;
+  }
+  body.sticky-active {
+    padding-top: 193px;
   }
   h1 {
     font-size: 32px;

@@ -265,12 +265,17 @@ header .header-wrapper .middle-head {
   background-color: #F5F5F5;
   padding: 27px 0 20px 0;
   position: relative;
+  z-index: 1;
 }
 header .header-wrapper .middle-head .container {
   position: relative;
 }
 header .header-wrapper .middle-head.sticky {
   margin-bottom: 59px;
+  position: fixed;
+  top: 78px;
+  left: 0;
+  width: 100%;
 }
 header .header-wrapper .middle-head .menu-toggle {
   position: absolute;
@@ -403,6 +408,10 @@ header .header-wrapper .middle-head .hamburger-menu .triangle:before {
   top: -58px;
   right: 33px;
 }
+header .header-wrapper .middle-head .hamburger-menu .hamburger-menu-wrapper {
+  overflow-y: auto;
+  max-height: calc(100vh - 320px);
+}
 header .header-wrapper .middle-head .hamburger-menu .container {
   display: flex;
   justify-content: space-between;
@@ -506,8 +515,8 @@ header .header-wrapper .middle-head .hamburger-menu .left-side .desktop-menu > l
   text-decoration: none;
   font-family: "Lora", Arial, Helvetica, serif;
   font-weight: 700;
-  font-size: 32px;
-  font-size: 2rem;
+  font-size: 28px;
+  font-size: 1.75rem;
   color: #ffffff;
   letter-spacing: -1px;
   line-height: 36px;
@@ -523,7 +532,7 @@ header .header-wrapper .middle-head .hamburger-menu .left-side .desktop-menu > l
   margin: 0;
 }
 header .header-wrapper .middle-head .hamburger-menu .left-side .desktop-menu > li ul li {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 header .header-wrapper .middle-head .hamburger-menu .left-side .desktop-menu > li ul li a {
   display: inline-block;
@@ -563,14 +572,15 @@ header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .
   position: relative;
 }
 header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab a:after {
-  content: "";
+  content: "+";
   display: block;
   position: absolute;
-  right: -25px;
-  top: 55%;
-  width: 16px;
-  height: 16px;
-  background: transparent url(../images/icon_tick_down.svg) top left no-repeat;
+  right: 12px;
+  top: 50%;
+  color: #C6158D;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: initial;
   -webkit-transform: translateY(-50%) scale(1.3);
   -moz-transform: translateY(-50%) scale(1.3);
   -ms-transform: translateY(-50%) scale(1.3);
@@ -583,15 +593,17 @@ header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .
   transition: all ease-in-out 0.3s;
 }
 header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab.active a:after {
-  -webkit-transform: translateY(-50%) scale(1.3) rotate(180deg);
-  -moz-transform: translateY(-50%) scale(1.3) rotate(180deg);
-  -ms-transform: translateY(-50%) scale(1.3) rotate(180deg);
-  -o-transform: translateY(-50%) scale(1.3) rotate(180deg);
-  transform: translateY(-50%) scale(1.3) rotate(180deg);
+  content: "-";
 }
 header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_content {
   display: none;
-  padding-bottom: 30px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_content:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_content ul {
   list-style: none;
@@ -661,14 +673,14 @@ header .header-wrapper .middle-head .hamburger-menu .right-side .right-menu {
   padding: 0;
 }
 header .header-wrapper .middle-head .hamburger-menu .right-side .right-menu li {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 header .header-wrapper .middle-head .hamburger-menu .right-side .right-menu li a {
   display: inline-block;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #E9ACD6;
   font-family: "inter", Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 24px;
@@ -684,7 +696,7 @@ header .header-wrapper .bottom-head {
 }
 header .header-wrapper .bottom-head.sticky {
   position: fixed;
-  top: 78px;
+  top: 163px;
   left: 0;
   width: 100%;
 }
@@ -1002,6 +1014,11 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+
+.logged-in header .header-wrapper .middle-head.sticky {
+  top: 110px;
+}
+
 @media screen and (max-width: 768px) {
   header .header-wrapper .top-head {
     height: 118px;
@@ -1038,18 +1055,17 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
   header .header-wrapper .top-head .top-head-wrapper .subscribe-container .podcast-dropdown .default-option {
     width: 100%;
   }
+  header .header-wrapper .middle-head {
+    top: 118px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+  }
+  header .header-wrapper .middle-head.sticky {
+    top: 118px;
+  }
   header .header-wrapper .middle-head .logo {
     max-width: 320px;
-  }
-  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab a {
-    font-size: 32px;
-    font-size: 2rem;
-    line-height: 38px;
-  }
-  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab a {
-    font-size: 28px;
-    font-size: 1.75rem;
-    line-height: 36px;
   }
   header .header-wrapper .bottom-head {
     display: none;
@@ -1073,7 +1089,14 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
     font-size: 16px;
     font-size: 1rem;
   }
+  .logged-in header .header-wrapper .middle-head {
+    top: 164px;
+  }
+  .logged-in header .header-wrapper .middle-head.sticky {
+    top: 164px;
+  }
 }
+
 @media screen and (max-width: 992px) {
   header .header-wrapper .top-head .container {
     justify-content: flex-end;
@@ -1109,14 +1132,18 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
   header .header-wrapper .middle-head .hamburger-menu .container {
     justify-content: space-around;
   }
-  header .header-wrapper .middle-head .hamburger-menu .mobile-search {
-    display: block;
-  }
   header .header-wrapper .middle-head .hamburger-menu .left-side .desktop-menu {
     display: none;
   }
   header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu {
     display: block;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab a {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 36px;
+    display: block;
+    width: 100%;
   }
   header .header-wrapper .bottom-head .bottom-menu li a:after {
     width: calc(100% - 10px);
@@ -1139,17 +1166,64 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
     display: none;
   }
 }
+
 @media screen and (max-width: 1200px) {
   header .header-wrapper .top-head .top-head-menu ul {
     padding-left: 0;
   }
 }
+
 @media screen and (max-width: 576px) {
   header .header-wrapper .top-head .top-head-menu ul li {
     margin-right: 16px;
   }
   header .header-wrapper .middle-head .hamburger-menu .container {
     flex-direction: column;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side {
+    display: block;
+    width: 100%;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab {
+    margin-bottom: 16px;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_tab a {
+    font-family: "inter", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_content ul {
+    padding-left: 32px;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_content ul li {
+    margin-bottom: 16px;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .left-side .accordion-menu .hamburger-accordion .accordion_content ul li a {
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .right-side {
+    display: block;
+    width: 100%;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .right-side .half {
+    width: 100%;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .right-side .half:first-child {
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  header .header-wrapper .middle-head .hamburger-menu .right-side .half:last-child {
+    margin-left: 0;
+  }
+  header .header-wrapper .middle-head .hamburger-menu .right-side .right-menu li a {
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 28px;
   }
   header .header-wrapper .bottom-head .bottom-head-menu li {
     margin-right: 4px;

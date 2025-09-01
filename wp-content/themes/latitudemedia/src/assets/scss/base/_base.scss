@@ -10,7 +10,13 @@ body {
   font-weight: normal;
   padding-top: 78px;
   @include below_sm {
-    padding-top: 118px;
+    padding-top: 193px;
+  }
+  &.sticky-active {
+    padding-top: 150px;
+    @include below_sm {
+      padding-top: 193px;
+    }
   }
 }
 a {

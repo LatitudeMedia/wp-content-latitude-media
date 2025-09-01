@@ -48,6 +48,7 @@
             </div>
             <div class="hamburger-menu" style="display: none;">
                 <div class="container triangle"></div>
+                <div class="hamburger-menu-wrapper">
                 <div class="mobile-search">
                     <div class="container">
                         <?php get_template_part( 'template-parts/components/search', 'mobile' ); ?>
@@ -100,9 +101,10 @@
                             wp_nav_menu($args);
                             ?>
                         </div>
-
+                    </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="bottom-head has-dark-blue-background-color">
