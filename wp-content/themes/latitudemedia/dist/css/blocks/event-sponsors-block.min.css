@@ -1,1 +1,107 @@
-.event-sponsors-section{margin-bottom:64px}.event-sponsors-section .bordered-title{margin-bottom:32px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row{margin-bottom:32px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row h5{margin-bottom:24px;text-align:center}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul{list-style:none;padding:0;display:flex;align-self:center;justify-content:center;flex-wrap:wrap;margin:0 0 0 -5%}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li{margin-left:5%;width:20%;margin-bottom:64px;align-items:center;display:flex;flex-direction:column}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .image-folder{margin-bottom:26px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .content-folder .more-link{text-decoration:underline;font-size:16px;font-size:1rem;line-height:23px;color:#00b48d}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .bio{flex-direction:column-reverse;align-items:flex-start}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .bio img{border:1px solid #00b48d;padding:10px;box-sizing:content-box}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .description{font-size:16px;font-size:1rem;line-height:24px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button{display:inline-block;margin-right:10px}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a{display:block;text-decoration:none}.event-sponsors-section.pink .bordered-title{border-color:#c6168d}.event-sponsors-section.green .bordered-title{border-color:#00b48d}.event-sponsors-section.blue .bordered-title{border-color:#0095da}.event-sponsors-section.orange .bordered-title{border-color:#f99d1c}@media screen and (max-width: 992px){.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li{width:28.3%}}@media screen and (max-width: 768px){.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li{margin-bottom:32px;width:45%}}@media screen and (max-width: 576px){.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li{width:100% !important;margin-left:0 !important}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons{display:flex;flex-direction:column}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button{display:block;margin-right:0}.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button:first-child{margin-bottom:16px}}
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/event-sponsors-block.scss ***!
+  \*****************************************************************************************************************************************************************************************************************/
+.event-sponsors-section {
+  margin-bottom: 64px;
+}
+.event-sponsors-section .bordered-title {
+  margin-bottom: 32px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row {
+  margin-bottom: 32px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row h5 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 0 -5%;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+  margin-left: 5%;
+  width: 20%;
+  margin-bottom: 64px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .image-folder {
+  margin-bottom: 26px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .content-folder .more-link {
+  text-decoration: underline;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 23px;
+  color: #00B48D;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .bio {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .bio img {
+  border: 1px solid #00B48D;
+  padding: 10px;
+  box-sizing: content-box;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .description {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button {
+  display: inline-block;
+  margin-right: 10px;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li a {
+  display: block;
+  text-decoration: none;
+}
+.event-sponsors-section.pink .bordered-title {
+  border-color: #C6168D;
+}
+.event-sponsors-section.green .bordered-title {
+  border-color: #00B48D;
+}
+.event-sponsors-section.blue .bordered-title {
+  border-color: #0095DA;
+}
+.event-sponsors-section.orange .bordered-title {
+  border-color: #F99D1C;
+}
+@media screen and (max-width: 992px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+    width: 28.3%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+    margin-bottom: 32px;
+    width: 45%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button {
+    display: block;
+    margin-right: 0;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .modal-content .control-buttons .strict-button:first-child {
+    margin-bottom: 16px;
+  }
+}
+
+/*# sourceMappingURL=event-sponsors-block.min.css.map*/
