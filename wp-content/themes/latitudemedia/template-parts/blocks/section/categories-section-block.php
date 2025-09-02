@@ -40,8 +40,26 @@ $categories = get_section_cats($section->term_id, 'all');
 >
     <div class="container">
         <div class="section-top-nav-section-wrapper">
+            <div class="section-breadcrumb">
+                <ul>
+                    <li><span>Tech</span> /</li>
+                    <li><a href="#">All in markets</a></li>
+                </ul>
+            </div>
             <div class="section-name"><?php echo get_the_title($post_id); ?></div>
             <div class="section-categories">
+                <span class="title">TAGS:</span>
+                <div class="selected-option">Global markets</div>
+                <ul>
+                    <li><a href="https://www.latitudemedia.com/topics/global-markets/">Global markets</a></li>
+                    <li><a href="https://www.latitudemedia.com/topics/policy/">Policy</a></li>
+                    <li><a href="https://www.latitudemedia.com/topics/regulation/">Regulation</a></li>
+                    <li><a href="https://www.latitudemedia.com/topics/research/">Research</a></li>
+                    <li><a href="https://www.latitudemedia.com/topics/us-market/">U.S. market</a></li>
+                </ul>
+            </div>
+<!--            <div class="section-categories">-->
+                <?php /*
                 <?php if($categories) : ?>
                     <ul>
                         <?php
@@ -51,7 +69,8 @@ $categories = get_section_cats($section->term_id, 'all');
                         ?>
                     </ul>
                 <?php endif; ?>
-            </div>
+                */ ?>
+<!--            </div>-->
         </div>
     </div>
 </div>

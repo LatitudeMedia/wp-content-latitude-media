@@ -11,6 +11,91 @@ $(document).ready(function($) {
         var stickyTop = $(stickyHeader).offset().top + 20;
     }
 
+    (function() {
+        const MOBILE_MAX = 576;
+        const wraps = $('.section-categories').filter(function() {
+            return $(this).find('.selected-option').length && $(this).find('ul').length;
+        });
+
+        if(wraps.length < 1) return;
+
+        let docBound = false;
+
+        function enable() {
+            if($(window).width() > MOBILE_MAX) {
+                disable();
+                return;
+            }
+            wraps.each(function() {
+                const wrap = $(this);
+                if(wrap.data('cd-init')) return;
+                const trigger = wrap.find('.selected-option');
+                const list = wrap.find('ul');
+                list.hide();
+
+                trigger.on('click.cd', function(e) {
+                    e.preventDefault();
+                    wrap.toggleClass('open');
+                    list.toggle();
+                });
+
+                list.on('click.cd', 'a', function(e) {
+                    e.preventDefault();
+                    const text = $(this).text().trim();
+                    trigger.text(text);
+                    wrap.removeClass('open');
+                    list.hide();
+                    list.find('a').removeClass('is-active');
+                    $(this).addClass('is-active');
+                });
+
+                wrap.data('cd-init', true);
+            });
+
+            if(!docBound) {
+                $(document).on('click.categories-dropdown', function(e) {
+                    if(!$(e.target).closest('.section-categories').length) {
+                        wraps.removeClass('open');
+                        wraps.find('ul').hide();
+                    }
+                });
+                docBound = true;
+            }
+        }
+
+        function disable() {
+            wraps.each(function() {
+                const wrap = $(this);
+                if(!wrap.data('cd-init')) return;
+                const trigger = wrap.find('.selected-option');
+                const list = wrap.find('ul');
+                wrap.removeClass('open');
+                list.show();
+                trigger.off('.cd');
+                list.off('.cd');
+                wrap.removeData('cd-init');
+            });
+            if(docBound) {
+                $(document).off('click.categories-dropdown');
+                docBound = false;
+            }
+        }
+
+        enable();
+
+        let rt;
+        $(window).on('resize.categories-dropdown', function() {
+            clearTimeout(rt);
+            rt = setTimeout(function() {
+                if($(window).width() <= MOBILE_MAX) {
+                    enable();
+                } else {
+                    disable();
+                }
+            }, 150);
+        });
+    })();
+
     $(".hamburger-accordion .accordion_tab").on('click', function () {
         $('.accordion_tab').not($(this)).removeClass("active");
         $(this).toggleClass("active");
