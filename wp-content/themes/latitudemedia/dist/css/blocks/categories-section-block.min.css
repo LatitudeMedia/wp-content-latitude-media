@@ -44,6 +44,9 @@
 .section-top-nav-section .section-top-nav-section-wrapper .section-categories ul li a:hover {
   color: #C6168D;
 }
+.section-top-nav-section .section-top-nav-section-wrapper .section-categories .selected-option {
+  display: none;
+}
 
 .section-breadcrumb {
   margin-bottom: 29px;

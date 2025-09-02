@@ -4361,6 +4361,9 @@
 					}
 				}
 			}
+			.selected-option {
+				display: none;
+			}
 			@include below_mob {
 				position: relative;
 				width: 100%;
