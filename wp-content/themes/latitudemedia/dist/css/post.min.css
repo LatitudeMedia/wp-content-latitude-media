@@ -1,6 +1,7 @@
 /*!************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/pages/post.scss ***!
   \************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
 .single-post header, .single-industry-news header {
   padding-bottom: 0;
 }
@@ -68,7 +69,7 @@
 .single-post .right-sidebar-layout .main-column article iframe, .single-industry-news .right-sidebar-layout .main-column article iframe {
   margin-bottom: 24px;
 }
-.single-post .right-sidebar-layout .main-column article .testimonial-block, .single-industry-news .right-sidebar-layout .main-column article .testimonial-block {
+.single-post .right-sidebar-layout .main-column article ≈ .testimonial-block, .single-industry-news .right-sidebar-layout .main-column article ≈ .testimonial-block {
   margin-bottom: 40px;
   padding-top: 16px;
 }
@@ -312,13 +313,13 @@
   color: #6E6E6E;
   text-transform: uppercase;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px){
   .single-post .right-sidebar-layout .sidebar .form-block, .single-industry-news .right-sidebar-layout .sidebar .form-block {
     position: initial;
     top: auto;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
   .single-post-heading-section .single-post-heading-section-wrapper .tags-list li {
     padding-bottom: 0;
     border: none;
