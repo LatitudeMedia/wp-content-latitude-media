@@ -16,8 +16,10 @@ if ( ! function_exists( 'ltm_setup' ) ) {
         register_nav_menus(
             array(
                 'top'           => __( 'Top menu', 'ltm' ),
+                'podcasts-menu' => __( 'Podcasts menu', 'ltm' ),
                 'main'          => __( 'Main menu', 'ltm' ),
                 'tab-menu'      => __( 'Header tab menu', 'ltm' ),
+                'tab-menu-2'      => __( 'Header tab menu 2', 'ltm' ),
                 'footer-main'   => __( 'Footer main menu', 'ltm' ),
                 'footer-logos'  => __( 'Footer logos menu', 'ltm' ),
                 'footer-social' => __( 'Footer social menu', 'ltm' ),

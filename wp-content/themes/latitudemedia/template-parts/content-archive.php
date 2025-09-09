@@ -45,6 +45,17 @@ if(is_category()) {
     $headArgs['title_template'] = 'section';
 }
 
+
+if(is_category()) {
+    get_template_part('template-parts/blocks/section/categories-header', 'block',
+        [
+            'display'           => true,
+            'section'           => $section,
+            'blockAttributes'   => [],
+        ]
+    );
+}
+
 //Title template
 get_template_part('template-parts/components/titles/topic-title', $headArgs['title_template'], $headArgs);
 

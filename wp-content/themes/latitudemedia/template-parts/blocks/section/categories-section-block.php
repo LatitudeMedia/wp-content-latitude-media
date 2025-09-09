@@ -42,35 +42,36 @@ $categories = get_section_cats($section->term_id, 'all');
         <div class="section-top-nav-section-wrapper">
             <div class="section-breadcrumb">
                 <ul>
-                    <li><span>Tech</span> /</li>
-                    <li><a href="#">All in markets</a></li>
+                    <?php
+                    if($post_id) {
+                        printf('<li><span>%1$s</span>/</li>',  $section->name);
+                        printf('<li><a href="#">All in %1$s</a></li>',  $section->name);
+                    }
+                    ?>
                 </ul>
             </div>
-            <div class="section-name"><?php echo get_the_title($post_id); ?></div>
+            <?php
+            if($post_id) {
+                printf('<div class="section-name">%s</div>', $section->name);
+            }
+            ?>
             <div class="section-categories">
-                <span class="title">TAGS:</span>
-                <div class="selected-option">Global markets</div>
-                <ul>
-                    <li><a href="https://www.latitudemedia.com/topics/global-markets/">Global markets</a></li>
-                    <li><a href="https://www.latitudemedia.com/topics/policy/">Policy</a></li>
-                    <li><a href="https://www.latitudemedia.com/topics/regulation/">Regulation</a></li>
-                    <li><a href="https://www.latitudemedia.com/topics/research/">Research</a></li>
-                    <li><a href="https://www.latitudemedia.com/topics/us-market/">U.S. market</a></li>
-                </ul>
-            </div>
-<!--            <div class="section-categories">-->
-                <?php /*
                 <?php if($categories) : ?>
+                    <span class="title">TAGS:</span>
+                    <div class="selected-option">All in <?php echo $section->name; ?></div>
                     <ul>
                         <?php
+                        if($post_id) {
+                            printf('<li><a href="%s">All in %s</a></li>', get_the_permalink($post_id), $section->name);
+                        }
+
                         foreach ($categories as $category) {
                             printf('<li><a href="%s">%s</a></li>', get_term_link($category->term_id, 'category'), $category->name);
                         }
                         ?>
                     </ul>
                 <?php endif; ?>
-                */ ?>
-<!--            </div>-->
+            </div>
         </div>
     </div>
 </div>
