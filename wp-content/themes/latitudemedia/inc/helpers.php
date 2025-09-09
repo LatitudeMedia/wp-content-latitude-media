@@ -568,3 +568,8 @@ function get_section_landing_type_by_term( $termId ) {
 
     return false;
 }
+
+function getActualFileUrl( $path )
+{
+    return get_template_directory_uri() . $path .'?ver=' . filemtime( get_template_directory() . $path);
+}
