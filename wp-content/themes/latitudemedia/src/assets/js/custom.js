@@ -39,15 +39,15 @@ $(document).ready(function($) {
                     list.toggle();
                 });
 
-                list.on('click.cd', 'a', function(e) {
-                    e.preventDefault();
-                    const text = $(this).text().trim();
-                    trigger.text(text);
-                    wrap.removeClass('open');
-                    list.hide();
-                    list.find('a').removeClass('is-active');
-                    $(this).addClass('is-active');
-                });
+                // list.on('click.cd', 'a', function(e) {
+                //     e.preventDefault();
+                //     const text = $(this).text().trim();
+                //     trigger.text(text);
+                //     wrap.removeClass('open');
+                //     list.hide();
+                //     list.find('a').removeClass('is-active');
+                //     $(this).addClass('is-active');
+                // });
 
                 wrap.data('cd-init', true);
             });

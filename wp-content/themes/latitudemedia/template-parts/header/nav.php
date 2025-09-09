@@ -4,15 +4,7 @@
             <div class="container">
                 <div class="top-head-wrapper">
                 <div class="search-container">
-                <?php
-                get_template_part( 'template-parts/components/search' );
-                /*
-                                $args = array(
-                                    'theme_location'    => 'top',
-                                    'container_class'   => 'top-head-menu',
-                                );
-                                wp_nav_menu($args);
-                                */ ?>
+                <?php  get_template_part( 'template-parts/components/search' ); ?>
                 </div>
                 <div class="subscribe-container">
                     <div class="podcast-dropdown" aria-haspopup="listbox" aria-expanded="false">
@@ -24,12 +16,14 @@
                                 </svg>
                             </span>
                         </div>
-                        <ul class="options">
-                            <li><a href="#">Catalyst</a></li>
-                            <li><a href="#">Open Circuit</a></li>
-                            <li><a href="#">The Green Blueprint</a></li>
-                            <li><a href="#">Political Climate</a></li>
-                        </ul>
+                        <?php
+                        $args = array(
+                            'theme_location' => 'podcasts-menu',
+                            'container' => 'ul',
+                            'menu_class'    => 'options',
+                        );
+                        wp_nav_menu($args);
+                        ?>
                     </div>
                     <a class="subscribe" href="https://www.latitudemedia.com/newsletter/">Subscribe</a>
                 </div>
@@ -93,7 +87,7 @@
                         <div class="half">
                             <?php
                             $args = array(
-                                'theme_location' => 'tab-menu',
+                                'theme_location' => 'tab-menu-2',
                                 'container' => 'ul',
                                 'menu_class'    => 'right-menu',
                                 'walker' => new Walker_Main_Menu()
@@ -110,31 +104,28 @@
         <div class="bottom-head has-dark-blue-background-color">
             <div class="container">
                 <div class="left-bottom-menu">
-                    <ul class="bottom-menu">
-                        <li><a href="#">TECH</a></li>
-                        <li><a href="#">MARKET</a></li>
-                        <li><a href="#">DEALS</a></li>
-                    </ul>
+                    <?php
+                    $args = array(
+                        'theme_location' => 'tab-menu',
+                        'container' => 'ul',
+                        'menu_class'    => 'bottom-menu',
+                        'walker' => new Walker_Main_Menu()
+                    );
+                    wp_nav_menu($args);
+                    ?>
                 </div>
                 <div class="right-bottom-menu">
-                    <ul class="bottom-menu">
-                        <li><a href="#">PODCASTS</a></li>
-                        <li><a href="#">EVENTS</a></li>
-                        <li><a href="#">RESEARCH</a></li>
-                        <li><a href="#">RESOURCES</a></li>
-                    </ul>
+                    <?php
+                    $args = array(
+                        'theme_location' => 'tab-menu-2',
+                        'container' => 'ul',
+                        'menu_class'    => 'bottom-menu',
+                        'walker' => new Walker_Main_Menu()
+                    );
+                    wp_nav_menu($args);
+                    ?>
                 </div>
             </div>
-            <?php /*
-            $args = array(
-                'theme_location' => 'main',
-                'container' => 'ul',
-                'menu_class'    => 'bottom-head-menu',
-                'walker' => new Walker_Main_Menu()
-            );
-            wp_nav_menu($args);
-            */
-            ?>
         </div>
     </div>
 </header>

@@ -141,7 +141,7 @@ function hook_critical_css() {
     }
 
     // Detect the categories-section-block and loading assets as critical.
-    if ( has_block( 'acf/categories-section-block' ) ) {
+    if ( has_block( 'acf/categories-section-block' ) || is_category() ) {
         $critical_css .= file_get_contents( get_template_directory_uri() . '/dist/css/blocks/categories-section-block.min.css' );
     }
 
