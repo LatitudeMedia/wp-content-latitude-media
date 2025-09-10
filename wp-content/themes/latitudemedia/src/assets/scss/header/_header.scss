@@ -722,6 +722,7 @@ header {
                     }
 
                     &.see-all {
+                      display: none;
                       a {
                         @include moreLink;
                       }
