@@ -365,3 +365,14 @@ article {
     padding-bottom: 0;
   }
 }
+
+.archive {
+  &.category {
+    .section-categories {
+      display: none;
+      @include below_mob {
+        display: block;
+      }
+    }
+  }
+}
