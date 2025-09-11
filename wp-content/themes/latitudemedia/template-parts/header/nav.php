@@ -76,7 +76,7 @@
                         <div class="half">
                             <?php
                             $args = array(
-                                'theme_location' => 'tab-menu',
+                                'theme_location' => 'tab-menu-2',
                                 'container' => 'ul',
                                 'menu_class'    => 'right-menu',
                                 'walker' => new Walker_Main_Menu()
@@ -87,7 +87,7 @@
                         <div class="half">
                             <?php
                             $args = array(
-                                'theme_location' => 'tab-menu-2',
+                                'theme_location' => 'tab-dropdown',
                                 'container' => 'ul',
                                 'menu_class'    => 'right-menu',
                                 'walker' => new Walker_Main_Menu()
