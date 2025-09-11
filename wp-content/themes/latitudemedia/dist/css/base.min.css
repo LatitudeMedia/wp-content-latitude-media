@@ -759,6 +759,10 @@ article ul li {
   padding-bottom: 0;
 }
 
+.archive.category .section-categories {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   body {
     padding-top: 193px;
@@ -859,6 +863,9 @@ article ul li {
     font-size: 28px;
     font-size: 1.75rem;
     line-height: 39px;
+  }
+  .archive.category .section-categories {
+    display: block;
   }
 }
 
