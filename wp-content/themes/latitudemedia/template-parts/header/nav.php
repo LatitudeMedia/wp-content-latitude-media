@@ -7,6 +7,11 @@
                 <?php  get_template_part( 'template-parts/components/search' ); ?>
                 </div>
                 <div class="subscribe-container">
+                    <?php
+                    $menu = wp_get_nav_menu_object( 'podcasts-menu' );
+                    $hideMenu = get_field('hide_menu', $menu);
+                    if( $hideMenu !== true ) :
+                    ?>
                     <div class="podcast-dropdown" aria-haspopup="listbox" aria-expanded="false">
                         <div class="default-option" role="button" tabindex="0">
                             <span class="default">All podcasts</span>
@@ -25,6 +30,7 @@
                         wp_nav_menu($args);
                         ?>
                     </div>
+                    <?php endif; ?>
                     <a class="subscribe" href="https://www.latitudemedia.com/newsletter/">Subscribe</a>
                 </div>
                 </div>
@@ -76,7 +82,7 @@
                         <div class="half">
                             <?php
                             $args = array(
-                                'theme_location' => 'tab-menu-2',
+                                'theme_location' => 'tab-dropdown',
                                 'container' => 'ul',
                                 'menu_class'    => 'right-menu',
                                 'walker' => new Walker_Main_Menu()
@@ -87,7 +93,7 @@
                         <div class="half">
                             <?php
                             $args = array(
-                                'theme_location' => 'tab-dropdown',
+                                'theme_location' => 'tab-dropdown-2',
                                 'container' => 'ul',
                                 'menu_class'    => 'right-menu',
                                 'walker' => new Walker_Main_Menu()

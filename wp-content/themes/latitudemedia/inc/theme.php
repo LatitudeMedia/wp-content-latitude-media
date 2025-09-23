@@ -21,6 +21,7 @@ if ( ! function_exists( 'ltm_setup' ) ) {
                 'tab-menu'      => __( 'Header tab menu', 'ltm' ),
                 'tab-menu-2'    => __( 'Header tab menu 2', 'ltm' ),
                 'tab-dropdown'  => __( 'Header dropdown', 'ltm' ),
+                'tab-dropdown-2'=> __( 'Header dropdown 2', 'ltm' ),
                 'footer-main'   => __( 'Footer main menu', 'ltm' ),
                 'footer-logos'  => __( 'Footer logos menu', 'ltm' ),
                 'footer-social' => __( 'Footer social menu', 'ltm' ),
