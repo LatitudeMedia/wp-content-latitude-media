@@ -5279,4 +5279,51 @@ Or select event manually.',
         'style' => 'seamless',
         'active' => true,
     ));
+
+    acf_add_local_field_group( array(
+        'key' => 'group_68d2a59329715',
+        'title' => 'Hide menu',
+        'fields' => array(
+            array(
+                'key' => 'field_68d2a59301043',
+                'label' => 'Hide menu',
+                'name' => 'hide_menu',
+                'aria-label' => '',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'relevanssi_exclude' => 0,
+                'message' => '',
+                'default_value' => 0,
+                'allow_in_bindings' => 0,
+                'ui' => 0,
+                'ui_on_text' => '',
+                'ui_off_text' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'nav_menu',
+                    'operator' => '==',
+                    'value' => 'location/podcasts-menu',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+        'show_in_rest' => 0,
+    ) );
 });
