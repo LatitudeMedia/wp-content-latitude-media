@@ -763,6 +763,10 @@ article ul li {
   display: none;
 }
 
+body.page-id-1707 header, body.page-id-1697 header, body.page-id-1941 header {
+  padding-bottom: 0;
+}
+
 @media screen and (max-width: 768px) {
   body {
     padding-top: 193px;
