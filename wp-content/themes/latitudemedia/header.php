@@ -28,8 +28,10 @@
 
     <!-- HEADER -->
 <?php
-    get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
-
+    //Old Header
+        get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
+    //New Header
+//        get_template_part( 'template-parts/header/nav');
     do_action('print_ad_banner', get_site_header_banner(), ['class' => 'header-top-banner']);
 
 ?>
