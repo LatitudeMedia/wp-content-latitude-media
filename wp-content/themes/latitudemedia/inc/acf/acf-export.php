@@ -244,7 +244,6 @@ add_action('acf/include_fields', function () {
     // start_date
     // end_date
     // event_typ
-    // event_series
     // location
     // link
     // cover_image
@@ -278,28 +277,14 @@ add_action('acf/include_fields', function () {
                 'name' => 'event_type',
                 'type' => 'select',
                 'choices' => array(
-                    'live' => 'Live',
+                    'live' => 'Live Podcast',
                     'webinar' => 'Webinar',
                     'virtual' => 'Virtual',
                     'conference' => 'Conference',
+                    'dispatch' => 'Dispatch',
                 ),
                 'default_value' => false,
                 'return_format' => 'value',
-                'allow_null' => 0,
-            ),
-            array(
-                'key' => 'field_6713ad88e1569',
-                'label' => 'Event series',
-                'name' => 'event_series',
-                'type' => 'select',
-                'choices' => array(
-                    'frontier-forum' => 'Frontier Forum',
-                    'transition-ai' => 'Transition AI',
-                    'webinar' => 'Webinar',
-                    'open-circuit' => 'Open Circuit',
-                ),
-                'default_value' => false,
-                'return_format' => 'array',
                 'allow_null' => 0,
             ),
             array(
@@ -4139,7 +4124,7 @@ Or select event manually.',
                 'label' => 'Event preview block',
                 'name' => '',
                 'type' => 'message',
-                'message' => 'Display event general information: <ul><li>Date</li><li>Type</li><li>Series</li><li>Title</li><li>Location</li><li>Register link</li></ul> From <b>General event options</b> in sidebar',
+                'message' => 'Display event general information: <ul><li>Date</li><li>Type</li><li>Title</li><li>Location</li><li>Register link</li></ul> From <b>General event options</b> in sidebar',
                 'new_lines' => 'wpautop',
                 'esc_html' => 0,
             ),
@@ -4151,7 +4136,6 @@ Or select event manually.',
                 'choices' => array(
                     'date' => 'Date',
                     'type' => 'Type',
-                    'series' => 'Series',
                     'title' => 'title',
                     'location' => 'Location',
                     'button' => 'Button',
@@ -4159,7 +4143,6 @@ Or select event manually.',
                 'default_value' => array(
                     0 => 'date',
                     1 => 'type',
-                    2 => 'series',
                     3 => 'title',
                     4 => 'location',
                     5 => 'button',
