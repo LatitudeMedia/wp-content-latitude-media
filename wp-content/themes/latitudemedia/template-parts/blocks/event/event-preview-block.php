@@ -11,7 +11,6 @@ $options = wp_parse_args(
         'rows'      => [
                 'date',
                 'type',
-                'series',
                 'title',
                 'location',
                 'button',
@@ -67,11 +66,6 @@ if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                     }
                 ?>
             </div>
-            <?php
-                if( in_array('series', $rows) && !empty($eventData['event_series']['label']) ) {
-                    printf('<div class="upper-heading">%s</div>', $eventData['event_series']['label']);
-                }
-            ?>
             <?php
 
                 if( in_array('title', $rows) ) {

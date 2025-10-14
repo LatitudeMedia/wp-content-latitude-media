@@ -24,4 +24,10 @@
     <div class="wrapper">
 
     <!-- HEADER -->
-<?php get_template_part( 'template-parts/header/nav', 'event' ); ?>
+<?php //get_template_part( 'template-parts/header/nav', 'event' ); ?>
+
+        <!-- HEADER -->
+        <?php
+        $disableMenu = get_field('disable_top_menu');
+        get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
+        ?>
