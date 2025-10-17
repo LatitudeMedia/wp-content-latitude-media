@@ -145,6 +145,12 @@ header {
               position: absolute;
               right: 0;
               top: 13px;
+              padding: 8px 4px;
+              @include fontSize(12px);
+              line-height: 12px;
+              -webkit-border-radius: 0;
+              -moz-border-radius: 0;
+              border-radius: 0;
             }
             &:hover {
               background-color: $pink_shadow;
@@ -290,6 +296,30 @@ header {
               }
               &:-moz-placeholder { /* Firefox 18- */
                 opacity: 0;
+              }
+            }
+            @include below_sm {
+              @include fontSize(12px);
+              line-height: 12px;
+            }
+          }
+        }
+      }
+      &.podcasts-off {
+        @include below_sm {
+          height: 40px;
+          &:before {
+            display: none;
+          }
+          .search-container {
+            padding-bottom: 0;
+          }
+          .top-head-wrapper {
+            height: 40px;
+            .subscribe-container {
+              padding-top: 0;
+              .subscribe {
+                top: 6px;
               }
             }
           }
@@ -1202,6 +1232,36 @@ header {
           top: 164px;
           &.sticky {
             top: 164px;
+          }
+        }
+      }
+    }
+  }
+}
+
+body {
+  &.podcasts-off {
+    @include below_sm {
+      padding-top: 126px;
+      &.logged-in {
+        header {
+          .header-wrapper {
+            .middle-head {
+              top: 86px;
+              &.sticky {
+                top: 86px;
+              }
+            }
+          }
+        }
+      }
+      header {
+        .header-wrapper {
+          .middle-head {
+            top: 40px;
+            &.sticky {
+              top: 40px;
+            }
           }
         }
       }

@@ -1,6 +1,10 @@
+<?php
+    $menu = wp_get_nav_menu_object( 'podcasts-menu' );
+    $hideMenu = get_field('hide_menu', $menu);
+?>
 <header>
     <div class="header-wrapper">
-        <div class="top-head">
+        <div class="top-head<?php echo ( $hideMenu === true ? ' podcasts-off' : '' ); ?>">
             <div class="container">
                 <div class="top-head-wrapper">
                 <div class="search-container">
@@ -8,8 +12,6 @@
                 </div>
                 <div class="subscribe-container">
                     <?php
-                    $menu = wp_get_nav_menu_object( 'podcasts-menu' );
-                    $hideMenu = get_field('hide_menu', $menu);
                     if( $hideMenu !== true ) :
                     ?>
                     <div class="podcast-dropdown" aria-haspopup="listbox" aria-expanded="false">

@@ -20,8 +20,10 @@
 
 <?php
     $disableMenu = get_field('disable_top_menu');
+    $menu = wp_get_nav_menu_object( 'podcasts-menu' );
+    $hideMenu = get_field('hide_menu', $menu);
 ?>
-<body <?php body_class($disableMenu ? 'disable-menu' : ''); ?>>
+<body <?php body_class(($disableMenu ? 'disable-menu ' : '') . ($hideMenu ? 'podcasts-off' : '')); ?>>
 <?php wp_body_open(); ?>
 
     <div class="wrapper">
@@ -35,5 +37,6 @@
     do_action('print_ad_banner', get_site_header_banner(), ['class' => 'header-top-banner']);
 
 ?>
+
 
 

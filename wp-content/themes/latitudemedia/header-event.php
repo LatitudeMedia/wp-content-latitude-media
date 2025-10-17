@@ -18,7 +18,11 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<?php
+    $menu = wp_get_nav_menu_object( 'podcasts-menu' );
+    $hideMenu = get_field('hide_menu', $menu);
+?>
+<body <?php body_class($hideMenu ? 'podcasts-off' : ''); ?>>
 <?php wp_body_open(); ?>
 
     <div class="wrapper">
