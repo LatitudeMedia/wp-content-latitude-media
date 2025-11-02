@@ -100,3 +100,80 @@ function ltm_change_author_base_slug( $args, $taxonomy, $object_type )
 
     return $args;
 }
+
+function get_in_content_article_ad($post = null) {
+    $_post = get_post( $post );
+
+    try {
+        if ( ! ( $_post instanceof WP_Post ) ) {
+            throw new Exception();
+        }
+
+        $postTags = get_the_tags($_post->ID);
+        if (!$postTags) {
+            throw new Exception();
+        }
+
+        $postTagIds = wp_list_pluck($postTags, 'term_id');
+        $adsSettings = get_field('tags_ad_matching', 'options');
+
+        if( empty($adsSettings) ) {
+            throw new Exception();
+        }
+
+        foreach ($adsSettings as $adsSetting) {
+            $hasMatch = array_intersect($adsSetting['tags'], $postTagIds);
+            if( !empty($hasMatch) ) {
+                return $adsSetting;
+            }
+        }
+    } catch (\Exception) {}
+
+    return [];
+}
+
+add_filter( 'the_content_ads', 'insert_in_content_ads', 10, 1 );
+function insert_in_content_ads($sourceContent) {
+
+    $adBanner = get_in_content_article_ad();
+
+    if(!$adBanner) {
+        return $sourceContent;
+    }
+
+    $content = get_content_intro_paragraph($sourceContent, $adBanner['after_paragraph']);
+
+    $content .= force_balance_tags(do_blocks('<!-- wp:acf/ad-banner-section {"name":"acf/ad-banner-section","data":{"field_67475a59d0aef":{"field_67475a59d0aef_field_6747599474bb6":"' . $adBanner['dynamic_ad_banner'] . '","field_67475a59d0aef_field_674759f174bb7":""},"field_671298a6ae568":"1"}} /-->'));
+
+    $content .= get_content_body_paragraph($sourceContent, $adBanner['after_paragraph']);
+
+    return $content;
+}
+
+function get_content_intro_paragraph($content, $cut_paragraph_count = 1) {
+    $parts = explode("</p>", $content);
+    $output = '';
+    foreach($parts AS $k => $paragraph)
+    {
+        if($k >= $cut_paragraph_count) break;
+
+        $output .= $paragraph.'</p>';
+    }
+    unset($parts);
+
+    return force_balance_tags( $output );
+}
+
+function get_content_body_paragraph($content, $cut_paragraph_count = 1) {
+    $parts = explode("</p>", $content);
+    $output = '';
+    foreach($parts AS $k => $paragraph)
+    {
+        if($k >= $cut_paragraph_count) {
+            $output .= $paragraph . '</p>';
+        }
+    }
+    unset($parts);
+
+    return force_balance_tags( $output );
+}

@@ -45,7 +45,12 @@ get_header();
                     <?php endif; ?>
                     <article>
                         <?php
-                            the_content();
+                        $content = get_the_content();
+                        $content = apply_filters( 'the_content', $content );
+                        $content = str_replace( ']]>', ']]&gt;', $content );
+                        $content = apply_filters( 'the_content_ads', $content );
+                        echo $content;
+
                         ?>
                     </article>
                     <div class="post-share-block">
@@ -69,4 +74,6 @@ get_header();
         </div>
     </div>
    <?php echo  do_blocks('<!-- wp:acf/news-plates-section {"name":"acf/news-plates-section","data":{"title":"More from Latitude Media","_title":"field_67165a117d211","type":"","_type":"field_6203e8678b566","number_of_items":"3","_number_of_items":"field_6203e9388b56a","items":"","_items":"field_67165a1d7d212","display":"1","_display":"field_671658983a217"},"mode":"edit"} /-->'); ?>
+
+
 <?php get_footer();
