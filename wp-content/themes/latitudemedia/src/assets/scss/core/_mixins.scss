@@ -4818,10 +4818,11 @@
 				&:before {
 					content: '';
 					display: block;
-					width: 32px;
-					height: 32px;
+					width: 42px;
+					height: 42px;
 					background: transparent url(../../../images/icon_calendar.svg) center center no-repeat;
 					margin-right: 8px;
+					background-size: cover;
 				}
 			}
 			.location {
@@ -4833,10 +4834,11 @@
 				&:before {
 					content: '';
 					display: block;
-					width: 32px;
-					height: 32px;
+					width: 42px;
+					height: 42px;
 					background: transparent url(../../../images/icon_location.svg) center center no-repeat;
 					margin-right: 8px;
+					background-size: cover;
 				}
 			}
 		}
