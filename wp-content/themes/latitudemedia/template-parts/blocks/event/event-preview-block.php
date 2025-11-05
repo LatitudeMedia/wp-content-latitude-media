@@ -39,6 +39,7 @@ $blockAttrs = wp_kses_data(
 );
 
 $date       = get_event_start_date($post_id, 'F j, Y h:i A');
+$endDate    = get_event__end_date($post_id, 'F j, Y h:i A');
 $eventData  = get_fields($post_id);
 $registerButtonTitle = 'Register';
 if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' || $eventData['event_type'] === 'webinar')) {
@@ -58,7 +59,14 @@ if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
             <div class="data-row">
                 <?php
                     if( in_array('date', $rows) ) {
-                        printf('<div class="date">%s ET</div>', $date);
+                        echo '<div class="date">';
+                        echo '<div class="date-wrapper">';
+                        printf('<span class="date-start">%s ET</span>', $date);
+                        if ( !empty($endDate) ) {
+                            printf('<br><span class="date-end">%s ET</span>', $endDate);
+                        }
+                        echo '</div>';
+                        echo '</div>';
                     }
 
                     if( in_array('type', $rows) ) {
