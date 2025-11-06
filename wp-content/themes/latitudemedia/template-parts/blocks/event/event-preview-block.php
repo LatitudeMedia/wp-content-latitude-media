@@ -38,8 +38,8 @@ $blockAttrs = wp_kses_data(
   )
 );
 
-$date       = get_event_start_date($post_id, 'F j, Y h:i A');
-$endDate    = get_event__end_date($post_id, 'F j, Y h:i A');
+$date       = get_event_start_date($post_id, 'F j, Y - h:i A');
+$endDate    = get_event__end_date($post_id, 'F j, Y - h:i A');
 $eventData  = get_fields($post_id);
 $registerButtonTitle = 'Register';
 if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' || $eventData['event_type'] === 'webinar')) {

@@ -45,9 +45,9 @@ $blockAttrs = wp_kses_data(
             <div class="venue-info">
                 <div class="date">
                     <h2>Date</h2>
-                    <?php do_action('print_event_start_date', $post_id, ['wrap' => '<div class="venue-date">%1$s</div>', 'format' => 'F j, Y h:i A']); ?>
+                    <?php do_action('print_event_start_date', $post_id, ['wrap' => '<div class="venue-date">%1$s</div>', 'format' => 'F j, Y - h:i A']); ?>
                     <?php
-                        $endDate = get_event__end_date($post_id, 'F j, Y h:i A');
+                        $endDate = get_event__end_date($post_id, 'F j, Y - h:i A');
                         if ( !empty($endDate) ) {
                             printf('<div class="venue-date">%s</div>', $endDate);
                         }
