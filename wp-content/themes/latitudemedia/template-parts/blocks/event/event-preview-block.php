@@ -61,9 +61,9 @@ if( !empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                     if( in_array('date', $rows) ) {
                         echo '<div class="date">';
                         echo '<div class="date-wrapper">';
-                        printf('<span class="date-start">%s ET</span>', $date);
+                        printf('<span class="date-start">%s</span>', $date);
                         if ( !empty($endDate) ) {
-                            printf('<br><span class="date-end">%s ET</span>', $endDate);
+                            printf('<br><span class="date-end">%s</span>', $endDate);
                         }
                         echo '</div>';
                         echo '</div>';
