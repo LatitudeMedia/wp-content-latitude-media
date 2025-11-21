@@ -149,7 +149,7 @@ function get_category_banner($bannerField = '', $category_id = null, $options = 
     if ( empty($topicBanner['dynamic_ad_banner']) && $options) {
         $banner = get_field($bannerField, 'options');
         $topicBanner['dynamic_ad_banner'] = $banner['dynamic_ad_banner'];
-        $topicBanner['screen_type'] = $banner['screen_type'];
+        $topicBanner['screen_type'] = $banner['screen_type'] ?? null;
     }
 
     return $topicBanner;
