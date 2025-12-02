@@ -1,1 +1,273 @@
-.podcast-category-hero-section{margin-bottom:64px}.podcast-category-hero-section .podcast-category-hero-section-wrapper{display:flex;align-items:center}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder{flex:1 0 0px;min-width:1px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list{list-style:none;margin:0 0 6px 0;padding:0;display:flex;flex-wrap:wrap}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li{font-family:"inter",Arial,Helvetica,sans-serif;font-size:14px;font-size:0.875rem;line-height:22px;display:inline-block;color:#0f1e42;text-transform:uppercase;margin-right:8px;width:auto;margin-bottom:10px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span{font-family:"inter",Arial,Helvetica,sans-serif;font-size:14px;font-size:0.875rem;line-height:22px;display:block;color:#0f1e42;text-transform:uppercase;padding:0}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span.sponsored{background-color:#c6168d;color:#fff;padding:0 6px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span a{padding:0 6px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li a{font-family:"inter",Arial,Helvetica,sans-serif;font-size:14px;font-size:0.875rem;line-height:22px;display:block;color:#0f1e42;text-decoration:none;background-color:#e1cfdb;text-transform:uppercase;padding:0 6px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li a.sponsored{background-color:#c6168d;color:#fff}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h1{margin-bottom:8px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h1 a{color:#0f1e42;text-decoration:none}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h1 a:hover{text-decoration:underline}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h2{margin-bottom:8px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h2 a{color:#0f1e42;text-decoration:none}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h2 a:hover{text-decoration:underline}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder p{margin-bottom:16px;font-family:"inter",Arial,Helvetica,sans-serif;font-size:18px;font-size:1.125rem;font-weight:400;line-height:24px;text-align:left}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder p strong{font-size:20px;font-size:1.25rem}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder a{color:#c6168d}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row{margin-bottom:16px;display:flex;align-items:center}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .label{text-transform:uppercase;font-family:"inter",Arial,Helvetica,sans-serif;font-size:16px;font-size:1rem;font-weight:700;line-height:24px;text-align:left}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .value{font-family:"inter",Arial,Helvetica,sans-serif;font-size:16px;font-size:1rem;font-weight:400;line-height:24px;text-align:left;color:#0f1e42}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .value a{color:#0f1e42;text-transform:uppercase}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials{list-style:none;margin:0;padding:0;display:flex;align-items:center}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials li{margin:0 8px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials li a{display:block;text-decoration:none}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date{display:flex;align-items:center}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date .time{font-family:"inter",Arial,Helvetica,sans-serif;font-size:13px;font-size:0.8125rem;font-weight:600;line-height:20px;text-align:left;position:relative;padding-right:5px;margin-right:4px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date .time:after{content:"";display:block;width:1px;height:13px;position:absolute;right:0;top:50%;-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%);background-color:#0f1e42}.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date .date{font-family:"inter",Arial,Helvetica,sans-serif;font-size:13px;font-size:0.8125rem;font-weight:400;line-height:20px;text-align:left;color:#6e6e6e;text-transform:uppercase}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder{width:100%;max-width:413px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder{-webkit-box-shadow:-14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);-moz-box-shadow:-14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);box-shadow:-14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);margin-left:14px}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.pink{-webkit-box-shadow:-14px 14px 0 0 #f9e8f4;-moz-box-shadow:-14px 14px 0 0 #f9e8f4;box-shadow:-14px 14px 0 0 #f9e8f4}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.green{-webkit-box-shadow:-14px 14px 0 0 #ccf0e8;-moz-box-shadow:-14px 14px 0 0 #ccf0e8;box-shadow:-14px 14px 0 0 #ccf0e8}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.blue{-webkit-box-shadow:-14px 14px 0 0 #e5f4fc;-moz-box-shadow:-14px 14px 0 0 #e5f4fc;box-shadow:-14px 14px 0 0 #e5f4fc}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.orange{-webkit-box-shadow:-14px 14px 0 0 #feebd2;-moz-box-shadow:-14px 14px 0 0 #feebd2;box-shadow:-14px 14px 0 0 #feebd2}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder a{padding-top:75%;object-fit:cover;position:relative;display:block}.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder a img{object-fit:cover;width:100%;height:100%;position:absolute;inset:0%}.podcast-category-hero-section.right-image-folder .podcast-category-hero-section-wrapper .image-folder{margin-left:94px}.podcast-category-hero-section.left-image-folder{flex-direction:row-reverse}.podcast-category-hero-section.left-image-folder .podcast-category-hero-section-wrapper .image-folder{margin-right:94px}.podcast-category-hero-section.bordered .podcast-category-hero-section-wrapper{padding-bottom:54px;border-bottom:1px solid #c6168d}@media screen and (max-width: 768px){.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li{padding-bottom:0;border:none}}@media screen and (max-width: 1200px){.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder{margin-left:0}}@media screen and (max-width: 992px){.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder{margin-bottom:32px;max-width:initial}.podcast-category-hero-section.right-image-folder .podcast-category-hero-section-wrapper{flex-direction:column-reverse}.podcast-category-hero-section.right-image-folder .podcast-category-hero-section-wrapper .image-folder{margin-left:0;margin-right:0}.podcast-category-hero-section.left-image-folder .podcast-category-hero-section-wrapper{flex-direction:column}.podcast-category-hero-section.left-image-folder .podcast-category-hero-section-wrapper .image-folder{margin-left:0;margin-right:0}}
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/pages/single_podcast.scss ***!
+  \**********************************************************************************************************************************************************************************************************/
+.podcast-category-hero-section {
+  margin-bottom: 64px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper {
+  display: flex;
+  align-items: center;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder {
+  flex: 1 0 0px;
+  min-width: 1px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list {
+  list-style: none;
+  margin: 0 0 6px 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: inline-block;
+  color: #0F1E42;
+  text-transform: uppercase;
+  margin-right: 8px;
+  width: auto;
+  margin-bottom: 10px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: block;
+  color: #0F1E42;
+  text-transform: uppercase;
+  padding: 0;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span.sponsored, .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span.partnered {
+  background-color: #C6168D;
+  color: #ffffff;
+  padding: 0 6px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li span a {
+  padding: 0 6px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li a {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 22px;
+  display: block;
+  color: #0F1E42;
+  text-decoration: none;
+  background-color: #e1cfdb;
+  text-transform: uppercase;
+  padding: 0 6px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li a.sponsored {
+  background-color: #C6168D;
+  color: #ffffff;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h1 {
+  margin-bottom: 8px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h1 a {
+  color: #0F1E42;
+  text-decoration: none;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h1 a:hover {
+  text-decoration: underline;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h2 {
+  margin-bottom: 8px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h2 a {
+  color: #0F1E42;
+  text-decoration: none;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder h2 a:hover {
+  text-decoration: underline;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder p {
+  margin-bottom: 16px;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder p strong {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder a {
+  color: #C6168D;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .label {
+  text-transform: uppercase;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .value {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #0f1e42;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .value a {
+  color: #0f1e42;
+  text-transform: uppercase;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials li {
+  margin: 0 8px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .row .socials li a {
+  display: block;
+  text-decoration: none;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date {
+  display: flex;
+  align-items: center;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date .time {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  position: relative;
+  padding-right: 5px;
+  margin-right: 4px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date .time:after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 13px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-color: #0F1E42;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .info .post-date .date {
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #6e6e6e;
+  text-transform: uppercase;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder {
+  width: 100%;
+  max-width: 413px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder {
+  -webkit-box-shadow: -14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  -moz-box-shadow: -14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  box-shadow: -14px 14px 0 0 var(--custom-block-shadow-color, #F9E8F4);
+  margin-left: 14px;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.pink {
+  -webkit-box-shadow: -14px 14px 0 0 #F9E8F4;
+  -moz-box-shadow: -14px 14px 0 0 #F9E8F4;
+  box-shadow: -14px 14px 0 0 #F9E8F4;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.green {
+  -webkit-box-shadow: -14px 14px 0 0 #CCF0E8;
+  -moz-box-shadow: -14px 14px 0 0 #CCF0E8;
+  box-shadow: -14px 14px 0 0 #CCF0E8;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.blue {
+  -webkit-box-shadow: -14px 14px 0 0 #E5F4FC;
+  -moz-box-shadow: -14px 14px 0 0 #E5F4FC;
+  box-shadow: -14px 14px 0 0 #E5F4FC;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder.orange {
+  -webkit-box-shadow: -14px 14px 0 0 #FEEBD2;
+  -moz-box-shadow: -14px 14px 0 0 #FEEBD2;
+  box-shadow: -14px 14px 0 0 #FEEBD2;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder a {
+  padding-top: 75%;
+  object-fit: cover;
+  position: relative;
+  display: block;
+}
+.podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder a img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0%;
+}
+.podcast-category-hero-section.right-image-folder .podcast-category-hero-section-wrapper .image-folder {
+  margin-left: 94px;
+}
+.podcast-category-hero-section.left-image-folder {
+  flex-direction: row-reverse;
+}
+.podcast-category-hero-section.left-image-folder .podcast-category-hero-section-wrapper .image-folder {
+  margin-right: 94px;
+}
+.podcast-category-hero-section.bordered .podcast-category-hero-section-wrapper {
+  padding-bottom: 54px;
+  border-bottom: 1px solid #C6168D;
+}
+@media screen and (max-width: 768px) {
+  .podcast-category-hero-section .podcast-category-hero-section-wrapper .content-folder .tags-list li {
+    padding-bottom: 0;
+    border: none;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 992px) {
+  .podcast-category-hero-section .podcast-category-hero-section-wrapper .image-folder {
+    margin-bottom: 32px;
+    max-width: initial;
+  }
+  .podcast-category-hero-section.right-image-folder .podcast-category-hero-section-wrapper {
+    flex-direction: column-reverse;
+  }
+  .podcast-category-hero-section.right-image-folder .podcast-category-hero-section-wrapper .image-folder {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .podcast-category-hero-section.left-image-folder .podcast-category-hero-section-wrapper {
+    flex-direction: column;
+  }
+  .podcast-category-hero-section.left-image-folder .podcast-category-hero-section-wrapper .image-folder {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*# sourceMappingURL=single-podcast.min.css.map*/
