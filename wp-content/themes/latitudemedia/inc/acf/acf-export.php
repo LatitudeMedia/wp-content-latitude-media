@@ -282,6 +282,7 @@ add_action('acf/include_fields', function () {
                     'virtual' => 'Virtual',
                     'conference' => 'Conference',
                     'dispatch' => 'Dispatch',
+                    'frontier-forum' => 'Frontier Forum',
                 ),
                 'default_value' => false,
                 'return_format' => 'value',
@@ -954,6 +955,13 @@ add_action('acf/include_fields', function () {
                 'key' => 'field_670d347d00a6f',
                 'label' => 'Sponsored',
                 'name' => 'sponsored',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_670d347e00a70',
+                'label' => 'Partnered Content',
+                'name' => 'partnered',
                 'type' => 'true_false',
                 'ui' => 1,
             ),
@@ -1723,7 +1731,7 @@ add_action('acf/include_fields', function () {
         'active' => true,
     ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_67a0e723aee43',
         'title' => 'Editors picks global settings',
         'fields' => array(
@@ -1758,8 +1766,7 @@ add_action('acf/include_fields', function () {
                     0 => 'featured_image',
                 ),
                 'bidirectional' => 0,
-                'bidirectional_target' => array(
-                ),
+                'bidirectional_target' => array(),
             ),
         ),
         'location' => array(
@@ -1780,7 +1787,7 @@ add_action('acf/include_fields', function () {
         'active' => true,
         'description' => '',
         'show_in_rest' => 0,
-    ) );
+    ));
 
     acf_add_local_field_group(array(
         'key' => 'group_6712436e13ec8',
@@ -4778,7 +4785,7 @@ Or select event manually.',
         'style' => 'seamless',
         'active' => true,
     ));
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_67378491d4e38',
         'title' => 'Our team block',
         'fields' => array(
@@ -4811,8 +4818,7 @@ Or select event manually.',
                 'return_format' => 'id',
                 'elements' => '',
                 'bidirectional' => 0,
-                'bidirectional_target' => array(
-                ),
+                'bidirectional_target' => array(),
             ),
             array(
                 'key' => 'field_673783ff5330e',
@@ -4835,13 +4841,13 @@ Or select event manually.',
         'style' => 'seamless',
         'label_placement' => 'top',
         'active' => true,
-    ) );
+    ));
 
     acf_add_local_field_group(array(
         'key' => 'field_675064dad2f04',
         'title' => 'Popup modal block',
-        'fields' => array (
-            array (
+        'fields' => array(
+            array(
                 'key' => 'field_675064dad2f06',
                 'label' => 'Popup modal block',
                 'name' => '',
@@ -4855,9 +4861,9 @@ Or select event manually.',
                 'ui' => 1,
             ),
         ),
-        'location' => array (
-            array (
-                array (
+        'location' => array(
+            array(
+                array(
                     'param' => 'block',
                     'operator' => '==',
                     'value' => 'acf/popup-modal-block',
@@ -4866,7 +4872,7 @@ Or select event manually.',
         ),
         'style' => 'seamless'
     ));
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_675073366e25f',
         'title' => 'Reviews popup block',
         'fields' => array(
@@ -5016,9 +5022,9 @@ Or select event manually.',
         'active' => true,
         'description' => '',
         'show_in_rest' => 0,
-    ) );
+    ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_6759d1f713a46',
         'title' => 'Recap video block',
         'fields' => array(
@@ -5118,9 +5124,9 @@ Or select event manually.',
         'active' => true,
         'description' => '',
         'show_in_rest' => 0,
-    ) );
+    ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_67d03d01f1e19',
         'title' => 'Google Ad banner with display',
         'fields' => array(
@@ -5129,8 +5135,7 @@ Or select event manually.',
                 'label' => 'Ad banner',
                 'name' => 'dynamic_ad_banner',
                 'type' => 'select',
-                'choices' => array(
-                ),
+                'choices' => array(),
                 'default_value' => false,
                 'return_format' => 'value',
                 'multiple' => 0,
@@ -5163,9 +5168,9 @@ Or select event manually.',
         'active' => false,
         'description' => '',
         'show_in_rest' => 0,
-    ) );
+    ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_67d033a8110d4',
         'title' => 'Articles Ads Settings',
         'fields' => array(
@@ -5233,9 +5238,9 @@ Or select event manually.',
         'instruction_placement' => 'label',
         'active' => true,
         'show_in_rest' => 0,
-    ) );
+    ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_67d04326614d1',
         'title' => 'Topics Ads Settings',
         'fields' => array(
@@ -5274,7 +5279,7 @@ Or select event manually.',
         'instruction_placement' => 'label',
         'active' => true,
         'show_in_rest' => 0,
-    ) );
+    ));
 
     acf_add_local_field_group(array(
         'key' => 'group_editors_picks_section_homepage',
@@ -5315,7 +5320,7 @@ Or select event manually.',
         'active' => true,
     ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_68d2a59329715',
         'title' => 'Hide menu',
         'fields' => array(
@@ -5360,9 +5365,9 @@ Or select event manually.',
         'active' => true,
         'description' => '',
         'show_in_rest' => 0,
-    ) );
+    ));
 
-    acf_add_local_field_group( array(
+    acf_add_local_field_group(array(
         'key' => 'group_69036e4368f41',
         'title' => 'Article ads by tags',
         'fields' => array(
@@ -5397,8 +5402,7 @@ Or select event manually.',
                         'allow_in_bindings' => 0,
                         'bidirectional' => 0,
                         'multiple' => 0,
-                        'bidirectional_target' => array(
-                        ),
+                        'bidirectional_target' => array(),
                         'parent_repeater' => 'field_69036e43cf912',
                     ),
                     array(
@@ -5457,5 +5461,5 @@ Or select event manually.',
         'active' => true,
         'description' => '',
         'show_in_rest' => 0,
-    ) );
+    ));
 });
