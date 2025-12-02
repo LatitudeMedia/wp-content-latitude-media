@@ -650,7 +650,7 @@ if (! function_exists('print_event_date_range')) :
             if ($startDateTime && $endDateTime) {
                 if ($startDateTime->format('Y-m-d') === $endDateTime->format('Y-m-d')) {
                     $dateRange = $startDateTime->format('F j') . ' – ' .
-                        strtolower($startDateTime->format('g:i a')) . ' ' . $timezone . ' - ' .
+                        strtolower($startDateTime->format('g:i a')) . ' - ' .
                         strtolower($endDateTime->format('g:i a')) . ' ' . $timezone;
                 } elseif ($startDateTime->format('F Y') === $endDateTime->format('F Y')) {
                     $dateRange = $startDateTime->format('F j') . '-' . $endDateTime->format('j, Y');

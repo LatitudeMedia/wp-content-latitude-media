@@ -272,6 +272,12 @@ add_action('acf/include_fields', function () {
                 'first_day' => 1,
             ),
             array(
+                'key' => 'field_6713b050e1583',
+                'label' => 'Timezone',
+                'name' => 'timezone',
+                'type' => 'text',
+            ),
+            array(
                 'key' => 'field_6713ade8e156a',
                 'label' => 'Event type',
                 'name' => 'event_type',
