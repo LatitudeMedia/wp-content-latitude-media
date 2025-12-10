@@ -1,16 +1,17 @@
 <?php
 
-if ( ! function_exists( 'button_unit' ) ) :
-    function button_unit( $link = [], $wrap = null, $classes = '' ) {
-        if(empty($link['title']) || empty($link['url'])) {
+if (! function_exists('button_unit')) :
+    function button_unit($link = [], $wrap = null, $classes = '')
+    {
+        if (empty($link['title']) || empty($link['url'])) {
             return;
         }
 
-        if( !isset($link['target']) ) {
+        if (!isset($link['target'])) {
             $link['target'] = '';
         }
 
-        if(!$wrap) {
+        if (!$wrap) {
             printf('<a href="%1$s" class="%2$s" target="%3$s">%4$s</a>', $link['url'], $classes, $link['target'], $link['title']);
         } else {
             printf($wrap, $link['url'], $link['title'], $link['target']);
@@ -19,15 +20,16 @@ if ( ! function_exists( 'button_unit' ) ) :
     add_action('button_unit', 'button_unit', 10, 5);
 endif;
 
-if ( ! function_exists( 'thumbnail_formatting' ) ) :
+if (! function_exists('thumbnail_formatting')) :
     /**
      * @param $post_id
      * @param $args
      * @param $echo
      * @return string
      */
-    function thumbnail_formatting( $post_id = null, $args = [], $echo = true): string {
-        if ( ! $post_id ) {
+    function thumbnail_formatting($post_id = null, $args = [], $echo = true): string
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
@@ -44,7 +46,7 @@ if ( ! function_exists( 'thumbnail_formatting' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        if($image_id) {
+        if ($image_id) {
             $img = sprintf('%1$s', wp_get_attachment_image($image_id, (wp_is_mobile() && $mobile_size) ? $mobile_size : $size, false, $img_attr));
         } elseif (!has_post_thumbnail($post_id)) {
             $img = '';
@@ -52,19 +54,20 @@ if ( ! function_exists( 'thumbnail_formatting' ) ) :
             $img = sprintf('%1$s', get_the_post_thumbnail($post_id, (wp_is_mobile() && $mobile_size) ? $mobile_size : $size, $img_attr));
         }
 
-        if(!$img && !$default) {
+        if (!$img && !$default) {
             return '';
         }
 
-        if($link) {
-            $img = sprintf('<a class="%1$s" href="%2$s">%3$s</a>',
+        if ($link) {
+            $img = sprintf(
+                '<a class="%1$s" href="%2$s">%3$s</a>',
                 $link_class,
                 get_the_permalink($post_id),
                 $img
             );
         }
 
-        if($echo) {
+        if ($echo) {
             echo $img;
         }
 
@@ -73,44 +76,44 @@ if ( ! function_exists( 'thumbnail_formatting' ) ) :
     add_action('thumbnail_formatting', 'thumbnail_formatting', 10, 3);
 endif;
 
-if ( ! function_exists( 'get_user_excerpt' ) ) :
-    function get_user_excerpt( $post_id = null, $words_num = 55, $strip = '...', $characters = false, $customContent = '' ) {
+if (! function_exists('get_user_excerpt')) :
+    function get_user_excerpt($post_id = null, $words_num = 55, $strip = '...', $characters = false, $customContent = '')
+    {
         if (!$post_id) {
             $post_id = get_the_ID();
         }
 
         $post = get_post($post_id);
 
-        if(!empty($customContent)) {
+        if (!empty($customContent)) {
             $content = strip_tags(apply_filters('the_content', $customContent));
-        }
-        elseif(has_excerpt($post_id)) {
+        } elseif (has_excerpt($post_id)) {
             $content = get_the_excerpt($post_id);
-        }
-        else {
+        } else {
             $post_content = preg_replace("<!-- wp:acf/(.*?)-->", "", $post->post_content);
             $content = strip_tags(apply_filters('the_content', $post_content));
         }
 
-        if($characters && strlen($content) > $words_num) {
+        if ($characters && strlen($content) > $words_num) {
             $wordsSet = wordwrap($content, $words_num, '<...>');
-            return array_shift(explode('<...>', $wordsSet) ) . '...';
+            return array_shift(explode('<...>', $wordsSet)) . '...';
         } else {
             return wp_trim_words($content, $words_num, $strip);
         }
     }
 endif;
 
-if ( ! function_exists( 'section_title' ) ) :
-    function section_title( $title = '', string $wrap = '' ) {
-        if( empty($title) ) {
+if (! function_exists('section_title')) :
+    function section_title($title = '', string $wrap = '')
+    {
+        if (empty($title)) {
             return;
         }
 
-        if( !empty($wrap) ) {
+        if (!empty($wrap)) {
             printf($wrap, $title);
         } else {
-            if( !empty($title) ) {
+            if (!empty($title)) {
                 printf('<h2>%1$s</h2>', $title);
             }
         }
@@ -118,9 +121,10 @@ if ( ! function_exists( 'section_title' ) ) :
     add_action('section_title', 'section_title', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_article_title' ) ) :
-    function print_article_title( $post_id = null, $args = [] ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_title')) :
+    function print_article_title($post_id = null, $args = [])
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
@@ -130,13 +134,14 @@ if ( ! function_exists( 'print_article_title' ) ) :
         ];
         $args = wp_parse_args($args, $defaults);
 
-        if( !$args['link'] ) {
-            $title_markup = sprintf($args['wrap'] ?: '<div class="title">%1$s</div>',
+        if (!$args['link']) {
+            $title_markup = sprintf(
+                $args['wrap'] ?: '<div class="title">%1$s</div>',
                 esc_html__(get_the_title($post_id))
             );
-        }
-        else {
-            $title_markup = sprintf($args['wrap'] ?: '<a href="%1$s" class="title">%2$s</a>',
+        } else {
+            $title_markup = sprintf(
+                $args['wrap'] ?: '<a href="%1$s" class="title">%2$s</a>',
                 get_the_permalink($post_id),
                 esc_html__(get_the_title($post_id))
             );
@@ -147,13 +152,15 @@ if ( ! function_exists( 'print_article_title' ) ) :
     add_action('print_article_title', 'print_article_title', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_article_read_more' ) ) :
-    function print_article_read_more( $post_id = null ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_read_more')) :
+    function print_article_read_more($post_id = null)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
-        $title_markup = sprintf( '<a href="%1$s" class="blog-button">Read more</a> ',
+        $title_markup = sprintf(
+            '<a href="%1$s" class="blog-button">Read more</a> ',
             get_the_permalink($post_id)
         );
 
@@ -162,9 +169,10 @@ if ( ! function_exists( 'print_article_read_more' ) ) :
     add_action('print_article_read_more', 'print_article_read_more', 10, 1);
 endif;
 
-if ( ! function_exists( 'print_article_date' ) ) :
-    function print_article_date( $post_id = null, $args = array()) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_date')) :
+    function print_article_date($post_id = null, $args = array())
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
@@ -176,24 +184,26 @@ if ( ! function_exists( 'print_article_date' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        $date_markup = sprintf( $wrap, get_the_time($format, $post_id));
+        $date_markup = sprintf($wrap, get_the_time($format, $post_id));
 
         echo $date_markup;
     }
     add_action('print_article_date', 'print_article_date', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_article_excerpt' ) ) :
-    function print_article_excerpt( $post_id = null, $characters = null, $wrap = null) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_excerpt')) :
+    function print_article_excerpt($post_id = null, $characters = null, $wrap = null)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
-        if(!$wrap) {
-                $wrap = '<p>%1$s</p>';
+        if (!$wrap) {
+            $wrap = '<p>%1$s</p>';
         }
 
-        $excerpt_markup = sprintf($wrap,
+        $excerpt_markup = sprintf(
+            $wrap,
             get_user_excerpt($post_id, $characters ?: 50, '...', $characters ? true : false)
         );
         echo $excerpt_markup;
@@ -201,24 +211,28 @@ if ( ! function_exists( 'print_article_excerpt' ) ) :
     add_action('print_article_excerpt', 'print_article_excerpt', 10, 4);
 endif;
 
-if ( ! function_exists( 'print_article_tags_list' ) ) :
-    function print_article_tags_list( $post_id = null ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_tags_list')) :
+    function print_article_tags_list($post_id = null)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
         $tags = [];
         $news_type = get_field('news_type', $post_id);
-        if( !empty($news_type['label']) ) {
+        if (!empty($news_type['label'])) {
             $tags[] = sprintf('<span>%s</span>', $news_type['label']);
         }
 
-        if( is_sponsored($post_id) ) {
+        if (is_sponsored($post_id)) {
             $tags[] = sprintf('<span class="sponsored">%s</span>', __('Sponsored', 'ltm'));
         }
+        if (is_partnered($post_id)) {
+            $tags[] = sprintf('<span class="partnered">%s</span>', __('Partnered', 'ltm'));
+        }
 
-        $categories = get_the_terms( $post_id, 'category' );
-        if( !empty($categories) ) {
+        $categories = get_the_terms($post_id, 'category');
+        if (!empty($categories)) {
             foreach ($categories as $category) {
                 $abbreviatedName = get_field('abbreviated_name', 'category_' . $category->term_id, true);
                 $tags[] = sprintf('<a href="%s">%s</a>', get_category_link($category), $abbreviatedName);
@@ -235,9 +249,10 @@ if ( ! function_exists( 'print_article_tags_list' ) ) :
     add_action('print_article_tags_list', 'print_article_tags_list', 10, 4);
 endif;
 
-if ( ! function_exists( 'print_article_sponsored_label' ) ) :
-    function print_article_sponsored_label( $post_id = null, $args = array() ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_sponsored_label')) :
+    function print_article_sponsored_label($post_id = null, $args = array())
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
@@ -248,22 +263,23 @@ if ( ! function_exists( 'print_article_sponsored_label' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        if( is_sponsored($post_id) ) {
-            $sponsoredLine = sprintf( $wrap, 'Sponsored');
+        if (is_sponsored($post_id)) {
+            $sponsoredLine = sprintf($wrap, 'Sponsored');
             echo $sponsoredLine;
         }
     }
     add_action('print_article_sponsored_label', 'print_article_sponsored_label', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_article_type' ) ) :
-    function print_article_type( $post_id = null, $args ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_type')) :
+    function print_article_type($post_id = null, $args)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
         $news_type = ltm_get_news_type($post_id);
-        if(!$news_type) {
+        if (!$news_type) {
             return;
         }
         $defaults = [
@@ -273,31 +289,33 @@ if ( ! function_exists( 'print_article_type' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        $typeLine = sprintf( $wrap, $news_type);
+        $typeLine = sprintf($wrap, $news_type);
 
         echo $typeLine;
     }
     add_action('print_article_type', 'print_article_type', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_podcast_time' ) ) :
-    function print_podcast_time( $post_id = null ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_podcast_time')) :
+    function print_podcast_time($post_id = null)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
         $podcast_time = get_field('podcast_time', $post_id);
 
-        if( !empty($podcast_time) ) {
+        if (!empty($podcast_time)) {
             echo '<div class="time">' . $podcast_time . ' min</div>';
         }
     }
     add_action('print_podcast_time', 'print_podcast_time', 10, 4);
 endif;
 
-if ( ! function_exists( 'print_podcast_listening' ) ) :
-    function print_podcast_listening( $podcast_id = null, $title = '' ) {
-        if ( ! $podcast_id ) {
+if (! function_exists('print_podcast_listening')) :
+    function print_podcast_listening($podcast_id = null, $title = '')
+    {
+        if (! $podcast_id) {
             $podcast_id = get_the_ID();
         }
 
@@ -313,22 +331,23 @@ if ( ! function_exists( 'print_podcast_listening' ) ) :
     add_action('print_podcast_listening', 'print_podcast_listening', 10, 4);
 endif;
 
-if ( ! function_exists( 'print_podcast_organization' ) ) :
-    function print_podcast_organization( $podcast_id = null ) {
-        if ( ! $podcast_id ) {
+if (! function_exists('print_podcast_organization')) :
+    function print_podcast_organization($podcast_id = null)
+    {
+        if (! $podcast_id) {
             $podcast_id = get_the_ID();
         }
         $podcastOrganization = get_field('organization', $podcast_id);
 
         echo '<div class="company">' . $podcastOrganization . ' </div>';
-
     }
     add_action('print_podcast_organization', 'print_podcast_organization', 10, 1);
 endif;
 
-if ( ! function_exists( 'print_resource_tag' ) ) :
-    function print_resource_tag( $post_id = null ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_resource_tag')) :
+    function print_resource_tag($post_id = null)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
         $resourceTag = get_field('resource_type', $post_id);
@@ -338,15 +357,16 @@ if ( ! function_exists( 'print_resource_tag' ) ) :
     add_action('print_resource_tag', 'print_resource_tag', 10, 1);
 endif;
 
-if ( ! function_exists( 'print_event_type' ) ) :
-    function print_event_type( $post_id = null ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_event_type')) :
+    function print_event_type($post_id = null)
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
         $eventType = get_field('event_type', $post_id);
 
-        if( !empty($eventType) ) {
+        if (!empty($eventType)) {
             echo '<span class="solid">' . $eventType . '</span>';
         }
     }
@@ -354,13 +374,14 @@ if ( ! function_exists( 'print_event_type' ) ) :
 endif;
 
 
-if ( ! function_exists( 'print_article_authors' ) ) :
-    function print_article_authors( $post_id = null, $args = [] ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_article_authors')) :
+    function print_article_authors($post_id = null, $args = [])
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
-        if(get_post_type($post_id) == 'industry-news') {
+        if (get_post_type($post_id) == 'industry-news') {
             print_industry_news_company($post_id);
             return;
         }
@@ -377,11 +398,12 @@ if ( ! function_exists( 'print_article_authors' ) ) :
 
         $authorsHtml = [];
         // PublishPress Authors functionality.
-        if ( function_exists( 'get_post_authors' ) ) {
-            $authors       = get_post_authors( $post_id );
-            foreach ( $authors as $i => $author_obj ) {
-                if($link) {
-                    $authorsHtml[] = sprintf('<a class="%1$s" href="%2$s">%3$s</a>',
+        if (function_exists('get_post_authors')) {
+            $authors       = get_post_authors($post_id);
+            foreach ($authors as $i => $author_obj) {
+                if ($link) {
+                    $authorsHtml[] = sprintf(
+                        '<a class="%1$s" href="%2$s">%3$s</a>',
                         $link_class,
                         esc_url($author_obj->link),
                         esc_attr($author_obj->name)
@@ -390,29 +412,29 @@ if ( ! function_exists( 'print_article_authors' ) ) :
                     $authorsHtml[] = $author_obj->name;
                 }
             }
-
         } else {
 
-            $author_id   = get_post_field( 'post_author', $post_id );
-            $author_name = get_the_author_meta( 'display_name', $author_id );
-            $author_link = get_author_posts_url( $author_id );
+            $author_id   = get_post_field('post_author', $post_id);
+            $author_name = get_the_author_meta('display_name', $author_id);
+            $author_link = get_author_posts_url($author_id);
 
-            if($link) {
-                $authorsHtml[] = sprintf('<a class="%1$s" href="%2$s">%3$s</a>',
+            if ($link) {
+                $authorsHtml[] = sprintf(
+                    '<a class="%1$s" href="%2$s">%3$s</a>',
                     $link_class,
-                    esc_url( $author_link ),
-                    esc_attr( $author_name )
+                    esc_url($author_link),
+                    esc_attr($author_name)
                 );
             } else {
-                $authorsHtml[] = esc_attr( $author_name );
+                $authorsHtml[] = esc_attr($author_name);
             }
         }
 
-        if( is_news_type('podcast') && $podcast = get_post_assigned_podcast($post_id)) {
+        if (is_news_type('podcast') && $podcast = get_post_assigned_podcast($post_id)) {
             $authorsHtml[] = sprintf('<a class="%1$s" href="%2$s">%3$s</a>', $link_class, get_the_permalink($podcast->ID), $podcast->post_title);
         }
 
-        if(!$wrap) {
+        if (!$wrap) {
             echo implode($separator, $authorsHtml);
         } else {
             printf($wrap, implode($separator, $authorsHtml));
@@ -421,9 +443,10 @@ if ( ! function_exists( 'print_article_authors' ) ) :
     add_action('print_article_authors', 'print_article_authors', 10, 2);
 endif;
 
-if ( ! function_exists( 'social_icons' ) ) :
-    function social_icons(string $social, $echo = true) {
-        if( empty($social) ) {
+if (! function_exists('social_icons')) :
+    function social_icons(string $social, $echo = true)
+    {
+        if (empty($social)) {
             return '';
         }
 
@@ -437,7 +460,7 @@ if ( ! function_exists( 'social_icons' ) ) :
                 break;
         }
 
-        if( $echo ) {
+        if ($echo) {
             echo $item;
         }
 
@@ -446,13 +469,14 @@ if ( ! function_exists( 'social_icons' ) ) :
 endif;
 
 
-if ( ! function_exists( 'paginator' ) ) :
-    function paginator( $wp_query = null, $dynamic = false, $base = 'page' ) {
-        if(!$wp_query) {
+if (! function_exists('paginator')) :
+    function paginator($wp_query = null, $dynamic = false, $base = 'page')
+    {
+        if (!$wp_query) {
             global $wp_query;
         }
 
-        if ( !$wp_query->max_num_pages <= 1 ) {
+        if (!$wp_query->max_num_pages <= 1) {
             $args = [
                 'format' => $dynamic ? "?{$base}=%#%" : '',
                 'total' => $wp_query->max_num_pages,
@@ -465,7 +489,7 @@ if ( ! function_exists( 'paginator' ) ) :
                 'type' => 'array',
             ];
 
-            if(!$dynamic) {
+            if (!$dynamic) {
                 $args['base'] = str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999)));
             }
 
@@ -480,19 +504,19 @@ if ( ! function_exists( 'paginator' ) ) :
                 printf('<div class="pager"><ul>%1$s</ul></div>', $paginator_content);
             }
         }
-
     }
     add_action('paginator', 'paginator', 10, 3);
 endif;
 
-if ( ! function_exists( 'print_speaker_job_title' ) ) :
-    function print_speaker_job_title( $post_id = null, $args = array()): void {
-        if ( ! $post_id ) {
+if (! function_exists('print_speaker_job_title')) :
+    function print_speaker_job_title($post_id = null, $args = array()): void
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
         $jobTitle = get_field('job_title', $post_id);
-        if(!$jobTitle) {
+        if (!$jobTitle) {
             return;
         }
 
@@ -503,21 +527,21 @@ if ( ! function_exists( 'print_speaker_job_title' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        $jobLine = sprintf( $wrap, $jobTitle);
+        $jobLine = sprintf($wrap, $jobTitle);
 
         echo $jobLine;
     }
     add_action('print_speaker_job_title', 'print_speaker_job_title', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_speaker_company' ) ) :
-    function print_speaker_company( $post_id = null, $args = array()): void
+if (! function_exists('print_speaker_company')) :
+    function print_speaker_company($post_id = null, $args = array()): void
     {
-        if ( ! $post_id ) {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
         $company = get_field('company', $post_id);
-        if(!$company) {
+        if (!$company) {
             return;
         }
 
@@ -528,21 +552,22 @@ if ( ! function_exists( 'print_speaker_company' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        $jobLine = sprintf( $wrap, $company);
+        $jobLine = sprintf($wrap, $company);
 
         echo $jobLine;
     }
     add_action('print_speaker_company', 'print_speaker_company', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_speaker_socials' ) ) :
-    function print_speaker_socials( $post_id = null, $args = array()): void {
-        if ( ! $post_id ) {
+if (! function_exists('print_speaker_socials')) :
+    function print_speaker_socials($post_id = null, $args = array()): void
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
         $linkedin = get_field('linkedin_link', $post_id);
-        if(!$linkedin) {
+        if (!$linkedin) {
             return;
         }
 
@@ -557,27 +582,29 @@ if ( ! function_exists( 'print_speaker_socials' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        $jobLine = sprintf( $wrap, $linkedin);
+        $jobLine = sprintf($wrap, $linkedin);
 
         echo $jobLine;
     }
     add_action('print_speaker_socials', 'print_speaker_socials', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_content' ) ) :
-    function print_content( $post_id = null ): void {
-        if ( ! $post_id ) {
+if (! function_exists('print_content')) :
+    function print_content($post_id = null): void
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
 
-        echo get_the_content( $post_id );
+        echo get_the_content($post_id);
     }
     add_action('print_content', 'print_content', 10, 1);
 endif;
 
-if ( ! function_exists( 'print_event_start_date' ) ) :
-    function print_event_start_date( $post_id = null, $args = [] ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_event_start_date')) :
+    function print_event_start_date($post_id = null, $args = [])
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
         $defaults = [
@@ -588,16 +615,66 @@ if ( ! function_exists( 'print_event_start_date' ) ) :
         extract($args);
 
         $eventStartDate = get_event_start_date($post_id, $format);
-        $dateLine = sprintf( $wrap, $eventStartDate);
+        $dateLine = sprintf($wrap, $eventStartDate);
 
         echo $dateLine;
     }
     add_action('print_event_start_date', 'print_event_start_date', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_event_location' ) ) :
-    function print_event_location( $post_id = null, $args = [] ) {
-        if ( ! $post_id ) {
+if (! function_exists('print_event_date_range')) :
+    function print_event_date_range($post_id = null, $args = [])
+    {
+        if (! $post_id) {
+            $post_id = get_the_ID();
+        }
+        $defaults = [
+            'wrap'  => '<div class="venue-date">%1s</div>',
+        ];
+        $args = wp_parse_args($args, $defaults);
+        extract($args);
+
+        $startDateFull = get_event_start_date($post_id, 'F j, Y - h:i A');
+        $endDateFull = get_event__end_date($post_id, 'F j, Y - h:i A');
+        $timezone = get_event_timezone($post_id) ?? '';
+
+        $startDate = get_event_start_date($post_id, 'F j, Y');
+        $endDate = get_event__end_date($post_id, 'F j, Y');
+
+        $dateDisplayed = false;
+
+        if (!empty($startDateFull) && !empty($endDateFull)) {
+            $startDateTime = DateTime::createFromFormat('F j, Y - h:i A', $startDateFull);
+            $endDateTime = DateTime::createFromFormat('F j, Y - h:i A', $endDateFull);
+
+            if ($startDateTime && $endDateTime) {
+                if ($startDateTime->format('Y-m-d') === $endDateTime->format('Y-m-d')) {
+                    $dateRange = $startDateTime->format('F j') . ' – ' .
+                        strtolower($startDateTime->format('g:i a')) . ' - ' .
+                        strtolower($endDateTime->format('g:i a')) . ' ' . $timezone;
+                } elseif ($startDateTime->format('F Y') === $endDateTime->format('F Y')) {
+                    $dateRange = $startDateTime->format('F j') . '-' . $endDateTime->format('j, Y');
+                } else {
+                    $dateRange = $startDate . ' - ' . $endDate;
+                }
+                $dateLine = sprintf($wrap, $dateRange);
+                echo $dateLine;
+                $dateDisplayed = true;
+            }
+        }
+
+        if (!$dateDisplayed && !empty($startDate)) {
+            $dateLine = sprintf($wrap, $startDate);
+            echo $dateLine;
+        }
+    }
+    add_action('print_event_date_range', 'print_event_date_range', 10, 2);
+endif;
+
+if (! function_exists('print_event_location')) :
+    function print_event_location($post_id = null, $args = [])
+    {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
         $defaults = [
@@ -606,7 +683,7 @@ if ( ! function_exists( 'print_event_location' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
         $location = get_field('location', $post_id);
-        $locationLine = sprintf( $wrap, $location);
+        $locationLine = sprintf($wrap, $location);
 
         echo $locationLine;
     }
@@ -614,15 +691,15 @@ if ( ! function_exists( 'print_event_location' ) ) :
 endif;
 
 
-if ( ! function_exists( 'print_industry_news_company' ) ) :
-    function print_industry_news_company( $post_id = null, $args = array()): void
+if (! function_exists('print_industry_news_company')) :
+    function print_industry_news_company($post_id = null, $args = array()): void
     {
-        if ( ! $post_id ) {
+        if (! $post_id) {
             $post_id = get_the_ID();
         }
         $companyName = get_field('company_name', $post_id);
         $companyLink = get_field('company_link', $post_id);
-        if(empty($companyName) && empty($companyLink)) {
+        if (empty($companyName) && empty($companyLink)) {
             return;
         }
 
@@ -633,61 +710,26 @@ if ( ! function_exists( 'print_industry_news_company' ) ) :
         $args = wp_parse_args($args, $defaults);
         extract($args);
 
-        $companyLine = sprintf( $wrap, $companyLink, $companyName);
+        $companyLine = sprintf($wrap, $companyLink, $companyName);
 
         echo $companyLine;
     }
     add_action('print_industry_news_company', 'print_industry_news_company', 10, 2);
 endif;
 
-if ( ! function_exists( 'print_image_and_text_image' ) ) :
-    function print_image_and_text_image( $logo = null, $size = '', $imageLink = null ): void
+if (! function_exists('print_image_and_text_image')) :
+    function print_image_and_text_image($logo = null, $size = '', $imageLink = null): void
     {
-        if( empty($logo) ) {
+        if (empty($logo)) {
             return;
         }
 
         $imageHtml = thumbnail_formatting(null, ['image_id' => $logo['ID'], 'size' => $size, 'link' => false], false);
-        if( !empty($imageLink) )
-        {
+        if (!empty($imageLink)) {
             printf('<a href="%1$s">%2$s</a>', $imageLink, $imageHtml);
-        }
-        else
-        {
+        } else {
             printf('<span>%1$s</span>', $imageHtml);
         }
     }
     add_action('print_image_and_text_image', 'print_image_and_text_image', 10, 3);
-endif;
-
-if ( ! function_exists( 'print_ad_banner' ) ) :
-    function print_ad_banner( $banner, $args = array() ): void
-    {
-        if( empty($banner['dynamic_ad_banner']) ) {
-            return;
-        }
-
-        if( isset($banner['display']) && !$banner['display'] )
-        {
-            return;
-        }
-
-        $defaults = [
-            'wrap' => '<div class="banner-ad-block ' . ($args['class'] ?? '') . '"><div class="container"><div class="banner-ad-block-wrapper">%s</div></div></div>',
-        ];
-
-        $args = wp_parse_args($args, $defaults);
-        extract($args);
-
-        get_template_part(
-            'template-parts/components/ad',
-            'banner',
-            array(
-                'banner_id'  => $banner['dynamic_ad_banner'],
-                'screen_type'=> $banner['screen_type'] ?? null,
-                'wrap'       => $wrap,
-            )
-        );
-    }
-    add_action('print_ad_banner', 'print_ad_banner', 10, 2);
 endif;

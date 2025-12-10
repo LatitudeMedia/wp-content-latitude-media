@@ -1,18 +1,18 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --dark-blue: #0F1E42;
-  --grey: #F5F5F5;
-  --primary-pink: #C6168D;
-  --pink-shadow: #F9E8F4;
+  --dark-blue: #0f1e42;
+  --grey: #f5f5f5;
+  --primary-pink: #c6168d;
+  --pink-shadow: #f9e8f4;
   --blue: #0095da;
-  --blue-shadow: #E5F4FC;
-  --green: #00B48D;
-  --green-shadow: #CCF0E8;
-  --orange: #F99D1C;
-  --orange-shadow: #FEEBD2;
-  --custom-block-base-color: #C6168D;
-  --custom-block-shadow-color: #F9E8F4;
+  --blue-shadow: #e5f4fc;
+  --green: #00b48d;
+  --green-shadow: #ccf0e8;
+  --orange: #f99d1c;
+  --orange-shadow: #feebd2;
+  --custom-block-base-color: #c6168d;
+  --custom-block-shadow-color: #f9e8f4;
 }
 
 .has-black-background-color {
@@ -216,7 +216,7 @@ article {
     line-height: 24px;
     font-weight: normal;
     margin-bottom: 24px;
-    color: $primary-dark-blue
+    color: $primary-dark-blue;
   }
   h2 {
     font-family: $lora;
@@ -287,6 +287,12 @@ article {
 
 .banner-ad-block {
   @include bannerAdBlock;
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: auto;
+  }
 }
 
 .pager {
@@ -304,7 +310,8 @@ article {
         margin: 0 4px;
       }
 
-      a, .current {
+      a,
+      .current {
         width: auto;
         display: block;
         padding: 16px 24px;
@@ -353,7 +360,7 @@ article {
 }
 
 .cta-button {
-  @include shadowButton
+  @include shadowButton;
 }
 
 .strict-button {
@@ -377,7 +384,9 @@ article {
   }
 }
 
-body.page-id-1707, body.page-id-1697, body.page-id-1941 {
+body.page-id-1707,
+body.page-id-1697,
+body.page-id-1941 {
   header {
     padding-bottom: 0;
   }

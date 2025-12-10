@@ -471,7 +471,7 @@ header {
         text-transform: uppercase;
         @include fontSize(12px);
         line-height: 19px;
-        letter-spacing: 1px;
+        letter-spacing: 1.1px;
         max-width: 225px;
         @include below_md {
           display: none;

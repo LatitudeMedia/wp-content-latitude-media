@@ -1,11 +1,13 @@
 <?php
+
 /**
  * A variety of helper functions.
  *
  */
 
-function is_sponsored( $post_id = null ) {
-    if ( ! $post_id ) {
+function is_sponsored($post_id = null)
+{
+    if (! $post_id) {
         $post_id = get_the_ID();
     }
 
@@ -14,8 +16,20 @@ function is_sponsored( $post_id = null ) {
     return $is_sponsored ?? false;
 }
 
-function get_wrap_rows_from_template($template) {
-    if(!$template) {
+function is_partnered($post_id = null)
+{
+    if (! $post_id) {
+        $post_id = get_the_ID();
+    }
+
+    $is_partnered = get_field('partnered', $post_id);
+
+    return $is_partnered ?? false;
+}
+
+function get_wrap_rows_from_template($template)
+{
+    if (!$template) {
         return [];
     }
     $found = preg_match_all("/\[([^\]]*)\]/", $template, $matches);
@@ -25,13 +39,14 @@ function get_wrap_rows_from_template($template) {
     ];
 }
 
-function ltm_get_news_type($post_id = null) {
-    if ( ! $post_id ) {
+function ltm_get_news_type($post_id = null)
+{
+    if (! $post_id) {
         $post_id = get_the_ID();
     }
 
     $news_type = get_field('news_type', $post_id);
-    if( empty($news_type) ) {
+    if (empty($news_type)) {
         return '';
     }
 
@@ -43,13 +58,14 @@ function ltm_get_news_type($post_id = null) {
  * @param $post_id
  * @return bool
  */
-function is_news_type($type = '', $post_id = null) {
-    if ( ! $post_id ) {
+function is_news_type($type = '', $post_id = null)
+{
+    if (! $post_id) {
         $post_id = get_the_ID();
     }
 
     $news_type = get_field('news_type', $post_id);
-    if ( !empty($news_type['value']) ) {
+    if (!empty($news_type['value'])) {
         return $news_type['value'] === $type;
     }
 
@@ -57,73 +73,13 @@ function is_news_type($type = '', $post_id = null) {
 }
 
 /**
- * @param $bannerField
- * @param $post_id
- * @param $options
- * @return array|mixed
- */
-function get_article_banner($bannerField = '', $post_id = null, $options = false) {
-    if ( ! $bannerField ) {
-        return [];
-    }
-
-    if ( ! $post_id ) {
-        $post_id = get_the_ID();
-    }
-
-    $articleBanner = get_field($bannerField, $post_id);
-    if ( empty($articleBanner['dynamic_ad_banner']) && $options) {
-        $banner = get_field($bannerField, 'options');
-        $articleBanner['dynamic_ad_banner'] = $banner['dynamic_ad_banner'];
-        $articleBanner['screen_type'] = $banner['screen_type'];
-    }
-
-    return $articleBanner;
-}
-
-/**
- * @param $bannerField
- * @param $category_id
- * @param $options
- * @return array|mixed
- */
-function get_category_banner($bannerField = '', $category_id = null, $options = false) {
-    if ( ! $bannerField || !$category_id ) {
-        return [];
-    }
-
-    $topicBanner = get_field($bannerField, 'category_' . $category_id, true);
-
-    if ( empty($topicBanner['dynamic_ad_banner']) && $options) {
-        $banner = get_field($bannerField, 'options');
-        $topicBanner['dynamic_ad_banner'] = $banner['dynamic_ad_banner'];
-        $topicBanner['screen_type'] = $banner['screen_type'];
-    }
-
-    return $topicBanner;
-}
-
-function get_site_header_banner()
-{
-    if( is_singular('post'))
-    {
-        return array_merge(get_article_banner('article_top_banner', get_the_ID(), true));
-    }
-    if( is_category() )
-    {
-        $term = get_queried_object();
-        return get_category_banner('topic_top_banner', $term->term_id, true);
-    }
-
-    return [];
-}
-/**
  * @param $dateString
  * @param string $inputFormat
  * @param string $format
  * @return int|string
  */
-function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-j H:i:s') {
+function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-m-j H:i:s')
+{
     $date = DateTime::createFromFormat($inputFormat, $dateString);
 
     if ($date) {
@@ -133,21 +89,23 @@ function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-
     }
 }
 
-function get_research_date($research_id, $format = 'F Y') {
-    if ( ! $research_id ) {
+function get_research_date($research_id, $format = 'F Y')
+{
+    if (! $research_id) {
         $research_id = get_the_ID();
     }
 
     $date = get_field('date', $research_id);
-    if( empty($date) ) {
+    if (empty($date)) {
         return '';
     }
 
     return date_to_format($date, 'm/d/Y', $format);
 }
 
-function get_section_cats($section_id, $fields = 'ids') {
-    if(!$section_id) {
+function get_section_cats($section_id, $fields = 'ids')
+{
+    if (!$section_id) {
         return [];
     }
 
@@ -164,7 +122,7 @@ function get_section_cats($section_id, $fields = 'ids') {
         'fields'  => $fields,
     );
 
-    $cats = get_terms( $section_args );
+    $cats = get_terms($section_args);
 
     return $cats;
 }
@@ -173,8 +131,9 @@ function get_section_cats($section_id, $fields = 'ids') {
  * @param $research_id
  * @return array
  */
-function get_research_data($research_id) {
-    if(!$research_id) {
+function get_research_data($research_id)
+{
+    if (!$research_id) {
         return [];
     }
 
@@ -192,14 +151,15 @@ function get_research_data($research_id) {
  * @param $order_id
  * @return array
  */
-function get_order_report_data($orderId) {
-    if(!$orderId) {
+function get_order_report_data($orderId)
+{
+    if (!$orderId) {
         return [];
     }
 
     $researchData = [];
     $researchId = get_field('research_item', $orderId);
-    if( !empty($researchId) ) {
+    if (!empty($researchId)) {
         $researchData = get_research_data($researchId);
         $researchData['research_id'] = $researchId;
     }
@@ -210,8 +170,9 @@ function get_order_report_data($orderId) {
  * @param $order_id
  * @return array
  */
-function get_resource_data($resourceId) {
-    if(!$resourceId) {
+function get_resource_data($resourceId)
+{
+    if (!$resourceId) {
         return [];
     }
 
@@ -226,8 +187,9 @@ function get_resource_data($resourceId) {
  * @param null $author
  * @return array
  */
-function ltm_get_author_data($author = null) {
-    if(!$author) {
+function ltm_get_author_data($author = null)
+{
+    if (!$author) {
         return [];
     }
 
@@ -243,20 +205,21 @@ function ltm_get_author_data($author = null) {
  * @param null $inHouseAdId
  * @return array|bool
  */
-function ltm_get_inhouse_ad_data($inHouseAdId = null) {
-    if(!$inHouseAdId) {
+function ltm_get_inhouse_ad_data($inHouseAdId = null)
+{
+    if (!$inHouseAdId) {
         return [];
     }
 
-//        'type'
-//        'banner_text'
-//        'layout'
-//        'background_image'
-//        'additional_image'
-//        'heading'
-//        'button'
-//        'base_color'
-//        'shadow_color'
+    //        'type'
+    //        'banner_text'
+    //        'layout'
+    //        'background_image'
+    //        'additional_image'
+    //        'heading'
+    //        'button'
+    //        'base_color'
+    //        'shadow_color'
     return get_fields($inHouseAdId);
 }
 
@@ -264,8 +227,9 @@ function ltm_get_inhouse_ad_data($inHouseAdId = null) {
  * @param null $member
  * @return array
  */
-function ltm_get_team_member_data($member = null) {
-    if(!$member) {
+function ltm_get_team_member_data($member = null)
+{
+    if (!$member) {
         return [];
     }
 
@@ -283,23 +247,24 @@ function ltm_get_team_member_data($member = null) {
  * @param null $author
  * @return array
  */
-function ltm_get_author_socials($author = null) {
-    if(!$author) {
+function ltm_get_author_socials($author = null)
+{
+    if (!$author) {
         return [];
     }
 
     $author = get_term($author);
     $socials = [];
-    if( $social = get_field('linkedin', 'author_' . $author->term_id, true) ) {
+    if ($social = get_field('linkedin', 'author_' . $author->term_id, true)) {
         $socials['linkedin'] = $social;
     }
-    if( $social = get_field('x_twitter', 'author_' . $author->term_id, true) ) {
+    if ($social = get_field('x_twitter', 'author_' . $author->term_id, true)) {
         $socials['x_twitter'] = $social;
     }
-    if( $social = get_field('bluesky', 'author_' . $author->term_id, true) ) {
+    if ($social = get_field('bluesky', 'author_' . $author->term_id, true)) {
         $socials['bluesky'] = $social;
     }
-    if( $social = get_field('other_social', 'author_' . $author->term_id, true) ) {
+    if ($social = get_field('other_social', 'author_' . $author->term_id, true)) {
         $socials['other_social'] = $social;
     }
 
@@ -310,8 +275,9 @@ function ltm_get_author_socials($author = null) {
  * @param string $classes
  * @return mixed|string
  */
-function ltm_get_block_style($classes = '') {
-    if( empty($classes) ) {
+function ltm_get_block_style($classes = '')
+{
+    if (empty($classes)) {
         return 'default';
     }
 
@@ -320,7 +286,7 @@ function ltm_get_block_style($classes = '') {
         return str_contains($class, 'is-style-');
     });
 
-    if( count($classStyle) ) {
+    if (count($classStyle)) {
         return end(explode('-', $classStyle[0]));
     }
 
@@ -332,13 +298,14 @@ function ltm_get_block_style($classes = '') {
  * @param array $args
  * @return bool|WP_Post
  */
-function get_published_post_by_id($post_id = null, $args = []) {
-    if( empty($post_id) ) {
+function get_published_post_by_id($post_id = null, $args = [])
+{
+    if (empty($post_id)) {
         return false;
     }
 
     $result = get_published_posts_by_ids([$post_id], $args);
-    if($result->found_posts > 0) {
+    if ($result->found_posts > 0) {
         return $result->posts[0];
     }
 
@@ -350,8 +317,9 @@ function get_published_post_by_id($post_id = null, $args = []) {
  * @param array $args
  * @return WP_Query
  */
-function get_published_posts_by_ids($post_ids = [], $args = []) {
-    if( empty($post_ids) ) {
+function get_published_posts_by_ids($post_ids = [], $args = [])
+{
+    if (empty($post_ids)) {
         return new WP_Query();
     }
 
@@ -370,8 +338,9 @@ function get_published_posts_by_ids($post_ids = [], $args = []) {
  * @param array $args
  * @return WP_Query
  */
-function get_podcast_episodes($podcast_id = null, $args = []) {
-    if( empty($podcast_id) ) {
+function get_podcast_episodes($podcast_id = null, $args = [])
+{
+    if (empty($podcast_id)) {
         return new WP_Query();
     }
 
@@ -394,45 +363,62 @@ function get_podcast_episodes($podcast_id = null, $args = []) {
  * @param $post_id
  * @return false|WP_Post
  */
-function get_post_assigned_podcast( $post_id = null ) {
-    if ( ! $post_id ) {
+function get_post_assigned_podcast($post_id = null)
+{
+    if (! $post_id) {
         $post_id = get_the_ID();
     }
 
     return get_field('podcast', $post_id) ?: false;
 }
-function get_event_start_date($event_id, $format = 'F j Y') {
-    if ( ! $event_id ) {
+function get_event_start_date($event_id, $format = 'F j Y')
+{
+    if (! $event_id) {
         $event_id = get_the_ID();
     }
 
     $start_date = get_field('start_date', $event_id);
-    if( empty($start_date) ) {
+    if (empty($start_date)) {
         return '';
     }
 
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
 
-function get_event__end_date($event_id, $format = 'F j Y') {
-    if ( ! $event_id ) {
+function get_event__end_date($event_id, $format = 'F j Y')
+{
+    if (! $event_id) {
         $event_id = get_the_ID();
     }
 
     $start_date = get_field('end_date', $event_id);
-    if( empty($start_date) ) {
+    if (empty($start_date)) {
         return '';
     }
 
     return date_to_format($start_date, 'm/d/Y g:i a', $format);
 }
-function get_ad_banner_data($bannerId) {
-    if ( ! $bannerId ) {
+function get_event_timezone($event_id)
+{
+    if (! $event_id) {
+        $event_id = get_the_ID();
+    }
+
+    $timezone = get_field('timezone', $event_id);
+    if (empty($timezone)) {
+        return '';
+    }
+
+    return $timezone;
+}
+function get_ad_banner_data($bannerId)
+{
+    if (! $bannerId) {
         return false;
     }
 
     $dfpAdsSlots = get_field('dfp_ad_slots', 'option');
-    if( empty($dfpAdsSlots['slot']) ) {
+    if (empty($dfpAdsSlots['slot'])) {
         return false;
     }
 
@@ -440,13 +426,14 @@ function get_ad_banner_data($bannerId) {
 
     return $dfpAdsSlots['slot'][$bannerData] ?? false;
 }
-function get_ad_banner_sizes($bannerId) {
-    if ( ! $bannerId ) {
+function get_ad_banner_sizes($bannerId)
+{
+    if (! $bannerId) {
         return false;
     }
 
     $dfpAdsSlots = get_field('dfp_ad_slots', 'option');
-    if( empty($dfpAdsSlots['slot']) ) {
+    if (empty($dfpAdsSlots['slot'])) {
         return false;
     }
 
@@ -462,19 +449,20 @@ function get_ad_banner_sizes($bannerId) {
  * @return WP_Query         the query object
  *
  */
-function get_events_list($type = '', $args = [], $ids = []) {
+function get_events_list($type = '', $args = [], $ids = [])
+{
     $queryArgs = [
         'post_type'     => 'events',
         'meta_key' => 'start_date',
         'orderby' => 'meta_value',
         'meta_type' => 'DATE',
         'order' => 'DESC',
-        'posts_per_page'=> -1,
+        'posts_per_page' => -1,
     ];
 
     $queryArgs = wp_parse_args($args, $queryArgs);
 
-    switch($type) {
+    switch ($type) {
         case 'upcoming':
             $queryArgs['order'] = 'ASC';
             $queryArgs['meta_query'] = array(
@@ -534,18 +522,18 @@ function get_events_list($type = '', $args = [], $ids = []) {
  * @param bool $echo
  * @return string|void
  */
-function jetpack_get_resized_image(string $imgPath, int $width, int $height, string $alt="", bool $echo = true) {
-    if( empty($imgPath) && empty($width) && empty($height) ) {
+function jetpack_get_resized_image(string $imgPath, int $width, int $height, string $alt = "", bool $echo = true)
+{
+    if (empty($imgPath) && empty($width) && empty($height)) {
         return $imgPath;
     }
 
     if (class_exists('Jetpack_PostImages')) {
         $imgPath = Jetpack_PostImages::fit_image_url($imgPath, $width, $height);
     }
-    if( $echo ) {
+    if ($echo) {
         printf('<img src="%s" width="%s" height="%s" alt="%s">', $imgPath, $width, $height, $alt);
-    }
-    else {
+    } else {
         return $imgPath;
     }
 }
@@ -554,7 +542,8 @@ function jetpack_get_resized_image(string $imgPath, int $width, int $height, str
  * @param $termId
  * @return false|WP_Post
  */
-function get_section_landing_type_by_term( $termId ) {
+function get_section_landing_type_by_term($termId)
+{
     $sectionLanding = get_posts([
         'numberposts'   => 1,
         'meta_key'      => 'section_type',
@@ -562,14 +551,14 @@ function get_section_landing_type_by_term( $termId ) {
         'post_type'     => 'sections-landing',
     ]);
 
-    if( count($sectionLanding) ) {
+    if (count($sectionLanding)) {
         return $sectionLanding[0];
     }
 
     return false;
 }
 
-function getActualFileUrl( $path )
+function getActualFileUrl($path)
 {
-    return get_template_directory_uri() . $path .'?ver=' . filemtime( get_template_directory() . $path);
+    return get_template_directory_uri() . $path . '?ver=' . filemtime(get_template_directory() . $path);
 }

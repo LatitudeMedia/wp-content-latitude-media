@@ -20,11 +20,14 @@ if( !function_exists( 'ltm_scripts' ) ) {
             wp_enqueue_script( 'load-more-app', get_template_directory_uri() . '/dist/js/load-more.min.js', array('jquery', 'jquery-core'), filemtime( get_template_directory() . '/dist/js/load-more.min.js'),true );
         }
 
+        $ads_custom_targeting = get_targeting_array_from_custom_values( get_ad_targeting() );
+
         wp_localize_script(
             'ltm-ads',
             'wpDfpAdsSettings',
             array(
-                'slots'   => get_field('dfp_ad_slots', 'options'),
+                'slots'     => get_field('dfp_ad_slots', 'options'),
+                'targeting' => $ads_custom_targeting ?? [],
             )
         );
     }
