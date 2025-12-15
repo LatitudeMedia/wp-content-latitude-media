@@ -1,0 +1,28 @@
+@import "../core/core_loader";
+.contact-us-section {
+  margin-bottom: 64px;
+  .contact-us-section-wrapper {
+    margin-bottom: 32px;
+  }
+  .contact-us-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include below_md {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    @include below_mob {
+      grid-template-columns: 1fr;
+    }
+    gap: 80px;
+    .contact-us-card {
+      display: flex;
+      flex-direction: column;
+      .card-button {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+}
