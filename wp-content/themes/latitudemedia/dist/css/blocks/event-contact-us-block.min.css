@@ -1,0 +1,36 @@
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/event-contact-us-block.scss ***!
+  \*******************************************************************************************************************************************************************************************************************/
+.contact-us-section {
+  margin-bottom: 64px;
+}
+.contact-us-section .contact-us-section-wrapper {
+  margin-bottom: 32px;
+}
+.contact-us-section .contact-us-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+}
+.contact-us-section .contact-us-cards-wrapper .contact-us-card {
+  display: flex;
+  flex-direction: column;
+}
+.contact-us-section .contact-us-cards-wrapper .contact-us-card .card-button {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+@media screen and (max-width: 992px) {
+  .contact-us-section .contact-us-cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .contact-us-section .contact-us-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=event-contact-us-block.min.css.map*/
