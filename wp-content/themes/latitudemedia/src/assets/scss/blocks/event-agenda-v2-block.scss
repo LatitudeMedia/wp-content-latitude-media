@@ -80,6 +80,42 @@
           color: $primary-dark-blue;
           font-weight: 400;
           margin-bottom: 10px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+          @include below_md {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          @include below_sm {
+            grid-template-columns: repeat(1, 1fr) !important;
+          }
+          .event-agenda-v2-speaker {
+            display: flex;
+            gap: 10px;
+            .event-agenda-v2-speaker-image-wrapper {
+              width: 60px;
+              height: 60px;
+              flex-shrink: 0;
+              border-radius: 50%;
+              overflow: hidden;
+              border: 1px solid $primary-dark-blue;
+              img {
+                object-fit: cover;
+                object-position: center;
+              }
+            }
+            .event-agenda-v2-speaker-info {
+              .event-agenda-v2-speaker-name {
+                font-weight: 700;
+              }
+              .event-agenda-v2-speaker-job-title {
+                font-weight: 400;
+              }
+              .event-agenda-v2-speaker-company {
+                font-weight: 400;
+              }
+            }
+          }
         }
       }
     }
