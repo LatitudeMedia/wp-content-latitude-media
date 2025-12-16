@@ -1,0 +1,87 @@
+@import "../core/core_loader";
+
+.event-agenda-v2-section {
+  margin-bottom: 64px;
+  .event-agenda-v2-dropdown-wrapper {
+    display: flex;
+    justify-content: center;
+    .selector-container {
+      display: inline-block;
+      position: relative;
+      @include below_sm {
+        width: 100%;
+      }
+      .event-agenda-v2-day-selector {
+        position: relative;
+        min-width: 200px;
+        width: fit-content;
+        padding: 10px 40px 10px 10px;
+        background-color: $white;
+        border: 1px solid $primary-pink;
+        border-radius: 5px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 800;
+        z-index: 0;
+        &::-ms-expand {
+          display: none;
+        }
+        @include below_sm {
+          width: 100%;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid $primary-pink;
+        pointer-events: none;
+        transition: transform 0.3s ease;
+        transform: translateY(-50%) rotate(0deg);
+      }
+
+      &.open::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  .event-agenda-v2-agenda-items {
+    .event-agenda-v2-item {
+      display: flex;
+      gap: 30px;
+      border-bottom: 1px solid $primary-pink;
+      padding: 30px;
+      .event-agenda-v2-item-time {
+        color: $green;
+        font-weight: 700;
+      }
+      .event-agenda-v2-item-content {
+        .event-agenda-v2-item-title {
+          color: $primary-dark-blue;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        .event-agenda-v2-item-description {
+          color: $primary-dark-blue;
+          font-weight: 400;
+          margin-bottom: 10px;
+        }
+        .event-agenda-v2-item-speakers {
+          color: $primary-dark-blue;
+          font-weight: 400;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

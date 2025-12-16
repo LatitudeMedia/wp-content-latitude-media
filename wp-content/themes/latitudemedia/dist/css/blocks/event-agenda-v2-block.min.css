@@ -1,0 +1,86 @@
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/event-agenda-v2-block.scss ***!
+  \******************************************************************************************************************************************************************************************************************/
+.event-agenda-v2-section {
+  margin-bottom: 64px;
+}
+.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container {
+  display: inline-block;
+  position: relative;
+}
+.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector {
+  position: relative;
+  min-width: 200px;
+  width: fit-content;
+  padding: 10px 40px 10px 10px;
+  background-color: #ffffff;
+  border: 1px solid #C6168D;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 800;
+  z-index: 0;
+}
+.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector::-ms-expand {
+  display: none;
+}
+.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #C6168D;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+  transform: translateY(-50%) rotate(0deg);
+}
+.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container.open::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #C6168D;
+  padding: 30px;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-time {
+  color: #00B48D;
+  font-weight: 700;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-title {
+  color: #0F1E42;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-description {
+  color: #0F1E42;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-speakers {
+  color: #0F1E42;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+  .event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container {
+    width: 100%;
+  }
+  .event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=event-agenda-v2-block.min.css.map*/

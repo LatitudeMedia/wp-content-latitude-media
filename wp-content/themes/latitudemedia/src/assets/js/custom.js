@@ -281,6 +281,53 @@ $(document).ready(function ($) {
       $(this).addClass("active");
     });
   }
+
+  const agendaDaySelectors = $(".event-agenda-v2-day-selector");
+  if (agendaDaySelectors.length > 0) {
+    $(document).on("click", function (e) {
+      if (
+        !$(e.target).closest(
+          ".event-agenda-v2-dropdown-wrapper .selector-container"
+        ).length
+      ) {
+        $(".event-agenda-v2-dropdown-wrapper .selector-container").removeClass(
+          "open"
+        );
+      }
+    });
+
+    agendaDaySelectors.each(function () {
+      const daySelector = $(this);
+      const wrapper = daySelector.closest(
+        ".event-agenda-v2-dropdown-wrapper .selector-container"
+      );
+
+      daySelector.on("mousedown", function (e) {
+        e.stopPropagation();
+        wrapper.addClass("open");
+      });
+
+      daySelector.on("focus", function () {
+        wrapper.addClass("open");
+      });
+
+      daySelector.on("change", function () {
+        const selectedValue = daySelector.val();
+        const blockContainer = daySelector.closest(".event-agenda-v2-section");
+        blockContainer.find(".event-agenda-v2-day").hide();
+        blockContainer.find("#" + selectedValue).show();
+        wrapper.removeClass("open");
+        setTimeout(function () {
+          daySelector.blur();
+          wrapper.removeClass("open");
+        }, 10);
+      });
+
+      daySelector.on("blur", function () {
+        wrapper.removeClass("open");
+      });
+    });
+  }
 });
 
 (function () {
