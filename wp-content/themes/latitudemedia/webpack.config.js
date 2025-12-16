@@ -101,6 +101,8 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/event-contact-us-block.scss",
       "css/blocks/event-navigation-menu-block":
         "./src/assets/scss/blocks/event-navigation-menu-block.scss",
+      "css/blocks/event-agenda-v2-block":
+        "./src/assets/scss/blocks/event-agenda-v2-block.scss",
       "css/blocks/page-hero-block":
         "./src/assets/scss/blocks/page-hero-block.scss",
       "css/blocks/downloads-info-block":

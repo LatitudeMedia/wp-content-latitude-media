@@ -1242,28 +1242,25 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'recap-video-block',
-            'title'         => __('Recap video block', 'ltm'),
+            'name'          => 'event-agenda-v2-block',
+            'title'         => __('Event agenda V2 block', 'ltm'),
             'path'          => 'event',
         ),
-        'icon'          => 'format-video',
-        'description' => __('Recap video block', 'ltm'),
+        'icon'          => 'calendar-alt',
+        'description' => __('Event agenda V2 block', 'ltm'),
         'post_types'     => array('events'),
         'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Recap video block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/recap-video-block.min.css',
+        'keywords'    => array(__('Event agenda V2 block', 'ltm')),
+        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-agenda-v2-block.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
                 'data' => array(
-                    'image' => 'recap-video-block.png',
+                    'image' => 'event-agenda-v2-block.png',
                 )
             )
         )
     ),
-    // END Events
-
-    //START PAGE Full Width
     array(
         'attrs' => array(
             'name'          => 'page-hero-block',
