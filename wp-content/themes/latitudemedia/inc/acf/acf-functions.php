@@ -1251,7 +1251,18 @@ $blocks = array(
         'post_types'     => array('events'),
         'category'      => 'ltm-event-blocks',
         'keywords'    => array(__('Event agenda V2 block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-agenda-v2-block.min.css',
+        'enqueue_assets' => function () {
+            $css_path = get_template_directory() . '/dist/css/blocks/event-agenda-v2-block.min.css';
+
+            if (file_exists($css_path)) {
+                wp_enqueue_style(
+                    'block-acf-event-agenda-v2-block',
+                    get_template_directory_uri() . '/dist/css/blocks/event-agenda-v2-block.min.css',
+                    array(),
+                    filemtime($css_path)
+                );
+            }
+        },
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
