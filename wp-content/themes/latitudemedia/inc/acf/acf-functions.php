@@ -1037,8 +1037,14 @@ $blocks = array(
         'category'      => 'ltm-event-blocks',
         'keywords'    => array(__('Event speakers block', 'ltm')),
         'enqueue_assets' => function () {
-            wp_enqueue_style('block-acf-authors-list-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css');
-            wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css');
+            $css_path = get_template_directory() . '/dist/css/blocks/authors-list-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-authors-list-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css', array(), filemtime($css_path));
+            }
+            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
+            }
         },
         'example'      => array(
             'attributes' => array(
@@ -1223,7 +1229,12 @@ $blocks = array(
         'post_types'     => array('events'),
         'category'      => 'ltm-event-blocks',
         'keywords'    => array(__('Event contact us block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-contact-us-block.min.css',
+        'enqueue_assets' => function () {
+            $css_path = get_template_directory() . '/dist/css/blocks/event-contact-us-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-event-contact-us-block', get_template_directory_uri() . '/dist/css/blocks/event-contact-us-block.min.css', array(), filemtime($css_path));
+            }
+        },
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
