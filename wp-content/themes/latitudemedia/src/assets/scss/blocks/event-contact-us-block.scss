@@ -1,6 +1,11 @@
 @import "../core/core_loader";
 .contact-us-section {
   margin-bottom: 64px;
+  &.pink-separator {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+  }
   .contact-us-section-wrapper {
     margin-bottom: 32px;
   }

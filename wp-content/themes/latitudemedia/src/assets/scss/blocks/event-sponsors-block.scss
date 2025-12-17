@@ -2,4 +2,9 @@
 .event-sponsors-section {
   margin-bottom: 64px;
   @include eventSponsorsSection;
+  &.pink-separator {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+  }
 }

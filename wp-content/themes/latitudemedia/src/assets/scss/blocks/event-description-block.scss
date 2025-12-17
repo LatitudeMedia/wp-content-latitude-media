@@ -1,4 +1,9 @@
 @import "../core/core_loader";
 .event-text-section {
   @include eventTextSection;
+  &.pink-separator {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+  }
 }

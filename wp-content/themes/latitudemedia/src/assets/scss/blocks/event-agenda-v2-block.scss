@@ -2,6 +2,11 @@
 
 .event-agenda-v2-section {
   margin-bottom: 64px;
+  &.pink-separator {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+  }
   .event-agenda-v2-dropdown-wrapper {
     display: flex;
     justify-content: center;
