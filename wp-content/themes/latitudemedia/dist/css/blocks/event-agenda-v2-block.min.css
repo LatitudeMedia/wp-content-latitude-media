@@ -4,6 +4,9 @@
 .event-agenda-v2-section {
   margin-bottom: 64px;
 }
+.event-agenda-v2-section.pink-separator .bordered-title {
+  border-bottom: 5px solid #C6168D !important;
+}
 .event-agenda-v2-section .event-agenda-v2-dropdown-wrapper {
   display: flex;
   justify-content: center;
