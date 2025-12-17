@@ -4,6 +4,9 @@
 .contact-us-section {
   margin-bottom: 64px;
 }
+.contact-us-section.pink-separator .bordered-title {
+  border-bottom: 5px solid #C6168D !important;
+}
 .contact-us-section .contact-us-section-wrapper {
   margin-bottom: 32px;
 }

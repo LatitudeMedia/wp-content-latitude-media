@@ -1010,7 +1010,12 @@ $blocks = array(
                 'isDefault' => true,
             ]
         ],
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css',
+        'enqueue_assets' => function () {
+            $css_path = get_template_directory() . '/dist/css/blocks/event-description-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-event-description-block', get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css', array(), filemtime($css_path));
+            }
+        },
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -1056,12 +1061,10 @@ $blocks = array(
         'category'      => 'ltm-event-blocks',
         'keywords'    => array(__('Event sponsors block', 'ltm')),
         'enqueue_assets' => function () {
-            wp_enqueue_style(
-                'block-acf-event-sponsors-block',
-                get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css',
-                array(),
-                filemtime(get_template_directory() . '/dist/css/blocks/event-sponsors-block.min.css')
-            );
+            $css_path = get_template_directory() . '/dist/css/blocks/event-sponsors-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-event-sponsors-block', get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css', array(), filemtime($css_path));
+            }
         },
         'example'      => array(
             'attributes' => array(
