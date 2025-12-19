@@ -4,8 +4,19 @@
 .contact-us-section {
   margin-bottom: 64px;
 }
-.contact-us-section.pink-separator .bordered-title {
+.contact-us-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
+}
+.contact-us-section.pink-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button {
+  -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  border: 1px solid #C6168D !important;
+  color: #C6168D !important;
+}
+.contact-us-section.pink-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
 }
 .contact-us-section .contact-us-section-wrapper {
   margin-bottom: 32px;
