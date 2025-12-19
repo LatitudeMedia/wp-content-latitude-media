@@ -22,11 +22,14 @@
   margin-bottom: 32px;
 }
 .contact-us-section .contact-us-cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 80px;
+  display: flex;
+  gap: 40px;
+  justify-content: left;
+  flex-wrap: wrap;
 }
 .contact-us-section .contact-us-cards-wrapper .contact-us-card {
+  width: calc((100% - 80px) / 3);
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
 }
@@ -37,13 +40,19 @@
 }
 @media screen and (max-width: 992px) {
   .contact-us-section .contact-us-cards-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 60px;
+  }
+  .contact-us-section .contact-us-cards-wrapper .contact-us-card {
+    width: calc((100% - 60px) / 2);
   }
 }
 @media screen and (max-width: 576px) {
   .contact-us-section .contact-us-cards-wrapper {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contact-us-section .contact-us-cards-wrapper .contact-us-card {
+    width: 100%;
   }
 }
 
