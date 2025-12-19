@@ -17,6 +17,12 @@ $options = wp_parse_args(
 
 extract($options);
 
+$admin_logged_in = false;
+
+if (is_user_logged_in()) {
+  $admin_logged_in = true;
+}
+
 if (!$display && !is_admin()) {
   return;
 }
@@ -28,7 +34,7 @@ if (empty($navigation_links)) {
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
     [
-      "class" => 'content-block navigation-menu-section',
+      "class" => 'content-block navigation-menu-section' . ($admin_logged_in ? ' admin' : ''),
       "id" => $blockAttributes['anchor'] ?: '',
     ]
   )
