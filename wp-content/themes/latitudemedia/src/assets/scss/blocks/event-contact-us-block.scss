@@ -27,19 +27,28 @@
     margin-bottom: 32px;
   }
   .contact-us-cards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    gap: 40px;
+    justify-content: left;
+    flex-wrap: wrap;
     @include below_md {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 60px;
     }
     @include below_mob {
-      grid-template-columns: 1fr;
+      flex-direction: column;
+      gap: 40px;
     }
-    gap: 80px;
     .contact-us-card {
+      width: calc((100% - 80px) / 3);
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
+      @include below_md {
+        width: calc((100% - 60px) / 2);
+      }
+      @include below_mob {
+        width: 100%;
+      }
       .card-button {
         flex: 1;
         display: flex;
