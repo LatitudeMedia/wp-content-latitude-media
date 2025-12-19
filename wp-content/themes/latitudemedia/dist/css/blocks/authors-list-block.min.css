@@ -126,8 +126,16 @@
 .our-team-section .our-team-section-wrapper .team li .content-folder .more-link {
   display: inline-block;
 }
-.our-team-section.pink-separator .bordered-title {
+.our-team-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
+}
+.our-team-section.pink-theme .team .content-folder .name:hover {
+  color: #C6168D !important;
+}
+.our-team-section.pink-theme .team .image-folder {
+  -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  box-shadow: -10px 10px 0 0 #f9e8f4 !important;
 }
 @media screen and (max-width: 576px) {
   .our-team-section .our-team-section-wrapper .team {

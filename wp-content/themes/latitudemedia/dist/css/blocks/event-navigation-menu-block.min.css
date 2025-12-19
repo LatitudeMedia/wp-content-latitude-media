@@ -3,14 +3,23 @@
   \************************************************************************************************************************************************************************************************************************/
 .navigation-menu-section {
   position: sticky;
-  top: 196px;
+  top: 164px;
   background-color: #ffffff;
-  padding: 20px 0;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   scrollbar-width: none;
   z-index: 10;
+}
+.navigation-menu-section.admin {
+  top: 196px;
+}
+.navigation-menu-section.pink-theme .navigation-menu-links a:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
+}
+.navigation-menu-section.pink-theme .navigation-menu-links .active::after {
+  background-color: #C6168D !important;
 }
 .navigation-menu-section .navigation-menu-wrapper {
   display: flex;
@@ -28,6 +37,7 @@
   text-decoration: none;
   color: #0F1E42;
   position: relative;
+  padding: 20px;
 }
 .navigation-menu-section .navigation-menu-wrapper .navigation-menu-links a.active::after {
   content: "";
@@ -36,7 +46,12 @@
   height: 5px;
   background-color: #00B48D;
   position: absolute;
-  bottom: -27px;
+  bottom: 0px;
+  left: 0px;
+}
+.navigation-menu-section .navigation-menu-wrapper .navigation-menu-links a.active:hover {
+  background-color: transparent !important;
+  color: #0F1E42 !important;
 }
 .navigation-menu-section .navigation-menu-wrapper .buttons-container {
   display: flex;
@@ -53,10 +68,10 @@
 }
 @media screen and (max-width: 768px) {
   .navigation-menu-section {
-    top: 171px;
+    top: 126px;
   }
-  .navigation-menu-section .navigation-menu-wrapper .navigation-menu-links a.active::after {
-    bottom: -20px;
+  .navigation-menu-section.admin {
+    top: 172px;
   }
   .navigation-menu-section .navigation-menu-wrapper .buttons-container {
     display: none;

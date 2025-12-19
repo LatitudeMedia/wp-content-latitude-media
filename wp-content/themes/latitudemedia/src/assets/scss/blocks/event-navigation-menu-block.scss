@@ -1,16 +1,36 @@
 @import "../core/core_loader";
 .navigation-menu-section {
   position: sticky;
-  top: 196px;
+  top: 164px;
   background-color: $white;
-  padding: 20px 0;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   scrollbar-width: none;
   z-index: 10;
+  &.admin {
+    top: 196px;
+  }
+  &.pink-theme {
+    .navigation-menu-links {
+      a {
+        &:hover {
+          background-color: $primary-pink !important;
+          color: $white !important;
+        }
+      }
+      .active {
+        &::after {
+          background-color: $primary-pink !important;
+        }
+      }
+    }
+  }
   @include below_sm {
-    top: 171px;
+    top: 126px;
+    &.admin {
+      top: 172px;
+    }
   }
   .navigation-menu-wrapper {
     display: flex;
@@ -27,6 +47,7 @@
         text-decoration: none;
         color: $primary-dark-blue;
         position: relative;
+        padding: 20px;
         &.active {
           &::after {
             content: "";
@@ -35,10 +56,12 @@
             height: 5px;
             background-color: $green;
             position: absolute;
-            bottom: -27px;
-            @include below_sm {
-              bottom: -20px;
-            }
+            bottom: 0px;
+            left: 0px;
+          }
+          &:hover {
+            background-color: transparent !important;
+            color: $primary-dark-blue !important;
           }
         }
       }

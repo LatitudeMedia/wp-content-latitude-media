@@ -1,9 +1,26 @@
 @import "../core/core_loader";
 .contact-us-section {
   margin-bottom: 64px;
-  &.pink-separator {
+  &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
+    }
+    .contact-us-cards-wrapper {
+      .contact-us-card {
+        .card-button {
+          .cta-button {
+            -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+            -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+            box-shadow: -10px 10px 0 0 #f9e8f4 !important  ;
+            border: 1px solid $primary-pink !important;
+            color: $primary-pink !important;
+            &:hover {
+              background-color: $primary-pink !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
     }
   }
   .contact-us-section-wrapper {
