@@ -4847,7 +4847,16 @@
         }
       }
     }
-
+    .main-logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+      .main-logo {
+        object-fit: contain;
+        max-height: 150px;
+        max-width: 100%;
+      }
+    }
     .upper-heading {
       font-family: $inter;
       @include fontSize(24px);
