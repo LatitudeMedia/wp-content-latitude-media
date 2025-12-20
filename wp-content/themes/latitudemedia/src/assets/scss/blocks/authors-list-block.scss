@@ -1,4 +1,23 @@
 @import "../core/core_loader";
 .our-team-section {
   @include ourTeamSection;
+  &.pink-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+    .team {
+      .content-folder {
+        .name {
+          &:hover {
+            color: $primary-pink !important;
+          }
+        }
+      }
+      .image-folder {
+        -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+        -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+        box-shadow: -10px 10px 0 0 #f9e8f4 !important  ;
+      }
+    }
+  }
 }

@@ -1,0 +1,59 @@
+@import "../core/core_loader";
+.contact-us-section {
+  margin-bottom: 64px;
+  &.pink-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+    .contact-us-cards-wrapper {
+      .contact-us-card {
+        .card-button {
+          .cta-button {
+            -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+            -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+            box-shadow: -10px 10px 0 0 #f9e8f4 !important  ;
+            border: 1px solid $primary-pink !important;
+            color: $primary-pink !important;
+            &:hover {
+              background-color: $primary-pink !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .contact-us-section-wrapper {
+    margin-bottom: 32px;
+  }
+  .contact-us-cards-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: left;
+    flex-wrap: wrap;
+    @include below_md {
+      gap: 60px;
+    }
+    @include below_mob {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .contact-us-card {
+      width: calc((100% - 80px) / 3);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      @include below_md {
+        width: calc((100% - 60px) / 2);
+      }
+      @include below_mob {
+        width: 100%;
+      }
+      .card-button {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+}

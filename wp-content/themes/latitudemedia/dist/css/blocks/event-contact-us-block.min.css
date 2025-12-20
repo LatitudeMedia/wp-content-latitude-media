@@ -1,0 +1,59 @@
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/event-contact-us-block.scss ***!
+  \*******************************************************************************************************************************************************************************************************************/
+.contact-us-section {
+  margin-bottom: 64px;
+}
+.contact-us-section.pink-theme .bordered-title {
+  border-bottom: 5px solid #C6168D !important;
+}
+.contact-us-section.pink-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button {
+  -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+  border: 1px solid #C6168D !important;
+  color: #C6168D !important;
+}
+.contact-us-section.pink-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
+}
+.contact-us-section .contact-us-section-wrapper {
+  margin-bottom: 32px;
+}
+.contact-us-section .contact-us-cards-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.contact-us-section .contact-us-cards-wrapper .contact-us-card {
+  width: calc((100% - 80px) / 3);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.contact-us-section .contact-us-cards-wrapper .contact-us-card .card-button {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+@media screen and (max-width: 992px) {
+  .contact-us-section .contact-us-cards-wrapper {
+    gap: 60px;
+  }
+  .contact-us-section .contact-us-cards-wrapper .contact-us-card {
+    width: calc((100% - 60px) / 2);
+  }
+}
+@media screen and (max-width: 576px) {
+  .contact-us-section .contact-us-cards-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contact-us-section .contact-us-cards-wrapper .contact-us-card {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=event-contact-us-block.min.css.map*/

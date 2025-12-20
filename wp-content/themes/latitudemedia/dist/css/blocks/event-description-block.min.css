@@ -1,1 +1,18 @@
-.event-text-section{margin-bottom:64px}.event-text-section .event-text-section-wrapper h2{text-align:center;margin-bottom:64px}.event-text-section .event-text-section-wrapper .bordered-title{margin-bottom:32px}
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/event-description-block.scss ***!
+  \********************************************************************************************************************************************************************************************************************/
+.event-text-section {
+  margin-bottom: 64px;
+}
+.event-text-section .event-text-section-wrapper h2 {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.event-text-section .event-text-section-wrapper .bordered-title {
+  margin-bottom: 32px;
+}
+.event-text-section.pink-separator .bordered-title {
+  border-bottom: 5px solid #C6168D !important;
+}
+
+/*# sourceMappingURL=event-description-block.min.css.map*/

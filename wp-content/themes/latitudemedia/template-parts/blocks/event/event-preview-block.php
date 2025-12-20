@@ -15,6 +15,7 @@ $options = wp_parse_args(
             'location',
             'button',
         ],
+        'main_logo' => [],
         'subtitle'      => '',
         'logos_title' => 'Co-hosted with:',
         'co_hosted_logo' => null,
@@ -70,9 +71,15 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
             </div>
             <?php
 
-            if (in_array('title', $rows)) {
-                printf('<h1>%s</h1>', get_the_title($post_id));
+            if (!empty($main_logo) && is_array($main_logo)) {
+                $imageHtml = $main_logo['url'];
+                printf('<div class="main-logo-wrapper"><img alt="img" class="main-logo" src="%s"></div>', $imageHtml);
+            } else {
+                if (in_array('title', $rows)) {
+                    printf('<h1>%s</h1>', get_the_title($post_id));
+                }
             }
+
 
             if (in_array('location', $rows)) {
                 do_action('print_event_location', $post_id);

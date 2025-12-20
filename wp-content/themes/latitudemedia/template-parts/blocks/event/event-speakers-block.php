@@ -9,40 +9,42 @@ $options = wp_parse_args(
         'title'     => 'Featured speakers',
         'speakers'  => [],
         'display'   => false,
+        'show_read_more_button' => false,
         'blockAttributes' => [],
     ]
 );
 
 extract($options);
 
-if(!$display && !is_admin()) {
+if (!$display && !is_admin()) {
     return;
 }
 
-if( empty($speakers) ) {
+if (empty($speakers)) {
     return;
 }
 
 $blockAttrs = wp_kses_data(
-  get_block_wrapper_attributes(
-      [
-          "class" => 'content-block our-team-section',
-          "id" => $blockAttributes['anchor'] ?: '',
-      ]
-  )
+    get_block_wrapper_attributes(
+        [
+            "class" => 'content-block our-team-section',
+            "id" => $blockAttributes['anchor'] ?: '',
+        ]
+    )
 );
 
 $speakersPosts = get_published_posts_by_ids($speakers, ['post_type' => 'speakers']);
-if(!$speakersPosts->have_posts()) {
+if (!$speakersPosts->have_posts()) {
     return;
 }
 
+$readMoreLink = $show_read_more_button ? '<a class="more-link js-modal-open" href="#{uniqid}">Read more</a>' : '';
 $postItemTemplate = get_wrap_rows_from_template('
     <div class="image-folder green"><a href="#{uniqid}" class="js-modal-open">[thumb]</a></div>
     <div class="content-folder">
         <a href="#{uniqid}" class="name green js-modal-open">[title]</a>
         [speaker-company]
-        <a class="more-link js-modal-open" href="#{uniqid}">Read more</a>
+        ' . $readMoreLink . '
     </div>
 ');
 
@@ -70,69 +72,68 @@ $modalItemTemplate = get_wrap_rows_from_template('
 </div>');
 ?>
 
-<div <?php echo $blockAttrs; ?>
->
+
+<div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <div class="our-team-section-wrapper">
             <div class="bordered-title green"><?php echo $title; ?></div>
             <ul class="team">
                 <?php
-                    while($speakersPosts->have_posts()) {
-                        echo '<li>';
-                        $speakersPosts->the_post();
-                        $modalId = uniqid();
-                        get_template_part(
-                            'template-parts/components/post',
-                            'item',
-                            array(
-                                'post_id'  => get_the_ID(),
-                                'settings' => array(
-                                    'thumb'   => array(
-                                        'size'       => 'event-speakers-list',
-                                        'link'       => false,
-                                    ),
-                                    'title' => array(
-                                        'wrap' => '%1$s',
-                                        'link' => false
-                                    ),
-                                    'speaker-company' => [
-                                            'wrap' => '<p class="occupation">%1$s</p>',
+                while ($speakersPosts->have_posts()) {
+                    echo '<li>';
+                    $speakersPosts->the_post();
+                    $modalId = uniqid();
+                    get_template_part(
+                        'template-parts/components/post',
+                        'item',
+                        array(
+                            'post_id'  => get_the_ID(),
+                            'settings' => array(
+                                'thumb'   => array(
+                                    'size'       => 'event-speakers-list',
+                                    'link'       => false,
+                                ),
+                                'title' => array(
+                                    'wrap' => '%1$s',
+                                    'link' => false
+                                ),
+                                'speaker-company' => [
+                                    'wrap' => '<p class="occupation">%1$s</p>',
+                                ]
+                            ),
+                            'rows'     => $postItemTemplate['rows'],
+                            'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $postItemTemplate['wrap']),
+                        )
+                    );
+
+                    get_template_part(
+                        'template-parts/components/post',
+                        'item',
+                        array(
+                            'post_id'  => get_the_ID(),
+                            'settings' => array(
+                                'thumb'   => array(
+                                    'size'       => 'event-speakers-modal',
+                                    'class'      => 'avatar',
+                                    'link'       => false,
+                                    'img_attr'   => [
+                                        'class'     => 'avatar',
                                     ]
                                 ),
-                                'rows'     => $postItemTemplate['rows'],
-                                'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $postItemTemplate['wrap']),
-                            )
-                        );
-
-                        get_template_part(
-                            'template-parts/components/post',
-                            'item',
-                            array(
-                                'post_id'  => get_the_ID(),
-                                'settings' => array(
-                                    'thumb'   => array(
-                                        'size'       => 'event-speakers-modal',
-                                        'class'      => 'avatar',
-                                        'link'       => false,
-                                        'img_attr'   => [
-                                                'class'     => 'avatar',
-                                        ]
-                                    ),
-                                    'title' => array(
-                                        'wrap' => '<h3>%1$s</h3>',
-                                        'link' => false
-                                    ),
+                                'title' => array(
+                                    'wrap' => '<h3>%1$s</h3>',
+                                    'link' => false
                                 ),
-                                'rows'     => $modalItemTemplate['rows'],
-                                'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $modalItemTemplate['wrap']),
-                            )
-                        );
-                        wp_reset_postdata();
-                        echo '</li>';
-                    }
+                            ),
+                            'rows'     => $modalItemTemplate['rows'],
+                            'wrap'     => preg_replace("/\{uniqid\}/", $modalId, $modalItemTemplate['wrap']),
+                        )
+                    );
+                    wp_reset_postdata();
+                    echo '</li>';
+                }
                 ?>
             </ul>
         </div>
     </div>
 </div>
-
