@@ -71,6 +71,9 @@
       gap: 30px;
       border-bottom: 1px solid $primary-pink;
       padding: 30px;
+      @include below_mob {
+        flex-direction: column;
+      }
       .event-agenda-v2-item-time {
         color: $green;
         font-weight: 700;
