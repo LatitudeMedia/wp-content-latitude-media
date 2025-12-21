@@ -1076,6 +1076,10 @@ $blocks = array(
             if (file_exists($css_path)) {
                 wp_enqueue_style('block-acf-event-sponsors-block', get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css', array(), filemtime($css_path));
             }
+            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
+            }
         },
         'example'      => array(
             'attributes' => array(
@@ -1465,7 +1469,12 @@ $blocks = array(
             "mode"  => false
         ),
         'mode' => 'preview',
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css',
+        'enqueue_assets' => function () {
+            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
+            }
+        },
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
