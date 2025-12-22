@@ -2,4 +2,13 @@
 .partners-logos-section {
   margin-bottom: 40px;
   @include partnersLogosSection;
+  &.no-click {
+    .logos {
+      li {
+        a {
+          pointer-events: none;
+        }
+      }
+    }
+  }
 }
