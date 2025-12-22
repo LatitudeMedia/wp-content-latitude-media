@@ -253,7 +253,33 @@ $(document).ready(function ($) {
     });
   }
 
-  // Navigation menu links - add active state on click and scroll with offset
+  const navigationMenuButtons = $(
+    ".navigation-menu-section .buttons-container .nav-button"
+  );
+  if (navigationMenuButtons.length > 0) {
+    navigationMenuButtons.on("click", function (e) {
+      const buttonAnchor = $(this).attr("href");
+      if (
+        buttonAnchor &&
+        buttonAnchor.startsWith("#") &&
+        buttonAnchor.length > 1
+      ) {
+        e.preventDefault();
+        const targetElement = $(buttonAnchor);
+        if (targetElement.length > 0) {
+          const scrollOffset = 300;
+          const targetPosition = targetElement.offset().top - scrollOffset;
+
+          $("html, body").animate(
+            {
+              scrollTop: targetPosition,
+            },
+            1000
+          );
+        }
+      }
+    });
+  }
   const navigationMenuLinks = $(
     ".navigation-menu-section .navigation-menu-links a"
   );
