@@ -7,6 +7,9 @@
 .contact-us-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
 }
+.contact-us-section.pink-theme .contact-us-cards-wrapper .contact-us-card .card-content p a {
+  color: #C6168D;
+}
 .contact-us-section.pink-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button {
   -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
   -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
