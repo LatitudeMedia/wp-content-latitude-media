@@ -7,6 +7,13 @@
     }
     .contact-us-cards-wrapper {
       .contact-us-card {
+        .card-content {
+          p {
+            a {
+              color: $primary-pink;
+            }
+          }
+        }
         .card-button {
           .cta-button {
             -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;

@@ -10,6 +10,21 @@
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row {
   margin-bottom: 32px;
 }
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xlarge li {
+  width: calc((100% - 90px) / 4);
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.large li {
+  width: calc((90% - 90px) / 4);
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.medium li {
+  width: calc((80% - 90px) / 4);
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.small li {
+  width: calc((70% - 90px) / 4);
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xsmall li {
+  width: calc((60% - 90px) / 4);
+}
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row h5 {
   margin-bottom: 24px;
   text-align: center;
@@ -21,16 +36,23 @@
   align-self: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 0 0 -5%;
+  gap: 30px;
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
-  width: 20%;
+  flex-shrink: 0;
+  width: calc((100% - 90px) / 4);
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .image-folder {
-  margin-bottom: 26px;
+  width: 100%;
+}
+.event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .image-folder img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li .content-folder .more-link {
   text-decoration: underline;
@@ -77,17 +99,66 @@
   border-bottom: 5px solid #C6168D !important;
 }
 @media screen and (max-width: 992px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xlarge li {
+    width: calc((100% - 60px) / 3);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.large li {
+    width: calc((90% - 60px) / 3);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.medium li {
+    width: calc((80% - 60px) / 3);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.small li {
+    width: calc((70% - 60px) / 3);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xsmall li {
+    width: calc((60% - 60px) / 3);
+  }
   .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
-    width: 28.3%;
+    width: calc((100% - 60px) / 3);
   }
 }
 @media screen and (max-width: 768px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xlarge li {
+    width: calc((100% - 30px) / 2);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.large li {
+    width: calc((90% - 30px) / 2);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.medium li {
+    width: calc((80% - 30px) / 2);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.small li {
+    width: calc((70% - 30px) / 2);
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xsmall li {
+    width: calc((60% - 30px) / 2);
+  }
   .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
-    margin-bottom: 32px;
-    width: 45%;
+    width: calc((100% - 30px) / 2);
   }
 }
 @media screen and (max-width: 576px) {
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xlarge li {
+    width: 70% !important;
+    margin-left: 0 !important;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.large li {
+    width: 45% !important;
+    margin-left: 0 !important;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.medium li {
+    width: 35% !important;
+    margin-left: 0 !important;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.small li {
+    width: 30% !important;
+    margin-left: 0 !important;
+  }
+  .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xsmall li {
+    width: 25% !important;
+    margin-left: 0 !important;
+  }
   .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row ul li {
     width: 100% !important;
     margin-left: 0 !important;

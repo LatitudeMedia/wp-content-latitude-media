@@ -9,6 +9,7 @@ $options = wp_parse_args(
         'title'             => 'Sponsors',
         'sponsors_category' => [],
         'display'           => false,
+        'different_sizes'   => false,
         'show_read_more_button' => false,
         'blockAttributes'   => [],
     ]
@@ -45,7 +46,7 @@ $blockAttrs = wp_kses_data(
                 if (empty($category['sponsors'])) {
                     continue;
                 }
-                $size = $category['size'] ?: 'medium';
+                $size = $different_sizes ? ($category['size'] ?: 'xlarge') : 'xlarge';
                 $sponsorsPosts = get_published_posts_by_ids($category['sponsors'], ['post_type' => 'sponsors']);
 
                 $listHtml = '';

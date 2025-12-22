@@ -5209,7 +5209,81 @@
   .event-sponsors-section-wrapper {
     .sponsors-row {
       margin-bottom: 32px;
-
+      &.xlarge {
+        li {
+          width: calc((100% - 90px) / 4);
+          @include below_md {
+            width: calc((100% - 60px) / 3);
+          }
+          @include below_sm {
+            width: calc((100% - 30px) / 2);
+          }
+          @include below_mob {
+            width: 70% !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
+      &.large {
+        li {
+          width: calc((90% - 90px) / 4);
+          @include below_md {
+            width: calc((90% - 60px) / 3);
+          }
+          @include below_sm {
+            width: calc((90% - 30px) / 2);
+          }
+          @include below_mob {
+            width: 45% !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
+      &.medium {
+        li {
+          width: calc((80% - 90px) / 4);
+          @include below_md {
+            width: calc((80% - 60px) / 3);
+          }
+          @include below_sm {
+            width: calc((80% - 30px) / 2);
+          }
+          @include below_mob {
+            width: 35% !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
+      &.small {
+        li {
+          width: calc((70% - 90px) / 4);
+          @include below_md {
+            width: calc((70% - 60px) / 3);
+          }
+          @include below_sm {
+            width: calc((70% - 30px) / 2);
+          }
+          @include below_mob {
+            width: 30% !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
+      &.xsmall {
+        li {
+          width: calc((60% - 90px) / 4);
+          @include below_md {
+            width: calc((60% - 60px) / 3);
+          }
+          @include below_sm {
+            width: calc((60% - 30px) / 2);
+          }
+          @include below_mob {
+            width: 25% !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
       h5 {
         margin-bottom: 24px;
         text-align: center;
@@ -5221,17 +5295,15 @@
         align-self: center;
         justify-content: center;
         flex-wrap: wrap;
-        margin: 0 0 0 -5%;
+        gap: 30px;
         li {
-          margin-left: 5%;
-          width: 20%;
-          margin-bottom: 64px;
+          flex-shrink: 0;
+          width: calc((100% - 90px) / 4);
           @include below_md {
-            width: 28.3%;
+            width: calc((100% - 60px) / 3);
           }
           @include below_sm {
-            margin-bottom: 32px;
-            width: 45%;
+            width: calc((100% - 30px) / 2);
           }
           @include below_mob {
             width: 100% !important;
@@ -5240,8 +5312,15 @@
           align-items: center;
           display: flex;
           flex-direction: column;
+          justify-content: center;
           .image-folder {
-            margin-bottom: 26px;
+            // margin-bottom: 26px;
+            width: 100%;
+            img {
+              width: 100%;
+              object-fit: contain;
+              object-position: center;
+            }
           }
           .content-folder {
             .more-link {
