@@ -288,7 +288,7 @@ add_action('acf/include_fields', function () {
                     'virtual' => 'Virtual',
                     'conference' => 'Conference',
                     'dispatch' => 'Dispatch',
-                    'frontier-forum' => 'Frontier Forum',
+                    'frontier-forum' => 'Frontier-forum',
                 ),
                 'default_value' => false,
                 'return_format' => 'value',
