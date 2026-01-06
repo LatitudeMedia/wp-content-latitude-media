@@ -367,6 +367,9 @@ if (! function_exists('print_event_type')) :
         $eventType = get_field('event_type', $post_id);
 
         if (!empty($eventType)) {
+            if ($eventType === 'frontier-forum') {
+                $eventType = 'Frontier Forum';
+            }
             echo '<span class="solid">' . $eventType . '</span>';
         }
     }
