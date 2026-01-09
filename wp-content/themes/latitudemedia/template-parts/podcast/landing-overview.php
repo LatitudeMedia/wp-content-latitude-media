@@ -11,7 +11,7 @@ $podcastData = get_fields(get_the_ID());
                 <?php the_content(); ?>
                 <div class="info">
                     <div class="row">
-                        <span class="label"><?php _e('Host', 'ltm')?>:&nbsp</span>
+                        <span class="label"><?php _e('Host', 'ltm') ?>:&nbsp</span>
                         <span class="value"><?php do_action('print_article_authors', get_the_ID(), ['separator' => '<span> + </span>']); ?></span>
                     </div>
                     <div class="row">
@@ -26,7 +26,8 @@ $podcastData = get_fields(get_the_ID());
                                 'linkedin'  => $podcastData['linkedin'],
                                 'instagram' => $podcastData['instagram'],
                                 'facebook'  => $podcastData['facebook'],
-                                'bluesky'   => $podcastData['bluesky'] ?? null
+                                'bluesky'   => $podcastData['bluesky'] ?? null,
+                                'youtube'   => $podcastData['youtube'] ?? null
                             ]
                         ]);
                         ?>
@@ -35,7 +36,7 @@ $podcastData = get_fields(get_the_ID());
             </div>
             <div class="image-folder">
                 <?php
-                    do_action('thumbnail_formatting', get_the_ID(), ['size' => 'podcast-landing-overview', 'link' => false]);
+                do_action('thumbnail_formatting', get_the_ID(), ['size' => 'podcast-landing-overview', 'link' => false]);
                 ?>
             </div>
         </div>

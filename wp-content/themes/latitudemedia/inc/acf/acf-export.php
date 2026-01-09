@@ -1097,6 +1097,12 @@ add_action('acf/include_fields', function () {
                 'name' => 'spotify_episode_link',
                 'type' => 'text',
             ),
+            array(
+                'key' => 'field_670d43f152a6b',
+                'label' => 'YouTube Episode Link',
+                'name' => 'youtube_episode_link',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
@@ -1250,6 +1256,12 @@ add_action('acf/include_fields', function () {
                 'key' => 'field_67052c3ea2090',
                 'label' => 'RSS Feed',
                 'name' => 'rss_feed',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_67052c40a2091',
+                'label' => 'YouTube',
+                'name' => 'youtube',
                 'type' => 'text',
             ),
             array(
