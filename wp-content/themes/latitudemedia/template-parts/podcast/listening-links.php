@@ -10,7 +10,7 @@ $options = wp_parse_args(
 
 extract($options);
 
-if( empty($links) ) {
+if (empty($links)) {
     return;
 }
 
@@ -18,6 +18,7 @@ $icons = [
     'apple'     => 'icon_apple_podcast.svg',
     'spotify'   => 'icon_spotify.svg',
     'rss'       => 'icon_rss.svg',
+    'youtube'   => 'icon_youtube.svg',
 ];
 
 ?>
@@ -26,7 +27,7 @@ $icons = [
 <ul class="socials">
     <?php
     foreach ($links as $key => $link) {
-        if( empty($link) ) continue;
+        if (empty($link)) continue;
         printf('<li><a href="%s"><img src="%s" alt="icon" class="icon" width="32" height="32"></a></li>', $link, get_stylesheet_directory_uri() . '/src/images/' . $icons[$key] ?? '');
     }
     ?>

@@ -3,7 +3,7 @@ if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Inline podcast block', 'ltm') . '</h3>';
 }
 // Set defaults Inline podcast block.
- 
+
 $options = wp_parse_args(
     $args,
     [
@@ -15,7 +15,7 @@ $options = wp_parse_args(
 
 extract($options);
 
-if(!$display && !is_admin()) {
+if (!$display && !is_admin()) {
     return;
 }
 
@@ -23,10 +23,11 @@ $embed_code = get_field('podcast_embed_code', $post_id);
 $links = [
     'apple'     => get_field('apple_episode_link', $post_id),
     'spotify'   => get_field('spotify_episode_link', $post_id),
+    'youtube'   => get_field('youtube_episode_link', $post_id),
 ];
 $links = array_filter($links);
 
-if( empty($embed_code) ) {
+if (empty($embed_code)) {
     return;
 }
 
@@ -41,21 +42,20 @@ if( empty($embed_code) ) {
             ]
         )
     );
-    ?>
->
+    ?>>
 
     <?php echo $embed_code; ?>
-    <?php if( !empty($links) ) : ?>
-    <div class="podcast-info">
-        <div class="row">
-            <?php
-            get_template_part('template-parts/podcast/listening', 'links', [
-                'title' => 'Listen to the episode on:',
-                'links' => $links
-            ]);
-            ?>
+    <?php if (!empty($links)) : ?>
+        <div class="podcast-info">
+            <div class="row">
+                <?php
+                get_template_part('template-parts/podcast/listening', 'links', [
+                    'title' => 'Listen to the episode on:',
+                    'links' => $links
+                ]);
+                ?>
+            </div>
         </div>
-    </div>
     <?php endif; ?>
 
 </div>
