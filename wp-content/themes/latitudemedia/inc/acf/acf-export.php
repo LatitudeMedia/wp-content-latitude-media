@@ -1097,6 +1097,12 @@ add_action('acf/include_fields', function () {
                 'name' => 'spotify_episode_link',
                 'type' => 'text',
             ),
+            array(
+                'key' => 'field_670d43f152a6b',
+                'label' => 'YouTube Episode Link',
+                'name' => 'youtube_episode_link',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
@@ -1250,6 +1256,12 @@ add_action('acf/include_fields', function () {
                 'key' => 'field_67052c3ea2090',
                 'label' => 'RSS Feed',
                 'name' => 'rss_feed',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_67052c40a2091',
+                'label' => 'YouTube',
+                'name' => 'youtube',
                 'type' => 'text',
             ),
             array(
@@ -3072,6 +3084,14 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                         'allow_in_bindings' => 0,
                         'parent_repeater' => 'field_673dbb8930c1c',
                     ),
+                    array(
+                        'key' => 'field_676155206e9f8',
+                        'label' => 'YouTube link',
+                        'name' => 'youtube_link',
+                        'type' => 'text',
+                        'allow_in_bindings' => 0,
+                        'parent_repeater' => 'field_673dbb8930c1c',
+                    ),
                 ),
             ),
             array(
@@ -3314,6 +3334,16 @@ Or select event manually.',
                 'type' => 'message',
                 'esc_html' => 0,
                 'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_6745c801bdaff',
+                'label' => 'Additional info',
+                'name' => 'additional_info',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
             ),
             array(
                 'key' => 'field_6745c3f2c517f',

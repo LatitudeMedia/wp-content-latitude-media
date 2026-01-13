@@ -16,27 +16,26 @@ $options = wp_parse_args(
 
 extract($options);
 
-if(!$display && !is_admin()) {
+if (!$display && !is_admin()) {
     return;
 }
 
-if ( empty($podcasts) ) {
+if (empty($podcasts)) {
     return;
 }
 
 $blockAttrs = wp_kses_data(
-  get_block_wrapper_attributes(
-      [
-          "class" => 'content-block',
-          "id" => $blockAttributes['anchor'] ?: '',
-      ]
-  )
+    get_block_wrapper_attributes(
+        [
+            "class" => 'content-block',
+            "id" => $blockAttributes['anchor'] ?: '',
+        ]
+    )
 );
 
 ?>
 
-<div <?php echo $blockAttrs; ?>
->
+<div <?php echo $blockAttrs; ?>>
     <div class="three-podcasts-section">
         <div class="container-narrow">
             <div class="three-podcasts-section-wrapper">
@@ -48,7 +47,7 @@ $blockAttrs = wp_kses_data(
                             <div class="image-folder orange">
                                 <span>
                                     <?php
-                                    if( !empty($podcast['image']) ) {
+                                    if (!empty($podcast['image'])) {
                                         do_action('thumbnail_formatting', null, ['link' => false, 'size' => 'author-archive-hero', 'image_id' => $podcast['image']['ID']]);
                                     }
                                     ?>
@@ -56,15 +55,15 @@ $blockAttrs = wp_kses_data(
                             </div>
                             <div class="content-folder">
                                 <?php
-                                    if(!empty($podcast['title'])) {
-                                        printf('<div class="title">%s</div>', $podcast['title']);
-                                    }
-                                    if(!empty($podcast['company'])) {
-                                        printf('<div class="company">%s</div>', $podcast['company']);
-                                    }
-                                    if(!empty($podcast['description'])) {
-                                        printf('<p>%s</p>', $podcast['description']);
-                                    }
+                                if (!empty($podcast['title'])) {
+                                    printf('<div class="title">%s</div>', $podcast['title']);
+                                }
+                                if (!empty($podcast['company'])) {
+                                    printf('<div class="company">%s</div>', $podcast['company']);
+                                }
+                                if (!empty($podcast['description'])) {
+                                    printf('<p>%s</p>', $podcast['description']);
+                                }
                                 ?>
                                 <div class="listen-block">
                                     <?php
@@ -73,6 +72,7 @@ $blockAttrs = wp_kses_data(
                                         'links' => [
                                             'apple'     => $podcast['apple_link'],
                                             'spotify'   => $podcast['spotify_link'],
+                                            'youtube'   => $podcast['youtube_link'],
                                         ]
                                     ]);
                                     ?>
@@ -85,4 +85,3 @@ $blockAttrs = wp_kses_data(
         </div>
     </div>
 </div>
-
