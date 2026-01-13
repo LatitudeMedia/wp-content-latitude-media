@@ -36,6 +36,13 @@ $blockAttrs = wp_kses_data(
     <div class="container-narrow">
         <div class="venue-section-wrapper">
             <div class="bordered-title"><?php _e($title); ?></div>
+            <div class="additional-info">
+                <?php
+                if (!empty($additional_info)) {
+                    echo $additional_info;
+                }
+                ?>
+            </div>
             <?php
             if (!empty($embed_code)) {
                 echo $embed_code;
