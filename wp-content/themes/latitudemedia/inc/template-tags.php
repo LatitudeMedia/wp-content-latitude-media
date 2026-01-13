@@ -228,7 +228,7 @@ if (! function_exists('print_article_tags_list')) :
             $tags[] = sprintf('<span class="sponsored">%s</span>', __('Sponsored', 'ltm'));
         }
         if (is_partnered($post_id)) {
-            $tags[] = sprintf('<span class="partnered">%s</span>', __('Partnered', 'ltm'));
+            $tags[] = sprintf('<span class="partnered">%s</span>', __('Partner', 'ltm'));
         }
 
         $categories = get_the_terms($post_id, 'category');
@@ -325,6 +325,7 @@ if (! function_exists('print_podcast_listening')) :
                 'apple'     => get_field('apple_podcast', $podcast_id),
                 'spotify'   => get_field('spotify', $podcast_id),
                 'rss'       => get_field('rss_feed', $podcast_id),
+                'youtube'   => get_field('youtube', $podcast_id),
             ]
         ]);
     }
