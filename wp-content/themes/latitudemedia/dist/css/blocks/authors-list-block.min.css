@@ -137,6 +137,24 @@
   -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
   box-shadow: -10px 10px 0 0 #f9e8f4 !important;
 }
+.our-team-section.pink-theme .team .modal-content .modal-folder .cross:before {
+  background-color: #C6168D !important;
+}
+.our-team-section.pink-theme .team .modal-content .modal-folder .cross:after {
+  background-color: #C6168D !important;
+}
+.our-team-section.pink-theme .team .modal-content .modal-folder .description a {
+  color: #C6168D !important;
+}
+.our-team-section.pink-theme .team .modal-content .modal-folder .strict-button {
+  background-color: #C6168D !important;
+  border-color: #C6168D !important;
+}
+.our-team-section.pink-theme .team .modal-content .modal-folder .strict-button:hover {
+  background-color: #ffffff !important;
+  border-color: #C6168D !important;
+  color: #C6168D !important;
+}
 @media screen and (max-width: 992px) {
   .our-team-section .our-team-section-wrapper .team {
     gap: 5%;
