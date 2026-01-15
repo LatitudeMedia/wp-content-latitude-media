@@ -2,9 +2,12 @@
 .venue-section {
   margin-bottom: 64px;
   @include venueSection;
-  &.pink-separator {
+  &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
+    }
+    a {
+      color: $primary-pink !important;
     }
   }
 }

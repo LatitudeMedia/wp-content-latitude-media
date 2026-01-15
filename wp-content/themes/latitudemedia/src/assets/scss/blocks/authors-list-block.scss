@@ -18,6 +18,32 @@
         -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
         box-shadow: -10px 10px 0 0 #f9e8f4 !important  ;
       }
+      .modal-content {
+        .modal-folder {
+          .cross {
+            &:before {
+              background-color: $primary-pink !important;
+            }
+            &:after {
+              background-color: $primary-pink !important;
+            }
+          }
+          .description {
+            a {
+              color: $primary-pink !important;
+            }
+          }
+          .strict-button {
+            background-color: $primary-pink !important;
+            border-color: $primary-pink !important;
+            &:hover {
+              background-color: $white !important;
+              border-color: $primary-pink !important;
+              color: $primary-pink !important;
+            }
+          }
+        }
+      }
     }
   }
 }
