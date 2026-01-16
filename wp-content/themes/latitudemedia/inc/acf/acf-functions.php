@@ -1145,6 +1145,38 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
+            'name'          => 'recap-video-block',
+            'title'         => __('Recap video block', 'ltm'),
+            'path'          => 'event',
+        ),
+        'icon'          => 'video-alt3',
+        'description' => __('Recap video block', 'ltm'),
+        'post_types'     => array('events'),
+        'category'      => 'ltm-event-blocks',
+        'keywords'    => array(__('Recap video block', 'ltm')),
+        'enqueue_assets' => function () {
+            $css_path = get_template_directory() . '/dist/css/blocks/recap-video-block.min.css';
+
+            if (file_exists($css_path)) {
+                wp_enqueue_style(
+                    'block-acf-recap-video-block',
+                    get_template_directory_uri() . '/dist/css/blocks/recap-video-block.min.css',
+                    array(),
+                    filemtime($css_path)
+                );
+            }
+        },
+        'example'      => array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'recap-video-block.png',
+                )
+            )
+        )
+    ),
+    array(
+        'attrs' => array(
             'name'          => 'event-short-description-block',
             'title'         => __('Event short description block', 'ltm'),
             'path'          => 'event',
