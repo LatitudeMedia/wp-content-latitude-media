@@ -95,8 +95,24 @@
 .event-sponsors-section.orange .bordered-title {
   border-color: #F99D1C;
 }
-.event-sponsors-section.pink-separator .bordered-title {
+.event-sponsors-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
+}
+.event-sponsors-section.pink-theme .modal-content .modal-folder .bio img {
+  border: 1px solid #C6168D !important;
+}
+.event-sponsors-section.pink-theme .modal-content .modal-folder .description a {
+  color: #C6168D !important;
+  display: inline-block;
+}
+.event-sponsors-section.pink-theme .modal-content .modal-folder .control-buttons .strict-button {
+  background-color: #C6168D !important;
+  border-color: #C6168D !important;
+}
+.event-sponsors-section.pink-theme .modal-content .modal-folder .control-buttons .strict-button:hover {
+  background-color: #ffffff !important;
+  border-color: #C6168D !important;
+  color: #C6168D !important;
 }
 @media screen and (max-width: 992px) {
   .event-sponsors-section .event-sponsors-section-wrapper .sponsors-row.xlarge li {

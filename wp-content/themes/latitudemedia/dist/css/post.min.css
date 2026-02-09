@@ -313,6 +313,40 @@
   color: #6e6e6e;
   text-transform: uppercase;
 }
+.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button {
+  text-align: left;
+  border: 1px solid #C6168D;
+  padding: 10px 10px;
+  width: fit-content;
+  cursor: pointer;
+  margin-top: 24px;
+  max-width: 200px;
+}
+.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button:hover {
+  background-color: #e1cfdb;
+}
+.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button:hover a .label {
+  color: #0F1E42 !important;
+}
+.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button a .google-logo {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button a .label {
+  color: #C6168D !important;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-family: "inter", Arial, Helvetica, sans-serif !important;
+}
 @media screen and (max-width: 992px){
   .single-post .right-sidebar-layout .sidebar .form-block, .single-industry-news .right-sidebar-layout .sidebar .form-block {
     position: initial;
