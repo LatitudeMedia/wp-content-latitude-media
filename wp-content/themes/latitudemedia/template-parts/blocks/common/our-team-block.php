@@ -8,6 +8,7 @@ $options = wp_parse_args(
     [
         'title'         => false,
         'members'       => false,
+        'order_alphabetically' => false,
         'display'       => false,
         'blockAttributes' => [],
     ]
@@ -15,52 +16,63 @@ $options = wp_parse_args(
 
 extract($options);
 
-if(!$display && !is_admin()) {
+if (!$display && !is_admin()) {
     return;
 }
 
-if( empty($members) ) {
+if (empty($members)) {
     return;
 }
 
 $blockAttrs = wp_kses_data(
-  get_block_wrapper_attributes(
-      [
-          "class" => 'content-block our-team-section',
-          "id" => $blockAttributes['anchor'] ?: '',
-      ]
-  )
+    get_block_wrapper_attributes(
+        [
+            "class" => 'content-block our-team-section',
+            "id" => $blockAttributes['anchor'] ?: '',
+        ]
+    )
 );
 
-$queryArgs = [
-    'post_type'         => "team",
-    'posts_per_page'    => -1
-];
+if ($order_alphabetically) {
+    $queryArgs = [
+        'post_type'         => "team",
+        'posts_per_page'    => -1,
+        'orderby'           => 'title',
+        'order'             => 'ASC',
+    ];
+} else {
+    $queryArgs = [
+        'post_type'         => "team",
+        'posts_per_page'    => -1,
+        'orderby'           => 'post__in',
+        'order'             => 'ASC',
+    ];
+}
+
 $teamMembers = \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $members);
 
-if(!$teamMembers->have_posts()) {
+if (!$teamMembers->have_posts()) {
     return;
 }
 ?>
 
-<div <?php echo $blockAttrs; ?>
->
+
+<div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <div class="our-team-section-wrapper">
             <?php do_action('section_title', $title, '<div class="bordered-title">%1$s</div>'); ?>
             <ul class="team">
-                <?php while($teamMembers->have_posts()) :
+                <?php while ($teamMembers->have_posts()) :
                     $teamMembers->the_post();
                     $memberData = ltm_get_team_member_data(get_the_ID());
-                    ?>
+                ?>
                     <li>
                         <div class="image-folder">
                             <a href="<?php the_permalink(); ?>">
                                 <?php
-                                if( has_post_thumbnail() ) {
+                                if (has_post_thumbnail()) {
                                     do_action('thumbnail_formatting', get_the_ID(), ['link' => false, 'size' => 'event-speakers-list']);
-                                }
-                                else {
+                                } else {
                                     $teamMemberDefaultImg = get_template_directory_uri() . '/src/images/latitude_author_default.png';
                                     jetpack_get_resized_image($teamMemberDefaultImg, 230, 230, get_the_title());
                                 }
@@ -70,7 +82,7 @@ if(!$teamMembers->have_posts()) {
                         <div class="content-folder">
                             <a href="<?php the_permalink(); ?>" class="name"><?php the_title(); ?></a>
                             <?php
-                            if( !empty($memberData['job_title']) ) {
+                            if (!empty($memberData['job_title'])) {
                                 printf('<div class="occupation">%s</div>', $memberData['job_title']);
                             }
                             ?>
