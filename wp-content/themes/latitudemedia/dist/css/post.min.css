@@ -63,7 +63,7 @@
   margin: 0 auto;
 }
 .single-post .right-sidebar-layout .main-column article .wp-block-embed__wrapper iframe, .single-industry-news .right-sidebar-layout .main-column article .wp-block-embed__wrapper iframe {
-  min-height: 400px;
+  min-height: fit-content;
   width: 100%;
 }
 .single-post .right-sidebar-layout .main-column article iframe, .single-industry-news .right-sidebar-layout .main-column article iframe {
@@ -314,6 +314,7 @@
   text-transform: uppercase;
 }
 .single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button {
+  display: none;
   text-align: left;
   border: 1px solid #C6168D;
   padding: 10px 10px;

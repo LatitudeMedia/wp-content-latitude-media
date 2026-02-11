@@ -64,7 +64,7 @@
 						margin: 0 auto;
 					}
 					iframe {
-						min-height: 400px;
+						min-height: fit-content;
 						width: 100%;
 					}
 				}
@@ -259,6 +259,7 @@
 			@include postInfo;
 		}
 		.add-google-preferences-button {
+			display: none;
 			text-align: left;
 			border: 1px solid $primary-pink;
 			padding: 10px 10px;
