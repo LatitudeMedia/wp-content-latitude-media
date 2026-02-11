@@ -3990,7 +3990,7 @@
 
     .team {
       list-style: none;
-      justify-content: space-between;
+      justify-content: flex-start!important;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
@@ -4860,7 +4860,7 @@
       margin-bottom: 24px;
       .main-logo {
         object-fit: contain;
-        max-height: 150px;
+        max-height: 300px;
         max-width: 100%;
       }
     }

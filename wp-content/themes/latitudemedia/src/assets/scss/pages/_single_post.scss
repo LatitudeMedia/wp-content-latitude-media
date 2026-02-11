@@ -258,5 +258,43 @@
 		.info {
 			@include postInfo;
 		}
+		.add-google-preferences-button {
+			text-align: left;
+			border: 1px solid $primary-pink;
+			padding: 10px 10px;
+			width: fit-content;
+			cursor: pointer;
+			margin-top: 24px;
+			max-width: 200px;
+			&:hover {
+				background-color: #e1cfdb;
+				a{
+					.label{
+						color: $primary-dark-blue!important;
+
+					}
+				}
+			}
+			a{
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				text-decoration: none;
+
+				.google-logo{
+					width: 30px;
+					height: 30px;
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+					flex-shrink: 0;
+				}
+				.label {
+					color: $primary-pink!important;
+					font-family: $inter;
+					font-family: $inter!important;
+				}
+			}
+		}
 	}
 }

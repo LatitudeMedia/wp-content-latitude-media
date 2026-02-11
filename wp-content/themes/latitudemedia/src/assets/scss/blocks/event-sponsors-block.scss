@@ -2,9 +2,35 @@
 .event-sponsors-section {
   margin-bottom: 64px;
   @include eventSponsorsSection;
-  &.pink-separator {
+  &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
+    }
+    .modal-content{
+      .modal-folder{
+        .bio{
+          img{
+            border: 1px solid $primary-pink !important;
+          }
+        }
+        .description{
+          a{
+            color: $primary-pink !important;
+            display: inline-block;
+          }
+        }
+        .control-buttons{
+          .strict-button {
+            background-color: $primary-pink !important;
+            border-color: $primary-pink !important;
+            &:hover {
+              background-color: $white !important;
+              border-color: $primary-pink !important;
+              color: $primary-pink !important;
+            }
+          }
+        }
+      }
     }
   }
 }

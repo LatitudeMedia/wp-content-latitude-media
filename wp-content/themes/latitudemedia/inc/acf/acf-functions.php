@@ -670,7 +670,13 @@ $blocks = array(
         'post_types'     => array('page'),
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Our team block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
+        'enqueue_assets' => function () {
+            $css_path = get_template_directory() . '/dist/css/blocks/authors-list-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-our-team-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css', array(), filemtime($css_path));
+            }
+        },
+
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
