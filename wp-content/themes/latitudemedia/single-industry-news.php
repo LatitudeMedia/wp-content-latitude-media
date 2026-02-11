@@ -29,7 +29,7 @@ get_header();
 
                     <div class="google-logo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/images/google-logo.png');"></div>
                     <div class="label">
-                        Add as a prefered source on Google
+                        Add as a preferred source on Google
                     </div>
                 </a>
             </div>
