@@ -16,6 +16,7 @@ $options = wp_parse_args(
             'button',
         ],
         'main_logo' => [],
+        'label_below' => false,
         'subtitle'      => '',
         'logos_title' => 'Co-hosted with:',
         'co_hosted_logo' => null,
@@ -56,19 +57,21 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
     ?>
     <div class="container">
         <div class="single-event-hero-section-wrapper">
-            <div class="data-row">
-                <?php
-                if (in_array('date', $rows)) {
-                    echo '<div class="date">';
-                    do_action('print_event_date_range', $post_id);
-                    echo '</div>';
-                }
+            <?php if (!$label_below): ?>
+                <div class="data-row">
+                    <?php
+                    if (in_array('date', $rows)) {
+                        echo '<div class="date">';
+                        do_action('print_event_date_range', $post_id);
+                        echo '</div>';
+                    }
 
-                if (in_array('type', $rows)) {
-                    printf('<div class="location">%s</div>', ucfirst(($eventData['event_type'] === 'frontier-forum' ? 'Frontier Forum' : $eventData['event_type']) ?? ''));
-                }
-                ?>
-            </div>
+                    if (in_array('type', $rows)) {
+                        printf('<div class="location">%s</div>', ucfirst(($eventData['event_type'] === 'frontier-forum' ? 'Frontier Forum' : $eventData['event_type']) ?? ''));
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
             <?php
 
             if (!empty($main_logo) && is_array($main_logo)) {
@@ -80,9 +83,22 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                 }
             }
 
+            if ($label_below) {
+                ob_start();
+                do_action('print_event_date_range', $post_id);
+                $date_output = ob_get_clean();
+                $location_label = isset($eventData['location']) ? $eventData['location'] : '';
+                printf(
+                    '<div class="labels-wrapper"><div class="location label-text">%s</div><div class="date label-text">%s</div></div>',
+                    esc_html($location_label),
+                    $date_output
+                );
+            }
 
-            if (in_array('location', $rows)) {
-                do_action('print_event_location', $post_id);
+            if (!$label_below) {
+                if (in_array('location', $rows)) {
+                    do_action('print_event_location', $post_id);
+                }
             }
 
             if (in_array('button', $rows) && !empty($eventData['link'])) {

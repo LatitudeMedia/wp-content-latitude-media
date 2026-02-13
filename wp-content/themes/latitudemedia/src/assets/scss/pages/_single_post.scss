@@ -116,6 +116,12 @@
 			}
 		}
 		.sidebar {
+			.add-google-preferences-button {
+				width: 100%;
+				@include below_md {
+					display: none;
+				}
+			}
 			.form-block {
 				position: sticky;
 				top: 130px;
@@ -234,11 +240,54 @@
 			}
 		}
 	}
+	.add-google-preferences-button {
+		text-align: left;
+		border: 1px solid #D80090;
+		border-radius: 4px;
+		padding: 12px 40px;
+		width: fit-content;
+		margin-bottom: 13px;
+		cursor: pointer;
+		margin-top: 24px;
+		&:hover {
+			background-color: #e1cfdb;
+			a{
+				.label{
+					color: $primary-dark-blue!important;
+
+				}
+			}
+		}
+		@include below_mob {
+			width: 100%;
+		}
+		a{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			text-decoration: none;
+
+			.google-logo{
+				width: 30px;
+				height: 30px;
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				flex-shrink: 0;
+			}
+			.label {
+				color: #081F45!important;
+				font-family: $inter;
+				font-family: $inter!important;
+			}
+		}
+	}
 }
 
 .single-post-heading-section {
 	background-color: #F5F5F5;
-	padding: 40px 0 80px 0;
+	padding: 40px 0 40px 0;
 	margin-bottom: 24px;
 	.single-post-heading-section-wrapper {
 		.tags-list {
@@ -260,41 +309,12 @@
 		}
 		.add-google-preferences-button {
 			display: none;
-			text-align: left;
-			border: 1px solid $primary-pink;
-			padding: 10px 10px;
-			width: fit-content;
-			cursor: pointer;
-			margin-top: 24px;
-			max-width: 200px;
-			&:hover {
-				background-color: #e1cfdb;
-				a{
-					.label{
-						color: $primary-dark-blue!important;
-
-					}
-				}
+			
+			@include below_md {
+				display: block;
 			}
-			a{
-				display: flex;
-				align-items: center;
-				gap: 10px;
-				text-decoration: none;
-
-				.google-logo{
-					width: 30px;
-					height: 30px;
-					background-size: contain;
-					background-repeat: no-repeat;
-					background-position: center;
-					flex-shrink: 0;
-				}
-				.label {
-					color: $primary-pink!important;
-					font-family: $inter;
-					font-family: $inter!important;
-				}
+			@include below_mob {
+				width: 100%;
 			}
 		}
 	}

@@ -25,9 +25,9 @@ get_header();
             <div class="add-google-preferences-button">
                 <a href="https://google.com/preferences/source?q=latitudemedia.com" target="_blank">
 
-                    <div class="google-logo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/images/google-logo.png');"></div>
+                    <div class="google-logo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/images/uil_google.svg');"></div>
                     <div class="label">
-                        Add as a preferred source on Google
+                        Add Latitude on Google
                     </div>
                 </a>
             </div>
@@ -78,6 +78,15 @@ get_header();
                 </div>
             </div>
             <div class="sidebar">
+                <div class="add-google-preferences-button">
+                    <a href="https://google.com/preferences/source?q=latitudemedia.com" target="_blank">
+
+                        <div class="google-logo" style="background-image: url('<?php echo get_template_directory_uri(); ?>/src/images/uil_google.svg');"></div>
+                        <div class="label">
+                            Add Latitude on Google
+                        </div>
+                    </a>
+                </div>
                 <?php
                 dynamic_sidebar('article-sidebar');
                 ?>

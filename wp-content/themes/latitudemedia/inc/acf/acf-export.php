@@ -4904,6 +4904,13 @@ Or select event manually.',
                 'preview_size' => 'medium',
             ),
             array(
+                'key' => 'field_67447f65a31a8',
+                'label' => 'Use labels below image',
+                'name' => 'label_below',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+            array(
                 'key' => 'field_67473b75a1f7d',
                 'label' => 'Subtitle',
                 'name' => 'subtitle',

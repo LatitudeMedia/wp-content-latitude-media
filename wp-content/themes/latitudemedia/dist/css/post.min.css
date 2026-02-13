@@ -111,6 +111,9 @@
   line-height: 28px;
   padding: 0.2rem 0.5rem;
 }
+.single-post .right-sidebar-layout .sidebar .add-google-preferences-button, .single-industry-news .right-sidebar-layout .sidebar .add-google-preferences-button {
+  width: 100%;
+}
 .single-post .right-sidebar-layout .sidebar .form-block, .single-industry-news .right-sidebar-layout .sidebar .form-block {
   position: sticky;
   top: 130px;
@@ -182,10 +185,46 @@
 .single-post .podcast-info .socials li a img, .single-industry-news .podcast-info .socials li a img {
   margin-bottom: 0;
 }
+.single-post .add-google-preferences-button, .single-industry-news .add-google-preferences-button {
+  text-align: left;
+  border: 1px solid #D80090;
+  border-radius: 4px;
+  padding: 12px 40px;
+  width: fit-content;
+  margin-bottom: 13px;
+  cursor: pointer;
+  margin-top: 24px;
+}
+.single-post .add-google-preferences-button:hover, .single-industry-news .add-google-preferences-button:hover {
+  background-color: #e1cfdb;
+}
+.single-post .add-google-preferences-button:hover a .label, .single-industry-news .add-google-preferences-button:hover a .label {
+  color: #0F1E42 !important;
+}
+.single-post .add-google-preferences-button a, .single-industry-news .add-google-preferences-button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.single-post .add-google-preferences-button a .google-logo, .single-industry-news .add-google-preferences-button a .google-logo {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+.single-post .add-google-preferences-button a .label, .single-industry-news .add-google-preferences-button a .label {
+  color: #081F45 !important;
+  font-family: "inter", Arial, Helvetica, sans-serif;
+  font-family: "inter", Arial, Helvetica, sans-serif !important;
+}
 
 .single-post-heading-section {
   background-color: #F5F5F5;
-  padding: 40px 0 80px 0;
+  padding: 40px 0 40px 0;
   margin-bottom: 24px;
 }
 .single-post-heading-section .single-post-heading-section-wrapper .tags-list {
@@ -315,43 +354,25 @@
 }
 .single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button {
   display: none;
-  text-align: left;
-  border: 1px solid #C6168D;
-  padding: 10px 10px;
-  width: fit-content;
-  cursor: pointer;
-  margin-top: 24px;
-  max-width: 200px;
-}
-.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button:hover {
-  background-color: #e1cfdb;
-}
-.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button:hover a .label {
-  color: #0F1E42 !important;
-}
-.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button a .google-logo {
-  width: 30px;
-  height: 30px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;
-}
-.single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button a .label {
-  color: #C6168D !important;
-  font-family: "inter", Arial, Helvetica, sans-serif;
-  font-family: "inter", Arial, Helvetica, sans-serif !important;
 }
 @media screen and (max-width: 992px){
+  .single-post .right-sidebar-layout .sidebar .add-google-preferences-button, .single-industry-news .right-sidebar-layout .sidebar .add-google-preferences-button {
+    display: none;
+  }
   .single-post .right-sidebar-layout .sidebar .form-block, .single-industry-news .right-sidebar-layout .sidebar .form-block {
     position: initial;
     top: auto;
+  }
+  .single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button {
+    display: block;
+  }
+}
+@media screen and (max-width: 576px){
+  .single-post .add-google-preferences-button, .single-industry-news .add-google-preferences-button {
+    width: 100%;
+  }
+  .single-post-heading-section .single-post-heading-section-wrapper .add-google-preferences-button {
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px){
