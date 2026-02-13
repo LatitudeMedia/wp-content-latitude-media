@@ -83,18 +83,6 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                 }
             }
 
-            if ($label_below) {
-                ob_start();
-                do_action('print_event_date_range', $post_id);
-                $date_output = ob_get_clean();
-                $location_label = isset($eventData['location']) ? $eventData['location'] : '';
-                printf(
-                    '<div class="labels-wrapper"><div class="location label-text">%s</div><div class="date label-text">%s</div></div>',
-                    esc_html($location_label),
-                    $date_output
-                );
-            }
-
             if (!$label_below) {
                 if (in_array('location', $rows)) {
                     do_action('print_event_location', $post_id);
@@ -114,6 +102,17 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                     $imageHtml .= thumbnail_formatting(null, ['image_id' => $logo, 'size' => 'event-preview-hosted', 'link' => false, 'img_attr' => ['class' => 'logo']], false);
                 }
                 printf('<div class="logo-wrapper"><div class="label">%s</div>%s</div>', $logos_title ?? 'Co-hosted with:', $imageHtml);
+            }
+            if ($label_below) {
+                ob_start();
+                do_action('print_event_date_range', $post_id);
+                $date_output = ob_get_clean();
+                $location_label = isset($eventData['location']) ? $eventData['location'] : '';
+                printf(
+                    '<div class="labels-wrapper"><div class="location label-text">%s</div><div class="date label-text">%s</div></div>',
+                    esc_html($location_label),
+                    $date_output
+                );
             }
             ?>
         </div>
