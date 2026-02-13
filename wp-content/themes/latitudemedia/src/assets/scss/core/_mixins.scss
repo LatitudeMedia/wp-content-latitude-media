@@ -4864,6 +4864,35 @@
         max-width: 100%;
       }
     }
+    .labels-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 48px;
+      @include below_md {
+        justify-content: center;
+      }
+      .label-text{
+        color: $white;
+        padding: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 20px;
+        @include below_md {
+          font-size: 16px;
+          padding: 16px;
+        }
+        @include below_mob{
+          width: 50%;
+        }
+      }
+      .location{
+        background-color: $primary-pink;
+      }
+      .date{
+        background-color: $orange;
+      }
+
+    }
     .upper-heading {
       font-family: $inter;
       @include fontSize(24px);
