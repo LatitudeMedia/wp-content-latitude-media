@@ -71,6 +71,24 @@
   max-height: 300px;
   max-width: 100%;
 }
+.single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 48px;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .label-text {
+  color: #ffffff;
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .location {
+  background-color: #C6168D;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .date {
+  background-color: #F99D1C;
+}
 .single-event-hero-section .single-event-hero-section-wrapper .upper-heading {
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 24px;
@@ -155,6 +173,20 @@
     font-size: 40px;
     font-size: 2.5rem;
     line-height: 60px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper {
+    justify-content: center;
+  }
+  .single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .label-text {
+    font-size: 16px;
+    padding: 16px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .label-text {
+    width: 50%;
   }
 }
 
