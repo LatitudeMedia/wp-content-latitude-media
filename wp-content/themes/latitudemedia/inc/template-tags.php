@@ -370,6 +370,8 @@ if (! function_exists('print_event_type')) :
         if (!empty($eventType)) {
             if ($eventType === 'frontier-forum') {
                 $eventType = 'Frontier Forum';
+            } elseif ($eventType === 'live-podcast') {
+                $eventType = 'Live Podcast';
             }
             echo '<span class="solid">' . $eventType . '</span>';
         }
