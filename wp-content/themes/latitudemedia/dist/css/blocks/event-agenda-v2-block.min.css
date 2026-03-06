@@ -104,6 +104,10 @@
 .event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-speakers .event-agenda-v2-speaker .event-agenda-v2-speaker-info .event-agenda-v2-speaker-name {
   font-weight: 700;
 }
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-speakers .event-agenda-v2-speaker .event-agenda-v2-speaker-info .event-agenda-v2-speaker-role {
+  font-weight: 600;
+  font-style: italic;
+}
 .event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-speakers .event-agenda-v2-speaker .event-agenda-v2-speaker-info .event-agenda-v2-speaker-job-title {
   font-weight: 400;
 }
