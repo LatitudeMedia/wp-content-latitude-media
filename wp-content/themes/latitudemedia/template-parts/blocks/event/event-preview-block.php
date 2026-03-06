@@ -67,7 +67,15 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                     }
 
                     if (in_array('type', $rows)) {
-                        printf('<div class="location">%s</div>', ucfirst(($eventData['event_type'] === 'frontier-forum' ? 'Frontier Forum' : $eventData['event_type']) ?? ''));
+                        $eventTypeDisplay = $eventData['event_type'] ?? '';
+                        if ($eventTypeDisplay === 'frontier-forum') {
+                            $eventTypeDisplay = 'Frontier Forum';
+                        } elseif ($eventTypeDisplay === 'live-podcast') {
+                            $eventTypeDisplay = 'Live Podcast';
+                        } else {
+                            $eventTypeDisplay = ucfirst($eventTypeDisplay);
+                        }
+                        printf('<div class="location">%s</div>', $eventTypeDisplay);
                     }
                     ?>
                 </div>

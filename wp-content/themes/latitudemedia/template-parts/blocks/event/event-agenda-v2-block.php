@@ -123,7 +123,7 @@ $blockAttrs = wp_kses_data(
                     <?php endif; ?>
                     <?php if (!empty($item['speakers_data'])) : ?>
                       <div class="event-agenda-v2-item-speakers">
-                        <?php foreach ($item['speakers_data'] as $speaker) : ?>
+                        <?php foreach ($item['speakers_data'] as $speaker_index => $speaker) : ?>
                           <div class="event-agenda-v2-speaker">
                             <?php if ($speaker['image']) : ?>
                               <div class="event-agenda-v2-speaker-image-wrapper">
@@ -139,6 +139,9 @@ $blockAttrs = wp_kses_data(
                               <?php endif; ?>
                               <?php if ($speaker['company']) : ?>
                                 <div class="event-agenda-v2-speaker-company"><?php echo esc_html($speaker['company']); ?></div>
+                              <?php endif; ?>
+                              <?php if ($speaker_index === 0 && !empty($item['show_moderator'])) : ?>
+                                <div class="event-agenda-v2-speaker-role">Moderator</div>
                               <?php endif; ?>
                             </div>
                           </div>
