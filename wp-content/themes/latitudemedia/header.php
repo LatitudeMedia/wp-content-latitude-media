@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header.
  *
@@ -8,35 +9,35 @@
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> >
+<html <?php language_attributes(); ?>>
+
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?php wp_title("",true);?></title>
+    <title><?php wp_title("", true); ?></title>
     <link rel="preload" href="<?php echo get_template_directory_uri() . '/src/images/Logo.svg'; ?>" as="image">
+    <script src="https://t.contentsquare.net/uxa/cb199096ee1a9.js"></script>
 
     <?php wp_head(); ?>
 </head>
 
 <?php
-    $disableMenu = get_field('disable_top_menu');
-    $menu = wp_get_nav_menu_object( 'podcasts-menu' );
-    $hideMenu = get_field('hide_menu', $menu);
+$disableMenu = get_field('disable_top_menu');
+$menu = wp_get_nav_menu_object('podcasts-menu');
+$hideMenu = get_field('hide_menu', $menu);
 ?>
+
 <body <?php body_class(($disableMenu ? 'disable-menu ' : '') . ($hideMenu ? 'podcasts-off' : '')); ?>>
-<?php wp_body_open(); ?>
+    <?php wp_body_open(); ?>
 
     <div class="wrapper">
 
-    <!-- HEADER -->
-<?php
-    //Old Header
-        get_template_part( 'template-parts/header/nav', ($disableMenu ? 'disable-menu' : '') );
-    //New Header
-//        get_template_part( 'template-parts/header/nav');
-    do_action('print_ad_banner', get_site_header_banner(), ['class' => 'header-top-banner']);
+        <!-- HEADER -->
+        <?php
+        //Old Header
+        get_template_part('template-parts/header/nav', ($disableMenu ? 'disable-menu' : ''));
+        //New Header
+        //        get_template_part( 'template-parts/header/nav');
+        do_action('print_ad_banner', get_site_header_banner(), ['class' => 'header-top-banner']);
 
-?>
-
-
-
+        ?>
