@@ -2,6 +2,37 @@
 .event-sponsors-section {
   margin-bottom: 64px;
   @include eventSponsorsSection;
+  &.blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    .modal-content{
+      .modal-folder{
+        .bio{
+          img{
+            border: 1px solid $primary-blue !important;
+          }
+        }
+        .description{
+          a{
+            color: $primary-blue !important;
+            display: inline-block;
+          }
+        }
+        .control-buttons{
+          .strict-button {
+            background-color: $primary-blue !important;
+            border-color: $primary-blue !important;
+            &:hover {
+              background-color: $white !important;
+              border-color: $primary-blue !important;
+              color: $primary-blue !important;
+            }
+          }
+        }
+      }
+    }
+  }
   &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;

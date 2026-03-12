@@ -2,6 +2,14 @@
 .venue-section {
   margin-bottom: 64px;
   @include venueSection;
+  &.blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    a {
+      color: $primary-blue !important;
+    }
+  }
   &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;

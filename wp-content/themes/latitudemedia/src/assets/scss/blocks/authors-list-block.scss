@@ -1,6 +1,51 @@
 @import "../core/core_loader";
 .our-team-section {
   @include ourTeamSection;
+  &.blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    .team {
+      .content-folder {
+        .name {
+          &:hover {
+            color: $primary-blue !important;
+          }
+        }
+      }
+      .image-folder {
+        -webkit-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+        -moz-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+        box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      }
+      .modal-content {
+        .modal-folder {
+          .cross {
+            &:before {
+              background-color: $primary-blue !important;
+            }
+            &:after {
+              background-color: $primary-blue !important;
+            }
+          }
+          .description {
+            a {
+              color: $primary-blue !important;
+            }
+          }
+          .strict-button {
+            background-color: $primary-blue !important;
+            border-color: $primary-blue !important;
+            &:hover {
+              background-color: $white !important;
+              border-color: $primary-blue !important;
+              color: $primary-blue !important;
+            }
+          }
+        }
+      }
+    }
+  }
   &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
