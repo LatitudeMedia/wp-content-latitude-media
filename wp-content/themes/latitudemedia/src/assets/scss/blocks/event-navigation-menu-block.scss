@@ -11,6 +11,24 @@
   &.admin {
     top: 196px;
   }
+  &.blue-theme {
+    .navigation-menu-links {
+      a {
+        &:hover {
+          background-color: $primary-blue !important;
+          color: $white !important;
+        }
+      }
+      .active {
+        &::after {
+          background-color: $primary-blue !important;
+        }
+      }
+    }
+    .buttons-container .nav-button {
+      background-color: $primary-blue !important;
+    }
+  }
   &.pink-theme {
     .navigation-menu-links {
       a {
@@ -24,6 +42,9 @@
           background-color: $primary-pink !important;
         }
       }
+    }
+    .buttons-container .nav-button {
+      background-color: $primary-pink !important;
     }
   }
   @include below_sm {
@@ -94,7 +115,7 @@
         display: none;
       }
       .nav-button {
-        background-color: $primary-pink;
+        background-color: $green;
         text-decoration: none;
         color: $white;
         padding: 7px 24px;

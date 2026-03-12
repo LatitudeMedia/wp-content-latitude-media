@@ -2,11 +2,43 @@
 
 .event-agenda-v2-section {
   margin-bottom: 64px;
+  &.blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    .event-agenda-v2-dropdown-wrapper .selector-container {
+      .event-agenda-v2-day-selector {
+        border-color: $primary-blue !important;
+      }
+      &::after {
+        border-top-color: $primary-blue !important;
+      }
+    }
+    .event-agenda-v2-agenda-items {
+      .event-agenda-v2-item {
+        border-bottom-color: $primary-blue !important;
+      }
+      .event-agenda-v2-item-time {
+        color: $primary-blue !important;
+      }
+    }
+  }
   &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
     }
+    .event-agenda-v2-dropdown-wrapper .selector-container {
+      .event-agenda-v2-day-selector {
+        border-color: $primary-pink !important;
+      }
+      &::after {
+        border-top-color: $primary-pink !important;
+      }
+    }
     .event-agenda-v2-agenda-items {
+      .event-agenda-v2-item {
+        border-bottom-color: $primary-pink !important;
+      }
       .event-agenda-v2-item-time {
         color: $primary-pink !important;
       }
@@ -27,7 +59,7 @@
         width: fit-content;
         padding: 10px 40px 10px 10px;
         background-color: $white;
-        border: 1px solid $primary-pink;
+        border: 1px solid $green;
         border-radius: 5px;
         appearance: none;
         -webkit-appearance: none;
@@ -53,7 +85,7 @@
         height: 0;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
-        border-top: 8px solid $primary-pink;
+        border-top: 8px solid $green;
         pointer-events: none;
         transition: transform 0.3s ease;
         transform: translateY(-50%) rotate(0deg);
@@ -69,7 +101,7 @@
     .event-agenda-v2-item {
       display: flex;
       gap: 30px;
-      border-bottom: 1px solid $primary-pink;
+      border-bottom: 1px solid $green;
       padding: 30px;
       @include below_mob {
         flex-direction: column;

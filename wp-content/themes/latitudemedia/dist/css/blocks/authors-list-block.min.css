@@ -29,7 +29,7 @@
 }
 .our-team-section .our-team-section-wrapper .team {
   list-style: none;
-  justify-content: flex-start;
+  justify-content: flex-start !important;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -125,6 +125,35 @@
 }
 .our-team-section .our-team-section-wrapper .team li .content-folder .more-link {
   display: inline-block;
+}
+.our-team-section.blue-theme .bordered-title {
+  border-bottom: 5px solid #1351CD !important;
+}
+.our-team-section.blue-theme .team .content-folder .name:hover {
+  color: #1351CD !important;
+}
+.our-team-section.blue-theme .team .image-folder {
+  -webkit-box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  -moz-box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  box-shadow: -10px 10px 0 0 #E7EEFA !important;
+}
+.our-team-section.blue-theme .team .modal-content .modal-folder .cross:before {
+  background-color: #1351CD !important;
+}
+.our-team-section.blue-theme .team .modal-content .modal-folder .cross:after {
+  background-color: #1351CD !important;
+}
+.our-team-section.blue-theme .team .modal-content .modal-folder .description a {
+  color: #1351CD !important;
+}
+.our-team-section.blue-theme .team .modal-content .modal-folder .strict-button {
+  background-color: #1351CD !important;
+  border-color: #1351CD !important;
+}
+.our-team-section.blue-theme .team .modal-content .modal-folder .strict-button:hover {
+  background-color: #ffffff !important;
+  border-color: #1351CD !important;
+  color: #1351CD !important;
 }
 .our-team-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
