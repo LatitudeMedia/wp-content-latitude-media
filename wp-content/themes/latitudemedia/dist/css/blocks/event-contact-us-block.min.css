@@ -4,6 +4,23 @@
 .contact-us-section {
   margin-bottom: 64px;
 }
+.contact-us-section.blue-theme .bordered-title {
+  border-bottom: 5px solid #1351CD !important;
+}
+.contact-us-section.blue-theme .contact-us-cards-wrapper .contact-us-card .card-content p a {
+  color: #1351CD;
+}
+.contact-us-section.blue-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button {
+  -webkit-box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  -moz-box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  border: 1px solid #1351CD !important;
+  color: #1351CD !important;
+}
+.contact-us-section.blue-theme .contact-us-cards-wrapper .contact-us-card .card-button .cta-button:hover {
+  background-color: #1351CD !important;
+  color: #ffffff !important;
+}
 .contact-us-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
 }

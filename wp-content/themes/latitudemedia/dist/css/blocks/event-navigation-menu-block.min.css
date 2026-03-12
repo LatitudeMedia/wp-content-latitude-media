@@ -14,11 +14,24 @@
 .navigation-menu-section.admin {
   top: 196px;
 }
+.navigation-menu-section.blue-theme .navigation-menu-links a:hover {
+  background-color: #1351CD !important;
+  color: #ffffff !important;
+}
+.navigation-menu-section.blue-theme .navigation-menu-links .active::after {
+  background-color: #1351CD !important;
+}
+.navigation-menu-section.blue-theme .buttons-container .nav-button {
+  background-color: #1351CD !important;
+}
 .navigation-menu-section.pink-theme .navigation-menu-links a:hover {
   background-color: #C6168D !important;
   color: #ffffff !important;
 }
 .navigation-menu-section.pink-theme .navigation-menu-links .active::after {
+  background-color: #C6168D !important;
+}
+.navigation-menu-section.pink-theme .buttons-container .nav-button {
   background-color: #C6168D !important;
 }
 .navigation-menu-section .navigation-menu-wrapper {
@@ -59,7 +72,7 @@
   min-width: fit-content;
 }
 .navigation-menu-section .navigation-menu-wrapper .buttons-container .nav-button {
-  background-color: #C6168D;
+  background-color: #00B48D;
   text-decoration: none;
   color: #ffffff;
   padding: 7px 24px;
