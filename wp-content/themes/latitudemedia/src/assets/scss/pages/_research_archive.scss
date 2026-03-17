@@ -10,4 +10,20 @@
       }
     }
   }
+  .image-text-section{
+    &.blue-theme{
+      .image-text-section-wrapper{
+        .image-folder{
+          box-shadow: -14px 14px 0 0 #E5F4FC!important;
+        }
+        .content-folder{
+          .description{
+            text-transform: none!important;
+          }
+          
+        }
+
+      }
+    }
+  }
 }

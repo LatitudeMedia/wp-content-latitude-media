@@ -1652,6 +1652,12 @@ add_action('acf/include_fields', function () {
                 'name' => 'hubspot_payment_link',
                 'type' => 'text',
             ),
+            array(
+                'key' => 'field_670527c00ad10',
+                'label' => 'Form Title',
+                'name' => 'form_title',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
