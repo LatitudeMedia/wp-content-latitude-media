@@ -107,6 +107,12 @@
 .venue-section.orange .venue-section-wrapper .venue-info .location {
   border-color: #FEEBD2;
 }
+.venue-section.blue-theme .bordered-title {
+  border-bottom: 5px solid #1351CD !important;
+}
+.venue-section.blue-theme a {
+  color: #1351CD !important;
+}
 .venue-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
 }

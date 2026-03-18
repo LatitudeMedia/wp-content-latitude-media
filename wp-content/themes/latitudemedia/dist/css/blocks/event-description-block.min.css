@@ -11,8 +11,37 @@
 .event-text-section .event-text-section-wrapper .bordered-title {
   margin-bottom: 32px;
 }
-.event-text-section.pink-separator .bordered-title {
+.event-text-section.blue-theme .bordered-title {
+  border-bottom: 5px solid #1351CD !important;
+}
+.event-text-section.blue-theme .cta-button {
+  background-color: #ffffff !important;
+  color: #1351CD !important;
+  border: 1px solid #1351CD !important;
+  -webkit-box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  -moz-box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  box-shadow: -10px 10px 0 0 #E7EEFA !important;
+  border: 1px solid #1351CD !important;
+}
+.event-text-section.blue-theme .cta-button:hover {
+  background-color: #1351CD !important;
+  color: #ffffff !important;
+}
+.event-text-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
+}
+.event-text-section.pink-theme .cta-button {
+  background-color: #ffffff !important;
+  color: #C6168D !important;
+  border: 1px solid #C6168D !important;
+  -webkit-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  -moz-box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  box-shadow: -10px 10px 0 0 #F9E8F4 !important;
+  border: 1px solid #C6168D !important;
+}
+.event-text-section.pink-theme .cta-button:hover {
+  background-color: #C6168D !important;
+  color: #ffffff !important;
 }
 
 /*# sourceMappingURL=event-description-block.min.css.map*/

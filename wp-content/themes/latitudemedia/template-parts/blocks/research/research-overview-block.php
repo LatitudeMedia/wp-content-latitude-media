@@ -9,6 +9,7 @@ $options = wp_parse_args(
         'content' => '',
         'display' => false,
         'post_id' => null,
+        'form_title' => 'Download executive summary',
         'blockAttributes' => [],
     ]
 );
@@ -43,6 +44,7 @@ $researchData = get_research_data($post_id);
                 </article>
             </div>
             <div class="sidebar">
+                <?php if( !empty($researchData['full_price']) || !empty($researchData['hubspot_payment_link']) ) : ?>
                 <div class="form-block purchase blue">
                     <div class="form-block-wrapper">
                         <?php
@@ -58,9 +60,10 @@ $researchData = get_research_data($post_id);
                         ?>
                     </div>
                 </div>
+                <?php endif; ?>
                 <div class="form-block blue">
                     <div class="form-block-wrapper">
-                        <div class="form-title"><?php _e('Download executive summary', 'ltm'); ?></div>
+                    <div class="form-title"><?php echo esc_html( !empty($researchData['form_title']) ? $researchData['form_title'] : $form_title ); ?></div>
                         <?php echo $researchData['download_form_code']; ?>
                     </div>
                 </div>

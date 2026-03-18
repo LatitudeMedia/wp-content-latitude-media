@@ -144,6 +144,7 @@ function get_research_data($research_id)
         'purchase_form_code'    => get_field('purchase_form_code', $research_id),
         'download_form_code'    => get_field('download_form_code', $research_id),
         'order_page'            => get_field('order_page', $research_id),
+        'form_title'            => get_field('form_title', $research_id),
     ];
 }
 

@@ -295,6 +295,24 @@ article {
   }
 }
 
+.wp-block-acf-ad-banner-section {
+  &.responsive-template {
+    .banner-ad-block-wrapper {
+      div[id*="div-gpt-ad"] {
+        div[id*="google_ads_iframe"] {
+          max-width: 100%;
+          iframe {
+            max-width: 100% !important;
+            @media (max-width: 630px) {
+              height: 600px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .pager {
   ul {
     list-style: none;

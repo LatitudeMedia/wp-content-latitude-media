@@ -1,9 +1,40 @@
 @import "../core/core_loader";
 .event-text-section {
   @include eventTextSection;
-  &.pink-separator {
+  &.blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    .cta-button {
+      background-color: $white !important;
+      color: $primary-blue !important;
+      border: 1px solid $primary-blue !important;
+      -webkit-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      -moz-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      border: 1px solid $primary-blue !important;
+      &:hover {
+        background-color: $primary-blue !important;
+        color: $white !important;
+      }
+    }
+  }
+  &.pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
+    }
+    .cta-button {
+      background-color: $white !important;
+      color: $primary-pink !important;
+      border: 1px solid $primary-pink !important;
+      -webkit-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+      -moz-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+      box-shadow: -10px 10px 0 0 $pink_shadow !important;
+      border: 1px solid $primary-pink !important;
+      &:hover {
+        background-color: $primary-pink !important;
+        color: $white !important;
+      }
     }
   }
 }

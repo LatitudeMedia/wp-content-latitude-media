@@ -95,6 +95,25 @@
 .event-sponsors-section.orange .bordered-title {
   border-color: #F99D1C;
 }
+.event-sponsors-section.blue-theme .bordered-title {
+  border-bottom: 5px solid #1351CD !important;
+}
+.event-sponsors-section.blue-theme .modal-content .modal-folder .bio img {
+  border: 1px solid #1351CD !important;
+}
+.event-sponsors-section.blue-theme .modal-content .modal-folder .description a {
+  color: #1351CD !important;
+  display: inline-block;
+}
+.event-sponsors-section.blue-theme .modal-content .modal-folder .control-buttons .strict-button {
+  background-color: #1351CD !important;
+  border-color: #1351CD !important;
+}
+.event-sponsors-section.blue-theme .modal-content .modal-folder .control-buttons .strict-button:hover {
+  background-color: #ffffff !important;
+  border-color: #1351CD !important;
+  color: #1351CD !important;
+}
 .event-sponsors-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
 }
