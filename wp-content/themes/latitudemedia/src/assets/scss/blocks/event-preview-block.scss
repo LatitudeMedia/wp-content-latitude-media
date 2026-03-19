@@ -2,7 +2,7 @@
 .single-event-hero-section {
   @include singleEventHeroSection;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -10,5 +10,19 @@
     height: 100%;
     background-image: linear-gradient(#0f1e42cc, #0f1e42cc);
     z-index: 1;
+  }
+  &.flex-summit-theme {
+    .container {
+      .single-event-hero-section-wrapper {
+        .labels-wrapper {
+          .location {
+            background-color: #e62471 !important;
+          }
+          .date {
+            background-color: #ff4108 !important;
+          }
+        }
+      }
+    }
   }
 }
