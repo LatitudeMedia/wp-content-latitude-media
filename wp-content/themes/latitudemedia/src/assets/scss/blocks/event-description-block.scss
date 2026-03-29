@@ -18,6 +18,13 @@
         color: $white !important;
       }
     }
+    article {
+      p {
+        a {
+          color: $primary-blue;
+        }
+      }
+    }
   }
   &.pink-theme {
     .bordered-title {

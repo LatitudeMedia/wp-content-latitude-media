@@ -71,6 +71,35 @@
   max-height: 300px;
   max-width: 100%;
 }
+.single-event-hero-section .single-event-hero-section-wrapper .bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 48px;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .bottom-row.has-collaborator {
+  justify-content: space-between;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .bottom-row .collaborator-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .bottom-row .collaborator-wrapper .collaborator-text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: "Lora", Arial, Helvetica, serif;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .bottom-row .collaborator-wrapper .collaborator-logo {
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+.single-event-hero-section .single-event-hero-section-wrapper .bottom-row .labels-wrapper {
+  margin-bottom: 0;
+}
 .single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper {
   display: flex;
   justify-content: flex-end;
@@ -174,6 +203,10 @@
   }
   .single-event-hero-section .single-event-hero-section-wrapper .data-row .date {
     margin-bottom: 16px;
+  }
+  .single-event-hero-section .single-event-hero-section-wrapper .bottom-row {
+    flex-direction: column;
+    gap: 24px;
   }
   .single-event-hero-section .single-event-hero-section-wrapper h1 {
     font-size: 40px;

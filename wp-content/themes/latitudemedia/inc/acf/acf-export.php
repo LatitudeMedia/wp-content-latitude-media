@@ -4898,6 +4898,47 @@ Or select event manually.',
                 'preview_size' => 'medium',
             ),
             array(
+                'key' => 'field_6a2f8c4d1e905',
+                'label' => 'Show event collaborator',
+                'name' => 'show_event_collaborator',
+                'type' => 'true_false',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_6a2f8c4d1e903',
+                'label' => 'Event collaborator text',
+                'name' => 'event_collaborator_text',
+                'type' => 'text',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6a2f8c4d1e905',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_6a2f8c4d1e904',
+                'label' => 'Event collaborator logo',
+                'name' => 'event_collaborator_logo',
+                'type' => 'image',
+                'return_format' => 'array',
+                'library' => 'all',
+                'preview_size' => 'medium',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6a2f8c4d1e905',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'key' => 'field_67447f65a31a8',
                 'label' => 'Use labels below image',
                 'name' => 'label_below',
