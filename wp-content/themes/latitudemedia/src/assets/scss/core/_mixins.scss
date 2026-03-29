@@ -3990,7 +3990,7 @@
 
     .team {
       list-style: none;
-      justify-content: flex-start!important;
+      justify-content: flex-start !important;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
@@ -4430,7 +4430,9 @@
               text-decoration: none;
               color: #0e1e42;
               border-radius: 4px;
-              transition: background-color 0.15s ease, color 0.15s ease;
+              transition:
+                background-color 0.15s ease,
+                color 0.15s ease;
               border-bottom: none;
               padding: 5px;
               margin: 0;
@@ -4864,6 +4866,39 @@
         max-width: 100%;
       }
     }
+    .bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 48px;
+      @include below_sm {
+        flex-direction: column;
+        gap: 24px;
+      }
+      &.has-collaborator {
+        justify-content: space-between;
+      }
+      .collaborator-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .collaborator-text {
+          color: $white;
+          font-size: 18px;
+          font-weight: 600;
+          white-space: nowrap;
+          font-family: $lora;
+        }
+        .collaborator-logo {
+          max-height: 48px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+      .labels-wrapper {
+        margin-bottom: 0;
+      }
+    }
     .labels-wrapper {
       display: flex;
       justify-content: flex-end;
@@ -4871,7 +4906,7 @@
       @include below_md {
         justify-content: center;
       }
-      .label-text{
+      .label-text {
         color: $white;
         padding: 20px;
         text-transform: uppercase;
@@ -4881,17 +4916,16 @@
           font-size: 16px;
           padding: 16px;
         }
-        @include below_mob{
+        @include below_mob {
           width: 50%;
         }
       }
-      .location{
+      .location {
         background-color: $primary-pink;
       }
-      .date{
+      .date {
         background-color: $orange;
       }
-
     }
     .upper-heading {
       font-family: $inter;
