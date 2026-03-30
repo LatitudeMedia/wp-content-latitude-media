@@ -1,32 +1,33 @@
 <?php
 
-if ( ! function_exists( 'ltm_setup' ) ) {
+if (! function_exists('ltm_setup')) {
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
      * @return void
      */
-    function ltm_setup() {
-        add_theme_support( 'title-tag' );
+    function ltm_setup()
+    {
+        add_theme_support('title-tag');
 
-        add_theme_support( 'post-thumbnails' );
+        add_theme_support('post-thumbnails');
 
-        add_post_type_support( 'page', 'excerpt' );
+        add_post_type_support('page', 'excerpt');
 
         register_nav_menus(
             array(
-                'top'           => __( 'Top menu', 'ltm' ),
-                'podcasts-menu' => __( 'Podcasts menu', 'ltm' ),
-                'main'          => __( 'Main menu', 'ltm' ),
-                'tab-menu'      => __( 'Header tab menu', 'ltm' ),
-                'tab-menu-2'    => __( 'Header tab menu 2', 'ltm' ),
-                'tab-dropdown'  => __( 'Header dropdown', 'ltm' ),
-                'tab-dropdown-2'=> __( 'Header dropdown 2', 'ltm' ),
-                'footer-main'   => __( 'Footer main menu', 'ltm' ),
-                'footer-logos'  => __( 'Footer logos menu', 'ltm' ),
-                'footer-social' => __( 'Footer social menu', 'ltm' ),
-                'footer-privacy'=> __( 'Footer privacy menu', 'ltm' ),
-                'footer'        => __( 'Footer menu', 'ltm' )
+                'top'           => __('Top menu', 'ltm'),
+                'podcasts-menu' => __('Podcasts menu', 'ltm'),
+                'main'          => __('Main menu', 'ltm'),
+                'tab-menu'      => __('Header tab menu', 'ltm'),
+                'tab-menu-2'    => __('Header tab menu 2', 'ltm'),
+                'tab-dropdown'  => __('Header dropdown', 'ltm'),
+                'tab-dropdown-2' => __('Header dropdown 2', 'ltm'),
+                'footer-main'   => __('Footer main menu', 'ltm'),
+                'footer-logos'  => __('Footer logos menu', 'ltm'),
+                'footer-social' => __('Footer social menu', 'ltm'),
+                'footer-privacy' => __('Footer privacy menu', 'ltm'),
+                'footer'        => __('Footer menu', 'ltm')
             )
         );
 
@@ -67,62 +68,62 @@ if ( ! function_exists( 'ltm_setup' ) ) {
             'editor-color-palette',
             array(
                 array(
-                    'name'  => esc_html__( 'Black', 'ltm' ),
+                    'name'  => esc_html__('Black', 'ltm'),
                     'slug'  => 'black',
                     'color' => $black,
                 ),
                 array(
-                    'name'  => esc_html__( 'White', 'ltm' ),
+                    'name'  => esc_html__('White', 'ltm'),
                     'slug'  => 'white',
                     'color' => $white,
                 ),
                 array(
-                    'name'  => esc_html__( 'Dark blue', 'ltm' ),
+                    'name'  => esc_html__('Dark blue', 'ltm'),
                     'slug'  => 'dark-blue',
                     'color' => $primaryDarkBlue,
                 ),
                 array(
-                    'name'  => esc_html__( 'Grey', 'ltm' ),
+                    'name'  => esc_html__('Grey', 'ltm'),
                     'slug'  => 'grey',
                     'color' => $greyBackground,
                 ),
                 array(
-                    'name'  => esc_html__( 'Primary pink', 'ltm' ),
+                    'name'  => esc_html__('Primary pink', 'ltm'),
                     'slug'  => 'primary-pink',
                     'color' => $primaryPink,
                 ),
                 array(
-                    'name'  => esc_html__( 'Pink shadow', 'ltm' ),
+                    'name'  => esc_html__('Pink shadow', 'ltm'),
                     'slug'  => 'pink-shadow',
                     'color' => $pinkShadow,
                 ),
                 array(
-                    'name'  => esc_html__( 'Blue', 'ltm' ),
+                    'name'  => esc_html__('Blue', 'ltm'),
                     'slug'  => 'blue',
                     'color' => $blue,
                 ),
                 array(
-                    'name'  => esc_html__( 'Blue shadow', 'ltm' ),
+                    'name'  => esc_html__('Blue shadow', 'ltm'),
                     'slug'  => 'blue-shadow',
                     'color' => $blueShadow,
                 ),
                 array(
-                    'name'  => esc_html__( 'Green', 'ltm' ),
+                    'name'  => esc_html__('Green', 'ltm'),
                     'slug'  => 'green',
                     'color' => $green,
                 ),
                 array(
-                    'name'  => esc_html__( 'Green shadow', 'ltm' ),
+                    'name'  => esc_html__('Green shadow', 'ltm'),
                     'slug'  => 'green-shadow',
                     'color' => $greenShadow,
                 ),
                 array(
-                    'name'  => esc_html__( 'Orange', 'ltm' ),
+                    'name'  => esc_html__('Orange', 'ltm'),
                     'slug'  => 'orange',
                     'color' => $orange,
                 ),
                 array(
-                    'name'  => esc_html__( 'Orange shadow', 'ltm' ),
+                    'name'  => esc_html__('Orange shadow', 'ltm'),
                     'slug'  => 'orange-shadow',
                     'color' => $orangeShadow,
                 ),
@@ -130,7 +131,7 @@ if ( ! function_exists( 'ltm_setup' ) ) {
         );
     }
 }
-add_action( 'after_setup_theme', 'ltm_setup' );
+add_action('after_setup_theme', 'ltm_setup');
 
 
 /**
@@ -138,13 +139,14 @@ add_action( 'after_setup_theme', 'ltm_setup' );
  *
  * @return void
  */
-function wp_blank_widgets_init() {
+function wp_blank_widgets_init()
+{
     // Article Sidebar.
     register_sidebar(
         array(
-            'name'        => __( 'Article Sidebar', 'ltm' ),
+            'name'        => __('Article Sidebar', 'ltm'),
             'id'          => 'article-sidebar',
-            'description' => __( 'Sidebar for article.', 'ltm' ),
+            'description' => __('Sidebar for article.', 'ltm'),
             'before_widget' => '',
             'after_widget' => '',
             'show_in_rest' => true,
@@ -153,16 +155,28 @@ function wp_blank_widgets_init() {
     // Podcast default sidebar.
     register_sidebar(
         array(
-            'name'        => __( 'Podcast default Sidebar', 'ltm' ),
+            'name'        => __('Podcast default Sidebar', 'ltm'),
             'id'          => 'podcast-default-sidebar',
-            'description' => __( 'Sidebar for podcasts list.', 'ltm' ),
+            'description' => __('Sidebar for podcasts list.', 'ltm'),
             'before_widget' => '',
             'after_widget' => '',
             'show_in_rest' => true,
         )
     );
+    // Content Ad.
+    register_sidebar(
+        array(
+            'name'          => __('Content Ad', 'ltm'),
+            'id'            => 'article-content-ad',
+            'description'   => __('Article content ad widget area.', 'ltm'),
+            'before_widget' => '',
+            'after_widget'  => '',
+            'show_in_rest'  => false,
+        )
+    );
+    // Podcast content ad.
 
-    if ( function_exists( 'get_field' ) ) {
+    if (function_exists('get_field')) {
         if ($sidebars = get_field('sidebar_areas', 'options')) {
             foreach ($sidebars as $key => $sidebar) {
                 register_sidebar(
@@ -178,54 +192,57 @@ function wp_blank_widgets_init() {
         }
     }
 }
-add_action( 'widgets_init', 'wp_blank_widgets_init' );
+add_action('widgets_init', 'wp_blank_widgets_init');
 
 /**
  * Predefine event blocks on create new post.
  */
-function create_post_predefine_blocks() {
-    $page_type_object = get_post_type_object( 'post' );
+function create_post_predefine_blocks()
+{
+    $page_type_object = get_post_type_object('post');
     $page_type_object->template = array(
-        array( 'core/paragraph', array('placeholder' => 'Content Body')),
-        array( 'acf/signup-form-section', array() ),
-        array( 'core/paragraph', array('placeholder' => 'Content Body')),
+        array('core/paragraph', array('placeholder' => 'Content Body')),
+        array('acf/signup-form-section', array()),
+        array('core/paragraph', array('placeholder' => 'Content Body')),
     );
 }
-add_action( 'init', 'create_post_predefine_blocks', 100 );
+add_action('init', 'create_post_predefine_blocks', 100);
 
 /**
  * Predefine event blocks on create new section landing.
  */
-function create_section_landing_predefine_blocks() {
-    $page_type_object = get_post_type_object( 'sections-landing' );
+function create_section_landing_predefine_blocks()
+{
+    $page_type_object = get_post_type_object('sections-landing');
     $page_type_object->template = array(
-        array( 'acf/categories-section-block', array('data' => array('field_672ccb402a55a' => 1))),
-        array( 'acf/news-list-with-hero-section-block', array('data' => array('field_672ccb5048a74' => 1))),
-        array( 'acf/subscribe-form-block', array('data' => array('field_672ca9403c777' => 1))),
-        array( 'acf/news-with-sidebar-section-block', array('data' => array('field_672ccb6767b8e' => 1))),
+        array('acf/categories-section-block', array('data' => array('field_672ccb402a55a' => 1))),
+        array('acf/news-list-with-hero-section-block', array('data' => array('field_672ccb5048a74' => 1))),
+        array('acf/subscribe-form-block', array('data' => array('field_672ca9403c777' => 1))),
+        array('acf/news-with-sidebar-section-block', array('data' => array('field_672ccb6767b8e' => 1))),
     );
 }
-add_action( 'init', 'create_section_landing_predefine_blocks', 100 );
+add_action('init', 'create_section_landing_predefine_blocks', 100);
 
 /**
  * Predefine event blocks on create new single research.
  */
-function create_single_research_predefine_blocks() {
-    $page_type_object = get_post_type_object( 'research' );
+function create_single_research_predefine_blocks()
+{
+    $page_type_object = get_post_type_object('research');
     $page_type_object->template = array(
-        array( 'acf/research-banner-block', array('data' => array('field_67354ddb2f441' => 1))),
-        array( 'acf/research-preview-block', array('data' => array('field_67354de6440d2' => 1))),
-        array( 'acf/research-overview-block', array('data' => array('field_67354f7fc926c' => 1))),
-        array( 'acf/image-and-text', array('data' => array('field_67354f9994828' => 1))),
+        array('acf/research-banner-block', array('data' => array('field_67354ddb2f441' => 1))),
+        array('acf/research-preview-block', array('data' => array('field_67354de6440d2' => 1))),
+        array('acf/research-overview-block', array('data' => array('field_67354f7fc926c' => 1))),
+        array('acf/image-and-text', array('data' => array('field_67354f9994828' => 1))),
     );
 }
-add_action( 'init', 'create_single_research_predefine_blocks', 100 );
+add_action('init', 'create_single_research_predefine_blocks', 100);
 
 register_block_pattern(
     'ltm-patterns/event-images-and-quotes',
     array(
-        'title'       => __( 'Event images and quotes', 'ltm' ),
-        'description' => _x( 'Two horizontal images, and quotes below.', '', 'ltm' ),
+        'title'       => __('Event images and quotes', 'ltm'),
+        'description' => _x('Two horizontal images, and quotes below.', '', 'ltm'),
         'categories'  => array('ltm-events'),
         'content'     => "<!-- wp:acf/content-wrapper {\"name\":\"acf/content-wrapper\",\"align\":\"center\",\"mode\":\"preview\"} -->
 <!-- wp:columns -->
@@ -253,5 +270,5 @@ register_block_pattern(
 
 register_block_pattern_category(
     'ltm-events',
-    array( 'label' => __( 'Latitude Media Event', 'ltm' ) )
+    array('label' => __('Latitude Media Event', 'ltm'))
 );

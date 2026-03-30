@@ -7,6 +7,7 @@
 
 get_header();
 \LatitudeMedia\Page_Data()->addItems([get_the_ID()]);
+
 ?>
 
 <div class="single-post-heading-section">
@@ -60,8 +61,24 @@ get_header();
                     $content = apply_filters('the_content', $content);
                     $content = str_replace(']]>', ']]&gt;', $content);
                     $content = apply_filters('the_content_ads', $content);
-                    echo $content;
 
+                    if (is_active_sidebar('article-content-ad')) {
+                        $insert_after_p = 4;
+                        $position = 0;
+                        for ($i = 0; $i < $insert_after_p; $i++) {
+                            $position = strpos($content, '</p>', $position);
+                            if ($position === false) break;
+                            $position += strlen('</p>');
+                        }
+                        if ($position !== false) {
+                            ob_start();
+                            dynamic_sidebar('article-content-ad');
+                            $ad_html = ob_get_clean();
+                            $content = substr($content, 0, $position) . $ad_html . substr($content, $position);
+                        }
+                    }
+
+                    echo $content;
                     ?>
                 </article>
                 <div class="post-share-block">
