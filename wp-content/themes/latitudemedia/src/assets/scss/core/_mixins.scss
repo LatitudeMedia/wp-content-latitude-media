@@ -4885,7 +4885,6 @@
         .collaborator-text {
           color: $white;
           font-size: 18px;
-          font-weight: 600;
           white-space: nowrap;
           font-family: $lora;
         }
@@ -4917,7 +4916,8 @@
           padding: 16px;
         }
         @include below_mob {
-          width: 50%;
+          font-size: 14px;
+          padding: 14px;
         }
       }
       .location {

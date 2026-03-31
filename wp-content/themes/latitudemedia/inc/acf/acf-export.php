@@ -4939,6 +4939,21 @@ Or select event manually.',
                 ),
             ),
             array(
+                'key' => 'field_6a2f8c4d1e906',
+                'label' => 'Event collaborator logo URL',
+                'name' => 'event_collaborator_logo_url',
+                'type' => 'url',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6a2f8c4d1e905',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'key' => 'field_67447f65a31a8',
                 'label' => 'Use labels below image',
                 'name' => 'label_below',

@@ -19,6 +19,7 @@ $options = wp_parse_args(
         'show_event_collaborator' => false,
         'event_collaborator_text' => '',
         'event_collaborator_logo' => [],
+        'event_collaborator_logo_url' => '',
         'label_below' => false,
         'subtitle'      => '',
         'logos_title' => 'Co-hosted with:',
@@ -124,7 +125,12 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                         printf('<span class="collaborator-text">%s</span>', esc_html($event_collaborator_text));
                     }
                     if (!empty($event_collaborator_logo) && is_array($event_collaborator_logo)) {
-                        printf('<img alt="%s" class="collaborator-logo" src="%s">', esc_attr($event_collaborator_logo['alt'] ?? ''), esc_url($event_collaborator_logo['url']));
+                        $logo_img = sprintf('<img alt="%s" class="collaborator-logo" src="%s">', esc_attr($event_collaborator_logo['alt'] ?? ''), esc_url($event_collaborator_logo['url']));
+                        if (!empty($event_collaborator_logo_url)) {
+                            printf('<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>', esc_url($event_collaborator_logo_url), $logo_img);
+                        } else {
+                            echo $logo_img;
+                        }
                     }
                     echo '</div>';
                 }

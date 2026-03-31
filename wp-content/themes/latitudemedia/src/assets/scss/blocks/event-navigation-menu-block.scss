@@ -47,6 +47,13 @@
       background-color: $primary-pink !important;
     }
   }
+  &.hide-buttons-mobile {
+    .buttons-container {
+      @include below_mob {
+        display: none !important;
+      }
+    }
+  }
   @include below_sm {
     top: 126px;
     &.admin {
@@ -63,7 +70,7 @@
       display: flex;
       gap: 0px;
       flex-wrap: wrap;
-      
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -105,14 +112,13 @@
       min-width: fit-content;
       @include below_md {
         max-width: 100px;
-        min-width: initial!important;
+        min-width: initial !important;
       }
       @include below_mob {
-        min-width: fit-content!important;
-        max-width: 100%!important;
+        min-width: fit-content !important;
+        max-width: 100% !important;
         margin-bottom: 10px;
         margin-top: 10px;
-        display: none;
       }
       .nav-button {
         background-color: $green;
@@ -126,9 +132,7 @@
           padding: 7px 12px;
           text-align: center;
         }
-        
       }
-     
     }
   }
 }
