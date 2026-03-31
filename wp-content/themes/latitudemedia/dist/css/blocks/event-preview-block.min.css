@@ -88,7 +88,6 @@
 .single-event-hero-section .single-event-hero-section-wrapper .bottom-row .collaborator-wrapper .collaborator-text {
   color: #ffffff;
   font-size: 18px;
-  font-weight: 600;
   white-space: nowrap;
   font-family: "Lora", Arial, Helvetica, serif;
 }
@@ -225,7 +224,8 @@
 }
 @media screen and (max-width: 576px) {
   .single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .label-text {
-    width: 50%;
+    font-size: 14px;
+    padding: 14px;
   }
 }
 
