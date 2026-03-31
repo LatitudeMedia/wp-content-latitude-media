@@ -80,15 +80,10 @@
   font-size: 0.875rem;
   font-weight: 700;
 }
-@media screen and (max-width: 768px) {
-  .navigation-menu-section {
-    top: 126px;
-  }
-  .navigation-menu-section.admin {
-    top: 172px;
-  }
-}
 @media screen and (max-width: 576px) {
+  .navigation-menu-section.hide-buttons-mobile .buttons-container {
+    display: none !important;
+  }
   .navigation-menu-section .navigation-menu-wrapper {
     flex-direction: column;
   }
@@ -97,7 +92,14 @@
     max-width: 100% !important;
     margin-bottom: 10px;
     margin-top: 10px;
-    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navigation-menu-section {
+    top: 126px;
+  }
+  .navigation-menu-section.admin {
+    top: 172px;
   }
 }
 @media screen and (max-width: 992px) {
