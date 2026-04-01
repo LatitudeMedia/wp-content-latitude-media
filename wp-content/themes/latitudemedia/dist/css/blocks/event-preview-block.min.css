@@ -196,6 +196,9 @@
 .single-event-hero-section.flex-summit-theme .container .single-event-hero-section-wrapper .labels-wrapper .date {
   background-color: #ff4108 !important;
 }
+.single-event-hero-section.flex-summit-theme .container .single-event-hero-section-wrapper .bottom-row .collaborator-wrapper {
+  margin-left: 130px;
+}
 @media screen and (max-width: 768px) {
   .single-event-hero-section .single-event-hero-section-wrapper .data-row {
     flex-direction: column;
@@ -226,6 +229,11 @@
   .single-event-hero-section .single-event-hero-section-wrapper .labels-wrapper .label-text {
     font-size: 14px;
     padding: 14px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .single-event-hero-section.flex-summit-theme .container .single-event-hero-section-wrapper .bottom-row .collaborator-wrapper {
+    margin-left: 0;
   }
 }
 
