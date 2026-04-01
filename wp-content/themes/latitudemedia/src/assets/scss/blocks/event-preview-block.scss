@@ -22,6 +22,14 @@
             background-color: #ff4108 !important;
           }
         }
+        .bottom-row {
+          .collaborator-wrapper {
+            margin-left: 130px;
+            @include below_lg {
+              margin-left: 0;
+            }
+          }
+        }
       }
     }
   }
