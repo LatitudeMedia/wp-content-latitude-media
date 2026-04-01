@@ -4133,6 +4133,16 @@ Or select event manually.',
                                 'parent_repeater' => 'field_6940ba294ae51',
                             ),
                             array(
+                                'key' => 'field_6941a3c7d5e8b',
+                                'label' => 'Title Image',
+                                'name' => 'title_image',
+                                'type' => 'image',
+                                'return_format' => 'array',
+                                'library' => 'all',
+                                'preview_size' => 'medium',
+                                'parent_repeater' => 'field_6940ba294ae51',
+                            ),
+                            array(
                                 'key' => 'field_6940ba754ae53',
                                 'label' => 'Description',
                                 'name' => 'description',
@@ -4896,6 +4906,62 @@ Or select event manually.',
                 'mime_types' => '',
                 'allow_in_bindings' => 0,
                 'preview_size' => 'medium',
+            ),
+            array(
+                'key' => 'field_6a2f8c4d1e905',
+                'label' => 'Show event collaborator',
+                'name' => 'show_event_collaborator',
+                'type' => 'true_false',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_6a2f8c4d1e903',
+                'label' => 'Event collaborator text',
+                'name' => 'event_collaborator_text',
+                'type' => 'text',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6a2f8c4d1e905',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_6a2f8c4d1e904',
+                'label' => 'Event collaborator logo',
+                'name' => 'event_collaborator_logo',
+                'type' => 'image',
+                'return_format' => 'array',
+                'library' => 'all',
+                'preview_size' => 'medium',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6a2f8c4d1e905',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_6a2f8c4d1e906',
+                'label' => 'Event collaborator logo URL',
+                'name' => 'event_collaborator_logo_url',
+                'type' => 'url',
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_6a2f8c4d1e905',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
             ),
             array(
                 'key' => 'field_67447f65a31a8',

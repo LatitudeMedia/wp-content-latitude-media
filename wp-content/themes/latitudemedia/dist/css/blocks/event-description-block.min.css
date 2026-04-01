@@ -27,6 +27,9 @@
   background-color: #1351CD !important;
   color: #ffffff !important;
 }
+.event-text-section.blue-theme article p a {
+  color: #1351CD;
+}
 .event-text-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
 }

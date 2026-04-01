@@ -16,6 +16,10 @@ $options = wp_parse_args(
             'button',
         ],
         'main_logo' => [],
+        'show_event_collaborator' => false,
+        'event_collaborator_text' => '',
+        'event_collaborator_logo' => [],
+        'event_collaborator_logo_url' => '',
         'label_below' => false,
         'subtitle'      => '',
         'logos_title' => 'Co-hosted with:',
@@ -111,16 +115,39 @@ if (!empty($eventData['event_type']) && ($eventData['event_type'] === 'virtual' 
                 }
                 printf('<div class="logo-wrapper"><div class="label">%s</div>%s</div>', $logos_title ?? 'Co-hosted with:', $imageHtml);
             }
-            if ($label_below) {
-                ob_start();
-                do_action('print_event_date_range', $post_id);
-                $date_output = ob_get_clean();
-                $location_label = isset($eventData['location']) ? $eventData['location'] : '';
-                printf(
-                    '<div class="labels-wrapper"><div class="location label-text">%s</div><div class="date label-text">%s</div></div>',
-                    esc_html($location_label),
-                    $date_output
-                );
+
+            if ($show_event_collaborator || $label_below) {
+                echo '<div class="bottom-row ' . ($show_event_collaborator ? 'has-collaborator' : '') . '">';
+
+                if ($show_event_collaborator) {
+                    echo '<div class="collaborator-wrapper">';
+                    if (!empty($event_collaborator_text)) {
+                        printf('<span class="collaborator-text">%s</span>', esc_html($event_collaborator_text));
+                    }
+                    if (!empty($event_collaborator_logo) && is_array($event_collaborator_logo)) {
+                        $logo_img = sprintf('<img alt="%s" class="collaborator-logo" src="%s">', esc_attr($event_collaborator_logo['alt'] ?? ''), esc_url($event_collaborator_logo['url']));
+                        if (!empty($event_collaborator_logo_url)) {
+                            printf('<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>', esc_url($event_collaborator_logo_url), $logo_img);
+                        } else {
+                            echo $logo_img;
+                        }
+                    }
+                    echo '</div>';
+                }
+
+                if ($label_below) {
+                    ob_start();
+                    do_action('print_event_date_range', $post_id);
+                    $date_output = ob_get_clean();
+                    $location_label = isset($eventData['location']) ? $eventData['location'] : '';
+                    printf(
+                        '<div class="labels-wrapper"><div class="location label-text">%s</div><div class="date label-text">%s</div></div>',
+                        esc_html($location_label),
+                        $date_output
+                    );
+                }
+
+                echo '</div>';
             }
             ?>
         </div>
