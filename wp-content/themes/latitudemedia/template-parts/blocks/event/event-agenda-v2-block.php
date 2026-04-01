@@ -115,8 +115,17 @@ $blockAttrs = wp_kses_data(
                     <div class="event-agenda-v2-item-time"><?php echo esc_html($item['time']); ?></div>
                   <?php endif; ?>
                   <div class="event-agenda-v2-item-content">
-                    <?php if (!empty($item['title'])) : ?>
-                      <div class="event-agenda-v2-item-title"><?php echo esc_html($item['title']); ?></div>
+                    <?php if (!empty($item['title']) || !empty($item['title_image'])) : ?>
+                      <div class="event-agenda-v2-item-title-row">
+                        <?php if (!empty($item['title'])) : ?>
+                          <div class="event-agenda-v2-item-title"><?php echo esc_html($item['title']); ?></div>
+                        <?php endif; ?>
+                        <?php if (!empty($item['title_image'])) : ?>
+                          <div class="event-agenda-v2-item-title-image">
+                            <img src="<?php echo esc_url($item['title_image']['url']); ?>" alt="<?php echo esc_attr($item['title_image']['alt']); ?>">
+                          </div>
+                        <?php endif; ?>
+                      </div>
                     <?php endif; ?>
                     <?php if (!empty($item['description'])) : ?>
                       <div class="event-agenda-v2-item-description"><?php echo wp_kses_post($item['description']); ?></div>
