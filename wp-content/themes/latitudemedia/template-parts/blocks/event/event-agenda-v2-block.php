@@ -112,7 +112,7 @@ $blockAttrs = wp_kses_data(
               <?php foreach ($agenda_items as $item) : ?>
                 <div class="event-agenda-v2-item">
                   <?php if (!empty($item['time'])) : ?>
-                    <div class="event-agenda-v2-item-time"><?php echo esc_html($item['time']); ?></div>
+                    <div class="event-agenda-v2-item-time <?php echo !empty($item['title_image']) ? 'has-title-image' : ''; ?>"><?php echo esc_html($item['time']); ?></div>
                   <?php endif; ?>
                   <div class="event-agenda-v2-item-content">
                     <?php if (!empty($item['title']) || !empty($item['title_image'])) : ?>
