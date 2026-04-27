@@ -1,0 +1,65 @@
+@import "../core/core_loader";
+@import "podcasts_category";
+
+.page-template-template-top-podcasts-php {
+  .podcast-category-hero-section {
+    .podcast-category-hero-section-wrapper {
+      column-gap: 48px;
+      row-gap: 32px;
+      @include below_md {
+        column-gap: 0;
+        row-gap: 24px;
+      }
+    }
+    .image-folder {
+      flex-shrink: 0;
+    }
+  }
+  .podcast-category-hero-section + .podcast-category-hero-section {
+    margin-top: 32px;
+
+    @include below_md {
+      margin-top: 24px;
+    }
+  }
+  .podcast-category-hero-section.right-image-folder {
+    padding: 40px 0 24px;
+    @include below_md {
+      padding: 24px 0 16px;
+    }
+    .content-folder {
+      h1 {
+        color: $primary-dark-blue;
+      }
+      p strong {
+        color: $primary-dark-blue;
+      }
+      .info {
+        margin-top: 8px;
+        .row {
+          flex-wrap: wrap;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  .podcast-category-hero-section.left-image-folder.bordered {
+    padding: 0 0 48px;
+    @include below_md {
+      padding: 0 0 32px;
+    }
+    .content-folder {
+      h2 {
+        color: $primary-dark-blue;
+        a {
+          color: $primary-dark-blue;
+        }
+      }
+      .info {
+        margin-top: 8px;
+      }
+    }
+  }
+}
