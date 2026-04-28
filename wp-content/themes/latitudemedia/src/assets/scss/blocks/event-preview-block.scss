@@ -12,6 +12,9 @@
     z-index: 1;
   }
   &.flex-summit-theme {
+    &:before {
+      display: none;
+    }
     .container {
       .single-event-hero-section-wrapper {
         .labels-wrapper {
