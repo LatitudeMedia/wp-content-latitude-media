@@ -190,6 +190,9 @@
   background-image: linear-gradient(rgba(15, 30, 66, 0.8), rgba(15, 30, 66, 0.8));
   z-index: 1;
 }
+.single-event-hero-section.flex-summit-theme:before {
+  display: none;
+}
 .single-event-hero-section.flex-summit-theme .container .single-event-hero-section-wrapper .labels-wrapper .location {
   background-color: #e62471 !important;
 }
