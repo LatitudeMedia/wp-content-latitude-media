@@ -1,0 +1,11 @@
+{% set classes = settings.classes | merge( [ base_styles.base ] ) | join(' ') | trim %}
+{% set id_attribute = settings._cssid is not empty ? 'id=' ~ settings._cssid | e('html_attr') : '' %}
+{% set interactions_attribute = interactions is not empty ? 'data-interactions=' ~ interactions | json_encode | e('html_attr') : '' %}
+<button 
+	{{ id_attribute }}
+	class="{{ classes }}"
+	type="submit"
+	data-interaction-id="{{ interaction_id | default(id) }}"
+	{{ settings.attributes | raw }}
+	{{ interactions_attribute }}
+>{{ settings.label | e }}</button>
