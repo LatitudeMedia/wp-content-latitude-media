@@ -1,0 +1,273 @@
+:root {
+	--wd-border-color: #dcdcdc;
+	--wd-color: #111;
+	--wd-bg-color: #fff;
+	--wd-checked-bg-color: #eceeef;
+	--mn-button-color: #298ffc;
+	--mn-button-hover-color: #005f8a;
+}
+
+.jet-engine-advanced-date-field .cx-control__error {
+	margin-top: 0;
+}
+
+.jet-engine-advanced-date-field__date {
+	display: flex;
+	gap: 15px;
+	padding: 15px 0 0 0;
+	min-height: 40px;
+	box-sizing: border-box;
+	align-items: center;
+}
+
+.jet-engine-advanced-date-field__end-date-input {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.jet-engine-advanced-date-field__date-input,
+.jet-engine-advanced-date-field__date-warp {
+	flex: 1 1 auto;
+}
+
+.jet-engine-advanced-date-field__time + input {
+	flex: 0 0 30%;
+}
+.jet-engine-advanced-date-field__end-time + input {
+	flex: 0 0 30%;
+}
+
+.jet-engine-advanced-date-field__date-controls {
+	display: flex;
+	gap: 15px;
+}
+
+.jet-engine-advanced-date-field__end-date-controls {
+	display: flex;
+	gap: 15px;
+	flex: 1 1 auto;
+	align-items: stretch;
+}
+
+.jet-engine-advanced-date-field__end-date-controls .field-type-switcher {
+	display: flex;
+	align-items: center;
+}
+
+.jet-engine-advanced-date-field__date > span {
+	flex: 0 0 auto;
+}
+
+.jet-engine-advanced-date-field__is-recurring {
+	display: flex;
+	gap: 15px;
+	padding: 15px 0 0;
+	min-height: 40px;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.jet-engine-advanced-date-field__label {
+	min-width: 100px;
+}
+
+.jet-engine-advanced-date-field__recurring-row {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	padding: 15px 0 0 0;
+}
+
+.jet-engine-advanced-date-field__recurring-content {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	flex: 1 0 auto;
+}
+
+.jet-engine-advanced-date-field--tiny .jet-engine-advanced-date-field__recurring-row {
+	flex-direction: column;
+	gap: 5px;
+	align-items: stretch;
+}
+
+.jet-engine-advanced-date-field--tiny .jet-engine-advanced-date-field__recurring-content {
+	gap: 5px;
+	flex: 0 0 100%;
+}
+
+.jet-engine-advanced-date-field--tiny .jet-engine-advanced-date-field__recurring-content select.cx-ui-select,
+.jet-engine-advanced-date-field--tiny .jet-engine-advanced-date-field__recurring-content input.cx-ui-text {
+	min-width: 75px;
+	width: 75px;
+}
+
+.jet-engine-advanced-date-field__weekdays {
+	display: flex;
+	flex: 0 0 100%;
+	overflow: hidden;
+	border: 1px solid var( --wd-border-color );
+	color: var( --wd-color );
+	background: var( --wd-bg-color );
+	border-radius: 2px;
+}
+
+.jet-engine-advanced-date-field__weekdays label {
+	cursor: pointer;
+	margin: 0;
+	color: var( --wd-color );
+}
+
+.jet-engine-advanced-date-field--tiny .label-weekdays {
+	display: none;
+}
+
+.jet-engine-advanced-date-field__weekdays label {
+	flex: 0 0 14.285%;
+	box-sizing: border-box;
+	position: relative;
+	text-align: center;
+	border-left: 1px solid var( --wd-border-color );
+	padding: 5px;
+}
+
+.jet-engine-advanced-date-field__weekdays label:first-child {
+	border-left: none;
+}
+
+.jet-engine-advanced-date-field__weekdays label input {
+	position: absolute;
+	opacity: 0;
+}
+
+.jet-engine-advanced-date-field__weekday-label {
+	position:relative;
+	z-index: 2;
+}
+
+.jet-engine-advanced-date-field__weekdays label input:checked ~ .jet-engine-advanced-date-field__weekday-marker {
+	position:absolute;
+	z-index: 1;
+	left:0;
+	right:0;
+	top: 0;
+	bottom:0;
+	background:var(--wd-checked-bg-color);
+}
+
+.jet-engine-advanced-date-field__monthly {
+	flex: 1 1 auto;
+}
+
+.jet-engine-advanced-date-field__monthly-row {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+}
+
+.jet-engine-advanced-date-field__monthly-row + .jet-engine-advanced-date-field__monthly-row {
+	padding: 15px 0 0 0;
+}
+
+.jet-engine-advanced-date-field__monthly-row label {
+	flex: 0 0 80px;
+}
+.jet-engine-advanced-date-field__recurring-label {
+	white-space: nowrap;
+}
+
+.jet-engine-advanced-date-field__repeater-row {
+	position: relative;
+	padding: 5px 30px 20px 0;
+	border-top: 1px solid rgba( 0, 0, 0, .1 );
+	&:first-child {
+		border-top: none;
+	}
+}
+
+.jet-engine-advanced-date-field__repeater-delete {
+	position:absolute;
+	right: 0;
+	top: 21px;
+}
+
+button.jet-engine-advanced-date-field__repeater-delete-button {
+	width:25px;
+	height: 25px;
+	border: none;
+	padding:0;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	cursor: pointer;
+	background: none;
+	box-shadow: none;
+	color: #cc1818;
+	path {
+		fill: currentColor;
+	}
+}
+
+.jet-engine-advanced-date-field__repeater-confirm {
+	position: absolute;
+	width: 80px;
+	background: #1e1e1e;
+	color: #fff;
+	padding: 3px 0;
+	font-size: 11px;
+	line-height: 14px;
+	box-sizing: border-box;
+	left: 50%;
+	margin: 0 0 5px -40px;
+	bottom: 100%;
+	text-align: center;
+	display: none;
+	&:after {
+		position:absolute;
+		content:'';
+		width: 0px;
+		height: 0px;
+		top: 100%;
+		left:50%;
+		margin-left: -4px;
+		border-style: solid;
+		border-width: 4px 4px 0 4px;
+		border-color: #1E1E1E transparent transparent transparent;
+		transform: rotate(0deg);
+	}
+}
+
+.show-confirm .jet-engine-advanced-date-field__repeater-confirm {
+	display: block;
+}
+
+.jet-engine-advanced-date-field__repeater-confirm-yes,
+.jet-engine-advanced-date-field__repeater-confirm-no {
+	display: inline-flex;
+	opacity: .8;
+	text-decoration: underline dashed;
+	padding: 2px 3px;
+	margin: 0 2px;
+	cursor: pointer;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+button.jet-engine-advanced-date-field__repeater-new {
+	border: none;
+	padding:0;
+	cursor: pointer;
+	background: none;
+	box-shadow: none;
+	color: var(--mn-button-color);
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+button.jet-engine-advanced-date-field__repeater-new:hover,
+button.jet-engine-advanced-date-field__repeater-new:focus,
+button.jet-engine-advanced-date-field__repeater-new:active {
+	background: none;
+	color: var(--mn-button-hover-color);
+}

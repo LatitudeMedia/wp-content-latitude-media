@@ -1,0 +1,1 @@
+import 'blocks-views/multiday-calendar';
