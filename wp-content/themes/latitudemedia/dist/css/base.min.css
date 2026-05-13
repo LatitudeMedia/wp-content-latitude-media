@@ -533,11 +533,24 @@ article ul li {
   margin: auto;
 }
 
-.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] {
+.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper {
+  height: auto;
+}
+.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button {
+  height: auto;
+}
+.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+  height: 260px;
+}
+.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] {
+  height: auto;
+}
+.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] {
   max-width: 100%;
 }
-.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+.wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
   max-width: 100% !important;
+  margin-bottom: 0px;
 }
 
 .pager ul {
@@ -874,6 +887,9 @@ body.page-id-1941 header {
     width: 100%;
     margin-left: 0;
   }
+}
+
+@media (max-width: 1047px) {
   .right-sidebar-layout .right-sidebar-layout-wrapper {
     flex-direction: column;
   }
@@ -891,8 +907,68 @@ body.page-id-1941 header {
 }
 
 @media (max-width: 630px) {
-  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
-    height: 600px;
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button {
+    height: auto;
+  }
+}
+
+@media (max-width: 1120px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 270px;
+  }
+}
+
+@media (max-width: 720px) and (min-width: 651px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 270px;
+  }
+}
+
+@media (max-width: 650px) and (min-width: 631px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 290px;
+  }
+}
+
+@media (max-width: 630px) and (min-width: 516px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 510px;
+  }
+}
+
+@media (max-width: 515px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper.with-button div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 555px;
+  }
+}
+
+@media (max-width: 1120px) and (min-width: 721px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 210px;
+  }
+}
+
+@media (max-width: 720px) and (min-width: 630px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 230px;
+  }
+}
+
+@media (max-width: 630px) and (min-width: 521px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 450px;
+  }
+}
+
+@media (max-width: 520px) and (min-width: 461px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 470px;
+  }
+}
+
+@media (max-width: 460px) {
+  .wp-block-acf-ad-banner-section.responsive-template .banner-ad-block .banner-ad-block-wrapper div[id*=div-gpt-ad] div[id*=google_ads_iframe] iframe {
+    height: 490px;
   }
 }
 
