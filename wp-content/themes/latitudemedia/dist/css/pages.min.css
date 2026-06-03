@@ -154,6 +154,10 @@
   position: initial;
 }
 
+.content-block.flex-summit-form {
+  height: 1000px;
+}
+
 .advertise-podcasts header {
   padding-bottom: 0;
 }
@@ -1096,6 +1100,9 @@
   }
   .topics-archive-section .posts-list-section .pager {
     padding-top: 32px;
+  }
+  .content-block.flex-summit-form {
+    height: 500px;
   }
   .single-events .right-sidebar-layout .right-sidebar-layout-wrapper .sidebar {
     width: 100%;
