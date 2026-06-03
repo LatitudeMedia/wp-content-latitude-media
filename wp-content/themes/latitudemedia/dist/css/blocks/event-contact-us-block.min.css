@@ -4,6 +4,9 @@
 .contact-us-section {
   margin-bottom: 64px;
 }
+.contact-us-section.margin-top-60 {
+  margin-top: 60px;
+}
 .contact-us-section.blue-theme .bordered-title {
   border-bottom: 5px solid #1351CD !important;
 }
