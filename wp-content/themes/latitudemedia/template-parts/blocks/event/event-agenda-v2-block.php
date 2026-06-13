@@ -84,17 +84,18 @@ $blockAttrs = wp_kses_data(
     <div class="bordered-title green"><?php echo esc_html($title); ?></div>
 
     <?php if (count($processed_days) > 1) : ?>
-      <div class="event-agenda-v2-dropdown-wrapper">
-        <div class="selector-container">
-          <select class="event-agenda-v2-day-selector" id="agenda-day-selector-<?php echo esc_attr($block_id); ?>">
-            <?php foreach ($processed_days as $index => $day) : ?>
-              <option value="<?php echo esc_attr($block_id . '-day-' . $index); ?>" <?php echo $index === 0 ? 'selected' : ''; ?>>
-                <?php echo esc_html($day['day_title'] ?: 'Day ' . ($index + 1)); ?>
-              </option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-
+      <div class="event-agenda-v2-day-buttons" role="tablist" aria-label="<?php echo esc_attr($title); ?>">
+        <?php foreach ($processed_days as $index => $day) : ?>
+          <button
+            type="button"
+            class="event-agenda-v2-day-button<?php echo $index === 0 ? ' active' : ''; ?>"
+            role="tab"
+            aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"
+            aria-controls="<?php echo esc_attr($block_id . '-day-' . $index); ?>"
+            data-day-target="<?php echo esc_attr($block_id . '-day-' . $index); ?>">
+            <?php echo esc_html($day['day_title'] ?: 'Day ' . ($index + 1)); ?>
+          </button>
+        <?php endforeach; ?>
       </div>
     <?php endif; ?>
 
@@ -109,10 +110,23 @@ $blockAttrs = wp_kses_data(
 
           <?php if (!empty($agenda_items)) : ?>
             <div class="event-agenda-v2-agenda-items">
-              <?php foreach ($agenda_items as $item) : ?>
-                <div class="event-agenda-v2-item">
-                  <?php if (!empty($item['time'])) : ?>
+              <?php foreach ($agenda_items as $item_index => $item) : ?>
+                <?php
+                $same_time_as_previous = !empty($item['same_time_as_previous_item']);
+                $previous_time = '';
+                for ($i = $item_index - 1; $i >= 0; $i--) {
+                  if (!empty($agenda_items[$i]['time'])) {
+                    $previous_time = $agenda_items[$i]['time'];
+                    break;
+                  }
+                }
+                ?>
+                <div class="event-agenda-v2-item<?php echo $same_time_as_previous ? ' same_time_as_previous_agenda_item' : ''; ?>">
+                  <?php if (!$same_time_as_previous && !empty($item['time'])) : ?>
                     <div class="event-agenda-v2-item-time <?php echo !empty($item['title_image']) ? 'has-title-image' : ''; ?>"><?php echo esc_html($item['time']); ?></div>
+                  <?php endif; ?>
+                  <?php if ($same_time_as_previous && !empty($previous_time)) : ?>
+                    <div class="event-agenda-v2-item-time"><?php echo esc_html($previous_time); ?></div>
                   <?php endif; ?>
                   <div class="event-agenda-v2-item-content">
                     <?php if (!empty($item['title']) || !empty($item['title_image'])) : ?>
