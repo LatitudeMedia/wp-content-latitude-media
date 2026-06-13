@@ -1,6 +1,9 @@
 @import "../core/core_loader";
 .contact-us-section {
   margin-bottom: 64px;
+  &.margin-top-60 {
+    margin-top: 60px;
+  }
   &.blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
