@@ -1,0 +1,55 @@
+.jet-engine-advanced-date-field__switch-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.jet-engine-advanced-date-field__switch {
+	position: relative;
+	display: inline-block;
+	width: 54px;
+	height: 20px;
+}
+
+input.jet-engine-advanced-date-field__switch-input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+.jet-engine-advanced-date-field__switch-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #eceeef;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	-webkit-transition: .4s;
+	transition: .4s;
+	border-radius: 10px;
+}
+
+.jet-engine-advanced-date-field__switch-slider:before {
+	position: absolute;
+	content: "";
+	background-color: white;
+	width: 18px;
+	height: 18px;
+	margin: 1px;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+	box-sizing: border-box;
+	z-index: 3;
+}
+
+.jet-engine-advanced-date-field__switch-input:checked + .jet-engine-advanced-date-field__switch-slider {
+	background-color: #49c66a;
+}
+
+.jet-engine-advanced-date-field__switch-input:checked + .jet-engine-advanced-date-field__switch-slider:before {
+	transform: translateX(34px);
+}

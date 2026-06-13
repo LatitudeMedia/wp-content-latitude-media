@@ -1751,3 +1751,30 @@ function acf_load_ad_canner_choises($field)
     $field['choices'] = $choices;
     return $field;
 }
+
+/**
+ * Top podcasts layout: limit Featured Podcast + Podcasts list post_object fields to
+ * standard posts whose News options "News Type" (news_type) is Podcast.
+ *
+ * One hook: ACF fires `acf/fields/post_object/query` for every post_object; we only
+ * alter queries for these two field keys (featured + repeater subfield).
+ */
+add_filter( 'acf/fields/post_object/query', 'ltm_acf_top_podcasts_layout_news_type_podcast_query', 10, 3 );
+
+function ltm_acf_top_podcasts_layout_news_type_podcast_query( $args, $field, $post_id ) {
+    $keys = array( 'field_67f4c8d1e2f3b', 'field_67f4c8d1e2f3d' );
+    if ( empty( $field['key'] ) || ! in_array( $field['key'], $keys, true ) ) {
+        return $args;
+    }
+
+    $args['post_type'] = 'post';
+    $args['meta_query'] = array(
+        array(
+            'key'     => 'news_type',
+            'value'   => 'podcast',
+            'compare' => '=',
+        ),
+    );
+
+    return $args;
+}

@@ -2816,6 +2816,82 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'active' => true,
     ));
     acf_add_local_field_group(array(
+        'key' => 'group_67f4c8d1e2f3a',
+        'title' => 'Top podcasts layout',
+        'fields' => array(
+            array(
+                'key' => 'field_67f4c8d1e2f3b',
+                'label' => 'Featured Podcast',
+                'name' => 'featured_podcast',
+                'type' => 'post_object',
+                'post_type' => array(
+                    0 => 'post',
+                ),
+                'post_status' => '',
+                'taxonomy' => '',
+                'return_format' => 'id',
+                'allow_null' => 1,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_67f4c8d1e2f3c',
+                'label' => 'Podcasts list',
+                'name' => 'podcast_list',
+                'type' => 'repeater',
+                'layout' => 'block',
+                'button_label' => 'Add Podcast',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_67f4c8d1e2f3d',
+                        'label' => 'Podcast',
+                        'name' => 'podcast',
+                        'type' => 'post_object',
+                        'post_type' => array(
+                            0 => 'post',
+                        ),
+                        'post_status' => '',
+                        'taxonomy' => '',
+                        'return_format' => 'id',
+                        'required' => 1,
+                        'allow_null' => 0,
+                        'ui' => 1,
+                        'parent_repeater' => 'field_67f4c8d1e2f3c',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'podcasts',
+                ),
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-top-podcasts.php',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-top-podcasts.php',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'active' => true,
+    ));
+    acf_add_local_field_group(array(
         'key' => 'field_6739e4e7caab9',
         'title' => 'Order preview block',
         'fields' => array(

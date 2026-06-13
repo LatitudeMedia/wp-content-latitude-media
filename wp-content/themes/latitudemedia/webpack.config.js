@@ -29,6 +29,7 @@ module.exports = (env) => {
       "css/footer": "./src/assets/scss/footer/footer_loader.scss",
       "css/post": "./src/assets/scss/pages/post.scss",
       "css/single-podcast": "./src/assets/scss/pages/single_podcast.scss",
+      "css/top-podcasts": "./src/assets/scss/pages/top_podcasts.scss",
       "css/resources-archive": "./src/assets/scss/pages/resources_list.scss",
       "css/single-resource": "./src/assets/scss/pages/resource.scss",
       "js/custom": "./src/assets/js/custom.js",
