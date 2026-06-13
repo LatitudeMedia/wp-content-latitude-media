@@ -7,14 +7,23 @@
 .event-agenda-v2-section.blue-theme .bordered-title {
   border-bottom: 5px solid #1351CD !important;
 }
-.event-agenda-v2-section.blue-theme .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector {
+.event-agenda-v2-section.blue-theme .event-agenda-v2-day-buttons .event-agenda-v2-day-button {
   border-color: #1351CD !important;
+  color: #1351CD !important;
 }
-.event-agenda-v2-section.blue-theme .event-agenda-v2-dropdown-wrapper .selector-container::after {
-  border-top-color: #1351CD !important;
+.event-agenda-v2-section.blue-theme .event-agenda-v2-day-buttons .event-agenda-v2-day-button.active {
+  background-color: #1351CD !important;
+  border-color: #1351CD !important;
+  color: #ffffff !important;
 }
 .event-agenda-v2-section.blue-theme .event-agenda-v2-agenda-items .event-agenda-v2-item {
-  border-bottom-color: #1351CD !important;
+  border-top: 2px solid #1351CD !important;
+}
+.event-agenda-v2-section.blue-theme .event-agenda-v2-agenda-items .event-agenda-v2-item:first-child {
+  border-top: none !important;
+}
+.event-agenda-v2-section.blue-theme .event-agenda-v2-agenda-items .event-agenda-v2-item.same_time_as_previous_agenda_item .event-agenda-v2-item-content {
+  border-top: 1px solid #1351CD !important;
 }
 .event-agenda-v2-section.blue-theme .event-agenda-v2-agenda-items .event-agenda-v2-item-time {
   color: #1351CD !important;
@@ -22,68 +31,68 @@
 .event-agenda-v2-section.pink-theme .bordered-title {
   border-bottom: 5px solid #C6168D !important;
 }
-.event-agenda-v2-section.pink-theme .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector {
+.event-agenda-v2-section.pink-theme .event-agenda-v2-day-buttons .event-agenda-v2-day-button {
   border-color: #C6168D !important;
+  color: #C6168D !important;
 }
-.event-agenda-v2-section.pink-theme .event-agenda-v2-dropdown-wrapper .selector-container::after {
-  border-top-color: #C6168D !important;
+.event-agenda-v2-section.pink-theme .event-agenda-v2-day-buttons .event-agenda-v2-day-button.active {
+  background-color: #C6168D !important;
+  border-color: #C6168D !important;
+  color: #ffffff !important;
 }
 .event-agenda-v2-section.pink-theme .event-agenda-v2-agenda-items .event-agenda-v2-item {
-  border-bottom-color: #C6168D !important;
+  border-top: 2px solid #C6168D !important;
+}
+.event-agenda-v2-section.pink-theme .event-agenda-v2-agenda-items .event-agenda-v2-item:first-child {
+  border-top: none !important;
+}
+.event-agenda-v2-section.pink-theme .event-agenda-v2-agenda-items .event-agenda-v2-item.same_time_as_previous_agenda_item .event-agenda-v2-item-content {
+  border-top: 1px solid #C6168D !important;
 }
 .event-agenda-v2-section.pink-theme .event-agenda-v2-agenda-items .event-agenda-v2-item-time {
   color: #C6168D !important;
 }
-.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper {
+.event-agenda-v2-section.pink-theme .event-agenda-v2-agenda-items .event-agenda-v2-item-time:first-child {
+  border-top: none !important;
+}
+.event-agenda-v2-section .event-agenda-v2-day-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
 }
-.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container {
-  display: inline-block;
-  position: relative;
-}
-.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector {
-  position: relative;
-  min-width: 200px;
-  width: fit-content;
-  padding: 10px 40px 10px 10px;
+.event-agenda-v2-section .event-agenda-v2-day-buttons .event-agenda-v2-day-button {
+  padding: 10px 20px;
   background-color: #ffffff;
   border: 1px solid #00B48D;
   border-radius: 5px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   cursor: pointer;
-  display: inline-block;
   font-size: 1rem;
   font-weight: 800;
-  z-index: 0;
+  color: #00B48D;
 }
-.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector::-ms-expand {
-  display: none;
-}
-.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container::after {
-  content: "";
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 8px solid #00B48D;
-  pointer-events: none;
-  transition: transform 0.3s ease;
-  transform: translateY(-50%) rotate(0deg);
-}
-.event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container.open::after {
-  transform: translateY(-50%) rotate(180deg);
+.event-agenda-v2-section .event-agenda-v2-day-buttons .event-agenda-v2-day-button.active {
+  background-color: #00B48D;
+  border-color: #00B48D;
+  color: #ffffff;
 }
 .event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item {
   display: flex;
   gap: 30px;
-  border-bottom: 1px solid #00B48D;
+  border-top: 2px solid #00B48D;
   padding: 30px;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item.same_time_as_previous_agenda_item {
+  border-top: none !important;
+  padding-top: 0px !important;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item.same_time_as_previous_agenda_item .event-agenda-v2-item-time {
+  color: white !important;
+}
+.event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item.same_time_as_previous_agenda_item .event-agenda-v2-item-content {
+  border-top: 1px solid #00B48D !important;
+  padding-top: 30px !important;
 }
 .event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-time {
   color: #00B48D;
@@ -154,11 +163,8 @@
   font-weight: 400;
 }
 @media screen and (max-width: 768px) {
-  .event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container {
-    width: 100%;
-  }
-  .event-agenda-v2-section .event-agenda-v2-dropdown-wrapper .selector-container .event-agenda-v2-day-selector {
-    width: 100%;
+  .event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item.same_time_as_previous_agenda_item .event-agenda-v2-item-time {
+    display: none !important;
   }
   .event-agenda-v2-section .event-agenda-v2-agenda-items .event-agenda-v2-item .event-agenda-v2-item-content .event-agenda-v2-item-speakers {
     grid-template-columns: repeat(1, 1fr) !important;
