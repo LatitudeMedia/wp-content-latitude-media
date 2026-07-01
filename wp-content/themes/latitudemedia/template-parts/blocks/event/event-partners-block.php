@@ -15,21 +15,21 @@ $options = wp_parse_args(
 
 extract($options);
 
-if(!$display && !is_admin()) {
+if (!$display && !is_admin()) {
     return;
 }
 
-if( empty($logos) ) {
+if (empty($logos)) {
     return;
 }
 
 $blockAttrs = wp_kses_data(
-  get_block_wrapper_attributes(
-      [
-          "class" => 'content-block partners-logos-section',
-          "id" => $blockAttributes['anchor'] ?: '',
-      ]
-  )
+    get_block_wrapper_attributes(
+        [
+            "class" => 'content-block partners-logos-section',
+            "id" => $blockAttributes['anchor'] ?: '',
+        ]
+    )
 );
 
 ?>
@@ -37,16 +37,16 @@ $blockAttrs = wp_kses_data(
 <div <?php echo $blockAttrs; ?>>
     <div class="container-narrow">
         <div class="partners-logos-section-wrapper">
-            <h2><?php echo $title; ?></h2>
+            <div class="bordered-title green"><?php echo $title; ?></div>
             <ul class="logos">
                 <?php
-                    foreach ($logos as $logo) {
-                        if( empty($logo['partner_logo']) ) {
-                            continue;
-                        }
-                        $imageHtml = thumbnail_formatting(null, ['image_id' => $logo['partner_logo'], 'size' => 'event-sponsors-list', 'link' => false, 'img_attr' => ['class' => 'logo'] ], false);
-                        printf('<li><a href="#">%s</a></li>', $imageHtml);
+                foreach ($logos as $logo) {
+                    if (empty($logo['partner_logo'])) {
+                        continue;
                     }
+                    $imageHtml = thumbnail_formatting(null, ['image_id' => $logo['partner_logo'], 'size' => 'event-sponsors-list', 'link' => false, 'img_attr' => ['class' => 'logo']], false);
+                    printf('<li><a href="#">%s</a></li>', $imageHtml);
+                }
                 ?>
             </ul>
         </div>
