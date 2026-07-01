@@ -27,6 +27,12 @@
 .partners-logos-section.no-click .logos li a {
   pointer-events: none;
 }
+.partners-logos-section.blue-theme .bordered-title {
+  border-color: #1351CD;
+}
+.partners-logos-section.pink-theme .bordered-title {
+  border-color: #C6168D;
+}
 @media screen and (max-width: 992px) {
   .partners-logos-section .partners-logos-section-wrapper .logos li {
     width: 31.3%;
