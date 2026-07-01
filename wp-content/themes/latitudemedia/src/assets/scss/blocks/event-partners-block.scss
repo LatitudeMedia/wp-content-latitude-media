@@ -11,4 +11,14 @@
       }
     }
   }
+  &.blue-theme {
+    .bordered-title {
+      border-color: $primary-blue;
+    }
+  }
+  &.pink-theme {
+    .bordered-title {
+      border-color: $primary-pink;
+    }
+  }
 }
