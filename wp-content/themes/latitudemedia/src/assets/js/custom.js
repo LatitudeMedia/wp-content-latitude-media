@@ -3,9 +3,15 @@ $ = jQuery;
 $(document).ready(function ($) {
   let menuToggle = $("header .header-wrapper .middle-head  .menu-toggle");
   let hamburgerMenu = $("header .header-wrapper .middle-head .hamburger-menu");
+  let headerWrapper = $("header .header-wrapper");
   let stickyHeader = $("header .header-wrapper .bottom-head");
   let stickyLogo = $("header .header-wrapper .middle-head");
+  let stickyAlert = $("header .header-wrapper .alert-banner");
   let body = $("body");
+
+  if (stickyAlert.length > 0) {
+    $(headerWrapper).addClass("has-alert-banner");
+  }
   if (stickyHeader.length > 0) {
     var stickyTop = $(stickyHeader).offset().top + 20;
   }
@@ -117,10 +123,12 @@ $(document).ready(function ($) {
       if (stickyTop < windowTop) {
         // $(stickyHeader).addClass('sticky');
         $(stickyLogo).addClass("sticky");
+        $(stickyAlert).addClass("sticky");
         $(body).addClass("sticky-active");
       } else {
         // $(stickyHeader).removeClass('sticky');
         $(stickyLogo).removeClass("sticky");
+        $(stickyAlert).removeClass("sticky");
         $(body).removeClass("sticky-active");
       }
     });

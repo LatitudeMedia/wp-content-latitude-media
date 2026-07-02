@@ -6362,4 +6362,36 @@ Or select event manually.',
         'description' => '',
         'show_in_rest' => 0,
     ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_67f9c1a8b2e01',
+        'title' => 'Header Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_67f9c1a8b2e02',
+                'label' => 'Alert',
+                'name' => 'alert',
+                'type' => 'wysiwyg',
+                'tabs' => 'all',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'acf-options-header-setting',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
+    ));
 });

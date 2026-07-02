@@ -1581,6 +1581,13 @@ if (function_exists('acf_add_options_sub_page')) {
     ));
 
     acf_add_options_sub_page(array(
+        'page_title' => 'Header Settings',
+        'menu_title' => 'Header Settings',
+        'menu_slug'  => 'acf-options-header-setting',
+        'parent_slug' => 'acf-options',
+    ));
+
+    acf_add_options_sub_page(array(
         'page_title'  => __('DFP Ad Slots'),
         'menu_title'  => __('DFP Ad Slots'),
         'parent_slug' => 'edit.php?post_type=in-house-ads',
@@ -1759,11 +1766,12 @@ function acf_load_ad_canner_choises($field)
  * One hook: ACF fires `acf/fields/post_object/query` for every post_object; we only
  * alter queries for these two field keys (featured + repeater subfield).
  */
-add_filter( 'acf/fields/post_object/query', 'ltm_acf_top_podcasts_layout_news_type_podcast_query', 10, 3 );
+add_filter('acf/fields/post_object/query', 'ltm_acf_top_podcasts_layout_news_type_podcast_query', 10, 3);
 
-function ltm_acf_top_podcasts_layout_news_type_podcast_query( $args, $field, $post_id ) {
-    $keys = array( 'field_67f4c8d1e2f3b', 'field_67f4c8d1e2f3d' );
-    if ( empty( $field['key'] ) || ! in_array( $field['key'], $keys, true ) ) {
+function ltm_acf_top_podcasts_layout_news_type_podcast_query($args, $field, $post_id)
+{
+    $keys = array('field_67f4c8d1e2f3b', 'field_67f4c8d1e2f3d');
+    if (empty($field['key']) || ! in_array($field['key'], $keys, true)) {
         return $args;
     }
 
