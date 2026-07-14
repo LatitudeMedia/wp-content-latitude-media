@@ -905,6 +905,7 @@ add_action('acf/include_fields', function () {
                     'newsletter' => 'Newsletter',
                     'commentary' => 'Commentary',
                     'podcast' => 'Podcast',
+                    'blog' => 'Blog',
                 ),
                 'default_value' => 'news',
                 'return_format' => 'array',
