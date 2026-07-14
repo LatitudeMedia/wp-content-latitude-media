@@ -1,0 +1,13 @@
+@import "../core/core_loader";
+
+.sidebar-image-block {
+  margin-bottom: 40px;
+
+  .sidebar-image-block-wrapper {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -432,6 +432,27 @@ $blocks = array(
             )
         )
     ),
+
+    array(
+        'attrs' => array(
+            'name'          => 'sidebar-image-section',
+            'title'         => __('Sidebar image', 'ltm'),
+            'path'          => 'sidebar',
+        ),
+        'icon'          => 'format-image',
+        'description' => __('Sidebar image', 'ltm'),
+        'category'      => 'ltm-sidebar-blocks',
+        'keywords'    => array(__('Sidebar image', 'ltm')),
+        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/sidebar-image-section.min.css',
+        'example'      => array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'sidebar-image-section.png',
+                )
+            )
+        )
+    ),
     // END Sidebar blocks
 
     // START PAGE blocks
@@ -1239,6 +1260,10 @@ $blocks = array(
             if (file_exists($css_path)) {
                 wp_enqueue_style('block-acf-event-partners-block', get_template_directory_uri() . '/dist/css/blocks/event-partners-block.min.css', array(), filemtime($css_path));
             }
+            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
+            }
         },
         'example'      => array(
             'attributes' => array(
@@ -1699,6 +1724,7 @@ function ltm_allowed_post_type_blocks($allowed_block_types, $editor_context)
             'acf/related-reading-section',
             'acf/sidebar-ad-banner-section',
             'acf/sidebar-info-block',
+            'acf/sidebar-image-section',
         );
 
         // Get all registered blocks if $allowed_block_types is not already set.

@@ -1757,6 +1757,48 @@ add_action('acf/include_fields', function () {
     ));
 
     acf_add_local_field_group(array(
+        'key' => 'group_67f9d2e4a1b0c',
+        'title' => 'Sidebar image',
+        'fields' => array(
+            array(
+                'key' => 'field_67f9d2e4a1b0d',
+                'label' => 'Sidebar image',
+                'name' => '',
+                'type' => 'message',
+                'esc_html' => 0,
+                'new_lines' => 'wpautop',
+            ),
+            array(
+                'key' => 'field_67f9d2e4a1b0e',
+                'label' => 'Image',
+                'name' => 'image',
+                'type' => 'image',
+                'return_format' => 'array',
+                'library' => 'all',
+                'preview_size' => 'medium',
+            ),
+            array(
+                'key' => 'field_67f9d2e4a1b0f',
+                'label' => 'Display',
+                'name' => 'display',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'block',
+                    'operator' => '==',
+                    'value' => 'acf/sidebar-image-section',
+                ),
+            ),
+        ),
+        'style' => 'seamless',
+        'active' => true,
+    ));
+
+    acf_add_local_field_group(array(
         'key' => 'group_67a0e723aee43',
         'title' => 'Editors picks global settings',
         'fields' => array(
@@ -4566,23 +4608,93 @@ Or select event manually.',
                 'type' => 'text',
             ),
             array(
-                'key' => 'field_67465be50137c',
-                'label' => 'Logos',
-                'name' => 'logos',
+                'key' => 'field_67f9e3a4b1c01',
+                'label' => 'Use different sizes per category',
+                'name' => 'different_sizes',
+                'type' => 'true_false',
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_67f9e3a4b1c02',
+                'label' => 'Sponsors category',
+                'name' => 'sponsors_category',
                 'type' => 'repeater',
                 'layout' => 'table',
                 'sub_fields' => array(
                     array(
-                        'key' => 'field_67465bf20137d',
-                        'label' => 'Partner logo',
-                        'name' => 'partner_logo',
-                        'type' => 'image',
+                        'key' => 'field_67f9e3a4b1c03',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'parent_repeater' => 'field_67f9e3a4b1c02',
+                    ),
+                    array(
+                        'key' => 'field_67f9e3a4b1c04',
+                        'label' => 'Size',
+                        'name' => 'size',
+                        'aria-label' => '',
+                        'type' => 'select',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => array(
+                            array(
+                                array(
+                                    'field' => 'field_67f9e3a4b1c01',
+                                    'operator' => '==',
+                                    'value' => '1',
+                                ),
+                            ),
+                        ),
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'relevanssi_exclude' => 0,
+                        'choices' => array(
+                            'xlarge' => 'X-Large',
+                            'large' => 'Large',
+                            'medium' => 'Medium',
+                            'small' => 'Small',
+                            'xsmall' => 'X-Small',
+                        ),
+                        'default_value' => 'medium',
+                        'return_format' => 'value',
+                        'multiple' => 0,
+                        'allow_null' => 0,
+                        'allow_in_bindings' => 1,
+                        'ui' => 1,
+                        'ajax' => 0,
+                        'placeholder' => '',
+                        'create_options' => 0,
+                        'save_options' => 0,
+                        'parent_repeater' => 'field_67f9e3a4b1c02',
+                    ),
+                    array(
+                        'key' => 'field_67f9e3a4b1c05',
+                        'label' => 'Sponsors',
+                        'name' => 'sponsors',
+                        'type' => 'relationship',
+                        'post_type' => array(
+                            0 => 'sponsors',
+                        ),
+                        'post_status' => '',
+                        'taxonomy' => '',
+                        'filters' => array(
+                            0 => 'search',
+                        ),
                         'return_format' => 'id',
-                        'library' => 'all',
-                        'preview_size' => 'medium',
-                        'parent_repeater' => 'field_67465be50137c',
+                        'elements' => '',
+                        'parent_repeater' => 'field_67f9e3a4b1c02',
                     ),
                 ),
+            ),
+            array(
+                'key' => 'field_67f9e3a4b1c06',
+                'label' => 'Show "Read more" button',
+                'name' => 'show_read_more_button',
+                'type' => 'true_false',
+                'ui' => 1,
             ),
             array(
                 'key' => 'field_6746576f2ae1d',
