@@ -9,11 +9,13 @@ header .header-wrapper.has-alert-banner .alert-banner {
   background-color: #C6168D;
   padding: 5px 0;
   text-align: center;
+  position: relative;
+  top: 0px;
+  width: 100%;
 }
 header .header-wrapper.has-alert-banner .alert-banner.sticky {
   position: fixed;
-  width: 100%;
-  top: 164px !important;
+  top: 78px;
 }
 header .header-wrapper.has-alert-banner .alert-banner p {
   margin-bottom: 0px;
@@ -23,6 +25,12 @@ header .header-wrapper.has-alert-banner .alert-banner p {
 }
 header .header-wrapper.has-alert-banner .alert-banner p a {
   color: #ffffff;
+}
+header .header-wrapper.has-alert-banner .middle-head {
+  top: 0px;
+}
+header .header-wrapper.has-alert-banner .middle-head.sticky {
+  top: 108px;
 }
 header .header-wrapper .top-head {
   background-color: #0F1E42;
@@ -1054,18 +1062,27 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-
 .logged-in header .header-wrapper.has-alert-banner .alert-banner.sticky {
-  top: 196px !important;
+  top: 110px;
+}
+.logged-in header .header-wrapper.has-alert-banner .middle-head.sticky {
+  top: 143px;
 }
 .logged-in header .header-wrapper .middle-head.sticky {
   top: 110px;
 }
 @media screen and (max-width: 768px) {
-  header .header-wrapper.has-alert-banner .alert-banner.sticky {
-    top: 40px !important;
+  header .header-wrapper.has-alert-banner {
+    padding-bottom: 40px;
   }
-  header .header-wrapper.has-alert-banner .middle-head.sticky {
+  header .header-wrapper.has-alert-banner .alert-banner {
+    top: 40px;
+    position: fixed;
+  }
+  header .header-wrapper.has-alert-banner .alert-banner.sticky {
+    top: 40px;
+  }
+  header .header-wrapper.has-alert-banner .middle-head {
     top: 74px !important;
   }
   header .header-wrapper .top-head {
@@ -1167,20 +1184,17 @@ header .header-wrapper .bottom-head .toggle-container .menu-toggle.active span:n
     font-size: 16px;
     font-size: 1rem;
   }
-  .logged-in header .header-wrapper.has-alert-banner .alert-banner.sticky {
-    top: 85px !important;
+  .logged-in header .header-wrapper.has-alert-banner {
+    padding-bottom: 35px;
   }
   .logged-in header .header-wrapper.has-alert-banner .alert-banner {
-    top: 85px !important;
+    top: 85px;
   }
-  .logged-in header .header-wrapper.has-alert-banner .middle-head.sticky {
-    top: 119px !important;
+  .logged-in header .header-wrapper.has-alert-banner .alert-banner.sticky {
+    top: 85px;
   }
-  .logged-in header .header-wrapper .middle-head {
-    top: 164px;
-  }
-  .logged-in header .header-wrapper .middle-head.sticky {
-    top: 164px;
+  .logged-in header .header-wrapper.has-alert-banner .middle-head {
+    top: 118px !important;
   }
   body.podcasts-off {
     padding-top: 126px;
