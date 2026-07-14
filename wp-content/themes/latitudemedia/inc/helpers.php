@@ -563,3 +563,20 @@ function getActualFileUrl($path)
 {
     return get_template_directory_uri() . $path . '?ver=' . filemtime(get_template_directory() . $path);
 }
+
+/**
+ * Read a theme asset from the local filesystem.
+ *
+ * Used for inlining critical CSS. Reading from disk (instead of fetching the
+ * public URL over HTTP) avoids serving stale content through any full-page
+ * cache / CDN / reverse proxy and is not affected by allow_url_fopen.
+ *
+ * @param string $path Path relative to the theme directory (e.g. '/dist/css/header.min.css').
+ * @return string File contents, or an empty string if the file is missing.
+ */
+function getThemeFileContents($path)
+{
+    $file = get_template_directory() . $path;
+
+    return is_readable($file) ? (string) file_get_contents($file) : '';
+}

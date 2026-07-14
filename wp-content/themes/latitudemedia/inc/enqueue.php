@@ -140,7 +140,7 @@ function hook_critical_css()
 {
     //
     $critical_css =  file_get_contents(getActualFileUrl('/dist/css/base.min.css'));
-    $critical_css .= file_get_contents(getActualFileUrl('/dist/css/header.min.css'));
+    $critical_css .= getThemeFileContents('/dist/css/header.min.css');
 
     // Detect the news-with-hero-section or news-list-with-hero-section-block and loading assets as critical.
     if (
