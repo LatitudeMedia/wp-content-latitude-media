@@ -29,15 +29,11 @@ $categories = get_section_cats($section->term_id, 'all');
 ?>
 
 <div
+    class="content-block section-top-nav-section section-categories-top-nav-section"
     <?php
-    echo wp_kses_data(
-        get_block_wrapper_attributes(
-            [
-                "class" => 'content-block section-top-nav-section section-categories-top-nav-section',
-                "id" => $blockAttributes['anchor'] ?: '',
-            ]
-        )
-    );
+    if (!empty($blockAttributes['anchor'])) {
+        printf('id="%s"', esc_attr($blockAttributes['anchor']));
+    }
     ?>
 >
     <div class="container">

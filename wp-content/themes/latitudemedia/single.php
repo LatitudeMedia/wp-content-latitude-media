@@ -23,6 +23,10 @@ get_header();
                 <span></span>
                 <?php do_action('print_article_date', get_the_ID()); ?>
             </div>
+            <div class="post-share-block">
+                <span class="label"><?php _e('Share:', 'ltm') ?></span>
+                <?php get_template_part('template-parts/article/social-sharing', 'icons'); ?>
+            </div>
             <div class="add-google-preferences-button">
                 <a href="https://google.com/preferences/source?q=latitudemedia.com" target="_blank">
 
@@ -81,10 +85,6 @@ get_header();
                     echo $content;
                     ?>
                 </article>
-                <div class="post-share-block">
-                    <span class="label"><?php _e('Share:', 'ltm') ?></span>
-                    <?php get_template_part('template-parts/article/social-sharing', 'icons'); ?>
-                </div>
                 <div class="post-author-block">
                     <?php echo do_shortcode(
                         '[publishpress_authors_box layout="boxed" 
@@ -95,6 +95,10 @@ get_header();
                 </div>
             </div>
             <div class="sidebar">
+                <div class="post-share-block">
+                    <span class="label"><?php _e('Share:', 'ltm') ?></span>
+                    <?php get_template_part('template-parts/article/social-sharing', 'icons'); ?>
+                </div>
                 <div class="add-google-preferences-button">
                     <a href="https://google.com/preferences/source?q=latitudemedia.com" target="_blank">
 

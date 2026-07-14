@@ -62,6 +62,8 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/news-with-sidebar-section-block.scss",
       "css/blocks/sidebar-info-block":
         "./src/assets/scss/blocks/sidebar-info-block.scss",
+      "css/blocks/sidebar-image-section":
+        "./src/assets/scss/blocks/sidebar-image-section.scss",
       "css/blocks/large-podcasts-section":
         "./src/assets/scss/blocks/large-podcasts-section.scss",
       "css/blocks/partner-porcasts-block":
