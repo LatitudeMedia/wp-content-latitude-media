@@ -432,6 +432,27 @@ $blocks = array(
             )
         )
     ),
+
+    array(
+        'attrs' => array(
+            'name'          => 'sidebar-image-section',
+            'title'         => __('Sidebar image', 'ltm'),
+            'path'          => 'sidebar',
+        ),
+        'icon'          => 'format-image',
+        'description' => __('Sidebar image', 'ltm'),
+        'category'      => 'ltm-sidebar-blocks',
+        'keywords'    => array(__('Sidebar image', 'ltm')),
+        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/sidebar-image-section.min.css',
+        'example'      => array(
+            'attributes' => array(
+                'mode' => 'preview',
+                'data' => array(
+                    'image' => 'sidebar-image-section.png',
+                )
+            )
+        )
+    ),
     // END Sidebar blocks
 
     // START PAGE blocks
@@ -1239,6 +1260,10 @@ $blocks = array(
             if (file_exists($css_path)) {
                 wp_enqueue_style('block-acf-event-partners-block', get_template_directory_uri() . '/dist/css/blocks/event-partners-block.min.css', array(), filemtime($css_path));
             }
+            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
+            if (file_exists($css_path)) {
+                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
+            }
         },
         'example'      => array(
             'attributes' => array(
@@ -1581,6 +1606,13 @@ if (function_exists('acf_add_options_sub_page')) {
     ));
 
     acf_add_options_sub_page(array(
+        'page_title' => 'Header Settings',
+        'menu_title' => 'Header Settings',
+        'menu_slug'  => 'acf-options-header-setting',
+        'parent_slug' => 'acf-options',
+    ));
+
+    acf_add_options_sub_page(array(
         'page_title'  => __('DFP Ad Slots'),
         'menu_title'  => __('DFP Ad Slots'),
         'parent_slug' => 'edit.php?post_type=in-house-ads',
@@ -1692,6 +1724,7 @@ function ltm_allowed_post_type_blocks($allowed_block_types, $editor_context)
             'acf/related-reading-section',
             'acf/sidebar-ad-banner-section',
             'acf/sidebar-info-block',
+            'acf/sidebar-image-section',
         );
 
         // Get all registered blocks if $allowed_block_types is not already set.
@@ -1759,11 +1792,12 @@ function acf_load_ad_canner_choises($field)
  * One hook: ACF fires `acf/fields/post_object/query` for every post_object; we only
  * alter queries for these two field keys (featured + repeater subfield).
  */
-add_filter( 'acf/fields/post_object/query', 'ltm_acf_top_podcasts_layout_news_type_podcast_query', 10, 3 );
+add_filter('acf/fields/post_object/query', 'ltm_acf_top_podcasts_layout_news_type_podcast_query', 10, 3);
 
-function ltm_acf_top_podcasts_layout_news_type_podcast_query( $args, $field, $post_id ) {
-    $keys = array( 'field_67f4c8d1e2f3b', 'field_67f4c8d1e2f3d' );
-    if ( empty( $field['key'] ) || ! in_array( $field['key'], $keys, true ) ) {
+function ltm_acf_top_podcasts_layout_news_type_podcast_query($args, $field, $post_id)
+{
+    $keys = array('field_67f4c8d1e2f3b', 'field_67f4c8d1e2f3d');
+    if (empty($field['key']) || ! in_array($field['key'], $keys, true)) {
         return $args;
     }
 

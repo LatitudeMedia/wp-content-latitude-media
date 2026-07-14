@@ -77,9 +77,12 @@
           padding-top: 16px;
         }
       }
+    }
+    .sidebar {
       .post-share-block {
         display: flex;
         align-items: center;
+        margin-top: 24px;
         .label {
           text-transform: uppercase;
           font-family: $inter;
@@ -114,8 +117,6 @@
           }
         }
       }
-    }
-    .sidebar {
       .add-google-preferences-button {
         width: 100%;
         @include below_md {
@@ -246,9 +247,8 @@
     border-radius: 4px;
     padding: 12px 40px;
     width: fit-content;
-    margin-bottom: 13px;
+    margin: 13px 0px;
     cursor: pointer;
-    margin-top: 24px;
     &:hover {
       background-color: #e1cfdb;
       a {
@@ -305,6 +305,47 @@
     }
     .info {
       @include postInfo;
+    }
+    .post-share-block {
+      display: none;
+      margin-top: 24px;
+      @include below_md {
+        display: flex;
+      }
+      align-items: center;
+      .label {
+        text-transform: uppercase;
+        font-family: $inter;
+        @include fontSize(16px);
+        font-weight: 700;
+        line-height: 24px;
+        text-align: left;
+        margin-right: 16px;
+        display: block;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        li {
+          margin-right: 16px;
+          &:last-child {
+            margin-right: 0;
+          }
+          a {
+            text-decoration: none;
+            color: $primary-dark-blue;
+          }
+          .copied-to-clipboard {
+            background-color: var(--primary-pink);
+            color: #ffffff;
+            line-height: 28px;
+            padding: 0.2rem 0.5rem;
+          }
+        }
+      }
     }
     .add-google-preferences-button {
       display: none;
