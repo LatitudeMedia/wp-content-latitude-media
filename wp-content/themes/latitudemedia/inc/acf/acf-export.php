@@ -1779,6 +1779,14 @@ add_action('acf/include_fields', function () {
                 'preview_size' => 'medium',
             ),
             array(
+                'key' => 'field_67f9d2e4a1c1a',
+                'label' => 'Image Link',
+                'name' => 'image_link',
+                'type' => 'link',
+                'instructions' => 'The destination users are taken to when they click the image. Leave empty to display the image without a link.',
+                'return_format' => 'array',
+            ),
+            array(
                 'key' => 'field_67f9d2e4a1b0f',
                 'label' => 'Display',
                 'name' => 'display',
