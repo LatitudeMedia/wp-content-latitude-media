@@ -9,6 +9,7 @@ $options = wp_parse_args(
     $args,
     [
         'image'           => [],
+        'image_link'      => [],
         'display'         => false,
         'blockAttributes' => [],
     ]
@@ -37,6 +38,16 @@ if (empty($image)) {
     );
     ?>>
     <div class="sidebar-image-block-wrapper">
-        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" loading="lazy">
+        <?php
+        $image_link_url = is_array($image_link) ? ($image_link['url'] ?? '') : '';
+        if (!empty($image_link_url)) :
+            $image_link_target = !empty($image_link['target']) ? $image_link['target'] : '_self';
+        ?>
+            <a href="<?php echo esc_url($image_link_url); ?>" target="<?php echo esc_attr($image_link_target); ?>">
+                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" loading="lazy">
+            </a>
+        <?php else : ?>
+            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?? ''); ?>" loading="lazy">
+        <?php endif; ?>
     </div>
 </div>
