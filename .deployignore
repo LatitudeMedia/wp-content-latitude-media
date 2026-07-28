@@ -1,0 +1,6 @@
+# Ignore everything
+*
+!*/
+
+# Keep everything inside the theme
+!wp-content/themes/latitudemedia/**
