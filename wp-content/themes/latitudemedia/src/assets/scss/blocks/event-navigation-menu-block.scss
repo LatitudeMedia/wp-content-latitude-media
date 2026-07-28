@@ -54,6 +54,18 @@
       }
     }
   }
+  &.has-alert-banner {
+    top: 194px;
+    @include below_sm {
+      top: 160px;
+    }
+    &.admin {
+      top: 229px;
+      @include below_sm {
+        top: 204px;
+      }
+    }
+  }
   @include below_sm {
     top: 126px;
     &.admin {
