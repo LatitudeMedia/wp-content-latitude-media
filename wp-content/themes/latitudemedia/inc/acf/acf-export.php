@@ -1118,6 +1118,55 @@ add_action('acf/include_fields', function () {
         'style' => 'default',
         'active' => true,
     ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_670d45b1c2d3e',
+        'title' => 'Featured Event',
+        'fields' => array(
+            array(
+                'key' => 'field_670d46c3d4e5f',
+                'label' => 'Show featured event?',
+                'name' => 'show_featured_event',
+                'type' => 'true_false',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_670d44a1b2c3d',
+                'label' => 'Event',
+                'name' => 'event',
+                'type' => 'post_object',
+                'post_type' => array(
+                    0 => 'events',
+                ),
+                'return_format' => 'id',
+                'ui' => 1,
+                'allow_null' => 1,
+                'multiple' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_670d46c3d4e5f',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'style' => 'default',
+        'active' => true,
+    ));
+    
     acf_add_local_field_group(array(
         'key' => 'group_6710ef848d80b',
         'title' => 'News with hero block',
