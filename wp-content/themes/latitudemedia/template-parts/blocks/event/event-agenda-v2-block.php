@@ -114,27 +114,19 @@ $blockAttrs = wp_kses_data(
                 <?php
                 $same_time_as_previous = !empty($item['same_time_as_previous_item']);
                 $previous_time = '';
-                $previous_end_time = '';
                 for ($i = $item_index - 1; $i >= 0; $i--) {
                   if (!empty($agenda_items[$i]['time'])) {
                     $previous_time = $agenda_items[$i]['time'];
-                    $previous_end_time = $agenda_items[$i]['end_time'] ?? '';
                     break;
                   }
                 }
-                $item_time_display = !empty($item['time'])
-                  ? esc_html($item['time']) . (!empty($item['end_time']) ? ' - ' . esc_html($item['end_time']) : '')
-                  : '';
-                $previous_time_display = !empty($previous_time)
-                  ? esc_html($previous_time) . (!empty($previous_end_time) ? ' - ' . esc_html($previous_end_time) : '')
-                  : '';
                 ?>
                 <div class="event-agenda-v2-item<?php echo $same_time_as_previous ? ' same_time_as_previous_agenda_item' : ''; ?>">
-                  <?php if (!$same_time_as_previous && !empty($item_time_display)) : ?>
-                    <div class="event-agenda-v2-item-time <?php echo !empty($item['title_image']) ? 'has-title-image' : ''; ?>"><?php echo $item_time_display; ?></div>
+                  <?php if (!$same_time_as_previous && !empty($item['time'])) : ?>
+                    <div class="event-agenda-v2-item-time <?php echo !empty($item['title_image']) ? 'has-title-image' : ''; ?>"><?php echo esc_html($item['time']); ?></div>
                   <?php endif; ?>
-                  <?php if ($same_time_as_previous && !empty($previous_time_display)) : ?>
-                    <div class="event-agenda-v2-item-time"><?php echo $previous_time_display; ?></div>
+                  <?php if ($same_time_as_previous && !empty($previous_time)) : ?>
+                    <div class="event-agenda-v2-item-time"><?php echo esc_html($previous_time); ?></div>
                   <?php endif; ?>
                   <div class="event-agenda-v2-item-content">
                     <?php if (!empty($item['title']) || !empty($item['title_image'])) : ?>

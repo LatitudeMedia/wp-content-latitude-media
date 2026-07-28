@@ -93,52 +93,6 @@ get_header();
                     );
                     ?>
                 </div>
-                <?php
-                if (get_field('show_featured_event')) :
-                    $featured_event_id = get_field('event');
-                    // Hide the featured event once we reach the day before its start date.
-                    $featured_event_visible = (bool) $featured_event_id;
-                    if ($featured_event_visible) {
-                        $featured_event_start = get_field('start_date', $featured_event_id);
-                        if ($featured_event_start) {
-                            $start_day  = date('Y-m-d', strtotime($featured_event_start));
-                            $cutoff_day = date('Y-m-d', strtotime($start_day . ' -1 day'));
-                            if (current_time('Y-m-d') >= $cutoff_day) {
-                                $featured_event_visible = false;
-                            }
-                        }
-                    }
-                    if ($featured_event_visible) :
-                        $featured_event_url = get_permalink($featured_event_id);
-                ?>
-                        <div class="featured-event-block">
-                            <div class="featured-event-block-wrapper">
-                                <div class="featured-event-block-title">Featured Event</div>
-                                <div class="featured-event-card">
-                                    <a class="featured-event-card__image" href="<?php echo esc_url($featured_event_url); ?>">
-                                        <?php echo thumbnail_formatting($featured_event_id, ['link' => false, 'size' => 'list-three-events'], false); ?>
-                                    </a>
-                                    <div class="featured-event-card__content">
-                                        <div class="featured-event-card__meta">
-                                            <?php
-                                            do_action('print_event_type', $featured_event_id);
-                                            do_action('print_event_start_date', $featured_event_id);
-                                            ?>
-                                        </div>
-                                        <a class="featured-event-card__title" href="<?php echo esc_url($featured_event_url); ?>">
-                                            <?php echo esc_html(get_the_title($featured_event_id)); ?>
-                                        </a>
-                                        <div class="featured-event-card__excerpt">
-                                            <?php do_action('print_article_excerpt', $featured_event_id); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                <?php
-                    endif;
-                endif;
-                ?>
             </div>
             <div class="sidebar">
                 <div class="post-share-block">
