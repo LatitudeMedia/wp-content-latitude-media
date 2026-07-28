@@ -4,12 +4,13 @@ This is the repo connected to the Pressable webhost.
 
 We're tracking _just_ the theme here at the moment. Pressable is managing the plugin upgrades. As such, we do not want them in version control.
 
-As there is no current way to disable it, I must state a warning here: **DO NOT USE WORDPRESS STUDIO SYNC PUSH. ONLY PUSH TO GITHUB. SYNC PUSH WILL OVERWRITE PROD DB.**. 
+As there is no current way to disable it, I must state a warning here: **DO NOT USE WORDPRESS STUDIO SYNC PUSH. ONLY PUSH TO GITHUB. SYNC PUSH WILL OVERWRITE PROD DB.**
 
 # Recommended Workflow
 
 This assumes you've already gotten a working localdev setup via the `Getting Started` section below.
 
+- run a pull sync down in WP Studio
 - pull down the main branch
 - create a feature branch
 - make your changes
@@ -20,7 +21,6 @@ This assumes you've already gotten a working localdev setup via the `Getting Sta
 - check that everything works
 - merge your feature branch into main in the pull request
 - deploy main to production
-- run a pull sync down in WP Studio
 
 # Getting Started
 
