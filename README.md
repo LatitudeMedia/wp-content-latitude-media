@@ -47,7 +47,7 @@ You will have to pay the $10/m for the storage. WP Studio pulls from a Jetpack b
 - Log in with your WordPress.com account if prompted (**must be the same as the one used for latitudemedia.com and Jetpack**)
 - Select the appropriate Pressable site (production, staging, or sandbox).
 
-**NOTE: This step will fail at the db import phase. We will fix this manually. Just close the program when it starts trying to import the db during this initial pulldown. All we need is all the files. **
+**NOTE: This step will fail at the db import phase. We will fix this manually. Just close the program when it starts trying to import the db during this initial pulldown. All we need is all the files.**
 
 ## 4. Download a database import
 
