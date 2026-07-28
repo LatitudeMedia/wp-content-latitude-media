@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template for social sharing icons
  * More about Facebook Share dialog: https://developers.facebook.com/docs/sharing/reference/share-dialog
@@ -6,8 +7,8 @@
  * @package Digiday Media Network Plugin
  */
 
-if ( ! is_single() ) {
-	return;
+if (! is_single()) {
+    return;
 }
 
 $post_link    = get_the_permalink();
@@ -16,15 +17,20 @@ $fb_app_id    = false;
 $utm_medium   = 'social';
 $utm_params   = '?utm_medium=' . $utm_medium;
 
-$facebook_link = "https://www.facebook.com/dialog/share?app_id=" . rawurlencode( $fb_app_id ) . "&display=popup&href=" . rawurlencode( $post_link . $utm_params ) . "&utm_source=facebook&redirect_uri=";
-$twitter_link  = "https://x.com/intent/tweet?url=" . rawurlencode( $post_link . $utm_params . '&utm_source=twitter' ) . ">&text=" . rawurlencode( $post_title );
-$linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurlencode( $post_link . $utm_params . '&utm_source=linkedin' ) ."&title=" . rawurlencode( $post_title );
-$bluesky_link  = "https://bsky.app/intent/compose?text=" . rawurlencode( $post_title ) . '+' . rawurlencode( $post_link . $utm_params . '&utm_source=bluesky' );
+$facebook_link = "https://www.facebook.com/dialog/share?app_id=" . rawurlencode($fb_app_id) . "&display=popup&href=" . rawurlencode($post_link . $utm_params) . "&utm_source=facebook&redirect_uri=";
+$twitter_link  = "https://x.com/intent/tweet?url=" . rawurlencode($post_link . $utm_params . '&utm_source=twitter') . ">&text=" . rawurlencode($post_title);
+$linkedin_link = "https://www.linkedin.com/shareArticle?mini=true&url=" . rawurlencode($post_link . $utm_params . '&utm_source=linkedin') . "&title=" . rawurlencode($post_title);
+$bluesky_link  = "https://bsky.app/intent/compose?text=" . rawurlencode($post_title) . '+' . rawurlencode($post_link . $utm_params . '&utm_source=bluesky');
+
+$post_excerpt  = get_the_excerpt();
+$email_subject = 'Latitudemedia.com: ' . $post_title;
+$email_body    = "From Latitude:\r\n\r\n" . $post_title . "\r\n" . $post_excerpt . "\r\n" . $post_link;
+$email_link    = 'mailto:?subject=' . rawurlencode($email_subject) . '&body=' . rawurlencode($email_body);
 ?>
 <div id="social-share-icons" class="">
-	<ul>
+    <ul>
         <li>
-            <a target="popup" title="Share on LinkedIn" onclick="window.open('<?php echo esc_url( $linkedin_link ); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url( $linkedin_link ); ?>">
+            <a target="popup" title="Share on LinkedIn" onclick="window.open('<?php echo esc_url($linkedin_link); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url($linkedin_link); ?>">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M5 1.25C3.48122 1.25 2.25 2.48122 2.25 4C2.25 5.51878 3.48122 6.75 5 6.75C6.51878 6.75 7.75 5.51878 7.75 4C7.75 2.48122 6.51878 1.25 5 1.25ZM3.75 4C3.75 3.30964 4.30964 2.75 5 2.75C5.69036 2.75 6.25 3.30964 6.25 4C6.25 4.69036 5.69036 5.25 5 5.25C4.30964 5.25 3.75 4.69036 3.75 4Z" fill="currentColor"></path>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2.25 8C2.25 7.58579 2.58579 7.25 3 7.25H7C7.41421 7.25 7.75 7.58579 7.75 8V21C7.75 21.4142 7.41421 21.75 7 21.75H3C2.58579 21.75 2.25 21.4142 2.25 21V8ZM3.75 8.75V20.25H6.25V8.75H3.75Z" fill="currentColor"></path>
@@ -33,23 +39,23 @@ $bluesky_link  = "https://bsky.app/intent/compose?text=" . rawurlencode( $post_t
             </a>
         </li>
         <li>
-            <a target="popup" title="Share on X" onclick="window.open('<?php echo esc_url( $twitter_link ); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url( $twitter_link ); ?>">
+            <a target="popup" title="Share on X" onclick="window.open('<?php echo esc_url($twitter_link); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url($twitter_link); ?>">
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.9027 8.89207L19.3482 0H17.5838L11.1189 7.72086L5.95547 0H0L7.8082 11.6753L0 21H1.76443L8.59152 12.8465L14.0445 21H20L11.9027 8.89207ZM9.48608 11.7782L8.69495 10.6156L2.40018 1.36466H5.11025L10.1902 8.83044L10.9813 9.99304L17.5847 19.6974H14.8746L9.48608 11.7782Z" fill="currentColor"></path>
                 </svg>
             </a>
         </li>
-		<?php if ( false !== $fb_app_id ) { ?>
-		<li>
-            <a target="popup" title="Share on Facebook" onclick="window.open('<?php echo esc_url( $facebook_link ); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url( $facebook_link ); ?>">
-                <span class="dashicons dashicons-facebook">Facebook</span>
-            </a>
-        </li>
-		<?php } ?>
+        <?php if (false !== $fb_app_id) { ?>
+            <li>
+                <a target="popup" title="Share on Facebook" onclick="window.open('<?php echo esc_url($facebook_link); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url($facebook_link); ?>">
+                    <span class="dashicons dashicons-facebook">Facebook</span>
+                </a>
+            </li>
+        <?php } ?>
         <li>
-            <a target="popup" title="Share on Bluesky" onclick="window.open('<?php echo esc_url( $bluesky_link ); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url( $bluesky_link ); ?>">
+            <a target="popup" title="Share on Bluesky" onclick="window.open('<?php echo esc_url($bluesky_link); ?>','popup','width=600,height=600'); return false;" href="<?php echo esc_url($bluesky_link); ?>">
                 <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.93639 3.88142C10.6051 6.61368 14.551 12.1538 16 15.1266C17.449 12.1538 21.3949 6.61368 25.0636 3.88142C27.7108 1.9099 32 0.384492 32 5.2385C32 6.20793 31.4397 13.3821 31.1111 14.547C29.9688 18.5962 25.8066 19.629 22.1041 19.0039C28.5759 20.0966 30.2222 23.7159 26.6666 27.3352C19.914 34.2091 16.9612 25.6106 16.2046 23.4074C16.0659 23.0035 16.001 22.8145 16 22.9752C15.999 22.8145 15.9341 23.0035 15.7954 23.4074C15.0388 25.6106 12.086 34.2091 5.33335 27.3352C1.7778 23.7159 3.42411 20.0966 9.89594 19.0039C6.19341 19.629 2.03115 18.5962 0.888901 14.547C0.560282 13.3821 0 6.20793 0 5.2385C0 0.384492 4.28924 1.9099 6.93639 3.88142Z" fill="currentColor"/>
+                    <path d="M6.93639 3.88142C10.6051 6.61368 14.551 12.1538 16 15.1266C17.449 12.1538 21.3949 6.61368 25.0636 3.88142C27.7108 1.9099 32 0.384492 32 5.2385C32 6.20793 31.4397 13.3821 31.1111 14.547C29.9688 18.5962 25.8066 19.629 22.1041 19.0039C28.5759 20.0966 30.2222 23.7159 26.6666 27.3352C19.914 34.2091 16.9612 25.6106 16.2046 23.4074C16.0659 23.0035 16.001 22.8145 16 22.9752C15.999 22.8145 15.9341 23.0035 15.7954 23.4074C15.0388 25.6106 12.086 34.2091 5.33335 27.3352C1.7778 23.7159 3.42411 20.0966 9.89594 19.0039C6.19341 19.629 2.03115 18.5962 0.888901 14.547C0.560282 13.3821 0 6.20793 0 5.2385C0 0.384492 4.28924 1.9099 6.93639 3.88142Z" fill="currentColor" />
                 </svg>
             </a>
         </li>
@@ -70,7 +76,15 @@ $bluesky_link  = "https://bsky.app/intent/compose?text=" . rawurlencode( $post_t
             </a>
             <span class="copied-to-clipboard" hidden>Copied to clipboard</span>
         </li>
-	</ul>
+        <li>
+            <a title="Share by email" href="<?php echo esc_url($email_link); ?>">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 5H21C21.5523 5 22 5.44772 22 6V18C22 18.5523 21.5523 19 21 19H3C2.44772 19 2 18.5523 2 18V6C2 5.44772 2.44772 5 3 5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M2.5 6.5L12 13L21.5 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        </li>
+    </ul>
 </div>
 
 
@@ -80,6 +94,3 @@ $bluesky_link  = "https://bsky.app/intent/compose?text=" . rawurlencode( $post_t
     <li><a href="#"></a></li>
 
 </ul>
-
-
-
