@@ -19,6 +19,8 @@ This assumes you've already gotten a working localdev setup via the `Getting Sta
 - go into Pressable and run a data transfer from Production to Staging
 - deploy your feature branch to Staging
 - check that everything works
+- run a sync again in WP Studio incase new changes made it to prod by means other than version control 
+- commit those changes and upload them
 - merge your feature branch into main in the pull request
 - deploy main to production
 

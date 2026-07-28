@@ -77,6 +77,69 @@
           padding-top: 16px;
         }
       }
+      .featured-event-block {
+        margin-bottom: 40px;
+        .featured-event-block-title {
+          @include borderedTitle;
+          border-bottom: 5px solid $green;
+          margin-bottom: 32px;
+        }
+        .featured-event-card {
+          display: flex;
+          align-items: stretch;
+          gap: 24px;
+          .featured-event-card__image {
+            flex: 1 1 0;
+            display: block;
+            position: relative;
+            @include imageFolder;
+            box-shadow: -10px 10px 0 0 $green_shadow;
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              inset: 0%;
+            }
+          }
+          .featured-event-card__content {
+            flex: 1 1 0;
+            .featured-event-card__meta {
+              @include eventDate;
+              margin-bottom: 8px;
+              .solid {
+                background-color: $green;
+              }
+              .date {
+                color: $green;
+              }
+            }
+            .featured-event-card__title {
+              text-decoration: none;
+              font-family: $lora;
+              @include fontSize(20px);
+              font-weight: 700;
+              line-height: 26px;
+              text-align: left;
+              display: inline-block;
+              margin-bottom: 8px;
+              color: $primary-dark-blue;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+            .featured-event-card__excerpt {
+              p {
+                font-family: $inter;
+                @include fontSize(16px);
+                font-weight: 400;
+                line-height: 24px;
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
     }
     .sidebar {
       .post-share-block {

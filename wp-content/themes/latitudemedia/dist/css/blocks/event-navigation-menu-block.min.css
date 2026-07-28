@@ -34,6 +34,12 @@
 .navigation-menu-section.pink-theme .buttons-container .nav-button {
   background-color: #C6168D !important;
 }
+.navigation-menu-section.has-alert-banner {
+  top: 194px;
+}
+.navigation-menu-section.has-alert-banner.admin {
+  top: 229px;
+}
 .navigation-menu-section .navigation-menu-wrapper {
   display: flex;
   align-items: center;
@@ -95,6 +101,12 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .navigation-menu-section.has-alert-banner {
+    top: 160px;
+  }
+  .navigation-menu-section.has-alert-banner.admin {
+    top: 204px;
+  }
   .navigation-menu-section {
     top: 126px;
   }

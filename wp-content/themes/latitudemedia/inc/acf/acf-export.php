@@ -1118,6 +1118,55 @@ add_action('acf/include_fields', function () {
         'style' => 'default',
         'active' => true,
     ));
+
+    acf_add_local_field_group(array(
+        'key' => 'group_670d45b1c2d3e',
+        'title' => 'Featured Event',
+        'fields' => array(
+            array(
+                'key' => 'field_670d46c3d4e5f',
+                'label' => 'Show featured event?',
+                'name' => 'show_featured_event',
+                'type' => 'true_false',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_670d44a1b2c3d',
+                'label' => 'Event',
+                'name' => 'event',
+                'type' => 'post_object',
+                'post_type' => array(
+                    0 => 'events',
+                ),
+                'return_format' => 'id',
+                'ui' => 1,
+                'allow_null' => 1,
+                'multiple' => 0,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_670d46c3d4e5f',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'style' => 'default',
+        'active' => true,
+    ));
+    
     acf_add_local_field_group(array(
         'key' => 'group_6710ef848d80b',
         'title' => 'News with hero block',
@@ -4241,8 +4290,36 @@ Or select event manually.',
                             ),
                             array(
                                 'key' => 'field_6940ba854ae54',
-                                'label' => 'Time',
+                                'label' => 'Start time',
                                 'name' => 'time',
+                                'aria-label' => '',
+                                'type' => 'time_picker',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_6942c8f1a3b01',
+                                            'operator' => '!=',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'relevanssi_exclude' => 0,
+                                'display_format' => 'g:i a',
+                                'return_format' => 'g:i a',
+                                'allow_in_bindings' => 0,
+                                'parent_repeater' => 'field_6940ba294ae51',
+                            ),
+                            array(
+                                'key' => 'field_6943d1e2a4c02',
+                                'label' => 'End time',
+                                'name' => 'end_time',
                                 'aria-label' => '',
                                 'type' => 'time_picker',
                                 'instructions' => '',
