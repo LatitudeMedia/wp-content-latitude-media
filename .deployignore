@@ -2,5 +2,6 @@
 *
 !*/
 
-# Keep everything inside the theme
+# Keep almost everything inside the theme
 !wp-content/themes/latitudemedia/**
+wp-content/themes/latitudemedia/node_modules/
