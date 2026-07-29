@@ -1,6 +1,6 @@
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/blocks/partner-porcasts-block.scss ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs/index.js!./src/assets/scss/blocks/partner-porcasts-block.scss ***!
+  \*************************************************************************************************************************************************************************************************************************/
 .three-podcasts-section {
   margin-bottom: 64px;
 }
@@ -16,7 +16,6 @@
   padding-bottom: 8px;
   border-bottom: 5px solid #C6168D;
   margin-bottom: 16px;
-  margin-bottom: 32px;
 }
 .three-podcasts-section .bordered-title.pink {
   border-bottom: 5px solid #C6168D;
@@ -29,6 +28,9 @@
 }
 .three-podcasts-section .bordered-title.orange {
   border-bottom: 5px solid #F99D1C;
+}
+.three-podcasts-section .bordered-title {
+  margin-bottom: 32px;
 }
 .three-podcasts-section .heading {
   font-family: "Lora", Arial, Helvetica, serif;

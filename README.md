@@ -14,13 +14,14 @@ This assumes you've already gotten a working localdev setup via the `Getting Sta
 - pull down the main branch
 - create a feature branch
 - make your changes
+- if you touched theme frontend assets, run the webpack build (see `Frontend asset build` below) and commit the resulting `dist/` changes
 - push the changes to github
 - make a pull request
 - go into Pressable and run a data transfer from Production to Staging
 - deploy your feature branch to Staging
 - check that everything works
 - run a sync again in WP Studio incase new changes made it to prod by means other than version control 
-- commit those changes and upload them
+- commit those changes (if there are any) and upload them
 - merge your feature branch into main in the pull request
 - deploy main to production
 
@@ -70,12 +71,12 @@ Here's how we fix it.
 
 ```
 docker run --rm -i \
-  -v "$(pwd)":/data \
+  -v "/home/kim/Downloads/":/data \
   -w /data \
   python:3-slim \
   python3 - <<'EOF'
 import re
-with open("YOUR_PROD_DB_BACKUP.sql", "rb") as f:
+with open("pressable-backup-latitudemediaprod-2026-07-28-23-00.sql", "rb") as f:
     sql = f.read()
 blocks = re.split(rb"(?=-- Table structure for table)", sql)
 kept = []
@@ -132,7 +133,27 @@ Disable the plugin.
 - run `git clone https://github.com/LatitudeMedia/wp-content-latitude-media/`
 - move everything in the `wp-content-latitude-media` dir into the WP Studio latitude media dir
 
-## 10. Recommendations
+## 10. Frontend asset build (webpack)
+
+Theme CSS/JS is compiled from `wp-content/themes/latitudemedia/` via webpack. Node is managed with [asdf](https://asdf-vm.com/), pinned via `.tool-versions` in that directory.
+
+- Install the asdf `nodejs` plugin if you don't already have it: `asdf plugin add nodejs`
+- From the theme directory, install the pinned Node version and dependencies:
+
+```
+cd wp-content/themes/latitudemedia
+asdf install
+npm install
+```
+
+- Available scripts:
+  - `npm run watch` — rebuild on file change, for local dev
+  - `npm run build:assets` — one-off local build
+  - `npm run build:assets:prod` — minified production build
+
+`dist/` is committed to the repo (not gitignored), so run `npm run build:assets` (or `build:assets:prod` before deploying) after changing anything under `src/assets/`, and commit the resulting `dist/` changes alongside your source changes.
+
+## 11. Recommendations
 
 In WP Studio's GUI, enable debugging by going to:
 

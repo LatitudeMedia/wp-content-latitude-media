@@ -1,6 +1,6 @@
-/*!********************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/pages/pages_loader.scss ***!
-  \********************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs/index.js!./src/assets/scss/pages/pages_loader.scss ***!
+  \**************************************************************************************************************************************************************************************************************/
 .topics-archive-section .posts-list-section .posts li {
   align-items: center;
   margin-bottom: 36px;
@@ -512,7 +512,6 @@
   background-color: #ffffff;
   color: var(--custom-block-base-color, #C6168D) !important;
   border: 1px solid var(--custom-block-base-color, #C6168D) !important;
-  padding: 10px 20px;
 }
 .wide-form-section.subscribe-form .wide-form-section-wrapper form input[type=submit]:hover {
   background-color: var(--custom-block-base-color, #C6168D) !important;
@@ -596,6 +595,9 @@
 }
 .wide-form-section.subscribe-form .wide-form-section-wrapper form input[type=submit].orange:hover span {
   color: #ffffff !important;
+}
+.wide-form-section.subscribe-form .wide-form-section-wrapper form input[type=submit] {
+  padding: 10px 20px;
 }
 .wide-form-section.subscribe-form.pink .wide-form-section-wrapper form input[type=submit] {
   background-color: #ffffff !important;
@@ -765,9 +767,6 @@
   text-transform: uppercase;
 }
 
-.studios-text-block {
-  margin-bottom: 64px;
-}
 .studios-text-block p.large-text {
   font-family: "inter", Arial, Helvetica, sans-serif;
   font-size: 32px;
@@ -791,6 +790,9 @@
 }
 .studios-text-block ul {
   padding-left: 20px;
+}
+.studios-text-block {
+  margin-bottom: 64px;
 }
 
 .page-id-1214 header {
