@@ -1,0 +1,11 @@
+# Ignore everything
+*
+!*/
+
+# Keep everything inside the theme
+!/wp-content/themes/latitudemedia/**
+
+# Other files we want to keep
+!/README.md
+!/.deployignore
+!/.gitignore
