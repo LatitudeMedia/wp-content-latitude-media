@@ -371,6 +371,32 @@
   }
 }
 
+@mixin postCardTitle {
+  font-family: $lora;
+  @include fontSize(18px);
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: $primary-dark-blue;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin postCardExcerpt {
+  font-family: $inter;
+  @include fontSize(16px);
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: $primary-dark-blue;
+  margin-bottom: 8px;
+}
+
 @mixin postsHeroSection {
   margin-bottom: 64px;
   .posts {
@@ -1152,29 +1178,11 @@
         }
 
         .title {
-          font-family: $lora;
-          @include fontSize(18px);
-          font-weight: 700;
-          line-height: 24px;
-          text-align: left;
-          color: $primary-dark-blue;
-          text-decoration: none;
-          display: block;
-          margin-bottom: 8px;
-
-          &:hover {
-            text-decoration: underline;
-          }
+          @include postCardTitle;
         }
 
         p {
-          font-family: $inter;
-          @include fontSize(16px);
-          font-weight: 400;
-          line-height: 24px;
-          text-align: left;
-          color: $primary-dark-blue;
-          margin-bottom: 8px;
+          @include postCardExcerpt;
         }
 
         .info {

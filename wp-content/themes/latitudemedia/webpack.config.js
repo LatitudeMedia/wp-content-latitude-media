@@ -129,6 +129,10 @@ module.exports = (env) => {
       "css/blocks/title-block":
         "./src/assets/scss/blocks/title-block.scss",
       "js/blocks/title-block": "./src/blocks/title-block/index.js",
+      "js/blocks/featured-post-block":
+        "./src/blocks/featured-post-block/index.js",
+      "css/blocks/featured-post-block":
+        "./src/assets/scss/blocks/featured-post-block.scss",
     },
     output: {
       path: path.resolve(__dirname, "dist"),
@@ -142,6 +146,9 @@ module.exports = (env) => {
       "@wordpress/data": ["wp", "data"],
       "@wordpress/element": ["wp", "element"],
       "@wordpress/i18n": ["wp", "i18n"],
+      "@wordpress/api-fetch": ["wp", "apiFetch"],
+      "@wordpress/url": ["wp", "url"],
+      "@wordpress/server-side-render": ["wp", "serverSideRender"],
     },
     module: {
       rules: [
