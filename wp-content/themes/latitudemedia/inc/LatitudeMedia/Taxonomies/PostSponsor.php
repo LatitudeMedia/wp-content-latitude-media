@@ -34,12 +34,15 @@ class PostSponsor {
 	 * Build the taxonomy object.
 	 */
 	public function __construct() {
-		$this->object_types = [ 'post' ];
+		$this->object_types = [ 'post', 'thematic-pages' ];
 
 		add_action( 'init', array( $this, 'create_taxonomy' ) );
+		add_action( 'rest_api_init', array( $this, 'register_rest_field' ) );
 
-		add_action( 'add_meta_boxes_post', array( $this, 'add_meta_box' ) );
-		add_action( 'save_post_post', array( $this, 'save_meta_box' ), 10, 2 );
+		foreach ( $this->object_types as $post_type ) {
+			add_action( "add_meta_boxes_{$post_type}", array( $this, 'add_meta_box' ) );
+			add_action( "save_post_{$post_type}", array( $this, 'save_meta_box' ), 10, 2 );
+		}
 	}
 
 	/**
@@ -72,12 +75,12 @@ class PostSponsor {
 	/**
 	 * Registers the "Sponsors" meta box on the post editor.
 	 */
-	public function add_meta_box() {
+	public function add_meta_box( $post ) {
 		add_meta_box(
 			'ltm_sponsor',
 			__( 'Is Sponsored By', 'ltm' ),
 			array( $this, 'render_meta_box' ),
-			'post',
+			$post->post_type,
 			'side',
 			'high'
 		);
@@ -160,5 +163,44 @@ class PostSponsor {
 		}
 
 		return $map;
+	}
+
+	/**
+	 * Exposes the currently selected sponsor as a read-only REST field, so
+	 * the block editor (e.g. the Title Block's sponsor logo override) can
+	 * react to sponsorship without a page reload.
+	 */
+	public function register_rest_field() {
+		foreach ( $this->object_types as $post_type ) {
+			register_rest_field(
+				$post_type,
+				'ltm_sponsor',
+				[
+					'get_callback' => array( $this, 'get_rest_sponsor' ),
+					'schema'       => [
+						'type'     => [ 'object', 'null' ],
+						'context'  => [ 'edit' ],
+						'readonly' => true,
+					],
+				]
+			);
+		}
+	}
+
+	/**
+	 * REST callback: returns the linked sponsor's id, name, and logo URL.
+	 */
+	public function get_rest_sponsor( $object ) {
+		$sponsor = get_post_sponsor( $object['id'] );
+
+		if ( ! $sponsor ) {
+			return null;
+		}
+
+		return [
+			'id'   => $sponsor->ID,
+			'name' => $sponsor->post_title,
+			'logo' => get_the_post_thumbnail_url( $sponsor->ID, 'medium' ) ?: null,
+		];
 	}
 }

@@ -126,10 +126,22 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/recap-video-block.scss",
       "css/blocks/in-house-ad-section":
         "./src/assets/scss/blocks/in-house-ad-section.scss",
+      "css/blocks/title-block":
+        "./src/assets/scss/blocks/title-block.scss",
+      "js/blocks/title-block": "./src/blocks/title-block/index.js",
     },
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "[name].min.js",
+    },
+    externals: {
+      "@wordpress/blocks": ["wp", "blocks"],
+      "@wordpress/block-editor": ["wp", "blockEditor"],
+      "@wordpress/components": ["wp", "components"],
+      "@wordpress/core-data": ["wp", "coreData"],
+      "@wordpress/data": ["wp", "data"],
+      "@wordpress/element": ["wp", "element"],
+      "@wordpress/i18n": ["wp", "i18n"],
     },
     module: {
       rules: [

@@ -203,7 +203,7 @@ class Sponsors {
 
         $sponsored_posts = $term_id ? get_posts(
             [
-                'post_type'   => 'post',
+                'post_type'   => [ 'post', 'thematic-pages' ],
                 'post_status' => 'any',
                 'numberposts' => -1,
                 'orderby'     => 'title',

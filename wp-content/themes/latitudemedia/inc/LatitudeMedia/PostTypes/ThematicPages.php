@@ -70,7 +70,11 @@ class ThematicPages {
                 'show_ui'       => true,
                 'show_in_rest'  => true,
                 'exclude_from_search' => true,
+                'rewrite'       => [ 'slug' => 'themes' ],
                 'supports'      => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
+                'template'      => [
+                    [ 'latitudemedia/title-block' ],
+                ],
             ]
         );
     }
