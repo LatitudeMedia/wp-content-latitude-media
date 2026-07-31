@@ -34,6 +34,15 @@ class ThematicPageTypes {
 		$this->object_types = [ 'thematic-page-types', 'post' ];
 
         add_action( 'init', array( $this, 'create_taxonomy' ) );
+        add_filter( 'manage_taxonomies_for_post_columns', array( $this, 'remove_post_admin_column' ) );
+	}
+
+	/**
+	 * Hides the taxonomy column/filter links from the Posts admin list,
+	 * while keeping the taxonomy assignable on individual posts.
+	 */
+	public function remove_post_admin_column( $taxonomies ) {
+		return array_diff( $taxonomies, [ $this->name ] );
 	}
 
 	/**

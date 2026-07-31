@@ -11,9 +11,30 @@ function is_sponsored($post_id = null)
         $post_id = get_the_ID();
     }
 
+    if (has_term('', 'sponsor', $post_id)) {
+        return true;
+    }
+
+    // Legacy toggle, kept for content sponsored before the Sponsors relationship existed.
     $is_sponsored = get_field('sponsored', $post_id);
 
     return $is_sponsored ?? false;
+}
+
+function get_post_sponsor($post_id = null)
+{
+    if (! $post_id) {
+        $post_id = get_the_ID();
+    }
+
+    $terms = wp_get_object_terms($post_id, 'sponsor');
+    if (empty($terms) || is_wp_error($terms)) {
+        return null;
+    }
+
+    $sponsor_post_id = get_term_meta($terms[0]->term_id, '_sponsor_post_id', true);
+
+    return $sponsor_post_id ? get_post($sponsor_post_id) : null;
 }
 
 function is_partnered($post_id = null)
