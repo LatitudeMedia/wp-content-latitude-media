@@ -1,12 +1,12 @@
 <?php
-namespace LatitudeMedia\PostTypes;
+namespace LTMCore\PostTypes;
 
-use LatitudeMedia\Taxonomies\PostSponsor;
+use LTMCore\Taxonomies\PostSponsor;
 
 /**
  * Custom post type for Sponsors
  *
- * @package LatitudeMedia
+ * @package LTMCore
  */
 
 /**
@@ -254,7 +254,7 @@ class Sponsors {
 
         if ( $sponsor ) {
             $label = $sponsor->post_title;
-        } elseif ( get_field( 'sponsored', $post_id ) ) {
+        } elseif ( function_exists( 'get_field' ) && get_field( 'sponsored', $post_id ) ) {
             $label = __( 'Yes (legacy)', 'ltm' );
         } else {
             $label = __( 'Not sponsored', 'ltm' );

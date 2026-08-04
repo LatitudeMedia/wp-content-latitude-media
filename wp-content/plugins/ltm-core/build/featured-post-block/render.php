@@ -27,30 +27,28 @@ $template = get_wrap_rows_from_template(
 	</div>'
 );
 ?>
-<div class="container">
-	<div <?php echo get_block_wrapper_attributes( [ 'class' => 'ltm-featured-post-block' ] ); ?>>
-		<?php
-		get_template_part(
-			'template-parts/components/post',
-			'item',
-			[
-				'post_id'  => $post_id,
-				'rows'     => $template['rows'],
-				'wrap'     => $template['wrap'],
-				'settings' => [
-					'thumb'  => [
-						'size' => 'list-three-events',
-						'link' => true,
-					],
-					'author' => [
-						'link_class' => 'author',
-					],
-					'date'   => [
-						'format' => 'M j, Y',
-					],
+<div <?php echo get_block_wrapper_attributes( [ 'class' => 'ltm-featured-post-block' ] ); ?>>
+	<?php
+	get_template_part(
+		'template-parts/components/post',
+		'item',
+		[
+			'post_id'  => $post_id,
+			'rows'     => $template['rows'],
+			'wrap'     => $template['wrap'],
+			'settings' => [
+				'thumb'  => [
+					'size' => 'list-three-events',
+					'link' => true,
 				],
-			]
-		);
-		?>
-	</div>
+				'author' => [
+					'link_class' => 'author',
+				],
+				'date'   => [
+					'format' => 'M j, Y',
+				],
+			],
+		]
+	);
+	?>
 </div>

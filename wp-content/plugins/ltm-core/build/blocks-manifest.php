@@ -1,6 +1,56 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
+	'category-post-listing' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'latitudemedia/category-post-listing',
+		'version' => '0.1.0',
+		'title' => 'Category Post Listing',
+		'category' => 'ltm-common-blocks',
+		'icon' => 'list-view',
+		'description' => 'List published posts by category, optionally scoped to posts tagged for the current thematic page.',
+		'keywords' => array(
+			'category',
+			'posts',
+			'listing',
+			'thematic'
+		),
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'categories' => array(
+				'type' => 'array',
+				'items' => array(
+					'type' => 'number'
+				),
+				'default' => array(
+					
+				)
+			),
+			'onlyThematicPageTagged' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'layout' => array(
+				'type' => 'string',
+				'enum' => array(
+					'five-post-feature',
+					'paginated-list'
+				),
+				'default' => 'five-post-feature'
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
+	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

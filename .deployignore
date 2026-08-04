@@ -9,3 +9,13 @@ wp-content/themes/latitudemedia/node_modules/
 # Keep almost everything inside our own plugin (other plugins are Pressable-managed)
 !wp-content/plugins/ltm-core/**
 wp-content/plugins/ltm-core/node_modules/
+wp-content/plugins/ltm-core/tests/
+wp-content/plugins/ltm-core/specs/
+wp-content/plugins/ltm-core/composer.json
+wp-content/plugins/ltm-core/composer.lock
+wp-content/plugins/ltm-core/package.json
+wp-content/plugins/ltm-core/package-lock.json
+wp-content/plugins/ltm-core/vendor/
+wp-content/plugins/ltm-core/.wp-env.json
+wp-content/plugins/ltm-core/phpunit.xml.dist
+wp-content/plugins/ltm-core/playwright.config.js

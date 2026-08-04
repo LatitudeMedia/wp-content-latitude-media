@@ -2,7 +2,7 @@
 
 This is the repo connected to the Pressable webhost. 
 
-We're tracking _just_ the theme here at the moment. Pressable is managing the plugin upgrades. As such, we do not want them in version control.
+We're tracking the theme and our first-party `ltm-core` plugin here (see section 12 below). Pressable is managing everything else's plugin upgrades, so we do not want those in version control.
 
 As there is no current way to disable it, I must state a warning here: **DO NOT USE WORDPRESS STUDIO SYNC PUSH. ONLY PUSH TO GITHUB. SYNC PUSH WILL OVERWRITE PROD DB.**
 
@@ -135,7 +135,7 @@ Disable the plugin.
 
 ## 10. Frontend asset build (webpack)
 
-Theme CSS/JS is compiled from `wp-content/themes/latitudemedia/` via webpack. Node is managed with [asdf](https://asdf-vm.com/), pinned via `.tool-versions` in that directory.
+Theme CSS/JS is compiled from `wp-content/themes/latitudemedia/` via webpack. Node is managed with [asdf](https://asdf-vm.com/), pinned via `.tool-versions` at the project root.
 
 - Install the asdf `nodejs` plugin if you don't already have it: `asdf plugin add nodejs`
 - From the theme directory, install the pinned Node version and dependencies:
@@ -163,3 +163,15 @@ In WP Studio's GUI, enable debugging by going to:
 - Disable `Debug display`
 
 The in-browser display of errors can be misleading in certain instances. Just run a `tail -f wp-content/debug.log` as you write your code.
+
+## 12. ltm-core plugin (blocks, CPTs, taxonomies, REST)
+
+Native Gutenberg blocks, custom post types/taxonomies, and REST endpoints are gradually being
+migrated out of the theme into a first-party plugin at `wp-content/plugins/ltm-core/`. It has its
+own dependency install, build, and test setup, separate from everything above — see
+[its readme](wp-content/plugins/ltm-core/readme.txt) and
+[TESTING.md](wp-content/plugins/ltm-core/TESTING.md) for details. Tests run against `wp-env`
+(Docker) on ports 8888/8889, completely separate from the Studio site on 8881.
+
+CI (`.github/workflows/ltm-core-tests.yml`) runs the plugin's PHPUnit and Playwright suites on
+every push/PR touching the plugin or theme.

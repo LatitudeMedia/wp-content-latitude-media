@@ -1,17 +1,17 @@
 <?php
-namespace LatitudeMedia\Taxonomies;
+namespace LTMCore\Taxonomies;
 
 /**
  * Taxonomy backing the Post <-> Sponsor relationship
  *
- * @package LatitudeMedia
+ * @package LTMCore
  */
 
 /**
  * Class for the sponsor taxonomy.
  *
  * Terms are kept in sync with Sponsors post type entries (see
- * LatitudeMedia\PostTypes\Sponsors), and are assigned to posts via a
+ * LTMCore\PostTypes\Sponsors), and are assigned to posts via a
  * single-select "Sponsors" meta box instead of the default taxonomy UI.
  */
 class PostSponsor {
@@ -36,7 +36,7 @@ class PostSponsor {
 	public function __construct() {
 		$this->object_types = [ 'post', 'thematic-pages' ];
 
-		add_action( 'init', array( $this, 'create_taxonomy' ) );
+		add_action( 'init', array( $this, 'create_taxonomy' ), 0 );
 		add_action( 'rest_api_init', array( $this, 'register_rest_field' ) );
 
 		foreach ( $this->object_types as $post_type ) {

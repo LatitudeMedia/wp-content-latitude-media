@@ -28,3 +28,17 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Composer dependencies (composer.json + composer.lock are committed)
+/vendor/
+
+# Local wp-env / PHPUnit overrides
+.wp-env.override.json
+phpunit.xml
+.phpunit.result.cache
+/tests/_output/
+
+# Playwright E2E artifacts (traces, screenshots, videos, admin storage state)
+/artifacts/
+/playwright-report/
+/test-results/

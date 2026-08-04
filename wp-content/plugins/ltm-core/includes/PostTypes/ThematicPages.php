@@ -139,8 +139,11 @@ class ThematicPages {
 
 	/**
 	 * Finds the thematic-tag term linked to a thematic page via term meta.
+	 *
+	 * Public so other classes (e.g. Blocks\CategoryPostListing) can resolve
+	 * a thematic page's synced term without duplicating this lookup.
 	 */
-	private function get_synced_term_id( $post_id, $taxonomy_name ) {
+	public function get_synced_term_id( $post_id, $taxonomy_name ) {
 		$terms = get_terms(
 			[
 				'taxonomy'   => $taxonomy_name,

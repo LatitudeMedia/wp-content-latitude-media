@@ -1,0 +1,109 @@
+name: ltm-core tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wp-content/plugins/ltm-core/**'
+      - 'wp-content/themes/latitudemedia/**'
+      - '.github/workflows/ltm-core-tests.yml'
+  pull_request:
+    paths:
+      - 'wp-content/plugins/ltm-core/**'
+      - 'wp-content/themes/latitudemedia/**'
+      - '.github/workflows/ltm-core-tests.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ltm-core-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: wp-content/plugins/ltm-core
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Keep this version in sync with .tool-versions (asdf-managed nodejs).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+          cache: npm
+          cache-dependency-path: wp-content/plugins/ltm-core/package-lock.json
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+          coverage: none
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      # ACF Pro is a licensed, Pressable-managed plugin that .wp-env.json
+      # normally maps in (../advanced-custom-fields-pro) — it isn't committed
+      # to git (see the plugin's .gitignore), so it doesn't exist on this
+      # checkout. This CI-only override (already gitignored, never affects
+      # local dev) drops that mapping and points afterStart at a CI variant
+      # of the lifecycle script that skips activating it. See
+      # bin/wp-env-after-start-ci.sh for what that means for coverage:
+      # specs that render real front-end pages fatal without ACF Pro (the
+      # theme calls get_field() unguarded in header.php/footer.php), so
+      # those are excluded from the Playwright run below.
+      - name: Write CI wp-env override (drops ACF Pro)
+        run: |
+          cat > .wp-env.override.json <<'EOF'
+          {
+          	"plugins": [ "." ],
+          	"lifecycleScripts": {
+          		"afterStart": "./bin/wp-env-after-start-ci.sh"
+          	}
+          }
+          EOF
+
+      - name: Start wp-env
+        run: npm run env:start
+
+      - name: Run PHPUnit
+        run: npm run test:php
+
+      - name: Install Playwright browser
+        run: npm run test:e2e:install
+
+      # specs/frontend/** and the "renders server-side output on the
+      # frontend" case in specs/editor/title-block.spec.js visit real
+      # front-end URLs, which fatal without ACF Pro active (see the wp-env
+      # override step above). Everything else — admin screens, the block
+      # editor, and REST — doesn't load the theme's header/footer and runs
+      # fine without it.
+      - name: Run Playwright (excluding ACF-dependent frontend specs)
+        run: >
+          npx playwright test specs/admin specs/editor specs/rest
+          --config=playwright.config.js
+          --grep-invert "renders server-side output on the frontend"
+
+      - name: Show plugin/theme status on failure
+        if: failure()
+        run: |
+          npx wp-env run tests-cli wp plugin list --fields=name,status || true
+          npx wp-env run tests-cli wp theme list --fields=name,status || true
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: wp-content/plugins/ltm-core/artifacts
+          retention-days: 7
+          if-no-files-found: ignore

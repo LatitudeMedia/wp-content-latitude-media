@@ -6,8 +6,8 @@ namespace LTMCore\RestApi;
  *
  * Queries the `post` post type directly (rather than the core `/wp/v2/posts`
  * search) so it can also filter by the `sponsor` taxonomy, which is
- * intentionally not exposed via `show_in_rest` (see the theme's
- * LatitudeMedia\Taxonomies\PostSponsor class).
+ * intentionally not exposed via `show_in_rest` (see the
+ * LTMCore\Taxonomies\PostSponsor class).
  *
  * @package LTMCore
  */

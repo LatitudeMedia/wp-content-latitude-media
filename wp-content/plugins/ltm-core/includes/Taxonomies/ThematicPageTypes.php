@@ -31,9 +31,9 @@ class ThematicPageTypes {
 	 * Build the taxonomy object.
 	 */
 	public function __construct() {
-		$this->object_types = [ 'thematic-page-types', 'post' ];
+		$this->object_types = [ 'thematic-pages', 'post' ];
 
-		add_action( 'init', array( $this, 'create_taxonomy' ) );
+		add_action( 'init', array( $this, 'create_taxonomy' ), 0 );
 		add_filter( 'manage_taxonomies_for_post_columns', array( $this, 'remove_post_admin_column' ) );
 	}
 

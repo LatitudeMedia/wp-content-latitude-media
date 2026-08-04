@@ -30,34 +30,23 @@ define( 'LTM_CORE_DIR', __DIR__ );
 function ltm_core_activate() {
 	( new \LTMCore\Taxonomies\ThematicPageTypes() )->create_taxonomy();
 	( new \LTMCore\PostTypes\ThematicPages() )->create_post_type();
+	( new \LTMCore\Taxonomies\PostSponsor() )->create_taxonomy();
+	( new \LTMCore\PostTypes\Sponsors() )->create_post_type();
 
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'ltm_core_activate' );
 
-/**
- * Admin notice shown when this plugin is active without the latitudemedia
- * theme — its blocks call theme helpers directly at render time
- * (get_post_sponsor(), the print_article_* action hooks, Page_Data(), the
- * `sponsor` taxonomy), so they won't render correctly without it.
- */
-function ltm_core_theme_missing_notice() {
-	if ( function_exists( 'get_post_sponsor' ) ) {
-		return;
-	}
-
-	echo '<div class="notice notice-error"><p>' .
-		esc_html__( 'Latitude Media Core requires the latitudemedia theme to be active.', 'ltm' ) .
-		'</p></div>';
-}
-add_action( 'admin_notices', 'ltm_core_theme_missing_notice' );
-
 function ltm_core_loader() {
 
+	require_once __DIR__ . '/includes/functions.php';
 	require_once __DIR__ . '/includes/Taxonomies/ThematicPageTypes.php';
 	require_once __DIR__ . '/includes/PostTypes/ThematicPages.php';
+	require_once __DIR__ . '/includes/Taxonomies/PostSponsor.php';
+	require_once __DIR__ . '/includes/PostTypes/Sponsors.php';
 	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
+	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -65,6 +54,8 @@ function ltm_core_loader() {
 	// from inside an already-executing `init` callback is unreliable.
 	new \LTMCore\PostTypes\ThematicPages();
 	new \LTMCore\Taxonomies\ThematicPageTypes();
+	new \LTMCore\Taxonomies\PostSponsor();
+	new \LTMCore\PostTypes\Sponsors();
 	new \LTMCore\RestApi\FeaturedPostSearch();
 	new \LTMCore\Blocks\Title();
 };
