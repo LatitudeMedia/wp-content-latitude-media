@@ -7,6 +7,8 @@
 
 namespace LTMCore\Tests\PostTypes;
 
+use LTMCore\PostTypes\ThematicPages;
+use WP_Scripts;
 use WP_UnitTestCase;
 
 /**
@@ -54,5 +56,57 @@ class ThematicPagesTest extends WP_UnitTestCase {
 		$this->assertTrue( $post_type->show_in_rest );
 		$this->assertTrue( $post_type->exclude_from_search );
 		$this->assertFalse( $post_type->has_archive );
+	}
+
+	/**
+	 * Resets the global script registry and current screen so inline-script
+	 * assertions below aren't polluted by state left over from other tests.
+	 */
+	private function reset_wp_scripts() {
+		global $wp_scripts;
+		$wp_scripts = new WP_Scripts(); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		wp_register_script( 'wp-edit-post', '', array(), false, true );
+	}
+
+	/**
+	 * The "Display in Thematic Page" taxonomy panel only makes sense on
+	 * regular posts (it says which thematic page a post belongs to), so it
+	 * must be removed from the Thematic Page's own editor.
+	 */
+	public function test_hide_taxonomy_panel_removes_panel_on_thematic_pages_screen() {
+		$this->reset_wp_scripts();
+
+		global $current_screen;
+		$original_screen = $current_screen;
+		set_current_screen( 'thematic-pages' );
+
+		( new ThematicPages() )->hide_taxonomy_panel();
+
+		$current_screen = $original_screen;
+
+		$inline = implode( '', (array) wp_scripts()->get_data( 'wp-edit-post', 'after' ) );
+
+		$this->assertStringContainsString(
+			"removeEditorPanel( 'taxonomy-panel-thematic-page-types' )",
+			$inline
+		);
+	}
+
+	/**
+	 * The panel must stay untouched on the regular Post editor, where it's
+	 * how editors tag a post with the thematic page it displays in.
+	 */
+	public function test_hide_taxonomy_panel_leaves_post_screen_alone() {
+		$this->reset_wp_scripts();
+
+		global $current_screen;
+		$original_screen = $current_screen;
+		set_current_screen( 'post' );
+
+		( new ThematicPages() )->hide_taxonomy_panel();
+
+		$current_screen = $original_screen;
+
+		$this->assertEmpty( wp_scripts()->get_data( 'wp-edit-post', 'after' ) );
 	}
 }

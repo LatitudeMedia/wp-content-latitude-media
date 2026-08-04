@@ -31,6 +31,10 @@ class ThematicPages {
 		// Keep the thematic-tag taxonomy in sync with thematic-pages posts
 		add_action( 'save_post_' . $this->name, array( $this, 'sync_taxonomy_term' ), 10, 2 );
 		add_action( 'before_delete_post', array( $this, 'delete_taxonomy_term' ) );
+
+		// "Display in Thematic Page" only makes sense on regular posts; hide
+		// it from the Thematic Page's own editor.
+		add_action( 'enqueue_block_editor_assets', array( $this, 'hide_taxonomy_panel' ) );
 	}
 
 	/**
@@ -80,6 +84,29 @@ class ThematicPages {
 					[ 'latitudemedia/title-block' ],
 				],
 			]
+		);
+	}
+
+	/**
+	 * Hides the "Display in Thematic Page" taxonomy panel when editing a
+	 * Thematic Page itself — that taxonomy is for tagging regular posts with
+	 * the thematic page they belong to, not for tagging a thematic page.
+	 */
+	public function hide_taxonomy_panel() {
+		$screen = get_current_screen();
+
+		if ( ! $screen || $screen->post_type !== $this->name ) {
+			return;
+		}
+
+		$taxonomy = new ThematicPageTypes();
+
+		wp_add_inline_script(
+			'wp-edit-post',
+			sprintf(
+				"wp.domReady( function() { wp.data.dispatch( 'core/edit-post' ).removeEditorPanel( 'taxonomy-panel-%s' ); } );",
+				esc_js( $taxonomy->name )
+			)
 		);
 	}
 

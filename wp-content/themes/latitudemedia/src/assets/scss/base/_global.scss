@@ -457,3 +457,7 @@ body.page-id-1941 {
     padding-bottom: 0;
   }
 }
+
+.space-y > :not(:last-child) {
+    margin-block-end: 2.5rem;
+}
