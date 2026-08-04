@@ -78,6 +78,17 @@ jobs:
       - name: Run PHPUnit
         run: npm run test:php
 
+      # The WP core test suite's bootstrap (tests/bootstrap.php) reinstalls
+      # WordPress on the tests-mysql database as part of its own fixture
+      # setup, which deactivates ltm-core/latitudemedia on the same "tests"
+      # environment Playwright targets below. Re-run the CI afterStart
+      # script to reactivate them before Playwright starts. bin/wp-env-after-start-ci.sh
+      # calls bare `wp-env`, which normally resolves because wp-env itself
+      # injects npm's PATH when running lifecycle scripts — do that manually
+      # here since this step invokes it directly, not as a lifecycle script.
+      - name: Re-activate plugin/theme on tests instance
+        run: PATH="$PWD/node_modules/.bin:$PATH" ./bin/wp-env-after-start-ci.sh
+
       - name: Install Playwright browser
         run: npm run test:e2e:install
 

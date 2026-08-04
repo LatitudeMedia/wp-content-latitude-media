@@ -12,6 +12,24 @@ const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
 const BLOCK_NAME = 'latitudemedia/featured-post-block';
 
+/**
+ * Scopes to wherever block content actually renders. Gutenberg only uses
+ * the [name="editor-canvas"] iframe when no apiVersion 1/2 blocks are
+ * registered — locally, ACF Composer blocks force the non-iframed
+ * fallback, but CI drops ACF Pro (see .github/workflows/ltm-core-tests.yml),
+ * so the iframe is back there. Check which one is actually present rather
+ * than assuming either way.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {Object}                          editor
+ */
+async function getEditorContent( page, editor ) {
+	const hasCanvasIframe = await page
+		.locator( '[name="editor-canvas"]' )
+		.count();
+	return hasCanvasIframe ? editor.canvas : page.getByLabel( 'Editor content' );
+}
+
 test.describe( 'Featured Post Block', () => {
 	test.afterEach( async ( { requestUtils } ) => {
 		await requestUtils.deleteAllPosts();
@@ -25,18 +43,15 @@ test.describe( 'Featured Post Block', () => {
 		await admin.createNewPost();
 		await editor.insertBlock( { name: BLOCK_NAME } );
 
-		// Not editor.canvas: several ACF Composer blocks on this site are
-		// registered with apiVersion 2, which forces Gutenberg to fall back to
-		// a non-iframed editor — there is no [name="editor-canvas"] frame here,
-		// so block content renders directly in the page. Scoped to
-		// "Editor content" — the a11y-speak live region echoes the same
-		// Placeholder instructions text, and getByText() alone matches both.
+		// Scoped to the editor content (canvas or page, see
+		// getEditorContent) rather than a plain page-wide getByText() — the
+		// a11y-speak live region echoes the same Placeholder instructions
+		// text elsewhere on the page, and an unscoped match would hit both.
+		const editorContent = await getEditorContent( page, editor );
 		await expect(
-			page
-				.getByLabel( 'Editor content' )
-				.getByText(
-					'Select a post in the block settings to feature it here.'
-				)
+			editorContent.getByText(
+				'Select a post in the block settings to feature it here.'
+			)
 		).toBeVisible();
 	} );
 
@@ -89,8 +104,10 @@ test.describe( 'Featured Post Block', () => {
 		);
 		expect( block.attributes.postId ).toBeGreaterThan( 0 );
 
-		// Not editor.canvas — see the note in the first test above.
-		await expect( page.locator( '.ltm-featured-post-block' ) ).toBeVisible();
+		const editorContent = await getEditorContent( page, editor );
+		await expect(
+			editorContent.locator( '.ltm-featured-post-block' )
+		).toBeVisible();
 	} );
 
 	test( '"Is from sponsor?" with no sponsor assigned disables the results', async ( {

@@ -17,14 +17,14 @@ set -euo pipefail
 for CONTAINER in cli tests-cli; do
 	echo "[ltm-core] Configuring '${CONTAINER}' container..."
 
-	wp-env run "${CONTAINER}" wp plugin activate ltm-core
+	wp-env run "${CONTAINER}" wp --allow-root plugin activate ltm-core
 
-	wp-env run "${CONTAINER}" wp theme activate latitudemedia
+	wp-env run "${CONTAINER}" wp --allow-root theme activate latitudemedia
 
-	wp-env run "${CONTAINER}" wp rewrite structure '/%postname%/' --hard
-	wp-env run "${CONTAINER}" wp rewrite flush --hard
+	wp-env run "${CONTAINER}" wp --allow-root rewrite structure '/%postname%/' --hard
+	wp-env run "${CONTAINER}" wp --allow-root rewrite flush --hard
 
-	wp-env run "${CONTAINER}" wp post-type list --field=name | grep -q 'thematic-pages' \
+	wp-env run "${CONTAINER}" wp --allow-root post-type list --field=name | grep -q 'thematic-pages' \
 		|| { echo "[ltm-core] ERROR: thematic-pages post type is not registered in '${CONTAINER}'."; exit 1; }
 
 	echo "[ltm-core] '${CONTAINER}' ready."

@@ -22,6 +22,9 @@ add_filter( 'manage_edit-category_columns', 'add_new_category_column_section' );
 function add_post_column_news_type( $column_name, $post_id ) {
     switch ( $column_name ) {
         case 'type':
+            if ( ! function_exists( 'get_field' ) ) {
+                break;
+            }
             $type = get_field( 'news_type', $post_id);
             if( isset($type['label']) ) {
                 printf('<span>%s</span>', $type['label']);
