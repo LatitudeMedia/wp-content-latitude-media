@@ -6,6 +6,10 @@
 !/wp-content/themes/latitudemedia/**
 wp-content/themes/latitudemedia/node_modules/
 
+# Keep almost everything inside our own plugin (other plugins are Pressable-managed)
+!/wp-content/plugins/ltm-core/**
+wp-content/plugins/ltm-core/node_modules/
+
 # Other files we want to keep
 !/README.md
 !/.deployignore

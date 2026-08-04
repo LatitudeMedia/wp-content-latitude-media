@@ -1,13 +1,5 @@
 {
   "presets": [
-    "@babel/preset-env",
-    [
-      "@babel/preset-react",
-      {
-        "runtime": "classic",
-        "pragma": "createElement",
-        "pragmaFrag": "Fragment"
-      }
-    ]
+    "@babel/preset-env"
   ]
 }

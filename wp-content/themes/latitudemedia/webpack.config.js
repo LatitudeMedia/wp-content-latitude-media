@@ -126,29 +126,10 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/recap-video-block.scss",
       "css/blocks/in-house-ad-section":
         "./src/assets/scss/blocks/in-house-ad-section.scss",
-      "css/blocks/title-block":
-        "./src/assets/scss/blocks/title-block.scss",
-      "js/blocks/title-block": "./src/blocks/title-block/index.js",
-      "js/blocks/featured-post-block":
-        "./src/blocks/featured-post-block/index.js",
-      "css/blocks/featured-post-block":
-        "./src/assets/scss/blocks/featured-post-block.scss",
     },
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "[name].min.js",
-    },
-    externals: {
-      "@wordpress/blocks": ["wp", "blocks"],
-      "@wordpress/block-editor": ["wp", "blockEditor"],
-      "@wordpress/components": ["wp", "components"],
-      "@wordpress/core-data": ["wp", "coreData"],
-      "@wordpress/data": ["wp", "data"],
-      "@wordpress/element": ["wp", "element"],
-      "@wordpress/i18n": ["wp", "i18n"],
-      "@wordpress/api-fetch": ["wp", "apiFetch"],
-      "@wordpress/url": ["wp", "url"],
-      "@wordpress/server-side-render": ["wp", "serverSideRender"],
     },
     module: {
       rules: [

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "latitudemedia/featured-post-block",
+  "version": "0.1.0",
+  "title": "Featured Post",
+  "category": "ltm-common-blocks",
+  "icon": "star-filled",
+  "description": "Highlight a single post as a featured card, optionally scoped to the page's sponsor.",
+  "keywords": [
+    "featured",
+    "post",
+    "sponsor"
+  ],
+  "example": {},
+  "attributes": {
+    "postId": {
+      "type": "number",
+      "default": 0
+    },
+    "isSponsored": {
+      "type": "boolean",
+      "default": false
+    },
+    "excludeFromOtherBlocks": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "ltm",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
