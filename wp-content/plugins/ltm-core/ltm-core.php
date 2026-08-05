@@ -47,6 +47,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
+	require_once __DIR__ . '/includes/Blocks/RightSidebarLayout.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -58,5 +59,6 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Sponsors();
 	new \LTMCore\RestApi\FeaturedPostSearch();
 	new \LTMCore\Blocks\Title();
+	new \LTMCore\Blocks\RightSidebarLayout();
 };
 ltm_core_loader();

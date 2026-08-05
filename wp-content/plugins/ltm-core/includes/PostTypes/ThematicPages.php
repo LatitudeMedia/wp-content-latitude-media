@@ -39,6 +39,9 @@ class ThematicPages {
 		// The "Latitude Media Page Blocks" category is built for regular Pages;
 		// keep it out of the Thematic Page inserter.
 		add_filter( 'allowed_block_types_all', array( $this, 'restrict_page_blocks_category' ), 10, 2 );
+
+		// Widen the editor canvas for Thematic Pages.
+		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_styles' ) );
 	}
 
 	/**
@@ -137,6 +140,23 @@ class ThematicPages {
 		}
 
 		return array_values( array_diff( $allowed_block_types, $excluded_blocks ) );
+	}
+
+	/**
+	 * Widens the block editor canvas for Thematic Pages so blocks aren't
+	 * constrained to the default content width.
+	 */
+	public function editor_styles() {
+		$screen = get_current_screen();
+
+		if ( ! $screen || $screen->post_type !== $this->name ) {
+			return;
+		}
+
+		wp_add_inline_style(
+			'wp-edit-blocks',
+			'.post-type-thematic-pages.editor-styles-wrapper :where(.wp-block) { max-width: 95vw; }'
+		);
 	}
 
 	/**
