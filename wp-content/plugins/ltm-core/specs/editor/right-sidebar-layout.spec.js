@@ -22,11 +22,15 @@ test.describe( 'Right Sidebar Layout variation', () => {
 		await admin.createNewPost();
 
 		await editor.showBlockToolbar();
-		await page.getByRole( 'button', { name: 'Toggle block inserter' } ).click();
+		await page
+			.getByRole( 'button', { name: 'Toggle block inserter' } )
+			.click();
 		await page
 			.getByRole( 'searchbox', { name: 'Search' } )
 			.fill( 'Right Sidebar Layout' );
-		await page.getByRole( 'option', { name: 'Right Sidebar Layout' } ).click();
+		await page
+			.getByRole( 'option', { name: 'Right Sidebar Layout' } )
+			.click();
 
 		const blocks = await editor.getBlocks();
 		const outer = blocks.find( ( block ) =>
@@ -55,7 +59,9 @@ test.describe( 'Right Sidebar Layout variation', () => {
 		editor,
 		page,
 	} ) => {
-		await admin.createNewPost( { title: 'Right Sidebar Layout Smoke Test' } );
+		await admin.createNewPost( {
+			title: 'Right Sidebar Layout Smoke Test',
+		} );
 
 		await editor.insertBlock( {
 			name: 'core/group',
@@ -67,7 +73,9 @@ test.describe( 'Right Sidebar Layout variation', () => {
 					innerBlocks: [
 						{
 							name: 'core/group',
-							attributes: { className: 'right-sidebar-layout-wrapper' },
+							attributes: {
+								className: 'right-sidebar-layout-wrapper',
+							},
 							innerBlocks: [
 								{
 									name: 'core/group',

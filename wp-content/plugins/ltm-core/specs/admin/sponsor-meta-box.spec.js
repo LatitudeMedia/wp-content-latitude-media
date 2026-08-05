@@ -14,6 +14,8 @@ const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
  * meta box data via a separate background request to post.php after the
  * main REST save completes. Reloading before that request finishes reads
  * back the pre-save value, so wait for it explicitly rather than racing it.
+ * @param page
+ * @param label
  */
 async function selectSponsor( page, label ) {
 	await page.locator( 'select#ltm_sponsor' ).selectOption( { label } );

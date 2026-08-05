@@ -29,9 +29,7 @@ test.describe( 'Featured Post search REST endpoint', () => {
 	test( 'rejects anonymous requests', async ( { baseURL } ) => {
 		const anonymousContext = await request.newContext( { baseURL } );
 
-		const response = await anonymousContext.get(
-			`/wp-json${ ROUTE }`
-		);
+		const response = await anonymousContext.get( `/wp-json${ ROUTE }` );
 
 		expect( response.ok() ).toBeFalsy();
 		expect( response.status() ).toBe( 401 );
@@ -55,15 +53,16 @@ test.describe( 'Featured Post search REST endpoint', () => {
 
 		expect( response.hasSponsor ).toBe( true );
 		expect( response.items ).toHaveLength( 1 );
-		expect( response.items[ 0 ].title ).toBe(
-			'Grid Resilience Deep Dive'
-		);
+		expect( response.items[ 0 ].title ).toBe( 'Grid Resilience Deep Dive' );
 	} );
 
 	test( 'short-circuits to empty results when the page has no sponsor', async ( {
 		requestUtils,
 	} ) => {
-		await requestUtils.createPost( { title: 'Some Post', status: 'publish' } );
+		await requestUtils.createPost( {
+			title: 'Some Post',
+			status: 'publish',
+		} );
 
 		const page = await requestUtils.rest( {
 			path: '/wp/v2/thematic-pages',

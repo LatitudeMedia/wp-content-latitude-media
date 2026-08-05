@@ -27,7 +27,9 @@ async function getEditorContent( page, editor ) {
 	const hasCanvasIframe = await page
 		.locator( '[name="editor-canvas"]' )
 		.count();
-	return hasCanvasIframe ? editor.canvas : page.getByLabel( 'Editor content' );
+	return hasCanvasIframe
+		? editor.canvas
+		: page.getByLabel( 'Editor content' );
 }
 
 test.describe( 'Featured Post Block', () => {

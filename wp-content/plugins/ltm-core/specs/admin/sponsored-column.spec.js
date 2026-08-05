@@ -42,7 +42,9 @@ test.describe( 'Sponsored column', () => {
 		} );
 
 		await admin.editPost( sponsoredPost.id );
-		await page.locator( 'select#ltm_sponsor' ).selectOption( { label: 'Acme Corp' } );
+		await page
+			.locator( 'select#ltm_sponsor' )
+			.selectOption( { label: 'Acme Corp' } );
 
 		// "Is Sponsored By" is a classic meta box, saved via a background
 		// request separate from the main REST save — wait for it rather than
@@ -52,7 +54,10 @@ test.describe( 'Sponsored column', () => {
 				response.url().includes( '/wp-admin/post.php' ) &&
 				response.request().method() === 'POST'
 		);
-		await page.getByRole( 'button', { name: 'Save', exact: false } ).first().click();
+		await page
+			.getByRole( 'button', { name: 'Save', exact: false } )
+			.first()
+			.click();
 		await metaBoxesSaved;
 
 		await admin.visitAdminPage( 'edit.php' );
@@ -64,14 +69,20 @@ test.describe( 'Sponsored column', () => {
 		// exact: true — "Sponsored Post" would otherwise case-insensitively
 		// substring-match the "Unsponsored Post" link too.
 		const sponsoredRow = page.locator( 'tr', {
-			has: page.getByRole( 'link', { name: 'Sponsored Post', exact: true } ),
+			has: page.getByRole( 'link', {
+				name: 'Sponsored Post',
+				exact: true,
+			} ),
 		} );
 		await expect( sponsoredRow.locator( 'td.sponsored' ) ).toHaveText(
 			'Acme Corp'
 		);
 
 		const unsponsoredRow = page.locator( 'tr', {
-			has: page.getByRole( 'link', { name: 'Unsponsored Post', exact: true } ),
+			has: page.getByRole( 'link', {
+				name: 'Unsponsored Post',
+				exact: true,
+			} ),
 		} );
 		await expect( unsponsoredRow.locator( 'td.sponsored' ) ).toHaveText(
 			'Not sponsored'

@@ -29,7 +29,11 @@ export default function Edit( { attributes, setAttributes } ) {
 			return null;
 		}
 
-		const record = select( 'core' ).getEntityRecord( 'postType', postType, postId );
+		const record = select( 'core' ).getEntityRecord(
+			'postType',
+			postType,
+			postId
+		);
 		return record ? record.ltm_sponsor : null;
 	}, [] );
 
@@ -46,9 +50,14 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody title={ __( 'Title Block', 'ltm' ) }>
 					<TextControl
 						label={ __( 'Kicker', 'ltm' ) }
-						help={ __( 'Small subheader shown above the title.', 'ltm' ) }
+						help={ __(
+							'Small subheader shown above the title.',
+							'ltm'
+						) }
 						value={ kicker }
-						onChange={ ( value ) => setAttributes( { kicker: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { kicker: value } )
+						}
 					/>
 					<MediaUploadCheck>
 						<MediaUpload
@@ -61,9 +70,16 @@ export default function Edit( { attributes, setAttributes } ) {
 							allowedTypes={ [ 'image' ] }
 							value={ backgroundImageId }
 							render={ ( { open } ) => (
-								<Button variant="secondary" onClick={ open } className="ltm-title-block__media-button">
+								<Button
+									variant="secondary"
+									onClick={ open }
+									className="ltm-title-block__media-button"
+								>
 									{ backgroundImageUrl
-										? __( 'Replace Background Image', 'ltm' )
+										? __(
+												'Replace Background Image',
+												'ltm'
+										  )
 										: __( 'Set Background Image', 'ltm' ) }
 								</Button>
 							) }
@@ -74,7 +90,10 @@ export default function Edit( { attributes, setAttributes } ) {
 							variant="link"
 							isDestructive
 							onClick={ () =>
-								setAttributes( { backgroundImageId: 0, backgroundImageUrl: '' } )
+								setAttributes( {
+									backgroundImageId: 0,
+									backgroundImageUrl: '',
+								} )
 							}
 						>
 							{ __( 'Remove Background Image', 'ltm' ) }
@@ -84,7 +103,8 @@ export default function Edit( { attributes, setAttributes } ) {
 				{ sponsor && (
 					<PanelBody title={ __( 'Sponsor', 'ltm' ) }>
 						<p>
-							{ __( 'Sponsored by', 'ltm' ) } <strong>{ sponsor.name }</strong>
+							{ __( 'Sponsored by', 'ltm' ) }{ ' ' }
+							<strong>{ sponsor.name }</strong>
 						</p>
 						<MediaUploadCheck>
 							<MediaUpload
@@ -97,10 +117,20 @@ export default function Edit( { attributes, setAttributes } ) {
 								allowedTypes={ [ 'image' ] }
 								value={ sponsorLogoOverrideId }
 								render={ ( { open } ) => (
-									<Button variant="secondary" onClick={ open } className="ltm-title-block__media-button">
+									<Button
+										variant="secondary"
+										onClick={ open }
+										className="ltm-title-block__media-button"
+									>
 										{ sponsorLogoOverrideUrl
-											? __( 'Replace Sponsor Logo Override', 'ltm' )
-											: __( 'Set Sponsor Logo Override', 'ltm' ) }
+											? __(
+													'Replace Sponsor Logo Override',
+													'ltm'
+											  )
+											: __(
+													'Set Sponsor Logo Override',
+													'ltm'
+											  ) }
 									</Button>
 								) }
 							/>
@@ -110,7 +140,10 @@ export default function Edit( { attributes, setAttributes } ) {
 								variant="link"
 								isDestructive
 								onClick={ () =>
-									setAttributes( { sponsorLogoOverrideId: 0, sponsorLogoOverrideUrl: '' } )
+									setAttributes( {
+										sponsorLogoOverrideId: 0,
+										sponsorLogoOverrideUrl: '',
+									} )
 								}
 							>
 								{ __( 'Remove Override', 'ltm' ) }
@@ -123,7 +156,9 @@ export default function Edit( { attributes, setAttributes } ) {
 				<div className="ltm-title-block__inner">
 					<div className="ltm-title-block__content">
 						{ kicker && (
-							<p className="ltm-title-block__kicker">{ kicker }</p>
+							<p className="ltm-title-block__kicker">
+								{ kicker }
+							</p>
 						) }
 						<InnerBlocks template={ TEMPLATE } templateLock="all" />
 					</div>
@@ -135,7 +170,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							{ ( sponsorLogoOverrideUrl || sponsor.logo ) && (
 								<img
 									className="ltm-title-block__sponsor-logo"
-									src={ sponsorLogoOverrideUrl || sponsor.logo }
+									src={
+										sponsorLogoOverrideUrl || sponsor.logo
+									}
 									alt={ sponsor.name }
 								/>
 							) }

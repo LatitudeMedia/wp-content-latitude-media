@@ -37,7 +37,9 @@ test.describe( 'Thematic Pages frontend', () => {
 		const response = await page.goto( `/themes/${ thematicPage.slug }/` );
 
 		expect( response.status() ).toBeLessThan( 400 );
-		await expect( page.getByText( 'Grid Resilience' ).first() ).toBeVisible();
+		await expect(
+			page.getByText( 'Grid Resilience' ).first()
+		).toBeVisible();
 	} );
 
 	test( 'is excluded from front-end search results', async ( {
@@ -51,9 +53,7 @@ test.describe( 'Thematic Pages frontend', () => {
 			data: { title: uniqueTitle, status: 'publish' },
 		} );
 
-		await page.goto(
-			`/?s=${ encodeURIComponent( uniqueTitle ) }`
-		);
+		await page.goto( `/?s=${ encodeURIComponent( uniqueTitle ) }` );
 
 		await expect( page.getByText( uniqueTitle ) ).toHaveCount( 0 );
 	} );

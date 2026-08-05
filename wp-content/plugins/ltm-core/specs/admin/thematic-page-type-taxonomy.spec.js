@@ -32,9 +32,7 @@ test.describe( 'Thematic Page Types taxonomy', () => {
 		await expect(
 			page.locator( 'th', { hasText: 'Display in Thematic Page' } )
 		).toHaveCount( 0 );
-		await expect(
-			page.locator( '#thematic-page-types' )
-		).toHaveCount( 0 );
+		await expect( page.locator( '#thematic-page-types' ) ).toHaveCount( 0 );
 	} );
 
 	test( 'is assignable in a single post editor and persists on save', async ( {
@@ -60,11 +58,15 @@ test.describe( 'Thematic Page Types taxonomy', () => {
 		const panelButton = page.getByRole( 'button', {
 			name: 'Display in Thematic Page',
 		} );
-		if ( ( await panelButton.getAttribute( 'aria-expanded' ) ) === 'false' ) {
+		if (
+			( await panelButton.getAttribute( 'aria-expanded' ) ) === 'false'
+		) {
 			await panelButton.click();
 		}
 
-		await page.getByRole( 'checkbox', { name: 'Energy Transition' } ).check();
+		await page
+			.getByRole( 'checkbox', { name: 'Energy Transition' } )
+			.check();
 
 		await editor.publishPost();
 		await page.reload();

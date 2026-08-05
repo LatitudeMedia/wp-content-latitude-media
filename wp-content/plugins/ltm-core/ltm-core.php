@@ -47,6 +47,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
+	require_once __DIR__ . '/includes/Blocks/NewsTypePreview.php';
 	require_once __DIR__ . '/includes/Blocks/RightSidebarLayout.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own

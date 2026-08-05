@@ -55,7 +55,9 @@ export default function Edit( { attributes, setAttributes, name } ) {
 							) }
 							checked={ onlyThematicPageTagged }
 							onChange={ ( value ) =>
-								setAttributes( { onlyThematicPageTagged: value } )
+								setAttributes( {
+									onlyThematicPageTagged: value,
+								} )
 							}
 						/>
 					) }
@@ -72,7 +74,9 @@ export default function Edit( { attributes, setAttributes, name } ) {
 								value: 'paginated-list',
 							},
 						] }
-						onChange={ ( value ) => setAttributes( { layout: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { layout: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>

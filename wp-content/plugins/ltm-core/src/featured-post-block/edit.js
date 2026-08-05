@@ -118,7 +118,10 @@ export default function Edit( { attributes, setAttributes, name } ) {
 			</InspectorControls>
 			<div { ...blockProps }>
 				{ postId ? (
-					<ServerSideRender block={ name } attributes={ attributes } />
+					<ServerSideRender
+						block={ name }
+						attributes={ attributes }
+					/>
 				) : (
 					<Placeholder
 						icon="star-filled"

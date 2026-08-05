@@ -39,7 +39,9 @@ test.describe( 'Featured Post Block frontend', () => {
 
 		const card = page.locator( '.ltm-featured-post-block' );
 		await expect( card ).toBeVisible();
-		await expect( card.getByText( 'Grid Resilience Deep Dive' ) ).toBeVisible();
+		await expect(
+			card.getByText( 'Grid Resilience Deep Dive' )
+		).toBeVisible();
 	} );
 
 	test( 'renders nothing for a draft postId', async ( {
@@ -62,6 +64,8 @@ test.describe( 'Featured Post Block frontend', () => {
 		const postId = await editor.publishPost();
 		await page.goto( `/?p=${ postId }` );
 
-		await expect( page.locator( '.ltm-featured-post-block' ) ).toHaveCount( 0 );
+		await expect( page.locator( '.ltm-featured-post-block' ) ).toHaveCount(
+			0
+		);
 	} );
 } );

@@ -1,0 +1,88 @@
+@import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
+
+.ltm-news-type-preview {
+
+	&__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__item {
+		margin-bottom: 24px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__card {
+		display: flex;
+		align-items: flex-start;
+		gap: 16px;
+		text-decoration: none;
+	}
+
+	&__thumb {
+
+		@include imageFolder;
+
+		position: relative;
+		display: block;
+		flex: 0 0 122px;
+		width: 122px;
+		height: 90px;
+		max-height: 90px;
+
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			inset: 0%;
+		}
+	}
+
+	&__play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: $primary-dark-blue;
+		color: #fff;
+
+		svg {
+			width: 16px;
+			height: 16px;
+			margin-left: 2px;
+		}
+	}
+
+	&__content {
+		display: block;
+		flex: 1 0 0;
+	}
+
+	&__label {
+		display: block;
+		text-transform: uppercase;
+		font-family: $inter;
+
+		@include fontSize( 14px );
+		font-weight: 700;
+		line-height: 22px;
+		color: $primary-dark-blue;
+		margin-bottom: 4px;
+	}
+
+	&__title {
+
+		@include postCardTitle;
+	}
+}

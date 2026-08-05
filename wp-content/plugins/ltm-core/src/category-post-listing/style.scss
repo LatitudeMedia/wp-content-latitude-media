@@ -8,6 +8,7 @@
 .ltm-category-post-listing {
 	// Shared aspect-ratio image box used by both layouts.
 	.image-folder {
+
 		@include imageFolder;
 
 		a,
@@ -32,10 +33,12 @@
 	}
 
 	.title {
+
 		@include postCardTitle;
 	}
 
 	p {
+
 		@include postCardExcerpt;
 	}
 
@@ -77,6 +80,7 @@
 
 			.tags-list {
 				margin-bottom: 0;
+
 				@include tagsList;
 
 				li {
@@ -86,6 +90,7 @@
 			}
 
 			.info {
+
 				@include postInfo;
 			}
 		}
@@ -111,20 +116,24 @@
 		}
 
 		.feature-main {
+
 			.image-folder {
 				margin-bottom: 16px;
 			}
 
 			.tags-list {
 				margin-bottom: 8px;
+
 				@include tagsList;
 			}
 
 			.title {
+
 				@include fontSize(24px);
 			}
 
 			.info {
+
 				@include postInfo;
 			}
 		}
@@ -142,11 +151,13 @@
 			}
 
 			li {
+
 				.image-folder {
 					margin-bottom: 12px;
 				}
 
 				.title {
+
 					@include fontSize(16px);
 				}
 			}
