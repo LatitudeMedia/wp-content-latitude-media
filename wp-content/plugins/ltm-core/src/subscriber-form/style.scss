@@ -1,0 +1,5 @@
+@import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
+
+.subscriber-form.form-block {
+  @include formBlock;
+}

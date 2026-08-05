@@ -76,10 +76,55 @@ return array(
 			'isSponsored' => array(
 				'type' => 'boolean',
 				'default' => false
+			)
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'render' => 'file:./render.php'
+	),
+	'subscriber-form' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'latitudemedia/subscriber-form',
+		'version' => '0.1.0',
+		'title' => 'Subscriber Form',
+		'category' => 'ltm-common-blocks',
+		'icon' => 'email-alt2',
+		'description' => 'Newsletter signup form with a title, disclaimer, and embeddable form code.',
+		'keywords' => array(
+			'form',
+			'subscribe',
+			'newsletter',
+			'signup',
+			'hubspot'
+		),
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+				'default' => ''
 			),
-			'excludeFromOtherBlocks' => array(
-				'type' => 'boolean',
-				'default' => true
+			'disclaimer' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'embedCode' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'layout' => array(
+				'type' => 'string',
+				'enum' => array(
+					'square'
+				),
+				'default' => 'square'
 			)
 		),
 		'supports' => array(

@@ -11,9 +11,7 @@ if ( ! $post_id || get_post_status( $post_id ) !== 'publish' ) {
 	return;
 }
 
-if ( $attributes['excludeFromOtherBlocks'] ?? true ) {
-	\LatitudeMedia\Page_Data()->addItems( [ $post_id ] );
-}
+\LatitudeMedia\Page_Data()->addItems( [ $post_id ] );
 
 $template = get_wrap_rows_from_template(
 	'<div class="image-folder">[thumb]</div>

@@ -21,10 +21,6 @@
     "isSponsored": {
       "type": "boolean",
       "default": false
-    },
-    "excludeFromOtherBlocks": {
-      "type": "boolean",
-      "default": true
     }
   },
   "supports": {

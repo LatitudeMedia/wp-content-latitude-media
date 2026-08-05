@@ -13,7 +13,7 @@ import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { attributes, setAttributes, name } ) {
-	const { postId, isSponsored, excludeFromOtherBlocks } = attributes;
+	const { postId, isSponsored } = attributes;
 	const blockProps = useBlockProps();
 
 	const currentPostId = useSelect( ( select ) => {
@@ -113,16 +113,6 @@ export default function Edit( { attributes, setAttributes, name } ) {
 							} )
 						}
 						help={ comboHelp }
-					/>
-					<ToggleControl
-						label={ __(
-							'Stop this post from showing up in other blocks on this same page?',
-							'ltm'
-						) }
-						checked={ excludeFromOtherBlocks }
-						onChange={ ( value ) =>
-							setAttributes( { excludeFromOtherBlocks: value } )
-						}
 					/>
 				</PanelBody>
 			</InspectorControls>

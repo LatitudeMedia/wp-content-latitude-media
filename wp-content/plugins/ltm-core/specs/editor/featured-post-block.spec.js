@@ -133,31 +133,4 @@ test.describe( 'Featured Post Block', () => {
 		await combobox.fill( 'a' );
 		await expect( page.getByRole( 'option' ) ).toHaveCount( 0 );
 	} );
-
-	test( '"Stop this post from showing up in other blocks" toggles excludeFromOtherBlocks', async ( {
-		admin,
-		editor,
-		page,
-	} ) => {
-		await admin.createNewPost();
-		await editor.insertBlock( { name: BLOCK_NAME } );
-		await editor.openDocumentSettingsSidebar();
-
-		// Attribute defaults to true.
-		let [ block ] = ( await editor.getBlocks() ).filter(
-			( b ) => b.name === BLOCK_NAME
-		);
-		expect( block.attributes.excludeFromOtherBlocks ).toBe( true );
-
-		await page
-			.getByRole( 'checkbox', {
-				name: 'Stop this post from showing up in other blocks on this same page?',
-			} )
-			.click();
-
-		[ block ] = ( await editor.getBlocks() ).filter(
-			( b ) => b.name === BLOCK_NAME
-		);
-		expect( block.attributes.excludeFromOtherBlocks ).toBe( false );
-	} );
 } );
