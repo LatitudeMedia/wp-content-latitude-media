@@ -35,6 +35,10 @@ class ThematicPages {
 		// "Display in Thematic Page" only makes sense on regular posts; hide
 		// it from the Thematic Page's own editor.
 		add_action( 'enqueue_block_editor_assets', array( $this, 'hide_taxonomy_panel' ) );
+
+		// The "Latitude Media Page Blocks" category is built for regular Pages;
+		// keep it out of the Thematic Page inserter.
+		add_filter( 'allowed_block_types_all', array( $this, 'restrict_page_blocks_category' ), 10, 2 );
 	}
 
 	/**
@@ -108,6 +112,31 @@ class ThematicPages {
 				esc_js( $taxonomy->name )
 			)
 		);
+	}
+
+	/**
+	 * Removes every block in the "Latitude Media Page Blocks" category
+	 * (slug `ltm-page-blocks`) from the inserter when editing a Thematic Page.
+	 */
+	public function restrict_page_blocks_category( $allowed_block_types, $editor_context ) {
+		if ( empty( $editor_context->post ) || $editor_context->post->post_type !== $this->name ) {
+			return $allowed_block_types;
+		}
+
+		if ( ! is_array( $allowed_block_types ) || empty( $allowed_block_types ) ) {
+			$registered_blocks   = \WP_Block_Type_Registry::get_instance()->get_all_registered();
+			$allowed_block_types = array_keys( $registered_blocks );
+		}
+
+		$excluded_blocks = array();
+
+		foreach ( \WP_Block_Type_Registry::get_instance()->get_all_registered() as $block_name => $block_type ) {
+			if ( isset( $block_type->category ) && 'ltm-page-blocks' === $block_type->category ) {
+				$excluded_blocks[] = $block_name;
+			}
+		}
+
+		return array_values( array_diff( $allowed_block_types, $excluded_blocks ) );
 	}
 
 	/**
