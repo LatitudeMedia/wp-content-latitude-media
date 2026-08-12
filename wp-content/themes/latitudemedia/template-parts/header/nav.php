@@ -2,6 +2,10 @@
 $menu = wp_get_nav_menu_object('podcasts-menu');
 $hideMenu = get_field('hide_menu', $menu);
 $headerAlert = get_field('alert', 'options');
+$headerCta = get_field('cta_button', 'options');
+$ctaUrl = !empty($headerCta['url']) ? $headerCta['url'] : '/newsletter/';
+$ctaTitle = !empty($headerCta['title']) ? $headerCta['title'] : 'Subscribe';
+$ctaTarget = !empty($headerCta['target']) ? $headerCta['target'] : '';
 ?>
 <header>
     <div class="header-wrapper">
@@ -35,7 +39,7 @@ $headerAlert = get_field('alert', 'options');
                                 ?>
                             </div>
                         <?php endif; ?>
-                        <a class="subscribe" href="https://www.latitudemedia.com/newsletter/">Subscribe</a>
+                        <a class="subscribe" href="<?php echo esc_url($ctaUrl); ?>" <?php echo $ctaTarget ? ' target="' . esc_attr($ctaTarget) . '"' : ''; ?>><?php echo esc_html($ctaTitle); ?></a>
                     </div>
                 </div>
             </div>

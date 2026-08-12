@@ -1166,7 +1166,7 @@ add_action('acf/include_fields', function () {
         'style' => 'default',
         'active' => true,
     ));
-    
+
     acf_add_local_field_group(array(
         'key' => 'group_6710ef848d80b',
         'title' => 'News with hero block',
@@ -6566,6 +6566,13 @@ Or select event manually.',
         'title' => 'Header Settings',
         'fields' => array(
             array(
+                'key' => 'field_67f9c1a8b2e03',
+                'label' => 'CTA Button',
+                'name' => 'cta_button',
+                'type' => 'link',
+                'return_format' => 'array',
+            ),
+            array(
                 'key' => 'field_67f9c1a8b2e02',
                 'label' => 'Alert',
                 'name' => 'alert',
@@ -6575,6 +6582,7 @@ Or select event manually.',
                 'media_upload' => 1,
                 'delay' => 0,
             ),
+
         ),
         'location' => array(
             array(
