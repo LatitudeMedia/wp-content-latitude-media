@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array('react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-i18n', 'wp-server-side-render'), 'version' => '90afc4d4a8d5ebef6618');
+<?php return array('dependencies' => array('react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-i18n', 'wp-react-refresh-runtime', 'wp-server-side-render'), 'version' => '0231c082e67bbb9dfce2', 'handle' => 'undefined-subscriber-form/index');

@@ -22,12 +22,7 @@ $is_editor_preview = defined( 'REST_REQUEST' ) && REST_REQUEST;
 		<?php if ( $disclaimer ) : ?>
 			<p style="color:#fff;text-align:center;"><?php echo esc_html( $disclaimer ); ?></p>
 		<?php endif; ?>
-		<?php if ( $is_editor_preview ) : ?>
-			<?php if ( $embed_code ) : ?>
-				<p><em><?php esc_html_e( 'Embed code will render on the front end.', 'ltm' ); ?></em></p>
-			<?php endif; ?>
-		<?php else : ?>
+	
 			<?php echo $embed_code; ?>
-		<?php endif; ?>
 	</div>
 </div>

@@ -1,1 +1,95 @@
-.ltm-title-block{--ltm-title-block-bg:none;align-items:stretch;background-image:var(--ltm-title-block-bg);background-position:bottom;background-repeat:no-repeat;background-size:cover;color:#fff;display:flex;margin:-64px 0 24px;min-height:400px;overflow:hidden;padding:40px 15px;position:relative;width:100%}.ltm-title-block:before{background-image:linear-gradient(90deg,#0f1e42 34%,rgba(15,30,66,0));content:"";inset:0;pointer-events:none;position:absolute}@media(max-width:1024px){.ltm-title-block{margin-bottom:16px}}@media(max-width:768px){.ltm-title-block:before{background-image:linear-gradient(180deg,#0f1e42 58%,rgba(15,30,66,0))}}.ltm-title-block__inner{align-items:flex-end;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;margin:0 auto;max-width:1200px;position:relative;width:100%;z-index:1}.ltm-title-block__content{align-self:center;flex:1 1 60%;min-width:0}.ltm-title-block__kicker{color:#fff;font-size:16px;font-weight:600;margin:0 0 12px}.ltm-title-block .wp-block-post-title{color:#fff;font-size:48px;font-weight:700;line-height:1.1;margin:0}@media(max-width:768px){.ltm-title-block .wp-block-post-title{font-size:32px}}.ltm-title-block__sponsor{align-items:flex-start;display:flex;flex:0 0 auto;flex-direction:column;gap:8px}.ltm-title-block__sponsor-label{color:#fff;font-size:14px;font-weight:600}.ltm-title-block__sponsor-logo{height:auto;max-width:200px;width:100%}@media(max-width:768px){.ltm-title-block__inner{align-items:flex-start}}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/title-block/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.ltm-title-block {
+  --ltm-title-block-bg: none;
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: stretch;
+  margin: -64px 0 24px;
+  padding: 40px 15px;
+  background-image: var(--ltm-title-block-bg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  overflow: hidden;
+}
+.ltm-title-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, #0F1E42 34%, rgba(15, 30, 66, 0) 100%);
+  pointer-events: none;
+}
+@media (max-width: 1024px) {
+  .ltm-title-block {
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .ltm-title-block::before {
+    background-image: linear-gradient(180deg, #0F1E42 58%, rgba(15, 30, 66, 0) 100%);
+  }
+}
+.ltm-title-block__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 24px;
+}
+.ltm-title-block__content {
+  flex: 1 1 60%;
+  min-width: 0;
+  align-self: center;
+}
+.ltm-title-block__kicker {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.ltm-title-block .wp-block-post-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .ltm-title-block .wp-block-post-title {
+    font-size: 32px;
+  }
+}
+.ltm-title-block__sponsor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.ltm-title-block__sponsor-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.ltm-title-block__sponsor-logo {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .ltm-title-block__inner {
+    align-items: flex-start;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

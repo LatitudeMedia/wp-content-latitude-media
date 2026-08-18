@@ -151,14 +151,45 @@
 			}
 
 			li {
+				display: flex;
+				flex-direction: column;
 
 				.image-folder {
 					margin-bottom: 12px;
 				}
 
+				.content-folder {
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+				}
+
+				.tags-list {
+					@include tagsList;
+					margin-bottom: 0;
+					margin-top: 25px;
+
+					li,
+					li span,
+					li a {
+
+						@include fontSize(12px);
+					}
+
+					li a {
+						display: none;
+					}
+				}
+
 				.title {
 
 					@include fontSize(16px);
+				}
+
+				.info {
+
+					@include postInfo;
+					margin-top: auto;
 				}
 			}
 		}

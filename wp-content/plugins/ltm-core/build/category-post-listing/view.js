@@ -1,4 +1,4 @@
-(globalThis["webpackChunkltm_core"] ||= []).push([["subscriber-form/index"],{
+(globalThis["webpackChunkltm_core"] ||= []).push([["category-post-listing/view"],{
 
 /***/ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js"
 /*!***************************************************************************************!*\
@@ -670,158 +670,76 @@ ansiHTML.reset()
 
 /***/ },
 
-/***/ "./src/subscriber-form/edit.js"
-/*!*************************************!*\
-  !*** ./src/subscriber-form/edit.js ***!
-  \*************************************/
-(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/category-post-listing/view.js"
+/*!*******************************************!*\
+  !*** ./src/category-post-listing/view.js ***!
+  \*******************************************/
+(module, __unused_webpack_exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Edit)
-/* harmony export */ });
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
-/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 /* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
 /* provided dependency */ var __react_refresh_error_overlay__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js");
 __webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "react-refresh/runtime");
 
-var _s = __webpack_require__.$Refresh$.signature();
+/**
+ * Front-end behaviour for the Category Post Listing block: intercepts
+ * pager link clicks and swaps in the new page of posts via fetch()
+ * instead of doing a full page navigation.
+ */
 
-
-
-
-
-function Edit({
-  attributes,
-  setAttributes,
-  name
-}) {
-  _s();
-  const {
-    title,
-    disclaimer,
-    embedCode,
-    layout
-  } = attributes;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Subscriber Form', 'ltm'),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Title', 'ltm'),
-          value: title,
-          onChange: value => setAttributes({
-            title: value
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Disclaimer', 'ltm'),
-          value: disclaimer,
-          onChange: value => setAttributes({
-            disclaimer: value
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Embed Code', 'ltm'),
-          help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Raw HTML/script embed code, e.g. a HubSpot form.', 'ltm'),
-          value: embedCode,
-          onChange: value => setAttributes({
-            embedCode: value
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Layout', 'ltm'),
-          value: layout,
-          options: [{
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Square', 'ltm'),
-            value: 'square'
-          }],
-          onChange: value => setAttributes({
-            layout: value
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      ...blockProps,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_2___default()), {
-        block: name,
-        attributes: attributes
-      })
-    })]
+(function () {
+  function getContainers() {
+    return document.querySelectorAll('.ltm-category-post-listing');
+  }
+  function loadPage(container, url, updateHistory) {
+    fetch(url).then(function (response) {
+      return response.text();
+    }).then(function (html) {
+      const doc = new window.DOMParser().parseFromString(html, 'text/html');
+      const index = Array.prototype.indexOf.call(getContainers(), container);
+      const newContainer = doc.querySelectorAll('.ltm-category-post-listing')[index];
+      if (!newContainer) {
+        window.location.href = url;
+        return;
+      }
+      container.innerHTML = newContainer.innerHTML;
+      bindPager(container);
+      if (updateHistory) {
+        window.history.pushState({
+          ltmCategoryPostListing: true
+        }, '', url);
+      }
+    }).catch(function () {
+      window.location.href = url;
+    });
+  }
+  function bindPager(container) {
+    const pager = container.querySelector('.pager');
+    if (!pager) {
+      return;
+    }
+    pager.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (!link) {
+        return;
+      }
+      event.preventDefault();
+      loadPage(container, link.href, true);
+    });
+  }
+  function init() {
+    getContainers().forEach(bindPager);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  window.addEventListener('popstate', function () {
+    getContainers().forEach(function (container) {
+      loadPage(container, window.location.href, false);
+    });
   });
-}
-_s(Edit, "YEL7iL8TqvRBOs7ntNc9dYbe+0M=", false, function () {
-  return [_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps];
-});
-_c = Edit;
-var _c;
-__webpack_require__.$Refresh$.register(_c, "Edit");
-
-const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
-const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
-	$ReactRefreshModuleId$
-);
-
-function $ReactRefreshModuleRuntime$(exports) {
-	if (true) {
-		let errorOverlay;
-		if (typeof __react_refresh_error_overlay__ !== 'undefined') {
-			errorOverlay = __react_refresh_error_overlay__;
-		}
-		let testMode;
-		if (typeof __react_refresh_test__ !== 'undefined') {
-			testMode = __react_refresh_test__;
-		}
-		return __react_refresh_utils__.executeRuntime(
-			exports,
-			$ReactRefreshModuleId$,
-			module.hot,
-			errorOverlay,
-			testMode
-		);
-	}
-}
-
-if (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {
-	$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);
-} else {
-	$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);
-}
-
-/***/ },
-
-/***/ "./src/subscriber-form/index.js"
-/*!**************************************!*\
-  !*** ./src/subscriber-form/index.js ***!
-  \**************************************/
-(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/subscriber-form/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/subscriber-form/edit.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/subscriber-form/block.json");
-/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js");
-/* provided dependency */ var __react_refresh_error_overlay__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/overlay/index.js");
-__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ "react-refresh/runtime");
-
-
-
-
-
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
-});
+})();
 
 const $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;
 const $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(
@@ -1573,353 +1491,6 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
   }
 }
 
-
-/***/ },
-
-/***/ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js"
-/*!*******************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js ***!
-  \*******************************************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-
-
-/* global document */
-/*
-  eslint-disable
-  no-console,
-  func-names
-*/
-
-var normalizeUrl = __webpack_require__(/*! ./normalize-url */ "./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js");
-var srcByModuleId = Object.create(null);
-var noDocument = typeof document === "undefined";
-var forEach = Array.prototype.forEach;
-
-/* eslint-disable jsdoc/reject-function-type */
-/**
- * @param {Function} fn any function
- * @param {number} time time
- * @returns {() => void} wrapped function
- */
-function debounce(fn, time) {
-  var timeout = 0;
-  return function () {
-    // @ts-expect-error
-    var self = this;
-    // eslint-disable-next-line prefer-rest-params
-    var args = arguments;
-    // eslint-disable-next-line func-style
-    var functionCall = function functionCall() {
-      return fn.apply(self, args);
-    };
-    clearTimeout(timeout);
-
-    // @ts-expect-error
-    timeout = setTimeout(functionCall, time);
-  };
-}
-/* eslint-enable jsdoc/reject-function-type */
-
-/**
- * @returns {void}
- */
-function noop() {}
-
-/** @typedef {(filename?: string) => string[]} GetScriptSrc */
-
-/**
- * @param {string | number} moduleId a module id
- * @returns {GetScriptSrc} current script url
- */
-function getCurrentScriptUrl(moduleId) {
-  var src = srcByModuleId[moduleId];
-  if (!src) {
-    if (document.currentScript) {
-      src = (/** @type {HTMLScriptElement} */document.currentScript).src;
-    } else {
-      var scripts = document.getElementsByTagName("script");
-      var lastScriptTag = scripts[scripts.length - 1];
-      if (lastScriptTag) {
-        src = lastScriptTag.src;
-      }
-    }
-    srcByModuleId[moduleId] = src;
-  }
-
-  /** @type {GetScriptSrc} */
-  return function (fileMap) {
-    if (!src) {
-      return [];
-    }
-    var splitResult = src.split(/([^\\/]+)\.js$/);
-    var filename = splitResult && splitResult[1];
-    if (!filename) {
-      return [src.replace(".js", ".css")];
-    }
-    if (!fileMap) {
-      return [src.replace(".js", ".css")];
-    }
-    return fileMap.split(",").map(function (mapRule) {
-      var reg = new RegExp("".concat(filename, "\\.js$"), "g");
-      return normalizeUrl(src.replace(reg, "".concat(mapRule.replace(/{fileName}/g, filename), ".css")));
-    });
-  };
-}
-
-/**
- * @param {string} url URL
- * @returns {boolean} true when URL can be request, otherwise false
- */
-function isUrlRequest(url) {
-  // An URL is not an request if
-
-  // It is not http or https
-  if (!/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(url)) {
-    return false;
-  }
-  return true;
-}
-
-/** @typedef {HTMLLinkElement & { isLoaded: boolean, visited: boolean }} HotHTMLLinkElement */
-
-/**
- * @param {HotHTMLLinkElement} el html link element
- * @param {string=} url a URL
- */
-function updateCss(el, url) {
-  if (!url) {
-    if (!el.href) {
-      return;
-    }
-
-    // eslint-disable-next-line
-    url = el.href.split("?")[0];
-  }
-  if (!isUrlRequest(/** @type {string} */url)) {
-    return;
-  }
-  if (el.isLoaded === false) {
-    // We seem to be about to replace a css link that hasn't loaded yet.
-    // We're probably changing the same file more than once.
-    return;
-  }
-
-  // eslint-disable-next-line unicorn/prefer-includes
-  if (!url || !(url.indexOf(".css") > -1)) {
-    return;
-  }
-  el.visited = true;
-  var newEl = /** @type {HotHTMLLinkElement} */
-  el.cloneNode();
-  newEl.isLoaded = false;
-  newEl.addEventListener("load", function () {
-    if (newEl.isLoaded) {
-      return;
-    }
-    newEl.isLoaded = true;
-    if (el.parentNode) {
-      el.parentNode.removeChild(el);
-    }
-  });
-  newEl.addEventListener("error", function () {
-    if (newEl.isLoaded) {
-      return;
-    }
-    newEl.isLoaded = true;
-    if (el.parentNode) {
-      el.parentNode.removeChild(el);
-    }
-  });
-  newEl.href = "".concat(url, "?").concat(Date.now());
-  if (el.parentNode) {
-    if (el.nextSibling) {
-      el.parentNode.insertBefore(newEl, el.nextSibling);
-    } else {
-      el.parentNode.appendChild(newEl);
-    }
-  }
-}
-
-/**
- * @param {string} href href
- * @param {string[]} src src
- * @returns {undefined | string} a reload url
- */
-function getReloadUrl(href, src) {
-  var ret;
-  href = normalizeUrl(href);
-  src.some(
-  /**
-   * @param {string} url url
-   */
-  // eslint-disable-next-line array-callback-return
-  function (url) {
-    // @ts-expect-error fix me in the next major release
-    // eslint-disable-next-line unicorn/prefer-includes
-    if (href.indexOf(src) > -1) {
-      ret = url;
-    }
-  });
-  return ret;
-}
-
-/**
- * @param {string[]} src source
- * @returns {boolean} true when loaded, otherwise false
- */
-function reloadStyle(src) {
-  var elements = document.querySelectorAll("link");
-  var loaded = false;
-  forEach.call(elements, function (el) {
-    if (!el.href) {
-      return;
-    }
-    var url = getReloadUrl(el.href, src);
-    if (url && !isUrlRequest(url)) {
-      return;
-    }
-    if (el.visited === true) {
-      return;
-    }
-    if (url) {
-      updateCss(el, url);
-      loaded = true;
-    }
-  });
-  return loaded;
-}
-
-/**
- * @returns {void}
- */
-function reloadAll() {
-  var elements = document.querySelectorAll("link");
-  forEach.call(elements, function (el) {
-    if (el.visited === true) {
-      return;
-    }
-    updateCss(el);
-  });
-}
-
-/**
- * @param {number | string} moduleId a module id
- * @param {{ filename?: string, locals?: boolean }} options options
- * @returns {() => void} wrapper function
- */
-module.exports = function (moduleId, options) {
-  if (noDocument) {
-    console.log("no window.document found, will not HMR CSS");
-    return noop;
-  }
-  var getScriptSrc = getCurrentScriptUrl(moduleId);
-
-  /**
-   * @returns {void}
-   */
-  function update() {
-    var src = getScriptSrc(options.filename);
-    var reloaded = reloadStyle(src);
-    if (options.locals) {
-      console.log("[HMR] Detected local css modules. Reload all css");
-      reloadAll();
-      return;
-    }
-    if (reloaded) {
-      console.log("[HMR] css reload %s", src.join(" "));
-    } else {
-      console.log("[HMR] Reload all css");
-      reloadAll();
-    }
-  }
-  return debounce(update, 50);
-};
-
-/***/ },
-
-/***/ "./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js"
-/*!************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js ***!
-  \************************************************************************/
-(module) {
-
-"use strict";
-
-
-/**
- * @param {string[]} pathComponents path components
- * @returns {string} normalized url
- */
-function normalizeUrlInner(pathComponents) {
-  return pathComponents.reduce(function (accumulator, item) {
-    switch (item) {
-      case "..":
-        accumulator.pop();
-        break;
-      case ".":
-        break;
-      default:
-        accumulator.push(item);
-    }
-    return accumulator;
-  }, /** @type {string[]} */[]).join("/");
-}
-
-/**
- * @param {string} urlString url string
- * @returns {string} normalized url string
- */
-module.exports = function normalizeUrl(urlString) {
-  urlString = urlString.trim();
-  if (/^data:/i.test(urlString)) {
-    return urlString;
-  }
-  var protocol =
-  // eslint-disable-next-line unicorn/prefer-includes
-  urlString.indexOf("//") !== -1 ? "".concat(urlString.split("//")[0], "//") : "";
-  var components = urlString.replace(new RegExp(protocol, "i"), "").split("/");
-  var host = components[0].toLowerCase().replace(/\.$/, "");
-  components[0] = "";
-  var path = normalizeUrlInner(components);
-  return protocol + host + path;
-};
-
-/***/ },
-
-/***/ "./src/subscriber-form/style.scss"
-/*!****************************************!*\
-  !*** ./src/subscriber-form/style.scss ***!
-  \****************************************/
-(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-    if(true) {
-      (function() {
-        var localsJsonString = undefined;
-        // 1787092804294
-        var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {});
-        // only invalidate when locals change
-        if (
-          module.hot.data &&
-          module.hot.data.value &&
-          module.hot.data.value !== localsJsonString
-        ) {
-          module.hot.invalidate();
-        } else {
-          module.hot.accept();
-        }
-        module.hot.dispose(function(data) {
-          data.value = localsJsonString;
-          cssReload();
-        });
-      })();
-    }
-  
 
 /***/ },
 
@@ -4954,17 +4525,6 @@ module.exports.setLogLevel = function (level) {
 
 /***/ },
 
-/***/ "react/jsx-runtime"
-/*!**********************************!*\
-  !*** external "ReactJSXRuntime" ***!
-  \**********************************/
-(module) {
-
-"use strict";
-module.exports = window["ReactJSXRuntime"];
-
-/***/ },
-
 /***/ "react-refresh/runtime"
 /*!**************************************!*\
   !*** external "ReactRefreshRuntime" ***!
@@ -4973,61 +4533,6 @@ module.exports = window["ReactJSXRuntime"];
 
 "use strict";
 module.exports = window["ReactRefreshRuntime"];
-
-/***/ },
-
-/***/ "@wordpress/block-editor"
-/*!*************************************!*\
-  !*** external ["wp","blockEditor"] ***!
-  \*************************************/
-(module) {
-
-"use strict";
-module.exports = window["wp"]["blockEditor"];
-
-/***/ },
-
-/***/ "@wordpress/blocks"
-/*!********************************!*\
-  !*** external ["wp","blocks"] ***!
-  \********************************/
-(module) {
-
-"use strict";
-module.exports = window["wp"]["blocks"];
-
-/***/ },
-
-/***/ "@wordpress/components"
-/*!************************************!*\
-  !*** external ["wp","components"] ***!
-  \************************************/
-(module) {
-
-"use strict";
-module.exports = window["wp"]["components"];
-
-/***/ },
-
-/***/ "@wordpress/i18n"
-/*!******************************!*\
-  !*** external ["wp","i18n"] ***!
-  \******************************/
-(module) {
-
-"use strict";
-module.exports = window["wp"]["i18n"];
-
-/***/ },
-
-/***/ "@wordpress/server-side-render"
-/*!******************************************!*\
-  !*** external ["wp","serverSideRender"] ***!
-  \******************************************/
-(module) {
-
-"use strict";
-module.exports = window["wp"]["serverSideRender"];
 
 /***/ },
 
@@ -12353,24 +11858,12 @@ exports.highSurrogateFrom = 0xd800;
 exports.highSurrogateTo = 0xdbff;
 //# sourceMappingURL=surrogate-pairs.js.map
 
-/***/ },
-
-/***/ "./src/subscriber-form/block.json"
-/*!****************************************!*\
-  !*** ./src/subscriber-form/block.json ***!
-  \****************************************/
-(module) {
-
-"use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latitudemedia/subscriber-form","version":"0.1.0","title":"Subscriber Form","category":"ltm-common-blocks","icon":"email-alt2","description":"Newsletter signup form with a title, disclaimer, and embeddable form code.","keywords":["form","subscribe","newsletter","signup","hubspot"],"example":{},"attributes":{"title":{"type":"string","default":""},"disclaimer":{"type":"string","default":""},"embedCode":{"type":"string","default":""},"layout":{"type":"string","enum":["square"],"default":"square"}},"supports":{"html":false,"anchor":true},"textdomain":"ltm","editorScript":"file:./index.js","style":"file:./style-index.css","render":"file:./render.php"}');
-
 /***/ }
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["subscriber-form/style-index"], () => (__webpack_exec__("./node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js"), __webpack_exec__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=localhost&port=8887&pathname=%2Fws&logging=info&overlay=true&reconnect=10&hot=true&live-reload=true"), __webpack_exec__("./node_modules/webpack/hot/dev-server.js"), __webpack_exec__("./node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ErrorOverlayEntry.js?sockHost=localhost&sockPort=8887&sockProtocol=http"), __webpack_exec__("./src/subscriber-form/index.js")));
-/******/ var __webpack_exports__ = __webpack_require__.O();
+/******/ var __webpack_exports__ = (__webpack_exec__("./node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ReactRefreshEntry.js"), __webpack_exec__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=localhost&port=8887&pathname=%2Fws&logging=info&overlay=true&reconnect=10&hot=true&live-reload=true"), __webpack_exec__("./node_modules/webpack/hot/dev-server.js"), __webpack_exec__("./node_modules/@pmmmwh/react-refresh-webpack-plugin/client/ErrorOverlayEntry.js?sockHost=localhost&sockPort=8887&sockProtocol=http"), __webpack_exec__("./src/category-post-listing/view.js"));
 /******/ }
 ]);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=view.js.map

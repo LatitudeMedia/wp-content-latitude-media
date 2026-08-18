@@ -32,7 +32,11 @@ $layout = $attributes['layout'] ?? 'five-post-feature';
 			'<li>
 				<div class="image-folder">[thumb]</div>
 				<div class="content-folder">
+					[tags-list]
 					[title]
+					<div class="info">
+						[author]<span></span>[date]
+					</div>
 				</div>
 			</li>'
 		);
@@ -83,9 +87,15 @@ $layout = $attributes['layout'] ?? 'five-post-feature';
 							'rows'     => $secondary_template['rows'],
 							'wrap'     => $secondary_template['wrap'],
 							'settings' => [
-								'thumb' => [
+								'thumb'  => [
 									'size' => 'news-with-hero',
 									'link' => true,
+								],
+								'author' => [
+									'link_class' => 'author',
+								],
+								'date'   => [
+									'format' => 'M j, Y',
 								],
 							],
 						]
