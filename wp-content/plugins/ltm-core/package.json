@@ -12,7 +12,7 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --hot --webpack-copy-php --blocks-manifest",
+		"start": "wp-scripts start --webpack-copy-php --blocks-manifest",
 		"watch": "npm run start",
 		"env": "wp-env",
 		"env:start": "wp-env start",

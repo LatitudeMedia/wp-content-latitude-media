@@ -47,14 +47,8 @@ return array(
 			'anchor' => true
 		),
 		'textdomain' => 'ltm',
-		'editorScript' => array(
-			'file:../runtime.js',
-			'file:./index.js'
-		),
-		'viewScript' => array(
-			'file:../runtime.js',
-			'file:./view.js'
-		),
+		'editorScript' => 'file:./index.js',
+		'viewScript' => 'file:./view.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
@@ -90,10 +84,7 @@ return array(
 			'anchor' => true
 		),
 		'textdomain' => 'ltm',
-		'editorScript' => array(
-			'file:../runtime.js',
-			'file:./index.js'
-		),
+		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
@@ -134,10 +125,7 @@ return array(
 			'anchor' => true
 		),
 		'textdomain' => 'ltm',
-		'editorScript' => array(
-			'file:../runtime.js',
-			'file:./index.js'
-		),
+		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
@@ -186,10 +174,7 @@ return array(
 			'anchor' => true
 		),
 		'textdomain' => 'ltm',
-		'editorScript' => array(
-			'file:../runtime.js',
-			'file:./index.js'
-		),
+		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
@@ -237,10 +222,7 @@ return array(
 			'anchor' => true
 		),
 		'textdomain' => 'ltm',
-		'editorScript' => array(
-			'file:../runtime.js',
-			'file:./index.js'
-		),
+		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	)

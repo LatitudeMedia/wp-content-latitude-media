@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array('react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-data', 'wp-i18n', 'wp-react-refresh-runtime', 'wp-server-side-render'), 'version' => '202f3c24750da013b729', 'handle' => 'undefined-news-type-preview/index');
+<?php return array('dependencies' => array('react-jsx-runtime', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-data', 'wp-i18n', 'wp-server-side-render'), 'version' => 'ece9639bde25d5a8d6e9');

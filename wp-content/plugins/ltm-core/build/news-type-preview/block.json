@@ -33,10 +33,7 @@
     "anchor": true
   },
   "textdomain": "ltm",
-  "editorScript": [
-    "file:../runtime.js",
-    "file:./index.js"
-  ],
+  "editorScript": "file:./index.js",
   "style": "file:./style-index.css",
   "render": "file:./render.php"
 }
