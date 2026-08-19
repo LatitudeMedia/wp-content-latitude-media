@@ -5,7 +5,7 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'latitudemedia/category-post-listing',
-		'version' => '0.1.1',
+		'version' => '0.1.2',
 		'title' => 'Category Post Listing',
 		'category' => 'ltm-common-blocks',
 		'icon' => 'list-view',

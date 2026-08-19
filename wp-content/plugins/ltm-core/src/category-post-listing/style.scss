@@ -98,6 +98,11 @@
 		}
 	}
 
+	.pager {
+
+		@include pager;
+	}
+
 	// "5 Post Feature" layout: one featured post beside a 2-column grid of
 	// four smaller posts, each card stacked image-on-top.
 	.feature {
