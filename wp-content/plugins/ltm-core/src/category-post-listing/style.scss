@@ -49,14 +49,15 @@
 		margin: 0;
 
 		li {
-			padding-bottom: 34px;
-			margin-bottom: 24px;
+			padding-bottom: 24px;
+			margin-bottom: 14px;
 			border-bottom: 1px solid $primary-pink;
 			display: flex;
 			align-items: flex-end;
 
 			@include below_sm {
-				flex-direction: column-reverse;
+				padding-bottom: 0;
+				flex-direction: column;
 			}
 		}
 
@@ -75,6 +76,7 @@
 			width: 100%;
 
 			@include below_sm {
+				margin-top: 16px;
 				margin-bottom: 20px;
 			}
 
@@ -150,9 +152,18 @@
 				grid-template-columns: 1fr;
 			}
 
+			> li {
+				@include below_sm {
+					border-top: 1px solid #c6168d;
+  					padding-top: 24px;
+				}
+			}
+
 			li {
 				display: flex;
 				flex-direction: column;
+
+				
 
 				.image-folder {
 					margin-bottom: 12px;
@@ -167,7 +178,7 @@
 				.tags-list {
 					@include tagsList;
 					margin-bottom: 0;
-					margin-top: 25px;
+					margin-top: 12px;
 
 					li,
 					li span,
@@ -189,6 +200,7 @@
 				.info {
 
 					@include postInfo;
+					align-items: flex-end;
 					margin-top: auto;
 				}
 			}

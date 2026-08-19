@@ -6,9 +6,12 @@
 	flex-wrap: wrap;
 	width: 66.6666%;
 
-	@include below_sm {
+	@include below_md {
 		width: 100%;
-		flex-direction: column-reverse;
+	}
+
+	@include below_sm {
+		border-bottom: 1px solid $primary-pink;
 	}
 
 	.image-folder {
@@ -17,9 +20,13 @@
 
 		@include imageFolder;
 
+		@include below_md {
+			width: 33%;
+			margin-right: 0;
+		}
+
 		@include below_sm {
 			width: 100%;
-			margin-right: 0;
 		}
 
 		a,
@@ -48,8 +55,14 @@
 		width: 100%;
 		align-self: center;
 
+		@include below_md {
+			width: 66.6666%;
+			padding-left: 24px;
+		}
+
 		@include below_sm {
-			margin-bottom: 20px;
+			width: 100%;
+			padding: 18px 0;
 		}
 
 		.tags-list {
