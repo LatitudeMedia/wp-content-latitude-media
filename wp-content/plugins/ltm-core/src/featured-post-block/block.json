@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "latitudemedia/featured-post-block",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"title": "Featured Post",
 	"category": "ltm-common-blocks",
 	"icon": "star-filled",
