@@ -89,6 +89,43 @@ class ThematicPages {
 				'supports'            => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 				'template'            => [
 					[ 'latitudemedia/title-block' ],
+					[ 'latitudemedia/featured-post-block' ],
+					[ 'core/heading', [ 'level' => 2 ] ],
+					[ 'core/paragraph' ],
+					[ 'latitudemedia/category-post-listing' ],
+					[ 'core/heading', [ 'level' => 2 ] ],
+					[ 'core/paragraph' ],
+					[
+						'core/columns',
+						[
+							'isStackedOnMobile' => true,
+							'metadata'          => [ 'name' => __( 'Right Sidebar Layout', 'ltm' ) ],
+						],
+						[
+							[
+								'core/column',
+								[
+									'width'    => '66%',
+									'metadata' => [ 'name' => __( 'Main Column', 'ltm' ) ],
+								],
+								[
+									[ 'latitudemedia/category-post-listing' ],
+								],
+							],
+							[
+								'core/column',
+								[
+									'width'    => '33%',
+									'metadata' => [ 'name' => __( 'Sidebar', 'ltm' ) ],
+								],
+								[
+									[ 'latitudemedia/subscriber-form' ],
+									[ 'core/html' ],
+									[ 'latitudemedia/news-type-preview' ],
+								],
+							],
+						],
+					],
 				],
 			]
 		);
