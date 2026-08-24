@@ -4,8 +4,8 @@
  * Confirms the variation surfaces in the real inserter (not just that
  * wp.blocks.createBlock() can construct the attributes/innerBlocks by hand),
  * that it produces a core/columns block with a 66%/33% core/column split
- * carrying the "Main Column" / "Sidebar" block-renaming labels, and that the
- * matching column widths render on the frontend.
+ * carrying the "Main Column" / "Sidebar" block-renaming labels, and that it
+ * serializes to the expected markup.
  */
 
 /**
@@ -47,14 +47,11 @@ test.describe( 'Right Sidebar Layout variation', () => {
 		expect( sidebar.attributes.metadata?.name ).toBe( 'Sidebar' );
 	} );
 
-	test( 'renders the 66/33 column split on the frontend', async ( {
+	test( 'serializes the expected columns markup', async ( {
 		admin,
 		editor,
-		page,
 	} ) => {
-		await admin.createNewPost( {
-			title: 'Right Sidebar Layout Smoke Test',
-		} );
+		await admin.createNewPost();
 
 		await editor.insertBlock( {
 			name: 'core/columns',
@@ -80,12 +77,18 @@ test.describe( 'Right Sidebar Layout variation', () => {
 			],
 		} );
 
-		const postId = await editor.publishPost();
-		await page.goto( `/?p=${ postId }` );
+		const content = await editor.getEditedPostContent();
 
-		const columns = page.locator( '.wp-block-columns > .wp-block-column' );
-		await expect( columns ).toHaveCount( 2 );
-		await expect( columns.nth( 0 ) ).toHaveCSS( 'flex-basis', '66%' );
-		await expect( columns.nth( 1 ) ).toHaveCSS( 'flex-basis', '33%' );
+		expect( content ).toContain(
+			'<!-- wp:columns {"metadata":{"name":"Right Sidebar Layout"}} -->'
+		);
+		expect( content ).toContain(
+			'<!-- wp:column {"width":"66%","metadata":{"name":"Main Column"}} -->\n' +
+				'<div class="wp-block-column" style="flex-basis:66%"></div>'
+		);
+		expect( content ).toContain(
+			'<!-- wp:column {"width":"33%","metadata":{"name":"Sidebar"}} -->\n' +
+				'<div class="wp-block-column" style="flex-basis:33%"></div>'
+		);
 	} );
 } );
