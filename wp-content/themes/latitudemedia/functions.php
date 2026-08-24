@@ -18,6 +18,25 @@ require_once ("inc/theme.php");
 require_once ("inc/override.php");
 require_once ("inc/latitudemedia-autoloader.php");
 
+/**
+ * Auto-activate the ltm-core plugin if it's installed but not active —
+ * the sponsor taxonomy/CPT (and get_post_sponsor(), used by is_sponsored())
+ * now live there, so sponsor features won't work correctly without it.
+ */
+function ltm_core_plugin_maybe_activate() {
+    if ( class_exists( '\LTMCore\Taxonomies\PostSponsor' ) ) {
+        return;
+    }
+
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+    $plugin = 'ltm-core/ltm-core.php';
+    if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin ) ) {
+        activate_plugin( $plugin );
+    }
+}
+add_action( 'admin_init', 'ltm_core_plugin_maybe_activate' );
+
 
 /**
  * Modify menu structure

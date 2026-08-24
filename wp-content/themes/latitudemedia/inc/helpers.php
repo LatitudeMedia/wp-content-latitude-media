@@ -11,7 +11,12 @@ function is_sponsored($post_id = null)
         $post_id = get_the_ID();
     }
 
-    $is_sponsored = get_field('sponsored', $post_id);
+    if (function_exists('get_post_sponsor') && get_post_sponsor($post_id)) {
+        return true;
+    }
+
+    // Legacy toggle, kept for content sponsored before the Sponsors relationship existed.
+    $is_sponsored = function_exists('get_field') ? get_field('sponsored', $post_id) : false;
 
     return $is_sponsored ?? false;
 }
@@ -22,7 +27,7 @@ function is_partnered($post_id = null)
         $post_id = get_the_ID();
     }
 
-    $is_partnered = get_field('partnered', $post_id);
+    $is_partnered = function_exists('get_field') ? get_field('partnered', $post_id) : false;
 
     return $is_partnered ?? false;
 }
@@ -64,7 +69,7 @@ function is_news_type($type = '', $post_id = null)
         $post_id = get_the_ID();
     }
 
-    $news_type = get_field('news_type', $post_id);
+    $news_type = function_exists('get_field') ? get_field('news_type', $post_id) : null;
     if (!empty($news_type['value'])) {
         return $news_type['value'] === $type;
     }

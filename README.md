@@ -2,7 +2,7 @@
 
 This is the repo connected to the Pressable webhost. 
 
-We're tracking _just_ the theme here at the moment. Pressable is managing the plugin upgrades. As such, we do not want them in version control.
+We're tracking the theme and our first-party `ltm-core` plugin here (see section 12 below). Pressable is managing everything else's plugin upgrades, so we do not want those in version control.
 
 As there is no current way to disable it, I must state a warning here: **DO NOT USE WORDPRESS STUDIO SYNC PUSH. ONLY PUSH TO GITHUB. SYNC PUSH WILL OVERWRITE PROD DB.**
 
@@ -14,13 +14,14 @@ This assumes you've already gotten a working localdev setup via the `Getting Sta
 - pull down the main branch
 - create a feature branch
 - make your changes
+- if you touched theme frontend assets, run the webpack build (see `Frontend asset build` below) and commit the resulting `dist/` changes
 - push the changes to github
 - make a pull request
 - go into Pressable and run a data transfer from Production to Staging
 - deploy your feature branch to Staging
 - check that everything works
 - run a sync again in WP Studio incase new changes made it to prod by means other than version control 
-- commit those changes and upload them
+- commit those changes (if there are any) and upload them
 - merge your feature branch into main in the pull request
 - deploy main to production
 
@@ -70,12 +71,12 @@ Here's how we fix it.
 
 ```
 docker run --rm -i \
-  -v "$(pwd)":/data \
+  -v "/home/kim/Downloads/":/data \
   -w /data \
   python:3-slim \
   python3 - <<'EOF'
 import re
-with open("YOUR_PROD_DB_BACKUP.sql", "rb") as f:
+with open("pressable-backup-latitudemediaprod-2026-07-28-23-00.sql", "rb") as f:
     sql = f.read()
 blocks = re.split(rb"(?=-- Table structure for table)", sql)
 kept = []
@@ -132,7 +133,27 @@ Disable the plugin.
 - run `git clone https://github.com/LatitudeMedia/wp-content-latitude-media/`
 - move everything in the `wp-content-latitude-media` dir into the WP Studio latitude media dir
 
-## 10. Recommendations
+## 10. Frontend asset build (webpack)
+
+Theme CSS/JS is compiled from `wp-content/themes/latitudemedia/` via webpack. Node is managed with [asdf](https://asdf-vm.com/), pinned via `.tool-versions` at the project root.
+
+- Install the asdf `nodejs` plugin if you don't already have it: `asdf plugin add nodejs`
+- From the theme directory, install the pinned Node version and dependencies:
+
+```
+cd wp-content/themes/latitudemedia
+asdf install
+npm install
+```
+
+- Available scripts:
+  - `npm run watch` — rebuild on file change, for local dev
+  - `npm run build:assets` — one-off local build
+  - `npm run build:assets:prod` — minified production build
+
+`dist/` is committed to the repo (not gitignored), so run `npm run build:assets` (or `build:assets:prod` before deploying) after changing anything under `src/assets/`, and commit the resulting `dist/` changes alongside your source changes.
+
+## 11. Recommendations
 
 In WP Studio's GUI, enable debugging by going to:
 
@@ -142,3 +163,15 @@ In WP Studio's GUI, enable debugging by going to:
 - Disable `Debug display`
 
 The in-browser display of errors can be misleading in certain instances. Just run a `tail -f wp-content/debug.log` as you write your code.
+
+## 12. ltm-core plugin (blocks, CPTs, taxonomies, REST)
+
+Native Gutenberg blocks, custom post types/taxonomies, and REST endpoints are gradually being
+migrated out of the theme into a first-party plugin at `wp-content/plugins/ltm-core/`. It has its
+own dependency install, build, and test setup, separate from everything above — see
+[its readme](wp-content/plugins/ltm-core/readme.txt) and
+[TESTING.md](wp-content/plugins/ltm-core/TESTING.md) for details. Tests run against `wp-env`
+(Docker) on ports 8888/8889, completely separate from the Studio site on 8881.
+
+CI (`.github/workflows/ltm-core-tests.yml`) runs the plugin's PHPUnit and Playwright suites on
+every push/PR touching the plugin or theme.

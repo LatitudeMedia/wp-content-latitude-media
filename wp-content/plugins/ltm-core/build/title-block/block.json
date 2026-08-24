@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "latitudemedia/title-block",
+  "version": "0.1.0",
+  "title": "Title Block",
+  "category": "ltm-page-custom-blocks",
+  "icon": "cover-image",
+  "description": "Full-bleed page title header for Thematic Pages, with sponsor-aware theming.",
+  "keywords": [
+    "title",
+    "hero",
+    "thematic page"
+  ],
+  "example": {},
+  "attributes": {
+    "kicker": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImageId": {
+      "type": "number",
+      "default": 0
+    },
+    "backgroundImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "sponsorLogoOverrideId": {
+      "type": "number",
+      "default": 0
+    },
+    "sponsorLogoOverrideUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "ltm",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

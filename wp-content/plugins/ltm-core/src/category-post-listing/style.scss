@@ -1,0 +1,214 @@
+@import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
+
+// Manually composed from the smaller `_mixins.scss` building blocks rather
+// than the full `postsListSection` mixin — that mixin's `.see-all` rule
+// pulls in `moreLink`, which references a theme image by a path relative to
+// `_mixins.scss`'s own location and fails to resolve when compiled from a
+// different directory depth here in the plugin.
+.ltm-category-post-listing {
+	// Shared aspect-ratio image box used by both layouts.
+	.image-folder {
+
+		@include imageFolder;
+
+		a,
+		div {
+			object-fit: cover;
+			padding-top: 75%;
+			position: relative;
+			display: block;
+
+			@include below_sm {
+				padding-top: 70%;
+			}
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				inset: 0%;
+			}
+		}
+	}
+
+	.title {
+
+		@include postCardTitle;
+	}
+
+	p {
+
+		@include postCardExcerpt;
+	}
+
+	// "Paginated List" layout: a bordered vertical list, thumbnail beside the content.
+	.posts {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding-bottom: 24px;
+			margin-bottom: 14px;
+			border-bottom: 1px solid $primary-pink;
+			display: flex;
+			align-items: flex-end;
+
+			@include below_sm {
+				padding-bottom: 0;
+				flex-direction: column;
+			}
+		}
+
+		.image-folder {
+			width: 217px;
+			margin-right: 24px;
+
+			@include below_sm {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+
+		.content-folder {
+			flex: 1 0 0px;
+			width: 100%;
+
+			@include below_sm {
+				margin-top: 16px;
+				margin-bottom: 20px;
+			}
+
+			.tags-list {
+				margin-bottom: 0;
+
+				@include tagsList;
+
+				li {
+					border-bottom: none;
+					padding-bottom: 0;
+				}
+			}
+
+			.info {
+
+				@include postInfo;
+			}
+		}
+	}
+
+	.pager {
+
+		@include pager;
+	}
+
+	// "5 Post Feature" layout: one featured post beside a 2-column grid of
+	// four smaller posts, each card stacked image-on-top.
+	.feature {
+		display: flex;
+		gap: 40px;
+
+		@include below_sm {
+			flex-direction: column;
+		}
+
+		.feature-main,
+		.feature-grid {
+			width: 50%;
+
+			@include below_sm {
+				width: 100%;
+			}
+		}
+
+		.feature-main {
+
+			.image-folder {
+				margin-bottom: 16px;
+			}
+
+			.tags-list {
+				margin-bottom: 8px;
+
+				@include tagsList;
+			}
+
+			.title {
+
+				@include fontSize(24px);
+			}
+
+			.info {
+
+				@include postInfo;
+			}
+		}
+
+		.feature-grid {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 24px;
+
+			@include below_sm {
+				grid-template-columns: 1fr;
+			}
+
+			> li {
+				@include below_sm {
+					border-top: 1px solid #c6168d;
+  					padding-top: 24px;
+				}
+			}
+
+			li {
+				display: flex;
+				flex-direction: column;
+
+				
+
+				.image-folder {
+					margin-bottom: 12px;
+				}
+
+				.content-folder {
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+				}
+
+				.tags-list {
+					@include tagsList;
+					margin-bottom: 0;
+					margin-top: 12px;
+
+					li,
+					li span,
+					li a {
+
+						@include fontSize(12px);
+					}
+
+					li a {
+						display: none;
+					}
+				}
+
+				.title {
+
+					@include fontSize(16px);
+				}
+
+				.info {
+
+					@include postInfo;
+					align-items: flex-end;
+					margin-top: auto;
+				}
+			}
+		}
+	}
+}

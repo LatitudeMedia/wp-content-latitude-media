@@ -22,14 +22,13 @@ add_filter( 'manage_edit-category_columns', 'add_new_category_column_section' );
 function add_post_column_news_type( $column_name, $post_id ) {
     switch ( $column_name ) {
         case 'type':
+            if ( ! function_exists( 'get_field' ) ) {
+                break;
+            }
             $type = get_field( 'news_type', $post_id);
             if( isset($type['label']) ) {
                 printf('<span>%s</span>', $type['label']);
             }
-            break;
-        case 'sponsored':
-            $sponsored = get_field( 'sponsored', $post_id);
-            printf('<span>%s</span>', ($sponsored ? 'Yes' : 'No') );
             break;
     }
 }
@@ -37,7 +36,6 @@ add_filter( 'manage_posts_custom_column', 'add_post_column_news_type', 10, 2 );
 
 function add_new_post_column_type( $columns ) {
     $columns['type'] = __( 'News Type', 'ltm' );
-    $columns['sponsored'] = __( 'Sponsored', 'ltm' );
     return $columns;
 }
 add_filter( 'manage_edit-post_columns', 'add_new_post_column_type' );

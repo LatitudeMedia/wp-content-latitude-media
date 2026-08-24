@@ -1,0 +1,44 @@
+{
+	"name": "ltm-core",
+	"version": "1.0.0",
+	"description": "Native Gutenberg blocks for Latitude Media (Title Block, Featured Post) and the Thematic Pages post type.",
+	"author": "Latitude Media",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build --webpack-copy-php --blocks-manifest",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start --webpack-copy-php --blocks-manifest",
+		"watch": "npm run start",
+		"env": "wp-env",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"test:php": "wp-env run tests-cli --env-cwd=wp-content/plugins/ltm-core vendor/bin/phpunit",
+		"test:php:testdox": "wp-env run tests-cli --env-cwd=wp-content/plugins/ltm-core vendor/bin/phpunit --testdox",
+		"test:e2e": "playwright test --config=playwright.config.js",
+		"test:e2e:ui": "playwright test --config=playwright.config.js --ui",
+		"test:e2e:debug": "playwright test --config=playwright.config.js --debug",
+		"test:e2e:report": "playwright show-report artifacts/playwright-report",
+		"test:e2e:install": "playwright install chromium --with-deps"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "latest",
+		"@wordpress/block-editor": "latest",
+		"@wordpress/blocks": "latest",
+		"@wordpress/components": "latest",
+		"@wordpress/core-data": "latest",
+		"@wordpress/data": "latest",
+		"@wordpress/i18n": "latest",
+		"@wordpress/server-side-render": "latest",
+		"@wordpress/url": "latest"
+	},
+	"devDependencies": {
+		"@wordpress/e2e-test-utils-playwright": "^1.52.0",
+		"@wordpress/env": "^11.12.0",
+		"@wordpress/scripts": "^34.0.0"
+	}
+}

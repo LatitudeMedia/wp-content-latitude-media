@@ -219,7 +219,7 @@ if (! function_exists('print_article_tags_list')) :
         }
 
         $tags = [];
-        $news_type = get_field('news_type', $post_id);
+        $news_type = function_exists('get_field') ? get_field('news_type', $post_id) : null;
         if (!empty($news_type['label'])) {
             $tags[] = sprintf('<span>%s</span>', $news_type['label']);
         }
@@ -232,7 +232,7 @@ if (! function_exists('print_article_tags_list')) :
         }
 
         $categories = get_the_terms($post_id, 'category');
-        if (!empty($categories)) {
+        if (!empty($categories) && function_exists('get_field')) {
             foreach ($categories as $category) {
                 $abbreviatedName = get_field('abbreviated_name', 'category_' . $category->term_id, true);
                 $tags[] = sprintf('<a href="%s">%s</a>', get_category_link($category), $abbreviatedName);

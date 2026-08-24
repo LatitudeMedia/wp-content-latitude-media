@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "latitudemedia/category-post-listing",
+  "version": "0.1.2",
+  "title": "Category Post Listing",
+  "category": "ltm-common-blocks",
+  "icon": "list-view",
+  "description": "List published posts by category, optionally scoped to posts tagged for the current thematic page.",
+  "keywords": [
+    "category",
+    "posts",
+    "listing",
+    "thematic"
+  ],
+  "example": {},
+  "attributes": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": []
+    },
+    "onlyThematicPageTagged": {
+      "type": "boolean",
+      "default": true
+    },
+    "layout": {
+      "type": "string",
+      "enum": [
+        "five-post-feature",
+        "paginated-list"
+      ],
+      "default": "five-post-feature"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "ltm",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

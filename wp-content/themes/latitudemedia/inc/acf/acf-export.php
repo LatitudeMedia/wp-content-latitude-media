@@ -960,13 +960,6 @@ add_action('acf/include_fields', function () {
                 'ui' => 1,
             ),
             array(
-                'key' => 'field_670d347d00a6f',
-                'label' => 'Sponsored',
-                'name' => 'sponsored',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-            array(
                 'key' => 'field_670d347e00a70',
                 'label' => 'Partnered Content',
                 'name' => 'partnered',

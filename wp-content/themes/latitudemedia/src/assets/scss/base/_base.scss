@@ -38,6 +38,10 @@ a {
   margin: 0 auto;
   width: 100%;
 }
+.mixed-container > :not(.ltm-title-block) {
+  @extend .container;
+}
+
 .container-narrow {
   max-width: 1170px;
   padding: 0 15px;

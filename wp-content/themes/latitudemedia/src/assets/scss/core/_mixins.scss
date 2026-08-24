@@ -371,6 +371,32 @@
   }
 }
 
+@mixin postCardTitle {
+  font-family: $lora;
+  @include fontSize(18px);
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: $primary-dark-blue;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin postCardExcerpt {
+  font-family: $inter;
+  @include fontSize(16px);
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: $primary-dark-blue;
+  margin-bottom: 8px;
+}
+
 @mixin postsHeroSection {
   margin-bottom: 64px;
   .posts {
@@ -1152,29 +1178,11 @@
         }
 
         .title {
-          font-family: $lora;
-          @include fontSize(18px);
-          font-weight: 700;
-          line-height: 24px;
-          text-align: left;
-          color: $primary-dark-blue;
-          text-decoration: none;
-          display: block;
-          margin-bottom: 8px;
-
-          &:hover {
-            text-decoration: underline;
-          }
+          @include postCardTitle;
         }
 
         p {
-          font-family: $inter;
-          @include fontSize(16px);
-          font-weight: 400;
-          line-height: 24px;
-          text-align: left;
-          color: $primary-dark-blue;
-          margin-bottom: 8px;
+          @include postCardExcerpt;
         }
 
         .info {
@@ -1843,6 +1851,55 @@
     &:hover {
       background-color: $base_color;
       color: $secondary_color;
+    }
+  }
+}
+
+@mixin pager {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    li {
+      margin: 0 12px;
+      @include below_sm {
+        margin: 0 4px;
+      }
+
+      a,
+      .current {
+        width: auto;
+        display: block;
+        padding: 16px 24px;
+        @include transition3;
+        font-family: $inter;
+        @include fontSize(14px);
+        font-weight: 800;
+        line-height: 22px;
+        letter-spacing: 0.3em;
+        text-align: center;
+        box-shadow: -10px 10px 0 -1px;
+        border: 1px solid;
+        margin-left: 10px;
+        text-decoration: none;
+        @include below_sm {
+          padding: 8px 6px 8px 10px;
+          line-height: 16px;
+          box-shadow: -4px 4px 0 -1px;
+          border: 1px solid;
+          margin-left: 4px;
+        }
+      }
+
+      span {
+        @include transition3;
+      }
+
+      @include pagination_item_colored($primary-pink, $pink_shadow, $white);
     }
   }
 }
