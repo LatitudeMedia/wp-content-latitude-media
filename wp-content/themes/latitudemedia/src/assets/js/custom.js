@@ -321,22 +321,6 @@ $(document).ready(function ($) {
     });
   }
 
-  const agendaDayButtons = $(".event-agenda-v2-day-button");
-  if (agendaDayButtons.length > 0) {
-    agendaDayButtons.on("click", function () {
-      const button = $(this);
-      const blockContainer = button.closest(".event-agenda-v2-section");
-      const selectedValue = button.data("day-target");
-
-      blockContainer
-        .find(".event-agenda-v2-day-button")
-        .removeClass("active")
-        .attr("aria-selected", "false");
-      button.addClass("active").attr("aria-selected", "true");
-      blockContainer.find(".event-agenda-v2-day").hide();
-      blockContainer.find("#" + selectedValue).show();
-    });
-  }
 });
 
 (function () {
