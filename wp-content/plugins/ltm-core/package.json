@@ -1,6 +1,6 @@
 {
 	"name": "ltm-core",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Native Gutenberg blocks for Latitude Media (Title Block, Featured Post) and the Thematic Pages post type.",
 	"author": "Latitude Media",
 	"license": "GPL-2.0-or-later",
