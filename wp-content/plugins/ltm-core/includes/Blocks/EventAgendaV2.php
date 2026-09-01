@@ -4,9 +4,14 @@ namespace LTMCore\Blocks;
 /**
  * Registers the ACF field group backing the Event Agenda V2 block
  * (acf/event-agenda-v2-block), migrated from the theme's acf-export.php.
+ * Attached directly to the block (an ACF Block Version 3, `usePostMeta: true`
+ * block — see its block.json) so field values still live in ordinary post
+ * meta, but the editing form is opened via the block's "Open Expanded Editor"
+ * modal (block.json's `hideFieldsInSidebar: true`) instead of ACF's cramped
+ * Inspector sidebar.
  *
- * The field group key and every field key are unchanged from the theme
- * version so existing post content keeps resolving to the same data.
+ * The field group key and every field key are unchanged from prior versions
+ * so existing post content keeps resolving to the same data.
  *
  * @package LTMCore
  */

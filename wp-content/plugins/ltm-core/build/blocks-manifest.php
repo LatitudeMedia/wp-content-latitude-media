@@ -77,7 +77,9 @@ return array(
 			'baseColor' => true
 		),
 		'acf' => array(
-			'mode' => 'edit',
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'hideFieldsInSidebar' => true,
 			'renderTemplate' => 'render.php',
 			'postTypes' => array(
 				'events'
@@ -86,7 +88,7 @@ return array(
 		'textdomain' => 'ltm',
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
-		'viewScript' => 'file:./view.js'
+		'script' => 'file:./view.js'
 	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

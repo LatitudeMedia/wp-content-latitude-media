@@ -21,7 +21,9 @@
     "baseColor": true
   },
   "acf": {
-    "mode": "edit",
+    "blockVersion": 3,
+    "mode": "preview",
+    "hideFieldsInSidebar": true,
     "renderTemplate": "render.php",
     "postTypes": [
       "events"
@@ -30,5 +32,5 @@
   "textdomain": "ltm",
   "editorScript": "file:./index.js",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "script": "file:./view.js"
 }

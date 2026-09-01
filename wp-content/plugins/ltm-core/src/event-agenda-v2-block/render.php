@@ -2,6 +2,11 @@
 /**
  * Server-side render for acf/event-agenda-v2-block.
  *
+ * Fields are attached to the block itself (see
+ * includes/Blocks/EventAgendaV2.php) and stored in the block's own embedded
+ * data, so bare get_field() calls resolve via ACF's active block-meta
+ * context rather than a post ID.
+ *
  * @see https://www.advancedcustomfields.com/resources/blocks/
  */
 
