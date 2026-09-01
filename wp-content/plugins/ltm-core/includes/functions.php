@@ -33,3 +33,25 @@ if ( ! function_exists( 'get_post_sponsor' ) ) {
 		return $sponsor_post_id ? get_post( $sponsor_post_id ) : null;
 	}
 }
+
+if ( ! function_exists( 'enable_jetpack_copy_to_all_post_types' ) ) {
+	function enable_jetpack_copy_to_all_post_types( $post_types ) {
+		$post_types = array_merge( $post_types, [
+			'events',
+			'guides',
+			'industry-news',
+			'in-house-ads',
+			'order-reports',
+			'podcasts',
+			'research',
+			'resources',
+			'sections-landing',
+			'speakers',
+			'team',
+			'sponsors',
+			'thematic-pages',
+		] );
+		return $post_types;
+	}
+	add_filter( 'jetpack_copy_post_post_types', 'enable_jetpack_copy_to_all_post_types' );
+}
