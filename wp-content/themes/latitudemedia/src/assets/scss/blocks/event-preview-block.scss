@@ -36,4 +36,21 @@
       }
     }
   }
+  &.transition-ai-theme {
+    &:before {
+      display: none;
+    }
+    .container {
+      .single-event-hero-section-wrapper {
+        .labels-wrapper {
+          .location {
+            background-color: #C6168D !important;
+          }
+          .date {
+            background-color: #F99D1C !important;
+          }
+        }
+      }
+    }
+  }
 }
