@@ -1,0 +1,567 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+    "settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#0D1E43",
+					"name": "Midnight Blue",
+					"slug": "midnight-blue"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "White",
+					"slug": "white"
+				},
+				{
+					"color": "#C6168D",
+					"name": "Magenta Bliss",
+					"slug": "magenta-bliss"
+				},
+                {
+                    "color": "#F5F5F5",
+                    "name": "Feather Gray",
+                    "slug": "feather-gray"
+                },
+                {
+                    "color": "#E1CFDB",
+                    "name": "Lilac Luster",
+                    "slug": "lilac-luster"
+                },
+                {
+					"color": "#F26B6C",
+					"name": "Coral Crush",
+					"slug": "coral-crush"
+				},
+                {
+					"color": "#FED9B9",
+					"name": "Melon Mist",
+					"slug": "melon-mist"
+				},
+                {
+					"color": "#00B48D",
+					"name": "Seafoam Splash",
+					"slug": "seafoam-splash"
+				},
+                {
+					"color": "#F99D1C",
+					"name": "Sunburst Orange",
+					"slug": "sunburst-orange"
+				},
+                {
+					"color": "#0095DA",
+					"name": "Electric Blue",
+					"slug": "electric-blue"
+				}
+			]
+		},
+        "typography": {
+			"fontFamilies": [
+				{
+					"name": "Lora",
+					"slug": "heading-font",
+					"fontFamily": "'Lora', serif",
+					"fontFace": [
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-400-normal.woff2",
+								"file:./dist/fonts/lora-latin-400-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-400-normal.woff2",
+								"file:./dist/fonts/lora-latin-ext-400-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-400-italic.woff2",
+								"file:./dist/fonts/lora-latin-400-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-400-italic.woff2",
+								"file:./dist/fonts/lora-latin-ext-400-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-500-normal.woff2",
+								"file:./dist/fonts/lora-latin-500-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-500-normal.woff2",
+								"file:./dist/fonts/lora-latin-ext-500-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "500",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-500-italic.woff2",
+								"file:./dist/fonts/lora-latin-500-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "500",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-500-italic.woff2",
+								"file:./dist/fonts/lora-latin-ext-500-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-600-normal.woff2",
+								"file:./dist/fonts/lora-latin-600-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-600-normal.woff2",
+								"file:./dist/fonts/lora-latin-ext-600-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "600",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-600-italic.woff2",
+								"file:./dist/fonts/lora-latin-600-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "600",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-600-italic.woff2",
+								"file:./dist/fonts/lora-latin-ext-600-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-700-normal.woff2",
+								"file:./dist/fonts/lora-latin-700-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-700-normal.woff2",
+								"file:./dist/fonts/lora-latin-ext-700-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/lora-latin-700-italic.woff2",
+								"file:./dist/fonts/lora-latin-700-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Lora",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/lora-latin-ext-700-italic.woff2",
+								"file:./dist/fonts/lora-latin-ext-700-italic.woff"
+							]
+						}
+					]
+				},
+				{
+					"name": "Inter",
+					"slug": "body-font",
+					"fontFamily": "'Inter', sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "300",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-300-normal.woff2",
+								"file:./dist/fonts/inter-latin-300-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "300",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-300-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-300-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "300",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-300-italic.woff2",
+								"file:./dist/fonts/inter-latin-300-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "300",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-300-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-300-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-400-normal.woff2",
+								"file:./dist/fonts/inter-latin-400-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-400-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-400-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-400-italic.woff2",
+								"file:./dist/fonts/inter-latin-400-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "400",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-400-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-400-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-500-normal.woff2",
+								"file:./dist/fonts/inter-latin-500-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-500-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-500-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "500",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-500-italic.woff2",
+								"file:./dist/fonts/inter-latin-500-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "500",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-500-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-500-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-600-normal.woff2",
+								"file:./dist/fonts/inter-latin-600-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "600",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-600-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-600-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "600",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-600-italic.woff2",
+								"file:./dist/fonts/inter-latin-600-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "600",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-600-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-600-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-700-normal.woff2",
+								"file:./dist/fonts/inter-latin-700-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-700-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-700-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-700-italic.woff2",
+								"file:./dist/fonts/inter-latin-700-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "700",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-700-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-700-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "800",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-800-normal.woff2",
+								"file:./dist/fonts/inter-latin-800-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "800",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-800-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-800-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "800",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-800-italic.woff2",
+								"file:./dist/fonts/inter-latin-800-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "800",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-800-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-800-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-900-normal.woff2",
+								"file:./dist/fonts/inter-latin-900-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "900",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-900-normal.woff2",
+								"file:./dist/fonts/inter-latin-ext-900-normal.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "900",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD",
+							"src": [
+								"file:./dist/fonts/inter-latin-900-italic.woff2",
+								"file:./dist/fonts/inter-latin-900-italic.woff"
+							]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "900",
+							"fontStyle": "italic",
+							"fontDisplay": "swap",
+							"unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+							"src": [
+								"file:./dist/fonts/inter-latin-ext-900-italic.woff2",
+								"file:./dist/fonts/inter-latin-ext-900-italic.woff"
+							]
+						}
+					]
+				}
+			]
+		}
+	},
+    "supports": {
+        "color": true,
+        "spacing": true,
+        "typography": true
+    }
+}

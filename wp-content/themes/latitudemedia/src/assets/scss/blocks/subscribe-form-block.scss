@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .subscribe-form-section {
   margin-bottom: 64px;
   @include subscribeFormSection;

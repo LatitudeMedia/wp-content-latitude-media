@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .topics-archive-section {
   &.campaigns-section {
     margin-bottom: 64px;

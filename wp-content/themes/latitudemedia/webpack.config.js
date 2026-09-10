@@ -1,5 +1,6 @@
 const path = require("path");
 var webpack = require("webpack");
+const sass = require("sass");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 var mode = "development";
@@ -22,7 +23,7 @@ module.exports = (env) => {
       "css/admin": "./src/assets/scss/admin/admin.scss",
       "css/editor": "./src/assets/scss/admin/editor.scss",
       "css/base": "./src/assets/scss/base/base_loader.scss",
-      "css/fonts": "./src/assets/scss/fonts/fonts_loader.scss",
+      "css/fonts": "./src/assets/scss/core/fonts-build.scss",
       "css/header": "./src/assets/scss/header/header_loader.scss",
       "css/homepage": "./src/assets/scss/homepage/homepage_loader.scss",
       "css/pages": "./src/assets/scss/pages/pages_loader.scss",
@@ -104,8 +105,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/event-contact-us-block.scss",
       "css/blocks/event-navigation-menu-block":
         "./src/assets/scss/blocks/event-navigation-menu-block.scss",
-      "css/blocks/event-agenda-v2-block":
-        "./src/assets/scss/blocks/event-agenda-v2-block.scss",
       "css/blocks/page-hero-block":
         "./src/assets/scss/blocks/page-hero-block.scss",
       "css/blocks/downloads-info-block":
@@ -162,6 +161,13 @@ module.exports = (env) => {
             },
             {
               loader: "sass-loader",
+              options: {
+                sassOptions: {
+                  // Lets "@use 'pkg:@fontsource/...'" in _functions.scss
+                  // resolve those npm packages' font files (see fonts-build.scss).
+                  importers: [new sass.NodePackageImporter(__dirname)],
+                },
+              },
             },
           ],
         },

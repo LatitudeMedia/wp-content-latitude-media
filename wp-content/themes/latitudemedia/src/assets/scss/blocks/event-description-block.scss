@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .event-text-section {
   @include eventTextSection;
   &.blue-theme {
