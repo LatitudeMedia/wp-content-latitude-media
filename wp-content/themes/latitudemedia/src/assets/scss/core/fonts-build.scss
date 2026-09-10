@@ -1,0 +1,24 @@
+@use "pkg:@fontsource-utils/scss" as fontsource;
+@use "pkg:@fontsource/inter/scss/metadata" as inter-metadata;
+@use "pkg:@fontsource/lora/scss/metadata" as lora-metadata;
+
+// Generates @font-face rules for Inter & Lora from the self-hosted @fontsource
+// packages (https://fontsource.org/docs/getting-started/sass-introduction).
+// Only called from core/fonts-build.scss, to pull the referenced font files
+// out of node_modules into dist/fonts during the webpack build -- theme.json's
+// fontFace entries are the actual source of the @font-face rules WordPress
+// serves, and must be kept in sync with the family/weight/style/subset
+// options below.
+@include fontsource.faces(
+    $metadata: inter-metadata.$metadata,
+    $subsets: (latin, latin-ext),
+    $weights: (300, 400, 500, 600, 700, 800, 900),
+    $styles: (normal, italic)
+);
+
+@include fontsource.faces(
+    $metadata: lora-metadata.$metadata,
+    $subsets: (latin, latin-ext),
+    $weights: (400, 500, 600, 700),
+    $styles: (normal, italic)
+);

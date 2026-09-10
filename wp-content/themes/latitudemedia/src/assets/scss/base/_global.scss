@@ -1,3 +1,6 @@
+@use "../core/core_loader" as *;
+@use "base";
+
 :root {
   --black: #000000;
   --white: #ffffff;
@@ -371,6 +374,9 @@ article {
       all: unset;
     }
   }
+}
+.mixed-container > :not(.ltm-title-block) {
+  @extend .container;
 }
 .container-narrow {
   .content-block {

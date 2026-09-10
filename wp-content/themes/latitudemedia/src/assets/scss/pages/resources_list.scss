@@ -1,2 +1,2 @@
-@import "../core/core_loader";
-@import "resources_archive";
+@use "../core/core_loader" as *;
+@use "resources_archive" as *;

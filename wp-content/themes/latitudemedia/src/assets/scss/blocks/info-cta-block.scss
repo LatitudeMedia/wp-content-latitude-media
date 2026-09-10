@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .grey-cta-block {
   @include greyCtaBlock;
 }

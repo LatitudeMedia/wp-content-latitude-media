@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .logo-description-block {
   margin-bottom: 64px;
   @include logoDescriptionBlock;
