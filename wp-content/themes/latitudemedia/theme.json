@@ -2,6 +2,11 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
     "settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "1170px",
+			"wideSize": "1300px"
+		},
 		"color": {
 			"palette": [
 				{

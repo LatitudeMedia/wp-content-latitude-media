@@ -32,6 +32,7 @@ function ltm_core_activate() {
 	( new \LTMCore\PostTypes\ThematicPages() )->create_post_type();
 	( new \LTMCore\Taxonomies\PostSponsor() )->create_taxonomy();
 	( new \LTMCore\PostTypes\Sponsors() )->create_post_type();
+	( new \LTMCore\PostTypes\Events() )->create_post_type();
 
 	flush_rewrite_rules();
 }
@@ -44,7 +45,9 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/PostTypes/ThematicPages.php';
 	require_once __DIR__ . '/includes/Taxonomies/PostSponsor.php';
 	require_once __DIR__ . '/includes/PostTypes/Sponsors.php';
+	require_once __DIR__ . '/includes/PostTypes/Events.php';
 	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
+	require_once __DIR__ . '/includes/RestApi/LoadMoreEvents.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
 	require_once __DIR__ . '/includes/Blocks/NewsTypePreview.php';
@@ -59,7 +62,9 @@ function ltm_core_loader() {
 	new \LTMCore\Taxonomies\ThematicPageTypes();
 	new \LTMCore\Taxonomies\PostSponsor();
 	new \LTMCore\PostTypes\Sponsors();
+	new \LTMCore\PostTypes\Events();
 	new \LTMCore\RestApi\FeaturedPostSearch();
+	new \LTMCore\RestApi\LoadMoreEvents();
 	new \LTMCore\Blocks\Title();
 	new \LTMCore\Blocks\RightSidebarLayout();
 	new \LTMCore\Blocks\EventAgendaV2();
