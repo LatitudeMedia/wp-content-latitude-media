@@ -4892,7 +4892,9 @@
           display: block;
           width: 42px;
           height: 42px;
-          background: transparent url(../../../images/icon_calendar.svg) center
+          // Relative to the ltm-core plugin's event-preview-block/style.scss,
+          // the sole consumer of this mixin — not to this file's own location.
+          background: transparent url(../../../../themes/latitudemedia/src/images/icon_calendar.svg) center
             center no-repeat;
           margin-right: 8px;
           background-size: cover;
@@ -4909,7 +4911,9 @@
           display: block;
           width: 42px;
           height: 42px;
-          background: transparent url(../../../images/icon_location.svg) center
+          // Relative to the ltm-core plugin's event-preview-block/style.scss,
+          // the sole consumer of this mixin — not to this file's own location.
+          background: transparent url(../../../../themes/latitudemedia/src/images/icon_location.svg) center
             center no-repeat;
           margin-right: 8px;
           background-size: cover;

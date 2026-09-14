@@ -175,11 +175,8 @@ function hook_critical_css()
     }
 
     // Detect the landing podcast and loading assets as critical.
-    if (
-        has_block('acf/event-preview-block')
-        || has_block('acf/event-short-description-block')
-    ) {
-        $critical_css .= file_get_contents(getActualFileUrl('/dist/css/blocks/event-preview-block.min.css'));
+    if (has_block('acf/event-short-description-block')) {
+        $critical_css .= file_get_contents(getActualFileUrl('/dist/css/blocks/event-description-block.min.css'));
     }
 
     // Detect the categories-section-block and loading assets as critical.

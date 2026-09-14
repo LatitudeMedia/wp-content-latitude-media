@@ -85,8 +85,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/events-list-block.scss",
       "js/blocks/load-more-events":
         "./src/assets/js/blocks/load-more-events.js",
-      "css/blocks/event-preview-block":
-        "./src/assets/scss/blocks/event-preview-block.scss",
       "css/blocks/event-description-block":
         "./src/assets/scss/blocks/event-description-block.scss",
       "css/blocks/event-sponsors-block":
