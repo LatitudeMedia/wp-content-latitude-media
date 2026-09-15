@@ -1178,27 +1178,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'event-short-description-block',
-            'title'         => __('Event short description block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'text-page',
-        'description' => __('Event short description block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event short description block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-short-description-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-gray-icon-block',
             'title'         => __('Event gray icon block', 'ltm'),
             'path'          => 'event',

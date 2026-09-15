@@ -54,6 +54,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/Blocks/RightSidebarLayout.php';
 	require_once __DIR__ . '/includes/Blocks/EventAgendaV2.php';
 	require_once __DIR__ . '/includes/Blocks/EventPreview.php';
+	require_once __DIR__ . '/includes/Blocks/EventShortDescription.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -70,5 +71,6 @@ function ltm_core_loader() {
 	new \LTMCore\Blocks\RightSidebarLayout();
 	new \LTMCore\Blocks\EventAgendaV2();
 	new \LTMCore\Blocks\EventPreview();
+	new \LTMCore\Blocks\EventShortDescription();
 };
 ltm_core_loader();

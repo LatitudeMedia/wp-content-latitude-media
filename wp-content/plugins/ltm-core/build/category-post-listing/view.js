@@ -1,1 +1,67 @@
-!function(){function t(){return document.querySelectorAll(".ltm-category-post-listing")}function n(n,o,r){fetch(o).then(function(t){return t.text()}).then(function(i){const c=(new window.DOMParser).parseFromString(i,"text/html"),a=Array.prototype.indexOf.call(t(),n),l=c.querySelectorAll(".ltm-category-post-listing")[a];l?(n.innerHTML=l.innerHTML,e(n),r&&window.history.pushState({ltmCategoryPostListing:!0},"",o)):window.location.href=o}).catch(function(){window.location.href=o})}function e(t){const e=t.querySelector(".pager");e&&e.addEventListener("click",function(e){const o=e.target.closest("a");o&&(e.preventDefault(),n(t,o.href,!0))})}function o(){t().forEach(e)}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",o):o(),window.addEventListener("popstate",function(){t().forEach(function(t){n(t,window.location.href,!1)})})}();
+/******/ (() => { // webpackBootstrap
+/*!*******************************************!*\
+  !*** ./src/category-post-listing/view.js ***!
+  \*******************************************/
+/**
+ * Front-end behaviour for the Category Post Listing block: intercepts
+ * pager link clicks and swaps in the new page of posts via fetch()
+ * instead of doing a full page navigation.
+ */
+
+(function () {
+  function getContainers() {
+    return document.querySelectorAll('.ltm-category-post-listing');
+  }
+  function loadPage(container, url, updateHistory) {
+    fetch(url).then(function (response) {
+      return response.text();
+    }).then(function (html) {
+      const doc = new window.DOMParser().parseFromString(html, 'text/html');
+      const index = Array.prototype.indexOf.call(getContainers(), container);
+      const newContainer = doc.querySelectorAll('.ltm-category-post-listing')[index];
+      if (!newContainer) {
+        window.location.href = url;
+        return;
+      }
+      container.innerHTML = newContainer.innerHTML;
+      bindPager(container);
+      if (updateHistory) {
+        window.history.pushState({
+          ltmCategoryPostListing: true
+        }, '', url);
+      }
+    }).catch(function () {
+      window.location.href = url;
+    });
+  }
+  function bindPager(container) {
+    const pager = container.querySelector('.pager');
+    if (!pager) {
+      return;
+    }
+    pager.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (!link) {
+        return;
+      }
+      event.preventDefault();
+      loadPage(container, link.href, true);
+    });
+  }
+  function init() {
+    getContainers().forEach(bindPager);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  window.addEventListener('popstate', function () {
+    getContainers().forEach(function (container) {
+      loadPage(container, window.location.href, false);
+    });
+  });
+})();
+/******/ })()
+;
+//# sourceMappingURL=view.js.map

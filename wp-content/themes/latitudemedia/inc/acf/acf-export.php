@@ -3470,36 +3470,6 @@ Or select event manually.',
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'field_6745ca5e34889',
-        'title' => 'Event short description block',
-        'fields' => array(
-            array(
-                'key' => 'field_6745ca5e3488b',
-                'label' => 'Event short description block',
-                'name' => '',
-                'type' => 'message',
-                'message' => 'Display the text from the post Excerpt field.',
-            ),
-            array(
-                'key' => 'field_6745ca5e3488c',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/event-short-description-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless'
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_6745c3ee06935',
         'title' => 'Event venue block',
         'fields' => array(

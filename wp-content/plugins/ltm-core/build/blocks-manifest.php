@@ -126,6 +126,36 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css'
 	),
+	'event-short-description-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-short-description-block',
+		'version' => '0.1.0',
+		'title' => 'Event short description block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'text-page',
+		'description' => 'Event short description block',
+		'keywords' => array(
+			'Event short description block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
