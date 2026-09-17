@@ -34,6 +34,63 @@ if ( ! function_exists( 'get_post_sponsor' ) ) {
 	}
 }
 
+if ( ! function_exists( 'get_events_list' ) ) {
+	/**
+	 * Wrapper around LTMCore\RestApi\LoadMoreEvents::get_events_list(), kept
+	 * unqualified so theme code can call it the way it always has.
+	 *
+	 * @param string $type
+	 * @param array  $args
+	 * @param array  $ids
+	 * @return \WP_Query the query object
+	 */
+	function get_events_list( $type = '', $args = [], $ids = [] ) {
+		return \LTMCore\RestApi\LoadMoreEvents::get_events_list( $type, $args, $ids );
+	}
+}
+
+if ( ! function_exists( 'get_event_start_date' ) ) {
+	/**
+	 * Wrapper around LTMCore\PostTypes\Events::get_event_start_date(), kept
+	 * unqualified so theme code can call it the way it always has.
+	 *
+	 * @param int    $event_id
+	 * @param string $format
+	 * @return string
+	 */
+	function get_event_start_date( $event_id, $format = 'F j Y' ) {
+		return \LTMCore\PostTypes\Events::get_event_start_date( $event_id, $format );
+	}
+}
+
+if ( ! function_exists( 'get_event__end_date' ) ) {
+	/**
+	 * Wrapper around LTMCore\PostTypes\Events::get_event__end_date(), kept
+	 * unqualified (double underscore preserved as-is) so theme code can call
+	 * it the way it always has.
+	 *
+	 * @param int    $event_id
+	 * @param string $format
+	 * @return string
+	 */
+	function get_event__end_date( $event_id, $format = 'F j Y' ) {
+		return \LTMCore\PostTypes\Events::get_event__end_date( $event_id, $format );
+	}
+}
+
+if ( ! function_exists( 'get_event_timezone' ) ) {
+	/**
+	 * Wrapper around LTMCore\PostTypes\Events::get_event_timezone(), kept
+	 * unqualified so theme code can call it the way it always has.
+	 *
+	 * @param int $event_id
+	 * @return string
+	 */
+	function get_event_timezone( $event_id ) {
+		return \LTMCore\PostTypes\Events::get_event_timezone( $event_id );
+	}
+}
+
 if ( ! function_exists( 'enable_jetpack_copy_to_all_post_types' ) ) {
 	function enable_jetpack_copy_to_all_post_types( $post_types ) {
 		$post_types = array_merge( $post_types, [

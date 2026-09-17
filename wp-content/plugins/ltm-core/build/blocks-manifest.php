@@ -52,6 +52,157 @@ return array(
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
+	'event-agenda-v2-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-agenda-v2-block',
+		'version' => '0.1.0',
+		'title' => 'Event agenda V2 block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'calendar-alt',
+		'description' => 'Event agenda V2 block',
+		'keywords' => array(
+			'Event agenda V2 block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'hideFieldsInSidebar' => true,
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'script' => 'file:./view.js'
+	),
+	'event-description-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-description-block',
+		'version' => '0.1.0',
+		'title' => 'Event description block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'media-text',
+		'description' => 'Event description block',
+		'keywords' => array(
+			'Event description block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'type2',
+				'label' => 'Type 2 (with form)'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-preview-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-preview-block',
+		'version' => '0.1.0',
+		'title' => 'Event preview block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'welcome-view-site',
+		'description' => 'Event preview block',
+		'keywords' => array(
+			'Event preview block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-short-description-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-short-description-block',
+		'version' => '0.1.0',
+		'title' => 'Event short description block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'text-page',
+		'description' => 'Event short description block',
+		'keywords' => array(
+			'Event short description block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

@@ -1,2 +1,2 @@
-@import "../core/core_loader";
-@import "single_post";
+@use "../core/core_loader" as *;
+@use "single_post" as *;

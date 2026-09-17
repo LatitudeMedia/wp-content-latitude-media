@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .navigation-menu-section {
   position: sticky;
   top: 164px;

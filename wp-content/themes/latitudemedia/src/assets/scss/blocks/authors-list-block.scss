@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .our-team-section {
   @include ourTeamSection;
   &.blue-theme {

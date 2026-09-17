@@ -1,1 +1,507 @@
-(()=>{"use strict";var e={547(e,t,o){const r=window.wp.blocks,s=window.wp.blockEditor,n=window.wp.components,l=window.wp.element,i=window.wp.data,a=window.wp.apiFetch;var c=o.n(a);const d=window.wp.url,u=window.wp.serverSideRender;var p=o.n(u);const h=window.wp.i18n,w=window.ReactJSXRuntime,f=JSON.parse('{"UU":"latitudemedia/featured-post-block"}');(0,r.registerBlockType)(f.UU,{edit:function({attributes:e,setAttributes:t,name:o}){const{postId:r,isSponsored:a}=e,u=(0,s.useBlockProps)(),f=(0,i.useSelect)(e=>{const t=e("core/editor");return t?t.getCurrentPostId():0},[]),[b,m]=(0,l.useState)(""),[g,v]=(0,l.useState)([]),[_,S]=(0,l.useState)(!0),[j,O]=(0,l.useState)(!1),[x,k]=(0,l.useState)("");(0,l.useEffect)(()=>{r?c()({path:`/wp/v2/posts/${r}?_fields=id,title`}).then(e=>k(e?.title?.rendered??"")).catch(()=>k("")):k("")},[r]),(0,l.useEffect)(()=>{O(!0),c()({path:(0,d.addQueryArgs)("/ltm-core/v1/featured-post/search",{search:b,sponsored:a?1:0,page_id:f})}).then(e=>{v(e.items??[]),S(e.hasSponsor??!0),O(!1)}).catch(()=>{v([]),O(!1)})},[b,a,f]);const y=(0,l.useMemo)(()=>{const e=g.map(e=>({value:String(e.id),label:e.title}));return r&&x&&!e.some(e=>e.value===String(r))&&e.unshift({value:String(r),label:x}),e},[g,r,x]);let P=(0,h.__)("Search by post title.","ltm");return j?P=(0,h.__)("Searching…","ltm"):a&&!_?P=(0,h.__)("This page has no sponsor assigned, so no posts are available.","ltm"):a&&(P=(0,h.__)("Showing posts from this page's sponsor.","ltm")),(0,w.jsxs)(w.Fragment,{children:[(0,w.jsx)(s.InspectorControls,{children:(0,w.jsxs)(n.PanelBody,{title:(0,h.__)("Featured Post","ltm"),children:[(0,w.jsx)(n.ToggleControl,{label:(0,h.__)("Is from sponsor?","ltm"),checked:a,onChange:e=>t({isSponsored:e})}),(0,w.jsx)(n.ComboboxControl,{label:(0,h.__)("Post","ltm"),value:r?String(r):null,options:y,onFilterValueChange:m,onChange:e=>t({postId:e?Number(e):0}),help:P})]})}),(0,w.jsx)("div",{...u,children:r?(0,w.jsx)(p(),{block:o,attributes:e}):(0,w.jsx)(n.Placeholder,{icon:"star-filled",label:(0,h.__)("Featured Post","ltm"),instructions:(0,h.__)("Select a post in the block settings to feature it here.","ltm")})})]})}})}};const t={};function o(r){const s=t[r];if(void 0!==s)return s.exports;const n=t[r]={exports:{}};return e[r](n,n.exports,o),n.exports}o.m=e,(()=>{const e=[];o.O=(t,r,s,n)=>{if(r){n=n||0;for(var l=e.length;l>0&&e[l-1][2]>n;l--)e[l]=e[l-1];return void(e[l]=[r,s,n])}let i=1/0;for(l=0;l<e.length;l++){let[r,s,n]=e[l],c=!0;for(var a=0;a<r.length;a++)(!1&n||i>=n)&&Object.keys(o.O).every(e=>o.O[e](r[a]))?r.splice(a--,1):(c=!1,n<i&&(i=n));if(c){e.splice(l--,1);const o=s();void 0!==o&&(t=o)}}return t}})(),o.n=e=>{const t=e&&e.__esModule?()=>e.default:()=>e;return o.d(t,{a:t}),t},o.d=(e,t)=>{if(Array.isArray(t))for(var r=0;r<t.length;){var s=t[r++],n=t[r++];o.o(e,s)?0===n&&r++:0===n?Object.defineProperty(e,s,{enumerable:!0,value:t[r++]}):Object.defineProperty(e,s,{enumerable:!0,get:n})}else for(var s in t)o.o(t,s)&&!o.o(e,s)&&Object.defineProperty(e,s,{enumerable:!0,get:t[s]})},o.o=(e,t)=>Object.hasOwn(e,t),(()=>{const e={197:0,753:0};o.O.j=t=>0===e[t];const t=(t,r)=>{let[s,n,l]=r;var i,a,c=0;if(s.some(t=>0!==e[t])){for(i in n)o.o(n,i)&&(o.m[i]=n[i]);if(l)var d=l(o)}for(t&&t(r);c<s.length;c++)a=s[c],o.o(e,a)&&e[a]&&e[a][0](),e[a]=0;return o.O(d)},r=globalThis.webpackChunkltm_core||=[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();let r=o.O(void 0,[753],()=>o(547));r=o.O(r)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/featured-post-block/edit.js"
+/*!*****************************************!*\
+  !*** ./src/featured-post-block/edit.js ***!
+  \*****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/url */ "@wordpress/url");
+/* harmony import */ var _wordpress_url__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_url__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
+
+
+
+
+
+
+function Edit({
+  attributes,
+  setAttributes,
+  name
+}) {
+  const {
+    postId,
+    isSponsored
+  } = attributes;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps)();
+  const currentPostId = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
+    const editor = select('core/editor');
+    return editor ? editor.getCurrentPostId() : 0;
+  }, []);
+  const [search, setSearch] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+  const [results, setResults] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
+  const [hasSponsor, setHasSponsor] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(true);
+  const [isSearching, setIsSearching] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+  const [selectedTitle, setSelectedTitle] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)('');
+
+  // Resolve the currently selected post's title so the combobox has a
+  // label to show even before the user has typed a search term.
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    if (!postId) {
+      setSelectedTitle('');
+      return;
+    }
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
+      path: `/wp/v2/posts/${postId}?_fields=id,title`
+    }).then(post => setSelectedTitle(post?.title?.rendered ?? '')).catch(() => setSelectedTitle(''));
+  }, [postId]);
+
+  // Search for candidate posts, scoped to the page's sponsor when requested.
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    setIsSearching(true);
+    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
+      path: (0,_wordpress_url__WEBPACK_IMPORTED_MODULE_5__.addQueryArgs)('/ltm-core/v1/featured-post/search', {
+        search,
+        sponsored: isSponsored ? 1 : 0,
+        page_id: currentPostId
+      })
+    }).then(response => {
+      setResults(response.items ?? []);
+      setHasSponsor(response.hasSponsor ?? true);
+      setIsSearching(false);
+    }).catch(() => {
+      setResults([]);
+      setIsSearching(false);
+    });
+  }, [search, isSponsored, currentPostId]);
+  const options = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useMemo)(() => {
+    const opts = results.map(post => ({
+      value: String(post.id),
+      label: post.title
+    }));
+    if (postId && selectedTitle && !opts.some(option => option.value === String(postId))) {
+      opts.unshift({
+        value: String(postId),
+        label: selectedTitle
+      });
+    }
+    return opts;
+  }, [results, postId, selectedTitle]);
+  let comboHelp = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Search by post title.', 'ltm');
+  if (isSearching) {
+    comboHelp = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Searching…', 'ltm');
+  } else if (isSponsored && !hasSponsor) {
+    comboHelp = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('This page has no sponsor assigned, so no posts are available.', 'ltm');
+  } else if (isSponsored) {
+    comboHelp = (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)("Showing posts from this page's sponsor.", 'ltm');
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Featured Post', 'ltm'),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Is from sponsor?', 'ltm'),
+          checked: isSponsored,
+          onChange: value => setAttributes({
+            isSponsored: value
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ComboboxControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Post', 'ltm'),
+          value: postId ? String(postId) : null,
+          options: options,
+          onFilterValueChange: setSearch,
+          onChange: value => setAttributes({
+            postId: value ? Number(value) : 0
+          }),
+          help: comboHelp
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      ...blockProps,
+      children: postId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6___default()), {
+        block: name,
+        attributes: attributes
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Placeholder, {
+        icon: "star-filled",
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Featured Post', 'ltm'),
+        instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_7__.__)('Select a post in the block settings to feature it here.', 'ltm')
+      })
+    })]
+  });
+}
+
+/***/ },
+
+/***/ "./src/featured-post-block/index.js"
+/*!******************************************!*\
+  !*** ./src/featured-post-block/index.js ***!
+  \******************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/featured-post-block/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/featured-post-block/edit.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/featured-post-block/block.json");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
+});
+
+/***/ },
+
+/***/ "./src/featured-post-block/style.scss"
+/*!********************************************!*\
+  !*** ./src/featured-post-block/style.scss ***!
+  \********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "react/jsx-runtime"
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+(module) {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ },
+
+/***/ "@wordpress/api-fetch"
+/*!**********************************!*\
+  !*** external ["wp","apiFetch"] ***!
+  \**********************************/
+(module) {
+
+module.exports = window["wp"]["apiFetch"];
+
+/***/ },
+
+/***/ "@wordpress/block-editor"
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+(module) {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ },
+
+/***/ "@wordpress/blocks"
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+(module) {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ },
+
+/***/ "@wordpress/components"
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ },
+
+/***/ "@wordpress/data"
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["data"];
+
+/***/ },
+
+/***/ "@wordpress/element"
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+(module) {
+
+module.exports = window["wp"]["element"];
+
+/***/ },
+
+/***/ "@wordpress/i18n"
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ },
+
+/***/ "@wordpress/server-side-render"
+/*!******************************************!*\
+  !*** external ["wp","serverSideRender"] ***!
+  \******************************************/
+(module) {
+
+module.exports = window["wp"]["serverSideRender"];
+
+/***/ },
+
+/***/ "@wordpress/url"
+/*!*****************************!*\
+  !*** external ["wp","url"] ***!
+  \*****************************/
+(module) {
+
+module.exports = window["wp"]["url"];
+
+/***/ },
+
+/***/ "./src/featured-post-block/block.json"
+/*!********************************************!*\
+  !*** ./src/featured-post-block/block.json ***!
+  \********************************************/
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"latitudemedia/featured-post-block","version":"0.1.1","title":"Featured Post","category":"ltm-common-blocks","icon":"star-filled","description":"Highlight a single post as a featured card, optionally scoped to the page\'s sponsor.","keywords":["featured","post","sponsor"],"example":{},"attributes":{"postId":{"type":"number","default":0},"isSponsored":{"type":"boolean","default":false}},"supports":{"html":false,"anchor":true},"textdomain":"ltm","editorScript":"file:./index.js","style":"file:./style-index.css","render":"file:./render.php"}');
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	const __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			const e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		const deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			let notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				let [chunkIds, fn, priority] = deferred[i];
+/******/ 				let fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					const r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			const getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter/value functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			if(Array.isArray(definition)) {
+/******/ 				var i = 0;
+/******/ 				while(i < definition.length) {
+/******/ 					var key = definition[i++];
+/******/ 					var binding = definition[i++];
+/******/ 					if(!__webpack_require__.o(exports, key)) {
+/******/ 						if(binding === 0) {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, value: definition[i++] });
+/******/ 						} else {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, get: binding });
+/******/ 						}
+/******/ 					} else if(binding === 0) { i++; }
+/******/ 				}
+/******/ 			} else {
+/******/ 				for(var key in definition) {
+/******/ 					if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 						Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.hasOwn(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		const installedChunks = {
+/******/ 			"featured-post-block/index": 0,
+/******/ 			"featured-post-block/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		const webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			let [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		const chunkLoadingGlobal = globalThis["webpackChunkltm_core"] ||= [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["featured-post-block/style-index"], () => (__webpack_require__("./src/featured-post-block/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

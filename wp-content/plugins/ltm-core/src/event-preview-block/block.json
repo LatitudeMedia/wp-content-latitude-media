@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/event-preview-block",
+	"version": "0.1.0",
+	"title": "Event preview block",
+	"category": "ltm-event-blocks",
+	"icon": "welcome-view-site",
+	"description": "Event preview block",
+	"keywords": [ "Event preview block" ],
+	"example": {},
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": true,
+		"baseColor": true
+	},
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"postTypes": [ "events" ]
+	},
+	"textdomain": "ltm",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

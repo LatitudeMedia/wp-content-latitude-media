@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .section-topics-section {
   .right-sidebar-layout {
     .right-sidebar-layout-wrapper {

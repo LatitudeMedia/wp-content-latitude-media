@@ -19,8 +19,19 @@
 #      containers can come back with ltm-core and ACF inactive, and every spec
 #      then fails with "Invalid post type." Activating explicitly here makes
 #      provisioning idempotent instead of depending on creation-time state.
+#   4. `npm run test:php` reinstalls WordPress into the same database that
+#      serves the tests site on 8889, which empties `active_plugins` and
+#      `permalink_structure`. So this is not only start-time setup: running
+#      PHPUnit leaves the E2E site unprovisioned, and it has to be re-applied
+#      before Playwright. specs/global-setup.js calls this script for exactly
+#      that reason — keep it idempotent and safe to run at any time.
 
 set -euo pipefail
+
+# The plugin dir is a bind mount shared by both instances, so vendor/ only
+# needs installing once. `wp-env run` executes the command directly in the
+# container — no `wp` prefix — and --env-cwd is wp-env's own flag.
+wp-env run cli --env-cwd=wp-content/plugins/ltm-core composer update -n
 
 # Container names, not environment names: the development instance is served
 # by `cli`, the tests instance (port 8889) by `tests-cli`.
@@ -29,7 +40,15 @@ for CONTAINER in cli tests-cli; do
 
 	# Explicit and idempotent: `wp plugin activate` on an already-active plugin
 	# is a no-op, so this is safe to repeat on every start.
-	wp-env run "${CONTAINER}" wp plugin activate ltm-core advanced-custom-fields-pro
+	#
+	# acf-blocks-v2-iframe-compatibility-main is listed after ACF Pro because it
+	# declares `Requires Plugins: advanced-custom-fields-pro` and WordPress
+	# refuses to activate it while that dependency is inactive. It matches the
+	# production site, where both are active, and it is not cosmetic: on WP 7.1
+	# it forces the block editor off the iframed canvas, which is the context
+	# ACF blocks actually render in there.
+	wp-env run "${CONTAINER}" wp plugin activate \
+		ltm-core advanced-custom-fields-pro acf-blocks-v2-iframe-compatibility-main
 
 	wp-env run "${CONTAINER}" wp theme activate latitudemedia
 

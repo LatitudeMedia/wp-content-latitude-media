@@ -30,21 +30,30 @@ The Studio site on port 8881 is completely separate and is never touched by the 
 
 ## How the environment is wired
 
-`.wp-env.json` maps in three things the suites need:
+`.wp-env.json` maps in four things the suites need:
 
 - `ltm-core` itself (`.`)
 - `../advanced-custom-fields-pro` — kept for real sponsored-path coverage even though
   `includes/PostTypes/Sponsors.php`'s `get_field()` call is now guarded (see
   [Unguarded `get_field()`](#unguarded-get_field-in-sponsorsphp) — fixed). See also the ACF
   field-group gap below for why mapping it in still doesn't buy real sponsored-toggle E2E coverage.
+- `../acf-blocks-v2-iframe-compatibility-main` — active on the production site, and not cosmetic:
+  on WP 7.1 it forces the block editor off the iframed canvas, so without it editor specs exercise
+  a different rendering context than production. It declares
+  `Requires Plugins: advanced-custom-fields-pro`, so it is activated after ACF Pro.
 - `../../themes/latitudemedia` — `src/featured-post-block/render.php` calls `get_template_part()`,
   so without this theme the block renders an empty wrapper and frontend assertions fail for the
   wrong reason.
 
-`bin/wp-env-after-start.sh` (wired via `lifecycleScripts.afterStart`) then activates the theme and
-sets `/%postname%/` permalinks plus a rewrite flush on both containers. The `thematic-pages` CPT
-rewrites to `/themes/{slug}`, which 404s under wp-env's default plain permalinks —
-`ltm_core_activate()` only flushes on the activation hook, which has already run by then.
+Neither ACF plugin is committed to git (both are Pressable-managed), so CI maps in neither — see
+`bin/wp-env-after-start-ci.sh` and the CI-only `.wp-env.override.json`.
+
+`bin/wp-env-after-start.sh` (wired via `lifecycleScripts.afterStart`) then activates the plugins
+and theme and sets `/%postname%/` permalinks plus a rewrite flush on both containers. The
+`thematic-pages` CPT rewrites to `/themes/{slug}`, which 404s under wp-env's default plain
+permalinks — `ltm_core_activate()` only flushes on the activation hook, which has already run by
+then. That script is idempotent and safe to run at any time; `specs/global-setup.js` re-runs it
+automatically whenever the tests site is found unprovisioned (see below).
 
 ## Gotchas worth knowing
 
@@ -52,16 +61,40 @@ rewrites to `/themes/{slug}`, which 404s under wp-env's default plain permalinks
 which happens *before* wp-env finishes installing WordPress and activating plugins. The symptom is
 an "Invalid post type." error page failing only the first spec, while later specs pass because
 provisioning completed in the meantime. `specs/global-setup.js` gates the suite on
-`/wp-json/wp/v2/types/thematic-pages` returning OK before any test runs.
+`/wp-json/wp/v2/types/thematic-pages` returning the expected JSON before any test runs.
+
+It checks the response *body*, not just `response.ok()`. When the REST API is not routable the
+site can still answer 200 with an HTML page, which satisfies `.ok()` — so a status-only check can
+report a completely unprovisioned site as ready and leave the real failure to surface as confusing
+`rest_no_route` errors inside individual specs.
+
+**`npm run test:php` un-provisions the E2E site.** PHPUnit reinstalls WordPress into the same
+database that serves the tests site on 8889, which empties `active_plugins` and
+`permalink_structure`. Running PHPUnit before Playwright therefore used to fail *every* spec with
+`rest_no_route`, and `wp-env start` would not fix it: the containers are already up, so its
+`afterStart` lifecycle script never re-runs.
+
+This is handled automatically — when `specs/global-setup.js` finds the site unprovisioned it runs
+`bin/wp-env-after-start.sh` itself and re-checks, so the suites can be run in either order. If you
+are debugging outside Playwright, re-provision by hand with:
+
+```bash
+PATH="$PWD/node_modules/.bin:$PATH" ./bin/wp-env-after-start.sh
+```
+
+(the script calls `wp-env` unqualified, which is only on `PATH` under npm's script environment).
 
 **Plugin activation does not survive `destroy` + `start`.** wp-env activates mapped plugins when it
 *creates* an instance, but after `npx wp-env destroy` the containers can come back with `ltm-core`
-and ACF Pro **inactive**. Symptom is identical to the cold-start race above — `Invalid post type.`
-— but the cause is different, so check activation before assuming a timing problem:
+and the ACF plugins **inactive**. Symptom is identical to the cold-start race above —
+`Invalid post type.` — but the cause is different, so check activation before assuming a timing
+problem:
 
 ```bash
 npx wp-env run tests-cli wp plugin list --fields=name,status
-curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8889/wp-json/wp/v2/types/thematic-pages
+# Print the body, not just the status: an unroutable REST API still answers 200
+# with an HTML page, so a status-only check looks healthy when it is not.
+curl -s http://localhost:8889/wp-json/wp/v2/types/thematic-pages
 ```
 
 `bin/wp-env-after-start.sh` now runs `wp plugin activate` explicitly on both containers, so a plain

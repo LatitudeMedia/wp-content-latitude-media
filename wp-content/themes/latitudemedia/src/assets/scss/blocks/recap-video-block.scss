@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .recap-video-section {
   margin-bottom: 64px;
   @include recapVideoSection;

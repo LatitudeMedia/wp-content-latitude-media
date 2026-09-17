@@ -1,6 +1,6 @@
 //Type
-$inter: 'inter', Arial, Helvetica, sans-serif;
-$lora: 'Lora', Arial, Helvetica, serif;
+$inter: var(--wp--preset--font-family--body-font);
+$lora: var(--wp--preset--font-family--heading-font);
 
 //Colors
 $black: #000000;
@@ -18,6 +18,18 @@ $green_shadow: #CCF0E8;
 $blue_shadow: #E5F4FC;
 $orange_shadow: #FEEBD2;
 $grey_bg: #F5F5F5;
+
+//theme.json presets
+$brand-midnight-blue: var(--wp--preset--color--midnight-blue);
+$brand-white: var(--wp--preset--color--white);
+$brand-magenta-bliss: var(--wp--preset--color--magenta-bliss);
+$brand-feather-gray: var(--wp--preset--color--feather-gray);
+$brand-lilac-luster: var(--wp--preset--color--lilac-luster);
+$brand-coral-crush: var(--wp--preset--color--coral-crush);
+$brand-melon-mist: var(--wp--preset--color--melon-mist);
+$brand-seafoam-splash: var(--wp--preset--color--seafoam-splash);
+$brand-sunburst-orange: var(--wp--preset--color--sunburst-orange);
+$brand-electric-blue: var(--wp--preset--color--electric-blue);
 
 //Different
 $bg-cover: cover !important;

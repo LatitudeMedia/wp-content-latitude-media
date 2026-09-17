@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .related-reading-block {
   @include relatedReadingBlock;
 }
