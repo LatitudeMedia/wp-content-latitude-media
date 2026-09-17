@@ -19,3 +19,5 @@ wp-content/plugins/ltm-core/vendor/
 wp-content/plugins/ltm-core/.wp-env.json
 wp-content/plugins/ltm-core/phpunit.xml.dist
 wp-content/plugins/ltm-core/playwright.config.js
+wp-content/plugins/ltm-core/auth.json
+

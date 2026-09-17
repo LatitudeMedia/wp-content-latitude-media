@@ -90,6 +90,53 @@ return array(
 		'style' => 'file:./style-index.css',
 		'script' => 'file:./view.js'
 	),
+	'event-description-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-description-block',
+		'version' => '0.1.0',
+		'title' => 'Event description block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'media-text',
+		'description' => 'Event description block',
+		'keywords' => array(
+			'Event description block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'type2',
+				'label' => 'Type 2 (with form)'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
 	'event-preview-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

@@ -17,7 +17,11 @@ set -euo pipefail
 for CONTAINER in cli tests-cli; do
 	echo "[ltm-core] Configuring '${CONTAINER}' container..."
 
-	wp-env run "${CONTAINER}" wp --allow-root plugin activate ltm-core
+	wp-env run "${CONTAINER}" wp --allow-root cli --env-cwd=wp-content/plugins/ltm-core \ 
+		composer install -n
+
+	wp-env run "${CONTAINER}" wp --allow-root plugin activate \
+		ltm-core advanced-custom-fields-pro acf-blocks-v2-iframe-compatibility-main
 
 	wp-env run "${CONTAINER}" wp --allow-root theme activate latitudemedia
 

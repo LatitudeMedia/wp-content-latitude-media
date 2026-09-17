@@ -985,54 +985,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'event-description-block',
-            'title'         => __('Event description block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'media-text',
-        'description' => __('Event description block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event description block', 'ltm')),
-        "supports" =>  array(
-            "jsx" =>  true,
-            "anchor" =>  true,
-            "spacing" => array(
-                "margin" => true,
-                "padding" => true,
-            ),
-            "color" => true,
-            "baseColor" => true
-        ),
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2 (with form)', 'ltm'),
-                'isDefault' => true,
-            ]
-        ],
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-description-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-description-block', get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-description-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-speakers-block',
             'title'         => __('Event speakers block', 'ltm'),
             'path'          => 'event',

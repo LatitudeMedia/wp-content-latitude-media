@@ -174,11 +174,6 @@ function hook_critical_css()
         $critical_css .= file_get_contents(getActualFileUrl('/dist/css/blocks/content-with-background-block.min.css'));
     }
 
-    // Detect the landing podcast and loading assets as critical.
-    if (has_block('acf/event-short-description-block')) {
-        $critical_css .= file_get_contents(getActualFileUrl('/dist/css/blocks/event-description-block.min.css'));
-    }
-
     // Detect the categories-section-block and loading assets as critical.
     if (is_front_page()) {
         $critical_css .= file_get_contents(getActualFileUrl('/dist/css/blocks/sidebar-editors-picks-section.min.css'));

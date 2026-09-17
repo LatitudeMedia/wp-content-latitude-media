@@ -3371,44 +3371,6 @@ Or select event manually.',
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_674595857108f',
-        'title' => 'Event description block',
-        'fields' => array(
-            array(
-                'key' => 'field_674481518f9b4',
-                'label' => 'Event description block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_674595b6064e9',
-                'label' => 'Title',
-                'name' => 'title',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_674481518f9b5',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/event-description-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_674597e182742',
         'title' => 'Event speakers block',
         'fields' => array(
