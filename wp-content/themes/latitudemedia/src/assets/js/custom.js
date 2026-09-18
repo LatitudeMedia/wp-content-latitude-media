@@ -10,7 +10,11 @@ $(document).ready(function ($) {
   let navigationMenuBlock = $(".navigation-menu-section");
   let body = $("body");
 
-  if (stickyAlert.length > 0) {
+  const skipAlertBanner = window.location.pathname.includes(
+    "/events/flex-summit-2026/"
+  );
+
+  if (stickyAlert.length > 0 && !skipAlertBanner) {
     $(headerWrapper).addClass("has-alert-banner");
 
     if (navigationMenuBlock.length > 0) {

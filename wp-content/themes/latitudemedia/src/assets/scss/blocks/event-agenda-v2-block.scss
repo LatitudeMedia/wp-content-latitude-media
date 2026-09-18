@@ -2,6 +2,22 @@
 
 .event-agenda-v2-section {
   margin-bottom: 64px;
+  &.is-sticky{
+    &.is-admin{
+      .event-agenda-v2-day-buttons {
+        @media screen and (min-width: ($screen-md + 1)) {
+          top: 260px;
+        }
+      }
+    }
+    .event-agenda-v2-day-buttons {
+        @media screen and (min-width: ($screen-md + 1)) {
+        position: sticky;
+        top: 230px;
+        z-index: 9;
+      }
+    }
+  }
   &.blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
@@ -75,6 +91,13 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 10px;
+
+    @media screen and (min-width: ($screen-md + 1)) {
+      position: sticky;
+      top: 230px;
+      z-index: 9;
+    }
+
     .event-agenda-v2-day-button {
       padding: 10px 20px;
       background-color: $white;
