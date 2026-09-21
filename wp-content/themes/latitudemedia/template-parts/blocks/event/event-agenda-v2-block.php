@@ -68,11 +68,14 @@ foreach ($days as $day_index => $day) {
   $processed_days[] = $processed_day;
 }
 
+$admin_class = '';
+if ( is_user_logged_in() ) $admin_class = 'is-admin';
+
 $block_id = $blockAttributes['anchor'] ?: 'agenda-' . uniqid();
 $blockAttrs = wp_kses_data(
   get_block_wrapper_attributes(
     [
-      "class" => 'content-block event-agenda-v2-section',
+      "class" => "content-block event-agenda-v2-section $admin_class",
       "id" => $block_id,
     ]
   )
