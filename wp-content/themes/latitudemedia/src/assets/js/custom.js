@@ -339,6 +339,17 @@ $(document).ready(function ($) {
       button.addClass("active").attr("aria-selected", "true");
       blockContainer.find(".event-agenda-v2-day").hide();
       blockContainer.find("#" + selectedValue).show();
+
+      // The button bar is sticky, so its offset() reflects the stuck position.
+      // Derive its natural starting point from the element before it instead.
+      const dayButtons = button.closest(".event-agenda-v2-day-buttons");
+      const previousElement = dayButtons.prev();
+      const stickyTop = parseInt(dayButtons.css("top"), 10) || 0;
+      const naturalTop = previousElement.length
+        ? previousElement.offset().top + previousElement.outerHeight(true)
+        : dayButtons.offset().top;
+
+      $("html, body").animate({ scrollTop: naturalTop - stickyTop }, 400);
     });
   }
 });
