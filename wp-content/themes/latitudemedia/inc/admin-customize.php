@@ -40,18 +40,12 @@ function add_new_post_column_type( $columns ) {
 }
 add_filter( 'manage_edit-post_columns', 'add_new_post_column_type' );
 
-if ( ! function_exists( 'custom_block_editor_scripts' ) ) {
-    /**
-     * Enqueue block editor scripts
-     *
-     */
-    function custom_block_editor_scripts() {
-        wp_register_style('ltm-admin-cms', get_template_directory_uri() . '/dist/css/editor.min.css', array(), filemtime( get_template_directory() . '/dist/css/editor.min.css') );
-        wp_enqueue_style('ltm-admin-cms');
-    }
-    add_action( 'enqueue_block_editor_assets', 'custom_block_editor_scripts' );
-
-}
+// dist/css/editor.min.css is no longer enqueued here. Both block editor enqueue
+// hooks also run against the surrounding admin document — `enqueue_block_assets`
+// is fired from `admin_enqueue_scripts` as well as from the iframe asset pass —
+// so enqueuing a bundle that carries the base reset restyled the whole of wp-admin.
+// It is registered with add_editor_style() in inc/theme.php instead, which reaches
+// the canvas iframe and nothing else.
 
 if( !function_exists( 'ltm_admin_styles' ) ) {
     /**

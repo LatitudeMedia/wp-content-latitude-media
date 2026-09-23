@@ -1,3 +1,9 @@
+// Loaded into the block editor canvas only, via add_editor_style() in
+// inc/theme.php — WordPress inlines this file into the editor settings and
+// scopes it under `.editor-styles-wrapper` inside the iframe, so it never
+// reaches the surrounding admin page the way an enqueue would.
+@use "../base/base_loader";
+
 .editor-content-wrapper {
   border: 1px solid black;
 }

@@ -2,6 +2,22 @@
 
 .event-agenda-v2-section {
   margin-bottom: 64px;
+
+  // The theme publishes `.bordered-title` unscoped from base/_global.scss,
+  // which reaches the page only through hook_critical_css() (inc/enqueue.php)
+  // inlining base.min.css -- on the front end. The editor gets
+  // editor.min.css instead (inc/admin-customize.php), which has no such rule,
+  // and which is hooked on `enqueue_block_editor_assets` and so styles the
+  // editor chrome rather than the canvas iframe. Without this the ACF preview
+  // renders the title as plain body text.
+  //
+  // Declared through the theme's own mixin so the values can't drift, and
+  // kept above the theme-colour overrides below, which are !important and
+  // win regardless. Same as event-description-block/style.scss.
+  .bordered-title {
+    @include borderedTitle;
+  }
+
   &.blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;

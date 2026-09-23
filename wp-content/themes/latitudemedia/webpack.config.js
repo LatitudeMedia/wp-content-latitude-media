@@ -75,8 +75,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/news-list-section.scss",
       "css/blocks/spotlight-quote-section":
         "./src/assets/scss/blocks/spotlight-quote-section.scss",
-      "css/blocks/signup-form-section":
-        "./src/assets/scss/blocks/signup-form-section.scss",
       "css/blocks/sidebar-editors-picks-section":
         "./src/assets/scss/blocks/sidebar-editors-picks-section.scss",
       "css/blocks/related-reading-section":
@@ -91,16 +89,12 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/event-agenda-block.scss",
       "css/blocks/event-venue-block":
         "./src/assets/scss/blocks/event-venue-block.scss",
-      "css/blocks/event-gray-icon-block":
-        "./src/assets/scss/blocks/event-gray-icon-block.scss",
       "css/blocks/event-partners-block":
         "./src/assets/scss/blocks/event-partners-block.scss",
       "css/blocks/event-about-sponsors-block":
         "./src/assets/scss/blocks/event-about-sponsors-block.scss",
       "css/blocks/event-contact-us-block":
         "./src/assets/scss/blocks/event-contact-us-block.scss",
-      "css/blocks/event-navigation-menu-block":
-        "./src/assets/scss/blocks/event-navigation-menu-block.scss",
       "css/blocks/page-hero-block":
         "./src/assets/scss/blocks/page-hero-block.scss",
       "css/blocks/downloads-info-block":

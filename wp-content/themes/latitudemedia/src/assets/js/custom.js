@@ -7,15 +7,10 @@ $(document).ready(function ($) {
   let stickyHeader = $("header .header-wrapper .bottom-head");
   let stickyLogo = $("header .header-wrapper .middle-head");
   let stickyAlert = $("header .header-wrapper .alert-banner");
-  let navigationMenuBlock = $(".navigation-menu-section");
   let body = $("body");
 
   if (stickyAlert.length > 0) {
     $(headerWrapper).addClass("has-alert-banner");
-
-    if (navigationMenuBlock.length > 0) {
-      $(navigationMenuBlock).addClass("has-alert-banner");
-    }
   }
   if (stickyHeader.length > 0) {
     var stickyTop = $(stickyHeader).offset().top + 20;
@@ -263,61 +258,6 @@ $(document).ready(function ($) {
         1000
       );
       return false;
-    });
-  }
-
-  const navigationMenuButtons = $(
-    ".navigation-menu-section .buttons-container .nav-button"
-  );
-  if (navigationMenuButtons.length > 0) {
-    navigationMenuButtons.on("click", function (e) {
-      const buttonAnchor = $(this).attr("href");
-      if (
-        buttonAnchor &&
-        buttonAnchor.startsWith("#") &&
-        buttonAnchor.length > 1
-      ) {
-        e.preventDefault();
-        const targetElement = $(buttonAnchor);
-        if (targetElement.length > 0) {
-          const scrollOffset = 300;
-          const targetPosition = targetElement.offset().top - scrollOffset;
-
-          $("html, body").animate(
-            {
-              scrollTop: targetPosition,
-            },
-            1000
-          );
-        }
-      }
-    });
-  }
-  const navigationMenuLinks = $(
-    ".navigation-menu-section .navigation-menu-links a"
-  );
-  if (navigationMenuLinks.length > 0) {
-    navigationMenuLinks.on("click", function (e) {
-      const anchor = $(this).attr("href");
-
-      if (anchor && anchor.startsWith("#") && anchor.length > 1) {
-        e.preventDefault();
-
-        const targetElement = $(anchor);
-        if (targetElement.length > 0) {
-          const scrollOffset = 300;
-          const targetPosition = targetElement.offset().top - scrollOffset;
-
-          $("html, body").animate(
-            {
-              scrollTop: targetPosition,
-            },
-            1000
-          );
-        }
-      }
-      navigationMenuLinks.removeClass("active");
-      $(this).addClass("active");
     });
   }
 

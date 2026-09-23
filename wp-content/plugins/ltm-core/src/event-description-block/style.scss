@@ -1,5 +1,22 @@
 @use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
+
 .event-text-section {
+  // The theme publishes `.bordered-title` unscoped from base/_global.scss,
+  // which reaches the page only through hook_critical_css() (inc/enqueue.php)
+  // inlining base.min.css -- on the front end. The editor gets
+  // editor.min.css instead (inc/admin-customize.php), which has no such rule,
+  // and which is hooked on `enqueue_block_editor_assets` and so styles the
+  // editor chrome rather than the canvas iframe. Without this the ACF preview
+  // renders the title as plain body text.
+  //
+  // Declared through the theme's own mixin, so the values can't drift, and
+  // placed BEFORE eventTextSection so that mixin's deeper
+  // `.event-text-section-wrapper .bordered-title { margin-bottom: 32px }`
+  // still wins -- same cascade order as the front end.
+  .bordered-title {
+    @include borderedTitle;
+  }
+
   @include eventTextSection;
   &.blue-theme {
     .bordered-title {

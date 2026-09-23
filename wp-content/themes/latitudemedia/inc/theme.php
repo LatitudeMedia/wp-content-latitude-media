@@ -51,6 +51,16 @@ if (! function_exists('ltm_setup')) {
 
         add_theme_support('custom-spacing');
 
+        /*
+         * Load the site's base styles into the block editor canvas so block
+         * previews match the front end. add_editor_style() is the only route
+         * that stays inside the editor iframe: WordPress inlines the file and
+         * scopes it under `.editor-styles-wrapper`, whereas the enqueue hooks
+         * also fire for the surrounding wp-admin document.
+         */
+        add_theme_support('editor-styles');
+        add_editor_style('dist/css/editor.min.css');
+
         $black              = '#000000';
         $white              = '#ffffff';
         $primaryPink        = '#C6168D';

@@ -218,7 +218,7 @@ article {
     @include fontSize(18px);
     line-height: 24px;
     font-weight: normal;
-    margin-bottom: 24px;
+    margin-bottom: 24px !important;
     color: $primary-dark-blue;
   }
   h2 {
@@ -270,6 +270,29 @@ article {
       @include fontSize(18px);
       line-height: 24px;
       font-weight: normal;
+    }
+  }
+}
+
+.form-block {
+  @include formBlock;
+  &.purchase {
+    .button {
+      margin-bottom: 32px;
+    }
+    .center-link {
+      font-family: $inter;
+      @include fontSize(16px);
+      font-weight: 700;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline;
+      color: $white;
+      display: block;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

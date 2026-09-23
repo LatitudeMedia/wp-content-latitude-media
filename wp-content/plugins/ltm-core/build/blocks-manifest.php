@@ -135,7 +135,84 @@ return array(
 		),
 		'textdomain' => 'ltm',
 		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css'
+	),
+	'event-gray-icon-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-gray-icon-block',
+		'version' => '0.1.0',
+		'title' => 'Event gray icon block',
+		'category' => 'ltm-event-blocks',
+		'parent' => array(
+			'acf/event-description-block'
+		),
+		'icon' => 'editor-table',
+		'description' => 'Event gray icon block',
+		'keywords' => array(
+			'Event gray icon block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-navigation-menu-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-navigation-menu-block',
+		'version' => '0.1.0',
+		'title' => 'Event navigation menu block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'calendar-alt',
+		'description' => 'Event navigation menu block',
+		'keywords' => array(
+			'Event navigation menu block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
 	),
 	'event-preview-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

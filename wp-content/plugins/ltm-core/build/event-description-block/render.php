@@ -41,15 +41,19 @@ $blockAttrs = wp_kses_data(
 );
 
 // Identical in both styles -- built once so the two cannot drift apart.
+// allowedBlocks is the gray icon block (which is `parent`-restricted to this
+// block) plus every core block live Event content already uses in here. It
+// only gates the inserter; existing children of other types still load.
 $inner = sprintf(
 	'<div class="event-text-section-wrapper">
 	<div class="bordered-title green">%1$s</div>
 	<article>
-		<InnerBlocks template="%2$s" />
+		<InnerBlocks template="%2$s" allowedBlocks="%3$s" />
 	</article>
 </div>',
 	esc_html( $title ),
-	esc_attr( wp_json_encode( [ [ 'core/paragraph' ] ] ) )
+	esc_attr( wp_json_encode( [ [ 'core/paragraph' ] ] ) ),
+	esc_attr( wp_json_encode( [ 'acf/event-gray-icon-block', 'core/paragraph', 'core/heading', 'core/list', 'core/quote', 'core/columns' ] ) )
 );
 ?>
 
