@@ -2051,42 +2051,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_67050ea568064',
-        'title' => 'Speaker options',
-        'fields' => array(
-            array(
-                'key' => 'field_67050ea565c46',
-                'label' => 'Job Title',
-                'name' => 'job_title',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_67050ec665c47',
-                'label' => 'Company',
-                'name' => 'company',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_67050ecd65c48',
-                'label' => 'Linkedin Link',
-                'name' => 'linkedin_link',
-                'type' => 'text',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'speakers',
-                ),
-            ),
-        ),
-        'position' => 'side',
-        'style' => 'default',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_67050dbc6adca',
         'title' => 'Sponsor options',
         'fields' => array(

@@ -8,9 +8,9 @@ namespace LTMCore\Blocks;
  * The field group key and every field key are unchanged from the theme
  * version so existing post content keeps resolving to the same data.
  *
- * The speakers themselves remain a theme-registered post type, and their
- * per-speaker fields (job_title, company, linkedin_link) stay in the theme's
- * "Speaker options" group — this class only covers the block's own fields.
+ * This class only covers the block's own fields. The speakers post type and
+ * its per-speaker "Speaker options" fields (job_title, company, linkedin_link)
+ * also live in this plugin now — see LTMCore\PostTypes\Speakers.
  *
  * @package LTMCore
  */

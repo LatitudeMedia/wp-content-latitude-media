@@ -55,11 +55,12 @@ class EventSpeakersTest extends WP_UnitTestCase {
 		);
 	}
 
-	public function test_speakers_relationship_still_points_at_the_theme_post_type() {
-		// The speakers CPT stays registered by the theme for now; the block
-		// reads it across that boundary, so the relationship field must keep
-		// targeting it and keep returning plain IDs (render.php feeds them
-		// straight into WP_Query's post__in).
+	public function test_speakers_relationship_still_points_at_the_speakers_post_type() {
+		// The speakers CPT now lives in this plugin too (see
+		// LTMCore\PostTypes\Speakers), so this is no longer a cross-boundary
+		// read -- but the relationship field must still target that post type
+		// and still return plain IDs, which render.php feeds straight into
+		// WP_Query's post__in.
 		$field = acf_get_field( 'field_67459804b07ae' );
 
 		$this->assertIsArray( $field );

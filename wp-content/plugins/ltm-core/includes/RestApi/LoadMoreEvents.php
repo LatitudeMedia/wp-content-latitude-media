@@ -64,9 +64,15 @@ class LoadMoreEvents {
 			self::REST_API_NAMESPACE,
 			self::REST_API_LOAD_MORE_EVENTS,
 			array(
-				'methods'       => 'GET',
-				'callback'      => array( $this, 'load_more_events' ),
-				'show_in_index' => false,
+				'methods'  => 'GET',
+				'callback' => array( $this, 'load_more_events' ),
+				// Deliberately public: this powers the front-end "Load more
+				// events" control for anonymous visitors, and returns only
+				// published, non-gated events. WordPress requires an explicit
+				// permission_callback since 5.5 and warns without one, so use
+				// __return_true rather than leaving it out.
+				'permission_callback' => '__return_true',
+				'show_in_index'       => false,
 			)
 		);
 	}

@@ -5,8 +5,8 @@ add_image_size( 'home-top', 1300, 1424, true );
 add_image_size( 'single-resource-featured', 400, 518, false );
 add_image_size( 'resource-sponsor-logo', 159, 32, false );
 add_image_size( 'podcast-landing-overview', 413, 310, true );
-add_image_size( 'event-speakers-list', 230, 230, true );
-add_image_size( 'event-speakers-modal', 200, 200, true );
+// 'event-speakers-list' and 'event-speakers-modal' now live in the ltm-core
+// plugin, alongside the speakers post type — see LTMCore\PostTypes\Speakers.
 add_image_size( 'event-sponsors-list', 261, 160, false );
 add_image_size( 'image-text-default', 430);
 add_image_size( 'image-text-type4', 558);
