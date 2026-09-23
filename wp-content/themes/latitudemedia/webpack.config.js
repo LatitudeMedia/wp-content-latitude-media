@@ -49,8 +49,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/image-and-text.scss",
       "css/blocks/content-with-background-block":
         "./src/assets/scss/blocks/content-with-background-block.scss",
-      "css/blocks/authors-list-block":
-        "./src/assets/scss/blocks/authors-list-block.scss",
       "css/blocks/order-form-block":
         "./src/assets/scss/blocks/order-form-block.scss",
       "css/blocks/subscribe-form-block":
@@ -107,8 +105,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/our-approach-block.scss",
       "css/blocks/sample-campaign-block":
         "./src/assets/scss/blocks/sample-campaign-block.scss",
-      "css/blocks/popup-modal-block":
-        "./src/assets/scss/blocks/popup-modal-block.scss",
       "css/blocks/reviews-popup-block":
         "./src/assets/scss/blocks/reviews-popup-block.scss",
       "css/blocks/recap-video-block":

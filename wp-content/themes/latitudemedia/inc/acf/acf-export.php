@@ -3371,67 +3371,6 @@ Or select event manually.',
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_674597e182742',
-        'title' => 'Event speakers block',
-        'fields' => array(
-            array(
-                'key' => 'field_67449c4ecdcd9',
-                'label' => 'Event speakers block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_674597fdb07ad',
-                'label' => 'Title',
-                'name' => 'title',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_67459804b07ae',
-                'label' => 'Speakers',
-                'name' => 'speakers',
-                'type' => 'relationship',
-                'post_type' => array(
-                    0 => 'speakers',
-                ),
-                'post_status' => '',
-                'taxonomy' => '',
-                'filters' => array(
-                    0 => 'search',
-                ),
-                'return_format' => 'id',
-                'elements' => '',
-            ),
-            array(
-                'key' => 'field_67449c4ecdcda',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-            array(
-                'key' => 'field_6746402d35367',
-                'label' => 'Show "Read more" button',
-                'name' => 'show_read_more_button',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/event-speakers-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_6745c3ee06935',
         'title' => 'Event venue block',
         'fields' => array(

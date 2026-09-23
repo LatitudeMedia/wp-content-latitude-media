@@ -668,7 +668,6 @@ $blocks = array(
         'post_types'     => array('page'),
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Authors list block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -689,13 +688,6 @@ $blocks = array(
         'post_types'     => array('page'),
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Our team block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/authors-list-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-our-team-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css', array(), filemtime($css_path));
-            }
-        },
-
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -983,36 +975,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'event-speakers-block',
-            'title'         => __('Event speakers block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'megaphone',
-        'description' => __('Event speakers block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event speakers block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/authors-list-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-authors-list-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css', array(), filemtime($css_path));
-            }
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-speakers-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-sponsors-block',
             'title'         => __('Event sponsors block', 'ltm'),
             'path'          => 'event',
@@ -1026,10 +988,6 @@ $blocks = array(
             $css_path = get_template_directory() . '/dist/css/blocks/event-sponsors-block.min.css';
             if (file_exists($css_path)) {
                 wp_enqueue_style('block-acf-event-sponsors-block', get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css', array(), filemtime($css_path));
-            }
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
             }
         },
         'example'      => array(
@@ -1141,10 +1099,6 @@ $blocks = array(
             $css_path = get_template_directory() . '/dist/css/blocks/event-partners-block.min.css';
             if (file_exists($css_path)) {
                 wp_enqueue_style('block-acf-event-partners-block', get_template_directory_uri() . '/dist/css/blocks/event-partners-block.min.css', array(), filemtime($css_path));
-            }
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
             }
         },
         'example'      => array(
@@ -1355,12 +1309,6 @@ $blocks = array(
             "mode"  => false
         ),
         'mode' => 'preview',
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
-            }
-        },
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -1382,7 +1330,6 @@ $blocks = array(
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Reviews popup block', 'ltm')),
         'enqueue_assets' => function () {
-            wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css');
             wp_enqueue_style('block-acf-reviews-popup-block', get_template_directory_uri() . '/dist/css/blocks/reviews-popup-block.min.css');
         },
         'example'      => array(

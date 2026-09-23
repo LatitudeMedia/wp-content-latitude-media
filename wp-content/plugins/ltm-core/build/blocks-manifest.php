@@ -280,6 +280,40 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css'
 	),
+	'event-speakers-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-speakers-block',
+		'version' => '0.1.0',
+		'title' => 'Event speakers block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'megaphone',
+		'description' => 'Event speakers block',
+		'keywords' => array(
+			'Event speakers block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm'
+	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

@@ -58,6 +58,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/Blocks/EventDescription.php';
 	require_once __DIR__ . '/includes/Blocks/EventGrayIcon.php';
 	require_once __DIR__ . '/includes/Blocks/EventNavigationMenu.php';
+	require_once __DIR__ . '/includes/Blocks/EventSpeakers.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -78,5 +79,6 @@ function ltm_core_loader() {
 	new \LTMCore\Blocks\EventDescription();
 	new \LTMCore\Blocks\EventGrayIcon();
 	new \LTMCore\Blocks\EventNavigationMenu();
+	new \LTMCore\Blocks\EventSpeakers();
 };
 ltm_core_loader();

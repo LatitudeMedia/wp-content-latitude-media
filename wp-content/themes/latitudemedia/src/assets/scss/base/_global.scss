@@ -445,3 +445,347 @@ body.page-id-1941 {
 .space-y > :not(:last-child) {
     margin-block-end: 2.5rem;
 }
+
+/* Shared "our team" grid: used by authors-list-block, our-team-block and the
+   plugin-side acf/event-speakers-block. Global because more than one block
+   needs it and they no longer share a per-block stylesheet. */
+.our-team-section {
+  @include ourTeamSection;
+  &.blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    .team {
+      .content-folder {
+        .name {
+          &:hover {
+            color: $primary-blue !important;
+          }
+        }
+      }
+      .image-folder {
+        -webkit-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+        -moz-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+        box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      }
+      .modal-content {
+        .modal-folder {
+          .cross {
+            &:before {
+              background-color: $primary-blue !important;
+            }
+            &:after {
+              background-color: $primary-blue !important;
+            }
+          }
+          .description {
+            a {
+              color: $primary-blue !important;
+            }
+          }
+          .strict-button {
+            background-color: $primary-blue !important;
+            border-color: $primary-blue !important;
+            &:hover {
+              background-color: $white !important;
+              border-color: $primary-blue !important;
+              color: $primary-blue !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.pink-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+    .team {
+      .content-folder {
+        .name {
+          &:hover {
+            color: $primary-pink !important;
+          }
+        }
+      }
+      .image-folder {
+        -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+        -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
+        box-shadow: -10px 10px 0 0 #f9e8f4 !important  ;
+      }
+      .modal-content {
+        .modal-folder {
+          .cross {
+            &:before {
+              background-color: $primary-pink !important;
+            }
+            &:after {
+              background-color: $primary-pink !important;
+            }
+          }
+          .description {
+            a {
+              color: $primary-pink !important;
+            }
+          }
+          .strict-button {
+            background-color: $primary-pink !important;
+            border-color: $primary-pink !important;
+            &:hover {
+              background-color: $white !important;
+              border-color: $primary-pink !important;
+              color: $primary-pink !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Shared modal chrome: used by event-sponsors, event-partners, popup-modal and
+   reviews-popup blocks, plus the plugin-side acf/event-speakers-block. */
+/* modal styles */
+.modal-content {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .modal-folder {
+    width: 100%;
+    max-width: 960px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background: $white;
+    position: absolute;
+    z-index: 2;
+    @include below_md {
+      width: 90%;
+    }
+    @include below_sm {
+      top: 12%;
+      transform: translate(-50%, 0);
+      padding: 34px;
+    }
+    .wide-form-section {
+      margin-bottom: 0;
+      .wide-form-section-wrapper {
+        padding: 0;
+        .hs-error-msg {
+          color: red;
+        }
+        input {
+          &[type="text"] {
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+  .bio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    .avatar {
+      width: 200px;
+      margin-right: 20px;
+    }
+    .info {
+      h3 {
+        margin-bottom: 16px;
+      }
+      .occupation {
+        margin-bottom: 16px;
+      }
+      .company {
+        margin-bottom: 16px;
+      }
+      .connect {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        .label {
+          font-weight: 600;
+          margin-right: 8px;
+        }
+
+        .icon {
+          svg {
+            color: $primary-dark-blue;
+            @include transition3;
+          }
+        }
+      }
+    }
+    @include below_mob {
+      flex-direction: column;
+      align-items: flex-start;
+      .avatar {
+        width: 100%;
+        margin-bottom: 16px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .description {
+    font-family: $inter;
+    @include fontSize(18px);
+    line-height: 24px;
+    color: $primary-dark-blue;
+    margin-bottom: 20px;
+  }
+
+  .cross {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    @include below_mob {
+      right: 0;
+      top: 0;
+    }
+    &:before {
+      content: '';
+      display: block;
+      width: 2px;
+      height: 24px;
+      background-color: $green;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      left: 20px;
+      top: 10px;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 2px;
+      height: 24px;
+      background-color: $green;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      position: absolute;
+      left: 20px;
+      top: 10px;
+    }
+  }
+  &.pink {
+    .cross {
+      &:before {
+        background-color: $primary-pink;
+      }
+      &:after {
+        background-color: $primary-pink;
+      }
+    }
+    .bio {
+      .info {
+        .connect {
+          .icon {
+            &:hover {
+              svg {
+                color: $primary-pink;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.green {
+    .cross {
+      &:before {
+        background-color: $green;
+      }
+      &:after {
+        background-color: $green;
+      }
+    }
+    .bio {
+      .info {
+        .connect {
+          .icon {
+            &:hover {
+              svg {
+                color: $green;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.blue {
+    .cross {
+      &:before {
+        background-color: $blue;
+      }
+      &:after {
+        background-color: $blue;
+      }
+    }
+    .bio {
+      .info {
+        .connect {
+          .icon {
+            &:hover {
+              svg {
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.orange {
+    .cross {
+      &:before {
+        background-color: $orange;
+      }
+      &:after {
+        background-color: $orange;
+      }
+    }
+    .bio {
+      .info {
+        .connect {
+          .icon {
+            &:hover {
+              svg {
+                color: $orange;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.js-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100Vh;
+  background: rgba(0, 0, 0, .5);
+}
