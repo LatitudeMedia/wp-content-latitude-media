@@ -297,6 +297,16 @@ article {
   }
 }
 
+/* Editor-only stand-in for the subscriber-form block's embed code, emitted by
+   ltm-core's src/subscriber-form/render.php under ServerSideRender. Lives here
+   because it needs to reach the editor canvas via add_editor_style(); the
+   plugin's own style.scss is a front-end stylesheet. */
+.form-embed-placeholder {
+  opacity: 0.5;
+  text-align: center;
+  color: $white;
+}
+
 .advertise {
   text-align: center;
   a {
