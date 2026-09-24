@@ -14,6 +14,11 @@ $title   = get_field( 'title' ) ?: 'Agenda';
 $days    = get_field( 'days' ) ?: [];
 $display = get_field( 'display' );
 
+// Not an ACF field but a block attribute (see block.json + editor.js), so the
+// toggle can sit in the inspector's Styles tab beside the colour styles
+// rather than inside the Expanded Editor modal.
+$sticky = ! empty( $block['makeSticky'] );
+
 if ( ! $display && ! is_admin() ) {
 	return;
 }
@@ -66,11 +71,20 @@ foreach ( $days as $day_index => $day ) {
 	$processed_days[] = $processed_day;
 }
 
-$block_id   = $block['anchor'] ?: 'agenda-' . uniqid();
+$block_id     = $block['anchor'] ?: 'agenda-' . uniqid();
+$theme_class  = \LTMCore\Blocks\EventAgendaV2::theme_class( $block['className'] ?? '' );
+$block_classes = array_filter(
+	[
+		'content-block',
+		'event-agenda-v2-section',
+		$theme_class,
+		$sticky ? 'is-sticky' : '',
+	]
+);
 $blockAttrs = wp_kses_data(
 	get_block_wrapper_attributes(
 		[
-			'class' => 'content-block event-agenda-v2-section',
+			'class' => implode( ' ', $block_classes ),
 			'id'    => $block_id,
 		]
 	)

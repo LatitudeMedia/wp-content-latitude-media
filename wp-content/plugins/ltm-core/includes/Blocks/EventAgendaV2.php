@@ -39,6 +39,34 @@ class EventAgendaV2 {
 	}
 
 	/**
+	 * Resolves a block instance's className to its theme colour class.
+	 *
+	 * The block's styles are registered in block.json as `pink-theme` and
+	 * `blue-theme`, which the editor writes as `is-style-pink-theme` /
+	 * `is-style-blue-theme`. style.scss targets the bare `.pink-theme` /
+	 * `.blue-theme` tokens (as the theme has always done, and as posts using
+	 * an Additional-CSS-class still do), so render.php echoes the bare token
+	 * alongside. Default (green) maps to no extra class.
+	 *
+	 * Matches exact class tokens rather than the theme's ltm_get_block_style()
+	 * for the reasons spelled out in EventDescription::is_type2().
+	 *
+	 * @param string $class_name The block's className attribute.
+	 * @return string `blue-theme`, `pink-theme`, or an empty string.
+	 */
+	public static function theme_class( string $class_name ): string {
+		$classes = preg_split( '/\s+/', $class_name, -1, PREG_SPLIT_NO_EMPTY ) ?: [];
+
+		foreach ( [ 'blue-theme', 'pink-theme' ] as $theme ) {
+			if ( in_array( 'is-style-' . $theme, $classes, true ) ) {
+				return $theme;
+			}
+		}
+
+		return '';
+	}
+
+	/**
 	 * Registers the "Event agenda V2 block" field group.
 	 *
 	 * Adds a `collapsed` row-summary field to the `days` and `agenda_items`

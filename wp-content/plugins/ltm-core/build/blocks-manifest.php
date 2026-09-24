@@ -67,14 +67,36 @@ return array(
 		'example' => array(
 			
 		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'attributes' => array(
+			'makeSticky' => array(
+				'type' => 'boolean',
+				'default' => false
+			)
+		),
 		'supports' => array(
 			'anchor' => true,
 			'spacing' => array(
-				'margin' => true,
-				'padding' => true
+				'margin' => false,
+				'padding' => false
 			),
-			'color' => true,
-			'baseColor' => true
+			'typography' => array(
+				'color' => false
+			)
 		),
 		'acf' => array(
 			'blockVersion' => 3,
@@ -87,6 +109,7 @@ return array(
 		),
 		'textdomain' => 'ltm',
 		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'script' => 'file:./view.js'
 	),

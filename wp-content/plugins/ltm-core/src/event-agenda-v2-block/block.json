@@ -9,14 +9,26 @@
 	"description": "Event agenda V2 block",
 	"keywords": [ "Event agenda V2 block" ],
 	"example": {},
+	"styles": [
+		{ "name": "default", "label": "Default (Green)", "isDefault": true },
+		{ "name": "pink-theme", "label": "Pink" },
+		{ "name": "blue-theme", "label": "Blue" }
+	],
+	"attributes": {
+		"makeSticky": {
+			"type": "boolean",
+			"default": false
+		}
+	},
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": true,
-			"padding": true
+			"margin": false,
+			"padding": false
 		},
-		"color": true,
-		"baseColor": true
+		"typography": {
+			"color": false
+		}
 	},
 	"acf": {
 		"blockVersion": 3,
@@ -27,6 +39,7 @@
 	},
 	"textdomain": "ltm",
 	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"script": "file:./view.js"
 }

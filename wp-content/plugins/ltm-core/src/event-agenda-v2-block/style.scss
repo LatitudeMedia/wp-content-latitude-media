@@ -85,6 +85,19 @@
       }
     }
   }
+  // Pins the day buttons while the agenda scrolls past. `top` matches the
+  // sticky header offset used by .navigation-menu-section.
+  &.is-sticky {
+    .event-agenda-v2-day-buttons {
+      position: sticky;
+      top: 164px;
+      z-index: 9;
+      background-color: $white;
+      padding: 10px 0;
+      margin-bottom: 0;
+    }
+  }
+
   .event-agenda-v2-day-buttons {
     display: flex;
     justify-content: center;
