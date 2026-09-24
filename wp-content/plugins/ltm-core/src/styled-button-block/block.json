@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/styled-button-block",
+	"version": "0.1.0",
+	"title": "Styled button block",
+	"category": "ltm-page-blocks",
+	"icon": "button",
+	"description": "Styled button block",
+	"keywords": [ "Styled button block" ],
+	"example": {},
+	"supports": {
+		"anchor": true,
+		"color": true,
+		"baseColor": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"textdomain": "ltm"
+}

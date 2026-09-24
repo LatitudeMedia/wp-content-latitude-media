@@ -1,0 +1,67 @@
+@use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
+
+// Split out of the theme's src/assets/scss/blocks/image-and-text.scss during
+// the migration. Only the rule sets this block alone uses live here; the
+// `.image-text-section` base moved to the theme's base/_global.scss instead,
+// because research-preview-block and order-preview-block still emit that class
+// and are staying in the theme.
+
+// The theme publishes `.bordered-title` unscoped from base/_global.scss, which
+// reaches the page only through hook_critical_css() (inc/enqueue.php) inlining
+// base.min.css -- on the front end. The editor canvas never gets it, so
+// without this the ACF preview renders the title as plain body text. Same
+// reasoning (and same fix) as event-description-block/style.scss.
+.logo-description-block,
+.icon-text-block,
+.podcasts-sponsorship-section,
+.image-text-section {
+  .bordered-title {
+    @include borderedTitle;
+  }
+}
+
+.logo-description-block {
+  margin-bottom: 64px;
+  @include logoDescriptionBlock;
+}
+
+.icon-text-block {
+  margin-bottom: 64px;
+  @include iconTextBlock;
+  @include below_sm {
+    margin-bottom: 32px;
+  }
+}
+
+.podcasts-sponsorship-section {
+  margin-bottom: 64px;
+  @include podcastsSponsorshipSection;
+}
+
+// `.image-text-section` itself is in the theme's base/_global.scss; this
+// style-specific override is block-only, and its two-class selector outranks
+// the base rule regardless of stylesheet order.
+.image-text-section.is-style-type4 {
+  .image-text-section-wrapper {
+    .image-folder {
+      @include imageFolderLarge;
+
+      a {
+        padding-top: 53.8%;
+      }
+    }
+
+    .content-folder {
+      p {
+        a {
+          font-weight: 400;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
