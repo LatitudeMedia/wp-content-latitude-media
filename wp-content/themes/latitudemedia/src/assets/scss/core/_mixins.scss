@@ -3449,8 +3449,18 @@
             position: absolute;
             left: 0;
             top: 0;
+            // Sass resolves a relative url() against the stylesheet being
+            // compiled, not against the file the rule is written in. This
+            // mixin's only consumer is now ltm-core's
+            // src/image-and-text/style.scss, which sits one level shallower
+            // than the theme entry points -- hence the path below, which looks
+            // wrong from _mixins.scss's own location but is correct from
+            // there. If a theme stylesheet ever includes this mixin again,
+            // override the declaration in that consumer instead of changing
+            // this line back.
             background: transparent
-              url(../../../images/icon_right_pink_arrow.svg) top left no-repeat;
+              url(../../../../themes/latitudemedia/src/images/icon_right_pink_arrow.svg)
+              top left no-repeat;
           }
         }
       }

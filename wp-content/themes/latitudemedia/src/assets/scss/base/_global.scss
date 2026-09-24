@@ -779,6 +779,17 @@ body.page-id-1941 {
     }
   }
 }
+// Promoted here when acf/image-and-text moved into ltm-core. The block owns
+// its other rule sets (now in that plugin's src/image-and-text/style.scss),
+// but `.image-text-section` is shared: research-preview-block and
+// order-preview-block both emit it and are staying in the theme, so it cannot
+// live in the plugin. Previously compiled into
+// dist/css/blocks/image-and-text.min.css, which those two blocks enqueued.
+.image-text-section {
+  margin-bottom: 64px;
+  @include imageTextSection;
+}
+
 .js-modal-overlay {
   display: none;
   position: fixed;

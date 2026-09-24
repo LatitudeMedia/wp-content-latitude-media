@@ -350,6 +350,76 @@ return array(
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
+	'image-and-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/image-and-text',
+		'version' => '0.1.0',
+		'title' => 'Image and text',
+		'category' => 'ltm-page-blocks',
+		'icon' => 'align-left',
+		'description' => 'Image and text',
+		'keywords' => array(
+			'Image and text'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'type2',
+				'label' => 'Type 2 (inverse)'
+			),
+			array(
+				'name' => 'type3',
+				'label' => 'Type 3'
+			),
+			array(
+				'name' => 'type4',
+				'label' => 'Type 4'
+			),
+			array(
+				'name' => 'type5',
+				'label' => 'Type 5 (background)'
+			),
+			array(
+				'name' => 'type6',
+				'label' => 'Type 6 (square)'
+			),
+			array(
+				'name' => 'type7',
+				'label' => 'Type 7'
+			),
+			array(
+				'name' => 'type8',
+				'label' => 'Type 8 (inverse)'
+			)
+		),
+		'supports' => array(
+			'jsx' => true,
+			'anchor' => true,
+			'align' => true,
+			'color' => true,
+			'baseColor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
 	'news-type-preview' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -390,6 +460,37 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
+	),
+	'styled-button-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/styled-button-block',
+		'version' => '0.1.0',
+		'title' => 'Styled button block',
+		'category' => 'ltm-page-blocks',
+		'icon' => 'button',
+		'description' => 'Styled button block',
+		'keywords' => array(
+			'Styled button block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'color' => true,
+			'baseColor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'textdomain' => 'ltm'
 	),
 	'subscriber-form' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

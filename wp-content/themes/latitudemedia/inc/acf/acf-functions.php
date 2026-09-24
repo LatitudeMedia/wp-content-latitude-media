@@ -56,80 +56,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'image-and-text',
-            'title'         => __('Image and text', 'ltm'),
-            'path'          => 'common',
-        ),
-        'icon'          => 'align-left',
-        'description' => __('Image and text', 'ltm'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Image and text', 'ltm')),
-        "supports" =>  array(
-            "jsx" =>  true,
-            "anchor" =>  true,
-            "spacing" => array(
-                "margin" => true,
-                "padding" => true,
-            ),
-            "color" => true,
-            "baseColor" => true,
-            "align" => true,
-        ),
-        'mode' => 'preview',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2 (inverse)', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type3',
-                'label' => __('Type 3', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type4',
-                'label' => __('Type 4', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type5',
-                'label' => __('Type 5 (background)', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type6',
-                'label' => __('Type 6 (square)', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type7',
-                'label' => __('Type 7', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type8',
-                'label' => __('Type 8 (inverse)', 'ltm'),
-                'isDefault' => true,
-            ],
-        ],
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'image-and-text.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'content-with-background-block',
             'title'         => __('Content with background block', 'ltm'),
             'path'          => 'common',
@@ -156,37 +82,6 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'content-with-background-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'styled-button-block',
-            'title'         => __('Styled button block', 'ltm'),
-            'path'          => 'common',
-            'display'          => true,
-        ),
-        'icon'          => 'button',
-        'description' => __('Styled button block', 'ltm'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Styled button block', 'ltm')),
-        "supports" =>  array(
-            "jsx" =>  true,
-            "anchor" =>  true,
-            "spacing" => array(
-                "margin" => true,
-                "padding" => true,
-            ),
-            "color" => true,
-            "baseColor" => true
-        ),
-        'mode' => 'preview',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'styled-button-block.png',
                 )
             )
         )
@@ -874,7 +769,6 @@ $blocks = array(
         'post_types'     => array('research'),
         'category'      => 'ltm-research-blocks',
         'keywords'    => array(__('Research preview block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -916,7 +810,6 @@ $blocks = array(
         'post_types'     => array('order-reports'),
         'category'      => 'ltm-order-report-blocks',
         'keywords'    => array(__('Order preview block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',

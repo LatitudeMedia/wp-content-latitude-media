@@ -186,9 +186,6 @@ function hook_critical_css()
         $critical_css .= file_get_contents(get_template_directory() . '/dist/css/single-podcast.min.css');
     }
 
-    if (is_singular(['research'])) {
-        $critical_css .= file_get_contents(get_template_directory() . '/dist/css/blocks/image-and-text.min.css');
-    }
 
     if (is_post_type_archive(['resources'])) {
         $critical_css .= file_get_contents(get_template_directory() . '/dist/css/resources-archive.min.css');

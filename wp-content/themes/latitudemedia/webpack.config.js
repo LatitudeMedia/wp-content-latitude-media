@@ -45,8 +45,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/research-banner-block.scss",
       "css/blocks/research-overview-block":
         "./src/assets/scss/blocks/research-overview-block.scss",
-      "css/blocks/image-and-text":
-        "./src/assets/scss/blocks/image-and-text.scss",
       "css/blocks/content-with-background-block":
         "./src/assets/scss/blocks/content-with-background-block.scss",
       "css/blocks/order-form-block":

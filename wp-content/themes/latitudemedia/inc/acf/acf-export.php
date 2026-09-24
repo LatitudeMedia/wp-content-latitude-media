@@ -2616,77 +2616,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_6735515080ec9',
-        'title' => 'Image and text',
-        'fields' => array(
-            array(
-                'key' => 'field_67354f9994827',
-                'label' => 'Image and text',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_6735515f7ffa2',
-                'label' => 'Title',
-                'name' => 'title',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_673551687ffa3',
-                'label' => 'Logo',
-                'name' => 'logo',
-                'type' => 'image',
-                'return_format' => 'array',
-                'library' => 'all',
-                'preview_size' => 'medium',
-            ),
-            array(
-                'key' => 'field_674f062c18efb',
-                'label' => 'Image link',
-                'name' => 'image_link',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_67362db82424e',
-                'label' => 'Base color',
-                'name' => 'base_color',
-                'type' => 'color_picker',
-                'default_value' => '#C6168D',
-                'enable_opacity' => 0,
-                'return_format' => 'string',
-            ),
-            array(
-                'key' => 'field_6745b76159f4c',
-                'label' => 'Shadow color',
-                'name' => 'shadow_color',
-                'type' => 'color_picker',
-                'default_value' => '#F9E8F4',
-                'enable_opacity' => 0,
-                'return_format' => 'string',
-            ),
-            array(
-                'key' => 'field_67354f9994828',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/image-and-text',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_673551451512b',
         'title' => 'Research preview block',
         'fields' => array(
@@ -3008,35 +2937,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'style' => 'seamless'
     ));
 
-    acf_add_local_field_group(array(
-        'key' => 'field_673b3369c9f5e',
-        'title' => 'Styled button block',
-        'fields' => array(
-            array(
-                'key' => 'field_673b3369c9f5f',
-                'label' => 'Styled button block',
-                'name' => '',
-                'type' => 'message',
-            ),
-            array(
-                'key' => 'field_673b3369c9f60',
-                'label' => 'Button',
-                'name' => 'button',
-                'type' => 'link',
-                'return_format' => 'array',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/styled-button-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless'
-    ));
     acf_add_local_field_group(array(
         'key' => 'group_673d1350d0368',
         'title' => 'Sidebar info block',
