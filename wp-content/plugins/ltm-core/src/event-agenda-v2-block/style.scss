@@ -1,5 +1,8 @@
 @import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
 
+.logged-in .event-agenda-v2-section.is-sticky .event-agenda-v2-day-buttons {
+  top: 283px;
+}
 .event-agenda-v2-section {
   margin-bottom: 64px;
 
@@ -18,7 +21,20 @@
     @include borderedTitle;
   }
 
-  &.blue-theme {
+  // Pins the day buttons while the agenda scrolls past. `top` matches the
+  // sticky header offset used by .navigation-menu-section.
+  &.is-sticky {
+    .event-agenda-v2-day-buttons {
+      position: sticky;
+      top: 164px;
+      z-index: 9;
+      background-color: $white;
+      padding: 10px 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &.blue-theme, &.is-style-blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
     }
@@ -50,7 +66,7 @@
       }
     }
   }
-  &.pink-theme {
+  &.pink-theme, &.is-style-pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
     }
@@ -83,18 +99,6 @@
           border-top: none !important;
         }
       }
-    }
-  }
-  // Pins the day buttons while the agenda scrolls past. `top` matches the
-  // sticky header offset used by .navigation-menu-section.
-  &.is-sticky {
-    .event-agenda-v2-day-buttons {
-      position: sticky;
-      top: 164px;
-      z-index: 9;
-      background-color: $white;
-      padding: 10px 0;
-      margin-bottom: 0;
     }
   }
 

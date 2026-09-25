@@ -1,5 +1,20 @@
 /**
- * Keeps the type2 preview in step with the "General event options" meta box.
+ * Editor-only behaviour for acf/event-description-block. Two separate concerns:
+ *
+ * 1. The "Displays page form?" inspector toggle (see the bottom of this file).
+ * 2. Keeping that form preview in step with the "General event options" meta
+ *    box, which is what the rest of this file does.
+ */
+import { addFilter } from '@wordpress/hooks';
+import { createHigherOrderComponent } from '@wordpress/compose';
+import { InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, ToggleControl } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+
+/**
+ * -- 1. Meta box mirroring --------------------------------------------------
+ *
+ * Keeps the form preview in step with the "General event options" meta box.
  *
  * "Form text" (field_6713ae8de1570) and "Form code / Registration CTA"
  * (field_6713aea8e1571) live in the theme's side meta box, not on the block,
@@ -97,3 +112,75 @@ if ( window.acf ) {
 } else {
 	document.addEventListener( 'DOMContentLoaded', hookPreviewRenders );
 }
+
+/**
+ * -- 2. The "Displays page form?" toggle -------------------------------------
+ *
+ * This used to be a block style (block.json `styles`: default / type2), which
+ * meant a layout-and-data switch was sitting in the Styles tab labelled "Type 2
+ * (with form)", and it permanently occupied the one mutually-exclusive
+ * `is-style-*` slot -- so no actual visual style could ever be added alongside
+ * it. Same reasoning as `makeSticky` in event-agenda-v2-block/editor.js.
+ *
+ * ACF renders this block in `preview` mode, so there is no edit component of
+ * our own to hang the panel off; the `editor.BlockEdit` filter wraps ACF's.
+ *
+ * `showForm` is declared in block.json with NO default, which is load-bearing:
+ * it makes `undefined` a third state meaning "saved before this toggle
+ * existed". Those blocks still carry the old `is-style-type2` class, so both
+ * here and in EventDescription::shows_form() they fall back to it and keep
+ * rendering the form -- no data migration.
+ */
+
+const BLOCK_NAME = 'acf/event-description-block';
+
+/**
+ * Mirrors EventDescription::has_legacy_type2_class().
+ *
+ * @param {string} className The block's className attribute.
+ * @return {boolean} Whether it carries the retired type2 block style class.
+ */
+function hasLegacyType2Class( className ) {
+	return ( className ?? '' ).split( /\s+/ ).includes( 'is-style-type2' );
+}
+
+const withShowFormToggle = createHigherOrderComponent(
+	( BlockEdit ) => ( props ) => {
+		if ( props.name !== BLOCK_NAME ) {
+			return <BlockEdit { ...props } />;
+		}
+
+		const { attributes, setAttributes } = props;
+		const checked =
+			attributes.showForm ?? hasLegacyType2Class( attributes.className );
+
+		return (
+			<>
+				<BlockEdit { ...props } />
+				<InspectorControls group="styles">
+					<PanelBody title={ __( 'Layout', 'ltm' ) }>
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Displays page form?', 'ltm' ) }
+							help={ __(
+								"Adds a sidebar column with the event's registration form, taken from the Event's General event options.",
+								'ltm'
+							) }
+							checked={ !! checked }
+							onChange={ ( showForm ) =>
+								setAttributes( { showForm } )
+							}
+						/>
+					</PanelBody>
+				</InspectorControls>
+			</>
+		);
+	},
+	'withShowFormToggle'
+);
+
+addFilter(
+	'editor.BlockEdit',
+	'ltm/event-description-show-form',
+	withShowFormToggle
+);

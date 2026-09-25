@@ -9,18 +9,25 @@
 	"description": "Event description block",
 	"keywords": [ "Event description block" ],
 	"example": {},
+	"attributes": {
+		"showForm": {
+			"type": "boolean"
+		}
+	},
 	"styles": [
-		{ "name": "default", "label": "Default", "isDefault": true },
-		{ "name": "type2", "label": "Type 2 (with form)" }
+		{ "name": "default", "label": "Default (Green)", "isDefault": true },
+		{ "name": "pink-theme", "label": "Pink" },
+		{ "name": "blue-theme", "label": "Blue" }
 	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
-			"margin": true,
-			"padding": true
+			"margin": false,
+			"padding": false
 		},
-		"color": true,
-		"baseColor": true
+		"typography": {
+			"color": false
+		}
 	},
 	"acf": {
 		"blockVersion": 3,
@@ -30,6 +37,5 @@
 	},
 	"textdomain": "ltm",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
 }

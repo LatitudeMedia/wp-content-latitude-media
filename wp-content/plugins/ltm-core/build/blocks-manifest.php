@@ -128,25 +128,35 @@ return array(
 		'example' => array(
 			
 		),
+		'attributes' => array(
+			'showForm' => array(
+				'type' => 'boolean'
+			)
+		),
 		'styles' => array(
 			array(
 				'name' => 'default',
-				'label' => 'Default',
+				'label' => 'Default (Green)',
 				'isDefault' => true
 			),
 			array(
-				'name' => 'type2',
-				'label' => 'Type 2 (with form)'
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
 			)
 		),
 		'supports' => array(
 			'anchor' => true,
 			'spacing' => array(
-				'margin' => true,
-				'padding' => true
+				'margin' => false,
+				'padding' => false
 			),
-			'color' => true,
-			'baseColor' => true
+			'typography' => array(
+				'color' => false
+			)
 		),
 		'acf' => array(
 			'blockVersion' => 3,
@@ -158,7 +168,6 @@ return array(
 		),
 		'textdomain' => 'ltm',
 		'editorScript' => 'file:./index.js',
-		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css'
 	),
 	'event-gray-icon-block' => array(
@@ -289,7 +298,14 @@ return array(
 			
 		),
 		'supports' => array(
-			
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'typography' => array(
+				'color' => false
+			)
 		),
 		'acf' => array(
 			'blockVersion' => 3,
@@ -321,11 +337,14 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'spacing' => array(
-				'margin' => true,
-				'padding' => true
+				'margin' => false,
+				'padding' => false
 			),
-			'color' => true,
-			'baseColor' => true
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
 		),
 		'acf' => array(
 			'blockVersion' => 3,

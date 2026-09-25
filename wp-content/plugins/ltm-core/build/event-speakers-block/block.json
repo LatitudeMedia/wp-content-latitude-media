@@ -14,11 +14,14 @@
   "supports": {
     "anchor": true,
     "spacing": {
-      "margin": true,
-      "padding": true
+      "margin": false,
+      "padding": false
     },
-    "color": true,
-    "baseColor": true
+    "color": {
+      "text": false,
+      "background": false
+    },
+    "baseColor": false
   },
   "acf": {
     "blockVersion": 3,

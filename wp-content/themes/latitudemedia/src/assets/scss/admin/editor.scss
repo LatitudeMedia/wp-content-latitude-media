@@ -4,11 +4,7 @@
 // reaches the surrounding admin page the way an enqueue would.
 @use "../base/base_loader";
 
-.editor-content-wrapper {
-  border: 1px solid black;
-}
-
-.event-text-section {
-  border: 1px solid black;
-  padding: 5px;
+.mce-content-body{
+  padding-top: 0 !important;
+  margin: 25px;
 }

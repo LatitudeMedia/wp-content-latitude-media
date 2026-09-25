@@ -1,5 +1,5 @@
 /**
- * Editor tests for acf/event-description-block's type2 preview
+ * Editor tests for acf/event-description-block's form preview
  * (src/event-description-block/editor.js): typing into the theme's "Form
  * text" meta box input must update the preview's form title live, without a
  * save, and survive ACF re-rendering the preview.
@@ -18,6 +18,8 @@ const FORM_TEXT_INPUT = '.acf-field[data-key="field_6713ae8de1570"] input';
 
 /**
  * Same iframe-or-not helper as specs/editor/featured-post-block.spec.js.
+ * @param page
+ * @param editor
  */
 async function getEditorContent( page, editor ) {
 	const hasCanvasIframe = await page
@@ -28,8 +30,8 @@ async function getEditorContent( page, editor ) {
 		: page.getByLabel( 'Editor content' );
 }
 
-const type2Markup = [
-	`<!-- wp:${ BLOCK } {"name":"${ BLOCK }","data":{"title":"About","_title":"field_674595b6064e9","display":"1","_display":"field_674481518f9b5"},"mode":"preview","className":"is-style-type2"} -->`,
+const formMarkup = [
+	`<!-- wp:${ BLOCK } {"name":"${ BLOCK }","data":{"title":"About","_title":"field_674595b6064e9","display":"1","_display":"field_674481518f9b5"},"mode":"preview","showForm":true} -->`,
 	'<!-- wp:paragraph --><p>Description copy.</p><!-- /wp:paragraph -->',
 	`<!-- /wp:${ BLOCK } -->`,
 ].join( '\n' );
@@ -42,7 +44,10 @@ test.describe( 'Event description block editor', () => {
 			.rest( { path: `/wp/v2/block-types/${ BLOCK }` } )
 			.then( () => true )
 			.catch( () => false );
-		test.skip( ! registered, `${ BLOCK } is not registered (ACF Pro inactive).` );
+		test.skip(
+			! registered,
+			`${ BLOCK } is not registered (ACF Pro inactive).`
+		);
 	} );
 
 	test.afterEach( async ( { requestUtils } ) => {
@@ -55,7 +60,7 @@ test.describe( 'Event description block editor', () => {
 		}
 	} );
 
-	test( 'type2 preview mirrors the Form text meta box input live', async ( {
+	test( 'form preview mirrors the Form text meta box input live', async ( {
 		admin,
 		editor,
 		page,
@@ -67,7 +72,7 @@ test.describe( 'Event description block editor', () => {
 			data: {
 				title: 'Type 2 Form Text Event',
 				status: 'publish',
-				content: type2Markup,
+				content: formMarkup,
 			},
 		} );
 		createdIds.push( event.id );
@@ -101,7 +106,9 @@ test.describe( 'Event description block editor', () => {
 		);
 		await blockTitle.fill( 'ABOUT THE SUMMIT' );
 		await expect(
-			content.locator( '.wp-block-acf-event-description-block .bordered-title' )
+			content.locator(
+				'.wp-block-acf-event-description-block .bordered-title'
+			)
 		).toHaveText( 'ABOUT THE SUMMIT' );
 		await expect( formTitle ).toHaveText( 'Save your seat' );
 
@@ -110,6 +117,6 @@ test.describe( 'Event description block editor', () => {
 			path: `/wp/v2/events/${ event.id }`,
 			params: { context: 'edit' },
 		} );
-		expect( saved.content.raw ).toBe( type2Markup );
+		expect( saved.content.raw ).toBe( formMarkup );
 	} );
 } );

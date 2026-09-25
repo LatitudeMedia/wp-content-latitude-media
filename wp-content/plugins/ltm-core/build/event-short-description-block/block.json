@@ -11,7 +11,16 @@
     "Event short description block"
   ],
   "example": {},
-  "supports": {},
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": false,
+      "padding": false
+    },
+    "typography": {
+      "color": false
+    }
+  },
   "acf": {
     "blockVersion": 3,
     "mode": "preview",

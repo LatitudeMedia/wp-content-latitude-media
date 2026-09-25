@@ -8,11 +8,11 @@ namespace LTMCore\Blocks;
  * The field group key and every field key are unchanged from the theme
  * version so existing post content keeps resolving to the same data.
  *
- * Note: this block's "type2" style also reads two fields from a second,
- * broader field group ("General event options", post_type == events) that is
- * NOT part of this class or this migration — that group stays defined in the
- * theme and is read via plain get_field( ..., $post_id ) in render.php, same
- * as before the move. The two fields are form_text (field_6713ae8de1570) and
+ * Note: this block's form layout also reads two fields from a second, broader
+ * field group ("General event options", post_type == events) that is NOT part
+ * of this class or this migration — that group stays defined in the theme and
+ * is read via plain get_field( ..., $post_id ) in render.php, same as before
+ * the move. The two fields are form_text (field_6713ae8de1570) and
  * form_code__registration_cta (field_6713aea8e1571).
  *
  * @package LTMCore
@@ -41,7 +41,34 @@ class EventDescription {
 	}
 
 	/**
-	 * Whether a block instance uses the "type2" (with form) style.
+	 * Whether a block instance renders the registration form sidebar.
+	 *
+	 * The switch is the `showForm` boolean attribute (block.json + the
+	 * inspector toggle in editor.js), which deliberately has NO default: that
+	 * makes "absent" a third, meaningful state meaning "saved before the toggle
+	 * existed". Those legacy blocks instead carry the `is-style-type2` class
+	 * from the block style this replaced, so they fall through to the class
+	 * check and keep rendering the form with no data migration. Giving the
+	 * attribute a `false` default would collapse them all to "off" — see the
+	 * legacy fixture in specs/frontend/event-description-block.spec.js.
+	 *
+	 * @param array $block The ACF block array (attributes + className).
+	 * @return bool
+	 */
+	public static function shows_form( array $block ): bool {
+		// An explicit false still serializes (there is no default for it to
+		// match), so only a never-touched toggle reaches the legacy check.
+		// null counts as never-touched: a declared-but-unset attribute can
+		// arrive that way rather than being absent from the array.
+		if ( array_key_exists( 'showForm', $block ) && null !== $block['showForm'] ) {
+			return (bool) $block['showForm'];
+		}
+
+		return self::has_legacy_type2_class( $block['className'] ?? '' );
+	}
+
+	/**
+	 * Whether a block instance carries the retired "type2" block style class.
 	 *
 	 * A token match rather than the theme's ltm_get_block_style(): that helper
 	 * lives in the theme, and ltm-core must not hard-depend on theme globals.
@@ -54,7 +81,7 @@ class EventDescription {
 	 * @param string $class_name The block's className attribute.
 	 * @return bool
 	 */
-	public static function is_type2( string $class_name ): bool {
+	private static function has_legacy_type2_class( string $class_name ): bool {
 		$classes = preg_split( '/\s+/', $class_name, -1, PREG_SPLIT_NO_EMPTY );
 
 		return is_array( $classes ) && in_array( 'is-style-type2', $classes, true );

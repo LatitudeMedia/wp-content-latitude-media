@@ -72,13 +72,21 @@ foreach ( $days as $day_index => $day ) {
 }
 
 $block_id     = $block['anchor'] ?: 'agenda-' . uniqid();
-$theme_class  = \LTMCore\Blocks\EventAgendaV2::theme_class( $block['className'] ?? '' );
+// className is passed through explicitly because ACF's AJAX preview re-render
+// (acf/ajax/fetch-block) calls this template with no WP_Block, so
+// WP_Block_Supports::$block_to_render is unset and
+// get_block_wrapper_attributes() emits none of the supports-derived classes --
+// including the `is-style-*` one carrying the Pink/Blue theme. Without this,
+// picking a style and then clicking another block (which is when ACF re-renders
+// the preview) dropped the theme and the agenda snapped back to green. Core
+// array_unique()s the merged class list, so the front-end path, where the
+// custom-class-name support does add it, is unchanged.
 $block_classes = array_filter(
 	[
 		'content-block',
 		'event-agenda-v2-section',
-		$theme_class,
 		$sticky ? 'is-sticky' : '',
+    $block['className'] 
 	]
 );
 $blockAttrs = wp_kses_data(

@@ -9,7 +9,7 @@
  * taken. Everything here is assertable without rendering: that the field
  * group survived the move intact, that the block registered from the
  * committed build/ manifest, and that the one piece of genuinely new logic
- * (style selection) behaves. Real render coverage for both styles lives in
+ * (layout selection) behaves. Real render coverage for both layouts lives in
  * specs/frontend/event-description-block.spec.js, where each page load is its
  * own PHP process and the ACF constraint does not apply.
  *
@@ -60,53 +60,96 @@ class EventDescriptionTest extends WP_UnitTestCase {
 		);
 	}
 
-	public function test_block_is_registered_with_both_styles() {
+	/**
+	 * The form layout is a toggle, not a block style, so the block must
+	 * register the showForm attribute; the one mutually-exclusive is-style-*
+	 * slot is spent on the colour themes instead.
+	 *
+	 * showForm having no default is load-bearing rather than an oversight: it
+	 * is what makes an absent attribute mean "saved before the toggle existed"
+	 * and so lets legacy is-style-type2 blocks keep their form with no data
+	 * migration. Asserted explicitly so a well-meaning `"default": false` in
+	 * block.json fails here instead of silently on live content.
+	 */
+	public function test_block_registers_the_show_form_attribute_and_theme_styles() {
 		$block = WP_Block_Type_Registry::get_instance()->get_registered( 'acf/event-description-block' );
 
 		$this->assertNotNull( $block, 'acf/event-description-block is not registered.' );
 
-		$styles = array_map(
-			static fn( $style ) => [ $style['name'], ! empty( $style['isDefault'] ) ],
-			(array) $block->styles
+		$this->assertSame(
+			[ 'default', 'pink-theme', 'blue-theme' ],
+			array_column( (array) $block->styles, 'name' )
 		);
 
-		// Exactly one default: the theme registration marked BOTH styles
-		// isDefault, which is incoherent (isDefault means "active when no
-		// is-style-* class is present"). Fixed during the migration.
-		$this->assertSame(
-			[
-				[ 'default', true ],
-				[ 'type2', false ],
-			],
-			$styles
+		$this->assertArrayHasKey( 'showForm', (array) $block->attributes );
+		$this->assertSame( 'boolean', $block->attributes['showForm']['type'] );
+		$this->assertArrayNotHasKey(
+			'default',
+			$block->attributes['showForm'],
+			'showForm must not have a default; see EventDescription::shows_form().'
 		);
 	}
 
 	/**
 	 * @dataProvider provide_class_names
 	 */
-	public function test_is_type2( string $class_name, bool $expected ) {
-		$this->assertSame( $expected, EventDescription::is_type2( $class_name ) );
+	public function test_theme_class( string $class_name, string $expected ) {
+		$this->assertSame( $expected, EventDescription::theme_class( $class_name ) );
 	}
 
 	/**
-	 * The first six rows are every className string that actually occurs in
-	 * live Event content; the rest guard the ways the theme's
-	 * ltm_get_block_style() would have got it wrong.
+	 * The bare tokens are what live content carries (Additional CSS classes)
+	 * and what style.scss targets, so they must pass through untranslated --
+	 * only the editor's is-style-* form gets mapped onto them.
 	 */
 	public static function provide_class_names(): array {
 		return [
-			'live: type2'                 => [ 'is-style-type2', true ],
-			'live: none'                  => [ '', false ],
-			'live: blue-theme'            => [ 'blue-theme', false ],
-			'live: pink-theme'            => [ 'pink-theme', false ],
-			'live: pink-separator'        => [ 'pink-separator', false ],
-			'live: two theme classes'     => [ 'pink-separator pink-theme', false ],
-			'style class not first'       => [ 'blue-theme is-style-type2', true ],
-			'extra whitespace'            => [ '  is-style-type2   blue-theme ', true ],
-			'longer style name'           => [ 'is-style-type2-compact', false ],
-			'different style'             => [ 'is-style-default', false ],
-			'substring is not a match'    => [ 'not-is-style-type2', false ],
+			'style: pink'            => [ 'is-style-pink-theme', 'pink-theme' ],
+			'style: blue'            => [ 'is-style-blue-theme', 'blue-theme' ],
+			'style: default'         => [ 'is-style-default', '' ],
+			'style not first'        => [ 'is-style-type2 is-style-blue-theme', 'blue-theme' ],
+			'extra whitespace'       => [ '  is-style-pink-theme  ', 'pink-theme' ],
+			'live bare class'        => [ 'pink-theme', '' ],
+			'no class'               => [ '', '' ],
+			'unrelated class'        => [ 'pink-separator', '' ],
+			'longer style name'      => [ 'is-style-pink-theme-compact', '' ],
+			'substring is no match'  => [ 'not-is-style-pink-theme', '' ],
+		];
+	}
+
+	/**
+	 * @dataProvider provide_blocks
+	 */
+	public function test_shows_form( array $block, bool $expected ) {
+		$this->assertSame( $expected, EventDescription::shows_form( $block ) );
+	}
+
+	/**
+	 * The className rows are every string that actually occurs in live Event
+	 * content, plus guards for the ways the theme's ltm_get_block_style()
+	 * would have got it wrong; the showForm rows cover the tri-state.
+	 */
+	public static function provide_blocks(): array {
+		return [
+			// The toggle, once an editor has touched it.
+			'showForm true'               => [ [ 'showForm' => true ], true ],
+			'showForm false'              => [ [ 'showForm' => false ], false ],
+			'showForm false beats legacy'  => [ [ 'showForm' => false, 'className' => 'is-style-type2' ], false ],
+			'showForm true, no class'     => [ [ 'showForm' => true, 'className' => '' ], true ],
+			// Never touched: fall back to the retired block style class.
+			'showForm null is untouched'  => [ [ 'showForm' => null, 'className' => 'is-style-type2' ], true ],
+			'no attributes at all'        => [ [], false ],
+			'live: type2'                 => [ [ 'className' => 'is-style-type2' ], true ],
+			'live: none'                  => [ [ 'className' => '' ], false ],
+			'live: blue-theme'            => [ [ 'className' => 'blue-theme' ], false ],
+			'live: pink-theme'            => [ [ 'className' => 'pink-theme' ], false ],
+			'live: pink-separator'        => [ [ 'className' => 'pink-separator' ], false ],
+			'live: two theme classes'     => [ [ 'className' => 'pink-separator pink-theme' ], false ],
+			'style class not first'       => [ [ 'className' => 'blue-theme is-style-type2' ], true ],
+			'extra whitespace'            => [ [ 'className' => '  is-style-type2   blue-theme ' ], true ],
+			'longer style name'           => [ [ 'className' => 'is-style-type2-compact' ], false ],
+			'different style'             => [ [ 'className' => 'is-style-default' ], false ],
+			'substring is not a match'    => [ [ 'className' => 'not-is-style-type2' ], false ],
 		];
 	}
 }

@@ -6,10 +6,10 @@
  * block-meta handling only resolves reliably for the FIRST ACF block render in
  * a process (see tests/Blocks/EventPreviewBlockRenderTest's docblock), and that
  * slot is already taken. Each Playwright page load is its own PHP process, so
- * both styles can be exercised for real here.
+ * both layouts can be exercised for real here.
  *
  * The block markup below is copied verbatim from live Event posts (2131 for the
- * default style, 2104 for type2), including ACF's flattened
+ * plain layout, 2104 for the form layout), including ACF's flattened
  * `fieldname`/`_fieldname` data format — the whole point of the migration is
  * that content already stored in this exact shape keeps resolving.
  *
@@ -23,7 +23,7 @@
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
-const blockMarkup = ( { title, display = '1', className, body } ) => {
+const blockMarkup = ( { title, display = '1', className, showForm, body } ) => {
 	const attrs = {
 		name: 'acf/event-description-block',
 		data: {
@@ -34,6 +34,7 @@ const blockMarkup = ( { title, display = '1', className, body } ) => {
 		},
 		mode: 'preview',
 		...( className ? { className } : {} ),
+		...( showForm === undefined ? {} : { showForm } ),
 	};
 
 	return [
@@ -68,13 +69,13 @@ test.describe( 'Event description block frontend', () => {
 		}
 	} );
 
-	test( 'default style renders the single-column layout', async ( {
+	test( 'renders the single-column layout by default', async ( {
 		page,
 		requestUtils,
 	} ) => {
 		const event = await createEvent(
 			requestUtils,
-			'Default Style Event',
+			'Single Column Event',
 			blockMarkup( {
 				title: 'About',
 				body: 'Single column description copy.',
@@ -97,20 +98,20 @@ test.describe( 'Event description block frontend', () => {
 			block.getByText( 'Single column description copy.' )
 		).toBeVisible();
 
-		// The sidebar belongs to type2 only.
+		// The sidebar belongs to the form layout only.
 		await expect( block.locator( '.form-block' ) ).toHaveCount( 0 );
 	} );
 
-	test( 'type2 style renders the sidebar layout with the form column', async ( {
+	test( 'showForm renders the sidebar layout with the form column', async ( {
 		page,
 		requestUtils,
 	} ) => {
 		const event = await createEvent(
 			requestUtils,
-			'Type 2 Style Event',
+			'Show Form Event',
 			blockMarkup( {
 				title: 'ABOUT',
-				className: 'is-style-type2',
+				showForm: true,
 				body: 'Sidebar layout description copy.',
 			} )
 		);
@@ -119,9 +120,8 @@ test.describe( 'Event description block frontend', () => {
 
 		const block = page.locator( '.wp-block-acf-event-description-block' );
 		await expect( block ).toHaveClass( /right-sidebar-layout/ );
-		await expect( block ).toHaveClass( /is-style-type2/ );
 
-		// The shared inner fragment is nested one level deeper in this style.
+		// The shared inner fragment is nested one level deeper in this layout.
 		await expect(
 			block.locator(
 				'.right-sidebar-layout-wrapper > .main-column .event-text-section .bordered-title.green'
@@ -132,8 +132,67 @@ test.describe( 'Event description block frontend', () => {
 		).toBeVisible();
 
 		await expect(
-			block.locator( '.sidebar > .form-block.green > .form-block-wrapper' )
+			block.locator(
+				'.sidebar > .form-block.green > .form-block-wrapper'
+			)
 		).toHaveCount( 1 );
+	} );
+
+	/**
+	 * The no-migration guarantee. Blocks saved while the form layout was a
+	 * block style carry `is-style-type2` and NO showForm attribute, and must
+	 * keep rendering the sidebar. Giving showForm a `false` default in
+	 * block.json would silently break every one of them -- this is the guard.
+	 */
+	test( 'legacy is-style-type2 blocks still render the form column', async ( {
+		page,
+		requestUtils,
+	} ) => {
+		const event = await createEvent(
+			requestUtils,
+			'Legacy Type 2 Event',
+			blockMarkup( {
+				title: 'ABOUT',
+				className: 'is-style-type2',
+				body: 'Legacy sidebar layout description copy.',
+			} )
+		);
+
+		await page.goto( event.link );
+
+		const block = page.locator( '.wp-block-acf-event-description-block' );
+		await expect( block ).toHaveClass( /right-sidebar-layout/ );
+		await expect(
+			block.locator(
+				'.sidebar > .form-block.green > .form-block-wrapper'
+			)
+		).toHaveCount( 1 );
+	} );
+
+	/**
+	 * The other side of the tri-state: an explicit false must win over the
+	 * legacy class, so an editor can turn the form off on an old post.
+	 */
+	test( 'showForm false overrides a legacy is-style-type2 class', async ( {
+		page,
+		requestUtils,
+	} ) => {
+		const event = await createEvent(
+			requestUtils,
+			'Legacy Type 2 Turned Off Event',
+			blockMarkup( {
+				title: 'ABOUT',
+				className: 'is-style-type2',
+				showForm: false,
+				body: 'Form switched off description copy.',
+			} )
+		);
+
+		await page.goto( event.link );
+
+		const block = page.locator( '.wp-block-acf-event-description-block' );
+		await expect( block ).toHaveClass( /event-text-section/ );
+		await expect( block.locator( '.form-block' ) ).toHaveCount( 0 );
 	} );
 
 	test( 'renders nothing on the frontend when display is off', async ( {

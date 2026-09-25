@@ -1,6 +1,6 @@
 @use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
 
-.event-text-section {
+.event-description-block {
   // The theme publishes `.bordered-title` unscoped from base/_global.scss,
   // which reaches the page only through hook_critical_css() (inc/enqueue.php)
   // inlining base.min.css -- on the front end. The editor gets
@@ -18,7 +18,7 @@
   }
 
   @include eventTextSection;
-  &.blue-theme {
+  &.blue-theme, &.is-style-blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
     }
@@ -43,7 +43,7 @@
       }
     }
   }
-  &.pink-theme {
+  &.pink-theme, &.is-style-pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
     }
