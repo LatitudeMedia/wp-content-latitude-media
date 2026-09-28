@@ -11,6 +11,21 @@
     "Event speakers block"
   ],
   "example": {},
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default (Green)",
+      "isDefault": true
+    },
+    {
+      "name": "pink-theme",
+      "label": "Pink"
+    },
+    {
+      "name": "blue-theme",
+      "label": "Blue"
+    }
+  ],
   "supports": {
     "anchor": true,
     "spacing": {
@@ -21,7 +36,23 @@
       "text": false,
       "background": false
     },
-    "baseColor": false
+    "baseColor": false,
+    "blocks": {
+      "core/post-excerpt": {
+        "color": {
+          "text": false,
+          "background": false
+        },
+        "spacing": {
+          "margin": false,
+          "padding": false
+        },
+        "typography": {
+          "fontSize": false,
+          "lineHeight": false
+        }
+      }
+    }
   },
   "acf": {
     "blockVersion": 3,

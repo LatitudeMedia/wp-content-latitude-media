@@ -20,11 +20,19 @@ if ( ! $display && ! is_admin() ) {
 	return;
 }
 
-$blockAttrs = wp_kses_data(
+$block_classes = array_filter(
+	[
+		'content-block',
+		'event-text-section',
+		$block['className'] ?? '',
+	]
+);
+
+$block_attrs = wp_kses_data(
 	get_block_wrapper_attributes(
 		[
-			'class' => 'content-block event-text-section',
-			'id'    => $block['anchor'] ?? '',
+			'class' => implode( ' ', $block_classes ),
+			'id'    => $block['anchor'] ?: '',
 		]
 	)
 );

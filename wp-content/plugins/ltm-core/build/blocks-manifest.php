@@ -224,14 +224,32 @@ return array(
 		'example' => array(
 			
 		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
 		'supports' => array(
 			'anchor' => true,
 			'spacing' => array(
-				'margin' => true,
-				'padding' => true
+				'margin' => false,
+				'padding' => false
 			),
-			'color' => true,
-			'baseColor' => true
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
 		),
 		'acf' => array(
 			'blockVersion' => 3,
@@ -264,11 +282,16 @@ return array(
 		'supports' => array(
 			'anchor' => true,
 			'spacing' => array(
-				'margin' => true,
-				'padding' => true
+				'margin' => false,
+				'padding' => false
 			),
-			'color' => true,
-			'baseColor' => true
+			'typography' => array(
+				'color' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			)
 		),
 		'acf' => array(
 			'blockVersion' => 3,
@@ -334,6 +357,21 @@ return array(
 		'example' => array(
 			
 		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
 		'supports' => array(
 			'anchor' => true,
 			'spacing' => array(
@@ -344,7 +382,23 @@ return array(
 				'text' => false,
 				'background' => false
 			),
-			'baseColor' => false
+			'baseColor' => false,
+			'blocks' => array(
+				'core/post-excerpt' => array(
+					'color' => array(
+						'text' => false,
+						'background' => false
+					),
+					'spacing' => array(
+						'margin' => false,
+						'padding' => false
+					),
+					'typography' => array(
+						'fontSize' => false,
+						'lineHeight' => false
+					)
+				)
+			)
 		),
 		'acf' => array(
 			'blockVersion' => 3,

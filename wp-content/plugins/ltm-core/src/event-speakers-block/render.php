@@ -48,10 +48,28 @@ if ( ! $speakers_posts->have_posts() ) {
 	return;
 }
 
+// className is passed through explicitly because ACF's AJAX preview re-render
+// (acf/ajax/fetch-block) calls this template with no WP_Block, so
+// WP_Block_Supports::$block_to_render is unset and
+// get_block_wrapper_attributes() emits none of the supports-derived classes --
+// including the `is-style-*` one carrying the Pink/Blue theme. Without this,
+// picking a style and then clicking another block (which is when ACF re-renders
+// the preview) dropped the theme and the speakers snapped back to green. Core
+// array_unique()s the merged class list, so the front-end path, where the
+// custom-class-name support does add it, is unchanged. Same as
+// event-agenda-v2-block/render.php.
+$block_classes = array_filter(
+	[
+		'content-block',
+		'our-team-section',
+		$block['className'] ?? '',
+	]
+);
+
 $block_attrs = wp_kses_data(
 	get_block_wrapper_attributes(
 		[
-			'class' => 'content-block our-team-section',
+			'class' => implode( ' ', $block_classes ),
 			'id'    => $block['anchor'] ?: '',
 		]
 	)

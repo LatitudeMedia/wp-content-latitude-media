@@ -461,7 +461,7 @@ body.page-id-1941 {
    needs it and they no longer share a per-block stylesheet. */
 .our-team-section {
   @include ourTeamSection;
-  &.blue-theme {
+  &.blue-theme, &.is-style-blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
     }
@@ -506,7 +506,7 @@ body.page-id-1941 {
       }
     }
   }
-  &.pink-theme {
+  &.pink-theme, &.is-style-pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
     }

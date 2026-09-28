@@ -11,7 +11,7 @@
   &.admin {
     top: 196px;
   }
-  &.blue-theme {
+  &.blue-theme, &.is-style-blue-theme {
     .navigation-menu-links {
       a {
         &:hover {
@@ -29,7 +29,7 @@
       background-color: $primary-blue !important;
     }
   }
-  &.pink-theme {
+  &.pink-theme, &.is-style-pink-theme {
     .navigation-menu-links {
       a {
         &:hover {

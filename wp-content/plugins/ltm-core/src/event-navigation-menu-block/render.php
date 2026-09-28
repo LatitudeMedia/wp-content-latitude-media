@@ -23,18 +23,28 @@ if ( empty( $navigation_links ) ) {
 	return;
 }
 
-// The `admin` class offsets the sticky top for the WP admin bar (see style.scss).
-$blockAttrs = wp_kses_data(
+
+$block_classes = array_filter(
+	[
+		'content-block',
+		'navigation-menu-section',
+		( is_user_logged_in() ? ' admin' : '' ),
+		$block['className'] ?? '',
+	]
+);
+
+$block_attrs = wp_kses_data(
 	get_block_wrapper_attributes(
 		[
-			'class' => 'content-block navigation-menu-section' . ( is_user_logged_in() ? ' admin' : '' ),
-			'id'    => $block['anchor'] ?? '',
+			'class' => implode( ' ', $block_classes ),
+			'id'    => $block['anchor'] ?: '',
 		]
 	)
 );
+
 ?>
 
-<div <?php echo $blockAttrs; ?>>
+<div <?php echo $block_attrs; ?>>
 	<div class="container-narrow">
 		<div class="navigation-menu-wrapper">
 			<div class="navigation-menu-links">
