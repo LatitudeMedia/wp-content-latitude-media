@@ -52,6 +52,45 @@ return array(
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
+	'event-agenda-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-agenda-block',
+		'version' => '0.1.0',
+		'title' => 'Event agenda block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'calendar-alt',
+		'description' => 'Event agenda block',
+		'keywords' => array(
+			'Event agenda block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
 	'event-agenda-v2-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

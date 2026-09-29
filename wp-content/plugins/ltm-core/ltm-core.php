@@ -54,6 +54,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
 	require_once __DIR__ . '/includes/Blocks/NewsTypePreview.php';
 	require_once __DIR__ . '/includes/Blocks/RightSidebarLayout.php';
+	require_once __DIR__ . '/includes/Blocks/EventAgenda.php';
 	require_once __DIR__ . '/includes/Blocks/EventAgendaV2.php';
 	require_once __DIR__ . '/includes/Blocks/EventPreview.php';
 	require_once __DIR__ . '/includes/Blocks/EventShortDescription.php';
@@ -80,6 +81,7 @@ function ltm_core_loader() {
 	new \LTMCore\RestApi\LoadMoreEvents();
 	new \LTMCore\Blocks\Title();
 	new \LTMCore\Blocks\RightSidebarLayout();
+	new \LTMCore\Blocks\EventAgenda();
 	new \LTMCore\Blocks\EventAgendaV2();
 	new \LTMCore\Blocks\EventPreview();
 	new \LTMCore\Blocks\EventShortDescription();

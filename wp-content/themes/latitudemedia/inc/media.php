@@ -23,4 +23,5 @@ add_image_size( 'large-podcast-type2', 516, 402, false );
 add_image_size( 'large-event', 1270, 715, false );
 add_image_size( 'article-related-news', 329, 256, true );
 add_image_size( 'author-archive-hero', 427, 427, true );
-add_image_size( 'event-agenda', 552);
+// 'event-agenda' now lives in the ltm-core plugin, alongside the agenda block
+// that is its only reader — see LTMCore\Blocks\EventAgenda.

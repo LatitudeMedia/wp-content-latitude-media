@@ -868,27 +868,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'event-agenda-block',
-            'title'         => __('Event agenda block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'calendar-alt',
-        'description' => __('Event agenda block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event agenda block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-agenda-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-agenda-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-venue-block',
             'title'         => __('Event venue block', 'ltm'),
             'path'          => 'event',

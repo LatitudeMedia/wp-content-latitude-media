@@ -1,0 +1,193 @@
+@use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
+
+// The rules below were the theme's `@mixin agendaSection` in
+// core/_mixins.scss. This block was its only consumer, so they moved here with
+// the block rather than staying behind as a single-use mixin. They still lean on
+// the theme's variables and its fontSize() / below_sm() helpers, pulled in by the
+// @use above.
+// The `&.pink` / `&.blue` / `&.orange` modifiers came along unchanged, though
+// only `&.green` is reachable today: render.php hardcodes `green` and the block
+// registers no styles. They are what a colour variant would be built from.
+.agenda-section {
+  margin-bottom: 64px;
+
+  // The theme publishes `.bordered-title` unscoped from base/_global.scss, which
+  // reaches the page only through hook_critical_css() (inc/enqueue.php) inlining
+  // base.min.css -- on the front end. The editor gets editor.min.css instead
+  // (inc/admin-customize.php), which has no such rule, and which is hooked on
+  // `enqueue_block_editor_assets` and so styles the editor chrome rather than the
+  // canvas iframe. Without this the ACF preview renders the title as plain body
+  // text. Declared through the theme's own mixin so the values can't drift.
+  // Same as event-contact-us-block/style.scss.
+  // The mixin ends with `margin-bottom: 16px`, so the agenda's own 32px has to
+  // follow it here rather than sit in a second `.bordered-title` block: at equal
+  // specificity the later declaration wins, and splitting the two made the gap
+  // under every agenda title depend on which rule came first.
+  .bordered-title {
+    @include borderedTitle;
+    margin-bottom: 32px;
+  }
+  .agenda-section-wrapper {
+    ul {
+      list-style: none;
+      margin: 0 0 0 -20px;
+      padding: 0;
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+      @include below_sm {
+        columns: 1;
+        -webkit-columns: 1;
+        -moz-columns: 1;
+        margin: 0;
+      }
+
+      li {
+        margin-bottom: 32px;
+        margin-left: 20px;
+        @include below_sm {
+          margin-left: 0;
+        }
+
+        .agenda-thumbnail {
+          margin-bottom: 16px;
+          width: 100%;
+        }
+
+        .agenda-data {
+          padding-left: 24px;
+          border-left: 1px solid $green_shadow;
+
+          .time {
+            font-family: $inter;
+            @include fontSize(20px);
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            margin-bottom: 8px;
+          }
+
+          h5 {
+            margin-bottom: 8px;
+          }
+
+          p {
+            margin-bottom: 8px;
+          }
+
+          .speakers {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            li {
+              padding: 4px 8px;
+              margin-right: 8px;
+              border: none;
+              background-color: $green_shadow;
+              margin-bottom: 8px;
+              margin-left: 0;
+
+              .name {
+                font-family: $inter;
+                @include fontSize(16px);
+                font-weight: 700;
+                line-height: 24px;
+                text-align: center;
+                color: $primary-dark-blue;
+              }
+
+              .company {
+                font-family: $inter;
+                @include fontSize(16px);
+                font-weight: 700;
+                line-height: 24px;
+                text-align: center;
+                color: $primary-dark-blue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.pink {
+    .bordered-title {
+      border-color: $primary-pink;
+    }
+
+    .agenda-section-wrapper {
+      ul {
+        li {
+          border-color: $pink_shadow;
+
+          .speakers {
+            li {
+              background-color: $pink_shadow;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.green {
+    .bordered-title {
+      border-color: $green;
+    }
+
+    .agenda-section-wrapper {
+      ul {
+        li {
+          border-color: $green_shadow;
+          display: inline-block;
+          .speakers {
+            li {
+              background-color: $green_shadow;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.blue {
+    .bordered-title {
+      border-color: $blue;
+    }
+
+    .agenda-section-wrapper {
+      ul {
+        li {
+          border-color: $blue_shadow;
+
+          .speakers {
+            li {
+              background-color: $blue_shadow;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.orange {
+    .bordered-title {
+      border-color: $orange;
+    }
+
+    .agenda-section-wrapper {
+      ul {
+        li {
+          border-color: $orange_shadow;
+
+          .speakers {
+            li {
+              background-color: $orange_shadow;
+            }
+          }
+        }
+      }
+    }
+  }
+}
