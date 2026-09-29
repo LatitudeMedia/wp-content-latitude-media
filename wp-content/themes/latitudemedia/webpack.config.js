@@ -85,8 +85,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/event-venue-block.scss",
       "css/blocks/event-about-sponsors-block":
         "./src/assets/scss/blocks/event-about-sponsors-block.scss",
-      "css/blocks/event-contact-us-block":
-        "./src/assets/scss/blocks/event-contact-us-block.scss",
       "css/blocks/page-hero-block":
         "./src/assets/scss/blocks/page-hero-block.scss",
       "css/blocks/downloads-info-block":

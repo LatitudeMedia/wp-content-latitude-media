@@ -1,10 +1,36 @@
-@use "../core/core_loader" as *;
+@use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
+
+// Both the bare `.blue-theme` / `.pink-theme` classes and the `is-style-*` ones
+// are matched: existing event content selects the colour by typing the bare
+// class into Advanced -> Additional CSS classes, while the block styles
+// registered in block.json emit the `is-style-` prefixed form. Same as
+// event-sponsors-block/style.scss.
 .contact-us-section {
   margin-bottom: 64px;
+
+  // The theme publishes `.bordered-title` and `.cta-button` unscoped from
+  // base/_global.scss, which reach the page only through hook_critical_css()
+  // (inc/enqueue.php) inlining base.min.css -- on the front end. The editor
+  // gets editor.min.css instead (inc/admin-customize.php), which has no such
+  // rules, and which is hooked on `enqueue_block_editor_assets` and so styles
+  // the editor chrome rather than the canvas iframe. Without these the ACF
+  // preview renders the title as plain body text and the CTAs as bare links.
+  //
+  // Declared through the theme's own mixins so the values can't drift -- both
+  // carry the `.green` modifier this block's markup uses -- and kept above the
+  // theme-colour overrides below, which are !important and win regardless.
+  // Same as event-agenda-v2-block/style.scss.
+  .bordered-title {
+    @include borderedTitle;
+  }
+  .cta-button {
+    @include shadowButton;
+  }
+
   &.margin-top-60 {
     margin-top: 60px;
   }
-  &.blue-theme {
+  &.blue-theme, &.is-style-blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
     }
@@ -33,7 +59,7 @@
       }
     }
   }
-  &.pink-theme {
+  &.pink-theme, &.is-style-pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
     }
@@ -48,9 +74,9 @@
         }
         .card-button {
           .cta-button {
-            -webkit-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
-            -moz-box-shadow: -10px 10px 0 0 #f9e8f4 !important;
-            box-shadow: -10px 10px 0 0 #f9e8f4 !important  ;
+            -webkit-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+            -moz-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+            box-shadow: -10px 10px 0 0 $pink_shadow !important;
             border: 1px solid $primary-pink !important;
             color: $primary-pink !important;
             &:hover {

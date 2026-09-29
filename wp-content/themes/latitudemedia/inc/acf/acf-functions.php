@@ -974,32 +974,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'event-contact-us-block',
-            'title'         => __('Event contact us block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'calendar-alt',
-        'description' => __('Event contact us block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event contact us block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-contact-us-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-contact-us-block', get_template_directory_uri() . '/dist/css/blocks/event-contact-us-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-contact-us-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'page-hero-block',
             'title'         => __('Page hero block', 'ltm'),
             'path'          => 'page',
