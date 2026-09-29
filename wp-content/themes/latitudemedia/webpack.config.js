@@ -79,14 +79,10 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/events-list-block.scss",
       "js/blocks/load-more-events":
         "./src/assets/js/blocks/load-more-events.js",
-      "css/blocks/event-sponsors-block":
-        "./src/assets/scss/blocks/event-sponsors-block.scss",
       "css/blocks/event-agenda-block":
         "./src/assets/scss/blocks/event-agenda-block.scss",
       "css/blocks/event-venue-block":
         "./src/assets/scss/blocks/event-venue-block.scss",
-      "css/blocks/event-partners-block":
-        "./src/assets/scss/blocks/event-partners-block.scss",
       "css/blocks/event-about-sponsors-block":
         "./src/assets/scss/blocks/event-about-sponsors-block.scss",
       "css/blocks/event-contact-us-block":

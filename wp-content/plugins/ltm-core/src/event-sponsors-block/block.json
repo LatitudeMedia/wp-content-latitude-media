@@ -1,24 +1,30 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "acf/event-short-description-block",
+	"name": "acf/event-sponsors-block",
 	"version": "0.1.0",
-	"title": "Event short description block",
+	"title": "Event sponsors block",
 	"category": "ltm-event-blocks",
-	"icon": "text-page",
-	"description": "Event short description block",
-	"keywords": [ "Event short description block" ],
+	"icon": "money",
+	"description": "Event sponsors block",
+	"keywords": [ "Event sponsors block" ],
 	"example": {},
+	"styles": [
+		{ "name": "default", "label": "Default (Green)", "isDefault": true },
+		{ "name": "pink-theme", "label": "Pink" },
+		{ "name": "blue-theme", "label": "Blue" }
+	],
 	"supports": {
 		"anchor": true,
 		"spacing": {
 			"margin": false,
 			"padding": false
 		},
-		"typography": {
-			"color": false
+		"color": {
+			"text": false,
+			"background": false
 		},
-		"visibility": true
+		"baseColor": false
 	},
 	"acf": {
 		"blockVersion": 3,

@@ -61,6 +61,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/Blocks/EventGrayIcon.php';
 	require_once __DIR__ . '/includes/Blocks/EventNavigationMenu.php';
 	require_once __DIR__ . '/includes/Blocks/EventSpeakers.php';
+	require_once __DIR__ . '/includes/Blocks/EventSponsors.php';
 	require_once __DIR__ . '/includes/Blocks/ImageAndText.php';
 	require_once __DIR__ . '/includes/Blocks/StyledButton.php';
 
@@ -85,6 +86,7 @@ function ltm_core_loader() {
 	new \LTMCore\Blocks\EventGrayIcon();
 	new \LTMCore\Blocks\EventNavigationMenu();
 	new \LTMCore\Blocks\EventSpeakers();
+	new \LTMCore\Blocks\EventSponsors();
 	new \LTMCore\Blocks\ImageAndText();
 	new \LTMCore\Blocks\StyledButton();
 };

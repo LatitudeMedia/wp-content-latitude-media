@@ -868,32 +868,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'event-sponsors-block',
-            'title'         => __('Event sponsors block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'money',
-        'description' => __('Event sponsors block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event sponsors block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-sponsors-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-sponsors-block', get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-sponsors-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-agenda-block',
             'title'         => __('Event agenda block', 'ltm'),
             'path'          => 'event',
@@ -973,32 +947,6 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'recap-video-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-partners-block',
-            'title'         => __('Event partners block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'buddicons-buddypress-logo',
-        'description' => __('Event partners block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event partners block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-partners-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-partners-block', get_template_directory_uri() . '/dist/css/blocks/event-partners-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-partners-block.png',
                 )
             )
         )
