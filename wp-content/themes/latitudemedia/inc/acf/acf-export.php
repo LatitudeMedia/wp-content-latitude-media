@@ -3155,65 +3155,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_6745c3ee06935',
-        'title' => 'Event venue block',
-        'fields' => array(
-            array(
-                'key' => 'field_6744a68e8404a',
-                'label' => 'Event venue block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_6745c801bdaff',
-                'label' => 'Additional info',
-                'name' => 'additional_info',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
-            ),
-            array(
-                'key' => 'field_6745c3f2c517f',
-                'label' => 'Embed code',
-                'name' => 'embed_code',
-                'type' => 'textarea',
-                'rows' => '',
-            ),
-            array(
-                'key' => 'field_6745c7fcbdafe',
-                'label' => 'Location details',
-                'name' => 'location_details',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
-            ),
-            array(
-                'key' => 'field_6744a68e8404b',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/event-venue-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_674659fc35983',
         'title' => 'Event about sponsors block',
         'fields' => array(

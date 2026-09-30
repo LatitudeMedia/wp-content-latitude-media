@@ -75,8 +75,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/sidebar-editors-picks-section.scss",
       "css/blocks/related-reading-section":
         "./src/assets/scss/blocks/related-reading-section.scss",
-      "css/blocks/event-venue-block":
-        "./src/assets/scss/blocks/event-venue-block.scss",
       "css/blocks/event-about-sponsors-block":
         "./src/assets/scss/blocks/event-about-sponsors-block.scss",
       "css/blocks/page-hero-block":

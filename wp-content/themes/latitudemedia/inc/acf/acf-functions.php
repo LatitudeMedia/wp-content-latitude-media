@@ -844,38 +844,6 @@ $blocks = array(
     // START Events
     array(
         'attrs' => array(
-            'name'          => 'event-venue-block',
-            'title'         => __('Event venue block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'location-alt',
-        'description' => __('Event venue block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event venue block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-venue-block.min.css';
-
-            if (file_exists($css_path)) {
-                wp_enqueue_style(
-                    'block-acf-event-venue-block',
-                    get_template_directory_uri() . '/dist/css/blocks/event-venue-block.min.css',
-                    array(),
-                    filemtime($css_path)
-                );
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-venue-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'recap-video-block',
             'title'         => __('Recap video block', 'ltm'),
             'path'          => 'event',

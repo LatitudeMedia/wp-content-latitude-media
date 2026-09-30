@@ -558,6 +558,60 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css'
 	),
+	'event-venue-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-venue-block',
+		'version' => '0.1.0',
+		'title' => 'Event venue block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'location-alt',
+		'description' => 'Event venue block',
+		'keywords' => array(
+			'Event venue block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
 	'events-list-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
