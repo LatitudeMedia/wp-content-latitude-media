@@ -67,6 +67,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/Blocks/StyledButton.php';
 	require_once __DIR__ . '/includes/Blocks/EventsList.php';
 	require_once __DIR__ . '/includes/Blocks/EventVenue.php';
+	require_once __DIR__ . '/includes/Blocks/RecapVideo.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -95,5 +96,6 @@ function ltm_core_loader() {
 	new \LTMCore\Blocks\StyledButton();
 	new \LTMCore\Blocks\EventsList();
 	new \LTMCore\Blocks\EventVenue();
+	new \LTMCore\Blocks\RecapVideo();
 };
 ltm_core_loader();

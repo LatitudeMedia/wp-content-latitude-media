@@ -91,8 +91,6 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/sample-campaign-block.scss",
       "css/blocks/reviews-popup-block":
         "./src/assets/scss/blocks/reviews-popup-block.scss",
-      "css/blocks/recap-video-block":
-        "./src/assets/scss/blocks/recap-video-block.scss",
       "css/blocks/in-house-ad-section":
         "./src/assets/scss/blocks/in-house-ad-section.scss",
     },
