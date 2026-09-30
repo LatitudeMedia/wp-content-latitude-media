@@ -133,4 +133,80 @@ class Events {
 
 		return $timezone;
 	}
+
+	/**
+	 * Builds the WP_Query for an events listing.
+	 *
+	 * Migrated from the theme's global get_events_list(). Lived on
+	 * LTMCore\RestApi\LoadMoreEvents until that never-called REST endpoint
+	 * was removed; acf/events-list-block is its caller.
+	 *
+	 * @param string $type
+	 * @param array  $args
+	 * @param array  $ids
+	 * @return \WP_Query the query object
+	 */
+	public static function get_events_list( $type = '', $args = [], $ids = [] ) {
+		$queryArgs = [
+			'post_type'      => 'events',
+			'meta_key'       => 'start_date',
+			'orderby'        => 'meta_value',
+			'meta_type'      => 'DATE',
+			'order'          => 'DESC',
+			'posts_per_page' => -1,
+		];
+
+		$queryArgs = wp_parse_args( $args, $queryArgs );
+
+		switch ( $type ) {
+			case 'upcoming':
+				$queryArgs['order']      = 'ASC';
+				$queryArgs['meta_query'] = array(
+					'relation' => 'AND',
+					array(
+						'key'     => 'end_date',
+						'value'   => get_date_from_gmt( date( 'Y-m-d' ) ),
+						'compare' => '>=',
+						'type'    => 'DATE',
+					),
+					array(
+						'key'     => 'past_event',
+						'value'   => true,
+						'compare' => '!=',
+					),
+					array(
+						'key'     => 'gated',
+						'value'   => true,
+						'compare' => '!=',
+					),
+				);
+				break;
+			case 'past':
+				$queryArgs['meta_query'] = array(
+					'relation' => 'AND',
+					array(
+						'key'     => 'gated',
+						'value'   => true,
+						'compare' => '!=',
+					),
+					array(
+						'relation' => 'OR',
+						array(
+							'key'     => 'end_date',
+							'value'   => get_date_from_gmt( date( 'Y-m-d' ) ),
+							'compare' => '<',
+							'type'    => 'DATE',
+						),
+						array(
+							'key'     => 'past_event',
+							'value'   => true,
+							'compare' => '=',
+						),
+					),
+				);
+				break;
+		}
+
+		return \LatitudeMedia\Manage_Data()->curated_query( $queryArgs, $ids );
+	}
 }

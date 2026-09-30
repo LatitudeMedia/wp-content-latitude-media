@@ -1,6 +1,8 @@
 /**
  * Adds the "Make menu sticky" toggle to this block's Styles tab in the
- * inspector sidebar.
+ * inspector sidebar, plus a notice in its Settings tab pointing editors at the
+ * expanded editor (block.json sets `hideFieldsInSidebar`, so the agenda's ACF
+ * fields are only reachable there).
  *
  * It is not a block style (block.json `styles`): those are mutually
  * exclusive — the editor writes exactly one `is-style-*` class and
@@ -19,7 +21,7 @@
 import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, ToggleControl } from '@wordpress/components';
+import { Notice, PanelBody, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const BLOCK_NAME = 'acf/event-agenda-v2-block';
@@ -35,6 +37,20 @@ const withStickyMenuToggle = createHigherOrderComponent(
 		return (
 			<>
 				<BlockEdit { ...props } />
+				<InspectorControls>
+					<PanelBody>
+						<Notice status="warning" isDismissible={ false }>
+							<strong>
+								{ __( '⚠️ Use the expanded editor', 'ltm' ) }
+							</strong>
+							<br />
+							{ __(
+								'This block requires the expanded editor to access all editing options.',
+								'ltm'
+							) }
+						</Notice>
+					</PanelBody>
+				</InspectorControls>
 				<InspectorControls group="styles">
 					<PanelBody title={ __( 'Agenda menu', 'ltm' ) }>
 						<ToggleControl

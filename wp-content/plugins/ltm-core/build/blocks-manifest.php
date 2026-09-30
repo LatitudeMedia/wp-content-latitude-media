@@ -558,6 +558,46 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css'
 	),
+	'events-list-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/events-list-block',
+		'version' => '0.1.0',
+		'title' => 'Events list block',
+		'category' => 'ltm-page-blocks',
+		'icon' => 'tickets-alt',
+		'description' => 'Events list block',
+		'keywords' => array(
+			'Events list block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'page'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -609,51 +649,22 @@ return array(
 		'example' => array(
 			
 		),
-		'styles' => array(
-			array(
-				'name' => 'default',
-				'label' => 'Default',
-				'isDefault' => true
-			),
-			array(
-				'name' => 'type2',
-				'label' => 'Type 2 (inverse)'
-			),
-			array(
-				'name' => 'type3',
-				'label' => 'Type 3'
-			),
-			array(
-				'name' => 'type4',
-				'label' => 'Type 4'
-			),
-			array(
-				'name' => 'type5',
-				'label' => 'Type 5 (background)'
-			),
-			array(
-				'name' => 'type6',
-				'label' => 'Type 6 (square)'
-			),
-			array(
-				'name' => 'type7',
-				'label' => 'Type 7'
-			),
-			array(
-				'name' => 'type8',
-				'label' => 'Type 8 (inverse)'
+		'attributes' => array(
+			'layout' => array(
+				'type' => 'string'
 			)
 		),
 		'supports' => array(
-			'jsx' => true,
 			'anchor' => true,
-			'align' => true,
-			'color' => true,
-			'baseColor' => true,
 			'spacing' => array(
-				'margin' => true,
-				'padding' => true
-			)
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
 		),
 		'acf' => array(
 			'blockVersion' => 3,

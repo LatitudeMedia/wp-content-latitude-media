@@ -49,7 +49,6 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/PostTypes/Events.php';
 	require_once __DIR__ . '/includes/PostTypes/Speakers.php';
 	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
-	require_once __DIR__ . '/includes/RestApi/LoadMoreEvents.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
 	require_once __DIR__ . '/includes/Blocks/NewsTypePreview.php';
@@ -66,6 +65,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/Blocks/EventContactUs.php';
 	require_once __DIR__ . '/includes/Blocks/ImageAndText.php';
 	require_once __DIR__ . '/includes/Blocks/StyledButton.php';
+	require_once __DIR__ . '/includes/Blocks/EventsList.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -78,7 +78,6 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Events();
 	new \LTMCore\PostTypes\Speakers();
 	new \LTMCore\RestApi\FeaturedPostSearch();
-	new \LTMCore\RestApi\LoadMoreEvents();
 	new \LTMCore\Blocks\Title();
 	new \LTMCore\Blocks\RightSidebarLayout();
 	new \LTMCore\Blocks\EventAgenda();
@@ -93,5 +92,6 @@ function ltm_core_loader() {
 	new \LTMCore\Blocks\EventContactUs();
 	new \LTMCore\Blocks\ImageAndText();
 	new \LTMCore\Blocks\StyledButton();
+	new \LTMCore\Blocks\EventsList();
 };
 ltm_core_loader();

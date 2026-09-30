@@ -7,11 +7,16 @@
  * data, so bare get_field() calls resolve via ACF's active block-meta context
  * rather than a post ID.
  *
+ * Which of the eight layouts to render comes from the `layout` attribute (the
+ * Layout dropdown in the inspector -- see editor.js), resolved by
+ * ImageAndText::layout_key(), which also handles content saved under the
+ * retired `is-style-*` block styles.
+ *
  * This single template replaces the theme's dispatcher
  * (template-parts/blocks/common/image-and-text.php) and all eight of its
  * component partials (template-parts/components/image-and-text/*.php), which
- * were ~95% identical. Everything that varied per style now lives in
- * ImageAndText::STYLES; see that map's docblock for the per-field meaning and
+ * were ~95% identical. Everything that varies per layout now lives in
+ * ImageAndText::LAYOUTS; see that map's docblock for the per-field meaning and
  * for the two quirks deliberately preserved from the theme (`default` ignoring
  * image_link, and type6/type8 rendering an unguarded image slot).
  *
@@ -39,13 +44,17 @@ if ( ! $display && ! is_admin() ) {
 	return;
 }
 
-$cfg = \LTMCore\Blocks\ImageAndText::style_config( $block['className'] ?? '' );
+$layout = \LTMCore\Blocks\ImageAndText::layout_key( $block );
+$cfg    = \LTMCore\Blocks\ImageAndText::LAYOUTS[ $layout ];
 
+// `image-and-text-{layout}` is the hook for layout-specific CSS. It is emitted
+// from the RESOLVED key, so legacy `is-style-*` content carries it too and one
+// selector covers old and new instances -- see src/image-and-text/style.scss.
 $blockAttrs = wp_kses_data(
 	get_block_wrapper_attributes(
 		[
 			'style' => "--custom-block-base-color: {$base_color}; --custom-block-shadow-color: {$shadow_color};",
-			'class' => 'content-block ' . $cfg['classes'],
+			'class' => 'content-block ' . $cfg['classes'] . ' image-and-text-' . $layout,
 			'id'    => $block['anchor'] ?? '',
 		]
 	)

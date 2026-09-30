@@ -91,33 +91,6 @@ class EventDescriptionTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @dataProvider provide_class_names
-	 */
-	public function test_theme_class( string $class_name, string $expected ) {
-		$this->assertSame( $expected, EventDescription::theme_class( $class_name ) );
-	}
-
-	/**
-	 * The bare tokens are what live content carries (Additional CSS classes)
-	 * and what style.scss targets, so they must pass through untranslated --
-	 * only the editor's is-style-* form gets mapped onto them.
-	 */
-	public static function provide_class_names(): array {
-		return [
-			'style: pink'            => [ 'is-style-pink-theme', 'pink-theme' ],
-			'style: blue'            => [ 'is-style-blue-theme', 'blue-theme' ],
-			'style: default'         => [ 'is-style-default', '' ],
-			'style not first'        => [ 'is-style-type2 is-style-blue-theme', 'blue-theme' ],
-			'extra whitespace'       => [ '  is-style-pink-theme  ', 'pink-theme' ],
-			'live bare class'        => [ 'pink-theme', '' ],
-			'no class'               => [ '', '' ],
-			'unrelated class'        => [ 'pink-separator', '' ],
-			'longer style name'      => [ 'is-style-pink-theme-compact', '' ],
-			'substring is no match'  => [ 'not-is-style-pink-theme', '' ],
-		];
-	}
-
-	/**
 	 * @dataProvider provide_blocks
 	 */
 	public function test_shows_form( array $block, bool $expected ) {

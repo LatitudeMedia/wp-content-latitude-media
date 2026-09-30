@@ -8,13 +8,14 @@ namespace LTMCore\Blocks;
  * The field group key and every field key are unchanged from the theme
  * version so existing post content keeps resolving to the same data.
  *
- * In the theme this block's eight `is-style-*` variants were eight nearly
- * identical template parts under template-parts/components/image-and-text/,
- * reached through a dispatcher template part. They differed only in the
- * wrapper's class string, the container class, the element that holds the
- * image, the registered image size, and whether the image slot is guarded
- * against an empty logo / rendered before the text. That difference is the
- * STYLES map below, and render.php is now a single template driven by it.
+ * The block has eight layouts, picked with the `layout` attribute (the Layout
+ * dropdown in the inspector -- see src/image-and-text/editor.js). They differ
+ * only in the wrapper's class string, the container class, the element that
+ * holds the image, the registered image size, and whether the image slot is
+ * guarded against an empty logo / rendered before the text. That difference is
+ * the LAYOUTS map below, and render.php is a single template driven by it --
+ * in the theme it was eight nearly identical template parts under
+ * template-parts/components/image-and-text/ behind a dispatcher.
  *
  * Note: the five image sizes the map names (image-text-default, -type4, -type5,
  * -type6, -type7) are still registered by the THEME, in inc/media.php. That
@@ -30,7 +31,7 @@ namespace LTMCore\Blocks;
 class ImageAndText {
 
 	/**
-	 * Per-style rendering configuration, keyed by the `is-style-*` suffix.
+	 * Per-layout rendering configuration, keyed by the `layout` attribute.
 	 *
 	 * Fields:
 	 *  - classes:     appended after the shared `content-block` class.
@@ -45,13 +46,13 @@ class ImageAndText {
 	 *  - link_image:  false renders a bare <img> with no wrapper element and
 	 *                 ignores the image_link field. Only `default` does this:
 	 *                 it called thumbnail_formatting() directly instead of the
-	 *                 print_image_and_text_image() helper every other style
+	 *                 print_image_and_text_image() helper every other layout
 	 *                 used. Almost certainly an oversight, but it is the
 	 *                 current front-end output, so it is preserved here rather
 	 *                 than silently changed under existing content.
 	 *  - text_first:  true renders the text slot before the image slot.
 	 */
-	const STYLES = array(
+	const LAYOUTS = array(
 		'default' => array(
 			'classes'     => 'logo-description-block',
 			'container'   => 'container-narrow',
@@ -164,7 +165,31 @@ class ImageAndText {
 	}
 
 	/**
-	 * Resolves a block instance's className to its rendering configuration.
+	 * Resolves a block instance to its layout key.
+	 *
+	 * The `layout` attribute wins. It has no default (see block.json), so an
+	 * absent or null value means "saved before the Layout dropdown existed" --
+	 * those instances still carry the `is-style-*` class that the retired block
+	 * styles wrote, and fall back to it. That legacy content is real and is not
+	 * going away: published posts on every environment use it, and so do post
+	 * revisions, which put the class back into live content whenever one is
+	 * restored. The fallback is permanent, not a migration shim.
+	 *
+	 * Anything unrecognised -- either source -- resolves to `default`.
+	 *
+	 * @param array $block The block instance (ACF passes this into render.php).
+	 * @return string A key of self::LAYOUTS.
+	 */
+	public static function layout_key( array $block ): string {
+		if ( ! empty( $block['layout'] ) && isset( self::LAYOUTS[ $block['layout'] ] ) ) {
+			return $block['layout'];
+		}
+
+		return self::legacy_layout_key( $block['className'] ?? '' );
+	}
+
+	/**
+	 * Resolves a retired `is-style-*` class to a layout key.
 	 *
 	 * A token match rather than the theme's ltm_get_block_style(): that helper
 	 * lives in the theme, and ltm-core must not hard-depend on theme globals.
@@ -174,13 +199,10 @@ class ImageAndText {
 	 * `is-style-*` class happens to come first. Matching exact class tokens
 	 * here is position-independent and needs nothing from the theme.
 	 *
-	 * Falls back to the default style for an absent, empty or unrecognised
-	 * style class, matching the theme dispatcher's behaviour.
-	 *
 	 * @param string $class_name The block's className attribute.
-	 * @return array One of the self::STYLES entries.
+	 * @return string A key of self::LAYOUTS; `default` when nothing matches.
 	 */
-	public static function style_config( string $class_name ): array {
+	private static function legacy_layout_key( string $class_name ): string {
 		$classes = preg_split( '/\s+/', $class_name, -1, PREG_SPLIT_NO_EMPTY );
 
 		foreach ( (array) $classes as $class ) {
@@ -188,14 +210,24 @@ class ImageAndText {
 				continue;
 			}
 
-			$style = substr( $class, strlen( 'is-style-' ) );
+			$layout = substr( $class, strlen( 'is-style-' ) );
 
-			if ( isset( self::STYLES[ $style ] ) ) {
-				return self::STYLES[ $style ];
+			if ( isset( self::LAYOUTS[ $layout ] ) ) {
+				return $layout;
 			}
 		}
 
-		return self::STYLES['default'];
+		return 'default';
+	}
+
+	/**
+	 * Resolves a block instance to its rendering configuration.
+	 *
+	 * @param array $block The block instance.
+	 * @return array One of the self::LAYOUTS entries.
+	 */
+	public static function layout_config( array $block ): array {
+		return self::LAYOUTS[ self::layout_key( $block ) ];
 	}
 
 	/**

@@ -844,30 +844,6 @@ $blocks = array(
     // START Events
     array(
         'attrs' => array(
-            'name'          => 'events-list-block',
-            'title'         => __('Events list block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'tickets-alt',
-        'description' => __('Events list block', 'ltm'),
-        'post_types'     => array('page'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Events list block', 'ltm')),
-        'enqueue_assets' => function () {
-            wp_enqueue_style('block-acf-events-list-block', get_template_directory_uri() . '/dist/css/blocks/events-list-block.min.css');
-            wp_enqueue_script('block-acf-events-list-block', get_template_directory_uri() . '/dist/js/blocks/load-more-events.min.js', array('jquery'), '', true);
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'events-list-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-venue-block',
             'title'         => __('Event venue block', 'ltm'),
             'path'          => 'event',

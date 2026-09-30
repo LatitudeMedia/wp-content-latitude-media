@@ -8,9 +8,9 @@
  * first such render in the suite is trustworthy -- that slot is already
  * taken. Everything here is assertable without rendering: that the field
  * group survived the move intact, that the block registered from the
- * committed build/ manifest with all eight styles, and that the style map
- * that replaced the theme's eight template partials resolves correctly.
- * Real render coverage for all eight styles lives in
+ * committed build/ manifest with the `layout` attribute, and that the layout
+ * map that replaced the theme's eight template partials resolves correctly.
+ * Real render coverage for all eight layouts lives in
  * specs/frontend/image-and-text-block.spec.js, where each page load is its
  * own PHP process and the ACF constraint does not apply.
  *
@@ -76,71 +76,100 @@ class ImageAndTextTest extends WP_UnitTestCase {
 		$this->assertSame( 'array', $field['return_format'] );
 	}
 
-	public function test_block_is_registered_with_all_eight_styles() {
+	/**
+	 * Layout is a structural choice, not a skin, so it is the `layout`
+	 * attribute rather than eight block styles -- which also frees the one
+	 * mutually-exclusive is-style-* slot for an actual style later.
+	 *
+	 * `layout` having no default is load-bearing rather than an oversight: it
+	 * is what makes an absent attribute mean "saved before the dropdown
+	 * existed" and so lets legacy is-style-typeN blocks keep their layout with
+	 * no data migration. Asserted explicitly so a well-meaning
+	 * `"default": "default"` in block.json fails here instead of silently on
+	 * live content.
+	 */
+	public function test_block_registers_the_layout_attribute_and_no_styles() {
 		$block = WP_Block_Type_Registry::get_instance()->get_registered( 'acf/image-and-text' );
 
 		$this->assertNotNull( $block, 'acf/image-and-text is not registered.' );
 
-		$styles = array_map(
-			static fn( $style ) => [ $style['name'], ! empty( $style['isDefault'] ) ],
-			(array) $block->styles
+		$this->assertSame(
+			[],
+			(array) $block->styles,
+			'The eight layouts are the layout attribute now; no block styles should be registered.'
 		);
 
-		// Exactly one default: the theme registration marked ALL EIGHT styles
-		// isDefault, which is incoherent (isDefault means "active when no
-		// is-style-* class is present"). Fixed during the migration.
-		$this->assertSame(
-			[
-				[ 'default', true ],
-				[ 'type2', false ],
-				[ 'type3', false ],
-				[ 'type4', false ],
-				[ 'type5', false ],
-				[ 'type6', false ],
-				[ 'type7', false ],
-				[ 'type8', false ],
-			],
-			$styles
+		$this->assertArrayHasKey( 'layout', (array) $block->attributes );
+		$this->assertSame( 'string', $block->attributes['layout']['type'] );
+		$this->assertArrayNotHasKey(
+			'default',
+			$block->attributes['layout'],
+			'layout must not have a default; see ImageAndText::layout_key().'
 		);
 	}
 
 	/**
-	 * The full shape of every style, pinned against the eight theme partials
+	 * The full shape of every layout, pinned against the eight theme partials
 	 * this map replaced. These strings are what the stylesheets hook onto, so
 	 * a typo here is a silently unstyled block on live content.
 	 *
-	 * @dataProvider provide_styles
+	 * @dataProvider provide_blocks
 	 */
-	public function test_style_config_matches_the_theme_partials( string $class_name, array $expected ) {
-		$this->assertSame( $expected, ImageAndText::style_config( $class_name ) );
+	public function test_layout_config_matches_the_theme_partials( array $block, array $expected ) {
+		$this->assertSame( $expected, ImageAndText::layout_config( $block ) );
 	}
 
-	public static function provide_styles(): array {
-		$cases = [];
+	/**
+	 * The `layout` rows are the current mechanism; the className rows are
+	 * legacy content saved under the retired block styles, which is real on
+	 * every environment (and comes back whenever a post revision is restored),
+	 * plus guards for the ways the theme's ltm_get_block_style() would have
+	 * got it wrong.
+	 */
+	public static function provide_blocks(): array {
+		$cases   = [];
+		$default = ImageAndText::LAYOUTS['default'];
 
-		foreach ( ImageAndText::STYLES as $name => $config ) {
-			$cases[ "is-style-{$name}" ] = [ "is-style-{$name}", $config ];
+		foreach ( ImageAndText::LAYOUTS as $name => $config ) {
+			$cases[ "layout: {$name}" ]   = [ [ 'layout' => $name ], $config ];
+			$cases[ "legacy: {$name}" ]   = [ [ 'className' => "is-style-{$name}" ], $config ];
 		}
 
-		// Everything below must fall back to the default style, matching the
+		// The attribute wins over a className the block may still carry from
+		// before the dropdown existed.
+		$cases['layout beats legacy class'] = [
+			[ 'layout' => 'type6', 'className' => 'is-style-type3' ],
+			ImageAndText::LAYOUTS['type6'],
+		];
+
+		// Never touched -- null and absent both mean "fall back to the class".
+		$cases['layout null falls back']    = [
+			[ 'layout' => null, 'className' => 'is-style-type3' ],
+			ImageAndText::LAYOUTS['type3'],
+		];
+		$cases['unknown layout falls back'] = [
+			[ 'layout' => 'type99', 'className' => 'is-style-type3' ],
+			ImageAndText::LAYOUTS['type3'],
+		];
+
+		// Everything below must fall back to the default layout, matching the
 		// theme dispatcher, which passed an unresolved name to
 		// get_template_part() and so loaded nothing at all for an unknown
 		// style. Falling back is strictly better and is what we assert.
-		$default = ImageAndText::STYLES['default'];
-
-		$cases['no class at all']          = [ '', $default ];
-		$cases['only a theme class']       = [ 'pink-theme', $default ];
-		$cases['unknown style']            = [ 'is-style-type99', $default ];
-		$cases['substring is not a match'] = [ 'not-is-style-type4', $default ];
+		$cases['no attributes at all']     = [ [], $default ];
+		$cases['no class at all']          = [ [ 'className' => '' ], $default ];
+		$cases['only a theme class']       = [ [ 'className' => 'pink-theme' ], $default ];
+		$cases['unknown style']            = [ [ 'className' => 'is-style-type99' ], $default ];
+		$cases['substring is not a match'] = [ [ 'className' => 'not-is-style-type4' ], $default ];
 
 		// The theme's ltm_get_block_style() got these wrong: it read
 		// $classStyle[0] after an array_filter() that preserves keys (so a
 		// style class that is not first was missed) and parsed with
 		// end( explode( '-', ... ) ) (so a hyphenated suffix resolved to its
 		// last segment).
-		$cases['style class not first']    = [ 'pink-theme is-style-type4', ImageAndText::STYLES['type4'] ];
-		$cases['extra whitespace']         = [ '  is-style-type6   blue-theme ', ImageAndText::STYLES['type6'] ];
-		$cases['hyphenated unknown style'] = [ 'is-style-type4-compact', $default ];
+		$cases['style class not first']    = [ [ 'className' => 'pink-theme is-style-type4' ], ImageAndText::LAYOUTS['type4'] ];
+		$cases['extra whitespace']         = [ [ 'className' => '  is-style-type6   blue-theme ' ], ImageAndText::LAYOUTS['type6'] ];
+		$cases['hyphenated unknown style'] = [ [ 'className' => 'is-style-type4-compact' ], $default ];
 
 		return $cases;
 	}
@@ -153,14 +182,25 @@ class ImageAndTextTest extends WP_UnitTestCase {
 		// `default` alone rendered a bare <img> via thumbnail_formatting()
 		// instead of the print_image_and_text_image() helper, so it ignores
 		// the image_link field entirely.
-		$this->assertFalse( ImageAndText::STYLES['default']['link_image'] );
+		$this->assertFalse( ImageAndText::LAYOUTS['default']['link_image'] );
 
 		// type6 and type8 alone omitted the !empty($logo) guard, so they emit
 		// an empty image slot div when no logo is set.
-		$this->assertFalse( ImageAndText::STYLES['type6']['guard_image'] );
-		$this->assertFalse( ImageAndText::STYLES['type8']['guard_image'] );
+		$this->assertFalse( ImageAndText::LAYOUTS['type6']['guard_image'] );
+		$this->assertFalse( ImageAndText::LAYOUTS['type8']['guard_image'] );
 
 		// type8 alone renders the text before the image.
-		$this->assertTrue( ImageAndText::STYLES['type8']['text_first'] );
+		$this->assertTrue( ImageAndText::LAYOUTS['type8']['text_first'] );
+	}
+
+	/**
+	 * render.php emits `image-and-text-{key}` as the hook for layout-specific
+	 * CSS (style.scss and the theme's pages/_events.scss both target type4),
+	 * so the key a legacy block resolves to is itself front-end behaviour.
+	 */
+	public function test_layout_key_resolves_legacy_and_current_content() {
+		$this->assertSame( 'type4', ImageAndText::layout_key( [ 'layout' => 'type4' ] ) );
+		$this->assertSame( 'type4', ImageAndText::layout_key( [ 'className' => 'is-style-type4' ] ) );
+		$this->assertSame( 'default', ImageAndText::layout_key( [] ) );
 	}
 }

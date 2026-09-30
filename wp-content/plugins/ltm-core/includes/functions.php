@@ -36,7 +36,7 @@ if ( ! function_exists( 'get_post_sponsor' ) ) {
 
 if ( ! function_exists( 'get_events_list' ) ) {
 	/**
-	 * Wrapper around LTMCore\RestApi\LoadMoreEvents::get_events_list(), kept
+	 * Wrapper around LTMCore\PostTypes\Events::get_events_list(), kept
 	 * unqualified so theme code can call it the way it always has.
 	 *
 	 * @param string $type
@@ -45,7 +45,7 @@ if ( ! function_exists( 'get_events_list' ) ) {
 	 * @return \WP_Query the query object
 	 */
 	function get_events_list( $type = '', $args = [], $ids = [] ) {
-		return \LTMCore\RestApi\LoadMoreEvents::get_events_list( $type, $args, $ids );
+		return \LTMCore\PostTypes\Events::get_events_list( $type, $args, $ids );
 	}
 }
 

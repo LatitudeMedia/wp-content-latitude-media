@@ -39,9 +39,11 @@
 }
 
 // `.image-text-section` itself is in the theme's base/_global.scss; this
-// style-specific override is block-only, and its two-class selector outranks
-// the base rule regardless of stylesheet order.
-.image-text-section.is-style-type4 {
+// layout-specific override is block-only, and its two-class selector outranks
+// the base rule regardless of stylesheet order. `image-and-text-type4` is
+// emitted by render.php from the resolved layout key, so this covers both
+// `layout: type4` blocks and legacy `is-style-type4` ones.
+.image-text-section.image-and-text-type4 {
   .image-text-section-wrapper {
     .image-folder {
       @include imageFolderLarge;

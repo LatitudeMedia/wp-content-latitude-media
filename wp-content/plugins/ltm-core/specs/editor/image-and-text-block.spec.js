@@ -202,4 +202,74 @@ test.describe( 'Image and text block editor', () => {
 			STYLED_BUTTON,
 		] );
 	} );
+
+	/**
+	 * The Layout dropdown (src/image-and-text/editor.js) replaced eight block
+	 * styles. Two things have to hold that only the editor can show: a block
+	 * saved under the retired `is-style-*` class opens with that layout
+	 * selected rather than "Default", and picking a new one writes the
+	 * `layout` attribute and re-renders ACF's preview.
+	 */
+	test( 'the Layout dropdown reflects a legacy style class and sets the layout attribute', async ( {
+		admin,
+		editor,
+		page,
+		requestUtils,
+	} ) => {
+		const created = await requestUtils.rest( {
+			path: '/wp/v2/pages',
+			method: 'POST',
+			data: {
+				title: 'Image And Text Layout Control',
+				status: 'publish',
+				content: blockMarkup.replace(
+					'"mode":"preview"',
+					'"mode":"preview","className":"is-style-type4"'
+				),
+			},
+		} );
+		createdPages.push( created.id );
+
+		await admin.editPost( created.id );
+
+		const content = ( await page
+			.locator( '[name="editor-canvas"]' )
+			.count() )
+			? editor.canvas
+			: page.getByLabel( 'Editor content' );
+
+		await content
+			.locator( '.wp-block-acf-image-and-text' )
+			.first()
+			.click();
+		await editor.openDocumentSettingsSidebar();
+
+		// The panel is registered with InspectorControls group="styles", and
+		// the sidebar opens on the Settings tab.
+		await page.getByRole( 'tab', { name: 'Styles' } ).click();
+
+		const layout = page.getByRole( 'combobox', { name: 'Layout' } );
+		await expect( layout ).toHaveValue( 'type4' );
+
+		await layout.selectOption( 'type6' );
+
+		await expect
+			.poll( async () => {
+				const blocks = await editor.getBlocks();
+				return blocks[ 0 ].attributes.layout;
+			} )
+			.toBe( 'type6' );
+
+		// type6 is the only layout using `.container` rather than
+		// `.container-narrow`, so this is the preview having re-rendered from
+		// the new value. Matched from the block element rather than on the
+		// wrapper's own classes: ACF's ajax-rendered preview markup does not
+		// carry the `wp-block-acf-image-and-text` class the front end gets
+		// from get_block_wrapper_attributes().
+		await expect(
+			content.locator(
+				'[data-type="acf/image-and-text"] .image-and-text-type6 > .container'
+			)
+		).toHaveCount( 1 );
+	} );
 } );

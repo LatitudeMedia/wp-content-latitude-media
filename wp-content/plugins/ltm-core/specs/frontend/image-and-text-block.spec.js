@@ -127,10 +127,19 @@ const STYLES = [
 const TITLE = 'Image and text heading';
 const IMAGE_LINK = 'https://example.com/target';
 
+// `legacy: true` writes the layout as the retired `is-style-*` class instead
+// of the `layout` attribute, which is what content saved before the Layout
+// dropdown existed looks like on every environment.
 const blockMarkup = (
 	style,
 	logoId,
-	{ display = '1', imageLink = IMAGE_LINK, title = TITLE, logo = logoId } = {}
+	{
+		display = '1',
+		imageLink = IMAGE_LINK,
+		title = TITLE,
+		logo = logoId,
+		legacy = false,
+	} = {}
 ) => {
 	const attrs = {
 		name: 'acf/image-and-text',
@@ -151,8 +160,10 @@ const blockMarkup = (
 		mode: 'preview',
 	};
 
-	if ( style ) {
+	if ( style && legacy ) {
 		attrs.className = `is-style-${ style }`;
+	} else if ( style ) {
+		attrs.layout = style;
 	}
 
 	return `<!-- wp:acf/image-and-text ${ JSON.stringify(
@@ -215,8 +226,13 @@ test.describe( 'Image and text block frontend', () => {
 			const block = page.locator( '.wp-block-acf-image-and-text' );
 			await expect( block ).toHaveCount( 1 );
 
-			// Wrapper classes, including the shared `content-block`.
-			for ( const className of [ 'content-block', ...style.classes ] ) {
+			// Wrapper classes: the shared `content-block`, the layout's own
+			// classes, and the `image-and-text-{layout}` CSS hook.
+			for ( const className of [
+				'content-block',
+				`image-and-text-${ style.name }`,
+				...style.classes,
+			] ) {
 				await expect( block ).toHaveClass(
 					new RegExp( `(^|\\s)${ className }(\\s|$)` )
 				);
@@ -286,6 +302,35 @@ test.describe( 'Image and text block frontend', () => {
 			}
 		} );
 	}
+
+	/**
+	 * Content saved under the retired block styles carries `is-style-typeN`
+	 * and no `layout` attribute, and must keep rendering exactly as before --
+	 * including the `image-and-text-type4` hook the type4 CSS now needs, which
+	 * render.php derives from the resolved layout key rather than the
+	 * attribute.
+	 */
+	test( 'a legacy is-style-* class still selects its layout', async ( {
+		page,
+		requestUtils,
+	} ) => {
+		const created = await createPage(
+			requestUtils,
+			'Image and text legacy type4',
+			blockMarkup( 'type4', logoId, { legacy: true } )
+		);
+
+		await page.goto( created.link );
+
+		const block = page.locator( '.wp-block-acf-image-and-text' );
+		await expect( block ).toHaveClass( /(^|\s)image-text-section(\s|$)/ );
+		await expect( block ).toHaveClass( /(^|\s)image-and-text-type4(\s|$)/ );
+		await expect(
+			block.locator(
+				'.container-narrow > .image-text-section-wrapper > .image-folder img'
+			)
+		).toHaveClass( /(^|\s)size-image-text-type4(\s|$)/ );
+	} );
 
 	test( 'falls back to the default style when no style class is set', async ( {
 		page,
