@@ -3,10 +3,11 @@
 	"core": "https://wordpress.org/wordpress-7.1.1.zip",
 	"phpVersion": "8.5",
 	"plugins": [
-		".",
-		"../advanced-custom-fields-pro",
-		"../acf-blocks-v2-iframe-compatibility-main"
+		"."
 	],
+	"mappings": {
+		"wp-content/plugins": ".."
+	},
 	"themes": [ "../../themes/latitudemedia" ],
 	"config": {
 		"WP_DEBUG": true,

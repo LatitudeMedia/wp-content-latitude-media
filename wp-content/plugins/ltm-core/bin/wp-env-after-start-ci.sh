@@ -14,14 +14,16 @@
 
 set -euo pipefail
 
+# The plugin dir is a bind mount shared by both instances, so vendor/ only
+# needs installing once.
+wp-env run cli --env-cwd=wp-content/plugins/ltm-core composer install -n
+
 for CONTAINER in cli tests-cli; do
 	echo "[ltm-core] Configuring '${CONTAINER}' container..."
 
-	wp-env run "${CONTAINER}" wp --allow-root cli --env-cwd=wp-content/plugins/ltm-core \ 
-		composer install -n
-
-	wp-env run "${CONTAINER}" wp --allow-root plugin activate \
-		ltm-core advanced-custom-fields-pro acf-blocks-v2-iframe-compatibility-main
+	# ACF Pro and acf-blocks-v2-iframe-compatibility-main are not mapped in CI
+	# (see the header above), so only ltm-core is activated here.
+	wp-env run "${CONTAINER}" wp --allow-root plugin activate ltm-core
 
 	wp-env run "${CONTAINER}" wp --allow-root theme activate latitudemedia
 

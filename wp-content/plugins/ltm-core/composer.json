@@ -34,9 +34,9 @@
 	},
 	"extra": {
 		"installer-paths": {
-			"../plugins/{$name}/": ["type:wordpress-plugin"],
-			"../mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-			"../themes/{$name}/": ["type:wordpress-theme"]
+			"../{$name}/": ["type:wordpress-plugin"],
+			"../../mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+			"../../themes/{$name}/": ["type:wordpress-theme"]
 		}
 	}
 }
