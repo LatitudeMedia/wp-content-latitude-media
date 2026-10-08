@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/event-agenda-v2-block",
+	"version": "0.1.0",
+	"title": "Event agenda V2 block",
+	"category": "ltm-event-blocks",
+	"icon": "calendar-alt",
+	"description": "Event agenda V2 block",
+	"keywords": [ "Event agenda V2 block" ],
+	"example": {},
+	"styles": [
+		{ "name": "default", "label": "Default (Green)", "isDefault": true },
+		{ "name": "pink-theme", "label": "Pink" },
+		{ "name": "blue-theme", "label": "Blue" }
+	],
+	"attributes": {
+		"makeSticky": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": false,
+			"padding": false
+		},
+		"typography": {
+			"color": false
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"hideFieldsInSidebar": true,
+		"renderTemplate": "render.php",
+		"postTypes": [ "events" ]
+	},
+	"textdomain": "ltm",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"script": "file:./view.js"
+}

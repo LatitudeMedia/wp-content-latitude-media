@@ -41,7 +41,7 @@ jobs:
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.5'
           tools: composer
           coverage: none
 
@@ -50,18 +50,16 @@ jobs:
 
       - name: Install PHP dependencies
         run: composer install --no-interaction --prefer-dist
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
-      # ACF Pro is a licensed, Pressable-managed plugin that .wp-env.json
-      # normally maps in (../advanced-custom-fields-pro) — it isn't committed
-      # to git (see the plugin's .gitignore), so it doesn't exist on this
-      # checkout. This CI-only override (already gitignored, never affects
-      # local dev) drops that mapping and points afterStart at a CI variant
-      # of the lifecycle script that skips activating it. See
-      # bin/wp-env-after-start-ci.sh for what that means for coverage:
-      # specs that render real front-end pages fatal without ACF Pro (the
-      # theme calls get_field() unguarded in header.php/footer.php), so
-      # those are excluded from the Playwright run below.
-      - name: Write CI wp-env override (drops ACF Pro)
+      # ACF Pro isn't committed to git; the composer install above pulls it
+      # into ../advanced-custom-fields-pro using the COMPOSER_AUTH secret,
+      # and .wp-env.json's wp-content/plugins mapping mounts it. This
+      # CI-only override (already gitignored, never affects local dev)
+      # points afterStart at a CI variant of the lifecycle script — see
+      # bin/wp-env-after-start-ci.sh for how it differs from the local one.
+      - name: Write CI wp-env override
         run: |
           cat > .wp-env.override.json <<'EOF'
           {
@@ -74,6 +72,8 @@ jobs:
 
       - name: Start wp-env
         run: npm run env:start
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
       - name: Run PHPUnit
         run: npm run test:php
@@ -88,21 +88,14 @@ jobs:
       # here since this step invokes it directly, not as a lifecycle script.
       - name: Re-activate plugin/theme on tests instance
         run: PATH="$PWD/node_modules/.bin:$PATH" ./bin/wp-env-after-start-ci.sh
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
       - name: Install Playwright browser
         run: npm run test:e2e:install
 
-      # specs/frontend/** and the "renders server-side output on the
-      # frontend" case in specs/editor/title-block.spec.js visit real
-      # front-end URLs, which fatal without ACF Pro active (see the wp-env
-      # override step above). Everything else — admin screens, the block
-      # editor, and REST — doesn't load the theme's header/footer and runs
-      # fine without it.
-      - name: Run Playwright (excluding ACF-dependent frontend specs)
-        run: >
-          npx playwright test specs/admin specs/editor specs/rest
-          --config=playwright.config.js
-          --grep-invert "renders server-side output on the frontend"
+      - name: Run Playwright
+        run: npm run test:e2e
 
       - name: Show plugin/theme status on failure
         if: failure()

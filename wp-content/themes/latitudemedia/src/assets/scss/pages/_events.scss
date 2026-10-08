@@ -1,27 +1,14 @@
-.upcoming-events-empty {
-  background-color: #f5f5f5;
-  padding: 40px;
-  font-family: $lora;
-  @include fontSize(24px);
-  line-height: 34px;
-  color: $primary-dark-blue;
-  text-align: center;
-  font-weight: 700;
-  a {
-    text-decoration: underline;
-    color: $primary-dark-blue;
-    &:hover {
-      color: $primary-pink;
-    }
-  }
-}
+@use "../core/core_loader" as *;
 
 .postid-12513 .alert-banner{
   display: none;
 }
 
 .image-text-section {
-  &.is-style-type4 {
+  // Renamed from `.is-style-type4` when acf/image-and-text's layouts moved from
+  // block styles to the `layout` attribute; ltm-core's render.php emits
+  // `image-and-text-{layout}` for both new and legacy instances.
+  &.image-and-text-type4 {
     .image-text-section-wrapper {
       .image-folder {
         span {

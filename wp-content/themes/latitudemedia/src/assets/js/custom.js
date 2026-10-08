@@ -7,7 +7,6 @@ $(document).ready(function ($) {
   let stickyHeader = $("header .header-wrapper .bottom-head");
   let stickyLogo = $("header .header-wrapper .middle-head");
   let stickyAlert = $("header .header-wrapper .alert-banner");
-  let navigationMenuBlock = $(".navigation-menu-section");
   let body = $("body");
 
   const skipAlertBanner = window.location.pathname.includes(
@@ -16,10 +15,6 @@ $(document).ready(function ($) {
 
   if (stickyAlert.length > 0 && !skipAlertBanner) {
     $(headerWrapper).addClass("has-alert-banner");
-
-    if (navigationMenuBlock.length > 0) {
-      $(navigationMenuBlock).addClass("has-alert-banner");
-    }
   }
   if (stickyHeader.length > 0) {
     var stickyTop = $(stickyHeader).offset().top + 20;

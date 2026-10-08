@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Latitude Media Core
  * Description:       Native Gutenberg blocks for Latitude Media (Title Block, Featured Post) and custom post types, taxonomies, etc.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Requires at least: 7.0.2
  * Requires PHP:      8.3
  * Author:            Latitude Media
@@ -32,6 +32,8 @@ function ltm_core_activate() {
 	( new \LTMCore\PostTypes\ThematicPages() )->create_post_type();
 	( new \LTMCore\Taxonomies\PostSponsor() )->create_taxonomy();
 	( new \LTMCore\PostTypes\Sponsors() )->create_post_type();
+	( new \LTMCore\PostTypes\Events() )->create_post_type();
+	( new \LTMCore\PostTypes\Speakers() )->create_post_type();
 
 	flush_rewrite_rules();
 }
@@ -44,11 +46,29 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/PostTypes/ThematicPages.php';
 	require_once __DIR__ . '/includes/Taxonomies/PostSponsor.php';
 	require_once __DIR__ . '/includes/PostTypes/Sponsors.php';
+	require_once __DIR__ . '/includes/PostTypes/Events.php';
+	require_once __DIR__ . '/includes/PostTypes/Speakers.php';
 	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
+	require_once __DIR__ . '/includes/Blocks/_AssetVersioning.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
 	require_once __DIR__ . '/includes/Blocks/NewsTypePreview.php';
 	require_once __DIR__ . '/includes/Blocks/RightSidebarLayout.php';
+	require_once __DIR__ . '/includes/Blocks/EventAgenda.php';
+	require_once __DIR__ . '/includes/Blocks/EventAgendaV2.php';
+	require_once __DIR__ . '/includes/Blocks/EventPreview.php';
+	require_once __DIR__ . '/includes/Blocks/EventShortDescription.php';
+	require_once __DIR__ . '/includes/Blocks/EventDescription.php';
+	require_once __DIR__ . '/includes/Blocks/EventGrayIcon.php';
+	require_once __DIR__ . '/includes/Blocks/EventNavigationMenu.php';
+	require_once __DIR__ . '/includes/Blocks/EventSpeakers.php';
+	require_once __DIR__ . '/includes/Blocks/EventSponsors.php';
+	require_once __DIR__ . '/includes/Blocks/EventContactUs.php';
+	require_once __DIR__ . '/includes/Blocks/ImageAndText.php';
+	require_once __DIR__ . '/includes/Blocks/StyledButton.php';
+	require_once __DIR__ . '/includes/Blocks/EventsList.php';
+	require_once __DIR__ . '/includes/Blocks/EventVenue.php';
+	require_once __DIR__ . '/includes/Blocks/RecapVideo.php';
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -58,8 +78,26 @@ function ltm_core_loader() {
 	new \LTMCore\Taxonomies\ThematicPageTypes();
 	new \LTMCore\Taxonomies\PostSponsor();
 	new \LTMCore\PostTypes\Sponsors();
+	new \LTMCore\PostTypes\Events();
+	new \LTMCore\PostTypes\Speakers();
 	new \LTMCore\RestApi\FeaturedPostSearch();
+	new \LTMCore\Blocks\AssetVersioning();
 	new \LTMCore\Blocks\Title();
 	new \LTMCore\Blocks\RightSidebarLayout();
+	new \LTMCore\Blocks\EventAgenda();
+	new \LTMCore\Blocks\EventAgendaV2();
+	new \LTMCore\Blocks\EventPreview();
+	new \LTMCore\Blocks\EventShortDescription();
+	new \LTMCore\Blocks\EventDescription();
+	new \LTMCore\Blocks\EventGrayIcon();
+	new \LTMCore\Blocks\EventNavigationMenu();
+	new \LTMCore\Blocks\EventSpeakers();
+	new \LTMCore\Blocks\EventSponsors();
+	new \LTMCore\Blocks\EventContactUs();
+	new \LTMCore\Blocks\ImageAndText();
+	new \LTMCore\Blocks\StyledButton();
+	new \LTMCore\Blocks\EventsList();
+	new \LTMCore\Blocks\EventVenue();
+	new \LTMCore\Blocks\RecapVideo();
 };
 ltm_core_loader();

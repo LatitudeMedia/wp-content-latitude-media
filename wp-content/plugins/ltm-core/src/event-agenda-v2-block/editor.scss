@@ -1,0 +1,9 @@
+// Editor-only (block.json `editorStyle`). The editor canvas has no sticky
+// site header to clear, so the front-end 164px offset is dropped to 0.
+.wp-block-acf-event-agenda-v2-block {
+  .event-agenda-v2-section.is-sticky {
+    .event-agenda-v2-day-buttons {
+      top: 0;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/events-list-block",
+  "version": "0.1.0",
+  "title": "Events list block",
+  "category": "ltm-page-blocks",
+  "icon": "tickets-alt",
+  "description": "Events list block",
+  "keywords": [
+    "Events list block"
+  ],
+  "example": {},
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": false,
+      "padding": false
+    },
+    "color": {
+      "text": false,
+      "background": false
+    },
+    "baseColor": false
+  },
+  "acf": {
+    "blockVersion": 3,
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "postTypes": [
+      "page"
+    ]
+  },
+  "textdomain": "ltm",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

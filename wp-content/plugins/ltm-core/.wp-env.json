@@ -1,8 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/wp-env.json",
 	"core": null,
-	"phpVersion": "8.3",
-	"plugins": [ ".", "../advanced-custom-fields-pro" ],
+	"phpVersion": "8.5",
+	"plugins": [
+		"."
+	],
+	"mappings": {
+		"wp-content/plugins": ".."
+	},
 	"themes": [ "../../themes/latitudemedia" ],
 	"config": {
 		"WP_DEBUG": true,

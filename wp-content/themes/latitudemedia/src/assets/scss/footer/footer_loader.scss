@@ -1,2 +1,2 @@
-@import "../core/core_loader";
-@import "footer";
+@use "../core/core_loader" as *;
+@use "footer" as *;

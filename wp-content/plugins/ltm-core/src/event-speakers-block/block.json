@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/event-speakers-block",
+	"version": "0.1.0",
+	"title": "Event speakers block",
+	"category": "ltm-event-blocks",
+	"icon": "megaphone",
+	"description": "Event speakers block",
+	"keywords": [ "Event speakers block" ],
+	"example": {},
+	"styles": [
+		{ "name": "default", "label": "Default (Green)", "isDefault": true },
+		{ "name": "pink-theme", "label": "Pink" },
+		{ "name": "blue-theme", "label": "Blue" }
+	],
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": false,
+			"padding": false
+		},
+		"color": {
+			"text": false,
+			"background": false
+		},
+		"baseColor": false,
+		"blocks": {
+			"core/post-excerpt": {
+				"color": {
+					"text": false,
+					"background": false
+				},
+				"spacing": {
+					"margin": false,
+					"padding": false
+				},
+				"typography": {
+					"fontSize": false,
+					"lineHeight": false
+				}
+			}
+		}
+	},
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderTemplate": "render.php",
+		"postTypes": [ "events" ]
+	},
+	"textdomain": "ltm"
+}

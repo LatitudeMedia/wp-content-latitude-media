@@ -56,80 +56,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'image-and-text',
-            'title'         => __('Image and text', 'ltm'),
-            'path'          => 'common',
-        ),
-        'icon'          => 'align-left',
-        'description' => __('Image and text', 'ltm'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Image and text', 'ltm')),
-        "supports" =>  array(
-            "jsx" =>  true,
-            "anchor" =>  true,
-            "spacing" => array(
-                "margin" => true,
-                "padding" => true,
-            ),
-            "color" => true,
-            "baseColor" => true,
-            "align" => true,
-        ),
-        'mode' => 'preview',
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2 (inverse)', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type3',
-                'label' => __('Type 3', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type4',
-                'label' => __('Type 4', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type5',
-                'label' => __('Type 5 (background)', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type6',
-                'label' => __('Type 6 (square)', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type7',
-                'label' => __('Type 7', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type8',
-                'label' => __('Type 8 (inverse)', 'ltm'),
-                'isDefault' => true,
-            ],
-        ],
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'image-and-text.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'content-with-background-block',
             'title'         => __('Content with background block', 'ltm'),
             'path'          => 'common',
@@ -156,37 +82,6 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'content-with-background-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'styled-button-block',
-            'title'         => __('Styled button block', 'ltm'),
-            'path'          => 'common',
-            'display'          => true,
-        ),
-        'icon'          => 'button',
-        'description' => __('Styled button block', 'ltm'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Styled button block', 'ltm')),
-        "supports" =>  array(
-            "jsx" =>  true,
-            "anchor" =>  true,
-            "spacing" => array(
-                "margin" => true,
-                "padding" => true,
-            ),
-            "color" => true,
-            "baseColor" => true
-        ),
-        'mode' => 'preview',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'styled-button-block.png',
                 )
             )
         )
@@ -251,7 +146,6 @@ $blocks = array(
         'post_types'     => array('post'),
         'category'      => 'ltm-post-blocks',
         'keywords'    => array(__('Signup form block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/signup-form-section.min.css',
         'mode' => false,
         'example'      => array(
             'attributes' => array(
@@ -317,7 +211,6 @@ $blocks = array(
         'description' => __('Sidebar form block', 'ltm'),
         'category'      => 'ltm-sidebar-blocks',
         'keywords'    => array(__('Sidebar form block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/signup-form-section.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -670,7 +563,6 @@ $blocks = array(
         'post_types'     => array('page'),
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Authors list block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -691,13 +583,6 @@ $blocks = array(
         'post_types'     => array('page'),
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Our team block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/authors-list-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-our-team-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css', array(), filemtime($css_path));
-            }
-        },
-
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -884,7 +769,6 @@ $blocks = array(
         'post_types'     => array('research'),
         'category'      => 'ltm-research-blocks',
         'keywords'    => array(__('Research preview block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -926,7 +810,6 @@ $blocks = array(
         'post_types'     => array('order-reports'),
         'category'      => 'ltm-order-report-blocks',
         'keywords'    => array(__('Order preview block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/image-and-text.min.css',
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -961,321 +844,6 @@ $blocks = array(
     // START Events
     array(
         'attrs' => array(
-            'name'          => 'events-list-block',
-            'title'         => __('Events list block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'tickets-alt',
-        'description' => __('Events list block', 'ltm'),
-        'post_types'     => array('page'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Events list block', 'ltm')),
-        'enqueue_assets' => function () {
-            wp_enqueue_style('block-acf-events-list-block', get_template_directory_uri() . '/dist/css/blocks/events-list-block.min.css');
-            wp_enqueue_script('block-acf-events-list-block', get_template_directory_uri() . '/dist/js/blocks/load-more-events.min.js', array('jquery'), '', true);
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'events-list-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-preview-block',
-            'title'         => __('Event preview block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'welcome-view-site',
-        'description' => __('Event preview block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event preview block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-preview-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-preview-block', get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-preview-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-description-block',
-            'title'         => __('Event description block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'media-text',
-        'description' => __('Event description block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event description block', 'ltm')),
-        "supports" =>  array(
-            "jsx" =>  true,
-            "anchor" =>  true,
-            "spacing" => array(
-                "margin" => true,
-                "padding" => true,
-            ),
-            "color" => true,
-            "baseColor" => true
-        ),
-        'styles'  => [
-            [
-                'name' => 'default',
-                'label' => __('Default', 'ltm'),
-                'isDefault' => true,
-            ],
-            [
-                'name' => 'type2',
-                'label' => __('Type 2 (with form)', 'ltm'),
-                'isDefault' => true,
-            ]
-        ],
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-description-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-description-block', get_template_directory_uri() . '/dist/css/blocks/event-description-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-description-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-speakers-block',
-            'title'         => __('Event speakers block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'megaphone',
-        'description' => __('Event speakers block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event speakers block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/authors-list-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-authors-list-block', get_template_directory_uri() . '/dist/css/blocks/authors-list-block.min.css', array(), filemtime($css_path));
-            }
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-speakers-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-sponsors-block',
-            'title'         => __('Event sponsors block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'money',
-        'description' => __('Event sponsors block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event sponsors block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-sponsors-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-sponsors-block', get_template_directory_uri() . '/dist/css/blocks/event-sponsors-block.min.css', array(), filemtime($css_path));
-            }
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-sponsors-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-agenda-block',
-            'title'         => __('Event agenda block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'calendar-alt',
-        'description' => __('Event agenda block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event agenda block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-agenda-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-agenda-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-venue-block',
-            'title'         => __('Event venue block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'location-alt',
-        'description' => __('Event venue block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event venue block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-venue-block.min.css';
-
-            if (file_exists($css_path)) {
-                wp_enqueue_style(
-                    'block-acf-event-venue-block',
-                    get_template_directory_uri() . '/dist/css/blocks/event-venue-block.min.css',
-                    array(),
-                    filemtime($css_path)
-                );
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-venue-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'recap-video-block',
-            'title'         => __('Recap video block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'video-alt3',
-        'description' => __('Recap video block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Recap video block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/recap-video-block.min.css';
-
-            if (file_exists($css_path)) {
-                wp_enqueue_style(
-                    'block-acf-recap-video-block',
-                    get_template_directory_uri() . '/dist/css/blocks/recap-video-block.min.css',
-                    array(),
-                    filemtime($css_path)
-                );
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'recap-video-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-short-description-block',
-            'title'         => __('Event short description block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'text-page',
-        'description' => __('Event short description block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event short description block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-preview-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-short-description-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-gray-icon-block',
-            'title'         => __('Event gray icon block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'editor-table',
-        'description' => __('Event gray icon block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event gray icon block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/event-gray-icon-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-gray-icon-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-partners-block',
-            'title'         => __('Event partners block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'buddicons-buddypress-logo',
-        'description' => __('Event partners block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event partners block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-partners-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-partners-block', get_template_directory_uri() . '/dist/css/blocks/event-partners-block.min.css', array(), filemtime($css_path));
-            }
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-partners-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'event-about-sponsors-block',
             'title'         => __('Event about sponsors block', 'ltm'),
             'path'          => 'event',
@@ -1291,96 +859,6 @@ $blocks = array(
                 'mode' => 'preview',
                 'data' => array(
                     'image' => 'event-about-sponsors-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-contact-us-block',
-            'title'         => __('Event contact us block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'calendar-alt',
-        'description' => __('Event contact us block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event contact us block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-contact-us-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-event-contact-us-block', get_template_directory_uri() . '/dist/css/blocks/event-contact-us-block.min.css', array(), filemtime($css_path));
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-contact-us-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-navigation-menu-block',
-            'title'         => __('Event navigation menu block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'calendar-alt',
-        'description' => __('Event navigation menu block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event navigation menu block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-navigation-menu-block.min.css';
-
-            if (file_exists($css_path)) {
-                wp_enqueue_style(
-                    'block-acf-event-navigation-menu-block',
-                    get_template_directory_uri() . '/dist/css/blocks/event-navigation-menu-block.min.css',
-                    array(),
-                    filemtime($css_path)
-                );
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-navigation-menu-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'event-agenda-v2-block',
-            'title'         => __('Event agenda V2 block', 'ltm'),
-            'path'          => 'event',
-        ),
-        'icon'          => 'calendar-alt',
-        'description' => __('Event agenda V2 block', 'ltm'),
-        'post_types'     => array('events'),
-        'category'      => 'ltm-event-blocks',
-        'keywords'    => array(__('Event agenda V2 block', 'ltm')),
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/event-agenda-v2-block.min.css';
-
-            if (file_exists($css_path)) {
-                wp_enqueue_style(
-                    'block-acf-event-agenda-v2-block',
-                    get_template_directory_uri() . '/dist/css/blocks/event-agenda-v2-block.min.css',
-                    array(),
-                    filemtime($css_path)
-                );
-            }
-        },
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'event-agenda-v2-block.png',
                 )
             )
         )
@@ -1537,12 +1015,6 @@ $blocks = array(
             "mode"  => false
         ),
         'mode' => 'preview',
-        'enqueue_assets' => function () {
-            $css_path = get_template_directory() . '/dist/css/blocks/popup-modal-block.min.css';
-            if (file_exists($css_path)) {
-                wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css', array(), filemtime($css_path));
-            }
-        },
         'example'      => array(
             'attributes' => array(
                 'mode' => 'preview',
@@ -1564,7 +1036,6 @@ $blocks = array(
         'category'      => 'ltm-page-blocks',
         'keywords'    => array(__('Reviews popup block', 'ltm')),
         'enqueue_assets' => function () {
-            wp_enqueue_style('block-acf-popup-modal-block', get_template_directory_uri() . '/dist/css/blocks/popup-modal-block.min.css');
             wp_enqueue_style('block-acf-reviews-popup-block', get_template_directory_uri() . '/dist/css/blocks/reviews-popup-block.min.css');
         },
         'example'      => array(

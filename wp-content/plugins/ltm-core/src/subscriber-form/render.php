@@ -22,7 +22,13 @@ $is_editor_preview = defined( 'REST_REQUEST' ) && REST_REQUEST;
 		<?php if ( $disclaimer ) : ?>
 			<p style="color:#fff;text-align:center;"><?php echo esc_html( $disclaimer ); ?></p>
 		<?php endif; ?>
-	
+
+		<?php if ( $embed_code && $is_editor_preview ) : ?>
+			<p class="form-embed-placeholder">
+				<?php echo esc_html__( '[your form will render here on the frontend]', 'ltm' ); ?>
+			</p>
+		<?php else : ?>
 			<?php echo $embed_code; ?>
+		<?php endif; ?>
 	</div>
 </div>

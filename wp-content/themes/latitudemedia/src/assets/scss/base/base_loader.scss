@@ -1,4 +1,4 @@
-@import "../core/core_loader";
-@import "reset";
-@import "base";
-@import "global";
+@use "../core/core_loader" as *;
+@use "reset" as *;
+@use "base" as *;
+@use "global" as *;

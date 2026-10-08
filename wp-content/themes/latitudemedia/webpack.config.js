@@ -1,5 +1,6 @@
 const path = require("path");
 var webpack = require("webpack");
+const sass = require("sass");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const RemoveEmptyScriptsPlugin = require("webpack-remove-empty-scripts");
 var mode = "development";
@@ -22,7 +23,7 @@ module.exports = (env) => {
       "css/admin": "./src/assets/scss/admin/admin.scss",
       "css/editor": "./src/assets/scss/admin/editor.scss",
       "css/base": "./src/assets/scss/base/base_loader.scss",
-      "css/fonts": "./src/assets/scss/fonts/fonts_loader.scss",
+      "css/fonts": "./src/assets/scss/core/fonts-build.scss",
       "css/header": "./src/assets/scss/header/header_loader.scss",
       "css/homepage": "./src/assets/scss/homepage/homepage_loader.scss",
       "css/pages": "./src/assets/scss/pages/pages_loader.scss",
@@ -44,12 +45,8 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/research-banner-block.scss",
       "css/blocks/research-overview-block":
         "./src/assets/scss/blocks/research-overview-block.scss",
-      "css/blocks/image-and-text":
-        "./src/assets/scss/blocks/image-and-text.scss",
       "css/blocks/content-with-background-block":
         "./src/assets/scss/blocks/content-with-background-block.scss",
-      "css/blocks/authors-list-block":
-        "./src/assets/scss/blocks/authors-list-block.scss",
       "css/blocks/order-form-block":
         "./src/assets/scss/blocks/order-form-block.scss",
       "css/blocks/subscribe-form-block":
@@ -74,38 +71,12 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/news-list-section.scss",
       "css/blocks/spotlight-quote-section":
         "./src/assets/scss/blocks/spotlight-quote-section.scss",
-      "css/blocks/signup-form-section":
-        "./src/assets/scss/blocks/signup-form-section.scss",
       "css/blocks/sidebar-editors-picks-section":
         "./src/assets/scss/blocks/sidebar-editors-picks-section.scss",
       "css/blocks/related-reading-section":
         "./src/assets/scss/blocks/related-reading-section.scss",
-      "css/blocks/events-list-block":
-        "./src/assets/scss/blocks/events-list-block.scss",
-      "js/blocks/load-more-events":
-        "./src/assets/js/blocks/load-more-events.js",
-      "css/blocks/event-preview-block":
-        "./src/assets/scss/blocks/event-preview-block.scss",
-      "css/blocks/event-description-block":
-        "./src/assets/scss/blocks/event-description-block.scss",
-      "css/blocks/event-sponsors-block":
-        "./src/assets/scss/blocks/event-sponsors-block.scss",
-      "css/blocks/event-agenda-block":
-        "./src/assets/scss/blocks/event-agenda-block.scss",
-      "css/blocks/event-venue-block":
-        "./src/assets/scss/blocks/event-venue-block.scss",
-      "css/blocks/event-gray-icon-block":
-        "./src/assets/scss/blocks/event-gray-icon-block.scss",
-      "css/blocks/event-partners-block":
-        "./src/assets/scss/blocks/event-partners-block.scss",
       "css/blocks/event-about-sponsors-block":
         "./src/assets/scss/blocks/event-about-sponsors-block.scss",
-      "css/blocks/event-contact-us-block":
-        "./src/assets/scss/blocks/event-contact-us-block.scss",
-      "css/blocks/event-navigation-menu-block":
-        "./src/assets/scss/blocks/event-navigation-menu-block.scss",
-      "css/blocks/event-agenda-v2-block":
-        "./src/assets/scss/blocks/event-agenda-v2-block.scss",
       "css/blocks/page-hero-block":
         "./src/assets/scss/blocks/page-hero-block.scss",
       "css/blocks/downloads-info-block":
@@ -118,12 +89,8 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/our-approach-block.scss",
       "css/blocks/sample-campaign-block":
         "./src/assets/scss/blocks/sample-campaign-block.scss",
-      "css/blocks/popup-modal-block":
-        "./src/assets/scss/blocks/popup-modal-block.scss",
       "css/blocks/reviews-popup-block":
         "./src/assets/scss/blocks/reviews-popup-block.scss",
-      "css/blocks/recap-video-block":
-        "./src/assets/scss/blocks/recap-video-block.scss",
       "css/blocks/in-house-ad-section":
         "./src/assets/scss/blocks/in-house-ad-section.scss",
     },
@@ -162,6 +129,13 @@ module.exports = (env) => {
             },
             {
               loader: "sass-loader",
+              options: {
+                sassOptions: {
+                  // Lets "@use 'pkg:@fontsource/...'" in _functions.scss
+                  // resolve those npm packages' font files (see fonts-build.scss).
+                  importers: [new sass.NodePackageImporter(__dirname)],
+                },
+              },
             },
           ],
         },

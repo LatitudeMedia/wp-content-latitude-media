@@ -1,0 +1,199 @@
+@use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
+
+// Moved from the theme's blocks/event-venue-block.scss, with the `venueSection`
+// mixin from core/_mixins.scss inlined -- this block was its only consumer.
+//
+// Both the bare `.blue-theme` / `.pink-theme` classes and the `is-style-*` ones
+// are matched: existing event content selects the colour by typing the bare
+// class into Advanced -> Additional CSS classes, while the block styles
+// registered in block.json emit the `is-style-` prefixed form. Same as
+// event-contact-us-block/style.scss.
+.venue-section {
+  margin-bottom: 64px;
+
+  // `.bordered-title` reaches the front end only through hook_critical_css()
+  // (inc/enqueue.php) inlining base.min.css, not the editor canvas, so it is
+  // re-declared here for the ACF preview. Kept above the rules below, which
+  // outrank it on specificity. Same as event-contact-us-block/style.scss.
+  .bordered-title {
+    @include borderedTitle;
+  }
+
+  .venue-section-wrapper {
+    .bordered-title {
+      margin-bottom: 32px;
+    }
+
+    .additional-info {
+      p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: #0f1e42;
+      }
+    }
+
+    img {
+      margin-bottom: 32px;
+    }
+
+    iframe {
+      margin-bottom: 32px;
+      max-width: 100%;
+    }
+
+    .venue-info {
+      display: flex;
+      justify-content: space-between;
+      @include below_sm {
+        flex-direction: column;
+      }
+
+      .date {
+        padding-left: 24px;
+        border-left: 1px solid $green_shadow;
+        @include below_sm {
+          margin-bottom: 32px;
+        }
+
+        h2 {
+          margin-bottom: 8px;
+        }
+
+        .venue-date {
+          font-family: $inter;
+          @include fontSize(20px);
+          font-weight: 400;
+          line-height: 24px;
+          text-align: left;
+          color: $primary-dark-blue;
+        }
+      }
+
+      .location {
+        padding-left: 24px;
+        border-left: 1px solid $green_shadow;
+
+        h2 {
+          margin-bottom: 8px;
+        }
+
+        address {
+          font-style: normal;
+
+          .place {
+            font-family: $inter;
+            @include fontSize(20px);
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            color: $primary-dark-blue;
+            margin-bottom: 8px;
+          }
+
+          p {
+            font-family: $inter;
+            @include fontSize(20px);
+            font-weight: 400;
+            line-height: 24px;
+            text-align: left;
+            color: $primary-dark-blue;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  &.pink {
+    .bordered-title {
+      border-color: $primary-pink;
+    }
+
+    .venue-section-wrapper {
+      .venue-info {
+        .date {
+          border-color: $pink_shadow;
+        }
+
+        .location {
+          border-color: $pink_shadow;
+        }
+      }
+    }
+  }
+  &.green {
+    .bordered-title {
+      border-color: $green;
+    }
+
+    .venue-section-wrapper {
+      .venue-info {
+        .date {
+          border-color: $green_shadow;
+        }
+
+        .location {
+          border-color: $green_shadow;
+        }
+      }
+    }
+  }
+  &.blue {
+    .bordered-title {
+      border-color: $blue;
+    }
+
+    .venue-section-wrapper {
+      .venue-info {
+        .date {
+          border-color: $blue_shadow;
+        }
+
+        .location {
+          border-color: $blue_shadow;
+        }
+      }
+    }
+  }
+  &.orange {
+    .bordered-title {
+      border-color: $orange;
+    }
+
+    .venue-section-wrapper {
+      .venue-info {
+        .date {
+          border-color: $orange_shadow;
+        }
+
+        .location {
+          border-color: $orange_shadow;
+        }
+      }
+    }
+  }
+
+  // Default (green) style. The Blue/Pink rules below outrank this on
+  // specificity, so they still win.
+  a {
+    color: $green !important;
+  }
+
+  &.blue-theme, &.is-style-blue-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-blue !important;
+    }
+    a {
+      color: $primary-blue !important;
+    }
+  }
+  &.pink-theme, &.is-style-pink-theme {
+    .bordered-title {
+      border-bottom: 5px solid $primary-pink !important;
+    }
+    a {
+      color: $primary-pink !important;
+    }
+  }
+}

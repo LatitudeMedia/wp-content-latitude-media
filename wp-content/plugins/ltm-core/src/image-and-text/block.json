@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/image-and-text",
+	"version": "0.1.0",
+	"title": "Image and text",
+	"category": "ltm-page-blocks",
+	"icon": "align-left",
+	"description": "Image and text",
+	"keywords": [ "Image and text" ],
+	"example": {},
+	"attributes": {
+		"layout": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"spacing": {
+			"margin": false,
+			"padding": false
+		},
+		"color": {
+			"text": false,
+			"background": false
+		},
+		"baseColor": false
+	},
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"textdomain": "ltm",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

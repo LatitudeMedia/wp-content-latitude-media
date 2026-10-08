@@ -1,0 +1,56 @@
+@use "../../../../themes/latitudemedia/src/assets/scss/core/core_loader" as *;
+.single-event-hero-section {
+  @include singleEventHeroSection;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#0f1e42cc, #0f1e42cc);
+    z-index: 1;
+  }
+  &.flex-summit-theme {
+    &:before {
+      display: none;
+    }
+    .container {
+      .single-event-hero-section-wrapper {
+        .labels-wrapper {
+          .location {
+            background-color: #e62471 !important;
+          }
+          .date {
+            background-color: #ff4108 !important;
+          }
+        }
+        .bottom-row {
+          .collaborator-wrapper {
+            margin-left: 130px;
+            @include below_lg {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.transition-ai-theme {
+    &:before {
+      display: none;
+    }
+    .container {
+      .single-event-hero-section-wrapper {
+        .labels-wrapper {
+          .location {
+            background-color: #C6168D !important;
+          }
+          .date {
+            background-color: #F27325 !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .info-block {
   padding: 40px 32px;
   background-color: #F5F5F5;

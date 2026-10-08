@@ -1,4 +1,4 @@
-@import "../core/core_loader";
+@use "../core/core_loader" as *;
 .testimonial-block {
   @include testimonialBlock;
   margin-bottom: 64px;

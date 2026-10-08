@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "acf/event-description-block",
+  "version": "0.1.0",
+  "title": "Event description block",
+  "category": "ltm-event-blocks",
+  "icon": "media-text",
+  "description": "Event description block",
+  "keywords": [
+    "Event description block"
+  ],
+  "example": {},
+  "attributes": {
+    "showForm": {
+      "type": "boolean"
+    }
+  },
+  "styles": [
+    {
+      "name": "default",
+      "label": "Default (Green)",
+      "isDefault": true
+    },
+    {
+      "name": "pink-theme",
+      "label": "Pink"
+    },
+    {
+      "name": "blue-theme",
+      "label": "Blue"
+    }
+  ],
+  "supports": {
+    "anchor": true,
+    "spacing": {
+      "margin": false,
+      "padding": false
+    },
+    "typography": {
+      "color": false
+    }
+  },
+  "acf": {
+    "blockVersion": 3,
+    "mode": "preview",
+    "renderTemplate": "render.php",
+    "postTypes": [
+      "events"
+    ]
+  },
+  "textdomain": "ltm",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

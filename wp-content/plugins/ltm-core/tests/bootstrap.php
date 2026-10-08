@@ -41,6 +41,20 @@ if ( ! defined( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH' ) ) {
 require_once $ltm_tests_dir . '/includes/functions.php';
 
 /**
+ * Loads ACF Pro (a sibling plugin, see .wp-env.json) before this plugin, so
+ * blocks that register an ACF field group (e.g. EventAgendaV2, EventPreview)
+ * and rely on ACF's own block-rendering hooks work under render_block() in
+ * tests, not just function_exists() guards against it being absent.
+ */
+function ltm_core_manually_load_acf() {
+	$acf_main_file = dirname( __DIR__, 2 ) . '/advanced-custom-fields-pro/acf.php';
+	if ( file_exists( $acf_main_file ) ) {
+		require $acf_main_file;
+	}
+}
+tests_add_filter( 'muplugins_loaded', 'ltm_core_manually_load_acf' );
+
+/**
  * Loads this plugin before WordPress finishes booting.
  *
  * `muplugins_loaded` fires before `init`, so ltm-core.php's load-time class

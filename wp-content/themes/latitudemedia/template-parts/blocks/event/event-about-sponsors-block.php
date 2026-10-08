@@ -1,4 +1,15 @@
 <?php
+/**
+ * Event about sponsors block (acf/event-about-sponsors-block).
+ *
+ * Usage note (audited 2026-09-30): this block is in use on exactly one post --
+ * the "Transition-AI: New York" event (post ID 2142, /events/transition-ai-new-york/).
+ * It appears in no other post, reusable block, template, or revision. Because of
+ * that single use it was deliberately left in the theme rather than migrated to
+ * ltm-core. Re-check usage before changing or removing it.
+ * 
+ * TODO: we will most likely remove this block once that post is archived
+ */
 if (is_admin()) {
     echo '<h3 style="text-align: center;">' . __('Event about sponsors block', 'ltm') . '</h3>';
 }

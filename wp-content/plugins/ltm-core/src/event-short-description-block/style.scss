@@ -1,0 +1,48 @@
+@import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
+
+.event-text-section {
+	margin-bottom: 64px;
+
+	.event-text-section-wrapper {
+		.wp-block-post-excerpt__excerpt {
+			text-align: center;
+			margin-bottom: 64px;
+			font-family: "Lora",Arial,Helvetica,serif;
+			font-size: 2.5rem;
+			line-height: 56px;
+			letter-spacing: -2px;
+			color: #0f1e42;
+			font-weight: 700;
+		}
+
+		// This design never uses a "read more" link, so hide the editor-only
+		// "Add read more link text" placeholder core/post-excerpt always shows
+		// in the canvas (moreText is empty, so nothing renders here on the
+		// front end anyway -- this is purely to declutter the editor).
+		.wp-block-post-excerpt__more-text {
+			display: none;
+		}
+	}
+}
+
+// Without its own layout support, Gutenberg draws a default dashed outline
+// around this block's locked InnerBlocks region in the editor canvas. This
+// block always holds exactly one, fixed child, so that boundary is just
+// visual noise here.
+.wp-block-acf-event-short-description-block .acf-innerblocks-container {
+	border: none;
+	outline: none;
+}
+
+.wp-block-post-content-is-layout-flow{
+	.event-text-section{
+		border: 0;
+		padding: 5px;
+	}
+	.wp-block-acf-event-short-description-block{
+		background: #777777;
+	}
+	.wp-block-post-excerpt__excerpt{
+		background: $white;
+	}
+}

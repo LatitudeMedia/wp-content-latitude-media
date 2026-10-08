@@ -377,46 +377,6 @@ function get_post_assigned_podcast($post_id = null)
 
     return get_field('podcast', $post_id) ?: false;
 }
-function get_event_start_date($event_id, $format = 'F j Y')
-{
-    if (! $event_id) {
-        $event_id = get_the_ID();
-    }
-
-    $start_date = get_field('start_date', $event_id);
-    if (empty($start_date)) {
-        return '';
-    }
-
-    return date_to_format($start_date, 'm/d/Y g:i a', $format);
-}
-
-function get_event__end_date($event_id, $format = 'F j Y')
-{
-    if (! $event_id) {
-        $event_id = get_the_ID();
-    }
-
-    $start_date = get_field('end_date', $event_id);
-    if (empty($start_date)) {
-        return '';
-    }
-
-    return date_to_format($start_date, 'm/d/Y g:i a', $format);
-}
-function get_event_timezone($event_id)
-{
-    if (! $event_id) {
-        $event_id = get_the_ID();
-    }
-
-    $timezone = get_field('timezone', $event_id);
-    if (empty($timezone)) {
-        return '';
-    }
-
-    return $timezone;
-}
 function get_ad_banner_data($bannerId)
 {
     if (! $bannerId) {
@@ -446,78 +406,6 @@ function get_ad_banner_sizes($bannerId)
     $bannerData = array_search($bannerId, array_column($dfpAdsSlots['slot'], 'spot_id'));
 
     return $dfpAdsSlots['slot'][$bannerData] ?? false;
-}
-
-/**
- * @param string $type
- * @param int $page
- * @param array $ids
- * @return WP_Query         the query object
- *
- */
-function get_events_list($type = '', $args = [], $ids = [])
-{
-    $queryArgs = [
-        'post_type'     => 'events',
-        'meta_key' => 'start_date',
-        'orderby' => 'meta_value',
-        'meta_type' => 'DATE',
-        'order' => 'DESC',
-        'posts_per_page' => -1,
-    ];
-
-    $queryArgs = wp_parse_args($args, $queryArgs);
-
-    switch ($type) {
-        case 'upcoming':
-            $queryArgs['order'] = 'ASC';
-            $queryArgs['meta_query'] = array(
-                'relation'  => 'AND',
-                array(
-                    'key'       => 'end_date',
-                    'value'     => get_date_from_gmt(date('Y-m-d')),
-                    'compare'   => '>=',
-                    'type'      => 'DATE'
-                ),
-                array(
-                    'key'       => 'past_event',
-                    'value'     => true,
-                    'compare'   => '!=',
-                ),
-                array(
-                    'key'       => 'gated',
-                    'value'     => true,
-                    'compare'   => '!=',
-                ),
-            );
-            break;
-        case 'past':
-            $queryArgs['meta_query'] = array(
-                'relation'  => 'AND',
-                array(
-                    'key'       => 'gated',
-                    'value'     => true,
-                    'compare'   => '!=',
-                ),
-                array(
-                    'relation'  => 'OR',
-                    array(
-                        'key'       => 'end_date',
-                        'value'     => get_date_from_gmt(date('Y-m-d')),
-                        'compare'   => '<',
-                        'type'      => 'DATE',
-                    ),
-                    array(
-                        'key'       => 'past_event',
-                        'value'     => true,
-                        'compare'   => '=',
-                    ),
-                )
-            );
-            break;
-    }
-
-    return \LatitudeMedia\Manage_Data()->curated_query($queryArgs, $ids);
 }
 
 /**

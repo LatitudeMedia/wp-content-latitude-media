@@ -1,3 +1,5 @@
+@use "../core/core_loader" as *;
+
 .podcast-category-hero-section {
   margin-bottom: 64px;
   @include podcastCategoryHeroSection;

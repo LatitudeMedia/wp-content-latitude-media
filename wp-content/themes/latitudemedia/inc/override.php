@@ -177,3 +177,22 @@ function get_content_body_paragraph($content, $cut_paragraph_count = 1) {
 
     return force_balance_tags( $output );
 }
+// Flag the body when the header is rendering the alert banner (see template-parts/header/nav.php).
+add_filter( 'body_class', 'ltm_alert_banner_body_class' );
+
+function ltm_alert_banner_body_class( $classes ) {
+    if ( is_admin() || ! function_exists( 'get_field' ) ) {
+        return $classes;
+    }
+
+    // The disable-menu header variant does not output the banner.
+    if ( get_field( 'disable_top_menu' ) ) {
+        return $classes;
+    }
+
+    if ( ! empty( get_field( 'alert', 'options' ) ) ) {
+        $classes[] = 'has-alert-banner';
+    }
+
+    return $classes;
+}

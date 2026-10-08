@@ -1,5 +1,5 @@
-@import "../core/core_loader";
-@import "podcasts_category";
+@use "../core/core_loader" as *;
+@use "podcasts_category" as *;
 
 .page-template-template-top-podcasts-php {
   .podcast-category-hero-section {

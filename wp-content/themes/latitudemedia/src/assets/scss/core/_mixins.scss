@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "functions" as *;
+
 @mixin fontSize($size) {
   font-size: $size;
   font-size: calculateRem($size);
@@ -2338,94 +2341,6 @@
   }
 }
 
-@mixin threeEventsSection {
-  .bordered-title {
-    @include borderedTitle;
-    margin-bottom: 32px;
-  }
-  .three-events-section-wrapper {
-    ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 0 0 -5%;
-      @include below_sm {
-        margin: 0 !important;
-      }
-      li {
-        width: 28.3%;
-        margin-bottom: 32px;
-        margin-left: 5%;
-        @include below_md {
-          width: 45%;
-        }
-        @include below_sm {
-          width: 100% !important;
-          margin-left: 0 !important;
-        }
-        .image-folder {
-          margin-bottom: 26px;
-          @include imageFolder;
-          a {
-            padding-top: 57.1429%;
-            position: relative;
-            display: block;
-
-            img {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
-              position: absolute;
-              inset: 0%;
-            }
-          }
-        }
-
-        .content-folder {
-          .event-date {
-            @include eventDate;
-            margin-bottom: 8px;
-          }
-
-          .title {
-            text-decoration: none;
-            font-family: $lora;
-            @include fontSize(20px);
-            font-weight: 700;
-            line-height: 26px;
-            text-align: left;
-            display: inline-block;
-            margin-bottom: 8px;
-            color: $primary-dark-blue;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-
-          p {
-            font-family: $inter;
-            @include fontSize(16px);
-            font-weight: 400;
-            line-height: 24px;
-            text-align: left;
-          }
-        }
-      }
-    }
-
-    .cta-button {
-      display: table;
-      margin: 0 auto;
-    }
-
-    .hidden {
-      display: none;
-    }
-  }
-}
-
 @mixin imageTextSection {
   .bordered-title {
     @include borderedTitle;
@@ -3446,8 +3361,18 @@
             position: absolute;
             left: 0;
             top: 0;
+            // Sass resolves a relative url() against the stylesheet being
+            // compiled, not against the file the rule is written in. This
+            // mixin's only consumer is now ltm-core's
+            // src/image-and-text/style.scss, which sits one level shallower
+            // than the theme entry points -- hence the path below, which looks
+            // wrong from _mixins.scss's own location but is correct from
+            // there. If a theme stylesheet ever includes this mixin again,
+            // override the declaration in that consumer instead of changing
+            // this line back.
             background: transparent
-              url(../../../images/icon_right_pink_arrow.svg) top left no-repeat;
+              url(../../../../themes/latitudemedia/src/images/icon_right_pink_arrow.svg)
+              top left no-repeat;
           }
         }
       }
@@ -4889,7 +4814,9 @@
           display: block;
           width: 42px;
           height: 42px;
-          background: transparent url(../../../images/icon_calendar.svg) center
+          // Relative to the ltm-core plugin's event-preview-block/style.scss,
+          // the sole consumer of this mixin — not to this file's own location.
+          background: transparent url(../../../../themes/latitudemedia/src/images/icon_calendar.svg) center
             center no-repeat;
           margin-right: 8px;
           background-size: cover;
@@ -4906,7 +4833,9 @@
           display: block;
           width: 42px;
           height: 42px;
-          background: transparent url(../../../images/icon_location.svg) center
+          // Relative to the ltm-core plugin's event-preview-block/style.scss,
+          // the sole consumer of this mixin — not to this file's own location.
+          background: transparent url(../../../../themes/latitudemedia/src/images/icon_location.svg) center
             center no-repeat;
           margin-right: 8px;
           background-size: cover;
@@ -5160,175 +5089,6 @@
   }
 }
 
-@mixin agendaSection {
-  .bordered-title {
-    margin-bottom: 32px;
-  }
-  .agenda-section-wrapper {
-    ul {
-      list-style: none;
-      margin: 0 0 0 -20px;
-      padding: 0;
-      columns: 2;
-      -webkit-columns: 2;
-      -moz-columns: 2;
-      @include below_sm {
-        columns: 1;
-        -webkit-columns: 1;
-        -moz-columns: 1;
-        margin: 0;
-      }
-
-      li {
-        margin-bottom: 32px;
-        margin-left: 20px;
-        @include below_sm {
-          margin-left: 0;
-        }
-
-        .agenda-thumbnail {
-          margin-bottom: 16px;
-          width: 100%;
-        }
-
-        .agenda-data {
-          padding-left: 24px;
-          border-left: 1px solid $green_shadow;
-
-          .time {
-            font-family: $inter;
-            @include fontSize(20px);
-            font-weight: 400;
-            line-height: 24px;
-            text-align: left;
-            margin-bottom: 8px;
-          }
-
-          h5 {
-            margin-bottom: 8px;
-          }
-
-          p {
-            margin-bottom: 8px;
-          }
-
-          .speakers {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-
-            li {
-              padding: 4px 8px;
-              margin-right: 8px;
-              border: none;
-              background-color: $green_shadow;
-              margin-bottom: 8px;
-              margin-left: 0;
-
-              .name {
-                font-family: $inter;
-                @include fontSize(16px);
-                font-weight: 700;
-                line-height: 24px;
-                text-align: center;
-                color: $primary-dark-blue;
-              }
-
-              .company {
-                font-family: $inter;
-                @include fontSize(16px);
-                font-weight: 700;
-                line-height: 24px;
-                text-align: center;
-                color: $primary-dark-blue;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  &.pink {
-    .bordered-title {
-      border-color: $primary-pink;
-    }
-
-    .agenda-section-wrapper {
-      ul {
-        li {
-          border-color: $pink_shadow;
-
-          .speakers {
-            li {
-              background-color: $pink_shadow;
-            }
-          }
-        }
-      }
-    }
-  }
-  &.green {
-    .bordered-title {
-      border-color: $green;
-    }
-
-    .agenda-section-wrapper {
-      ul {
-        li {
-          border-color: $green_shadow;
-          display: inline-block;
-          .speakers {
-            li {
-              background-color: $green_shadow;
-            }
-          }
-        }
-      }
-    }
-  }
-  &.blue {
-    .bordered-title {
-      border-color: $blue;
-    }
-
-    .agenda-section-wrapper {
-      ul {
-        li {
-          border-color: $blue_shadow;
-
-          .speakers {
-            li {
-              background-color: $blue_shadow;
-            }
-          }
-        }
-      }
-    }
-  }
-  &.orange {
-    .bordered-title {
-      border-color: $orange;
-    }
-
-    .agenda-section-wrapper {
-      ul {
-        li {
-          border-color: $orange_shadow;
-
-          .speakers {
-            li {
-              background-color: $orange_shadow;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 @mixin eventSponsorsSection {
   .bordered-title {
     margin-bottom: 32px;
@@ -5517,163 +5277,6 @@
   &.orange {
     .bordered-title {
       border-color: $orange;
-    }
-  }
-}
-
-@mixin venueSection {
-  .venue-section-wrapper {
-    .bordered-title {
-      margin-bottom: 32px;
-    }
-
-    .additional-info {
-      p {
-        font-size: 1.25rem;
-        font-weight: 400;
-        line-height: 24px;
-        text-align: left;
-        color: #0f1e42;
-      }
-    }
-
-    img {
-      margin-bottom: 32px;
-    }
-
-    iframe {
-      margin-bottom: 32px;
-      max-width: 100%;
-    }
-
-    .venue-info {
-      display: flex;
-      justify-content: space-between;
-      @include below_sm {
-        flex-direction: column;
-      }
-
-      .date {
-        padding-left: 24px;
-        border-left: 1px solid $green_shadow;
-        @include below_sm {
-          margin-bottom: 32px;
-        }
-
-        h2 {
-          margin-bottom: 8px;
-        }
-
-        .venue-date {
-          font-family: $inter;
-          @include fontSize(20px);
-          font-weight: 400;
-          line-height: 24px;
-          text-align: left;
-          color: $primary-dark-blue;
-        }
-      }
-
-      .location {
-        padding-left: 24px;
-        border-left: 1px solid $green_shadow;
-
-        h2 {
-          margin-bottom: 8px;
-        }
-
-        address {
-          font-style: normal;
-
-          .place {
-            font-family: $inter;
-            @include fontSize(20px);
-            font-weight: 400;
-            line-height: 24px;
-            text-align: left;
-            color: $primary-dark-blue;
-            margin-bottom: 8px;
-          }
-
-          p {
-            font-family: $inter;
-            @include fontSize(20px);
-            font-weight: 400;
-            line-height: 24px;
-            text-align: left;
-            color: $primary-dark-blue;
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-  &.pink {
-    .bordered-title {
-      border-color: $primary-pink;
-    }
-
-    .venue-section-wrapper {
-      .venue-info {
-        .date {
-          border-color: $pink_shadow;
-        }
-
-        .location {
-          border-color: $pink_shadow;
-        }
-      }
-    }
-  }
-  &.green {
-    .bordered-title {
-      border-color: $green;
-    }
-
-    .venue-section-wrapper {
-      .venue-info {
-        .date {
-          border-color: $green_shadow;
-        }
-
-        .location {
-          border-color: $green_shadow;
-        }
-      }
-    }
-  }
-  &.blue {
-    .bordered-title {
-      border-color: $blue;
-    }
-
-    .venue-section-wrapper {
-      .venue-info {
-        .date {
-          border-color: $blue_shadow;
-        }
-
-        .location {
-          border-color: $blue_shadow;
-        }
-      }
-    }
-  }
-  &.orange {
-    .bordered-title {
-      border-color: $orange;
-    }
-
-    .venue-section-wrapper {
-      .venue-info {
-        .date {
-          border-color: $orange_shadow;
-        }
-
-        .location {
-          border-color: $orange_shadow;
-        }
-      }
     }
   }
 }
@@ -6618,38 +6221,6 @@
       line-height: 23px;
       color: $primary-dark-blue;
       margin-bottom: 20px;
-    }
-  }
-}
-
-@mixin recapVideoSection {
-  .recap-video-section-wrapper {
-    h2 {
-      @include fontSize(48px);
-      line-height: 67px;
-      color: $primary-dark-blue;
-      text-align: center;
-      margin-bottom: 56px;
-      @include below_sm {
-        @include fontSize(40px);
-        line-height: 59px;
-      }
-      @include below_mob {
-        @include fontSize(32px);
-        line-height: 45px;
-      }
-    }
-    .recap-iframe-folder {
-      padding-top: 56.20608899297424%;
-      position: relative;
-      iframe {
-        border: none;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
     }
   }
 }

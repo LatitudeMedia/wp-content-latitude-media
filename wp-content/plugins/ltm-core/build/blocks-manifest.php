@@ -52,6 +52,606 @@ return array(
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
+	'event-agenda-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-agenda-block',
+		'version' => '0.1.0',
+		'title' => 'Event agenda block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'calendar-alt',
+		'description' => 'Event agenda block',
+		'keywords' => array(
+			'Event agenda block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-agenda-v2-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-agenda-v2-block',
+		'version' => '0.1.0',
+		'title' => 'Event agenda V2 block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'calendar-alt',
+		'description' => 'Event agenda V2 block',
+		'keywords' => array(
+			'Event agenda V2 block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'attributes' => array(
+			'makeSticky' => array(
+				'type' => 'boolean',
+				'default' => false
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'typography' => array(
+				'color' => false
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'hideFieldsInSidebar' => true,
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'script' => 'file:./view.js'
+	),
+	'event-contact-us-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-contact-us-block',
+		'version' => '0.1.0',
+		'title' => 'Event contact us block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'email',
+		'description' => 'Event contact us block',
+		'keywords' => array(
+			'Event contact us block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-description-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-description-block',
+		'version' => '0.1.0',
+		'title' => 'Event description block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'media-text',
+		'description' => 'Event description block',
+		'keywords' => array(
+			'Event description block'
+		),
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'showForm' => array(
+				'type' => 'boolean'
+			)
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'typography' => array(
+				'color' => false
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-gray-icon-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-gray-icon-block',
+		'version' => '0.1.0',
+		'title' => 'Event gray icon block',
+		'category' => 'ltm-event-blocks',
+		'parent' => array(
+			'acf/event-description-block'
+		),
+		'icon' => 'editor-table',
+		'description' => 'Event gray icon block',
+		'keywords' => array(
+			'Event gray icon block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'color' => true,
+			'baseColor' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-navigation-menu-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-navigation-menu-block',
+		'version' => '0.1.0',
+		'title' => 'Event navigation menu block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'calendar-alt',
+		'description' => 'Event navigation menu block',
+		'keywords' => array(
+			'Event navigation menu block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	),
+	'event-preview-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-preview-block',
+		'version' => '0.1.0',
+		'title' => 'Event preview block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'welcome-view-site',
+		'description' => 'Event preview block',
+		'keywords' => array(
+			'Event preview block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'typography' => array(
+				'color' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-short-description-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-short-description-block',
+		'version' => '0.1.0',
+		'title' => 'Event short description block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'text-page',
+		'description' => 'Event short description block',
+		'keywords' => array(
+			'Event short description block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'typography' => array(
+				'color' => false
+			),
+			'visibility' => true
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-speakers-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-speakers-block',
+		'version' => '0.1.0',
+		'title' => 'Event speakers block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'megaphone',
+		'description' => 'Event speakers block',
+		'keywords' => array(
+			'Event speakers block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false,
+			'blocks' => array(
+				'core/post-excerpt' => array(
+					'color' => array(
+						'text' => false,
+						'background' => false
+					),
+					'spacing' => array(
+						'margin' => false,
+						'padding' => false
+					),
+					'typography' => array(
+						'fontSize' => false,
+						'lineHeight' => false
+					)
+				)
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm'
+	),
+	'event-sponsors-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-sponsors-block',
+		'version' => '0.1.0',
+		'title' => 'Event sponsors block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'money',
+		'description' => 'Event sponsors block',
+		'keywords' => array(
+			'Event sponsors block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'event-venue-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/event-venue-block',
+		'version' => '0.1.0',
+		'title' => 'Event venue block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'location-alt',
+		'description' => 'Event venue block',
+		'keywords' => array(
+			'Event venue block'
+		),
+		'example' => array(
+			
+		),
+		'styles' => array(
+			array(
+				'name' => 'default',
+				'label' => 'Default (Green)',
+				'isDefault' => true
+			),
+			array(
+				'name' => 'pink-theme',
+				'label' => 'Pink'
+			),
+			array(
+				'name' => 'blue-theme',
+				'label' => 'Blue'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'events-list-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/events-list-block',
+		'version' => '0.1.0',
+		'title' => 'Events list block',
+		'category' => 'ltm-page-blocks',
+		'icon' => 'tickets-alt',
+		'description' => 'Events list block',
+		'keywords' => array(
+			'Events list block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'page'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	),
 	'featured-post-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
@@ -87,6 +687,47 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
+	),
+	'image-and-text' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/image-and-text',
+		'version' => '0.1.0',
+		'title' => 'Image and text',
+		'category' => 'ltm-page-blocks',
+		'icon' => 'align-left',
+		'description' => 'Image and text',
+		'keywords' => array(
+			'Image and text'
+		),
+		'example' => array(
+			
+		),
+		'attributes' => array(
+			'layout' => array(
+				'type' => 'string'
+			)
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => false
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
 	),
 	'news-type-preview' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
@@ -128,6 +769,76 @@ return array(
 		'editorScript' => 'file:./index.js',
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
+	),
+	'recap-video-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/recap-video-block',
+		'version' => '0.1.0',
+		'title' => 'Recap video block',
+		'category' => 'ltm-event-blocks',
+		'icon' => 'video-alt3',
+		'description' => 'Recap video block',
+		'keywords' => array(
+			'Recap video block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'spacing' => array(
+				'margin' => false,
+				'padding' => true
+			),
+			'color' => array(
+				'text' => false,
+				'background' => false
+			),
+			'baseColor' => false
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php',
+			'postTypes' => array(
+				'events'
+			)
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css'
+	),
+	'styled-button-block' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'acf/styled-button-block',
+		'version' => '0.1.0',
+		'title' => 'Styled button block',
+		'category' => 'ltm-page-blocks',
+		'icon' => 'button',
+		'description' => 'Styled button block',
+		'keywords' => array(
+			'Styled button block'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'anchor' => true,
+			'color' => true,
+			'baseColor' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			)
+		),
+		'acf' => array(
+			'blockVersion' => 3,
+			'mode' => 'preview',
+			'renderTemplate' => 'render.php'
+		),
+		'textdomain' => 'ltm'
 	),
 	'subscriber-form' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',

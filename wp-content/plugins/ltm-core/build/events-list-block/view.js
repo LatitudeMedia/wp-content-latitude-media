@@ -1,0 +1,1 @@
+document.addEventListener("click",e=>{const t=e.target.closest(".load-more-events");if(!t)return;e.preventDefault();const s=t.closest(".three-events-section"),n=s?s.querySelectorAll("ul .hidden"):[];Array.from(n).slice(0,3).forEach(e=>e.classList.remove("hidden")),n.length<=3&&t.classList.add("hidden")});
