@@ -40,15 +40,8 @@ for CONTAINER in cli tests-cli; do
 
 	# Explicit and idempotent: `wp plugin activate` on an already-active plugin
 	# is a no-op, so this is safe to repeat on every start.
-	#
-	# acf-blocks-v2-iframe-compatibility-main is listed after ACF Pro because it
-	# declares `Requires Plugins: advanced-custom-fields-pro` and WordPress
-	# refuses to activate it while that dependency is inactive. It matches the
-	# production site, where both are active, and it is not cosmetic: on WP 7.1
-	# it forces the block editor off the iframed canvas, which is the context
-	# ACF blocks actually render in there.
 	wp-env run "${CONTAINER}" wp plugin activate \
-		ltm-core advanced-custom-fields-pro acf-blocks-v2-iframe-compatibility-main
+		ltm-core advanced-custom-fields-pro
 
 	wp-env run "${CONTAINER}" wp theme activate latitudemedia
 

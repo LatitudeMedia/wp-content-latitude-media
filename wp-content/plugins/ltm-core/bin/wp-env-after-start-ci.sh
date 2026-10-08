@@ -2,12 +2,9 @@
 #
 # wp-env afterStart lifecycle script for CI only.
 #
-# Same provisioning as bin/wp-env-after-start.sh, with two differences:
-#   - ACF Pro is installed from the lock file (`composer install`) using the
-#     COMPOSER_AUTH secret, since there is no local auth.json in CI.
-#   - acf-blocks-v2-iframe-compatibility-main isn't committed to git, so it
-#     doesn't exist on a CI checkout and isn't activated here.
-# Wired up via a CI-only .wp-env.override.json (see
+# Same provisioning as bin/wp-env-after-start.sh, except that ACF Pro is
+# installed from the lock file (`composer install`) using the COMPOSER_AUTH
+# secret, since there is no local auth.json in CI. Wired up via a CI-only .wp-env.override.json (see
 # .github/workflows/ltm-core-tests.yml).
 #
 # Keep this in sync with bin/wp-env-after-start.sh for everything else.
@@ -32,8 +29,6 @@ wp-env run cli --env-cwd=wp-content/plugins/ltm-core composer install -n
 for CONTAINER in cli tests-cli; do
 	echo "[ltm-core] Configuring '${CONTAINER}' container..."
 
-	# acf-blocks-v2-iframe-compatibility-main isn't on a CI checkout (see the
-	# header above), so only ltm-core and ACF Pro are activated here.
 	wp-env run "${CONTAINER}" wp --allow-root plugin activate \
 		ltm-core advanced-custom-fields-pro
 

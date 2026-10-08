@@ -13,12 +13,12 @@ const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const BLOCK_NAME = 'latitudemedia/featured-post-block';
 
 /**
- * Scopes to wherever block content actually renders. Gutenberg only uses
- * the [name="editor-canvas"] iframe when no apiVersion 1/2 blocks are
- * registered — locally, ACF Composer blocks force the non-iframed
- * fallback, but CI drops ACF Pro (see .github/workflows/ltm-core-tests.yml),
- * so the iframe is back there. Check which one is actually present rather
- * than assuming either way.
+ * Scopes to wherever block content actually renders. The suites run without
+ * acf-blocks-v2-iframe-compatibility (see TESTING.md), so the editor normally
+ * uses the [name="editor-canvas"] iframe. Gutenberg still falls back to the
+ * legacy non-iframed canvas if anything forces it (e.g. that plugin, or an
+ * old-apiVersion block), so check which one is actually present rather than
+ * assuming either way.
  *
  * @param {import('@playwright/test').Page} page
  * @param {Object}                          editor

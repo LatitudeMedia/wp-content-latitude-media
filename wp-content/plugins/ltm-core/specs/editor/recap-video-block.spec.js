@@ -9,10 +9,6 @@
  * no network (see specs/frontend/recap-video-block.spec.js). The Referer rule
  * is the browser's, so a same-site embed proves it as well as YouTube would.
  *
- * wp-env runs acf-blocks-v2-iframe-compatibility, which forces the canvas out
- * of its iframe; production does not, so it is deactivated for this file to get
- * the real, iframed canvas. Safe because the suite runs on one worker.
- *
  * Skips when ACF Pro is absent (CI drops it): no acf/* block is registered.
  */
 
@@ -22,7 +18,6 @@
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
 const BLOCK = 'acf/recap-video-block';
-const IFRAMELESS_PLUGIN = 'acf-blocks-v2-iframe-compatibility';
 
 const blockMarkup = ( video, title ) =>
 	`<!-- wp:${ BLOCK } ${ JSON.stringify( {
@@ -50,14 +45,6 @@ test.describe( 'Recap video block editor', () => {
 		createdIds.push( event.id );
 		return event;
 	};
-
-	test.beforeAll( async ( { requestUtils } ) => {
-		await requestUtils.deactivatePlugin( IFRAMELESS_PLUGIN );
-	} );
-
-	test.afterAll( async ( { requestUtils } ) => {
-		await requestUtils.activatePlugin( IFRAMELESS_PLUGIN );
-	} );
 
 	test.beforeEach( async ( { requestUtils } ) => {
 		const registered = await requestUtils

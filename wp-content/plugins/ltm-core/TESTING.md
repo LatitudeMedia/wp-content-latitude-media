@@ -12,7 +12,13 @@ Two suites, both running against [`wp-env`](https://www.npmjs.com/package/@wordp
 - Docker running
 - Node — this repo is asdf-managed (Node 20.6.0). In non-interactive shells Node may not be on
   `PATH`; use `export PATH="$HOME/.asdf/shims:$PATH"` first.
-- `npm install` and `composer install` in this directory
+- `npm install` in this directory
+- An `auth.json` in this directory with the ACF Pro license credentials (gitignored — never commit
+  it). Composer needs it to download ACF Pro from `connect.advancedcustomfields.com`.
+- `composer install`, run inside wp-env once it's started (there's no host PHP/Composer
+  requirement): `npx wp-env run cli --env-cwd=wp-content/plugins/ltm-core composer install`.
+  If `../advanced-custom-fields-pro` goes missing while `vendor/` still lists it, Composer reports
+  "Nothing to install" — use `composer reinstall wpengine/advanced-custom-fields-pro` instead.
 - Playwright's browser binary, once per machine: `npm run test:e2e:install`
 
 ## Running
@@ -30,23 +36,28 @@ The Studio site on port 8881 is completely separate and is never touched by the 
 
 ## How the environment is wired
 
-`.wp-env.json` maps in four things the suites need:
+`.wp-env.json` maps in what the suites need:
 
 - `ltm-core` itself (`.`)
-- `../advanced-custom-fields-pro` — kept for real sponsored-path coverage even though
+- the whole parent `wp-content/plugins` directory (`mappings`), which is how
+  `../advanced-custom-fields-pro` gets in. It's mapped as a directory rather than listed under
+  `plugins` so that Composer, running in the container, can write `../advanced-custom-fields-pro`
+  back to the host — a per-plugin mount would be a mount point Composer can't delete and recreate.
+  Every other plugin in that directory is visible too, but only `ltm-core` and ACF Pro are
+  activated. ACF Pro is kept for real sponsored-path coverage even though
   `includes/PostTypes/Sponsors.php`'s `get_field()` call is now guarded (see
   [Unguarded `get_field()`](#unguarded-get_field-in-sponsorsphp) — fixed). See also the ACF
   field-group gap below for why mapping it in still doesn't buy real sponsored-toggle E2E coverage.
-- `../acf-blocks-v2-iframe-compatibility-main` — active on the production site, and not cosmetic:
-  on WP 7.1 it forces the block editor off the iframed canvas, so without it editor specs exercise
-  a different rendering context than production. It declares
-  `Requires Plugins: advanced-custom-fields-pro`, so it is activated after ACF Pro.
 - `../../themes/latitudemedia` — `src/featured-post-block/render.php` calls `get_template_part()`,
   so without this theme the block renders an empty wrapper and frontend assertions fail for the
   wrong reason.
 
-Neither ACF plugin is committed to git (both are Pressable-managed), so CI maps in neither — see
+ACF Pro isn't committed to git (it's Pressable-managed). Composer installs it into
+`../advanced-custom-fields-pro` — CI authenticates with the `COMPOSER_AUTH` secret; see
 `bin/wp-env-after-start-ci.sh` and the CI-only `.wp-env.override.json`.
+
+The suites assume `acf-blocks-v2-iframe-compatibility-main` is **not** active, even though production
+runs it, so editor specs get the default iframed canvas (see the editor-canvas gotcha below).
 
 `bin/wp-env-after-start.sh` (wired via `lifecycleScripts.afterStart`) then activates the plugins
 and theme and sets `/%postname%/` permalinks plus a rewrite flush on both containers. The
@@ -111,13 +122,15 @@ itself. Seed titles via `admin.createNewPost( { title } )`.
 **`actionTimeout` is raised to 30s, `expect.timeout` to 15s** (from the bundled 10s / 5s) because
 this stack loads Yoast, ACF Pro and a large theme.
 
-**The block editor is not iframed on this site.** Several ACF Composer blocks (`acf/content-wrapper`,
-`acf/ad-banner-section`, etc.) are registered with `apiVersion` 2 or lower, which makes Gutenberg fall
-back to the legacy non-iframed canvas — there is no `[name="editor-canvas"]` frame to find. Confirmed
-via the browser console warning ("This means that the post editor may work as a non-iframe editor").
-**Don't use `editor.canvas`** — assert against `page` directly instead. This is why
-`specs/editor/featured-post-block.spec.js` uses `page.getByLabel('Editor content').getByText(...)`
-rather than `editor.canvas.getByText(...)`.
+**The block editor is iframed in the test environments.** With
+`acf-blocks-v2-iframe-compatibility-main` inactive, block content renders inside the
+`[name="editor-canvas"]` iframe, so `editor.canvas` is the right scope. Gutenberg still falls back to
+the legacy non-iframed canvas if something forces it — that plugin (as on production), or a block
+registered with an old `apiVersion` (the console then warns "This means that the post editor may work
+as a non-iframe editor"). Specs that only need to find content check which one is present: see
+`getEditorContent()` in `specs/editor/featured-post-block.spec.js`, which uses `editor.canvas` when
+the iframe exists and `page.getByLabel('Editor content')` otherwise. Specs that depend on the iframe
+itself, like `specs/editor/recap-video-block.spec.js`, skip when it's absent.
 
 **Classic meta box saves race the reload that follows them.** The "Is Sponsored By" meta box
 (`LTMCore\Taxonomies\PostSponsor`) is a classic PHP meta box; the block editor submits its data via a
