@@ -21,6 +21,25 @@
     @include borderedTitle;
   }
 
+  // `.cta-button` only reaches this block through agenda item descriptions
+  // (WYSIWYG content). Same front-end/editor gap as `.bordered-title` above,
+  // so it's declared through the theme's mixin too, then pinned to green so it
+  // matches the default style -- the mixin's own default is pink. The theme
+  // overrides below are more specific and win. Same as
+  // event-contact-us-block/style.scss.
+  .cta-button {
+    @include shadowButton;
+    -webkit-box-shadow: -10px 10px 0 0 $green_shadow !important;
+    -moz-box-shadow: -10px 10px 0 0 $green_shadow !important;
+    box-shadow: -10px 10px 0 0 $green_shadow !important;
+    border: 1px solid $green !important;
+    color: $green !important;
+    &:hover {
+      background-color: $green !important;
+      color: $white !important;
+    }
+  }
+
   // Pins the day buttons while the agenda scrolls past. `top` matches the
   // sticky header offset used by .navigation-menu-section.
   &.is-sticky {
@@ -37,6 +56,17 @@
   &.blue-theme, &.is-style-blue-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-blue !important;
+    }
+    .cta-button {
+      -webkit-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      -moz-box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      box-shadow: -10px 10px 0 0 $primary_blue_shadow !important;
+      border: 1px solid $primary-blue !important;
+      color: $primary-blue !important;
+      &:hover {
+        background-color: $primary-blue !important;
+        color: $white !important;
+      }
     }
     .event-agenda-v2-day-buttons {
       .event-agenda-v2-day-button {
@@ -69,6 +99,17 @@
   &.pink-theme, &.is-style-pink-theme {
     .bordered-title {
       border-bottom: 5px solid $primary-pink !important;
+    }
+    .cta-button {
+      -webkit-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+      -moz-box-shadow: -10px 10px 0 0 $pink_shadow !important;
+      box-shadow: -10px 10px 0 0 $pink_shadow !important;
+      border: 1px solid $primary-pink !important;
+      color: $primary-pink !important;
+      &:hover {
+        background-color: $primary-pink !important;
+        color: $white !important;
+      }
     }
     .event-agenda-v2-day-buttons {
       .event-agenda-v2-day-button {
