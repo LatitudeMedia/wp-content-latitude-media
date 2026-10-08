@@ -1,8 +1,20 @@
 @import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
 
-.logged-in .event-agenda-v2-section.is-sticky .event-agenda-v2-day-buttons {
-  top: 283px;
+.has-alert-banner .event-agenda-v2-section {
+  &.is-sticky {
+    .event-agenda-v2-day-buttons {
+      @media screen and (min-width: ($screen-md + 1)) {
+        top: 250px;
+      }
+    }
+    &.is-admin .event-agenda-v2-day-buttons {
+      @media screen and (min-width: ($screen-md + 1)) {
+        top: 285px;
+      }
+    }
+  }
 }
+
 .event-agenda-v2-section {
   margin-bottom: 64px;
 
@@ -40,16 +52,23 @@
     }
   }
 
-  // Pins the day buttons while the agenda scrolls past. `top` matches the
-  // sticky header offset used by .navigation-menu-section.
+  // Pins the day buttons (desktop only) while the agenda scrolls past. `top`
+  // clears the sticky .navigation-menu-section above it.
   &.is-sticky {
     .event-agenda-v2-day-buttons {
-      position: sticky;
-      top: 164px;
-      z-index: 9;
-      background-color: $white;
-      padding: 10px 0;
-      margin-bottom: 0;
+      @media screen and (min-width: ($screen-md + 1)) {
+        position: sticky;
+        top: 220px;
+        z-index: 9;
+        background-color: $white;
+        padding: 10px 0;
+        margin-bottom: 0;
+      }
+    }
+    &.is-admin .event-agenda-v2-day-buttons {
+      @media screen and (min-width: ($screen-md + 1)) {
+        top: 252px;
+      }
     }
   }
 

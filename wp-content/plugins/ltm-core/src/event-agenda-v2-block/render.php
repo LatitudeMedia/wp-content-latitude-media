@@ -86,6 +86,7 @@ $block_classes = array_filter(
 		'content-block',
 		'event-agenda-v2-section',
 		$sticky ? 'is-sticky' : '',
+		is_user_logged_in() ? 'is-admin' : '',
     $block['className'] 
 	]
 );

@@ -9,7 +9,11 @@ $(document).ready(function ($) {
   let stickyAlert = $("header .header-wrapper .alert-banner");
   let body = $("body");
 
-  if (stickyAlert.length > 0) {
+  const skipAlertBanner = window.location.pathname.includes(
+    "/events/flex-summit-2026/"
+  );
+
+  if (stickyAlert.length > 0 && !skipAlertBanner) {
     $(headerWrapper).addClass("has-alert-banner");
   }
   if (stickyHeader.length > 0) {
@@ -261,6 +265,88 @@ $(document).ready(function ($) {
     });
   }
 
+  const navigationMenuButtons = $(
+    ".navigation-menu-section .buttons-container .nav-button"
+  );
+  if (navigationMenuButtons.length > 0) {
+    navigationMenuButtons.on("click", function (e) {
+      const buttonAnchor = $(this).attr("href");
+      if (
+        buttonAnchor &&
+        buttonAnchor.startsWith("#") &&
+        buttonAnchor.length > 1
+      ) {
+        e.preventDefault();
+        const targetElement = $(buttonAnchor);
+        if (targetElement.length > 0) {
+          const scrollOffset = 300;
+          const targetPosition = targetElement.offset().top - scrollOffset;
+
+          $("html, body").animate(
+            {
+              scrollTop: targetPosition,
+            },
+            1000
+          );
+        }
+      }
+    });
+  }
+  const navigationMenuLinks = $(
+    ".navigation-menu-section .navigation-menu-links a"
+  );
+  if (navigationMenuLinks.length > 0) {
+    navigationMenuLinks.on("click", function (e) {
+      const anchor = $(this).attr("href");
+
+      if (anchor && anchor.startsWith("#") && anchor.length > 1) {
+        e.preventDefault();
+
+        const targetElement = $(anchor);
+        if (targetElement.length > 0) {
+          const scrollOffset = 300;
+          const targetPosition = targetElement.offset().top - scrollOffset;
+
+          $("html, body").animate(
+            {
+              scrollTop: targetPosition,
+            },
+            1000
+          );
+        }
+      }
+      navigationMenuLinks.removeClass("active");
+      $(this).addClass("active");
+    });
+  }
+
+  const agendaDayButtons = $(".event-agenda-v2-day-button");
+  if (agendaDayButtons.length > 0) {
+    agendaDayButtons.on("click", function () {
+      const button = $(this);
+      const blockContainer = button.closest(".event-agenda-v2-section");
+      const selectedValue = button.data("day-target");
+
+      blockContainer
+        .find(".event-agenda-v2-day-button")
+        .removeClass("active")
+        .attr("aria-selected", "false");
+      button.addClass("active").attr("aria-selected", "true");
+      blockContainer.find(".event-agenda-v2-day").hide();
+      blockContainer.find("#" + selectedValue).show();
+
+      // The button bar is sticky, so its offset() reflects the stuck position.
+      // Derive its natural starting point from the element before it instead.
+      const dayButtons = button.closest(".event-agenda-v2-day-buttons");
+      const previousElement = dayButtons.prev();
+      const stickyTop = parseInt(dayButtons.css("top"), 10) || 0;
+      const naturalTop = previousElement.length
+        ? previousElement.offset().top + previousElement.outerHeight(true)
+        : dayButtons.offset().top;
+
+      $("html, body").animate({ scrollTop: naturalTop - stickyTop }, 400);
+    });
+  }
 });
 
 (function () {

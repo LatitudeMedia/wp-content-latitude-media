@@ -58,7 +58,11 @@
 	} );
 
 	function flagAlertBanner() {
-		if ( ! document.querySelector( 'header .header-wrapper .alert-banner' ) ) {
+		// The banner is hidden on this page (see theme pages/_events.scss),
+		// matching `skipAlertBanner` in the theme's custom.js.
+		const skipAlertBanner = window.location.pathname.includes( '/events/flex-summit-2026/' );
+
+		if ( skipAlertBanner || ! document.querySelector( 'header .header-wrapper .alert-banner' ) ) {
 			return;
 		}
 
