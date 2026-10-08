@@ -44,7 +44,7 @@ $ctaTarget = !empty($headerCta['target']) ? $headerCta['target'] : '';
                 </div>
             </div>
         </div>
-        <?php if (!empty($headerAlert)) : ?>
+        <?php if (ltm_show_alert_banner()) : ?>
             <div class="alert-banner">
                 <div class="container">
                     <div class="alert-banner-content">

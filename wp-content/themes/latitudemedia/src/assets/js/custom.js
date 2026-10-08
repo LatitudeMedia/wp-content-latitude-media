@@ -9,11 +9,7 @@ $(document).ready(function ($) {
   let stickyAlert = $("header .header-wrapper .alert-banner");
   let body = $("body");
 
-  const skipAlertBanner = window.location.pathname.includes(
-    "/events/flex-summit-2026/"
-  );
-
-  if (stickyAlert.length > 0 && !skipAlertBanner) {
+  if (stickyAlert.length > 0) {
     $(headerWrapper).addClass("has-alert-banner");
   }
   if (stickyHeader.length > 0) {

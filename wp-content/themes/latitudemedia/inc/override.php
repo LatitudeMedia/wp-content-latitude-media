@@ -177,6 +177,20 @@ function get_content_body_paragraph($content, $cut_paragraph_count = 1) {
 
     return force_balance_tags( $output );
 }
+// Whether template-parts/header/nav.php should render the site-wide alert banner.
+function ltm_show_alert_banner() {
+    if ( ! function_exists( 'get_field' ) || empty( get_field( 'alert', 'options' ) ) ) {
+        return false;
+    }
+
+    // Event pages that hide the banner.
+    if ( is_singular( 'events' ) && 'flex-summit-2026' === get_post_field( 'post_name' ) ) {
+        return false;
+    }
+
+    return true;
+}
+
 // Flag the body when the header is rendering the alert banner (see template-parts/header/nav.php).
 add_filter( 'body_class', 'ltm_alert_banner_body_class' );
 
@@ -190,7 +204,7 @@ function ltm_alert_banner_body_class( $classes ) {
         return $classes;
     }
 
-    if ( ! empty( get_field( 'alert', 'options' ) ) ) {
+    if ( ltm_show_alert_banner() ) {
         $classes[] = 'has-alert-banner';
     }
 
