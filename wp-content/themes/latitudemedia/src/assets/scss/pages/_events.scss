@@ -1,9 +1,5 @@
 @use "../core/core_loader" as *;
 
-.postid-12513 .alert-banner{
-  display: none;
-}
-
 .image-text-section {
   // Renamed from `.is-style-type4` when acf/image-and-text's layouts moved from
   // block styles to the `layout` attribute; ltm-core's render.php emits
