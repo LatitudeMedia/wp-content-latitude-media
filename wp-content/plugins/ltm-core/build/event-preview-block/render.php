@@ -85,7 +85,18 @@ if ( ! empty( $eventData['event_type'] ) && ( $eventData['event_type'] === 'virt
 				printf( '<div class="main-logo-wrapper"><img alt="img" class="main-logo" src="%s"></div>', $imageHtml );
 			} else {
 				if ( in_array( 'title', $rows ) ) {
-					printf( '<h1>%s</h1>', get_the_title( $post_id ) );
+					// A locked core/post-title inner block, so the editor preview
+					// tracks the post title as it's edited. Blocks saved before it
+					// existed have no inner content; they keep the plain heading.
+					if ( ! empty( $is_preview ) || '' !== trim( $content ) ) {
+						printf(
+							'<InnerBlocks template="%1$s" allowedBlocks="%2$s" templateLock="all" />',
+							esc_attr( wp_json_encode( [ [ 'core/post-title', [ 'level' => 1 ] ] ] ) ),
+							esc_attr( wp_json_encode( [ 'core/post-title' ] ) )
+						);
+					} else {
+						printf( '<h1>%s</h1>', get_the_title( $post_id ) );
+					}
 				}
 			}
 
@@ -95,13 +106,14 @@ if ( ! empty( $eventData['event_type'] ) && ( $eventData['event_type'] === 'virt
 				}
 			}
 
+			if ( ! empty( $subtitle ) ) {
+				printf( '<div class="subtitle">%s</div>', esc_html( $subtitle ) );
+			}
+
 			if ( in_array( 'button', $rows ) && ! empty( $eventData['link'] ) ) {
 				do_action( 'button_unit', [ 'title' => $registerButtonTitle, 'url' => $eventData['link'] ], null, 'strict-button green' );
 			}
 
-			if ( ! empty( $subtitle ) ) {
-				printf( '<div class="subtitle">%s</div>', esc_html( $subtitle ) );
-			}
 			if ( ! empty( $co_hosted_logo ) && is_array( $co_hosted_logo ) ) {
 				$imageHtml = '';
 				foreach ( $co_hosted_logo as $logo ) {
