@@ -766,6 +766,14 @@ return array(
 			'numberOfPosts' => array(
 				'type' => 'number',
 				'default' => 5
+			),
+			'defaultImageId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'defaultImageUrl' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'supports' => array(

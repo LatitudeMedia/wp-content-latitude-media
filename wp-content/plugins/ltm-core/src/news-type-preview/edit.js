@@ -1,6 +1,12 @@
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
+} from '@wordpress/block-editor';
 import {
 	BaseControl,
+	Button,
 	CheckboxControl,
 	PanelBody,
 	SelectControl,
@@ -29,11 +35,19 @@ const NEWS_TYPES = [
 ];
 
 export default function Edit( { attributes, setAttributes, name } ) {
-	const { newsType, newsTypes, podcastId, numberOfPosts } = attributes;
+	const {
+		newsType,
+		newsTypes,
+		podcastId,
+		numberOfPosts,
+		defaultImageId,
+		defaultImageUrl,
+	} = attributes;
 	const blockProps = useBlockProps();
 	// Blocks saved before multiselect only have the legacy `newsType` string.
 	const selected = newsTypes ?? [ newsType ];
 	const hasPodcast = selected.includes( 'podcast' );
+	const hasEvents = selected.includes( 'events' );
 
 	const toggleType = ( value, checked ) =>
 		setAttributes( {
@@ -59,7 +73,7 @@ export default function Edit( { attributes, setAttributes, name } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'News Type Preview', 'ltm' ) }>
-					<fieldset>
+					<fieldset style={ { marginBottom: '15px' } }>
 						<BaseControl.VisualLabel as="legend">
 							{ __( 'News Types', 'ltm' ) }
 						</BaseControl.VisualLabel>
@@ -74,6 +88,65 @@ export default function Edit( { attributes, setAttributes, name } ) {
 								__nextHasNoMarginBottom
 							/>
 						) ) }
+						{ hasEvents && (
+							<BaseControl
+								id="ltm-news-type-preview-default-image"
+								label={ __(
+									'Choose Default Featured Image',
+									'ltm'
+								) }
+								help={ __(
+									'Some events do not have featured images. Choose what image to use if no featured image exists.',
+									'ltm'
+								) }
+							>
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={ ( media ) =>
+											setAttributes( {
+												defaultImageId: media.id,
+												defaultImageUrl: media.url,
+											} )
+										}
+										allowedTypes={ [ 'image' ] }
+										value={ defaultImageId }
+										render={ ( { open } ) => (
+											<Button
+												variant="secondary"
+												onClick={ open }
+											>
+												{ defaultImageUrl
+													? __(
+															'Replace Default Featured Image',
+															'ltm'
+														)
+													: __(
+															'Set Default Featured Image',
+															'ltm'
+														) }
+											</Button>
+										) }
+									/>
+								</MediaUploadCheck>
+								{ defaultImageUrl && (
+									<Button
+										variant="link"
+										isDestructive
+										onClick={ () =>
+											setAttributes( {
+												defaultImageId: 0,
+												defaultImageUrl: '',
+											} )
+										}
+									>
+										{ __(
+											'Remove Default Featured Image',
+											'ltm'
+										) }
+									</Button>
+								) }
+							</BaseControl>
+						) }
 					</fieldset>
 					{ hasPodcast && (
 						<SelectControl

@@ -32,6 +32,14 @@
     "numberOfPosts": {
       "type": "number",
       "default": 5
+    },
+    "defaultImageId": {
+      "type": "number",
+      "default": 0
+    },
+    "defaultImageUrl": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

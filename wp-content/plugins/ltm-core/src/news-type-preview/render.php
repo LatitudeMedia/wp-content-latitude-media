@@ -5,7 +5,8 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-$query = \LTMCore\Blocks\NewsTypePreview::get_query( $attributes );
+$query            = \LTMCore\Blocks\NewsTypePreview::get_query( $attributes );
+$default_image_id = $attributes['defaultImageId'] ?? 0;
 
 if ( ! $query->have_posts() ) {
 	return;
@@ -18,8 +19,15 @@ if ( ! $query->have_posts() ) {
 			$query->the_post();
 			$post_id    = get_the_ID();
 			$is_podcast = is_news_type( 'podcast', $post_id );
+			$is_event   = 'events' === get_post_type( $post_id );
 
-			if ( 'events' === get_post_type( $post_id ) ) {
+			if ( $is_event && ! has_post_thumbnail( $post_id ) && $default_image_id ) {
+				$thumb = wp_get_attachment_image( $default_image_id, 'event-sponsors-list' );
+			} else {
+				$thumb = get_the_post_thumbnail( $post_id, 'event-sponsors-list' );
+			}
+
+			if ( $is_event ) {
 				$label = __( 'Event', 'ltm' );
 			} elseif ( $is_podcast ) {
 				$podcast = get_post_assigned_podcast( $post_id );
@@ -31,7 +39,7 @@ if ( ! $query->have_posts() ) {
 			<li class="ltm-news-type-preview__item">
 				<a class="ltm-news-type-preview__card" href="<?php echo esc_url( get_the_permalink( $post_id ) ); ?>">
 					<span class="ltm-news-type-preview__thumb">
-						<?php echo get_the_post_thumbnail( $post_id, 'event-sponsors-list' ); ?>
+						<?php echo $thumb; ?>
 						<?php if ( $is_podcast ) : ?>
 							<span class="ltm-news-type-preview__play" aria-hidden="true">
 								<svg viewBox="0 0 24 24" width="24" height="24"><polygon points="6,4 20,12 6,20" fill="currentColor" /></svg>
