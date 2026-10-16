@@ -11,6 +11,7 @@ import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
+import { preventLinkNavigationProps } from '../shared/prevent-link-navigation';
 
 export default function Edit( { attributes, setAttributes, name } ) {
 	const { postId, isSponsored } = attributes;
@@ -116,7 +117,7 @@ export default function Edit( { attributes, setAttributes, name } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div { ...blockProps }>
+			<div { ...blockProps } { ...preventLinkNavigationProps }>
 				{ postId ? (
 					<ServerSideRender
 						block={ name }

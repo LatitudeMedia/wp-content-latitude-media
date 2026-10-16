@@ -112,6 +112,42 @@ test.describe( 'Featured Post Block', () => {
 		).toBeVisible();
 	} );
 
+	test( 'clicking a link in the server-side preview does not navigate away', async ( {
+		admin,
+		editor,
+		page,
+		requestUtils,
+	} ) => {
+		await requestUtils.createPost( {
+			title: 'Grid Resilience Deep Dive',
+			status: 'publish',
+		} );
+
+		await admin.createNewPost();
+		await editor.insertBlock( { name: BLOCK_NAME } );
+		await editor.openDocumentSettingsSidebar();
+
+		const combobox = page.getByRole( 'combobox', { name: 'Post' } );
+		await combobox.fill( 'Grid Resilience' );
+		await page
+			.getByRole( 'option', { name: 'Grid Resilience Deep Dive' } )
+			.click();
+
+		const editorContent = await getEditorContent( page, editor );
+		const link = editorContent
+			.locator( '.ltm-featured-post-block a[href]' )
+			.first();
+		await expect( link ).toBeVisible();
+
+		const editorUrl = page.url();
+		await link.click();
+		await link.click( { button: 'middle' } );
+
+		await expect( link ).toBeVisible();
+		expect( page.url() ).toBe( editorUrl );
+		expect( page.context().pages() ).toHaveLength( 1 );
+	} );
+
 	test( '"Is from sponsor?" with no sponsor assigned disables the results', async ( {
 		admin,
 		editor,

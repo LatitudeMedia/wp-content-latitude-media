@@ -109,6 +109,52 @@ $layout = $attributes['layout'] ?? 'five-post-feature';
 			}
 			?>
 		</div>
+	<?php elseif ( $layout === 'four-post-feature' ) : ?>
+		<?php
+		$template = get_wrap_rows_from_template(
+			'<li>
+				<div class="image-folder">[thumb]</div>
+				<div class="content-folder">
+					[tags-list]
+					[title]
+					[excerpt]
+					<div class="info">
+						[author]<span></span>[date]
+					</div>
+				</div>
+			</li>'
+		);
+		?>
+		<ul class="quad">
+			<?php
+			while ( $query->have_posts() ) {
+				$query->the_post();
+
+				get_template_part(
+					'template-parts/components/post',
+					'item',
+					[
+						'post_id'  => get_the_ID(),
+						'rows'     => $template['rows'],
+						'wrap'     => $template['wrap'],
+						'settings' => [
+							'thumb'  => [
+								'size' => 'news-with-hero',
+								'link' => true,
+							],
+							'author' => [
+								'link_class' => 'author',
+							],
+							'date'   => [
+								'format' => 'M j, Y',
+							],
+						],
+					]
+				);
+			}
+			wp_reset_postdata();
+			?>
+		</ul>
 	<?php else : ?>
 		<?php
 		$template = get_wrap_rows_from_template(

@@ -37,6 +37,7 @@ return array(
 				'type' => 'string',
 				'enum' => array(
 					'five-post-feature',
+					'four-post-feature',
 					'paginated-list'
 				),
 				'default' => 'five-post-feature'
@@ -733,11 +734,11 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'latitudemedia/news-type-preview',
-		'version' => '0.1.1',
+		'version' => '0.2.0',
 		'title' => 'News Type Preview',
 		'category' => 'ltm-common-blocks',
 		'icon' => 'megaphone',
-		'description' => 'List published posts by News Type, optionally narrowed to one podcast show.',
+		'description' => 'List published posts by one or more News Types (and/or Events), optionally narrowing podcasts to one show.',
 		'keywords' => array(
 			'news type',
 			'podcast',
@@ -751,6 +752,12 @@ return array(
 			'newsType' => array(
 				'type' => 'string',
 				'default' => 'news'
+			),
+			'newsTypes' => array(
+				'type' => 'array',
+				'items' => array(
+					'type' => 'string'
+				)
 			),
 			'podcastId' => array(
 				'type' => 'number',

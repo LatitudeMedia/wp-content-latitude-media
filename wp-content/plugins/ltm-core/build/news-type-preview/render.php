@@ -19,7 +19,9 @@ if ( ! $query->have_posts() ) {
 			$post_id    = get_the_ID();
 			$is_podcast = is_news_type( 'podcast', $post_id );
 
-			if ( $is_podcast ) {
+			if ( 'events' === get_post_type( $post_id ) ) {
+				$label = __( 'Event', 'ltm' );
+			} elseif ( $is_podcast ) {
 				$podcast = get_post_assigned_podcast( $post_id );
 				$label   = $podcast ? get_the_title( $podcast ) : '';
 			} else {

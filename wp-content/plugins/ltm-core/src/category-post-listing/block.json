@@ -23,7 +23,7 @@
 		},
 		"layout": {
 			"type": "string",
-			"enum": [ "five-post-feature", "paginated-list" ],
+			"enum": [ "five-post-feature", "four-post-feature", "paginated-list" ],
 			"default": "five-post-feature"
 		}
 	},

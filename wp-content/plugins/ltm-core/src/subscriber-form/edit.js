@@ -7,6 +7,7 @@ import {
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
 import { __ } from '@wordpress/i18n';
+import { preventLinkNavigationProps } from '../shared/prevent-link-navigation';
 
 export default function Edit( { attributes, setAttributes, name } ) {
 	const { title, disclaimer, embedCode, layout } = attributes;
@@ -53,7 +54,7 @@ export default function Edit( { attributes, setAttributes, name } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div { ...blockProps }>
+			<div { ...blockProps } { ...preventLinkNavigationProps }>
 				<ServerSideRender block={ name } attributes={ attributes } />
 			</div>
 		</>
