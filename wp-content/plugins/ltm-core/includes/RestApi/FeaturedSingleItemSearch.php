@@ -2,16 +2,17 @@
 namespace LTMCore\RestApi;
 
 /**
- * REST endpoint backing the Featured Post block's searchable post picker.
+ * REST endpoint backing the Featured Single Item block's searchable post picker.
  *
- * Queries the `post` post type directly (rather than the core `/wp/v2/posts`
- * search) so it can also filter by the `sponsor` taxonomy, which is
+ * Queries all public post types (except attachments and the people/org types
+ * — speakers, sponsors, team — that don't fit the post card) directly, rather than
+ * the core `/wp/v2/search`, so it can also filter by the `sponsor` taxonomy, which is
  * intentionally not exposed via `show_in_rest` (see the
  * LTMCore\Taxonomies\PostSponsor class).
  *
  * @package LTMCore
  */
-class FeaturedPostSearch {
+class FeaturedSingleItemSearch {
 
 	/**
 	 * Namespace for REST API endpoints.
@@ -25,7 +26,7 @@ class FeaturedPostSearch {
 	 *
 	 * @var string
 	 */
-	const REST_API_ROUTE = 'featured-post/search';
+	const REST_API_ROUTE = 'featured-single-item/search';
 
 	/**
 	 * Constructor.
@@ -58,7 +59,7 @@ class FeaturedPostSearch {
 	}
 
 	/**
-	 * Searches published posts, optionally scoped to the sponsor assigned
+	 * Searches published items of any public post type, optionally scoped to the sponsor assigned
 	 * to the given page.
 	 *
 	 * @param \WP_REST_Request $request
@@ -69,8 +70,10 @@ class FeaturedPostSearch {
 		$sponsored = (bool) $request->get_param( 'sponsored' );
 		$page_id   = (int) $request->get_param( 'page_id' );
 
+		$post_types = array_values( array_diff( get_post_types( [ 'public' => true ] ), [ 'attachment', 'speakers', 'sponsors', 'team' ] ) );
+
 		$args = [
-			'post_type'      => 'post',
+			'post_type'      => $post_types,
 			'post_status'    => 'publish',
 			'posts_per_page' => 20,
 			's'              => $search,

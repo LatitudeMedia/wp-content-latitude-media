@@ -1,7 +1,7 @@
 /**
- * Tests for the latitudemedia/featured-post-block editor experience: the
+ * Tests for the latitudemedia/featured-single-item-block editor experience: the
  * "Post" ComboboxControl search-as-you-type against the real
- * ltm-core/v1/featured-post/search REST endpoint (not mocked), and the
+ * ltm-core/v1/featured-single-item/search REST endpoint (not mocked), and the
  * "Is from sponsor?" / "Stop this post from showing up..." toggles.
  */
 
@@ -10,7 +10,7 @@
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
-const BLOCK_NAME = 'latitudemedia/featured-post-block';
+const BLOCK_NAME = 'latitudemedia/featured-single-item-block';
 
 /**
  * Scopes to wherever block content actually renders. The suites run without
@@ -32,7 +32,7 @@ async function getEditorContent( page, editor ) {
 		: page.getByLabel( 'Editor content' );
 }
 
-test.describe( 'Featured Post Block', () => {
+test.describe( 'Featured Single Item Block', () => {
 	test.afterEach( async ( { requestUtils } ) => {
 		await requestUtils.deleteAllPosts();
 	} );
@@ -52,7 +52,7 @@ test.describe( 'Featured Post Block', () => {
 		const editorContent = await getEditorContent( page, editor );
 		await expect(
 			editorContent.getByText(
-				'Select a post in the block settings to feature it here.'
+				'Select an item in the block settings to feature it here.'
 			)
 		).toBeVisible();
 	} );
@@ -72,7 +72,7 @@ test.describe( 'Featured Post Block', () => {
 		await editor.insertBlock( { name: BLOCK_NAME } );
 		await editor.openDocumentSettingsSidebar();
 
-		const combobox = page.getByRole( 'combobox', { name: 'Post' } );
+		const combobox = page.getByRole( 'combobox', { name: 'Item' } );
 		await combobox.fill( 'Grid Resilience' );
 
 		await expect(
@@ -95,7 +95,7 @@ test.describe( 'Featured Post Block', () => {
 		await editor.insertBlock( { name: BLOCK_NAME } );
 		await editor.openDocumentSettingsSidebar();
 
-		const combobox = page.getByRole( 'combobox', { name: 'Post' } );
+		const combobox = page.getByRole( 'combobox', { name: 'Item' } );
 		await combobox.fill( 'Grid Resilience' );
 		await page
 			.getByRole( 'option', { name: 'Grid Resilience Deep Dive' } )
@@ -108,7 +108,7 @@ test.describe( 'Featured Post Block', () => {
 
 		const editorContent = await getEditorContent( page, editor );
 		await expect(
-			editorContent.locator( '.ltm-featured-post-block' )
+			editorContent.locator( '.ltm-featured-single-item-block' )
 		).toBeVisible();
 	} );
 
@@ -127,7 +127,7 @@ test.describe( 'Featured Post Block', () => {
 		await editor.insertBlock( { name: BLOCK_NAME } );
 		await editor.openDocumentSettingsSidebar();
 
-		const combobox = page.getByRole( 'combobox', { name: 'Post' } );
+		const combobox = page.getByRole( 'combobox', { name: 'Item' } );
 		await combobox.fill( 'Grid Resilience' );
 		await page
 			.getByRole( 'option', { name: 'Grid Resilience Deep Dive' } )
@@ -135,7 +135,7 @@ test.describe( 'Featured Post Block', () => {
 
 		const editorContent = await getEditorContent( page, editor );
 		const link = editorContent
-			.locator( '.ltm-featured-post-block a[href]' )
+			.locator( '.ltm-featured-single-item-block a[href]' )
 			.first();
 		await expect( link ).toBeVisible();
 
@@ -163,11 +163,11 @@ test.describe( 'Featured Post Block', () => {
 
 		await expect(
 			page.getByText(
-				'This page has no sponsor assigned, so no posts are available.'
+				'This page has no sponsor assigned, so no items are available.'
 			)
 		).toBeVisible();
 
-		const combobox = page.getByRole( 'combobox', { name: 'Post' } );
+		const combobox = page.getByRole( 'combobox', { name: 'Item' } );
 		await combobox.fill( 'a' );
 		await expect( page.getByRole( 'option' ) ).toHaveCount( 0 );
 	} );

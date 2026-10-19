@@ -13,7 +13,7 @@ const BLOCK_NAME = 'latitudemedia/category-post-listing';
 
 /**
  * Scopes to wherever block content actually renders — see the matching
- * helper in featured-post-block.spec.js for why both canvases are checked.
+ * helper in featured-single-item-block.spec.js for why both canvases are checked.
  *
  * @param {import('@playwright/test').Page} page
  * @param {Object}                          editor

@@ -1,6 +1,6 @@
 <?php
 /**
- * Server-side render for latitudemedia/featured-post-block.
+ * Server-side render for latitudemedia/featured-single-item-block.
  *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
@@ -25,7 +25,7 @@ $template = get_wrap_rows_from_template(
 	</div>'
 );
 ?>
-<div <?php echo get_block_wrapper_attributes( [ 'class' => 'ltm-featured-post-block' ] ); ?>>
+<div <?php echo get_block_wrapper_attributes( [ 'class' => 'ltm-featured-single-item-block' ] ); ?>>
 	<?php
 	get_template_part(
 		'template-parts/components/post',

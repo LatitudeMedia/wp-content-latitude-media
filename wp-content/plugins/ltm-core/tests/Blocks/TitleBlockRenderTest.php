@@ -6,7 +6,7 @@
  * output) against a `thematic-pages` post set as the current global post,
  * since render.php resolves the sponsor via get_the_ID().
  *
- * featured-post-block/render.php is deliberately not covered here — it pulls
+ * featured-single-item-block/render.php is deliberately not covered here — it pulls
  * in the theme's get_wrap_rows_from_template()/Page_Data()/post-item
  * template-part chain, a poor PHPUnit target. Full rendering is covered by
  * Playwright instead.

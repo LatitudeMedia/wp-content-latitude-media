@@ -42,7 +42,7 @@ const PLACEHOLDER_SELECTOR = `${ BLOCK_SELECTOR } .form-embed-placeholder`;
 /**
  * The main document plus the editor canvas iframe, when there is one.
  * Gutenberg iframes the canvas unless a registered block still uses
- * apiVersion 1/2 (see specs/editor/featured-post-block.spec.js).
+ * apiVersion 1/2 (see specs/editor/featured-single-item-block.spec.js).
  */
 function canvasDocuments() {
 	const docs = [ document ];

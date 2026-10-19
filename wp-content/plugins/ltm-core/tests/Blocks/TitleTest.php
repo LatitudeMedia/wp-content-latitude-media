@@ -23,7 +23,7 @@ class TitleTest extends WP_UnitTestCase {
 		$registry = WP_Block_Type_Registry::get_instance();
 
 		$this->assertTrue( $registry->is_registered( 'latitudemedia/title-block' ) );
-		$this->assertTrue( $registry->is_registered( 'latitudemedia/featured-post-block' ) );
+		$this->assertTrue( $registry->is_registered( 'latitudemedia/featured-single-item-block' ) );
 	}
 
 	public function test_allowed_block_types_unmodified_when_no_post_context() {
@@ -67,6 +67,6 @@ class TitleTest extends WP_UnitTestCase {
 
 		$this->assertIsArray( $result );
 		$this->assertNotContains( 'latitudemedia/title-block', $result );
-		$this->assertContains( 'latitudemedia/featured-post-block', $result );
+		$this->assertContains( 'latitudemedia/featured-single-item-block', $result );
 	}
 }

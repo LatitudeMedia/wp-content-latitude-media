@@ -17,7 +17,7 @@ const BLOCK = 'acf/event-description-block';
 const FORM_TEXT_INPUT = '.acf-field[data-key="field_6713ae8de1570"] input';
 
 /**
- * Same iframe-or-not helper as specs/editor/featured-post-block.spec.js.
+ * Same iframe-or-not helper as specs/editor/featured-single-item-block.spec.js.
  * @param page
  * @param editor
  */

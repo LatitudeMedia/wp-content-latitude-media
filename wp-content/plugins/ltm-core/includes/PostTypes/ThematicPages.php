@@ -89,7 +89,7 @@ class ThematicPages {
 				'supports'            => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 				'template'            => [
 					[ 'latitudemedia/title-block' ],
-					[ 'latitudemedia/featured-post-block' ],
+					[ 'latitudemedia/featured-single-item-block' ],
 					[ 'core/heading', [ 'level' => 2 ] ],
 					[ 'core/paragraph' ],
 					[ 'latitudemedia/category-post-listing' ],

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Latitude Media Core
- * Description:       Native Gutenberg blocks for Latitude Media (Title Block, Featured Post) and custom post types, taxonomies, etc.
+ * Description:       Native Gutenberg blocks for Latitude Media (Title Block, Featured Single Item) and custom post types, taxonomies, etc.
  * Version:           1.1.0
  * Requires at least: 7.0.2
  * Requires PHP:      8.3
@@ -48,7 +48,7 @@ function ltm_core_loader() {
 	require_once __DIR__ . '/includes/PostTypes/Sponsors.php';
 	require_once __DIR__ . '/includes/PostTypes/Events.php';
 	require_once __DIR__ . '/includes/PostTypes/Speakers.php';
-	require_once __DIR__ . '/includes/RestApi/FeaturedPostSearch.php';
+	require_once __DIR__ . '/includes/RestApi/FeaturedSingleItemSearch.php';
 	require_once __DIR__ . '/includes/Blocks/_AssetVersioning.php';
 	require_once __DIR__ . '/includes/Blocks/Title.php';
 	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
@@ -80,7 +80,7 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Sponsors();
 	new \LTMCore\PostTypes\Events();
 	new \LTMCore\PostTypes\Speakers();
-	new \LTMCore\RestApi\FeaturedPostSearch();
+	new \LTMCore\RestApi\FeaturedSingleItemSearch();
 	new \LTMCore\Blocks\AssetVersioning();
 	new \LTMCore\Blocks\Title();
 	new \LTMCore\Blocks\RightSidebarLayout();

@@ -25,7 +25,7 @@ const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const BLOCK = 'acf/event-preview-block';
 
 /**
- * Same iframe-or-not helper as specs/editor/featured-post-block.spec.js.
+ * Same iframe-or-not helper as specs/editor/featured-single-item-block.spec.js.
  * @param {import('@playwright/test').Page} page
  * @param {Object}                          editor
  */

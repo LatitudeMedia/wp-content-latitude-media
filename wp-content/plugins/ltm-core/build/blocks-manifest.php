@@ -653,18 +653,19 @@ return array(
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
 	),
-	'featured-post-block' => array(
+	'featured-single-item-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'latitudemedia/featured-post-block',
+		'name' => 'latitudemedia/featured-single-item-block',
 		'version' => '0.1.1',
-		'title' => 'Featured Post',
+		'title' => 'Featured Single Item',
 		'category' => 'ltm-common-blocks',
 		'icon' => 'star-filled',
-		'description' => 'Highlight a single post as a featured card, optionally scoped to the page\'s sponsor.',
+		'description' => 'Highlight a single item of any post type as a featured card, optionally scoped to the page\'s sponsor.',
 		'keywords' => array(
 			'featured',
 			'post',
+			'item',
 			'sponsor'
 		),
 		'example' => array(

@@ -38,7 +38,7 @@ module.exports = defineConfig( {
 	// specs/global-setup.js lives in testDir but is not a spec.
 	testIgnore: [ '**/global-setup.js' ],
 	// The bundled default is 5s. Assertions that wait on an SSR preview or a
-	// live REST search (e.g. the Featured Post block's combobox) need more
+	// live REST search (e.g. the Featured Single Item block's combobox) need more
 	// room on this stack than a stock Gutenberg install — same rationale as
 	// the raised actionTimeout below.
 	expect: {

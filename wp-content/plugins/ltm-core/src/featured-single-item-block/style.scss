@@ -1,10 +1,7 @@
 @import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
 
-.ltm-featured-post-block {
-	display: flex;
-	align-items: flex-end;
-	flex-wrap: wrap;
-	width: 66.6666%;
+.ltm-featured-single-item-block {
+	
 
 	@include below_md {
 		width: 100%;
@@ -15,9 +12,6 @@
 	}
 
 	.image-folder {
-		width: 350px;
-		margin-right: 24px;
-
 		@include imageFolder;
 
 		@include below_md {

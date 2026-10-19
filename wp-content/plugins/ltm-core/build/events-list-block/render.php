@@ -12,7 +12,7 @@
  * meant for were never wired up, and were dropped in the migration.
  *
  * Event cards still go through the theme's post-item component and
- * Page_Data exclusion list, as featured-post-block/render.php does.
+ * Page_Data exclusion list, as featured-single-item-block/render.php does.
  *
  * @see https://www.advancedcustomfields.com/resources/blocks/
  */

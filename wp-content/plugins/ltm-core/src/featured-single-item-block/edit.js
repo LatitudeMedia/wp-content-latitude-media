@@ -28,7 +28,7 @@ export default function Edit( { attributes, setAttributes, name } ) {
 	const [ isSearching, setIsSearching ] = useState( false );
 	const [ selectedTitle, setSelectedTitle ] = useState( '' );
 
-	// Resolve the currently selected post's title so the combobox has a
+	// Resolve the currently selected item's title so the combobox has a
 	// label to show even before the user has typed a search term.
 	useEffect( () => {
 		if ( ! postId ) {
@@ -36,17 +36,24 @@ export default function Edit( { attributes, setAttributes, name } ) {
 			return;
 		}
 
-		apiFetch( { path: `/wp/v2/posts/${ postId }?_fields=id,title` } )
-			.then( ( post ) => setSelectedTitle( post?.title?.rendered ?? '' ) )
+		// The selected item can be any post type, so look it up via core
+		// search rather than the type-specific `/wp/v2/posts` route.
+		apiFetch( {
+			path: addQueryArgs( '/wp/v2/search', {
+				include: postId,
+				_fields: 'id,title',
+			} ),
+		} )
+			.then( ( items ) => setSelectedTitle( items?.[ 0 ]?.title ?? '' ) )
 			.catch( () => setSelectedTitle( '' ) );
 	}, [ postId ] );
 
-	// Search for candidate posts, scoped to the page's sponsor when requested.
+	// Search for candidate items, scoped to the page's sponsor when requested.
 	useEffect( () => {
 		setIsSearching( true );
 
 		apiFetch( {
-			path: addQueryArgs( '/ltm-core/v1/featured-post/search', {
+			path: addQueryArgs( '/ltm-core/v1/featured-single-item/search', {
 				search,
 				sponsored: isSponsored ? 1 : 0,
 				page_id: currentPostId,
@@ -80,22 +87,22 @@ export default function Edit( { attributes, setAttributes, name } ) {
 		return opts;
 	}, [ results, postId, selectedTitle ] );
 
-	let comboHelp = __( 'Search by post title.', 'ltm' );
+	let comboHelp = __( 'Search by title.', 'ltm' );
 	if ( isSearching ) {
 		comboHelp = __( 'Searching…', 'ltm' );
 	} else if ( isSponsored && ! hasSponsor ) {
 		comboHelp = __(
-			'This page has no sponsor assigned, so no posts are available.',
+			'This page has no sponsor assigned, so no items are available.',
 			'ltm'
 		);
 	} else if ( isSponsored ) {
-		comboHelp = __( "Showing posts from this page's sponsor.", 'ltm' );
+		comboHelp = __( "Showing items from this page's sponsor.", 'ltm' );
 	}
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Featured Post', 'ltm' ) }>
+				<PanelBody title={ __( 'Featured Single Item', 'ltm' ) }>
 					<ToggleControl
 						label={ __( 'Is from sponsor?', 'ltm' ) }
 						checked={ isSponsored }
@@ -104,7 +111,7 @@ export default function Edit( { attributes, setAttributes, name } ) {
 						}
 					/>
 					<ComboboxControl
-						label={ __( 'Post', 'ltm' ) }
+						label={ __( 'Item', 'ltm' ) }
 						value={ postId ? String( postId ) : null }
 						options={ options }
 						onFilterValueChange={ setSearch }
@@ -126,9 +133,9 @@ export default function Edit( { attributes, setAttributes, name } ) {
 				) : (
 					<Placeholder
 						icon="star-filled"
-						label={ __( 'Featured Post', 'ltm' ) }
+						label={ __( 'Featured Single Item', 'ltm' ) }
 						instructions={ __(
-							'Select a post in the block settings to feature it here.',
+							'Select an item in the block settings to feature it here.',
 							'ltm'
 						) }
 					/>

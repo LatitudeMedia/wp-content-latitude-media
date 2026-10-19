@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for the featured-post/search REST endpoint.
+ * Tests for the featured-single-item/search REST endpoint.
  *
  * @package LTMCore
  */
@@ -11,11 +11,11 @@ use WP_REST_Request;
 use WP_UnitTestCase;
 
 /**
- * @covers \LTMCore\RestApi\FeaturedPostSearch
+ * @covers \LTMCore\RestApi\FeaturedSingleItemSearch
  */
-class FeaturedPostSearchTest extends WP_UnitTestCase {
+class FeaturedSingleItemSearchTest extends WP_UnitTestCase {
 
-	private const ROUTE = '/ltm-core/v1/featured-post/search';
+	private const ROUTE = '/ltm-core/v1/featured-single-item/search';
 
 	public function test_permission_callback_allows_edit_posts_capable_user() {
 		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
