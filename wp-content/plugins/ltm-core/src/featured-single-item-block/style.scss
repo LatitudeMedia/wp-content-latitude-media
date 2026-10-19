@@ -87,3 +87,44 @@
 		}
 	}
 }
+
+// In the Right Sidebar Layout's main column, restore the original
+// Featured Post horizontal layout.
+.ltm-right-sidebar-layout__main-column .ltm-featured-single-item-block {
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	width: 66.6666%;
+
+	@include below_md {
+		width: 100%;
+	}
+
+	.image-folder {
+		width: 350px;
+		margin-right: 24px;
+
+		@include below_md {
+			width: 33%;
+			margin-right: 0;
+		}
+
+		@include below_sm {
+			width: 100%;
+		}
+	}
+}
+
+// In the Right Sidebar Layout's sidebar, show only the featured image:
+// full width, no shadow.
+.ltm-right-sidebar-layout__sidebar .ltm-featured-single-item-block {
+	.image-folder {
+		width: 100%;
+		margin: 0;
+		box-shadow: none;
+	}
+
+	.content-folder {
+		display: none;
+	}
+}

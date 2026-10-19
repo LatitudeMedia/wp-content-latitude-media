@@ -105,8 +105,9 @@ class ThematicPages {
 							[
 								'core/column',
 								[
-									'width'    => '66%',
-									'metadata' => [ 'name' => __( 'Main Column', 'ltm' ) ],
+									'width'     => '66%',
+									'className' => 'ltm-right-sidebar-layout__main-column',
+									'metadata'  => [ 'name' => __( 'Main Column', 'ltm' ) ],
 								],
 								[
 									[ 'latitudemedia/category-post-listing' ],
@@ -115,8 +116,9 @@ class ThematicPages {
 							[
 								'core/column',
 								[
-									'width'    => '33%',
-									'metadata' => [ 'name' => __( 'Sidebar', 'ltm' ) ],
+									'width'     => '33%',
+									'className' => 'ltm-right-sidebar-layout__sidebar',
+									'metadata'  => [ 'name' => __( 'Sidebar', 'ltm' ) ],
 								],
 								[
 									[ 'latitudemedia/subscriber-form' ],
