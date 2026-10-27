@@ -920,9 +920,30 @@ return array(
 			'thematic page'
 		),
 		'example' => array(
-			
+			'attributes' => array(
+				'layout' => 'sponsored-content',
+				'kicker' => 'an optional subtitle...',
+				'backgroundImageId' => 0,
+				'backgroundImageUrl' => '/wp-content/themes/latitudemedia/dist/images/subscribe_bg.jpg'
+			),
+			'innerBlocks' => array(
+				array(
+					'name' => 'core/post-title',
+					'attributes' => array(
+						'level' => 1
+					)
+				)
+			)
 		),
 		'attributes' => array(
+			'layout' => array(
+				'type' => 'string',
+				'enum' => array(
+					'sponsored-content',
+					'unsponsored'
+				),
+				'default' => 'sponsored-content'
+			),
 			'kicker' => array(
 				'type' => 'string',
 				'default' => ''

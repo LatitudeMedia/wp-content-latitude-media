@@ -7,10 +7,15 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-$post_id = get_the_ID();
-$sponsor = get_post_sponsor( $post_id );
+$layout = $attributes['layout'] ?? 'sponsored-content';
 
-$kicker              = $attributes['kicker'] ?? '';
+// The "Unsponsored" layout shows only the title and background image.
+$is_sponsored = $layout !== 'unsponsored';
+
+$post_id = get_the_ID();
+$sponsor = $is_sponsored ? get_post_sponsor( $post_id ) : null;
+
+$kicker              = $is_sponsored ? ( $attributes['kicker'] ?? '' ) : '';
 $background_image_id = $attributes['backgroundImageId'] ?? 0;
 $logo_override_id    = $attributes['sponsorLogoOverrideId'] ?? 0;
 
@@ -22,7 +27,7 @@ if ( $background_image_id ) {
 	}
 }
 ?>
-<div <?php echo get_block_wrapper_attributes( [ 'class' => 'ltm-title-block' ] ); ?><?php echo $style; ?>>
+<div <?php echo get_block_wrapper_attributes( [ 'class' => 'ltm-title-block ltm-title-block--' . sanitize_html_class( $layout ) ] ); ?><?php echo $style; ?>>
 	<div class="ltm-title-block__inner">
 		<div class="ltm-title-block__content">
 			<?php if ( $kicker ) : ?>

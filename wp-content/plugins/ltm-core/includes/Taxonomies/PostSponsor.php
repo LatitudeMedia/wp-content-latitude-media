@@ -102,11 +102,13 @@ class PostSponsor {
 			esc_html__( 'Not Sponsored', 'ltm' )
 		);
 
+		// data-logo lets the Title Block preview update on change, before save.
 		foreach ( $this->get_sponsor_term_map() as $sponsor_post_id => $term ) {
 			printf(
-				'<option value="%d"%s>%s</option>',
+				'<option value="%d"%s data-logo="%s">%s</option>',
 				$term->term_id,
 				selected( $selected, $term->term_id, false ),
+				esc_url( get_the_post_thumbnail_url( $sponsor_post_id, 'medium' ) ?: '' ),
 				esc_html( get_the_title( $sponsor_post_id ) )
 			);
 		}
