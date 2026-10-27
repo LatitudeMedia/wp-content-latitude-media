@@ -11,7 +11,7 @@
 	"example": {
 		"attributes": {
 			"layout": "sponsored-content",
-			"kicker": "an optional subtitle...",
+			"kicker": "an optional subtitle",
 			"backgroundImageId": 0,
 			"backgroundImageUrl": "/wp-content/themes/latitudemedia/dist/images/subscribe_bg.jpg"
 		},

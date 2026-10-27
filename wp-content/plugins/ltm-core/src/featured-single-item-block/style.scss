@@ -23,23 +23,16 @@
 			width: 100%;
 		}
 
+		// Show the whole image at its natural aspect ratio (no cropping,
+		// no letterboxing) so the box height always matches the image.
 		a,
 		div {
-			object-fit: cover;
-			padding-top: 75%;
-			position: relative;
 			display: block;
 
-			@include below_sm {
-				padding-top: 70%;
-			}
-
 			img {
-				object-fit: cover;
+				display: block;
 				width: 100%;
-				height: 100%;
-				position: absolute;
-				inset: 0%;
+				height: auto;
 			}
 		}
 	}

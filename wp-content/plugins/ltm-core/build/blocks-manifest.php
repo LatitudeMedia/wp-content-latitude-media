@@ -873,7 +873,11 @@ return array(
 			'hubspot'
 		),
 		'example' => array(
-			
+			'attributes' => array(
+				'title' => 'Subscribe to our newsletter',
+				'disclaimer' => 'an optional disclaimer',
+				'layout' => 'square'
+			)
 		),
 		'attributes' => array(
 			'title' => array(
@@ -922,7 +926,7 @@ return array(
 		'example' => array(
 			'attributes' => array(
 				'layout' => 'sponsored-content',
-				'kicker' => 'an optional subtitle...',
+				'kicker' => 'an optional subtitle',
 				'backgroundImageId' => 0,
 				'backgroundImageUrl' => '/wp-content/themes/latitudemedia/dist/images/subscribe_bg.jpg'
 			),

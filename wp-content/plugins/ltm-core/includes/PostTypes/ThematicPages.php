@@ -89,17 +89,10 @@ class ThematicPages {
 				'supports'            => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 				'template'            => [
 					[ 'latitudemedia/title-block' ],
-					[ 'latitudemedia/featured-single-item-block' ],
-					[ 'core/heading', [ 'level' => 2 ] ],
-					[ 'core/paragraph' ],
-					[ 'latitudemedia/category-post-listing' ],
-					[ 'core/heading', [ 'level' => 2 ] ],
-					[ 'core/paragraph' ],
 					[
 						'core/columns',
 						[
-							'isStackedOnMobile' => true,
-							'metadata'          => [ 'name' => __( 'Right Sidebar Layout', 'ltm' ) ],
+							'metadata' => [ 'name' => __( 'Right Sidebar Layout', 'ltm' ) ],
 						],
 						[
 							[
@@ -110,7 +103,20 @@ class ThematicPages {
 									'metadata'  => [ 'name' => __( 'Main Column', 'ltm' ) ],
 								],
 								[
-									[ 'latitudemedia/category-post-listing' ],
+									[
+										'latitudemedia/category-post-listing',
+										[
+											'onlyThematicPageTagged' => false,
+											'layout'                 => 'four-post-feature',
+										],
+									],
+									[
+										'latitudemedia/category-post-listing',
+										[
+											'onlyThematicPageTagged' => false,
+											'layout'                 => 'paginated-list',
+										],
+									],
 								],
 							],
 							[
@@ -122,12 +128,14 @@ class ThematicPages {
 								],
 								[
 									[ 'latitudemedia/subscriber-form' ],
+									[ 'latitudemedia/featured-single-item-block' ],
 									[ 'core/html' ],
-									[ 'latitudemedia/news-type-preview' ],
+									[ 'latitudemedia/news-type-preview', [ 'newsTypes' => [ 'news', 'events', 'podcast' ] ] ],
 								],
 							],
 						],
 					],
+					[ 'core/paragraph' ],
 				],
 			]
 		);

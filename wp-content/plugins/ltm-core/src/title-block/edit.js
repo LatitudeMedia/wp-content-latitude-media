@@ -282,7 +282,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									kicker ? '' : ' is-placeholder'
 								}` }
 							>
-								{ kicker || PLACEHOLDER.kicker }
+								{ kicker || `(${ PLACEHOLDER.kicker }...)` }
 							</p>
 						) }
 						<InnerBlocks template={ TEMPLATE } templateLock="all" />
