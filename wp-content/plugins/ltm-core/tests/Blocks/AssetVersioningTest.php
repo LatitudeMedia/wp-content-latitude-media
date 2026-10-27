@@ -15,7 +15,7 @@ use WP_Block_Type_Registry;
 use WP_UnitTestCase;
 
 /**
- * @covers \LTMCore\Blocks\AssetVersioning
+ * @covers \LTMCore\Blocks\Shared\AssetVersioning
  */
 class AssetVersioningTest extends WP_UnitTestCase {
 
@@ -30,7 +30,7 @@ class AssetVersioningTest extends WP_UnitTestCase {
 	}
 
 	public function test_version_untouched_for_blocks_outside_this_plugin() {
-		$versioning = new \LTMCore\Blocks\AssetVersioning();
+		$versioning = new \LTMCore\Blocks\Shared\AssetVersioning();
 		$metadata   = [ 'file' => ABSPATH . 'wp-content/plugins/other/build/x/block.json', 'version' => '1.2.3' ];
 
 		$this->assertSame( '1.2.3', $versioning->version_from_build_files( $metadata )['version'] );

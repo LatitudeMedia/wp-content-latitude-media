@@ -42,33 +42,20 @@ register_activation_hook( __FILE__, 'ltm_core_activate' );
 function ltm_core_loader() {
 
 	require_once __DIR__ . '/includes/functions.php';
-	require_once __DIR__ . '/includes/Taxonomies/ThematicPageTypes.php';
-	require_once __DIR__ . '/includes/PostTypes/ThematicPages.php';
-	require_once __DIR__ . '/includes/Taxonomies/PostSponsor.php';
-	require_once __DIR__ . '/includes/PostTypes/Sponsors.php';
-	require_once __DIR__ . '/includes/PostTypes/Events.php';
-	require_once __DIR__ . '/includes/PostTypes/Speakers.php';
-	require_once __DIR__ . '/includes/RestApi/FeaturedSingleItemSearch.php';
-	require_once __DIR__ . '/includes/Blocks/_AssetVersioning.php';
-	require_once __DIR__ . '/includes/Blocks/Title.php';
-	require_once __DIR__ . '/includes/Blocks/CategoryPostListing.php';
-	require_once __DIR__ . '/includes/Blocks/NewsTypePreview.php';
-	require_once __DIR__ . '/includes/Blocks/RightSidebarLayout.php';
-	require_once __DIR__ . '/includes/Blocks/EventAgenda.php';
-	require_once __DIR__ . '/includes/Blocks/EventAgendaV2.php';
-	require_once __DIR__ . '/includes/Blocks/EventPreview.php';
-	require_once __DIR__ . '/includes/Blocks/EventShortDescription.php';
-	require_once __DIR__ . '/includes/Blocks/EventDescription.php';
-	require_once __DIR__ . '/includes/Blocks/EventGrayIcon.php';
-	require_once __DIR__ . '/includes/Blocks/EventNavigationMenu.php';
-	require_once __DIR__ . '/includes/Blocks/EventSpeakers.php';
-	require_once __DIR__ . '/includes/Blocks/EventSponsors.php';
-	require_once __DIR__ . '/includes/Blocks/EventContactUs.php';
-	require_once __DIR__ . '/includes/Blocks/ImageAndText.php';
-	require_once __DIR__ . '/includes/Blocks/StyledButton.php';
-	require_once __DIR__ . '/includes/Blocks/EventsList.php';
-	require_once __DIR__ . '/includes/Blocks/EventVenue.php';
-	require_once __DIR__ . '/includes/Blocks/RecapVideo.php';
+
+	// PSR-4 autoloader: \LTMCore\PostTypes\Events maps to includes/PostTypes/Events.php.
+	spl_autoload_register(
+		function ( $class ) {
+			$prefix = 'LTMCore\\';
+			if ( ! str_starts_with( $class, $prefix ) ) {
+				return;
+			}
+			$file = __DIR__ . '/includes/' . str_replace( '\\', '/', substr( $class, strlen( $prefix ) ) ) . '.php';
+			if ( file_exists( $file ) ) {
+				require $file;
+			}
+		}
+	);
 
 	// Instantiated at file-load time (not inside a hook) so each class's own
 	// `add_action( 'init', ... )` self-registration registers cleanly before
@@ -81,7 +68,7 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Events();
 	new \LTMCore\PostTypes\Speakers();
 	new \LTMCore\RestApi\FeaturedSingleItemSearch();
-	new \LTMCore\Blocks\AssetVersioning();
+	new \LTMCore\Blocks\Shared\AssetVersioning();
 	new \LTMCore\Blocks\Title();
 	new \LTMCore\Blocks\RightSidebarLayout();
 	new \LTMCore\Blocks\EventAgenda();
