@@ -80,6 +80,11 @@ class FeaturedSingleItemSearch {
 			'orderby'        => $search ? 'relevance' : 'date',
 		];
 
+		// The page being edited is now a searchable type; don't let it feature itself.
+		if ( $page_id ) {
+			$args['post__not_in'] = [ $page_id ];
+		}
+
 		if ( $sponsored ) {
 			$sponsor_terms = $page_id ? wp_get_object_terms( $page_id, 'sponsor', [ 'fields' => 'ids' ] ) : [];
 

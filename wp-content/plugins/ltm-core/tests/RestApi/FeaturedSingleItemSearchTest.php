@@ -106,6 +106,29 @@ class FeaturedSingleItemSearchTest extends WP_UnitTestCase {
 		$this->assertSame( '(no title)', $item['title'] );
 	}
 
+	public function test_returns_items_from_other_public_post_types() {
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
+
+		$event = self::factory()->post->create( [ 'post_type' => 'events', 'post_status' => 'publish', 'post_title' => 'Featurable Event' ] );
+		$page  = self::factory()->post->create( [ 'post_type' => 'thematic-pages', 'post_status' => 'publish', 'post_title' => 'Featurable Thematic Page' ] );
+
+		$data = $this->search( [ 'search' => 'Featurable' ] );
+
+		$this->assertEqualsCanonicalizing( [ $event, $page ], wp_list_pluck( $data['items'], 'id' ) );
+	}
+
+	public function test_excludes_people_and_organization_post_types() {
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
+
+		$post = self::factory()->post->create( [ 'post_status' => 'publish', 'post_title' => 'Excludable Post' ] );
+		self::factory()->post->create( [ 'post_type' => 'speakers', 'post_status' => 'publish', 'post_title' => 'Excludable Speaker' ] );
+		self::factory()->post->create( [ 'post_type' => 'sponsors', 'post_status' => 'publish', 'post_title' => 'Excludable Sponsor' ] );
+
+		$data = $this->search( [ 'search' => 'Excludable' ] );
+
+		$this->assertSame( [ $post ], wp_list_pluck( $data['items'], 'id' ) );
+	}
+
 	private function search( array $params = [] ): array {
 		$request = new WP_REST_Request( 'GET', self::ROUTE );
 		foreach ( $params as $key => $value ) {

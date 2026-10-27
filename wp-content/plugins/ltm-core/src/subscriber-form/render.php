@@ -26,9 +26,6 @@ if ( $is_title_placeholder ) {
 if ( $is_disclaimer_placeholder ) {
 	$disclaimer = '(' . $placeholder['disclaimer'] . '...)';
 }
-if ( $is_editor_preview && ! $embed_code ) {
-	$embed_code = $placeholder['embedCode'];
-}
 ?>
 <div <?php echo get_block_wrapper_attributes( [ 'class' => 'subscriber-form form-block layout-' . $layout ] ); ?>>
 	<div class="form-block-wrapper">
