@@ -24,6 +24,29 @@ class Events {
 	public function __construct() {
 		// Create the post type
 		add_action( 'init', array( $this, 'create_post_type' ) );
+
+		add_filter( 'cloudflare_purge_by_url', array( $this, 'purge_events_page' ), 10, 2 );
+	}
+
+	/**
+	 * When an event is saved, also purge the /events/ listing page from
+	 * Cloudflare. The post type has no archive, so the Cloudflare plugin
+	 * doesn't know /events/ is related and leaves it stale for logged-out
+	 * visitors.
+	 *
+	 * @param array $urls    URLs the Cloudflare plugin is about to purge.
+	 * @param int   $post_id The post being saved.
+	 * @return array
+	 */
+	public function purge_events_page( $urls, $post_id ) {
+		if ( $this->name !== get_post_type( $post_id ) ) {
+			return $urls;
+		}
+
+		$urls[] = get_permalink( $post_id );
+		$urls[] = home_url( '/events/' );
+
+		return $urls;
 	}
 
 	/**
