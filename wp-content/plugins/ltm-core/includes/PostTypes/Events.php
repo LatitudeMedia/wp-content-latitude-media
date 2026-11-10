@@ -137,6 +137,29 @@ class Events {
 	}
 
 	/**
+	 * Whether an event is over: "Past event" is checked, or its end date has
+	 * passed (same rule as get_events_list( 'past' )). Reads raw meta, which
+	 * ACF stores as Y-m-d H:i:s in the site's timezone.
+	 *
+	 * @param int $event_id
+	 * @return bool
+	 */
+	public static function is_past_event( $event_id ) {
+		if ( get_post_meta( $event_id, 'past_event', true ) ) {
+			return true;
+		}
+
+		$end_date = get_post_meta( $event_id, 'end_date', true );
+		if ( empty( $end_date ) ) {
+			return false;
+		}
+
+		$end = \DateTime::createFromFormat( 'Y-m-d H:i:s', $end_date, wp_timezone() );
+
+		return $end && $end < current_datetime();
+	}
+
+	/**
 	 * Gets an event's timezone.
 	 *
 	 * Migrated from the theme's global get_event_timezone().

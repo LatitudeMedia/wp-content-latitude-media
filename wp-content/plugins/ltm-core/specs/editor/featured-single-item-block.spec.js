@@ -134,9 +134,11 @@ test.describe( 'Featured Single Item Block', () => {
 			.click();
 
 		const editorContent = await getEditorContent( page, editor );
+		// Target the title link: the post has no featured image, so the
+		// thumbnail link before it renders empty and is never "visible".
 		const link = editorContent
-			.locator( '.ltm-featured-single-item-block a[href]' )
-			.first();
+			.locator( '.ltm-featured-single-item-block' )
+			.getByRole( 'link', { name: 'Grid Resilience Deep Dive' } );
 		await expect( link ).toBeVisible();
 
 		const editorUrl = page.url();
