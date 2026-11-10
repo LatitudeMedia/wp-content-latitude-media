@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for the featured-post/search REST endpoint.
+ * Tests for the featured-single-item/search REST endpoint.
  *
  * @package LTMCore
  */
@@ -11,11 +11,11 @@ use WP_REST_Request;
 use WP_UnitTestCase;
 
 /**
- * @covers \LTMCore\RestApi\FeaturedPostSearch
+ * @covers \LTMCore\RestApi\FeaturedSingleItemSearch
  */
-class FeaturedPostSearchTest extends WP_UnitTestCase {
+class FeaturedSingleItemSearchTest extends WP_UnitTestCase {
 
-	private const ROUTE = '/ltm-core/v1/featured-post/search';
+	private const ROUTE = '/ltm-core/v1/featured-single-item/search';
 
 	public function test_permission_callback_allows_edit_posts_capable_user() {
 		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
@@ -104,6 +104,29 @@ class FeaturedPostSearchTest extends WP_UnitTestCase {
 
 		$item = current( array_filter( $data['items'], fn( $item ) => $item['id'] === $post_id ) );
 		$this->assertSame( '(no title)', $item['title'] );
+	}
+
+	public function test_returns_items_from_other_public_post_types() {
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
+
+		$event = self::factory()->post->create( [ 'post_type' => 'events', 'post_status' => 'publish', 'post_title' => 'Featurable Event' ] );
+		$page  = self::factory()->post->create( [ 'post_type' => 'thematic-pages', 'post_status' => 'publish', 'post_title' => 'Featurable Thematic Page' ] );
+
+		$data = $this->search( [ 'search' => 'Featurable' ] );
+
+		$this->assertEqualsCanonicalizing( [ $event, $page ], wp_list_pluck( $data['items'], 'id' ) );
+	}
+
+	public function test_excludes_people_and_organization_post_types() {
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'editor' ] ) );
+
+		$post = self::factory()->post->create( [ 'post_status' => 'publish', 'post_title' => 'Excludable Post' ] );
+		self::factory()->post->create( [ 'post_type' => 'speakers', 'post_status' => 'publish', 'post_title' => 'Excludable Speaker' ] );
+		self::factory()->post->create( [ 'post_type' => 'sponsors', 'post_status' => 'publish', 'post_title' => 'Excludable Sponsor' ] );
+
+		$data = $this->search( [ 'search' => 'Excludable' ] );
+
+		$this->assertSame( [ $post ], wp_list_pluck( $data['items'], 'id' ) );
 	}
 
 	private function search( array $params = [] ): array {

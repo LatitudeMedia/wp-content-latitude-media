@@ -66,6 +66,8 @@ class CategoryPostListing {
 		if ( $layout === 'paginated-list' ) {
 			$args['posts_per_page'] = 8;
 			$args['paged']          = max( 1, absint( $_GET['cpl-page'] ?? 1 ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		} elseif ( $layout === 'four-post-feature' ) {
+			$args['posts_per_page'] = 4;
 		} else {
 			$args['posts_per_page'] = 5;
 		}

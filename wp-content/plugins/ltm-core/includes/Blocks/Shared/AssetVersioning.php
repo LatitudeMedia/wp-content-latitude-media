@@ -1,5 +1,5 @@
 <?php
-namespace LTMCore\Blocks;
+namespace LTMCore\Blocks\Shared;
 
 /**
  * Cache-busts the stylesheets of every block in this plugin's build/.

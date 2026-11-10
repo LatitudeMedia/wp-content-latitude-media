@@ -129,4 +129,128 @@ class NewsTypePreviewQueryTest extends WP_UnitTestCase {
 		$ids = wp_list_pluck( $query->posts, 'ID' );
 		$this->assertSame( [ $newer, $older ], $ids );
 	}
+
+	public function test_filters_by_multiple_news_types() {
+		$analysis_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $analysis_post, 'news_type', 'analysis' );
+
+		$news_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $news_post, 'news_type', 'news' );
+
+		$opinion_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $opinion_post, 'news_type', 'opinion' );
+
+		$query = NewsTypePreview::get_query(
+			[
+				'newsTypes'     => [ 'analysis', 'news' ],
+				'podcastId'     => 0,
+				'numberOfPosts' => 5,
+			]
+		);
+
+		$ids = wp_list_pluck( $query->posts, 'ID' );
+		$this->assertEqualsCanonicalizing( [ $analysis_post, $news_post ], $ids );
+	}
+
+	public function test_events_only_returns_events_posts() {
+		$event = self::factory()->post->create(
+			[
+				'post_type'   => 'events',
+				'post_status' => 'publish',
+			]
+		);
+
+		$news_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $news_post, 'news_type', 'news' );
+
+		$query = NewsTypePreview::get_query(
+			[
+				'newsTypes'     => [ 'events' ],
+				'podcastId'     => 0,
+				'numberOfPosts' => 5,
+			]
+		);
+
+		$ids = wp_list_pluck( $query->posts, 'ID' );
+		$this->assertSame( [ $event ], $ids );
+	}
+
+	public function test_news_types_and_events_are_merged_by_date_and_capped() {
+		$old_news = self::factory()->post->create(
+			[
+				'post_status' => 'publish',
+				'post_date'   => '2020-01-01 00:00:00',
+			]
+		);
+		update_post_meta( $old_news, 'news_type', 'news' );
+
+		$new_news = self::factory()->post->create(
+			[
+				'post_status' => 'publish',
+				'post_date'   => '2024-01-01 00:00:00',
+			]
+		);
+		update_post_meta( $new_news, 'news_type', 'news' );
+
+		$event = self::factory()->post->create(
+			[
+				'post_type'   => 'events',
+				'post_status' => 'publish',
+				'post_date'   => '2022-01-01 00:00:00',
+			]
+		);
+
+		$opinion_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $opinion_post, 'news_type', 'opinion' );
+
+		$query = NewsTypePreview::get_query(
+			[
+				'newsTypes'     => [ 'news', 'events' ],
+				'podcastId'     => 0,
+				'numberOfPosts' => 2,
+			]
+		);
+
+		$ids = wp_list_pluck( $query->posts, 'ID' );
+		$this->assertSame( [ $new_news, $event ], $ids );
+	}
+
+	public function test_podcast_id_only_narrows_podcasts_when_mixed_with_other_types() {
+		$show_a_episode = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $show_a_episode, 'news_type', 'podcast' );
+		update_post_meta( $show_a_episode, 'podcast', 111 );
+
+		$show_b_episode = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $show_b_episode, 'news_type', 'podcast' );
+		update_post_meta( $show_b_episode, 'podcast', 222 );
+
+		$news_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $news_post, 'news_type', 'news' );
+
+		$query = NewsTypePreview::get_query(
+			[
+				'newsTypes'     => [ 'podcast', 'news' ],
+				'podcastId'     => 111,
+				'numberOfPosts' => 5,
+			]
+		);
+
+		$ids = wp_list_pluck( $query->posts, 'ID' );
+		$this->assertEqualsCanonicalizing( [ $show_a_episode, $news_post ], $ids );
+	}
+
+	public function test_empty_selection_returns_nothing() {
+		$news_post = self::factory()->post->create( [ 'post_status' => 'publish' ] );
+		update_post_meta( $news_post, 'news_type', 'news' );
+
+		$query = NewsTypePreview::get_query(
+			[
+				'newsTypes'     => [],
+				'podcastId'     => 0,
+				'numberOfPosts' => 5,
+			]
+		);
+
+		$this->assertSame( [], $query->posts );
+	}
 }

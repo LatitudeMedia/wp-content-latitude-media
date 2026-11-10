@@ -69,6 +69,31 @@ class PostSponsorTest extends WP_UnitTestCase {
 		$this->assertMatchesRegularExpression( '/<option value="' . $term_id . '" selected[^>]*>Acme Corp<\/option>/', $output );
 	}
 
+	public function test_meta_box_option_carries_sponsor_logo_url() {
+		$sponsor_id    = $this->create_sponsor();
+		$term_id       = $this->get_synced_term_id( $sponsor_id );
+		$attachment_id = self::factory()->attachment->create_upload_object( DIR_TESTDATA . '/images/canola.jpg', $sponsor_id );
+		set_post_thumbnail( $sponsor_id, $attachment_id );
+
+		ob_start();
+		( new \LTMCore\Taxonomies\PostSponsor() )->render_meta_box( get_post( self::factory()->post->create() ) );
+		$output = ob_get_clean();
+
+		$logo_url = esc_url( get_the_post_thumbnail_url( $sponsor_id, 'medium' ) );
+		$this->assertStringContainsString( '<option value="' . $term_id . '" data-logo="' . $logo_url . '">', $output );
+	}
+
+	public function test_meta_box_option_has_empty_logo_when_sponsor_has_no_thumbnail() {
+		$sponsor_id = $this->create_sponsor();
+		$term_id    = $this->get_synced_term_id( $sponsor_id );
+
+		ob_start();
+		( new \LTMCore\Taxonomies\PostSponsor() )->render_meta_box( get_post( self::factory()->post->create() ) );
+		$output = ob_get_clean();
+
+		$this->assertStringContainsString( '<option value="' . $term_id . '" data-logo="">', $output );
+	}
+
 	private function post_with_nonce( int $post_id, $sponsor_value ) {
 		$_POST['ltm_sponsor_nonce'] = wp_create_nonce( 'ltm_sponsor_save' );
 		$_POST['ltm_sponsor']       = $sponsor_value;

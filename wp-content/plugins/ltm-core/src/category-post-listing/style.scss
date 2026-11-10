@@ -103,6 +103,81 @@
 		@include pager;
 	}
 
+	// "4 Post Feature" layout: a 2x2 grid kept square at the parent's width.
+	// Each image stretches to fill whatever height its text leaves over, so
+	// the square holds regardless of excerpt length. Below sm it becomes a
+	// single-column list with natural-height images.
+	.quad {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-rows: repeat(2, minmax(0, 1fr));
+		gap: 40px;
+		aspect-ratio: 1;
+
+		@include below_sm {
+			grid-template-columns: 1fr;
+			grid-template-rows: none;
+			gap: 24px;
+			aspect-ratio: auto;
+		}
+
+		> li {
+			display: flex;
+			flex-direction: column;
+			min-height: 0;
+
+			@include below_sm {
+				border-top: 1px solid $primary-pink;
+				padding-top: 24px;
+
+				&:first-child {
+					border-top: none;
+					padding-top: 0;
+				}
+			}
+		}
+
+		.image-folder {
+			flex: 1 1 0;
+			min-height: 0;
+			margin-bottom: 16px;
+
+			@include below_sm {
+				flex: none;
+			}
+
+			a,
+			div {
+				padding-top: 0;
+				height: 100%;
+
+				@include below_sm {
+					padding-top: 70%;
+					height: auto;
+				}
+			}
+		}
+
+		.tags-list {
+			margin-bottom: 8px;
+
+			@include tagsList;
+		}
+
+		.title {
+
+			@include fontSize(24px);
+		}
+
+		.info {
+
+			@include postInfo;
+		}
+	}
+
 	// "5 Post Feature" layout: one featured post beside a 2-column grid of
 	// four smaller posts, each card stacked image-on-top.
 	.feature {

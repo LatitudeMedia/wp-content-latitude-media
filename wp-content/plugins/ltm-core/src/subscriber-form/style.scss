@@ -1,6 +1,11 @@
 @import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
 
 .subscriber-form.form-block {
-
 	@include formBlock;
+	margin-bottom: auto;
+
+	// Editor-only: example content shown while a field is empty.
+	.is-placeholder {
+		opacity: 0.6;
+	}
 }

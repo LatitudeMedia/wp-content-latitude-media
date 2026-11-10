@@ -48,7 +48,7 @@ The Studio site on port 8881 is completely separate and is never touched by the 
   `includes/PostTypes/Sponsors.php`'s `get_field()` call is now guarded (see
   [Unguarded `get_field()`](#unguarded-get_field-in-sponsorsphp) — fixed). See also the ACF
   field-group gap below for why mapping it in still doesn't buy real sponsored-toggle E2E coverage.
-- `../../themes/latitudemedia` — `src/featured-post-block/render.php` calls `get_template_part()`,
+- `../../themes/latitudemedia` — `src/featured-single-item-block/render.php` calls `get_template_part()`,
   so without this theme the block renders an empty wrapper and frontend assertions fail for the
   wrong reason.
 
@@ -128,7 +128,7 @@ this stack loads Yoast, ACF Pro and a large theme.
 the legacy non-iframed canvas if something forces it — that plugin (as on production), or a block
 registered with an old `apiVersion` (the console then warns "This means that the post editor may work
 as a non-iframe editor"). Specs that only need to find content check which one is present: see
-`getEditorContent()` in `specs/editor/featured-post-block.spec.js`, which uses `editor.canvas` when
+`getEditorContent()` in `specs/editor/featured-single-item-block.spec.js`, which uses `editor.canvas` when
 the iframe exists and `page.getByLabel('Editor content')` otherwise. Specs that depend on the iframe
 itself, like `specs/editor/recap-video-block.spec.js`, skip when it's absent.
 
@@ -167,7 +167,7 @@ now mirrors the `function_exists( 'get_field' )` guard already used in
 `src/title-block/block.json` sets `"render": "file:./render.php"` while `src/title-block/save.js`
 also exists. When `render` is present it wins, so **all** front-end markup comes from PHP and
 `save.js` output is only a fallback in the saved post content. Nothing signals this at a glance, and
-`src/featured-post-block/` has no `save.js` at all — so the two blocks follow different conventions
+`src/featured-single-item-block/` has no `save.js` at all — so the two blocks follow different conventions
 for no documented reason.
 
 The risk is silent: dropping `render.php` (or renaming the `render` key) would switch the output
@@ -176,7 +176,7 @@ source to `save.js` with no error, changing the rendered markup. The
 against `.ltm-title-block`, a class only `render.php` emits, specifically to catch that.
 
 If the `save.js` fallback is intentional, a comment in `block.json` or `save.js` should say so. If it
-is vestigial, delete it so the block matches `featured-post-block`.
+is vestigial, delete it so the block matches `featured-single-item-block`.
 
 ## Known gap: ACF field groups
 
@@ -193,13 +193,13 @@ meta directly.
 ## Coverage
 
 PHPUnit (`tests/`) covers CPT/taxonomy registration and sync-on-save/delete logic, the sponsor meta
-box's save/replace/clear semantics, the `ltm_sponsor` REST field, the `featured-post/search` REST
+box's save/replace/clear semantics, the `ltm_sponsor` REST field, the `featured-single-item/search` REST
 endpoint's query shaping, block registration/allowed-block-types filtering, and `title-block/render.php`.
-It does not cover `featured-post-block/render.php` beyond its early-return guard — that block's render
+It does not cover `featured-single-item-block/render.php` beyond its early-return guard — that block's render
 pulls in the theme's `get_wrap_rows_from_template()`/`Page_Data()`/`post-item` template-part chain, a
 poor PHPUnit target.
 
-Playwright (`specs/`) covers the block editor UI (Title Block, Featured Post Block's live search
+Playwright (`specs/`) covers the block editor UI (Title Block, Featured Single Item Block's live search
 combobox), the sponsor meta box round-tripped through real save/reload cycles, the Sponsored admin
 column, the Thematic Page Types taxonomy's hidden-but-assignable behavior, and frontend rendering of
 both blocks and the `/themes/{slug}` URL.

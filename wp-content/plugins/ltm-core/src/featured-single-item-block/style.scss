@@ -1,0 +1,123 @@
+@import "../../../../themes/latitudemedia/src/assets/scss/core/core_loader";
+
+.ltm-featured-single-item-block {
+	
+
+	@include below_md {
+		width: 100%;
+	}
+
+	@include below_sm {
+		border-bottom: 1px solid $primary-pink;
+	}
+
+	.image-folder {
+		@include imageFolder;
+
+		@include below_md {
+			width: 33%;
+			margin-right: 0;
+		}
+
+		@include below_sm {
+			width: 100%;
+		}
+
+		// Show the whole image at its natural aspect ratio (no cropping,
+		// no letterboxing) so the box height always matches the image.
+		a,
+		div {
+			display: block;
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+
+	.content-folder {
+		flex: 1 0 0px;
+		width: 100%;
+		align-self: center;
+
+		@include below_md {
+			width: 66.6666%;
+			padding-left: 24px;
+		}
+
+		@include below_sm {
+			width: 100%;
+			padding: 18px 0;
+		}
+
+		.tags-list {
+			margin-bottom: 0;
+
+			@include tagsList;
+
+			li {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+		}
+
+		.title {
+
+			@include postCardTitle;
+			@include fontSize(24px);
+		}
+
+		p {
+
+			@include postCardExcerpt;
+		}
+
+		.info {
+
+			@include postInfo;
+		}
+	}
+}
+
+// In the Right Sidebar Layout's main column, restore the original
+// Featured Post horizontal layout.
+.ltm-right-sidebar-layout__main-column .ltm-featured-single-item-block {
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	width: 66.6666%;
+
+	@include below_md {
+		width: 100%;
+	}
+
+	.image-folder {
+		width: 350px;
+		margin-right: 24px;
+
+		@include below_md {
+			width: 33%;
+			margin-right: 0;
+		}
+
+		@include below_sm {
+			width: 100%;
+		}
+	}
+}
+
+// In the Right Sidebar Layout's sidebar, show only the featured image:
+// full width, no shadow.
+.ltm-right-sidebar-layout__sidebar .ltm-featured-single-item-block {
+	.image-folder {
+		width: 100%;
+		margin: 0;
+		box-shadow: none;
+	}
+
+	.content-folder {
+		display: none;
+	}
+}

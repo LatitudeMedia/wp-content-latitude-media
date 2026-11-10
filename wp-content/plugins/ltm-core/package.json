@@ -1,7 +1,7 @@
 {
 	"name": "ltm-core",
 	"version": "1.0.1",
-	"description": "Native Gutenberg blocks for Latitude Media (Title Block, Featured Post) and the Thematic Pages post type.",
+	"description": "Native Gutenberg blocks for Latitude Media (Title Block, Featured Single Item) and the Thematic Pages post type.",
 	"author": "Latitude Media",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
@@ -32,6 +32,7 @@
 		"@wordpress/components": "latest",
 		"@wordpress/core-data": "latest",
 		"@wordpress/data": "latest",
+		"@wordpress/element": "latest",
 		"@wordpress/i18n": "latest",
 		"@wordpress/server-side-render": "latest",
 		"@wordpress/url": "latest"

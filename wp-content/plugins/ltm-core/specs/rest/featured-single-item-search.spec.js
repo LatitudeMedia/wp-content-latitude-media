@@ -1,9 +1,9 @@
 /**
- * Tests for the ltm-core/v1/featured-post/search REST endpoint.
+ * Tests for the ltm-core/v1/featured-single-item/search REST endpoint.
  *
  * Bypasses /wp/v2/posts deliberately, per the endpoint's own docblock, since
  * it needs to filter by the `sponsor` taxonomy which is not show_in_rest.
- * See tests/RestApi/FeaturedPostSearchTest.php for the sponsored-scoping
+ * See tests/RestApi/FeaturedSingleItemSearchTest.php for the sponsored-scoping
  * case (covered there directly against term meta, without needing a UI
  * round-trip to assign a sponsor).
  */
@@ -18,9 +18,9 @@ const { request } = require( '@playwright/test' );
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
-const ROUTE = '/ltm-core/v1/featured-post/search';
+const ROUTE = '/ltm-core/v1/featured-single-item/search';
 
-test.describe( 'Featured Post search REST endpoint', () => {
+test.describe( 'Featured Single Item search REST endpoint', () => {
 	test.afterEach( async ( { requestUtils } ) => {
 		await requestUtils.deleteAllPosts();
 		await requestUtils.deleteAllPosts( 'thematic-pages' );

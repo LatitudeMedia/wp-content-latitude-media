@@ -94,4 +94,44 @@ class SubscriberFormRenderTest extends WP_UnitTestCase {
 
 		$this->assertStringNotContainsString( '<script', $output );
 	}
+
+	public function test_no_placeholders_on_the_frontend() {
+		$output = $this->render();
+
+		$this->assertStringNotContainsString( 'is-placeholder', $output );
+	}
+
+	/**
+	 * The editor preview is detected via the REST_REQUEST constant, which
+	 * can't be undefined again, so each editor-preview test runs in its own process.
+	 *
+	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
+	 */
+	public function test_editor_preview_shows_placeholders_for_empty_title_and_disclaimer() {
+		define( 'REST_REQUEST', true );
+
+		$output = $this->render();
+
+		$this->assertMatchesRegularExpression( '/<h2 class="form-title is-placeholder">[^<]+<\/h2>/', $output );
+		$this->assertMatchesRegularExpression( '/<p class="is-placeholder"[^>]*>[^<]+<\/p>/', $output );
+	}
+
+	/**
+	 * @runInSeparateProcess
+	 * @preserveGlobalState disabled
+	 */
+	public function test_editor_preview_has_no_placeholders_when_fields_are_set() {
+		define( 'REST_REQUEST', true );
+
+		$output = $this->render(
+			[
+				'title'      => 'Get Latitude Media in your inbox',
+				'disclaimer' => 'Latitude Media provides rigorous coverage.',
+				'embedCode'  => '<div>form</div>',
+			]
+		);
+
+		$this->assertStringNotContainsString( 'is-placeholder', $output );
+	}
 }

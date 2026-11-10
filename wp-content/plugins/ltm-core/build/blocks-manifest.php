@@ -37,6 +37,7 @@ return array(
 				'type' => 'string',
 				'enum' => array(
 					'five-post-feature',
+					'four-post-feature',
 					'paginated-list'
 				),
 				'default' => 'five-post-feature'
@@ -652,18 +653,19 @@ return array(
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
 	),
-	'featured-post-block' => array(
+	'featured-single-item-block' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'latitudemedia/featured-post-block',
+		'name' => 'latitudemedia/featured-single-item-block',
 		'version' => '0.1.1',
-		'title' => 'Featured Post',
+		'title' => 'Featured Single Item',
 		'category' => 'ltm-common-blocks',
 		'icon' => 'star-filled',
-		'description' => 'Highlight a single post as a featured card, optionally scoped to the page\'s sponsor.',
+		'description' => 'Highlight a single item of any post type as a featured card, optionally scoped to the page\'s sponsor.',
 		'keywords' => array(
 			'featured',
 			'post',
+			'item',
 			'sponsor'
 		),
 		'example' => array(
@@ -733,11 +735,11 @@ return array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
 		'name' => 'latitudemedia/news-type-preview',
-		'version' => '0.1.1',
+		'version' => '0.2.0',
 		'title' => 'News Type Preview',
 		'category' => 'ltm-common-blocks',
 		'icon' => 'megaphone',
-		'description' => 'List published posts by News Type, optionally narrowed to one podcast show.',
+		'description' => 'List published posts by one or more News Types (and/or Events), optionally narrowing podcasts to one show.',
 		'keywords' => array(
 			'news type',
 			'podcast',
@@ -752,6 +754,12 @@ return array(
 				'type' => 'string',
 				'default' => 'news'
 			),
+			'newsTypes' => array(
+				'type' => 'array',
+				'items' => array(
+					'type' => 'string'
+				)
+			),
 			'podcastId' => array(
 				'type' => 'number',
 				'default' => 0
@@ -759,6 +767,14 @@ return array(
 			'numberOfPosts' => array(
 				'type' => 'number',
 				'default' => 5
+			),
+			'defaultImageId' => array(
+				'type' => 'number',
+				'default' => 0
+			),
+			'defaultImageUrl' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'supports' => array(
@@ -857,7 +873,11 @@ return array(
 			'hubspot'
 		),
 		'example' => array(
-			
+			'attributes' => array(
+				'title' => 'Subscribe to our newsletter',
+				'disclaimer' => 'an optional disclaimer',
+				'layout' => 'square'
+			)
 		),
 		'attributes' => array(
 			'title' => array(
@@ -904,9 +924,30 @@ return array(
 			'thematic page'
 		),
 		'example' => array(
-			
+			'attributes' => array(
+				'layout' => 'sponsored-content',
+				'kicker' => 'an optional subtitle',
+				'backgroundImageId' => 0,
+				'backgroundImageUrl' => '/wp-content/themes/latitudemedia/dist/images/subscribe_bg.jpg'
+			),
+			'innerBlocks' => array(
+				array(
+					'name' => 'core/post-title',
+					'attributes' => array(
+						'level' => 1
+					)
+				)
+			)
 		),
 		'attributes' => array(
+			'layout' => array(
+				'type' => 'string',
+				'enum' => array(
+					'sponsored-content',
+					'unsponsored'
+				),
+				'default' => 'sponsored-content'
+			),
 			'kicker' => array(
 				'type' => 'string',
 				'default' => ''

@@ -89,43 +89,53 @@ class ThematicPages {
 				'supports'            => [ 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ],
 				'template'            => [
 					[ 'latitudemedia/title-block' ],
-					[ 'latitudemedia/featured-post-block' ],
-					[ 'core/heading', [ 'level' => 2 ] ],
-					[ 'core/paragraph' ],
-					[ 'latitudemedia/category-post-listing' ],
-					[ 'core/heading', [ 'level' => 2 ] ],
-					[ 'core/paragraph' ],
 					[
 						'core/columns',
 						[
-							'isStackedOnMobile' => true,
-							'metadata'          => [ 'name' => __( 'Right Sidebar Layout', 'ltm' ) ],
+							'metadata' => [ 'name' => __( 'Right Sidebar Layout', 'ltm' ) ],
 						],
 						[
 							[
 								'core/column',
 								[
-									'width'    => '66%',
-									'metadata' => [ 'name' => __( 'Main Column', 'ltm' ) ],
+									'width'     => '66%',
+									'className' => 'ltm-right-sidebar-layout__main-column',
+									'metadata'  => [ 'name' => __( 'Main Column', 'ltm' ) ],
 								],
 								[
-									[ 'latitudemedia/category-post-listing' ],
+									[
+										'latitudemedia/category-post-listing',
+										[
+											'onlyThematicPageTagged' => false,
+											'layout'                 => 'four-post-feature',
+										],
+									],
+									[
+										'latitudemedia/category-post-listing',
+										[
+											'onlyThematicPageTagged' => false,
+											'layout'                 => 'paginated-list',
+										],
+									],
 								],
 							],
 							[
 								'core/column',
 								[
-									'width'    => '33%',
-									'metadata' => [ 'name' => __( 'Sidebar', 'ltm' ) ],
+									'width'     => '33%',
+									'className' => 'ltm-right-sidebar-layout__sidebar',
+									'metadata'  => [ 'name' => __( 'Sidebar', 'ltm' ) ],
 								],
 								[
 									[ 'latitudemedia/subscriber-form' ],
+									[ 'latitudemedia/featured-single-item-block' ],
 									[ 'core/html' ],
-									[ 'latitudemedia/news-type-preview' ],
+									[ 'latitudemedia/news-type-preview', [ 'newsTypes' => [ 'news', 'events', 'podcast' ] ] ],
 								],
 							],
 						],
 					],
+					[ 'core/paragraph' ],
 				],
 			]
 		);

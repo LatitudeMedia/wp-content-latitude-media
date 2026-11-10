@@ -6,11 +6,13 @@
  * WordPress attributes:
  *
  *   core/columns (isStackedOnMobile: true)
- *     > core/column, width: 66%  ("Main Column")
- *     > core/column, width: 33%  ("Sidebar")
+ *     > core/column, width: 66%  ("Main Column", .ltm-right-sidebar-layout__main-column)
+ *     > core/column, width: 33%  ("Sidebar", .ltm-right-sidebar-layout__sidebar)
  *
- * No custom classNames or theme-specific CSS — the layout and mobile
- * stacking come entirely from core/columns' own built-in behavior.
+ * The layout and mobile stacking come entirely from core/columns' own
+ * built-in behavior. The column classNames are only hooks for blocks that
+ * style themselves differently per column (e.g. featured-single-item-block).
+ * Keep them in sync with the Thematic Pages template (ThematicPages.php).
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/core-blocks/core-blocks-design/core-block-columns/
  * @see https://developer.wordpress.org/block-editor/reference-guides/core-blocks/core-blocks-design/core-block-column/
@@ -40,6 +42,7 @@ registerBlockVariation( 'core/columns', {
 			'core/column',
 			{
 				width: '66%',
+				className: 'ltm-right-sidebar-layout__main-column',
 				metadata: { name: __( 'Main Column', 'ltm' ) },
 			},
 			[],
@@ -48,6 +51,7 @@ registerBlockVariation( 'core/columns', {
 			'core/column',
 			{
 				width: '33%',
+				className: 'ltm-right-sidebar-layout__sidebar',
 				metadata: { name: __( 'Sidebar', 'ltm' ) },
 			},
 			[],

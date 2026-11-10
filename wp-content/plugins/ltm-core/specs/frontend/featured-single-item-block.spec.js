@@ -1,6 +1,6 @@
 /**
- * Frontend tests for latitudemedia/featured-post-block's server-side render
- * (src/featured-post-block/render.php). Primary coverage for that file —
+ * Frontend tests for latitudemedia/featured-single-item-block's server-side render
+ * (src/featured-single-item-block/render.php). Primary coverage for that file —
  * deliberately not unit-tested in PHPUnit, since it pulls in the theme's
  * get_wrap_rows_from_template()/Page_Data()/post-item template-part chain.
  */
@@ -10,9 +10,9 @@
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
-const BLOCK_NAME = 'latitudemedia/featured-post-block';
+const BLOCK_NAME = 'latitudemedia/featured-single-item-block';
 
-test.describe( 'Featured Post Block frontend', () => {
+test.describe( 'Featured Single Item Block frontend', () => {
 	test.afterEach( async ( { requestUtils } ) => {
 		await requestUtils.deleteAllPosts();
 	} );
@@ -28,7 +28,7 @@ test.describe( 'Featured Post Block frontend', () => {
 			status: 'publish',
 		} );
 
-		await admin.createNewPost( { title: 'Page With Featured Post' } );
+		await admin.createNewPost( { title: 'Page With Featured Single Item' } );
 		await editor.insertBlock( {
 			name: BLOCK_NAME,
 			attributes: { postId: featuredPost.id },
@@ -37,7 +37,7 @@ test.describe( 'Featured Post Block frontend', () => {
 		const postId = await editor.publishPost();
 		await page.goto( `/?p=${ postId }` );
 
-		const card = page.locator( '.ltm-featured-post-block' );
+		const card = page.locator( '.ltm-featured-single-item-block' );
 		await expect( card ).toBeVisible();
 		await expect(
 			card.getByText( 'Grid Resilience Deep Dive' )
@@ -64,7 +64,7 @@ test.describe( 'Featured Post Block frontend', () => {
 		const postId = await editor.publishPost();
 		await page.goto( `/?p=${ postId }` );
 
-		await expect( page.locator( '.ltm-featured-post-block' ) ).toHaveCount(
+		await expect( page.locator( '.ltm-featured-single-item-block' ) ).toHaveCount(
 			0
 		);
 	} );

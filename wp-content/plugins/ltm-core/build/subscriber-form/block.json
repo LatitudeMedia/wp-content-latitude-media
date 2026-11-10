@@ -14,7 +14,13 @@
     "signup",
     "hubspot"
   ],
-  "example": {},
+  "example": {
+    "attributes": {
+      "title": "Subscribe to our newsletter",
+      "disclaimer": "an optional disclaimer",
+      "layout": "square"
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",

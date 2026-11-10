@@ -84,6 +84,20 @@ class CategoryPostListingQueryTest extends WP_UnitTestCase {
 		$this->assertCount( 5, $query->posts );
 	}
 
+	public function test_four_post_feature_caps_at_four_posts() {
+		self::factory()->post->create_many( 7 );
+
+		$query = CategoryPostListing::get_query(
+			[
+				'categories'             => [],
+				'onlyThematicPageTagged' => false,
+				'layout'                 => 'four-post-feature',
+			]
+		);
+
+		$this->assertCount( 4, $query->posts );
+	}
+
 	public function test_paginated_list_honors_page_param() {
 		self::factory()->post->create_many( 10 );
 
