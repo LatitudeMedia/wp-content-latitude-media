@@ -41,6 +41,61 @@ class Sponsors {
         // "Sponsored" column on the Posts list table
         add_filter( 'manage_edit-post_columns', array( $this, 'add_sponsored_column' ) );
         add_filter( 'manage_posts_custom_column', array( $this, 'render_sponsored_column' ), 10, 2 );
+
+        if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+            add_action( 'admin_notices', array( $this, 'missing_acf_notice' ) );
+            return;
+        }
+
+        add_action( 'acf/include_fields', array( $this, 'register_field_group' ) );
+    }
+
+    /**
+     * Warns in wp-admin that the sponsor fields need ACF Pro active.
+     */
+    public function missing_acf_notice() {
+        echo '<div class="notice notice-warning"><p>' .
+            esc_html__( 'Latitude Media Core: the Sponsor options fields require Advanced Custom Fields Pro to be active.', 'ltm' ) .
+            '</p></div>';
+    }
+
+    /**
+     * Registers the "Sponsor options" field group, shown as a side meta box on
+     * each sponsor. Copied verbatim from the theme's acf-export.php — the group
+     * key and every field key are unchanged so existing sponsor data keeps
+     * resolving.
+     */
+    public function register_field_group() {
+        acf_add_local_field_group(array(
+            'key' => 'group_67050dbc6adca',
+            'title' => 'Sponsor options',
+            'fields' => array(
+                array(
+                    'key' => 'field_67050dbc8dbc7',
+                    'label' => 'Website Link',
+                    'name' => 'website_link',
+                    'type' => 'text',
+                ),
+                array(
+                    'key' => 'field_67050dd48dbc8',
+                    'label' => 'Sponsorship Level',
+                    'name' => 'sponsorship_level',
+                    'type' => 'text',
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'post_type',
+                        'operator' => '==',
+                        'value' => 'sponsors',
+                    ),
+                ),
+            ),
+            'position' => 'side',
+            'style' => 'default',
+            'active' => true,
+        ));
     }
 
     /**
