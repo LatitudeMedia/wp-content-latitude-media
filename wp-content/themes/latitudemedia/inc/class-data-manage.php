@@ -72,7 +72,7 @@ class Manage_Data
                 $this->manualSearchArgs['post_type'] = $customArgs['post_type'];
                 break;
             case 'custom' && !empty($customArgs['custom']):
-                $this->manualSearchArgs['post_type'] = ['post', 'industry-news', 'resources', 'research', 'events', 'podcasts'];
+                $this->manualSearchArgs['post_type'] = ['post', 'industry-news', 'resources', 'events', 'podcasts'];
                 $post_ids = (!empty($customArgs['custom']) ? $customArgs['custom'] : []);
                 break;
         }

@@ -41,14 +41,8 @@ module.exports = (env) => {
         "./src/assets/scss/blocks/news-plates-section.scss",
       "css/blocks/featured-research-block":
         "./src/assets/scss/blocks/featured-research-block.scss",
-      "css/blocks/research-banner-block":
-        "./src/assets/scss/blocks/research-banner-block.scss",
-      "css/blocks/research-overview-block":
-        "./src/assets/scss/blocks/research-overview-block.scss",
       "css/blocks/content-with-background-block":
         "./src/assets/scss/blocks/content-with-background-block.scss",
-      "css/blocks/order-form-block":
-        "./src/assets/scss/blocks/order-form-block.scss",
       "css/blocks/subscribe-form-block":
         "./src/assets/scss/blocks/subscribe-form-block.scss",
       "css/blocks/categories-section-block":

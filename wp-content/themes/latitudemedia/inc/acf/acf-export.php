@@ -123,13 +123,6 @@ add_action('acf/include_fields', function () {
                 'type' => 'text',
             ),
             array(
-                'key' => 'field_66fbe5cded051',
-                'label' => 'Research Author',
-                'name' => 'research_author',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-            array(
                 'key' => 'field_66fd24eac1d37',
                 'label' => 'LinkOut',
                 'name' => 'linkout',
@@ -874,40 +867,6 @@ add_action('acf/include_fields', function () {
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_67067acd75e4c',
-        'title' => 'Order report options',
-        'fields' => array(
-            array(
-                'key' => 'field_67067acdc3ecf',
-                'label' => 'Research Item',
-                'name' => 'research_item',
-                'type' => 'post_object',
-                'post_type' => array(
-                    0 => 'research',
-                ),
-                'post_status' => '',
-                'taxonomy' => '',
-                'return_format' => 'object',
-                'allow_null' => 0,
-                'bidirectional' => 0,
-                'ui' => 1,
-                'bidirectional_target' => array(),
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'order-reports',
-                ),
-            ),
-        ),
-        'position' => 'side',
-        'style' => 'default',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'group_67052ac923566',
         'title' => 'Podcast options',
         'fields' => array(
@@ -1200,7 +1159,6 @@ add_action('acf/include_fields', function () {
                     'post' => 'Post',
                     'industry-news' => 'Industry News',
                     'resources' => 'Resources',
-                    'research' => 'Researches',
                     'events' => 'Events',
                     'podcasts' => 'Podcasts',
                 ),
@@ -1277,95 +1235,6 @@ add_action('acf/include_fields', function () {
             ),
         ),
         'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
-        'key' => 'group_67051f4fe33b0',
-        'title' => 'Research options',
-        'fields' => array(
-            array(
-                'key' => 'field_67051f6b5e832',
-                'label' => 'Subtitle',
-                'name' => 'subtitle',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_67051f6f5e833',
-                'label' => 'Banner',
-                'name' => 'banner',
-                'type' => 'image',
-                'return_format' => 'array',
-                'library' => 'all',
-                'preview_size' => 'medium',
-            ),
-            array(
-                'key' => 'field_6705263b0ad0a',
-                'label' => 'Date',
-                'name' => 'date',
-                'type' => 'date_picker',
-                'display_format' => 'm/d/Y',
-                'return_format' => 'm/d/Y',
-                'first_day' => 1,
-            ),
-            array(
-                'key' => 'field_670526da0ad0b',
-                'label' => 'Download form code',
-                'name' => 'download_form_code',
-                'type' => 'textarea',
-                'rows' => '',
-            ),
-            array(
-                'key' => 'field_670527060ad0c',
-                'label' => 'Full price',
-                'name' => 'full_price',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_670527140ad0d',
-                'label' => 'Purchase Form Code',
-                'name' => 'purchase_form_code',
-                'type' => 'textarea',
-                'rows' => '',
-            ),
-            array(
-                'key' => 'field_670527420ad0e',
-                'label' => 'Order Page',
-                'name' => 'order_page',
-                'type' => 'post_object',
-                'post_type' => array(
-                    0 => 'order-reports',
-                ),
-                'post_status' => '',
-                'taxonomy' => '',
-                'return_format' => 'object',
-                'allow_null' => 0,
-                'bidirectional' => 0,
-                'ui' => 1,
-                'bidirectional_target' => array(),
-            ),
-            array(
-                'key' => 'field_670527c00ad0f',
-                'label' => 'HubSpot Payment Link',
-                'name' => 'hubspot_payment_link',
-                'type' => 'text',
-            ),
-            array(
-                'key' => 'field_670527c00ad10',
-                'label' => 'Form Title',
-                'name' => 'form_title',
-                'type' => 'text',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'research',
-                ),
-            ),
-        ),
-        'style' => 'default',
         'active' => true,
     ));
     acf_add_local_field_group(array(
@@ -2166,112 +2035,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'active' => true,
     ));
     acf_add_local_field_group(array(
-        'key' => 'group_6735511bb3a71',
-        'title' => 'Research banner block',
-        'fields' => array(
-            array(
-                'key' => 'field_67354ddb2f440',
-                'label' => 'Research banner block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_67354ddb2f441',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/research-banner-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
-        'key' => 'group_67355185aa67f',
-        'title' => 'Research overview block',
-        'fields' => array(
-            array(
-                'key' => 'field_67354f7fc926b',
-                'label' => 'Research overview block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_6735519ce2d00',
-                'label' => 'Content',
-                'name' => 'content',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
-            ),
-            array(
-                'key' => 'field_67354f7fc926c',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/research-overview-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
-        'key' => 'group_673551451512b',
-        'title' => 'Research preview block',
-        'fields' => array(
-            array(
-                'key' => 'field_67354de6440d1',
-                'label' => 'Research preview block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_67354de6440d2',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/research-preview-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
         'key' => 'field_67363a22299d4',
         'title' => 'Content with background block',
         'fields' => array(
@@ -2329,65 +2092,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         ),
         'menu_order' => 0,
         'position' => 'side',
-        'style' => 'seamless',
-        'active' => true,
-    ));
-    acf_add_local_field_group(array(
-        'key' => 'group_67353484a9df6',
-        'title' => 'Featured research block',
-        'fields' => array(
-            array(
-                'key' => 'field_6734df53622f9',
-                'label' => 'Featured research block',
-                'name' => '',
-                'type' => 'message',
-                'esc_html' => 0,
-                'new_lines' => 'wpautop',
-            ),
-            array(
-                'key' => 'field_6735348a189ac',
-                'label' => 'Research',
-                'name' => 'research',
-                'type' => 'post_object',
-                'required' => 1,
-                'post_type' => array(
-                    0 => 'research',
-                ),
-                'post_status' => '',
-                'taxonomy' => '',
-                'return_format' => 'object',
-                'allow_null' => 0,
-                'bidirectional' => 0,
-                'ui' => 1,
-                'bidirectional_target' => array(),
-            ),
-            array(
-                'key' => 'field_67353704bca28',
-                'label' => 'Description',
-                'name' => 'description',
-                'type' => 'wysiwyg',
-                'tabs' => 'all',
-                'toolbar' => 'full',
-                'media_upload' => 1,
-                'delay' => 0,
-            ),
-            array(
-                'key' => 'field_6734df53622fa',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/featured-research-block',
-                ),
-            ),
-        ),
         'style' => 'seamless',
         'active' => true,
     ));
@@ -2501,66 +2205,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
         'style' => 'default',
         'active' => true,
     ));
-    acf_add_local_field_group(array(
-        'key' => 'field_6739e4e7caab9',
-        'title' => 'Order preview block',
-        'fields' => array(
-            array(
-                'key' => 'field_6739e4e7caabb',
-                'label' => 'Order preview block',
-                'name' => '',
-                'type' => 'message',
-            ),
-            array(
-                'key' => 'field_6739e4e7caabc',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/order-preview-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless'
-    ));
-
-    acf_add_local_field_group(array(
-        'key' => 'field_6739e5a2bd5bb',
-        'title' => 'Order form block',
-        'fields' => array(
-            array(
-                'key' => 'field_6739e5a2bd5bd',
-                'label' => 'Order form block',
-                'name' => '',
-                'type' => 'message',
-            ),
-            array(
-                'key' => 'field_6739e5a2bd5be',
-                'label' => 'Display',
-                'name' => 'display',
-                'type' => 'true_false',
-                'ui' => 1,
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'block',
-                    'operator' => '==',
-                    'value' => 'acf/order-form-block',
-                ),
-            ),
-        ),
-        'style' => 'seamless'
-    ));
-
     acf_add_local_field_group(array(
         'key' => 'group_673d1350d0368',
         'title' => 'Sidebar info block',
@@ -2868,7 +2512,6 @@ Display condition based on settings in sidebar <b>News options -> Exclude Relate
                 'choices' => array(
                     'Event' => 'Event',
                     'Custom' => 'Custom',
-                    'Research' => 'Research',
                     'News' => 'News',
                 ),
                 'default_value' => false,

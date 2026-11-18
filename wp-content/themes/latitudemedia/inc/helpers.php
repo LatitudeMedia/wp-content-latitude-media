@@ -94,20 +94,6 @@ function date_to_format($dateString, $inputFormat = 'Y-m-d H:i:s', $format = 'Y-
     }
 }
 
-function get_research_date($research_id, $format = 'F Y')
-{
-    if (! $research_id) {
-        $research_id = get_the_ID();
-    }
-
-    $date = get_field('date', $research_id);
-    if (empty($date)) {
-        return '';
-    }
-
-    return date_to_format($date, 'm/d/Y', $format);
-}
-
 function get_section_cats($section_id, $fields = 'ids')
 {
     if (!$section_id) {
@@ -130,46 +116,6 @@ function get_section_cats($section_id, $fields = 'ids')
     $cats = get_terms($section_args);
 
     return $cats;
-}
-
-/**
- * @param $research_id
- * @return array
- */
-function get_research_data($research_id)
-{
-    if (!$research_id) {
-        return [];
-    }
-
-    return [
-        'banner'                => get_field('banner', $research_id),
-        'hubspot_payment_link'  => get_field('hubspot_payment_link', $research_id),
-        'full_price'            => get_field('full_price', $research_id),
-        'purchase_form_code'    => get_field('purchase_form_code', $research_id),
-        'download_form_code'    => get_field('download_form_code', $research_id),
-        'order_page'            => get_field('order_page', $research_id),
-        'form_title'            => get_field('form_title', $research_id),
-    ];
-}
-
-/**
- * @param $order_id
- * @return array
- */
-function get_order_report_data($orderId)
-{
-    if (!$orderId) {
-        return [];
-    }
-
-    $researchData = [];
-    $researchId = get_field('research_item', $orderId);
-    if (!empty($researchId)) {
-        $researchData = get_research_data($researchId);
-        $researchData['research_id'] = $researchId;
-    }
-    return $researchData;
 }
 
 /**

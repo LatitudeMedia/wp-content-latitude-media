@@ -594,27 +594,6 @@ $blocks = array(
     ),
     array(
         'attrs' => array(
-            'name'          => 'featured-research-block',
-            'title'         => __('Featured research block', 'ltm'),
-            'path'          => 'research',
-        ),
-        'icon'          => 'chart-area',
-        'description' => __('Featured research block', 'ltm'),
-        'post_types'     => array('page'),
-        'category'      => 'ltm-page-blocks',
-        'keywords'    => array(__('Featured research block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/featured-research-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'featured-research-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
             'name'          => 'partner-porcasts-block',
             'title'         => __('Partner podcasts block', 'ltm'),
             'path'          => 'podcast',
@@ -736,111 +715,6 @@ $blocks = array(
     ),
     // END Section landing
 
-    // START Single Research
-    array(
-        'attrs' => array(
-            'name'          => 'research-banner-block',
-            'title'         => __('Research banner block', 'ltm'),
-            'path'          => 'research',
-        ),
-        'icon'          => 'align-wide',
-        'description' => __('Research banner block', 'ltm'),
-        'post_types'     => array('research', 'order-reports'),
-        'category'      => 'ltm-research-blocks',
-        'keywords'    => array(__('Research banner block', 'ltm')),
-        //        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-banner-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'research-banner-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'research-preview-block',
-            'title'         => __('Research preview block', 'ltm'),
-            'path'          => 'research',
-        ),
-        'icon'          => 'welcome-view-site',
-        'description' => __('Research preview block', 'ltm'),
-        'post_types'     => array('research'),
-        'category'      => 'ltm-research-blocks',
-        'keywords'    => array(__('Research preview block', 'ltm')),
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'research-preview-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'research-overview-block',
-            'title'         => __('Research overview block', 'ltm'),
-            'path'          => 'research',
-        ),
-        'icon'          => 'welcome-widgets-menus',
-        'description' => __('Research overview block', 'ltm'),
-        'post_types'     => array('research'),
-        'category'      => 'ltm-research-blocks',
-        'keywords'    => array(__('Research overview block', 'ltm')),
-        'enqueue_style'     => get_template_directory_uri() . '/dist/css/blocks/research-overview-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'research-overview-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'order-preview-block',
-            'title'         => __('Order preview block', 'ltm'),
-            'path'          => 'order-report',
-        ),
-        'icon'          => 'welcome-view-site',
-        'description' => __('Order preview block', 'ltm'),
-        'post_types'     => array('order-reports'),
-        'category'      => 'ltm-order-report-blocks',
-        'keywords'    => array(__('Order preview block', 'ltm')),
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'order-preview-block.png',
-                )
-            )
-        )
-    ),
-    array(
-        'attrs' => array(
-            'name'          => 'order-form-block',
-            'title'         => __('Order form block', 'ltm'),
-            'path'          => 'order-report',
-        ),
-        'icon'          => 'forms',
-        'description' => __('Order form block', 'ltm'),
-        'post_types'     => array('order-reports'),
-        'category'      => 'ltm-order-report-blocks',
-        'keywords'    => array(__('Order form block', 'ltm')),
-        'enqueue_style' => get_template_directory_uri() . '/dist/css/blocks/order-form-block.min.css',
-        'example'      => array(
-            'attributes' => array(
-                'mode' => 'preview',
-                'data' => array(
-                    'image' => 'order-form-block.png',
-                )
-            )
-        )
-    ),
-    // END Single Research
     // START Events
     array(
         'attrs' => array(

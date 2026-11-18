@@ -55,11 +55,6 @@ if (!function_exists('ltm_styles')) {
             wp_register_style('ltm-pages', get_template_directory_uri() . '/dist/css/pages.min.css', array(), filemtime(get_template_directory() . '/dist/css/pages.min.css'));
             wp_enqueue_style('ltm-pages');
         }
-
-        if (is_singular('research')) {
-            wp_register_style('block-acf-news-plates-section', get_template_directory_uri() . '/dist/css/blocks/news-plates-section.min.css', array(), filemtime(get_template_directory() . '/dist/css/blocks/news-plates-section.min.css'));
-            wp_enqueue_style('block-acf-news-plates-section');
-        }
         wp_enqueue_style(array('ltm-header', 'ltm-footer'));
     }
     add_action('wp_enqueue_scripts', 'ltm_styles');
@@ -160,11 +155,6 @@ function hook_critical_css()
     // Detect the landing podcast and loading assets as critical.
     if (has_block('acf/large-event-section')) {
         $critical_css .= file_get_contents(get_template_directory() . '/dist/css/blocks/featured-research-block.min.css');
-    }
-
-    // Detect the landing podcast and loading assets as critical.
-    if (has_block('acf/research-banner-block')) {
-        $critical_css .= file_get_contents(get_template_directory() . '/dist/css/blocks/research-banner-block.min.css');
     }
 
     // Detect the landing podcast and loading assets as critical.
