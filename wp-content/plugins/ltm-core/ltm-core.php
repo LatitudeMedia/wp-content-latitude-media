@@ -34,6 +34,7 @@ function ltm_core_activate() {
 	( new \LTMCore\PostTypes\Sponsors() )->create_post_type();
 	( new \LTMCore\PostTypes\Events() )->create_post_type();
 	( new \LTMCore\PostTypes\Speakers() )->create_post_type();
+	( new \LTMCore\PostTypes\Team() )->create_post_type();
 
 	flush_rewrite_rules();
 }
@@ -67,6 +68,8 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Sponsors();
 	new \LTMCore\PostTypes\Events();
 	new \LTMCore\PostTypes\Speakers();
+	new \LTMCore\PostTypes\Team();
+	new \LTMCore\Taxonomies\Author();
 	new \LTMCore\RestApi\FeaturedSingleItemSearch();
 	new \LTMCore\Blocks\Shared\AssetVersioning();
 	new \LTMCore\Blocks\Title();
