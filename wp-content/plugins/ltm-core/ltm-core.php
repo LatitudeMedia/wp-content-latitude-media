@@ -2,9 +2,9 @@
 /**
  * Plugin Name:       Latitude Media Core
  * Description:       Native Gutenberg blocks for Latitude Media (Title Block, Featured Single Item) and custom post types, taxonomies, etc.
- * Version:           1.1.1
+ * Version:           1.2.0
  * Requires at least: 7.0.2
- * Requires PHP:      8.3
+ * Requires PHP:      8.5
  * Author:            Latitude Media
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
