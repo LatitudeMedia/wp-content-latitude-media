@@ -35,6 +35,37 @@ class SponsorsTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * "Sponsor options" came over from the theme's acf-export.php with its
+	 * group key and all field keys intact.
+	 */
+	public function test_sponsor_options_field_group_keys_survived_the_move() {
+		$group = acf_get_field_group( 'group_67050dbc6adca' );
+
+		$this->assertIsArray( $group, 'Field group group_67050dbc6adca is not registered.' );
+		$this->assertSame( 'Sponsor options', $group['title'] );
+		$this->assertSame( 'side', $group['position'] );
+		$this->assertSame(
+			[
+				'param'    => 'post_type',
+				'operator' => '==',
+				'value'    => 'sponsors',
+			],
+			$group['location'][0][0]
+		);
+
+		$this->assertSame(
+			[
+				[ 'field_67050dbc8dbc7', 'website_link', 'text' ],
+				[ 'field_67050dd48dbc8', 'sponsorship_level', 'text' ],
+			],
+			array_map(
+				static fn( $field ) => [ $field['key'], $field['name'], $field['type'] ],
+				acf_get_fields( $group )
+			)
+		);
+	}
+
+	/**
 	 * "No content linked yet." is shown when nothing is tagged with this
 	 * sponsor's synced term.
 	 */

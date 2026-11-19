@@ -2,9 +2,7 @@
 
 // Split out of the theme's src/assets/scss/blocks/image-and-text.scss during
 // the migration. Only the rule sets this block alone uses live here; the
-// `.image-text-section` base moved to the theme's base/_global.scss instead,
-// because research-preview-block and order-preview-block still emit that class
-// and are staying in the theme.
+// `.image-text-section` base moved to the theme's base/_global.scss instead.
 
 // The theme publishes `.bordered-title` unscoped from base/_global.scss, which
 // reaches the page only through hook_critical_css() (inc/enqueue.php) inlining

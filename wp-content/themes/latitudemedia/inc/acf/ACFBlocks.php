@@ -123,14 +123,6 @@ class ACFBlocks {
                     'title' => __( 'Latitude Media Section Landing Blocks', 'ltm' ),
                 ],
                 [
-                    'slug'  => 'ltm-research-blocks',
-                    'title' => __( 'Latitude Media Research Blocks', 'ltm' ),
-                ],
-                [
-                    'slug'  => 'ltm-order-report-blocks',
-                    'title' => __( 'Latitude Media Order Report Blocks', 'ltm' ),
-                ],
-                [
                     'slug'  => 'ltm-event-blocks',
                     'title' => __( 'Latitude Media Event Blocks', 'ltm' ),
                 ],

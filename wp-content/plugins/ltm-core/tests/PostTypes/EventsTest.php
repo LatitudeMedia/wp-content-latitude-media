@@ -86,6 +86,96 @@ class EventsTest extends WP_UnitTestCase {
 		$this->assertTrue( Events::is_past_event( $event ) );
 	}
 
+	/**
+	 * Runs Yoast's robots filter for a post, using a stand-in for its
+	 * Indexable_Presentation (Yoast isn't active in the test environment).
+	 */
+	private function robots_for( $post_id ) {
+		$presentation = (object) [ 'model' => (object) [ 'object_type' => 'post', 'object_id' => $post_id ] ];
+
+		return apply_filters( 'wpseo_robots_array', [ 'index' => 'index', 'follow' => 'follow' ], $presentation );
+	}
+
+	public function test_gated_event_is_noindexed() {
+		$event = $this->create_event( [ 'gated' => '1' ] );
+
+		$this->assertSame( [ 'index' => 'noindex', 'follow' => 'follow' ], $this->robots_for( $event ) );
+	}
+
+	public function test_recording_event_is_noindexed() {
+		$event = self::factory()->post->create( [ 'post_type' => 'events', 'post_title' => 'Powering AI, faster | Recording' ] );
+
+		$this->assertSame( 'noindex', $this->robots_for( $event )['index'] );
+	}
+
+	public function test_ungated_non_recording_event_stays_indexable() {
+		$event = $this->create_event( [ 'gated' => '0' ] );
+
+		$this->assertSame( 'index', $this->robots_for( $event )['index'] );
+	}
+
+	public function test_non_event_with_recording_title_stays_indexable() {
+		$post = self::factory()->post->create( [ 'post_title' => 'Something | Recording' ] );
+
+		$this->assertSame( 'index', $this->robots_for( $post )['index'] );
+	}
+
+	public function test_hidden_events_are_excluded_from_sitemap() {
+		$gated     = $this->create_event( [ 'gated' => '1' ] );
+		$recording = self::factory()->post->create( [ 'post_type' => 'events', 'post_title' => 'Open Circuit Live | Recording' ] );
+		$visible   = $this->create_event( [ 'gated' => '0' ] );
+		$post      = self::factory()->post->create( [ 'post_title' => 'Something | Recording' ] );
+
+		$excluded = apply_filters( 'wpseo_exclude_from_sitemap_by_post_ids', [ 99 ] );
+
+		$this->assertContains( 99, $excluded );
+		$this->assertContains( $gated, $excluded );
+		$this->assertContains( $recording, $excluded );
+		$this->assertNotContains( $visible, $excluded );
+		$this->assertNotContains( $post, $excluded );
+	}
+
+	/**
+	 * "General event options" came over from the theme's acf-export.php with
+	 * its group key and all field keys intact.
+	 */
+	public function test_general_event_options_field_group_keys_survived_the_move() {
+		$group = acf_get_field_group( 'group_6744b701b9197' );
+
+		$this->assertIsArray( $group, 'Field group group_6744b701b9197 is not registered.' );
+		$this->assertSame( 'General event options', $group['title'] );
+		$this->assertSame( 'side', $group['position'] );
+		$this->assertSame(
+			[
+				'param'    => 'post_type',
+				'operator' => '==',
+				'value'    => 'events',
+			],
+			$group['location'][0][0]
+		);
+
+		$this->assertSame(
+			[
+				[ 'field_6713ad31e1567', 'start_date', 'date_time_picker' ],
+				[ 'field_6713ad5ee1568', 'end_date', 'date_time_picker' ],
+				[ 'field_6713b050e1583', 'timezone', 'text' ],
+				[ 'field_6713ade8e156a', 'event_type', 'select' ],
+				[ 'field_6713ae1fe156b', 'location', 'text' ],
+				[ 'field_6713ae62e156d', 'link', 'text' ],
+				[ 'field_6713ae6fe156e', 'cover_image', 'image' ],
+				[ 'field_6713ae7ae156f', 'background_image', 'image' ],
+				[ 'field_6713ae8de1570', 'form_text', 'text' ],
+				[ 'field_6713aea8e1571', 'form_code__registration_cta', 'textarea' ],
+				[ 'field_6713ad28e1566', 'past_event', 'true_false' ],
+				[ 'field_6713b049e1582', 'gated', 'true_false' ],
+			],
+			array_map(
+				static fn( $field ) => [ $field['key'], $field['name'], $field['type'] ],
+				acf_get_fields( $group )
+			)
+		);
+	}
+
 	public function test_type_does_not_affect_the_result() {
 		$event = $this->create_event( [
 			'end_date'   => $this->end_date( '+1 week' ),

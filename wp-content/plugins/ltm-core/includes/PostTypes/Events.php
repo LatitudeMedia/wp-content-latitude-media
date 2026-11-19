@@ -26,6 +26,207 @@ class Events {
 		add_action( 'init', array( $this, 'create_post_type' ) );
 
 		add_filter( 'cloudflare_purge_by_url', array( $this, 'purge_events_page' ), 10, 2 );
+
+		add_filter( 'wpseo_robots_array', array( $this, 'noindex_hidden_events' ), 10, 2 );
+		add_filter( 'wpseo_exclude_from_sitemap_by_post_ids', array( $this, 'exclude_hidden_events_from_sitemap' ) );
+
+		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+			add_action( 'admin_notices', array( $this, 'missing_acf_notice' ) );
+			return;
+		}
+
+		add_action( 'acf/include_fields', array( $this, 'register_field_group' ) );
+	}
+
+	/**
+	 * Warns in wp-admin that the event fields need ACF Pro active.
+	 */
+	public function missing_acf_notice() {
+		echo '<div class="notice notice-warning"><p>' .
+			esc_html__( 'Latitude Media Core: the General event options fields require Advanced Custom Fields Pro to be active.', 'ltm' ) .
+			'</p></div>';
+	}
+
+	/**
+	 * Registers the "General event options" field group, shown as a side meta
+	 * box on each event. Copied verbatim from the theme's acf-export.php — the
+	 * group key and every field key are unchanged so existing event data keeps
+	 * resolving.
+	 */
+	public function register_field_group() {
+		acf_add_local_field_group(array(
+			'key' => 'group_6744b701b9197',
+			'title' => 'General event options',
+			'fields' => array(
+				array(
+					'key' => 'field_6713ad31e1567',
+					'label' => 'Start date',
+					'name' => 'start_date',
+					'type' => 'date_time_picker',
+					'display_format' => 'm/d/Y g:i a',
+					'return_format' => 'm/d/Y g:i a',
+					'first_day' => 1,
+				),
+				array(
+					'key' => 'field_6713ad5ee1568',
+					'label' => 'End date',
+					'name' => 'end_date',
+					'type' => 'date_time_picker',
+					'display_format' => 'm/d/Y g:i a',
+					'return_format' => 'm/d/Y g:i a',
+					'first_day' => 1,
+				),
+				array(
+					'key' => 'field_6713b050e1583',
+					'label' => 'Timezone',
+					'name' => 'timezone',
+					'type' => 'text',
+				),
+				array(
+					'key' => 'field_6713ade8e156a',
+					'label' => 'Event type',
+					'name' => 'event_type',
+					'type' => 'select',
+					'choices' => array(
+						'live' => 'Live',
+						'live-podcast' => 'Live Podcast',
+						'webinar' => 'Webinar',
+						'virtual' => 'Virtual',
+						'conference' => 'Conference',
+						'dispatch' => 'Dispatch',
+						'frontier-forum' => 'Frontier-forum',
+					),
+					'default_value' => false,
+					'return_format' => 'value',
+					'allow_null' => 0,
+				),
+				array(
+					'key' => 'field_6713ae1fe156b',
+					'label' => 'Location',
+					'name' => 'location',
+					'type' => 'text',
+				),
+				array(
+					'key' => 'field_6713ae62e156d',
+					'label' => 'Link',
+					'name' => 'link',
+					'type' => 'text',
+				),
+				array(
+					'key' => 'field_6713ae6fe156e',
+					'label' => 'Cover image',
+					'name' => 'cover_image',
+					'type' => 'image',
+					'return_format' => 'array',
+					'library' => 'all',
+					'preview_size' => 'medium',
+				),
+				array(
+					'key' => 'field_6713ae7ae156f',
+					'label' => 'Background image',
+					'name' => 'background_image',
+					'type' => 'image',
+					'return_format' => 'array',
+					'library' => 'all',
+					'preview_size' => 'medium',
+				),
+				array(
+					'key' => 'field_6713ae8de1570',
+					'label' => 'Form text',
+					'name' => 'form_text',
+					'type' => 'text',
+				),
+				array(
+					'key' => 'field_6713aea8e1571',
+					'label' => 'Form code / Registration CTA',
+					'name' => 'form_code__registration_cta',
+					'type' => 'textarea',
+					'rows' => '',
+				),
+				array(
+					'key' => 'field_6713ad28e1566',
+					'label' => 'Past event',
+					'name' => 'past_event',
+					'type' => 'true_false',
+					'default_value' => 0,
+				),
+				array(
+					'key' => 'field_6713b049e1582',
+					'label' => 'Gated?',
+					'name' => 'gated',
+					'type' => 'true_false',
+					'instructions' => 'This will cause the page not show throughout the site and will prevent search engines from crawling it.',
+					'default_value' => 0,
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'events',
+					),
+				),
+			),
+			'menu_order' => 0,
+			'position' => 'side',
+			'style' => 'default',
+			'active' => true,
+		));
+	}
+
+	/**
+	 * Whether an event should be kept out of search engines: "Gated?" is
+	 * checked, or its title contains "| Recording".
+	 *
+	 * @param int $post_id
+	 * @return bool
+	 */
+	public static function is_hidden_from_search( $post_id ) {
+		if ( 'events' !== get_post_type( $post_id ) ) {
+			return false;
+		}
+
+		return (bool) get_post_meta( $post_id, 'gated', true )
+			|| false !== stripos( get_post_field( 'post_title', $post_id ), '| Recording' );
+	}
+
+	/**
+	 * Yoast: output noindex on hidden events, overriding the per-post setting.
+	 *
+	 * @param array  $robots       Robots directives, e.g. [ 'index' => 'index', 'follow' => 'follow' ].
+	 * @param object $presentation Yoast's Indexable_Presentation.
+	 * @return array
+	 */
+	public function noindex_hidden_events( $robots, $presentation ) {
+		$model = $presentation->model ?? null;
+		if ( $model && 'post' === $model->object_type && self::is_hidden_from_search( (int) $model->object_id ) ) {
+			$robots['index'] = 'noindex';
+		}
+
+		return $robots;
+	}
+
+	/**
+	 * Yoast: leave hidden events out of the XML sitemap.
+	 *
+	 * @param array $ids Post IDs already excluded.
+	 * @return array
+	 */
+	public function exclude_hidden_events_from_sitemap( $ids ) {
+		global $wpdb;
+
+		$hidden = $wpdb->get_col(
+			$wpdb->prepare(
+				"SELECT p.ID FROM {$wpdb->posts} p
+				LEFT JOIN {$wpdb->postmeta} m ON m.post_id = p.ID AND m.meta_key = 'gated'
+				WHERE p.post_type = %s AND ( m.meta_value = '1' OR p.post_title LIKE %s )",
+				$this->name,
+				'%' . $wpdb->esc_like( '| Recording' ) . '%'
+			)
+		);
+
+		return array_merge( (array) $ids, array_map( 'intval', $hidden ) );
 	}
 
 	/**

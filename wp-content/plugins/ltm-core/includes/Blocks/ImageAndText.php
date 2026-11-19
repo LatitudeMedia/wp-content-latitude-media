@@ -21,9 +21,8 @@ namespace LTMCore\Blocks;
  * -type6, -type7) are still registered by the THEME, in inc/media.php. That
  * inverts the arrangement used for the Speakers CPT, whose sizes moved into
  * this plugin -- deliberately, because image-text-default and image-text-type7
- * are also consumed by four theme templates that are not migrating
- * (our-approach-block, event-about-sponsors-block, research-preview-block,
- * order-preview-block). Image sizes resolve by name, so nothing here breaks as
+ * are also consumed by theme templates that are not migrating
+ * (our-approach-block, event-about-sponsors-block). Image sizes resolve by name, so nothing here breaks as
  * long as those add_image_size() calls stay put.
  *
  * @package LTMCore

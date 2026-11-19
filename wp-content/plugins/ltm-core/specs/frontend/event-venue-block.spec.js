@@ -32,7 +32,7 @@ const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 
 const PLUGIN_ROOT = path.join( __dirname, '..', '..' );
 
-// Field keys from the theme's "General event options" group
+// Field keys from the "General event options" group in Events.php
 // (group_6744b701b9197). get_field() needs the `_name` reference to apply the
 // field's return format.
 const EVENT_FIELD_KEYS = {
