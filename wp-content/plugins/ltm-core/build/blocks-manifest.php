@@ -690,6 +690,34 @@ return array(
 		'style' => 'file:./style-index.css',
 		'render' => 'file:./render.php'
 	),
+	'glossary-index' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'latitudemedia/glossary-index',
+		'version' => '0.1.0',
+		'title' => 'Glossary Index',
+		'category' => 'ltm-common-blocks',
+		'icon' => 'book-alt',
+		'description' => 'A–Z list of every published glossary term, with a live search field. The page holding this block is the glossary\'s DefinedTermSet for search engines.',
+		'keywords' => array(
+			'glossary',
+			'terms',
+			'definitions',
+			'a-z'
+		),
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false,
+			'anchor' => true
+		),
+		'textdomain' => 'ltm',
+		'editorScript' => 'file:./index.js',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js',
+		'render' => 'file:./render.php'
+	),
 	'image-and-text' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,

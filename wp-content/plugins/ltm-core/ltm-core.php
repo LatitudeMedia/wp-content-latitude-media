@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Latitude Media Core
  * Description:       Native Gutenberg blocks for Latitude Media (Title Block, Featured Single Item) and custom post types, taxonomies, etc.
- * Version:           1.2.0
+ * Version:           1.3.0
  * Requires at least: 7.0.2
  * Requires PHP:      8.5
  * Author:            Latitude Media
@@ -35,6 +35,7 @@ function ltm_core_activate() {
 	( new \LTMCore\PostTypes\Events() )->create_post_type();
 	( new \LTMCore\PostTypes\Speakers() )->create_post_type();
 	( new \LTMCore\PostTypes\Team() )->create_post_type();
+	( new \LTMCore\PostTypes\Glossary() )->create_post_type();
 
 	flush_rewrite_rules();
 }
@@ -70,6 +71,8 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Speakers();
 	new \LTMCore\PostTypes\Team();
 	new \LTMCore\Taxonomies\Author();
+	new \LTMCore\PostTypes\Glossary();
+	new \LTMCore\Seo\GlossarySchema();
 	new \LTMCore\RestApi\FeaturedSingleItemSearch();
 	new \LTMCore\Blocks\Shared\AssetVersioning();
 	new \LTMCore\Blocks\Title();

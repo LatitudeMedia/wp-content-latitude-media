@@ -1,0 +1,86 @@
+@use "../core/core_loader" as *;
+
+.glossary-term {
+    margin: 48px 0 64px;
+    color: $primary-dark-blue;
+
+    &__back {
+        display: inline-block;
+        margin-bottom: 24px;
+        font-family: $inter;
+        @include fontSize(14px);
+        font-weight: 600;
+        color: $primary-pink;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        font-family: $lora;
+        margin: 0 0 16px;
+    }
+
+    &__summary {
+        font-family: $inter;
+        @include fontSize(20px);
+        line-height: 30px;
+        margin: 0 0 16px;
+    }
+
+    &__synonyms {
+        font-family: $inter;
+        @include fontSize(16px);
+        margin: 0 0 32px;
+
+        .label {
+            font-weight: 600;
+        }
+    }
+
+    &__definition {
+        font-family: $inter;
+        @include fontSize(18px);
+        line-height: 28px;
+        padding-top: 32px;
+        border-top: 1px solid $pink_category_bg;
+
+        a {
+            color: $primary-pink;
+        }
+    }
+
+    &__related {
+        margin-top: 48px;
+        padding: 24px;
+        background: $pink_category_bg;
+
+        h2 {
+            font-family: $lora;
+            @include fontSize(20px);
+            margin: 0 0 16px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+        }
+
+        a {
+            font-family: $inter;
+            @include fontSize(16px);
+            font-weight: 600;
+            color: $primary-dark-blue;
+
+            &:hover {
+                color: $primary-pink;
+            }
+        }
+    }
+}
