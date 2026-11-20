@@ -4,13 +4,16 @@
  *
  * Lists every published glossary term, grouped A–Z, with a jump nav. The
  * search field is rendered `hidden` and revealed by view.js, which filters
- * items by their `data-term` (the lowercased raw title) as the visitor types.
- * Data comes from includes/Blocks/GlossaryIndex.php.
+ * items as the visitor types by their lowercased title (`data-term`),
+ * abbreviation (`data-abbr`) and synonyms (`data-synonyms`, one per line).
+ * Data comes from includes/Blocks/GlossaryIndex.php and
+ * includes/PostTypes/Glossary.php.
  *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
 use LTMCore\Blocks\GlossaryIndex;
+use LTMCore\PostTypes\Glossary;
 
 $groups = GlossaryIndex::get_grouped_terms();
 
@@ -75,11 +78,34 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<h2 class="ltm-glossary-index__letter"><?php echo esc_html( $letter ); ?></h2>
 			<ul class="ltm-glossary-index__list">
 				<?php foreach ( $terms as $term ) : ?>
-					<?php $summary = get_the_excerpt( $term ); ?>
-					<li class="ltm-glossary-index__item" data-term="<?php echo esc_attr( mb_strtolower( wp_strip_all_tags( $term->post_title ) ) ); ?>">
-						<a class="ltm-glossary-index__term" href="<?php echo esc_url( get_permalink( $term ) ); ?>"><?php echo esc_html( get_the_title( $term ) ); ?></a>
+					<?php
+					$summary      = get_the_excerpt( $term );
+					$abbreviation = Glossary::get_abbreviation( $term->ID );
+					$synonyms     = Glossary::get_synonyms( $term->ID );
+					?>
+					<li
+						class="ltm-glossary-index__item"
+						data-term="<?php echo esc_attr( mb_strtolower( wp_strip_all_tags( $term->post_title ) ) ); ?>"
+						data-abbr="<?php echo esc_attr( mb_strtolower( $abbreviation ) ); ?>"
+						data-synonyms="<?php echo esc_attr( mb_strtolower( implode( "\n", $synonyms ) ) ); ?>"
+					>
+						<a class="ltm-glossary-index__term" href="<?php echo esc_url( get_permalink( $term ) ); ?>">
+							<?php echo esc_html( get_the_title( $term ) ); ?>
+							<?php if ( $abbreviation ) : ?>
+								<span class="ltm-glossary-index__abbr">(<?php echo esc_html( $abbreviation ); ?>)</span>
+							<?php endif; ?>
+						</a>
 						<?php if ( $summary ) : ?>
 							<p class="ltm-glossary-index__summary"><?php echo esc_html( $summary ); ?></p>
+						<?php endif; ?>
+						<?php if ( $synonyms ) : ?>
+							<?php // Shown by view.js only when the search matched a synonym. ?>
+							<p class="ltm-glossary-index__aka" hidden>
+								<?php
+								/* translators: %s: comma-separated synonyms. */
+								echo esc_html( sprintf( __( 'Also known as: %s', 'ltm' ), implode( ', ', $synonyms ) ) );
+								?>
+							</p>
 						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>

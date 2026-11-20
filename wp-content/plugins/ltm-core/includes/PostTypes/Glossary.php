@@ -37,6 +37,7 @@ class Glossary {
 		// Priority 9: ahead of ACF's own add_meta_boxes callback (10), so the
 		// summary box is registered first in the shared after-title slot.
 		add_action( 'add_meta_boxes', array( $this, 'move_excerpt_meta_box' ), 9 );
+		add_filter( 'cloudflare_purge_by_url', array( $this, 'purge_glossary_urls' ), 10, 2 );
 
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			add_action( 'admin_notices', array( $this, 'missing_acf_notice' ) );
@@ -45,6 +46,7 @@ class Glossary {
 
 		add_action( 'acf/include_fields', array( $this, 'register_field_group' ) );
 		add_filter( 'acf/fields/relationship/query/key=' . self::RELATED_TERMS_FIELD, array( $this, 'exclude_current_term' ), 10, 3 );
+		add_action( 'acf/validate_save_post', array( $this, 'validate_summary' ) );
 	}
 
 	/**
@@ -70,9 +72,9 @@ class Glossary {
 	}
 
 	/**
-	 * Retitles the core Excerpt box "Short summary" (it's shown on the glossary
-	 * index and used as the schema description) and moves it into ACF's
-	 * after-title slot, so it sits above the Definition field.
+	 * Replaces the core Excerpt box with a required "Short summary" box (see
+	 * render_summary_meta_box()) in ACF's after-title slot, so it sits above
+	 * the Definition field.
 	 *
 	 * ACF registers its `acf_after_title` boxes at 'high' priority on
 	 * add_meta_boxes (10); boxes of equal priority render in registration
@@ -86,7 +88,88 @@ class Glossary {
 		}
 
 		remove_meta_box( 'postexcerpt', $this->name, 'normal' );
-		add_meta_box( 'postexcerpt', __( 'Short summary', 'ltm' ), 'post_excerpt_meta_box', $this->name, 'acf_after_title', 'high' );
+		add_meta_box(
+			'postexcerpt',
+			// One wrapping span: the postbox header is a flex row, which would
+			// otherwise push the asterisk to the far side.
+			'<span>' . esc_html__( 'Short summary', 'ltm' ) . ' <span class="acf-required">*</span></span>',
+			array( $this, 'render_summary_meta_box' ),
+			$this->name,
+			'acf_after_title',
+			'high'
+		);
+	}
+
+	/**
+	 * The excerpt field, with an explanation in place of core's "Excerpts are
+	 * optional…" help text. Same `excerpt` input as core's box, so saving is
+	 * unchanged.
+	 *
+	 * @param \WP_Post $post Post being edited.
+	 */
+	public function render_summary_meta_box( $post ) {
+		?>
+		<label class="screen-reader-text" for="excerpt"><?php esc_html_e( 'Short summary', 'ltm' ); ?></label>
+		<textarea rows="1" cols="40" name="excerpt" id="excerpt"><?php echo esc_textarea( $post->post_excerpt ); ?></textarea>
+		<p class="description">
+			<?php esc_html_e( 'Required. This is the post excerpt. It\'s shown under the term in the glossary list, and used as the search engine description.', 'ltm' ); ?>
+		</p>
+		<?php
+	}
+
+	/**
+	 * Makes the Short summary required, through ACF's pre-submit validation:
+	 * Publish/Update is blocked with a notice like any required ACF field,
+	 * while Save Draft (which ACF doesn't validate) still works.
+	 */
+	public function validate_summary() {
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- ACF verifies its own nonce before this action.
+		if ( $this->name !== acf_request_arg( 'post_type' ) ) {
+			return;
+		}
+
+		if ( '' === trim( wp_unslash( $_POST['excerpt'] ?? '' ) ) ) {
+			// No input name: the excerpt isn't an ACF field, so ACF can't flag it
+			// inline; a global error puts the message in the top notice instead.
+			acf_add_validation_error( '', __( 'Short summary is required.', 'ltm' ) );
+		}
+		// phpcs:enable
+	}
+
+	/**
+	 * Adds the URLs a term change affects to the Cloudflare purge: the term
+	 * itself, the glossary index page that lists it, and the related terms
+	 * whose pages list it back.
+	 *
+	 * Cloudflare purges on transition_post_status, before ACF saves fields, so
+	 * the stored related terms are still the old list (pages that lose this
+	 * term) and the submitted ones are the new list (pages that gain it).
+	 *
+	 * @param string[] $urls    URLs Cloudflare will purge.
+	 * @param int      $post_id Post that changed.
+	 * @return string[]
+	 */
+	public function purge_glossary_urls( $urls, $post_id ) {
+		if ( $this->name !== get_post_type( $post_id ) ) {
+			return $urls;
+		}
+
+		$urls[] = get_permalink( $post_id );
+
+		$index_page_id = \LTMCore\Blocks\GlossaryIndex::get_index_page_id();
+		if ( $index_page_id ) {
+			$urls[] = get_permalink( $index_page_id );
+		}
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- read-only; WordPress verified the save.
+		$submitted = $_POST['acf'][ self::RELATED_TERMS_FIELD ] ?? [];
+		$related   = array_merge( (array) get_post_meta( $post_id, 'related_terms', true ), (array) $submitted );
+
+		foreach ( array_unique( array_filter( array_map( 'intval', $related ) ) ) as $related_id ) {
+			$urls[] = get_permalink( $related_id );
+		}
+
+		return $urls;
 	}
 
 	/**
@@ -102,6 +185,16 @@ class Glossary {
 		$args['post__not_in'][] = (int) $post_id;
 
 		return $args;
+	}
+
+	/**
+	 * A term's abbreviation (e.g. "BESS"), or '' when it has none.
+	 *
+	 * @param int $post_id Glossary term post ID.
+	 * @return string
+	 */
+	public static function get_abbreviation( $post_id ) {
+		return trim( (string) ( function_exists( 'get_field' ) ? get_field( 'abbreviation', $post_id ) : '' ) );
 	}
 
 	/**
@@ -143,6 +236,15 @@ class Glossary {
 			'title' => 'Glossary term',
 			'fields' => array(
 				array(
+					'key' => 'field_ltm_glossary_abbreviation',
+					'label' => 'Abbreviation',
+					'name' => 'abbreviation',
+					'type' => 'text',
+					'instructions' => 'Optional. The short form of this term, e.g. BESS for Battery energy storage system. Shown in brackets after the term, used in the page\'s search-engine title, and matched by the glossary search.',
+					'required' => 0,
+					'maxlength' => 20,
+				),
+				array(
 					'key' => 'field_ltm_glossary_definition',
 					'label' => 'Definition',
 					'name' => 'definition',
@@ -157,7 +259,7 @@ class Glossary {
 					'label' => 'Synonyms',
 					'name' => 'synonyms',
 					'type' => 'repeater',
-					'instructions' => 'Other names or abbreviations for this term.',
+					'instructions' => 'Other names for this term. Matched by the glossary search.',
 					'layout' => 'table',
 					'button_label' => 'Add synonym',
 					'sub_fields' => array(

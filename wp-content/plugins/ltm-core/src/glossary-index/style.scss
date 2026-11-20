@@ -127,6 +127,19 @@
 		@include postCardTitle;
 	}
 
+	&__abbr {
+		font-weight: 400;
+	}
+
+	&__aka {
+		font-family: $inter;
+
+		@include fontSize(14px);
+		color: $primary-dark-blue;
+		opacity: 0.7;
+		margin: 4px 0 0;
+	}
+
 	&__summary {
 
 		@include postCardExcerpt;

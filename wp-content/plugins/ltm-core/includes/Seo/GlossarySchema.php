@@ -81,9 +81,9 @@ class GlossarySchema {
 			'url'         => get_permalink( $post_id ),
 		];
 
-		$synonyms = Glossary::get_synonyms( $post_id );
-		if ( $synonyms ) {
-			$node['alternateName'] = $synonyms;
+		$alternate_names = array_values( array_filter( array_merge( [ Glossary::get_abbreviation( $post_id ) ], Glossary::get_synonyms( $post_id ) ) ) );
+		if ( $alternate_names ) {
+			$node['alternateName'] = $alternate_names;
 		}
 
 		$index_page_id = GlossaryIndex::get_index_page_id();

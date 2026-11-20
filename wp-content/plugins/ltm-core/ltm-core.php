@@ -73,6 +73,7 @@ function ltm_core_loader() {
 	new \LTMCore\Taxonomies\Author();
 	new \LTMCore\PostTypes\Glossary();
 	new \LTMCore\Seo\GlossarySchema();
+	new \LTMCore\Seo\GlossarySeo();
 	new \LTMCore\RestApi\FeaturedSingleItemSearch();
 	new \LTMCore\Blocks\Shared\AssetVersioning();
 	new \LTMCore\Blocks\Title();

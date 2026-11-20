@@ -59,8 +59,94 @@ class GlossaryTest extends WP_UnitTestCase {
 
 		( new Glossary() )->move_excerpt_meta_box( 'glossary' );
 
+		$box = $wp_meta_boxes['glossary']['acf_after_title']['high']['postexcerpt'];
+
 		$this->assertEmpty( $wp_meta_boxes['glossary']['normal']['core']['postexcerpt'] ?? null );
-		$this->assertSame( 'Short summary', $wp_meta_boxes['glossary']['acf_after_title']['high']['postexcerpt']['title'] );
+		$this->assertStringContainsString( 'Short summary', $box['title'] );
+		$this->assertStringContainsString( 'acf-required', $box['title'] );
+		$this->assertSame( 'render_summary_meta_box', $box['callback'][1] );
+	}
+
+	public function test_summary_box_keeps_the_excerpt_input_and_explains_it() {
+		$post = self::factory()->post->create_and_get( [ 'post_type' => 'glossary', 'post_excerpt' => 'A <b>summary</b>' ] );
+
+		ob_start();
+		( new Glossary() )->render_summary_meta_box( $post );
+		$html = ob_get_clean();
+
+		$this->assertStringContainsString( 'name="excerpt" id="excerpt"', $html );
+		$this->assertStringContainsString( 'A &lt;b&gt;summary&lt;/b&gt;', $html );
+		$this->assertStringContainsString( 'This is the post excerpt', $html );
+	}
+
+	/**
+	 * @dataProvider summary_validation_cases
+	 */
+	public function test_summary_is_required_on_glossary_only( $post_type, $excerpt, $expect_error ) {
+		acf_reset_validation_errors();
+		// A real ACF validation request sets both; acf_request_arg() reads $_REQUEST.
+		$_POST['post_type']    = $post_type;
+		$_REQUEST['post_type'] = $post_type;
+		$_POST['excerpt']      = $excerpt;
+
+		( new Glossary() )->validate_summary();
+
+		$messages = wp_list_pluck( acf_get_validation_errors() ?: [], 'message' );
+		$this->assertSame( $expect_error, in_array( 'Short summary is required.', $messages, true ) );
+
+		unset( $_POST['post_type'], $_REQUEST['post_type'], $_POST['excerpt'] );
+		acf_reset_validation_errors();
+	}
+
+	public function summary_validation_cases() {
+		return [
+			'glossary, empty'      => [ 'glossary', '', true ],
+			'glossary, whitespace' => [ 'glossary', "  \n ", true ],
+			'glossary, filled'     => [ 'glossary', 'A summary.', false ],
+			'post, empty'          => [ 'post', '', false ],
+		];
+	}
+
+	public function test_purge_urls_cover_term_index_page_and_old_and_new_related_terms() {
+		\LTMCore\Blocks\GlossaryIndex::reset_cache();
+		$page    = self::factory()->post->create( [ 'post_type' => 'page', 'post_content' => '<!-- wp:latitudemedia/glossary-index /-->' ] );
+		$term    = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$old     = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$new     = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$glossary = new Glossary();
+
+		update_post_meta( $term, 'related_terms', [ (string) $old ] );
+		$_POST['acf'] = [ Glossary::RELATED_TERMS_FIELD => [ (string) $new ] ];
+
+		$urls = $glossary->purge_glossary_urls( [ 'https://example.com/already-there/' ], $term );
+
+		unset( $_POST['acf'] );
+		\LTMCore\Blocks\GlossaryIndex::reset_cache();
+
+		$this->assertSame(
+			[
+				'https://example.com/already-there/',
+				get_permalink( $term ),
+				get_permalink( $page ),
+				get_permalink( $old ),
+				get_permalink( $new ),
+			],
+			$urls
+		);
+	}
+
+	public function test_purge_urls_untouched_for_other_post_types() {
+		$post = self::factory()->post->create();
+
+		$this->assertSame( [ 'x' ], ( new Glossary() )->purge_glossary_urls( [ 'x' ], $post ) );
+	}
+
+	public function test_get_abbreviation() {
+		$term = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$this->assertSame( '', Glossary::get_abbreviation( $term ) );
+
+		update_field( 'field_ltm_glossary_abbreviation', ' BESS ', $term );
+		$this->assertSame( 'BESS', Glossary::get_abbreviation( $term ) );
 	}
 
 	public function test_field_group_fields() {
@@ -72,6 +158,7 @@ class GlossaryTest extends WP_UnitTestCase {
 		$fields = acf_get_fields( $group );
 		$this->assertSame(
 			[
+				[ 'field_ltm_glossary_abbreviation', 'abbreviation', 'text' ],
 				[ 'field_ltm_glossary_definition', 'definition', 'wysiwyg' ],
 				[ 'field_ltm_glossary_synonyms', 'synonyms', 'repeater' ],
 				[ 'field_ltm_glossary_related_terms', 'related_terms', 'relationship' ],
@@ -79,10 +166,12 @@ class GlossaryTest extends WP_UnitTestCase {
 			array_map( static fn( $field ) => [ $field['key'], $field['name'], $field['type'] ], $fields )
 		);
 
-		$this->assertSame( 'synonym', $fields[1]['sub_fields'][0]['name'] );
-		$this->assertSame( [ 'glossary' ], $fields[2]['post_type'] );
-		$this->assertSame( 1, $fields[2]['bidirectional'] );
-		$this->assertSame( [ Glossary::RELATED_TERMS_FIELD ], $fields[2]['bidirectional_target'] );
+		$this->assertSame( 0, $fields[0]['required'] );
+		$this->assertNotEmpty( $fields[0]['instructions'] );
+		$this->assertSame( 'synonym', $fields[2]['sub_fields'][0]['name'] );
+		$this->assertSame( [ 'glossary' ], $fields[3]['post_type'] );
+		$this->assertSame( 1, $fields[3]['bidirectional'] );
+		$this->assertSame( [ Glossary::RELATED_TERMS_FIELD ], $fields[3]['bidirectional_target'] );
 	}
 
 	public function test_relating_a_term_lists_it_on_the_other_term_too() {

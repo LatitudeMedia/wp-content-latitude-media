@@ -70,6 +70,26 @@ class GlossaryIndexTest extends WP_UnitTestCase {
 		$this->assertStringContainsString( 'A small insect.', $html );
 	}
 
+	public function test_render_outputs_abbreviation_and_synonyms_for_search() {
+		$term = $this->create_term( 'Battery energy storage system' );
+		update_field( 'field_ltm_glossary_abbreviation', 'BESS', $term );
+		update_field(
+			'field_ltm_glossary_synonyms',
+			[
+				[ 'field_ltm_glossary_synonym' => 'Cell bank' ],
+				[ 'field_ltm_glossary_synonym' => 'Grid battery' ],
+			],
+			$term
+		);
+
+		$html = do_blocks( '<!-- wp:latitudemedia/glossary-index /-->' );
+
+		$this->assertStringContainsString( 'data-abbr="bess"', $html );
+		$this->assertStringContainsString( "data-synonyms=\"cell bank\ngrid battery\"", $html );
+		$this->assertStringContainsString( '<span class="ltm-glossary-index__abbr">(BESS)</span>', $html );
+		$this->assertMatchesRegularExpression( '/<p class="ltm-glossary-index__aka" hidden>\s*Also known as: Cell bank, Grid battery/', $html );
+	}
+
 	public function test_render_outputs_nothing_without_terms() {
 		$this->assertSame( '', trim( do_blocks( '<!-- wp:latitudemedia/glossary-index /-->' ) ) );
 	}

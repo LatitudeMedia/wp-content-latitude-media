@@ -35,7 +35,8 @@ class GlossarySchemaTest extends WP_UnitTestCase {
 	public function test_defined_term_node() {
 		$page = $this->create_index_page();
 		$term = self::factory()->post->create( [ 'post_type' => 'glossary', 'post_title' => 'Battery', 'post_excerpt' => 'Stores energy.' ] );
-		update_field( 'field_ltm_glossary_synonyms', [ [ 'field_ltm_glossary_synonym' => 'BESS' ] ], $term );
+		update_field( 'field_ltm_glossary_abbreviation', 'BESS', $term );
+		update_field( 'field_ltm_glossary_synonyms', [ [ 'field_ltm_glossary_synonym' => 'Grid battery' ] ], $term );
 
 		$this->assertSame(
 			[
@@ -44,7 +45,7 @@ class GlossarySchemaTest extends WP_UnitTestCase {
 				'name'             => 'Battery',
 				'description'      => 'Stores energy.',
 				'url'              => get_permalink( $term ),
-				'alternateName'    => [ 'BESS' ],
+				'alternateName'    => [ 'BESS', 'Grid battery' ],
 				'inDefinedTermSet' => [ '@id' => get_permalink( $page ) . '#definedtermset' ],
 			],
 			$this->schema->build_defined_term( $term )
