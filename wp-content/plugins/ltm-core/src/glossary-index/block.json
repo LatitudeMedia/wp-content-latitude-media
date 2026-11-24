@@ -6,7 +6,7 @@
 	"title": "Glossary Index",
 	"category": "ltm-common-blocks",
 	"icon": "book-alt",
-	"description": "A–Z list of every published glossary term, with a live search field. The page holding this block is the glossary's DefinedTermSet for search engines.",
+	"description": "A-Z list of every published glossary term, with a live search field. The page holding this block is the glossary's DefinedTermSet for search engines.",
 	"keywords": [ "glossary", "terms", "definitions", "a-z" ],
 	"example": {},
 	"supports": {

@@ -105,6 +105,101 @@ class GlossarySchemaTest extends WP_UnitTestCase {
 		$this->assertSame( [ '@id' => get_permalink( $page ) . '#definedtermset' ], $webpage['mainEntity'] );
 	}
 
+	public function test_post_terms_go_on_the_article_node_as_about_and_mentions() {
+		$this->create_index_page();
+		$subject = self::factory()->post->create( [ 'post_type' => 'glossary', 'post_title' => 'Battery' ] );
+		$mention = self::factory()->post->create( [ 'post_type' => 'glossary', 'post_title' => 'Grid' ] );
+		$post    = self::factory()->post->create();
+		update_post_meta( $post, 'glossary_about', [ (string) $subject ] );
+		update_post_meta( $post, 'glossary_mentions', [ (string) $mention ] );
+
+		$graph = $this->schema->add_post_term_properties(
+			[
+				[ '@type' => 'WebPage', '@id' => 'https://example.com/a/' ],
+				[ '@type' => 'NewsArticle', '@id' => 'https://example.com/a/#article' ],
+			],
+			$post
+		);
+
+		$this->assertArrayNotHasKey( 'about', $graph[0], 'The WebPage is left alone when there is an Article.' );
+		$this->assertSame( [ $this->schema->build_term_reference( $subject ) ], $graph[1]['about'] );
+		$this->assertSame( [ $this->schema->build_term_reference( $mention ) ], $graph[1]['mentions'] );
+		$this->assertSame(
+			[
+				'@type'            => 'DefinedTerm',
+				'@id'              => get_permalink( $subject ) . '#definedterm',
+				'name'             => 'Battery',
+				'url'              => get_permalink( $subject ),
+				'inDefinedTermSet' => [ '@id' => get_permalink( GlossaryIndex::get_index_page_id() ) . '#definedtermset' ],
+			],
+			$graph[1]['about'][0]
+		);
+	}
+
+	public function test_post_terms_fall_back_to_the_webpage_and_keep_existing_values() {
+		$term  = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$event = self::factory()->post->create( [ 'post_type' => 'events' ] );
+		update_post_meta( $event, 'glossary_about', [ (string) $term ] );
+
+		$existing = [ '@id' => 'https://example.com/#organization' ];
+		$graph    = $this->schema->add_post_term_properties(
+			[ [ '@type' => [ 'WebPage', 'ItemPage' ], '@id' => 'https://example.com/e/', 'about' => $existing ] ],
+			$event
+		);
+
+		$this->assertSame( [ $existing, $this->schema->build_term_reference( $term ) ], $graph[0]['about'] );
+		$this->assertArrayNotHasKey( 'mentions', $graph[0] );
+	}
+
+	public function test_post_without_terms_is_untouched() {
+		$post  = self::factory()->post->create();
+		$graph = [ [ '@type' => 'NewsArticle', '@id' => 'https://example.com/a/#article' ] ];
+
+		$this->assertSame( $graph, $this->schema->add_post_term_properties( $graph, $post ) );
+	}
+
+	public function test_graph_filter_adds_post_terms_on_a_linked_post_page() {
+		$term = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$post = self::factory()->post->create();
+		update_post_meta( $post, 'glossary_mentions', [ (string) $term ] );
+		$this->go_to( get_permalink( $post ) );
+
+		$graph = $this->schema->add_graph_nodes( [ [ '@type' => 'WebPage', '@id' => get_permalink( $post ) ] ] );
+
+		$this->assertSame( get_permalink( $term ) . '#definedterm', $graph[0]['mentions'][0]['@id'] );
+	}
+
+	public function test_defined_term_lists_the_pieces_it_is_the_subject_of() {
+		update_option( 'wpseo_titles', [ 'schema-article-type-post' => 'NewsArticle', 'schema-article-type-events' => 'None' ] );
+		$term    = self::factory()->post->create( [ 'post_type' => 'glossary', 'post_title' => 'Battery' ] );
+		$article = self::factory()->post->create( [ 'post_title' => 'Storage story', 'post_date' => '2026-02-01 00:00:00' ] );
+		$event   = self::factory()->post->create( [ 'post_type' => 'events', 'post_title' => 'Storage summit', 'post_date' => '2026-05-01 00:00:00' ] );
+		$mention = self::factory()->post->create();
+		update_post_meta( $term, 'subject_of', [ (string) $article, (string) $event ] );
+		update_post_meta( $term, 'mentioned_in', [ (string) $mention ] );
+
+		$node = $this->schema->build_defined_term( $term );
+		delete_option( 'wpseo_titles' );
+
+		$this->assertSame(
+			[
+				[
+					'@type' => 'WebPage',
+					'@id'   => get_permalink( $event ),
+					'name'  => 'Storage summit',
+					'url'   => get_permalink( $event ),
+				],
+				[
+					'@type' => 'NewsArticle',
+					'@id'   => get_permalink( $article ) . '#article',
+					'name'  => 'Storage story',
+					'url'   => get_permalink( $article ),
+				],
+			],
+			$node['subjectOf']
+		);
+	}
+
 	public function test_graph_untouched_elsewhere() {
 		$this->go_to( get_permalink( self::factory()->post->create() ) );
 

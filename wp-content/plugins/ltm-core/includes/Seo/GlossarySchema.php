@@ -10,12 +10,18 @@ use LTMCore\PostTypes\Glossary;
  * - each glossary term page gets a DefinedTerm, and its WebPage points at it
  *   (`mainEntity`) and at the related terms (`relatedLink`);
  * - the page holding the glossary index block gets a DefinedTermSet listing
- *   every term, and its WebPage points at that.
+ *   every term, and its WebPage points at that;
+ * - posts, podcasts, industry news, resources and events linked to terms in
+ *   their editor sidebar get `about` (terms they're the subject of) and
+ *   `mentions` (terms mentioned in passing) on their Article node, or on
+ *   their WebPage when Yoast outputs no Article for that type; the term's
+ *   DefinedTerm lists the pieces it's the subject of as `subjectOf`.
  *
  * Terms reference the set by `@id` (`inDefinedTermSet`) and vice versa.
  *
  * @see https://schema.org/DefinedTerm
  * @see https://schema.org/DefinedTermSet
+ * @see https://schema.org/Article
  * @package LTMCore
  */
 class GlossarySchema {
@@ -39,9 +45,87 @@ class GlossarySchema {
 			$graph[] = $this->build_defined_term( get_queried_object_id() );
 		} elseif ( $this->is_index_page() ) {
 			$graph[] = $this->build_defined_term_set( get_queried_object_id() );
+		} elseif ( is_singular( Glossary::LINKED_POST_TYPES ) ) {
+			$graph = $this->add_post_term_properties( $graph, get_queried_object_id() );
 		}
 
 		return $graph;
+	}
+
+	/**
+	 * Adds `about` / `mentions` DefinedTerm references for a post's linked
+	 * glossary terms to its Article node (Yoast `@id` ending `#article`), or
+	 * to its WebPage node when the graph has no Article.
+	 *
+	 * @param array $graph   Yoast's schema graph nodes.
+	 * @param int   $post_id The post being viewed.
+	 * @return array
+	 */
+	public function add_post_term_properties( $graph, $post_id ) {
+		$terms = Glossary::get_post_terms( $post_id );
+		if ( ! $terms['about'] && ! $terms['mentions'] ) {
+			return $graph;
+		}
+
+		$target = self::find_node( $graph, static fn( $node ) => str_ends_with( (string) ( $node['@id'] ?? '' ), '#article' ) )
+			?? self::find_node( $graph, static fn( $node ) => in_array( 'WebPage', (array) ( $node['@type'] ?? [] ), true ) );
+		if ( null === $target ) {
+			return $graph;
+		}
+
+		foreach ( [ 'about', 'mentions' ] as $property ) {
+			if ( ! $terms[ $property ] ) {
+				continue;
+			}
+
+			$existing = $graph[ $target ][ $property ] ?? [];
+			// A single node (an associative array) becomes the first list item.
+			$existing = ( $existing && ! array_is_list( $existing ) ) ? [ $existing ] : (array) $existing;
+
+			$graph[ $target ][ $property ] = array_merge( $existing, array_map( [ $this, 'build_term_reference' ], $terms[ $property ] ) );
+		}
+
+		return $graph;
+	}
+
+	/**
+	 * A DefinedTerm reference for use on another page's graph: enough to stand
+	 * alone, with the same `@id` as the term page's full DefinedTerm node.
+	 *
+	 * @param int $term_id Glossary term post ID.
+	 * @return array
+	 */
+	public function build_term_reference( $term_id ) {
+		$node = [
+			'@type' => 'DefinedTerm',
+			'@id'   => self::term_id( $term_id ),
+			'name'  => wp_strip_all_tags( get_the_title( $term_id ) ),
+			'url'   => get_permalink( $term_id ),
+		];
+
+		$index_page_id = GlossaryIndex::get_index_page_id();
+		if ( $index_page_id ) {
+			$node['inDefinedTermSet'] = [ '@id' => self::set_id( $index_page_id ) ];
+		}
+
+		return $node;
+	}
+
+	/**
+	 * Index of the first graph node matching a test, or null.
+	 *
+	 * @param array    $graph Graph nodes.
+	 * @param callable $test  Receives a node, returns bool.
+	 * @return int|string|null
+	 */
+	private static function find_node( $graph, $test ) {
+		foreach ( $graph as $index => $node ) {
+			if ( is_array( $node ) && $test( $node ) ) {
+				return $index;
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -91,7 +175,36 @@ class GlossarySchema {
 			$node['inDefinedTermSet'] = [ '@id' => self::set_id( $index_page_id ) ];
 		}
 
+		$subject_of = array_map( [ self::class, 'build_work_reference' ], Glossary::get_subject_of_ids( $post_id ) );
+		if ( $subject_of ) {
+			$node['subjectOf'] = $subject_of;
+		}
+
 		return array_filter( $node );
+	}
+
+	/**
+	 * A reference to a post the term is the subject of, matching the node
+	 * Yoast outputs on that post's own page: its Article (`#article`) when
+	 * Yoast's Schema settings give the post type an article type, otherwise
+	 * its WebPage.
+	 *
+	 * @param int $post_id A post of one of Glossary::LINKED_POST_TYPES.
+	 * @return array
+	 */
+	public static function build_work_reference( $post_id ) {
+		$titles       = get_option( 'wpseo_titles' );
+		$article_type = is_array( $titles ) ? ( $titles[ 'schema-article-type-' . get_post_type( $post_id ) ] ?? 'None' ) : 'None';
+		$is_article   = $article_type && 'None' !== $article_type;
+		$url          = get_permalink( $post_id );
+		$schema_base  = self::yoast_schema_base( $post_id ) ?: $url;
+
+		return [
+			'@type' => $is_article ? $article_type : 'WebPage',
+			'@id'   => $is_article ? $schema_base . '#article' : $schema_base,
+			'name'  => wp_strip_all_tags( get_the_title( $post_id ) ),
+			'url'   => $url,
+		];
 	}
 
 	/**
@@ -123,6 +236,25 @@ class GlossarySchema {
 			'url'            => get_permalink( $page_id ),
 			'hasDefinedTerm' => $terms,
 		];
+	}
+
+	/**
+	 * The URL Yoast builds a post's schema `@id`s from (its main schema ID is
+	 * the indexable's permalink; the Article is that plus `#article`), so
+	 * references here match the nodes on the post's own page. Empty when
+	 * Yoast isn't available.
+	 *
+	 * @param int $post_id Post ID.
+	 * @return string
+	 */
+	private static function yoast_schema_base( $post_id ) {
+		if ( ! function_exists( 'YoastSEO' ) ) {
+			return '';
+		}
+
+		$meta = YoastSEO()->meta->for_post( $post_id );
+
+		return $meta ? (string) $meta->permalink : '';
 	}
 
 	/**

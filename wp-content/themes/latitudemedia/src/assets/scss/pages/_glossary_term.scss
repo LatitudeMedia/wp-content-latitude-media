@@ -87,6 +87,7 @@
             font-family: $lora;
             @include fontSize(20px);
             margin: 0 0 16px;
+            letter-spacing: normal; // Undo the theme's global h2 -2px.
         }
 
         ul {
@@ -110,3 +111,26 @@
         }
     }
 }
+
+// "Subject of" / "Mentioned in" sidebar blocks on term pages, styled like the
+// editor's picks block.
+.glossary-term-posts {
+    @include editorsPickBlock;
+
+    // No tinted panel here: the blocks sit flush in the sidebar column.
+    & {
+        background-color: transparent;
+    }
+
+    .editors-picks-block-wrapper {
+        padding: 0;
+
+        // The heading is an <h2> (the homepage block uses a <div>), so undo
+        // the theme's global h2 letter-spacing of -2px.
+        .bordered-title {
+            margin-top: 0;
+            letter-spacing: normal;
+        }
+    }
+}
+
