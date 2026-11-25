@@ -160,6 +160,7 @@ class EventsTest extends WP_UnitTestCase {
 				[ 'field_6713ad5ee1568', 'end_date', 'date_time_picker' ],
 				[ 'field_6713b050e1583', 'timezone', 'text' ],
 				[ 'field_6713ade8e156a', 'event_type', 'select' ],
+				[ 'field_ltm_conference_google_notice', '', 'message' ],
 				[ 'field_6713ae1fe156b', 'location', 'text' ],
 				[ 'field_6713ae62e156d', 'link', 'text' ],
 				[ 'field_6713ae6fe156e', 'cover_image', 'image' ],
@@ -174,6 +175,66 @@ class EventsTest extends WP_UnitTestCase {
 				acf_get_fields( $group )
 			)
 		);
+	}
+
+	public function test_conference_notice_links_to_the_google_event_details_group() {
+		$notice = acf_get_field( 'field_ltm_conference_google_notice' );
+
+		$this->assertSame(
+			[ [ [ 'field' => 'field_6713ade8e156a', 'operator' => '==', 'value' => 'conference' ] ] ],
+			$notice['conditional_logic']
+		);
+		$this->assertStringContainsString( 'href="#acf-group_ltm_google_event"', $notice['message'] );
+	}
+
+	public function test_google_event_details_field_group() {
+		$group = acf_get_field_group( Events::GOOGLE_EVENT_GROUP );
+
+		$this->assertIsArray( $group );
+		$this->assertSame( 'Google event details', $group['title'] );
+		$this->assertSame( 'side', $group['position'] );
+		$this->assertSame( 'events', $group['location'][0][0]['value'] );
+
+		$fields = acf_get_fields( $group );
+		$this->assertStringContainsString(
+			'https://developers.google.com/search/docs/appearance/structured-data/event',
+			$fields[0]['message']
+		);
+
+		$this->assertSame(
+			[
+				'seo_venue_name',
+				'seo_street_address',
+				'seo_city',
+				'seo_region',
+				'seo_postal_code',
+				'seo_country',
+				'seo_ticket_url',
+				'seo_ticket_price',
+				'seo_ticket_currency',
+				'seo_ticket_availability',
+				'seo_tickets_on_sale',
+				'seo_event_status',
+				'seo_previous_start_date',
+				'seo_image_16x9',
+				'seo_image_4x3',
+				'seo_image_1x1',
+			],
+			array_values( array_filter( wp_list_pluck( $fields, 'name' ) ) )
+		);
+
+		$marker = '<span class="acf-required">(required)</span>';
+		$marked = array_filter(
+			$fields,
+			static fn( $field ) => str_ends_with( acf_get_field_label( $field ), ' ' . $marker )
+		);
+		$this->assertSame(
+			[ 'seo_street_address', 'seo_city', 'seo_region', 'seo_postal_code', 'seo_country' ],
+			array_values( wp_list_pluck( $marked, 'name' ) )
+		);
+		$this->assertSame( 'Street address', $fields[2]['label'], 'The marker is added on output, not stored in the label.' );
+		$this->assertStringContainsString( 'Fields marked ' . $marker, $fields[0]['message'] );
+		$this->assertSame( [], array_filter( wp_list_pluck( $fields, 'required' ) ), 'ACF required would block saving other event types.' );
 	}
 
 	public function test_type_does_not_affect_the_result() {

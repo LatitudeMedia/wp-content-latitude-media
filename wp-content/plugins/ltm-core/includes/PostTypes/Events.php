@@ -19,6 +19,13 @@ class Events {
 	public $name = 'events';
 
 	/**
+	 * Key of the "Google event details" field group (conference-only).
+	 *
+	 * @var string
+	 */
+	const GOOGLE_EVENT_GROUP = 'group_ltm_google_event';
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -36,6 +43,8 @@ class Events {
 		}
 
 		add_action( 'acf/include_fields', array( $this, 'register_field_group' ) );
+		add_action( 'acf/input/admin_enqueue_scripts', array( $this, 'toggle_google_event_group' ) );
+		add_filter( 'acf/get_field_label', array( $this, 'mark_required_label' ), 10, 2 );
 	}
 
 	/**
@@ -99,6 +108,31 @@ class Events {
 					'default_value' => false,
 					'return_format' => 'value',
 					'allow_null' => 0,
+				),
+				array(
+					'key' => 'field_ltm_conference_google_notice',
+					'label' => '',
+					'name' => '',
+					'type' => 'message',
+					'message' => sprintf(
+						'<div class="notice notice-info inline"><p>%s</p></div>',
+						sprintf(
+							/* translators: %s: link to the Google event details section. */
+							esc_html__( 'To have this conference show up in Google as an event, fill in the %s section.', 'ltm' ),
+							'<a href="#acf-' . self::GOOGLE_EVENT_GROUP . '">' . esc_html__( 'Google event details', 'ltm' ) . '</a>'
+						)
+					),
+					'esc_html' => 0,
+					'new_lines' => '',
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_6713ade8e156a',
+								'operator' => '==',
+								'value' => 'conference',
+							),
+						),
+					),
 				),
 				array(
 					'key' => 'field_6713ae1fe156b',
@@ -173,6 +207,276 @@ class Events {
 			'style' => 'default',
 			'active' => true,
 		));
+
+		$this->register_google_event_field_group();
+	}
+
+	/**
+	 * Registers the "Google event details" group: the data Google's Event
+	 * rich result needs that conferences don't otherwise store in a
+	 * structured form (see LTMCore\Seo\EventSchema). Shown only while Event
+	 * type is Conference (see toggle_google_event_group()).
+	 *
+	 * Fields Google needs for the event to qualify are flagged `ltm_required`,
+	 * which only adds a red "(required)" to their label (see
+	 * mark_required_label()), rather than ACF's `required`: the box is hidden
+	 * with JS, not ACF conditional logic, so `required` would block saving
+	 * every other event type (and draft conferences whose venue isn't known
+	 * yet).
+	 */
+	private function register_google_event_field_group() {
+		$datetime = array(
+			'type' => 'date_time_picker',
+			'display_format' => 'm/d/Y g:i a',
+			'return_format' => 'm/d/Y g:i a',
+			'first_day' => 1,
+		);
+
+		acf_add_local_field_group(array(
+			'key' => self::GOOGLE_EVENT_GROUP,
+			'title' => __( 'Google event details', 'ltm' ),
+			'fields' => array(
+				array(
+					'key' => 'field_ltm_seo_intro',
+					'label' => '',
+					'name' => '',
+					'type' => 'message',
+					'message' => sprintf(
+						'<p>%s</p>',
+						sprintf(
+							/* translators: 1: the red "(required)" marker, 2: link to Google's event structured data documentation. */
+							esc_html__( 'These fields only affect the SEO metadata Google uses to show this conference as an event in search results. Fields marked %1$s (plus Start date above) must be filled in for the event to qualify; the rest improve the listing. %2$s', 'ltm' ),
+							self::required_marker(),
+							'<a href="https://developers.google.com/search/docs/appearance/structured-data/event" target="_blank" rel="noopener noreferrer">' . esc_html__( "Learn more about Google's event structured data", 'ltm' ) . '</a>'
+						)
+					),
+					'esc_html' => 0,
+					'new_lines' => '',
+				),
+				array(
+					'key' => 'field_ltm_seo_venue_name',
+					'label' => __( 'Venue name', 'ltm' ),
+					'name' => 'seo_venue_name',
+					'type' => 'text',
+					'instructions' => __( 'e.g. "Hyatt Regency Embarcadero". Leave blank if the venue has no name.', 'ltm' ),
+				),
+				array(
+					'key' => 'field_ltm_seo_street_address',
+					'label' => __( 'Street address', 'ltm' ),
+					'ltm_required' => 1,
+					'name' => 'seo_street_address',
+					'type' => 'text',
+				),
+				array(
+					'key' => 'field_ltm_seo_city',
+					'label' => __( 'City', 'ltm' ),
+					'ltm_required' => 1,
+					'name' => 'seo_city',
+					'type' => 'text',
+					'instructions' => __( 'Falls back to the Location field when blank.', 'ltm' ),
+				),
+				array(
+					'key' => 'field_ltm_seo_region',
+					'label' => __( 'State / region', 'ltm' ),
+					'ltm_required' => 1,
+					'name' => 'seo_region',
+					'type' => 'text',
+					'instructions' => __( 'e.g. "CA".', 'ltm' ),
+				),
+				array(
+					'key' => 'field_ltm_seo_postal_code',
+					'label' => __( 'Postal code', 'ltm' ),
+					'ltm_required' => 1,
+					'name' => 'seo_postal_code',
+					'type' => 'text',
+				),
+				array(
+					'key' => 'field_ltm_seo_country',
+					'label' => __( 'Country', 'ltm' ),
+					'ltm_required' => 1,
+					'name' => 'seo_country',
+					'type' => 'text',
+					'instructions' => __( 'Two-letter country code.', 'ltm' ),
+					'default_value' => 'US',
+					'maxlength' => 2,
+				),
+				array(
+					'key' => 'field_ltm_seo_ticket_url',
+					'label' => __( 'Ticket page URL', 'ltm' ),
+					'name' => 'seo_ticket_url',
+					'type' => 'url',
+					'instructions' => __( 'A page whose main purpose is buying tickets to this event. Leave blank to use this event page.', 'ltm' ),
+				),
+				array(
+					'key' => 'field_ltm_seo_ticket_price',
+					'label' => __( 'Lowest ticket price', 'ltm' ),
+					'name' => 'seo_ticket_price',
+					'type' => 'number',
+					'instructions' => __( 'Including fees. 0 if free. Ticket details are only sent to Google when this is set.', 'ltm' ),
+					'min' => 0,
+					'step' => '0.01',
+				),
+				array(
+					'key' => 'field_ltm_seo_ticket_currency',
+					'label' => __( 'Currency', 'ltm' ),
+					'name' => 'seo_ticket_currency',
+					'type' => 'text',
+					'instructions' => __( 'Three-letter currency code.', 'ltm' ),
+					'default_value' => 'USD',
+					'maxlength' => 3,
+				),
+				array(
+					'key' => 'field_ltm_seo_ticket_availability',
+					'label' => __( 'Ticket availability', 'ltm' ),
+					'name' => 'seo_ticket_availability',
+					'type' => 'select',
+					'choices' => array(
+						'InStock' => __( 'In stock', 'ltm' ),
+						'SoldOut' => __( 'Sold out', 'ltm' ),
+						'PreOrder' => __( 'Pre-order', 'ltm' ),
+					),
+					'allow_null' => 1,
+					'return_format' => 'value',
+				),
+				array(
+					'key' => 'field_ltm_seo_tickets_on_sale',
+					'label' => __( 'Tickets on sale from', 'ltm' ),
+					'name' => 'seo_tickets_on_sale',
+					'instructions' => __( 'Only if ticket sales open later. Uses the event\'s timezone.', 'ltm' ),
+				) + $datetime,
+				array(
+					'key' => 'field_ltm_seo_event_status',
+					'label' => __( 'Event status', 'ltm' ),
+					'name' => 'seo_event_status',
+					'type' => 'select',
+					'instructions' => __( 'Keep Start date as-is unless the event is rescheduled.', 'ltm' ),
+					'choices' => array(
+						'EventScheduled' => __( 'Scheduled', 'ltm' ),
+						'EventCancelled' => __( 'Cancelled', 'ltm' ),
+						'EventPostponed' => __( 'Postponed', 'ltm' ),
+						'EventRescheduled' => __( 'Rescheduled', 'ltm' ),
+					),
+					'default_value' => 'EventScheduled',
+					'allow_null' => 0,
+					'return_format' => 'value',
+				),
+				array(
+					'key' => 'field_ltm_seo_previous_start_date',
+					'label' => __( 'Original start date', 'ltm' ),
+					'name' => 'seo_previous_start_date',
+					'instructions' => __( 'Set Start date to the new date and put the original one here.', 'ltm' ),
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_ltm_seo_event_status',
+								'operator' => '==',
+								'value' => 'EventRescheduled',
+							),
+						),
+					),
+				) + $datetime,
+				array(
+					'key' => 'field_ltm_seo_image_16x9',
+					'label' => __( 'Image (16:9)', 'ltm' ),
+					'name' => 'seo_image_16x9',
+					'type' => 'image',
+					'instructions' => __( 'At least 720px wide; 1920px recommended. Falls back to the featured image.', 'ltm' ),
+					'return_format' => 'id',
+					'library' => 'all',
+					'preview_size' => 'medium',
+				),
+				array(
+					'key' => 'field_ltm_seo_image_4x3',
+					'label' => __( 'Image (4:3)', 'ltm' ),
+					'name' => 'seo_image_4x3',
+					'type' => 'image',
+					'instructions' => __( 'At least 720px wide; 1920px recommended.', 'ltm' ),
+					'return_format' => 'id',
+					'library' => 'all',
+					'preview_size' => 'medium',
+				),
+				array(
+					'key' => 'field_ltm_seo_image_1x1',
+					'label' => __( 'Image (1:1)', 'ltm' ),
+					'name' => 'seo_image_1x1',
+					'type' => 'image',
+					'instructions' => __( 'At least 720px wide; 1920px recommended.', 'ltm' ),
+					'return_format' => 'id',
+					'library' => 'all',
+					'preview_size' => 'medium',
+				),
+			),
+			'location' => array(
+				array(
+					array(
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'events',
+					),
+				),
+			),
+			'menu_order' => 1,
+			'position' => 'side',
+			'style' => 'default',
+			'active' => true,
+		));
+	}
+
+	/**
+	 * The red "(required)" marker. `acf-required` is ACF's own class for its
+	 * red required asterisk, so it's styled on every ACF edit screen.
+	 *
+	 * @return string
+	 */
+	private static function required_marker() {
+		return '<span class="acf-required">' . esc_html__( '(required)', 'ltm' ) . '</span>';
+	}
+
+	/**
+	 * ACF: appends the red "(required)" marker to labels of fields flagged
+	 * `ltm_required`.
+	 *
+	 * @param string $label The label HTML.
+	 * @param array  $field The field.
+	 * @return string
+	 */
+	public function mark_required_label( $label, $field ) {
+		if ( ! empty( $field['ltm_required'] ) ) {
+			$label .= ' ' . self::required_marker();
+		}
+
+		return $label;
+	}
+
+	/**
+	 * Shows the "Google event details" box only while Event type is
+	 * Conference. ACF conditional logic only finds a controlling field within
+	 * the same field group, so it can't hide another group's meta box.
+	 */
+	public function toggle_google_event_group() {
+		$screen = get_current_screen();
+		if ( ! $screen || $this->name !== $screen->post_type ) {
+			return;
+		}
+
+		wp_add_inline_script(
+			'acf-input',
+			sprintf(
+				"acf.addAction( 'ready', function () {
+					var type = acf.getField( 'field_6713ade8e156a' );
+					var box = document.getElementById( %s );
+					if ( ! type || ! box ) {
+						return;
+					}
+					var toggle = function () {
+						box.style.display = 'conference' === type.val() ? '' : 'none';
+					};
+					toggle();
+					type.on( 'change', toggle );
+				} );",
+				wp_json_encode( 'acf-' . self::GOOGLE_EVENT_GROUP )
+			)
+		);
 	}
 
 	/**

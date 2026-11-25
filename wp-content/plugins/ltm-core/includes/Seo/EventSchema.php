@@ -10,6 +10,10 @@ namespace LTMCore\Seo;
  * Only events with a start date get one: startDate is required for an Event.
  * Undated events keep Yoast's plain WebPage.
  *
+ * Conferences also get the properties Google's Event rich result uses
+ * (venue address, offers, status, images) from their "Google event details"
+ * fields. Other event types keep the base node.
+ *
  * @see https://schema.org/Event
  * @package LTMCore
  */
@@ -100,22 +104,101 @@ class EventSchema {
 			$location = null;
 		}
 
-		return array_filter(
+		$event = [
+			'@type'               => 'Event',
+			'@id'                 => $context->canonical . '#event',
+			'name'                => wp_strip_all_tags( get_the_title( $post_id ) ),
+			'description'         => $context->description,
+			'url'                 => $context->canonical,
+			'startDate'           => $start,
+			'endDate'             => self::get_date( $post_id, 'end_date' ),
+			'eventAttendanceMode' => 'https://schema.org/' . ( $online ? 'Online' : 'Offline' ) . 'EventAttendanceMode',
+			'location'            => $location,
+			'image'               => $context->has_image ? [ '@id' => $context->canonical . '#primaryimage' ] : null,
+			'organizer'           => $context->site_represents_reference,
+			'mainEntityOfPage'    => [ '@id' => $context->main_schema_id ],
+		];
+
+		if ( 'conference' === get_post_meta( $post_id, 'event_type', true ) ) {
+			$event = array_merge( $event, $this->conference_properties( $post_id, $context ) );
+		}
+
+		return array_filter( $event );
+	}
+
+	/**
+	 * Google Event rich result properties for a conference, from the "Google
+	 * event details" fields (see Events::register_google_event_field_group()).
+	 * Merged over the base node, so a null leaves that property out.
+	 *
+	 * @see https://developers.google.com/search/docs/appearance/structured-data/event
+	 *
+	 * @param int    $post_id Conference event post ID.
+	 * @param object $context Yoast's Meta_Tags_Context.
+	 * @return array
+	 */
+	private function conference_properties( $post_id, $context ) {
+		$meta = static function ( $key ) use ( $post_id ) {
+			return trim( (string) get_post_meta( $post_id, $key, true ) );
+		};
+
+		$properties = [];
+
+		$address = array_filter(
 			[
-				'@type'               => 'Event',
-				'@id'                 => $context->canonical . '#event',
-				'name'                => wp_strip_all_tags( get_the_title( $post_id ) ),
-				'description'         => $context->description,
-				'url'                 => $context->canonical,
-				'startDate'           => $start,
-				'endDate'             => self::get_date( $post_id, 'end_date' ),
-				'eventAttendanceMode' => 'https://schema.org/' . ( $online ? 'Online' : 'Offline' ) . 'EventAttendanceMode',
-				'location'            => $location,
-				'image'               => $context->has_image ? [ '@id' => $context->canonical . '#primaryimage' ] : null,
-				'organizer'           => $context->site_represents_reference,
-				'mainEntityOfPage'    => [ '@id' => $context->main_schema_id ],
+				'@type'           => 'PostalAddress',
+				'streetAddress'   => $meta( 'seo_street_address' ),
+				'addressLocality' => $meta( 'seo_city' ) ?: $meta( 'location' ),
+				'addressRegion'   => $meta( 'seo_region' ),
+				'postalCode'      => $meta( 'seo_postal_code' ),
+				'addressCountry'  => $meta( 'seo_country' ),
 			]
 		);
+		// Country defaults to US, so it alone isn't an address.
+		if ( isset( $address['streetAddress'] ) || isset( $address['addressLocality'] ) ) {
+			$properties['location'] = array_filter(
+				[
+					'@type'   => 'Place',
+					'name'    => $meta( 'seo_venue_name' ),
+					'address' => $address,
+				]
+			);
+		}
+
+		$status                    = $meta( 'seo_event_status' ) ?: 'EventScheduled';
+		$properties['eventStatus'] = 'https://schema.org/' . $status;
+		if ( 'EventRescheduled' === $status ) {
+			$properties['previousStartDate'] = self::get_date( $post_id, 'seo_previous_start_date' );
+		}
+
+		$price = $meta( 'seo_ticket_price' );
+		if ( is_numeric( $price ) ) {
+			$availability         = $meta( 'seo_ticket_availability' );
+			$properties['offers'] = array_filter(
+				[
+					'@type'         => 'Offer',
+					'url'           => esc_url_raw( $meta( 'seo_ticket_url' ) ) ?: $context->canonical,
+					'price'         => $price,
+					'priceCurrency' => strtoupper( $meta( 'seo_ticket_currency' ) ) ?: 'USD',
+					'availability'  => $availability ? 'https://schema.org/' . $availability : '',
+					'validFrom'     => self::get_date( $post_id, 'seo_tickets_on_sale' ),
+				],
+				'strlen'
+			);
+		}
+
+		$images = [];
+		foreach ( [ 'seo_image_16x9', 'seo_image_4x3', 'seo_image_1x1' ] as $key ) {
+			$url = wp_get_attachment_image_url( (int) $meta( $key ), 'full' );
+			if ( $url ) {
+				$images[] = $url;
+			}
+		}
+		if ( $images ) {
+			$properties['image'] = $images;
+		}
+
+		return $properties;
 	}
 
 	/**
