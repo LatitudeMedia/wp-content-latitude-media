@@ -1,9 +1,10 @@
 <?php
 /**
  * Glossary term body: breadcrumbs, title (with abbreviation), short summary
- * (excerpt) and synonyms across the top; then the definition and related
- * terms, beside a sidebar of linked content ("Subject of" / "Mentioned in",
- * set in each post's editor sidebar).
+ * (excerpt) and synonyms across the top; then the definition beside a
+ * sidebar of related terms; then, full width below both, the linked content
+ * in two equal columns ("Subject of" / "Mentioned in", set in each post's
+ * editor sidebar).
  *
  * Data helpers come from the ltm-core plugin (LTMCore\PostTypes\Glossary,
  * LTMCore\Blocks\GlossaryIndex). The breadcrumb trail is Yoast's, with the
@@ -18,8 +19,9 @@ $abbreviation = $has_core ? \LTMCore\PostTypes\Glossary::get_abbreviation( $term
 $synonyms     = $has_core ? \LTMCore\PostTypes\Glossary::get_synonyms( $term_id ) : [];
 $related      = $has_core ? \LTMCore\PostTypes\Glossary::get_related_term_ids( $term_id ) : [];
 $index_id     = $has_core ? \LTMCore\Blocks\GlossaryIndex::get_index_page_id() : 0;
-$subject_of   = $has_core ? \LTMCore\PostTypes\Glossary::get_subject_of_ids( $term_id, 10 ) : [];
-$mentioned_in = $has_core ? \LTMCore\PostTypes\Glossary::get_mentioned_in_ids( $term_id, 10 ) : [];
+// The 5 most recently published linked pieces of each kind.
+$subject_of   = $has_core ? \LTMCore\PostTypes\Glossary::get_subject_of_ids( $term_id, 5 ) : [];
+$mentioned_in = $has_core ? \LTMCore\PostTypes\Glossary::get_mentioned_in_ids( $term_id, 5 ) : [];
 ?>
 <article class="glossary-term">
     <div class="container-narrow">
@@ -59,8 +61,10 @@ $mentioned_in = $has_core ? \LTMCore\PostTypes\Glossary::get_mentioned_in_ids( $
                             <?php echo $definition; // ACF-formatted WYSIWYG output. ?>
                         </div>
                     <?php endif; ?>
+                </div>
 
-                    <?php if ( $related ) : ?>
+                <?php if ( $related ) : ?>
+                    <div class="sidebar glossary-term__sidebar">
                         <aside class="glossary-term__related">
                             <h2><?php _e( 'Related terms', 'ltm' ); ?></h2>
                             <ul>
@@ -69,18 +73,18 @@ $mentioned_in = $has_core ? \LTMCore\PostTypes\Glossary::get_mentioned_in_ids( $
                                 <?php endforeach; ?>
                             </ul>
                         </aside>
-                    <?php endif; ?>
-                </div>
-
-                <?php if ( $subject_of || $mentioned_in ) : ?>
-                    <div class="sidebar glossary-term__sidebar">
-                        <?php
-                        get_template_part( 'template-parts/glossary/term', 'posts', [ 'title' => __( 'Subject of', 'ltm' ), 'post_ids' => $subject_of ] );
-                        get_template_part( 'template-parts/glossary/term', 'posts', [ 'title' => __( 'Mentioned in', 'ltm' ), 'post_ids' => $mentioned_in ] );
-                        ?>
                     </div>
                 <?php endif; ?>
             </div>
+
+            <?php if ( $subject_of || $mentioned_in ) : ?>
+                <div class="glossary-term__linked">
+                    <?php
+                    get_template_part( 'template-parts/glossary/term', 'posts', [ 'title' => __( 'Subject of', 'ltm' ), 'post_ids' => $subject_of ] );
+                    get_template_part( 'template-parts/glossary/term', 'posts', [ 'title' => __( 'Mentioned in', 'ltm' ), 'post_ids' => $mentioned_in ] );
+                    ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </article>

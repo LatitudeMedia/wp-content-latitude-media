@@ -78,8 +78,23 @@
         }
     }
 
-    &__related {
+    // "Subject of" / "Mentioned in", side by side below the main column and sidebar.
+    &__linked {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px;
         margin-top: 48px;
+
+        @include below_sm {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .glossary-term-posts {
+            margin-bottom: 0;
+        }
+    }
+
+    &__related {
         padding: 24px;
         background: $pink_category_bg;
 
