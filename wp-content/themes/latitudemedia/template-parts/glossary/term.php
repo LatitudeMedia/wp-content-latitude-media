@@ -3,8 +3,8 @@
  * Glossary term body: breadcrumbs, title (with abbreviation), short summary
  * (excerpt) and synonyms across the top; then the definition beside a
  * sidebar of related terms; then, full width below both, the linked content
- * in two equal columns ("Subject of" / "Mentioned in", set in each post's
- * editor sidebar).
+ * in two equal columns ("About {term}" for pieces whose subject it is,
+ * "Mentions {term}" for passing mentions; set in each post's editor sidebar).
  *
  * Data helpers come from the ltm-core plugin (LTMCore\PostTypes\Glossary,
  * LTMCore\Blocks\GlossaryIndex). The breadcrumb trail is Yoast's, with the
@@ -80,8 +80,25 @@ $mentioned_in = $has_core ? \LTMCore\PostTypes\Glossary::get_mentioned_in_ids( $
             <?php if ( $subject_of || $mentioned_in ) : ?>
                 <div class="glossary-term__linked">
                     <?php
-                    get_template_part( 'template-parts/glossary/term', 'posts', [ 'title' => __( 'Subject of', 'ltm' ), 'post_ids' => $subject_of ] );
-                    get_template_part( 'template-parts/glossary/term', 'posts', [ 'title' => __( 'Mentioned in', 'ltm' ), 'post_ids' => $mentioned_in ] );
+                    $term_name = wp_strip_all_tags( get_the_title( $term_id ) );
+                    get_template_part(
+                        'template-parts/glossary/term',
+                        'posts',
+                        [
+                            /* translators: %s: glossary term. */
+                            'title'    => sprintf( __( 'About %s', 'ltm' ), $term_name ),
+                            'post_ids' => $subject_of,
+                        ]
+                    );
+                    get_template_part(
+                        'template-parts/glossary/term',
+                        'posts',
+                        [
+                            /* translators: %s: glossary term. */
+                            'title'    => sprintf( __( 'Mentions %s', 'ltm' ), $term_name ),
+                            'post_ids' => $mentioned_in,
+                        ]
+                    );
                     ?>
                 </div>
             <?php endif; ?>

@@ -74,6 +74,8 @@ function ltm_core_loader() {
 	new \LTMCore\PostTypes\Glossary();
 	new \LTMCore\Seo\GlossarySchema();
 	new \LTMCore\Seo\GlossarySeo();
+	new \LTMCore\Seo\ArticleSchema();
+	new \LTMCore\Seo\EventSchema();
 	new \LTMCore\RestApi\FeaturedSingleItemSearch();
 	new \LTMCore\Blocks\Shared\AssetVersioning();
 	new \LTMCore\Blocks\Title();

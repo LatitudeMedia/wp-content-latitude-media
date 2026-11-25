@@ -48,7 +48,8 @@ class Glossary {
 
 	/**
 	 * Term-side "Subject of" relationship: posts about the term. Output as
-	 * the term's schema.org `subjectOf`.
+	 * the term's schema.org `subjectOf`, and listed on the term page under
+	 * "About {term}".
 	 *
 	 * @var string
 	 */
@@ -56,6 +57,7 @@ class Glossary {
 
 	/**
 	 * Term-side "Mentioned in" relationship: posts that mention the term.
+	 * Listed on the term page under "Mentions {term}".
 	 *
 	 * @var string
 	 */
@@ -230,8 +232,8 @@ class Glossary {
 	 *   subject of or mentioned in (whose `about` / `mentions` metadata
 	 *   describes it).
 	 * - A linkable post (see LINKED_POST_TYPES): the terms it's about or
-	 *   mentions, whose pages list it in their "Subject of" / "Mentioned in"
-	 *   sidebar blocks (and `subjectOf` metadata). Cloudflare already purges
+	 *   mentions, whose pages list it under "About {term}" / "Mentions {term}"
+	 *   (and in `subjectOf` metadata). Cloudflare already purges
 	 *   the post's own URL.
 	 *
 	 * @param string[] $urls    URLs Cloudflare will purge.
@@ -498,7 +500,7 @@ class Glossary {
 					'label' => 'Subject of',
 					'name' => 'subject_of',
 					'type' => 'relationship',
-					'instructions' => 'Articles, podcasts, industry news, resources and events whose subject is this term. Search-engine metadata only, not shown on the page. Same links as "Subject of this content" in each one\'s editor sidebar.',
+					'instructions' => 'Articles, podcasts, industry news, resources and events whose subject is this term. Output as schema.org "subjectOf", and the newest 5 are listed on this term\'s page under "About [term]". Same links as "Subject of this content" in each one\'s editor sidebar.',
 					'post_type' => self::LINKED_POST_TYPES,
 					'post_status' => array( 'publish' ),
 					'filters' => array( 'search', 'post_type' ),
@@ -511,7 +513,7 @@ class Glossary {
 					'label' => 'Mentioned in',
 					'name' => 'mentioned_in',
 					'type' => 'relationship',
-					'instructions' => 'Content that mentions this term in passing. Search-engine metadata only. Same links as "Terms mentioned" in each one\'s editor sidebar. Each piece goes in one list or the other, not both.',
+					'instructions' => 'Content that mentions this term in passing. The newest 5 are listed on this term\'s page under "Mentions [term]". Same links as "Terms mentioned" in each one\'s editor sidebar. Each piece goes in one list or the other, not both.',
 					'post_type' => self::LINKED_POST_TYPES,
 					'post_status' => array( 'publish' ),
 					'filters' => array( 'search', 'post_type' ),
@@ -543,7 +545,7 @@ class Glossary {
 					'label' => 'Subject of this content',
 					'name' => 'glossary_about',
 					'type' => 'post_object',
-					'instructions' => 'Terms this piece is about. Tells search engines its subject (schema.org "about"). Not shown on the page.',
+					'instructions' => 'Terms this piece is about. Tells search engines its subject (schema.org "about"), and lists this piece under "About [term]" on each term\'s page. Not shown on this piece\'s own page.',
 					'post_type' => array( $this->name ),
 					'post_status' => array( 'publish' ),
 					'multiple' => 1,
@@ -558,7 +560,7 @@ class Glossary {
 					'label' => 'Terms mentioned',
 					'name' => 'glossary_mentions',
 					'type' => 'post_object',
-					'instructions' => 'Terms mentioned in passing (schema.org "mentions"). Not shown on the page. A term goes in one list or the other, not both.',
+					'instructions' => 'Terms mentioned in passing (schema.org "mentions"). Lists this piece under "Mentions [term]" on each term\'s page. Not shown on this piece\'s own page. A term goes in one list or the other, not both.',
 					'post_type' => array( $this->name ),
 					'post_status' => array( 'publish' ),
 					'multiple' => 1,

@@ -13,9 +13,10 @@ use LTMCore\PostTypes\Glossary;
  *   every term, and its WebPage points at that;
  * - posts, podcasts, industry news, resources and events linked to terms in
  *   their editor sidebar get `about` (terms they're the subject of) and
- *   `mentions` (terms mentioned in passing) on their Article node, or on
- *   their WebPage when Yoast outputs no Article for that type; the term's
- *   DefinedTerm lists the pieces it's the subject of as `subjectOf`.
+ *   `mentions` (terms mentioned in passing) on their Article node (or an
+ *   event's Event node, from EventSchema), or on their WebPage when there's
+ *   neither; the term's DefinedTerm lists the pieces it's the subject of as
+ *   `subjectOf`.
  *
  * Terms reference the set by `@id` (`inDefinedTermSet`) and vice versa.
  *
@@ -54,8 +55,9 @@ class GlossarySchema {
 
 	/**
 	 * Adds `about` / `mentions` DefinedTerm references for a post's linked
-	 * glossary terms to its Article node (Yoast `@id` ending `#article`), or
-	 * to its WebPage node when the graph has no Article.
+	 * glossary terms to its Article node (Yoast `@id` ending `#article`) or
+	 * Event node (`#event`, from EventSchema), or to its WebPage node when the
+	 * graph has neither.
 	 *
 	 * @param array $graph   Yoast's schema graph nodes.
 	 * @param int   $post_id The post being viewed.
@@ -67,7 +69,7 @@ class GlossarySchema {
 			return $graph;
 		}
 
-		$target = self::find_node( $graph, static fn( $node ) => str_ends_with( (string) ( $node['@id'] ?? '' ), '#article' ) )
+		$target = self::find_node( $graph, static fn( $node ) => (bool) preg_match( '/#(article|event)$/', (string) ( $node['@id'] ?? '' ) ) )
 			?? self::find_node( $graph, static fn( $node ) => in_array( 'WebPage', (array) ( $node['@type'] ?? [] ), true ) );
 		if ( null === $target ) {
 			return $graph;
@@ -185,23 +187,29 @@ class GlossarySchema {
 
 	/**
 	 * A reference to a post the term is the subject of, matching the node
-	 * Yoast outputs on that post's own page: its Article (`#article`) when
-	 * Yoast's Schema settings give the post type an article type, otherwise
-	 * its WebPage.
+	 * output on that post's own page: a dated event's Event (`#event`, from
+	 * EventSchema); otherwise its Article (`#article`) when Yoast's Schema
+	 * settings (or ArticleSchema) give the post type an article type;
+	 * otherwise its WebPage.
 	 *
 	 * @param int $post_id A post of one of Glossary::LINKED_POST_TYPES.
 	 * @return array
 	 */
 	public static function build_work_reference( $post_id ) {
-		$titles       = get_option( 'wpseo_titles' );
-		$article_type = is_array( $titles ) ? ( $titles[ 'schema-article-type-' . get_post_type( $post_id ) ] ?? 'None' ) : 'None';
-		$is_article   = $article_type && 'None' !== $article_type;
-		$url          = get_permalink( $post_id );
-		$schema_base  = self::yoast_schema_base( $post_id ) ?: $url;
+		$titles      = get_option( 'wpseo_titles' );
+		$type        = is_array( $titles ) ? ( $titles[ 'schema-article-type-' . get_post_type( $post_id ) ] ?? 'None' ) : 'None';
+		$hash        = ( $type && 'None' !== $type ) ? '#article' : '';
+		$url         = get_permalink( $post_id );
+		$schema_base = self::yoast_schema_base( $post_id ) ?: $url;
+
+		if ( 'events' === get_post_type( $post_id ) && EventSchema::has_event( $post_id ) ) {
+			$type = 'Event';
+			$hash = '#event';
+		}
 
 		return [
-			'@type' => $is_article ? $article_type : 'WebPage',
-			'@id'   => $is_article ? $schema_base . '#article' : $schema_base,
+			'@type' => $hash ? $type : 'WebPage',
+			'@id'   => $schema_base . $hash,
 			'name'  => wp_strip_all_tags( get_the_title( $post_id ) ),
 			'url'   => $url,
 		];

@@ -151,6 +151,23 @@ class GlossarySchemaTest extends WP_UnitTestCase {
 		$this->assertArrayNotHasKey( 'mentions', $graph[0] );
 	}
 
+	public function test_event_terms_go_on_the_event_node() {
+		$term  = self::factory()->post->create( [ 'post_type' => 'glossary' ] );
+		$event = self::factory()->post->create( [ 'post_type' => 'events' ] );
+		update_post_meta( $event, 'glossary_mentions', [ (string) $term ] );
+
+		$graph = $this->schema->add_post_term_properties(
+			[
+				[ '@type' => 'WebPage', '@id' => 'https://example.com/e/' ],
+				[ '@type' => 'Event', '@id' => 'https://example.com/e/#event' ],
+			],
+			$event
+		);
+
+		$this->assertArrayNotHasKey( 'mentions', $graph[0] );
+		$this->assertSame( [ $this->schema->build_term_reference( $term ) ], $graph[1]['mentions'] );
+	}
+
 	public function test_post_without_terms_is_untouched() {
 		$post  = self::factory()->post->create();
 		$graph = [ [ '@type' => 'NewsArticle', '@id' => 'https://example.com/a/#article' ] ];
@@ -197,6 +214,21 @@ class GlossarySchemaTest extends WP_UnitTestCase {
 				],
 			],
 			$node['subjectOf']
+		);
+	}
+
+	public function test_subject_of_references_a_dated_events_event_node() {
+		$event = self::factory()->post->create( [ 'post_type' => 'events', 'post_title' => 'Grid summit' ] );
+		update_post_meta( $event, 'start_date', '2026-03-04 09:00:00' );
+
+		$this->assertSame(
+			[
+				'@type' => 'Event',
+				'@id'   => get_permalink( $event ) . '#event',
+				'name'  => 'Grid summit',
+				'url'   => get_permalink( $event ),
+			],
+			GlossarySchema::build_work_reference( $event )
 		);
 	}
 

@@ -1,7 +1,7 @@
 <?php
 /**
- * Sidebar block on a glossary term page listing linked content ("Subject of"
- * or "Mentioned in"), styled like the editor's picks block via the
+ * List block on a glossary term page showing linked content ("About {term}"
+ * or "Mentions {term}"), styled like the editor's picks block via the
  * `editorsPickBlock` mixin (see _glossary_term.scss).
  *
  * Args:

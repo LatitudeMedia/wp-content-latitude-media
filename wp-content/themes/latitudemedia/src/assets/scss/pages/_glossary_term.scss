@@ -127,8 +127,8 @@
     }
 }
 
-// "Subject of" / "Mentioned in" sidebar blocks on term pages, styled like the
-// editor's picks block.
+// "About {term}" / "Mentions {term}" lists on term pages (from the
+// `subject_of` / `mentioned_in` fields), styled like the editor's picks block.
 .glossary-term-posts {
     @include editorsPickBlock;
 
